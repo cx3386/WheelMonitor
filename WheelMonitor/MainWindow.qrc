@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Resources/images/green.png</file>
+        <file>Resources/images/red.png</file>
+        <file>Resources/images/WheelMonitor.ico</file>
+        <file>Resources/images/yellow.png</file>
+        <file>Resources/images/rec_red.png</file>
+        <file>Resources/images/rec_grey.png</file>
+    </qresource>
+</RCC>
