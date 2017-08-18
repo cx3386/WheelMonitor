@@ -7,10 +7,13 @@
 message("You are running qmake on a generated .pro file. This may not work!")
 
 
-HEADERS += ./identification.h \
+HEADERS += ./connection.h \
+    ./identification.h \
+    ./resource.h \
     ./stdafx.h \
     ./MainWindow.h \
     ./MyMessageOutput.h \
+    ./logindialog.h \
     ./mytextbrowser.h \
     ./SettingDialog.h \
     ./PLCSerial.h \
@@ -19,6 +22,7 @@ HEADERS += ./identification.h \
 SOURCES += ./HikVideoCapture.cpp \
     ./identification.cpp \
     ./ImageProcess.cpp \
+    ./logindialog.cpp \
     ./main.cpp \
     ./MainWindow.cpp \
     ./MyMessageOutput.cpp \
@@ -27,5 +31,6 @@ SOURCES += ./HikVideoCapture.cpp \
     ./SettingDialog.cpp \
     ./stdafx.cpp
 FORMS += ./MainWindow.ui \
-    ./SettingDialog.ui
+    ./SettingDialog.ui \
+    ./logindialog.ui
 RESOURCES += MainWindow.qrc

@@ -22,10 +22,7 @@ MainWindow::MainWindow(QWidget* parent)
 	configWindow();
 	readSettings();
 
-
-
-
-	realPlayHandle = (HWND)ui.playerFrame->winId();
+	realPlayHandle = (HWND)ui.playerWidget->winId();
 	//care start order
 
 	outputMessage = new MyMessageOutput;
@@ -97,7 +94,7 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {
 	emit setAlarm(ALARM_LIGHT_OFF);	//不能从线程外操作
-	recBtn->deleteLater();
+	//recLabel->deleteLater();
 	videoCaptureThread.quit();
 	videoCaptureThread.wait();
 	imageProcessThread.quit();
@@ -127,6 +124,7 @@ void MainWindow::uiAlarmLight(PLCSerial::AlarmColor alarmColor) //1-green; 2-red
 	//pixmap = pixmap.scaled(256, 256);
 	ui.alarmPushButton->setIcon(QIcon(pixmap));
 }
+
 
 void MainWindow::readSettings()
 {
@@ -190,15 +188,29 @@ void MainWindow::configWindow()
 	////关联最小化、关闭按钮的槽函数  
 	//connect(minButton, SIGNAL(clicked()), this, SLOT(showMinimized()));
 	//connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
-	recBtn = new QLabel(ui.playerTab);
-	//recBtn->raise();
-	recBtn->setAttribute(Qt::WA_TranslucentBackground);
-	recBtn->setStyleSheet("background:transparent");
-	recBtn->setScaledContents(true);
-	recBtn->setGeometry(20, 20, 50, 50);
-	QTimer *timer11 = new QTimer(this);
-	connect(timer11, SIGNAL(timeout()), this, SLOT(reverseLabel()));
-	timer11->start(2000);
+	
+
+	recLabel = new QLabel(ui.playerTab);
+	recLabel->setObjectName(QStringLiteral("recLabel"));
+	recLabel->setGeometry(20, 20, 50, 35);
+	recLabel->setScaledContents(true);
+	onRecStop();//init as grey
+	//recLabel->raise();
+	//recLabel->setAttribute(Qt::WA_TranslucentBackground);
+	recLabel->setVisible(false);
+	//
+	//QStackedLayout *sBoxLayout = new QStackedLayout();
+	//sBoxLayout->setStackingMode(QStackedLayout::StackAll);
+	//sBoxLayout->addWidget(recWidget);
+	//sBoxLayout->addWidget(ui.playerWidget);
+	//ui.playerTab->setLayout(sBoxLayout);
+	//ui.playerWidget->raise();
+	//recWidget->setWindowFlags(Qt::WindowStaysOnTopHint);
+	//ui.playerWidget->setWindowFlags(Qt::WindowStaysOnBottomHint);
+
+	//QTimer *timer11 = new QTimer(this);
+	//connect(timer11, SIGNAL(timeout()), this, SLOT(reverseLabel()));
+	//timer11->start(2000);
 	
 	//定时任务，每天00:00触发
 	int time_2_24 = QTime::currentTime().msecsTo(QTime(23, 59, 59, 999));
@@ -362,7 +374,7 @@ bool MainWindow::isStartCap(bool result)
 {
 	if (result)
 	{
-		recBtn->setVisible(true);
+		recLabel->setVisible(true);
 		emit startProcess();
 		emit startWheelSensor();
 	}
@@ -396,16 +408,16 @@ void MainWindow::onRecStart()
 	////p.setBackgroundMode(Qt::TransparentMode);
 	//p.setCompositionMode(QPainter::CompositionMode_Source);//注意这一行代码  
 	//p.drawImage(0, 0, srcImg);
-	recBtn->setPixmap(QPixmap(":/images/Resources/images/rec_red.png"));
-	//recBtn->show();
+	recLabel->setPixmap(QPixmap(":/images/Resources/images/rec_red.png"));
+	//recLabel->show();
 }
 
 void MainWindow::onRecStop()
 {
-	//QPainter p(recBtn);
+	//QPainter p(recLabel);
 	//p.drawPixmap(0, 0, QPixmap(":/images/Resources/images/rec_grey.png"));
-	recBtn->setPixmap(QPixmap(":/images/Resources/images/rec_grey.png"));
-	//recBtn->show();
+	recLabel->setPixmap(QPixmap(":/images/Resources/images/rec_grey.png"));
+	//recLabel->show();
 }
 
 bool MainWindow::isStartWheelSensor(bool r)
@@ -429,7 +441,7 @@ bool MainWindow::isStopWheelSensor(bool r)
 	if (r)
 	{
 		plcSerial->emit stopSave();
-		recBtn->setVisible(false);
+		recLabel->setVisible(false);
 		emit stopProcess();
 		emit stopCap();
 	}
@@ -455,12 +467,12 @@ void MainWindow::on_action_About_triggered()
 			"<p>本软件由浙江大学开发，如果问题请联系cx3386@163.com"));
 }
 
-void MainWindow::reverseLabel()
-{
-	static bool bRec = false;
-	if (bRec)
-		onRecStart();
-	else
-		onRecStop();
-	bRec = !bRec;
-}
+//void MainWindow::reverseLabel()
+//{
+//	static bool bRec = false;
+//	if (bRec)
+//		onRecStart();
+//	else
+//		onRecStop();
+//	bRec = !bRec;
+//}

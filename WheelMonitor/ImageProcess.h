@@ -10,7 +10,7 @@ public:
     explicit ImageProcess(QObject *parent = nullptr);
 	~ImageProcess();
 
-	const double angle2Speed = 60 * (M_PI * 0.650 / 360) / (7.0 / 25.0); //周长,只初始化一次，如果改变了interval则失效
+	const double angle2Speed = 60 * (M_PI * 0.650 / 360) / (8.0 / 25.0); //周长,只初始化一次，如果改变了interval则失效
 	static double angleLowThreshold;
 	static double angleHighThreshold;		//角度阈值，超出则报警
 	static int radius_min; //轮子的半径的下阈值，用于霍夫圆识别

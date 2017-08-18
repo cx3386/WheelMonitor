@@ -8,7 +8,7 @@ using namespace std;
 //<数据类型><类名>::<静态数据成员名 >= <值>
 int HikVideoCapture::capInterval = 7;
 int HikVideoCapture::gbHandling = HikVideoCapture::capInterval;
-bool HikVideoCapture::isProcessing = false;
+bool HikVideoCapture::bIsProcessing = false;
 LONG HikVideoCapture::nPort = -1;
 cv::Mat HikVideoCapture::pRawImage;
 QMutex HikVideoCapture::mutex;
@@ -87,21 +87,27 @@ bool HikVideoCapture::startCap(HWND h)
 	struPlayInfo.lChannel = 1;           //预览通道号
 	struPlayInfo.dwStreamType = 1;       //0-主码流，1-子码流，2-码流3，3-码流4，以此类推
 	struPlayInfo.dwLinkMode = 0;         //0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
-	struPlayInfo.bBlocked = 0;			//0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
+	struPlayInfo.bBlocked = 1;			//0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
 
 	lRealPlayHandle = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo, NULL, NULL);
 
 	NET_DVR_PREVIEWINFO struPlayInfo1 = { 0 };
-	struPlayInfo1.hPlayWnd = 0;         //需要SDK解码时句柄设为有效值，仅取流不解码时可设为空
+	struPlayInfo1.hPlayWnd = nullptr;         //需要SDK解码时句柄设为有效值，仅取流不解码时可设为空
 	struPlayInfo1.lChannel = 1;           //预览通道号
 	struPlayInfo1.dwStreamType = 0;       //0-主码流，1-子码流，2-码流3，3-码流4，以此类推
 	struPlayInfo1.dwLinkMode = 0;         //0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
-	struPlayInfo1.bBlocked = 0;			//0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
+	struPlayInfo1.bBlocked = 1;			//0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
 
-	lRealPlayHandle1 = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo1, fRealDataCallBack, NULL);
+	lRealPlayHandle1 = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo1, NULL, NULL);
 
-	//lRealPlayHandle = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo, NULL, NULL);
-
+	if (!NET_DVR_SetRealDataCallBack(lRealPlayHandle1, fRealDataCallBack, lUserID))
+	{
+		qDebug("NET_DVR_SetRealDataCallBack error, %d", NET_DVR_GetLastError());
+		NET_DVR_Logout(lUserID);
+		NET_DVR_Cleanup();
+		emit isStartCap(false);
+		return false;
+	}
 	if ((lRealPlayHandle < 0) || (lRealPlayHandle1 < 0)) {
 		qDebug("NET_DVR_RealPlay_V40 error, %d", NET_DVR_GetLastError());
 		NET_DVR_Logout(lUserID);
@@ -197,7 +203,7 @@ bool HikVideoCapture::timeoutSave()
 void HikVideoCapture::imageProcessReady()
 {
 	mutex.lock();
-	isProcessing = false;		//如果图像处理完成，则允许录制下一帧；否则阻塞
+	bIsProcessing = false;		//如果图像处理完成，则允许录制下一帧；否则阻塞
 	mutex.unlock();
 }
 
@@ -207,7 +213,7 @@ void CALLBACK HikVideoCapture::DecCBFun(long nPort, char * pBuf, long nSize, FRA
 		gbHandling--;
 		return;
 	}
-	if (isProcessing)
+	if (bIsProcessing)
 	{
 		qDebug("Image is waiting for processing! Please increase gbhanding");
 		return;
@@ -219,10 +225,14 @@ void CALLBACK HikVideoCapture::DecCBFun(long nPort, char * pBuf, long nSize, FRA
 
 		cv::Mat src(pFrameInfo->nHeight + pFrameInfo->nHeight / 2, pFrameInfo->nWidth, CV_8UC1, pBuf);
 		cvtColor(src, pImg, CV_YUV2GRAY_YV12);
+		//cv::imshow("callback", pImg);
+		//cv::waitKey(1);
 		mutex.lock();
 		pRawImage = pImg;
-		pVideoCapture->emit imageNeedProcess();	//单向通知,单向阻塞
-		isProcessing = true;
+		mutex.unlock();
+		emit pVideoCapture->imageNeedProcess();	//单向通知,单向阻塞
+		mutex.lock();
+		bIsProcessing = true;
 		mutex.unlock();
 	}
 	gbHandling = capInterval;// every 8 frame
@@ -230,7 +240,7 @@ void CALLBACK HikVideoCapture::DecCBFun(long nPort, char * pBuf, long nSize, FRA
 
 
 //实时流回调
-void CALLBACK HikVideoCapture::fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser)
+void CALLBACK HikVideoCapture::fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, DWORD dwUser)	//void *pUser
 {
 	
 	switch (dwDataType) {
@@ -273,7 +283,7 @@ void CALLBACK HikVideoCapture::fRealDataCallBack(LONG lRealHandle, DWORD dwDataT
 		}
 		break;
 	}
-	Sleep(1);
+	//Sleep(1);
 }
 
 

@@ -15,7 +15,7 @@ class HikVideoCapture : public QObject
 {	
 	Q_OBJECT
 	static void CALLBACK g_ExceptionCallBack(DWORD dwType, LONG lUserID, LONG lHandle, void *pUser);
-	static void CALLBACK fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser);
+	static void CALLBACK fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize,  DWORD dwUser);
 	static void CALLBACK DecCBFun(long nPort, char * pBuf, long nSize, FRAME_INFO * pFrameInfo, long nReserved1, long nReserved2);
 
 public:
@@ -30,7 +30,7 @@ public:
 private:
 	static int gbHandling;
 	static LONG nPort;
-	static bool isProcessing;
+	static bool bIsProcessing;
 	static QMutex mutex;
 	LONG lUserID;
 	LONG lRealPlayHandle;

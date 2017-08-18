@@ -20,7 +20,7 @@ public:
 
 private:
 	Ui::MainWindowClass ui;
-	QLabel *recBtn;
+	QLabel *recLabel;
 	/*****worker******/
 	MyMessageOutput* outputMessage; 
 	ImageProcess* imageProcess;
@@ -34,10 +34,11 @@ private:
 
 	HWND realPlayHandle;
 	QMutex mutex;
+
 	void readSettings();
 	void writeSettings();
 	void configWindow();
-
+	
 	void clearLog(int nDays);	//保留最近n天的日志
 	bool bIsTimer24First;
 	//for test
@@ -77,7 +78,7 @@ private slots:
 	//void on_stopSaveBtn_clicked();
 
 	
-	void reverseLabel();
+	//void reverseLabel();
 
 signals:
 	void installLogSystem();
