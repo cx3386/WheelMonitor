@@ -35,11 +35,13 @@ private:
 	double angleSum;
 	int angleCount;
 	int iImgCount;
+	int nDetectCount;
 	
 	void getAvgAngle();
-	bool isSensorSameWheel;
-	bool isWheelStop;
-	bool stop;
+	bool bIsInArea;
+	bool bLastOUT;
+	bool bWheelStopped;
+	bool bStopProcess;
 	QMutex mutex;
 
 signals:

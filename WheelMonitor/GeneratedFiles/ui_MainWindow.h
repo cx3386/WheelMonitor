@@ -47,13 +47,6 @@ public:
     QTabWidget *centralTabWidget;
     QWidget *monitorTab;
     QGridLayout *gridLayout_6;
-    QGridLayout *gridLayout_10;
-    QLabel *label_2;
-    QLabel *realSpeedLabel;
-    QLineEdit *realSpeedLineEdit;
-    QLabel *lastSpeedLabel;
-    QLineEdit *lastSpeedLineEdit;
-    QLabel *label;
     QTabWidget *logTabWidget;
     QWidget *logTab;
     QGridLayout *gridLayout_5;
@@ -61,8 +54,15 @@ public:
     QWidget *errorTab;
     QGridLayout *gridLayout_3;
     myTextBrowser *errorTextBrowser;
-    QLabel *imageMatchesLabel;
+    QGridLayout *gridLayout_10;
+    QLabel *realSpeedLabel;
+    QLabel *label;
+    QLabel *label_2;
+    QLineEdit *realSpeedLineEdit;
+    QLineEdit *lastSpeedLineEdit;
+    QLabel *lastSpeedLabel;
     QSpacerItem *horizontalSpacer;
+    QLabel *imageMatchesLabel;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *alarmPushButton;
     QGroupBox *lcdGroupBox;
@@ -84,7 +84,7 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QStringLiteral("MainWindowClass"));
-        MainWindowClass->resize(845, 636);
+        MainWindowClass->resize(987, 700);
         QFont font;
         font.setPointSize(18);
         MainWindowClass->setFont(font);
@@ -126,57 +126,6 @@ public:
         gridLayout_6->setSpacing(6);
         gridLayout_6->setContentsMargins(11, 11, 11, 11);
         gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
-        gridLayout_10 = new QGridLayout();
-        gridLayout_10->setSpacing(6);
-        gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
-        label_2 = new QLabel(monitorTab);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        gridLayout_10->addWidget(label_2, 1, 2, 1, 1);
-
-        realSpeedLabel = new QLabel(monitorTab);
-        realSpeedLabel->setObjectName(QStringLiteral("realSpeedLabel"));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(realSpeedLabel->sizePolicy().hasHeightForWidth());
-        realSpeedLabel->setSizePolicy(sizePolicy);
-
-        gridLayout_10->addWidget(realSpeedLabel, 1, 0, 1, 1);
-
-        realSpeedLineEdit = new QLineEdit(monitorTab);
-        realSpeedLineEdit->setObjectName(QStringLiteral("realSpeedLineEdit"));
-        realSpeedLineEdit->setEnabled(true);
-        realSpeedLineEdit->setMinimumSize(QSize(81, 0));
-        realSpeedLineEdit->setMaximumSize(QSize(81, 16777215));
-        realSpeedLineEdit->setReadOnly(true);
-
-        gridLayout_10->addWidget(realSpeedLineEdit, 1, 1, 1, 1);
-
-        lastSpeedLabel = new QLabel(monitorTab);
-        lastSpeedLabel->setObjectName(QStringLiteral("lastSpeedLabel"));
-        sizePolicy.setHeightForWidth(lastSpeedLabel->sizePolicy().hasHeightForWidth());
-        lastSpeedLabel->setSizePolicy(sizePolicy);
-
-        gridLayout_10->addWidget(lastSpeedLabel, 0, 0, 1, 1);
-
-        lastSpeedLineEdit = new QLineEdit(monitorTab);
-        lastSpeedLineEdit->setObjectName(QStringLiteral("lastSpeedLineEdit"));
-        lastSpeedLineEdit->setEnabled(true);
-        lastSpeedLineEdit->setMinimumSize(QSize(81, 0));
-        lastSpeedLineEdit->setMaximumSize(QSize(81, 16777215));
-        lastSpeedLineEdit->setReadOnly(true);
-
-        gridLayout_10->addWidget(lastSpeedLineEdit, 0, 1, 1, 1);
-
-        label = new QLabel(monitorTab);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout_10->addWidget(label, 0, 2, 1, 1);
-
-
-        gridLayout_6->addLayout(gridLayout_10, 2, 0, 1, 1);
-
         logTabWidget = new QTabWidget(monitorTab);
         logTabWidget->setObjectName(QStringLiteral("logTabWidget"));
         logTabWidget->setMinimumSize(QSize(0, 0));
@@ -219,7 +168,62 @@ public:
 
         logTabWidget->addTab(errorTab, QString());
 
-        gridLayout_6->addWidget(logTabWidget, 0, 2, 5, 1);
+        gridLayout_6->addWidget(logTabWidget, 0, 2, 3, 1);
+
+        gridLayout_10 = new QGridLayout();
+        gridLayout_10->setSpacing(6);
+        gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
+        realSpeedLabel = new QLabel(monitorTab);
+        realSpeedLabel->setObjectName(QStringLiteral("realSpeedLabel"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(realSpeedLabel->sizePolicy().hasHeightForWidth());
+        realSpeedLabel->setSizePolicy(sizePolicy);
+
+        gridLayout_10->addWidget(realSpeedLabel, 1, 0, 1, 1);
+
+        label = new QLabel(monitorTab);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout_10->addWidget(label, 0, 2, 1, 1);
+
+        label_2 = new QLabel(monitorTab);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout_10->addWidget(label_2, 1, 2, 1, 1);
+
+        realSpeedLineEdit = new QLineEdit(monitorTab);
+        realSpeedLineEdit->setObjectName(QStringLiteral("realSpeedLineEdit"));
+        realSpeedLineEdit->setEnabled(true);
+        realSpeedLineEdit->setMinimumSize(QSize(81, 0));
+        realSpeedLineEdit->setMaximumSize(QSize(81, 16777215));
+        realSpeedLineEdit->setReadOnly(true);
+
+        gridLayout_10->addWidget(realSpeedLineEdit, 1, 1, 1, 1);
+
+        lastSpeedLineEdit = new QLineEdit(monitorTab);
+        lastSpeedLineEdit->setObjectName(QStringLiteral("lastSpeedLineEdit"));
+        lastSpeedLineEdit->setEnabled(true);
+        lastSpeedLineEdit->setMinimumSize(QSize(81, 0));
+        lastSpeedLineEdit->setMaximumSize(QSize(81, 16777215));
+        lastSpeedLineEdit->setReadOnly(true);
+
+        gridLayout_10->addWidget(lastSpeedLineEdit, 0, 1, 1, 1);
+
+        lastSpeedLabel = new QLabel(monitorTab);
+        lastSpeedLabel->setObjectName(QStringLiteral("lastSpeedLabel"));
+        sizePolicy.setHeightForWidth(lastSpeedLabel->sizePolicy().hasHeightForWidth());
+        lastSpeedLabel->setSizePolicy(sizePolicy);
+
+        gridLayout_10->addWidget(lastSpeedLabel, 0, 0, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(37, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_10->addItem(horizontalSpacer, 0, 3, 1, 1);
+
+
+        gridLayout_6->addLayout(gridLayout_10, 1, 0, 1, 1);
 
         imageMatchesLabel = new QLabel(monitorTab);
         imageMatchesLabel->setObjectName(QStringLiteral("imageMatchesLabel"));
@@ -232,11 +236,7 @@ public:
         imageMatchesLabel->setFrameShape(QFrame::NoFrame);
         imageMatchesLabel->setScaledContents(false);
 
-        gridLayout_6->addWidget(imageMatchesLabel, 1, 0, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(37, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer, 2, 1, 1, 1);
+        gridLayout_6->addWidget(imageMatchesLabel, 0, 0, 1, 1);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
@@ -289,7 +289,7 @@ public:
         horizontalLayout_2->addItem(horizontalSpacer_3);
 
 
-        gridLayout_6->addLayout(horizontalLayout_2, 4, 0, 1, 2);
+        gridLayout_6->addLayout(horizontalLayout_2, 2, 0, 1, 2);
 
         centralTabWidget->addTab(monitorTab, QString());
         playerTab = new QWidget();
@@ -310,7 +310,7 @@ public:
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 845, 52));
+        menuBar->setGeometry(QRect(0, 0, 987, 52));
         menuBar->setFont(font);
         menuBar->setDefaultUp(false);
         menuBar->setNativeMenuBar(true);
@@ -337,10 +337,10 @@ public:
         statusBar->setFont(font);
         MainWindowClass->setStatusBar(statusBar);
 #ifndef QT_NO_SHORTCUT
-        label_2->setBuddy(realSpeedLineEdit);
         realSpeedLabel->setBuddy(realSpeedLineEdit);
-        lastSpeedLabel->setBuddy(lastSpeedLineEdit);
         label->setBuddy(lastSpeedLineEdit);
+        label_2->setBuddy(realSpeedLineEdit);
+        lastSpeedLabel->setBuddy(lastSpeedLineEdit);
 #endif // QT_NO_SHORTCUT
 
         menuBar->addAction(menu_Main->menuAction());
@@ -357,8 +357,8 @@ public:
 
         retranslateUi(MainWindowClass);
 
-        centralTabWidget->setCurrentIndex(1);
-        logTabWidget->setCurrentIndex(1);
+        centralTabWidget->setCurrentIndex(0);
+        logTabWidget->setCurrentIndex(0);
         alarmPushButton->setDefault(false);
 
 
@@ -377,15 +377,15 @@ public:
 #endif // QT_NO_STATUSTIP
         action_About->setText(QApplication::translate("MainWindowClass", "\345\205\263\344\272\216(&A)", Q_NULLPTR));
         action_Quit->setText(QApplication::translate("MainWindowClass", "\351\200\200\345\207\272(&Q)", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindowClass", "m/min", Q_NULLPTR));
-        realSpeedLabel->setText(QApplication::translate("MainWindowClass", "\345\256\236\346\227\266\350\275\254\351\200\237", Q_NULLPTR));
-        realSpeedLineEdit->setText(QString());
-        lastSpeedLabel->setText(QApplication::translate("MainWindowClass", "\345\211\215\344\270\200\344\270\252\350\275\246\350\275\256\350\275\254\351\200\237", Q_NULLPTR));
-        lastSpeedLineEdit->setText(QString());
-        label->setText(QApplication::translate("MainWindowClass", "m/min", Q_NULLPTR));
         logTabWidget->setTabText(logTabWidget->indexOf(logTab), QApplication::translate("MainWindowClass", "\346\227\245\345\277\227", Q_NULLPTR));
         errorTextBrowser->setPlaceholderText(QString());
         logTabWidget->setTabText(logTabWidget->indexOf(errorTab), QApplication::translate("MainWindowClass", "\346\212\245\350\255\246", Q_NULLPTR));
+        realSpeedLabel->setText(QApplication::translate("MainWindowClass", "\345\256\236\346\227\266\350\275\254\351\200\237", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindowClass", "m/min", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindowClass", "m/min", Q_NULLPTR));
+        realSpeedLineEdit->setText(QString());
+        lastSpeedLineEdit->setText(QString());
+        lastSpeedLabel->setText(QApplication::translate("MainWindowClass", "\345\211\215\344\270\200\344\270\252\350\275\246\350\275\256\350\275\254\351\200\237", Q_NULLPTR));
         imageMatchesLabel->setText(QString());
 #ifndef QT_NO_TOOLTIP
         alarmPushButton->setToolTip(QString());

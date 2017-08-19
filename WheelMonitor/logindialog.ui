@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>597</width>
-    <height>439</height>
+    <width>578</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,12 @@
   </property>
   <property name="font">
    <font>
-    <pointsize>14</pointsize>
+    <family>Agency FB</family>
+    <pointsize>20</pointsize>
    </font>
   </property>
   <property name="windowTitle">
    <string>LoginDialog</string>
-  </property>
-  <property name="windowOpacity">
-   <double>1.000000000000000</double>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -46,9 +44,29 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <property name="verticalSpacing">
-    <number>9</number>
-   </property>
+   <item row="11" column="5">
+    <spacer name="horizontalSpacer_6">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="1" colspan="4">
+    <widget class="QLabel" name="tittleLabel">
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 127);</string>
+     </property>
+     <property name="text">
+      <string>欢迎使用宝钢环冷机台车轮子状态检测系统!</string>
+     </property>
+    </widget>
+   </item>
    <item row="13" column="0">
     <spacer name="verticalSpacer_2">
      <property name="orientation">
@@ -62,51 +80,62 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="1" colspan="4">
-    <widget class="QLabel" name="tittleLabel">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
+   <item row="6" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 127);</string>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>13</height>
+      </size>
      </property>
+    </spacer>
+   </item>
+   <item row="11" column="0">
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>53</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="7" column="1" rowspan="3" colspan="2">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string>欢迎使用宝钢环冷机台车轮子状态检测系统!</string>
+      <string>用户名：</string>
+     </property>
+     <property name="buddy">
+      <cstring>idLineEdit</cstring>
      </property>
     </widget>
    </item>
+   <item row="8" column="5">
+    <spacer name="horizontalSpacer_5">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
    <item row="10" column="1" rowspan="3">
     <widget class="QLabel" name="label_2">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
      <property name="text">
       <string>密码：</string>
      </property>
      <property name="buddy">
       <cstring>pwdLineEdit</cstring>
-     </property>
-    </widget>
-   </item>
-   <item row="10" column="3" rowspan="3" colspan="2">
-    <widget class="QLineEdit" name="pwdLineEdit">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="3" rowspan="3" colspan="2">
-    <widget class="QLineEdit" name="idLineEdit">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
      </property>
     </widget>
    </item>
@@ -127,12 +156,6 @@
      </item>
      <item>
       <widget class="QPushButton" name="loginBtn">
-       <property name="font">
-        <font>
-         <family>Agency FB</family>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(0, 255, 0);</string>
        </property>
@@ -156,12 +179,6 @@
      </item>
      <item>
       <widget class="QPushButton" name="quitBtn">
-       <property name="font">
-        <font>
-         <family>Agency FB</family>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 0, 0);</string>
        </property>
@@ -185,21 +202,6 @@
      </item>
     </layout>
    </item>
-   <item row="7" column="1" rowspan="3" colspan="2">
-    <widget class="QLabel" name="label">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>用户名：</string>
-     </property>
-     <property name="buddy">
-      <cstring>idLineEdit</cstring>
-     </property>
-    </widget>
-   </item>
    <item row="17" column="1">
     <spacer name="verticalSpacer_3">
      <property name="orientation">
@@ -209,19 +211,6 @@
       <size>
        <width>20</width>
        <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="11" column="0">
-    <spacer name="horizontalSpacer_3">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>53</width>
-       <height>20</height>
       </size>
      </property>
     </spacer>
@@ -239,31 +228,12 @@
      </property>
     </spacer>
    </item>
-   <item row="8" column="5">
-    <spacer name="horizontalSpacer_5">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+   <item row="10" column="3" rowspan="3" colspan="2">
+    <widget class="QLineEdit" name="pwdLineEdit">
+     <property name="placeholderText">
+      <string>请输入密码</string>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="6" column="1">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>13</height>
-      </size>
-     </property>
-    </spacer>
+    </widget>
    </item>
    <item row="3" column="1">
     <spacer name="verticalSpacer_4">
@@ -278,18 +248,12 @@
      </property>
     </spacer>
    </item>
-   <item row="11" column="5">
-    <spacer name="horizontalSpacer_6">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+   <item row="7" column="3" rowspan="3" colspan="2">
+    <widget class="QLineEdit" name="idLineEdit">
+     <property name="placeholderText">
+      <string>请输入用户名</string>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
+    </widget>
    </item>
   </layout>
  </widget>

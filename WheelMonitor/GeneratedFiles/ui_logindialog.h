@@ -28,76 +28,82 @@ class Ui_LoginDialog
 {
 public:
     QGridLayout *gridLayout;
-    QSpacerItem *verticalSpacer_2;
+    QSpacerItem *horizontalSpacer_6;
     QLabel *tittleLabel;
+    QSpacerItem *verticalSpacer_2;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer_3;
+    QLabel *label;
+    QSpacerItem *horizontalSpacer_5;
     QLabel *label_2;
-    QLineEdit *pwdLineEdit;
-    QLineEdit *idLineEdit;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
     QPushButton *loginBtn;
     QSpacerItem *horizontalSpacer_7;
     QPushButton *quitBtn;
     QSpacerItem *horizontalSpacer_4;
-    QLabel *label;
     QSpacerItem *verticalSpacer_3;
-    QSpacerItem *horizontalSpacer_3;
     QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *horizontalSpacer_5;
-    QSpacerItem *verticalSpacer;
+    QLineEdit *pwdLineEdit;
     QSpacerItem *verticalSpacer_4;
-    QSpacerItem *horizontalSpacer_6;
+    QLineEdit *idLineEdit;
 
     void setupUi(QDialog *LoginDialog)
     {
         if (LoginDialog->objectName().isEmpty())
             LoginDialog->setObjectName(QStringLiteral("LoginDialog"));
-        LoginDialog->resize(597, 439);
+        LoginDialog->resize(578, 360);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(LoginDialog->sizePolicy().hasHeightForWidth());
         LoginDialog->setSizePolicy(sizePolicy);
         QFont font;
-        font.setPointSize(14);
+        font.setFamily(QStringLiteral("Agency FB"));
+        font.setPointSize(20);
         LoginDialog->setFont(font);
-        LoginDialog->setWindowOpacity(1);
         LoginDialog->setAutoFillBackground(false);
         LoginDialog->setStyleSheet(QStringLiteral(""));
         gridLayout = new QGridLayout(LoginDialog);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setVerticalSpacing(9);
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(verticalSpacer_2, 13, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer_6, 11, 5, 1, 1);
 
         tittleLabel = new QLabel(LoginDialog);
         tittleLabel->setObjectName(QStringLiteral("tittleLabel"));
-        tittleLabel->setFont(font);
         tittleLabel->setStyleSheet(QStringLiteral("color: rgb(255, 255, 127);"));
 
         gridLayout->addWidget(tittleLabel, 4, 1, 1, 4);
 
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_2, 13, 0, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 6, 1, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(53, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_3, 11, 0, 1, 1);
+
+        label = new QLabel(LoginDialog);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout->addWidget(label, 7, 1, 3, 2);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_5, 8, 5, 1, 1);
+
         label_2 = new QLabel(LoginDialog);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setFont(font);
 
         gridLayout->addWidget(label_2, 10, 1, 3, 1);
-
-        pwdLineEdit = new QLineEdit(LoginDialog);
-        pwdLineEdit->setObjectName(QStringLiteral("pwdLineEdit"));
-        pwdLineEdit->setFont(font);
-
-        gridLayout->addWidget(pwdLineEdit, 10, 3, 3, 2);
-
-        idLineEdit = new QLineEdit(LoginDialog);
-        idLineEdit->setObjectName(QStringLiteral("idLineEdit"));
-        idLineEdit->setFont(font);
-
-        gridLayout->addWidget(idLineEdit, 7, 3, 3, 2);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
@@ -108,10 +114,6 @@ public:
 
         loginBtn = new QPushButton(LoginDialog);
         loginBtn->setObjectName(QStringLiteral("loginBtn"));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Agency FB"));
-        font1.setPointSize(14);
-        loginBtn->setFont(font1);
         loginBtn->setStyleSheet(QStringLiteral("background-color: rgb(0, 255, 0);"));
 
         horizontalLayout->addWidget(loginBtn);
@@ -122,7 +124,6 @@ public:
 
         quitBtn = new QPushButton(LoginDialog);
         quitBtn->setObjectName(QStringLiteral("quitBtn"));
-        quitBtn->setFont(font1);
         quitBtn->setStyleSheet(QStringLiteral("background-color: rgb(255, 0, 0);"));
 
         horizontalLayout->addWidget(quitBtn);
@@ -134,43 +135,31 @@ public:
 
         gridLayout->addLayout(horizontalLayout, 16, 1, 1, 4);
 
-        label = new QLabel(LoginDialog);
-        label->setObjectName(QStringLiteral("label"));
-        label->setFont(font);
-
-        gridLayout->addWidget(label, 7, 1, 3, 2);
-
         verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_3, 17, 1, 1, 1);
-
-        horizontalSpacer_3 = new QSpacerItem(53, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_3, 11, 0, 1, 1);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_2, 8, 0, 1, 1);
 
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        pwdLineEdit = new QLineEdit(LoginDialog);
+        pwdLineEdit->setObjectName(QStringLiteral("pwdLineEdit"));
 
-        gridLayout->addItem(horizontalSpacer_5, 8, 5, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 6, 1, 1, 1);
+        gridLayout->addWidget(pwdLineEdit, 10, 3, 3, 2);
 
         verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_4, 3, 1, 1, 1);
 
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        idLineEdit = new QLineEdit(LoginDialog);
+        idLineEdit->setObjectName(QStringLiteral("idLineEdit"));
 
-        gridLayout->addItem(horizontalSpacer_6, 11, 5, 1, 1);
+        gridLayout->addWidget(idLineEdit, 7, 3, 3, 2);
 
 #ifndef QT_NO_SHORTCUT
-        label_2->setBuddy(pwdLineEdit);
         label->setBuddy(idLineEdit);
+        label_2->setBuddy(pwdLineEdit);
 #endif // QT_NO_SHORTCUT
         QWidget::setTabOrder(idLineEdit, pwdLineEdit);
         QWidget::setTabOrder(pwdLineEdit, loginBtn);
@@ -185,10 +174,12 @@ public:
     {
         LoginDialog->setWindowTitle(QApplication::translate("LoginDialog", "LoginDialog", Q_NULLPTR));
         tittleLabel->setText(QApplication::translate("LoginDialog", "\346\254\242\350\277\216\344\275\277\347\224\250\345\256\235\351\222\242\347\216\257\345\206\267\346\234\272\345\217\260\350\275\246\350\275\256\345\255\220\347\212\266\346\200\201\346\243\200\346\265\213\347\263\273\347\273\237!", Q_NULLPTR));
+        label->setText(QApplication::translate("LoginDialog", "\347\224\250\346\210\267\345\220\215\357\274\232", Q_NULLPTR));
         label_2->setText(QApplication::translate("LoginDialog", "\345\257\206\347\240\201\357\274\232", Q_NULLPTR));
         loginBtn->setText(QApplication::translate("LoginDialog", "\347\231\273\345\275\225", Q_NULLPTR));
         quitBtn->setText(QApplication::translate("LoginDialog", "\351\200\200\345\207\272", Q_NULLPTR));
-        label->setText(QApplication::translate("LoginDialog", "\347\224\250\346\210\267\345\220\215\357\274\232", Q_NULLPTR));
+        pwdLineEdit->setPlaceholderText(QApplication::translate("LoginDialog", "\350\257\267\350\276\223\345\205\245\345\257\206\347\240\201", Q_NULLPTR));
+        idLineEdit->setPlaceholderText(QApplication::translate("LoginDialog", "\350\257\267\350\276\223\345\205\245\347\224\250\346\210\267\345\220\215", Q_NULLPTR));
     } // retranslateUi
 
 };

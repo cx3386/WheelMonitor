@@ -34,10 +34,10 @@ private:
 
 	HWND realPlayHandle;
 	QMutex mutex;
-
+	void configWindow();
 	void readSettings();
 	void writeSettings();
-	void configWindow();
+	
 	
 	void clearLog(int nDays);	//保留最近n天的日志
 	bool bIsTimer24First;

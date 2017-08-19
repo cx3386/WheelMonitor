@@ -19,14 +19,93 @@ MainWindow::MainWindow(QWidget* parent)
 	//action or menu
 
 	ui.setupUi(this);
-	configWindow();
 	readSettings();
+	configWindow();
+}
+
+MainWindow::~MainWindow()
+{
+	emit setAlarm(ALARM_LIGHT_OFF);	//不能从线程外操作
+	//recLabel->deleteLater();
+	videoCaptureThread.quit();
+	videoCaptureThread.wait();
+	imageProcessThread.quit();
+	imageProcessThread.wait();
+	plcSerialThread.quit();
+	plcSerialThread.wait();
+	outputMessageThread.quit();
+	outputMessageThread.wait();
+}
+void MainWindow::configWindow()
+{
+	//setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
+	//setWindowState(Qt::WindowMaximized);
+	////showMaximized();
+	////去掉窗口边框  
+	////setWindowFlags(Qt::FramelessWindowHint);
+	////获取界面的宽度  
+	//int width = this->width();
+	////构建最小化、最大化、关闭按钮  
+	//QToolButton *minButton = new QToolButton(this);
+	//QToolButton *closeButton = new QToolButton(this);
+	//minButton->setIconSize(QSize(40, 40));
+	//closeButton->setIconSize(QSize(40, 40));
+	////获取最小化、关闭按钮图标  
+	//QPixmap minPix = style()->standardPixmap(QStyle::SP_TitleBarMinButton);
+	//QPixmap closePix = style()->standardPixmap(QStyle::SP_TitleBarCloseButton);
+	//minPix = minPix.scaled(20, 20);
+	//closePix = closePix.scaled(20, 20);
+	////设置最小化、关闭按钮图标  
+	//minButton->setIcon(minPix);
+	//closeButton->setIcon(closePix);
+	////设置最小化、关闭按钮在界面的位置  
+	//minButton->setGeometry(800 - 46, 10, 20, 20);
+	//closeButton->setGeometry(800 - 25, 10, 20, 20);
+	////设置鼠标移至按钮上的提示信息  
+	//minButton->setToolTip(QStringLiteral("最小化"));
+	//closeButton->setToolTip(QStringLiteral("关闭"));
+	////设置最小化、关闭按钮的样式  
+	//minButton->setStyleSheet("background-color:transparent;");
+	//closeButton->setStyleSheet("background-color:transparent;");
+	////关联最小化、关闭按钮的槽函数  
+	//connect(minButton, SIGNAL(clicked()), this, SLOT(showMinimized()));
+	//connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
+	recLabel = new QLabel(ui.playerTab);
+	recLabel->setObjectName(QStringLiteral("recLabel"));
+	recLabel->setGeometry(20, 20, 50, 35);
+	recLabel->setScaledContents(true);
+	onRecStop();//init as grey
+				//recLabel->raise();
+				//recLabel->setAttribute(Qt::WA_TranslucentBackground);
+	recLabel->setVisible(false);
+	//
+	//QStackedLayout *sBoxLayout = new QStackedLayout();
+	//sBoxLayout->setStackingMode(QStackedLayout::StackAll);
+	//sBoxLayout->addWidget(recWidget);
+	//sBoxLayout->addWidget(ui.playerWidget);
+	//ui.playerTab->setLayout(sBoxLayout);
+	//ui.playerWidget->raise();
+	//recWidget->setWindowFlags(Qt::WindowStaysOnTopHint);
+	//ui.playerWidget->setWindowFlags(Qt::WindowStaysOnBottomHint);
+
+	//QTimer *timer11 = new QTimer(this);
+	//connect(timer11, SIGNAL(timeout()), this, SLOT(reverseLabel()));
+	//timer11->start(2000);
+
+	//定时任务，每天00:00触发
+	int time_2_24 = QTime::currentTime().msecsTo(QTime(23, 59, 59, 999));
+	QTimer::singleShot(time_2_24, this, SLOT(update24()));
+
+	connect(ui.action_About_Qt, &QAction::triggered, qApp, &QApplication::aboutQt);
+	//ui.imageMatchesLabel->setFixedSize(ui.imageMatchesLabel->size());
+	ui.errorTextBrowser->setOpenLinks(false);
+	connect(ui.errorTextBrowser, SIGNAL(anchorClicked(const QUrl&)), this, SLOT(anchorClickedSlot(const QUrl&)));
 
 	realPlayHandle = (HWND)ui.playerWidget->winId();
 	//care start order
 
 	outputMessage = new MyMessageOutput;
-	
+
 	imageProcess = new ImageProcess;
 	videoCapture = new HikVideoCapture;
 	plcSerial = new PLCSerial;
@@ -75,7 +154,7 @@ MainWindow::MainWindow(QWidget* parent)
 	connect(plcSerial, &PLCSerial::startSave, videoCapture, &HikVideoCapture::startSave);
 	connect(plcSerial, &PLCSerial::startSave, imageProcess, &ImageProcess::sensorIN);	//认为同一个轮子
 	connect(plcSerial, &PLCSerial::startSave, this, &MainWindow::onRecStart);	//认为同一个轮子
-	
+
 	connect(plcSerial, &PLCSerial::stopSave, videoCapture, &HikVideoCapture::stopSave);
 	connect(plcSerial, &PLCSerial::stopSave, imageProcess, &ImageProcess::sensorOUT);		//认为结束了该个轮子
 	connect(plcSerial, &PLCSerial::stopSave, this, &MainWindow::onRecStop);	//认为同一个轮子
@@ -91,19 +170,6 @@ MainWindow::MainWindow(QWidget* parent)
 	emit initPlcSerial();
 }
 
-MainWindow::~MainWindow()
-{
-	emit setAlarm(ALARM_LIGHT_OFF);	//不能从线程外操作
-	//recLabel->deleteLater();
-	videoCaptureThread.quit();
-	videoCaptureThread.wait();
-	imageProcessThread.quit();
-	imageProcessThread.wait();
-	plcSerialThread.quit();
-	plcSerialThread.wait();
-	outputMessageThread.quit();
-	outputMessageThread.wait();
-}
 
 void MainWindow::uiAlarmLight(PLCSerial::AlarmColor alarmColor) //1-green; 2-red; 4-yellow
 {
@@ -154,73 +220,6 @@ void MainWindow::writeSettings()
 	settings.endGroup();
 }
 
-void MainWindow::configWindow()
-{
-	//setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
-	//setWindowState(Qt::WindowMaximized);
-	////showMaximized();
-	////去掉窗口边框  
-	////setWindowFlags(Qt::FramelessWindowHint);
-	////获取界面的宽度  
-	//int width = this->width();
-	////构建最小化、最大化、关闭按钮  
-	//QToolButton *minButton = new QToolButton(this);
-	//QToolButton *closeButton = new QToolButton(this);
-	//minButton->setIconSize(QSize(40, 40));
-	//closeButton->setIconSize(QSize(40, 40));
-	////获取最小化、关闭按钮图标  
-	//QPixmap minPix = style()->standardPixmap(QStyle::SP_TitleBarMinButton);
-	//QPixmap closePix = style()->standardPixmap(QStyle::SP_TitleBarCloseButton);
-	//minPix = minPix.scaled(20, 20);
-	//closePix = closePix.scaled(20, 20);
-	////设置最小化、关闭按钮图标  
-	//minButton->setIcon(minPix);
-	//closeButton->setIcon(closePix);
-	////设置最小化、关闭按钮在界面的位置  
-	//minButton->setGeometry(800 - 46, 10, 20, 20);
-	//closeButton->setGeometry(800 - 25, 10, 20, 20);
-	////设置鼠标移至按钮上的提示信息  
-	//minButton->setToolTip(QStringLiteral("最小化"));
-	//closeButton->setToolTip(QStringLiteral("关闭"));
-	////设置最小化、关闭按钮的样式  
-	//minButton->setStyleSheet("background-color:transparent;");
-	//closeButton->setStyleSheet("background-color:transparent;");
-	////关联最小化、关闭按钮的槽函数  
-	//connect(minButton, SIGNAL(clicked()), this, SLOT(showMinimized()));
-	//connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
-	
-
-	recLabel = new QLabel(ui.playerTab);
-	recLabel->setObjectName(QStringLiteral("recLabel"));
-	recLabel->setGeometry(20, 20, 50, 35);
-	recLabel->setScaledContents(true);
-	onRecStop();//init as grey
-	//recLabel->raise();
-	//recLabel->setAttribute(Qt::WA_TranslucentBackground);
-	recLabel->setVisible(false);
-	//
-	//QStackedLayout *sBoxLayout = new QStackedLayout();
-	//sBoxLayout->setStackingMode(QStackedLayout::StackAll);
-	//sBoxLayout->addWidget(recWidget);
-	//sBoxLayout->addWidget(ui.playerWidget);
-	//ui.playerTab->setLayout(sBoxLayout);
-	//ui.playerWidget->raise();
-	//recWidget->setWindowFlags(Qt::WindowStaysOnTopHint);
-	//ui.playerWidget->setWindowFlags(Qt::WindowStaysOnBottomHint);
-
-	//QTimer *timer11 = new QTimer(this);
-	//connect(timer11, SIGNAL(timeout()), this, SLOT(reverseLabel()));
-	//timer11->start(2000);
-	
-	//定时任务，每天00:00触发
-	int time_2_24 = QTime::currentTime().msecsTo(QTime(23, 59, 59, 999));
-	QTimer::singleShot(time_2_24, this, SLOT(update24()));
-
-	connect(ui.action_About_Qt, &QAction::triggered, qApp, &QApplication::aboutQt);
-	//ui.imageMatchesLabel->setFixedSize(ui.imageMatchesLabel->size());
-	ui.errorTextBrowser->setOpenLinks(false);
-	connect(ui.errorTextBrowser, SIGNAL(anchorClicked(const QUrl&)), this, SLOT(anchorClickedSlot(const QUrl&)));
-}
 
 void MainWindow::clearLog(int nDays)
 {

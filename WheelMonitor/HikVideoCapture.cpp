@@ -7,8 +7,8 @@ using namespace std;
 //static member init; just like the global variables
 //<数据类型><类名>::<静态数据成员名 >= <值>
 int HikVideoCapture::capInterval = 7;
-int HikVideoCapture::gbHandling = HikVideoCapture::capInterval;
-bool HikVideoCapture::bIsProcessing = false;
+volatile int HikVideoCapture::gbHandling = HikVideoCapture::capInterval;
+volatile bool HikVideoCapture::bIsProcessing = false;
 LONG HikVideoCapture::nPort = -1;
 cv::Mat HikVideoCapture::pRawImage;
 QMutex HikVideoCapture::mutex;
@@ -16,7 +16,7 @@ HikVideoCapture* HikVideoCapture::pVideoCapture = new HikVideoCapture;	//need in
 
 
 HikVideoCapture::HikVideoCapture(QObject *parent) : QObject(parent)
-	,isSavingFlag(false)
+	,bIsSaving(false)
 {
 	//gbHandling = 3;	//only init once, if two instace/object exist, the gbhanding is unprotected.
 }
@@ -144,13 +144,14 @@ bool HikVideoCapture::stopCap()
 
 bool HikVideoCapture::startSave()
 {
-	if (isSavingFlag)
+	if (bIsSaving)
 		return false;
-	isSavingFlag = true;
+	bIsSaving = true;
 	qDebug() << "save start";
 	QString saveDir;
-	QString dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");//ddd is weekday
-	saveDir = QStringLiteral("D:/Capture/%1.mp4").arg(dateTime);
+	QString nowDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");//ddd is weekday
+	QString nowTime = QDateTime::currentDateTime().toString("hhmmss");//ddd is weekday
+	saveDir = QStringLiteral("D:/Capture/%1/%2.mp4").arg(nowDate).arg(nowTime);
 	mutex.lock();
 	//saveDirLink = QStringLiteral("file:///D:/Capture/%1.mp4").arg(dateTime);
 	saveDirLink = saveDir;
@@ -166,18 +167,18 @@ bool HikVideoCapture::startSave()
 	{
 		qDebug() << "cap save start error";
 		//emit isStartSave(false);
-		isSavingFlag = false;
+		bIsSaving = false;
 		return false;
 	}
 }
 bool HikVideoCapture::stopSave()
 {
-	if (isSavingFlag)
+	if (bIsSaving)
 	{
 		if (NET_DVR_StopSaveRealData(lRealPlayHandle))
 		{
 			qDebug("save complete");
-			isSavingFlag = false;
+			bIsSaving = false;
 			return true;
 		}
 		return false;
@@ -186,12 +187,12 @@ bool HikVideoCapture::stopSave()
 }
 bool HikVideoCapture::timeoutSave()
 {
-	if (isSavingFlag)
+	if (bIsSaving)
 	{
 		if (NET_DVR_StopSaveRealData(lRealPlayHandle))
 		{
 			qDebug("save timeout, the wheel is stopped");
-			isSavingFlag = false;
+			bIsSaving = false;
 			emit wheelTimeout();
 			return true;
 		}  
@@ -202,9 +203,9 @@ bool HikVideoCapture::timeoutSave()
 
 void HikVideoCapture::imageProcessReady()
 {
-	mutex.lock();
+	//mutex.lock();
 	bIsProcessing = false;		//如果图像处理完成，则允许录制下一帧；否则阻塞
-	mutex.unlock();
+	//mutex.unlock();
 }
 
 void CALLBACK HikVideoCapture::DecCBFun(long nPort, char * pBuf, long nSize, FRAME_INFO * pFrameInfo, long nReserved1, long nReserved2)
@@ -231,9 +232,9 @@ void CALLBACK HikVideoCapture::DecCBFun(long nPort, char * pBuf, long nSize, FRA
 		pRawImage = pImg;
 		mutex.unlock();
 		emit pVideoCapture->imageNeedProcess();	//单向通知,单向阻塞
-		mutex.lock();
-		bIsProcessing = true;
-		mutex.unlock();
+		//mutex.lock();
+		bIsProcessing = true;	//不用锁，因为是automic（原子）操作
+		//mutex.unlock();
 	}
 	gbHandling = capInterval;// every 8 frame
 }

@@ -28,14 +28,14 @@ public:
 	QString saveDirLink;
 
 private:
-	static int gbHandling;
+	static volatile int gbHandling;
 	static LONG nPort;
-	static bool bIsProcessing;
+	static volatile bool bIsProcessing;
 	static QMutex mutex;
 	LONG lUserID;
 	LONG lRealPlayHandle;
 	LONG lRealPlayHandle1;
-	bool isSavingFlag;
+	bool bIsSaving;
 
 signals:
 	void imageNeedProcess();
