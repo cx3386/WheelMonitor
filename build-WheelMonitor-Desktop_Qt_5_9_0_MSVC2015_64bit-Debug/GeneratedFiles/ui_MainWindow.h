@@ -55,21 +55,22 @@ public:
     QGridLayout *gridLayout_3;
     myTextBrowser *errorTextBrowser;
     QGridLayout *gridLayout_10;
-    QLabel *label_2;
     QLabel *realSpeedLabel;
+    QLabel *label;
+    QLabel *label_2;
+    QLineEdit *realSpeedLineEdit;
     QLineEdit *lastSpeedLineEdit;
     QLabel *lastSpeedLabel;
-    QLineEdit *realSpeedLineEdit;
-    QLabel *label;
     QSpacerItem *horizontalSpacer;
+    QLabel *imageMatchesLabel;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *alarmPushButton;
     QGroupBox *lcdGroupBox;
     QGridLayout *gridLayout;
     QLCDNumber *lcdNumber;
     QSpacerItem *horizontalSpacer_3;
-    QLabel *imageMatchesLabel;
     QWidget *playerTab;
+    QGridLayout *gridLayout_4;
     QWidget *playerWidget;
     QMenuBar *menuBar;
     QMenu *menu_Main;
@@ -83,7 +84,7 @@ public:
     {
         if (MainWindowClass->objectName().isEmpty())
             MainWindowClass->setObjectName(QStringLiteral("MainWindowClass"));
-        MainWindowClass->resize(845, 636);
+        MainWindowClass->resize(987, 700);
         QFont font;
         font.setPointSize(18);
         MainWindowClass->setFont(font);
@@ -158,6 +159,7 @@ public:
         errorTextBrowser->setMinimumSize(QSize(200, 0));
         errorTextBrowser->setFont(font1);
         errorTextBrowser->setFocusPolicy(Qt::StrongFocus);
+        errorTextBrowser->setAutoFillBackground(false);
         errorTextBrowser->setFrameShape(QFrame::StyledPanel);
         errorTextBrowser->setFrameShadow(QFrame::Sunken);
         errorTextBrowser->setLineWrapMode(QTextEdit::NoWrap);
@@ -166,16 +168,11 @@ public:
 
         logTabWidget->addTab(errorTab, QString());
 
-        gridLayout_6->addWidget(logTabWidget, 0, 2, 5, 1);
+        gridLayout_6->addWidget(logTabWidget, 0, 2, 3, 1);
 
         gridLayout_10 = new QGridLayout();
         gridLayout_10->setSpacing(6);
         gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
-        label_2 = new QLabel(monitorTab);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        gridLayout_10->addWidget(label_2, 1, 2, 1, 1);
-
         realSpeedLabel = new QLabel(monitorTab);
         realSpeedLabel->setObjectName(QStringLiteral("realSpeedLabel"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -185,6 +182,25 @@ public:
         realSpeedLabel->setSizePolicy(sizePolicy);
 
         gridLayout_10->addWidget(realSpeedLabel, 1, 0, 1, 1);
+
+        label = new QLabel(monitorTab);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout_10->addWidget(label, 0, 2, 1, 1);
+
+        label_2 = new QLabel(monitorTab);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout_10->addWidget(label_2, 1, 2, 1, 1);
+
+        realSpeedLineEdit = new QLineEdit(monitorTab);
+        realSpeedLineEdit->setObjectName(QStringLiteral("realSpeedLineEdit"));
+        realSpeedLineEdit->setEnabled(true);
+        realSpeedLineEdit->setMinimumSize(QSize(81, 0));
+        realSpeedLineEdit->setMaximumSize(QSize(81, 16777215));
+        realSpeedLineEdit->setReadOnly(true);
+
+        gridLayout_10->addWidget(realSpeedLineEdit, 1, 1, 1, 1);
 
         lastSpeedLineEdit = new QLineEdit(monitorTab);
         lastSpeedLineEdit->setObjectName(QStringLiteral("lastSpeedLineEdit"));
@@ -202,26 +218,25 @@ public:
 
         gridLayout_10->addWidget(lastSpeedLabel, 0, 0, 1, 1);
 
-        realSpeedLineEdit = new QLineEdit(monitorTab);
-        realSpeedLineEdit->setObjectName(QStringLiteral("realSpeedLineEdit"));
-        realSpeedLineEdit->setEnabled(true);
-        realSpeedLineEdit->setMinimumSize(QSize(81, 0));
-        realSpeedLineEdit->setMaximumSize(QSize(81, 16777215));
-        realSpeedLineEdit->setReadOnly(true);
-
-        gridLayout_10->addWidget(realSpeedLineEdit, 1, 1, 1, 1);
-
-        label = new QLabel(monitorTab);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout_10->addWidget(label, 0, 2, 1, 1);
-
-
-        gridLayout_6->addLayout(gridLayout_10, 2, 0, 1, 1);
-
         horizontalSpacer = new QSpacerItem(37, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_6->addItem(horizontalSpacer, 2, 1, 1, 1);
+        gridLayout_10->addItem(horizontalSpacer, 0, 3, 1, 1);
+
+
+        gridLayout_6->addLayout(gridLayout_10, 1, 0, 1, 1);
+
+        imageMatchesLabel = new QLabel(monitorTab);
+        imageMatchesLabel->setObjectName(QStringLiteral("imageMatchesLabel"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(imageMatchesLabel->sizePolicy().hasHeightForWidth());
+        imageMatchesLabel->setSizePolicy(sizePolicy1);
+        imageMatchesLabel->setMinimumSize(QSize(0, 0));
+        imageMatchesLabel->setFrameShape(QFrame::NoFrame);
+        imageMatchesLabel->setScaledContents(false);
+
+        gridLayout_6->addWidget(imageMatchesLabel, 0, 0, 1, 1);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
@@ -251,6 +266,9 @@ public:
         lcdNumber = new QLCDNumber(lcdGroupBox);
         lcdNumber->setObjectName(QStringLiteral("lcdNumber"));
         lcdNumber->setMinimumSize(QSize(0, 0));
+        QFont font2;
+        font2.setPointSize(14);
+        lcdNumber->setFont(font2);
         lcdNumber->setCursor(QCursor(Qt::PointingHandCursor));
         lcdNumber->setAutoFillBackground(true);
         lcdNumber->setStyleSheet(QLatin1String("color:rgb(255, 0, 0);\n"
@@ -271,27 +289,20 @@ public:
         horizontalLayout_2->addItem(horizontalSpacer_3);
 
 
-        gridLayout_6->addLayout(horizontalLayout_2, 4, 0, 1, 2);
-
-        imageMatchesLabel = new QLabel(monitorTab);
-        imageMatchesLabel->setObjectName(QStringLiteral("imageMatchesLabel"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(imageMatchesLabel->sizePolicy().hasHeightForWidth());
-        imageMatchesLabel->setSizePolicy(sizePolicy1);
-        imageMatchesLabel->setMinimumSize(QSize(0, 0));
-        imageMatchesLabel->setFrameShape(QFrame::NoFrame);
-        imageMatchesLabel->setScaledContents(false);
-
-        gridLayout_6->addWidget(imageMatchesLabel, 1, 0, 1, 1);
+        gridLayout_6->addLayout(horizontalLayout_2, 2, 0, 1, 2);
 
         centralTabWidget->addTab(monitorTab, QString());
         playerTab = new QWidget();
         playerTab->setObjectName(QStringLiteral("playerTab"));
+        gridLayout_4 = new QGridLayout(playerTab);
+        gridLayout_4->setSpacing(6);
+        gridLayout_4->setContentsMargins(11, 11, 11, 11);
+        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
         playerWidget = new QWidget(playerTab);
         playerWidget->setObjectName(QStringLiteral("playerWidget"));
-        playerWidget->setGeometry(QRect(6, 6, 817, 544));
+
+        gridLayout_4->addWidget(playerWidget, 0, 0, 1, 1);
+
         centralTabWidget->addTab(playerTab, QString());
 
         gridLayout_2->addWidget(centralTabWidget, 0, 0, 1, 1);
@@ -299,7 +310,7 @@ public:
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 845, 28));
+        menuBar->setGeometry(QRect(0, 0, 987, 52));
         menuBar->setFont(font);
         menuBar->setDefaultUp(false);
         menuBar->setNativeMenuBar(true);
@@ -326,10 +337,10 @@ public:
         statusBar->setFont(font);
         MainWindowClass->setStatusBar(statusBar);
 #ifndef QT_NO_SHORTCUT
-        label_2->setBuddy(realSpeedLineEdit);
         realSpeedLabel->setBuddy(realSpeedLineEdit);
-        lastSpeedLabel->setBuddy(lastSpeedLineEdit);
         label->setBuddy(lastSpeedLineEdit);
+        label_2->setBuddy(realSpeedLineEdit);
+        lastSpeedLabel->setBuddy(lastSpeedLineEdit);
 #endif // QT_NO_SHORTCUT
 
         menuBar->addAction(menu_Main->menuAction());
@@ -347,7 +358,7 @@ public:
         retranslateUi(MainWindowClass);
 
         centralTabWidget->setCurrentIndex(0);
-        logTabWidget->setCurrentIndex(1);
+        logTabWidget->setCurrentIndex(0);
         alarmPushButton->setDefault(false);
 
 
@@ -369,18 +380,18 @@ public:
         logTabWidget->setTabText(logTabWidget->indexOf(logTab), QApplication::translate("MainWindowClass", "\346\227\245\345\277\227", Q_NULLPTR));
         errorTextBrowser->setPlaceholderText(QString());
         logTabWidget->setTabText(logTabWidget->indexOf(errorTab), QApplication::translate("MainWindowClass", "\346\212\245\350\255\246", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindowClass", "m/min", Q_NULLPTR));
         realSpeedLabel->setText(QApplication::translate("MainWindowClass", "\345\256\236\346\227\266\350\275\254\351\200\237", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindowClass", "m/min", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindowClass", "m/min", Q_NULLPTR));
+        realSpeedLineEdit->setText(QString());
         lastSpeedLineEdit->setText(QString());
         lastSpeedLabel->setText(QApplication::translate("MainWindowClass", "\345\211\215\344\270\200\344\270\252\350\275\246\350\275\256\350\275\254\351\200\237", Q_NULLPTR));
-        realSpeedLineEdit->setText(QString());
-        label->setText(QApplication::translate("MainWindowClass", "m/min", Q_NULLPTR));
+        imageMatchesLabel->setText(QString());
 #ifndef QT_NO_TOOLTIP
         alarmPushButton->setToolTip(QString());
 #endif // QT_NO_TOOLTIP
         alarmPushButton->setText(QString());
         lcdGroupBox->setTitle(QApplication::translate("MainWindowClass", "\346\212\245\350\255\246\350\275\246\350\275\256\345\272\217\345\217\267", Q_NULLPTR));
-        imageMatchesLabel->setText(QString());
         centralTabWidget->setTabText(centralTabWidget->indexOf(monitorTab), QApplication::translate("MainWindowClass", "\347\233\221\350\247\206", Q_NULLPTR));
         centralTabWidget->setTabText(centralTabWidget->indexOf(playerTab), QApplication::translate("MainWindowClass", "\351\242\204\350\247\210", Q_NULLPTR));
         menu_Main->setTitle(QApplication::translate("MainWindowClass", "\345\274\200\345\247\213(&F)", Q_NULLPTR));

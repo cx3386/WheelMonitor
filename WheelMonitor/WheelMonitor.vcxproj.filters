@@ -162,34 +162,30 @@
     <CustomBuild Include="logindialog.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_MainWindow.h">
+    <CustomBuild Include="Resources\images\WheelMonitor.ico" />
+    <CustomBuild Include="connection.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="identification.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="resource.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GeneratedFiles\ui_logindialog.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_SettingDialog.h">
+    </CustomBuild>
+    <CustomBuild Include="GeneratedFiles\ui_MainWindow.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="identification.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="connection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_logindialog.h">
+    </CustomBuild>
+    <CustomBuild Include="GeneratedFiles\ui_SettingDialog.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WheelMonitor.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Resources\images\WheelMonitor.ico" />
   </ItemGroup>
 </Project>

@@ -14,6 +14,12 @@
 
 int main(int argc, char *argv[])
 {
+	QSharedMemory shared("WheelMonitor.exe");//随便填个名字就行
+	if (shared.attach())
+	{
+		return 0;
+	}
+	shared.create(1);
 	QApplication::addLibraryPath("./plugins");
 	QApplication a(argc, argv);
 	
@@ -26,7 +32,7 @@ int main(int argc, char *argv[])
 	{
 		QMessageBox::critical(NULL, QStringLiteral("宝钢环冷机台车轮子状态检测"), QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
 		//a.exit(0);
-		return 0;
+		//return 0;
 	}
 	if (!creatConnection())	//连接到数据库
 		//a.exit(0);

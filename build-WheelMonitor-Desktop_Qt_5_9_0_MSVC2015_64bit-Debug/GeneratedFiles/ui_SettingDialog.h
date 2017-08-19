@@ -79,7 +79,7 @@ public:
             SettingDialog->setObjectName(QStringLiteral("SettingDialog"));
         SettingDialog->setWindowModality(Qt::ApplicationModal);
         SettingDialog->setEnabled(true);
-        SettingDialog->resize(606, 610);
+        SettingDialog->resize(481, 491);
         gridLayout = new QGridLayout(SettingDialog);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);

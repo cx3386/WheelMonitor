@@ -4,17 +4,105 @@
 
 TEMPLATE = app
 TARGET = WheelMonitor
-DESTDIR = ../x64/Debug
-QT += core sql network xml widgets gui serialport
+
+QT += sql network widgets serialport
 CONFIG += debug
-DEFINES += WIN64 QT_DLL QT_SERIALPORT_LIB QT_WIDGETS_LIB QT_SQL_LIB QT_XML_LIB QT_NETWORK_LIB
+DEFINES += WIN64 QT_DLL QT_SERIALPORT_LIB QT_WIDGETS_LIB QT_SQL_LIB QT_NETWORK_LIB QT_DEPRECATED_WARNINGS
+#zkl opencv320
+win32:OPENCV_DIR = D:/opencv/opencv3.2
+CONFIG(release, debug|release):{
+    win32:OPENCV_DIR =  $${OPENCV_DIR}/Release_x64
+    DESTDIR = ../x64/Release
+    MOC_DIR += ./GeneratedFiles/release
+    OBJECTS_DIR += release
+    INCLUDEPATH += ./GeneratedFiles/Release
+}
+else:CONFIG(debug, debug|release):{
+    win32:OPENCV_DIR =  $${OPENCV_DIR}/Debug_x64
+    DESTDIR = ../x64/Debug
+    MOC_DIR += ./GeneratedFiles/debug
+    OBJECTS_DIR += debug
+    INCLUDEPATH += ./GeneratedFiles/Debug
+}
+win32:OPENCV_LIB_DIR = $${OPENCV_DIR}/x64/vc14/lib
+win32:CV_VER = 320
+#opencv320 动态链接库
+#CV_LIB_NAMES = world #ts
+CV_LIB_NAMES = aruco \
+    bgsegm \
+    bioinspired \
+    calib3d \
+    ccalib \
+    core \
+    datasets \
+    dnn \
+    dpm \
+    face \
+    features2d \
+    flann \
+    fuzzy \
+    highgui \
+    imgcodecs \
+    imgproc \
+    line_descriptor \
+    ml \
+    objdetect \
+    optflow \
+    phase_unwrapping \
+    photo \
+    plot \
+    reg \
+    rgbd \
+    saliency \
+    shape \
+    stereo \
+    stitching \
+    structured_light \
+    superres \
+    surface_matching \
+    text \
+    tracking \
+    video \
+    videoio \
+    videostab \
+    xfeatures2d \
+    ximgproc \
+    xobjdetect \
+    xphoto
+for(lib,CV_LIB_NAMES){
+    CV_LIBS +=-lopencv_$$lib
+}
+CONFIG(release, debug|release){
+    CV_LIB_PREFIX =$$CV_VER
+}
+else{
+    CV_LIB_PREFIX = $${CV_VER}d
+#    CONFIG +=console
+}
+for(lib,CV_LIBS){
+    CV_LIBS_NEW += $$lib$$CV_LIB_PREFIX
+}
+#opencv_objdetect320d
+CV_LIBS = $$CV_LIBS_NEW $$CV_EXT_LIBS
+LIBS += -L$$OPENCV_LIB_DIR $$CV_LIBS \
+    -L D:/HIKVISION/lib \
+    -L D:/HIKVISION/lib/HCNetSDKCom \
+    GdiPlus.lib \
+    HCCore.lib \
+    HCNetSDK.lib \
+    PlayCtrl.lib \
+    HCAlarm.lib \
+    HCGeneralCfgMgr.lib \
+    HCPreview.lib
+INCLUDEPATH += $$OPENCV_DIR/include \
+    $$OPENCV_DIR/include/opencv \
+    $$OPENCV_DIR/include/opencv2 \
+    D:/HIKVISION/include
 INCLUDEPATH += ./GeneratedFiles \
     . \
-    ./GeneratedFiles/Debug
 PRECOMPILED_HEADER = stdafx.h
 DEPENDPATH += .
-MOC_DIR += ./GeneratedFiles/debug
-OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 include(WheelMonitor.pri)
+win32:RC_FILE = WheelMonitor.rc

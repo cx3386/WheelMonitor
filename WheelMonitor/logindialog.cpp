@@ -15,12 +15,14 @@ LoginDialog::LoginDialog(QWidget *parent)
 	ui.setupUi(this);
 	//setFixedSize(490, 220);
 	setWindowTitle(QStringLiteral("µÇÂ¼"));
-	setWindowFlags(Qt::FramelessWindowHint);
+	//setWindowFlags(Qt::FramelessWindowHint);
+	setWindowState(Qt::WindowFullScreen);
 	//setAttribute(Qt::WA_TranslucentBackground, true);
 	QPalette palette(this->palette());
 	palette.setColor(QPalette::Background, QColor(0, 170, 255));
 	setPalette(palette);
 	ui.idLineEdit->setFocus();
+	ui.idLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 	ui.pwdLineEdit->setEchoMode(QLineEdit::Password);
 	ui.loginBtn->setDefault(true);
 }

@@ -20,6 +20,7 @@ public:
 
 private:
 	Ui::MainWindowClass ui;
+	bool bRunningState;
 	QLabel *recLabel;
 	/*****worker******/
 	MyMessageOutput* outputMessage; 
@@ -34,12 +35,13 @@ private:
 
 	HWND realPlayHandle;
 	QMutex mutex;
-
+	void configWindow();
 	void readSettings();
 	void writeSettings();
-	void configWindow();
+	
 	
 	void clearLog(int nDays);	//保留最近n天的日志
+	bool makeDir(QString fullPath);
 	bool bIsTimer24First;
 	//for test
 	//QPushButton *startSaveBtn;

@@ -19,6 +19,7 @@ double ImageProcess::param2 = 60;
 bool ImageProcess::sensorTriggered = false;
 
 bool GenerateUniqueFileName(string& strRetName, string& strRetFullPath, const string& strFileFullPath)
+//[in]fullpath, [out]retfullpath, [out]retname, use io.h, failed to across platform
 {
 	strRetFullPath = strFileFullPath;
 	string::size_type stPos = strRetFullPath.rfind('/');
@@ -58,16 +59,34 @@ bool GenerateUniqueFileName(string& strRetName, string& strRetFullPath, const st
 	return true;
 }
 
-
+bool getUniqueFile(QString fullFileName)
+{
+	QFileInfo fileInfo(fullFileName);
+	for (int i = 0; i < 11; i++)
+	{
+		if(!fileInfo.exists())
+		{
+			return true;
+		}
+		else
+		{
+			QString newBaseName(QStringLiteral("%1(%2)").arg(fileInfo.baseName()).arg(i));
+			//fileInfo = ;
+		}
+	}
+	return false;
+}
 
 ImageProcess::ImageProcess(QObject *parent) : QObject(parent)
 //, isSameWheel(false)
 , angleCount(0)
 , angleSum(0)
 , iImgCount(0)
-, stop(true)
-, isSensorSameWheel(false)
-, isWheelStop(false)
+, nDetectCount(0)
+, bStopProcess(true)
+, bLastOUT(true)
+, bIsInArea(false)
+, bWheelStopped(false)
 //50~80大了识别不到，小了找到很多圆。越大越快//检测阶段圆心累加器的阈值，值越大，检测到的圆越完美，值越小，可以检测到更多根本不存在的圆
 //, waitTimeout(0)
 {
@@ -81,65 +100,87 @@ ImageProcess::~ImageProcess()
 void ImageProcess::startImageProcess()
 {
 	mutex.lock();
-	stop = false;
+	bStopProcess = false;
 	mutex.unlock();
 }
 void ImageProcess::stopImageProcess()
 {
 	mutex.lock();
-	stop = true;
+	bStopProcess = true;
 	mutex.unlock();
 }
 void ImageProcess::sensorIN()
 {
-	isWheelStop = false;
-	isSensorSameWheel = true;
+	bWheelStopped = false;
+	bLastOUT = false;
+	bIsInArea = true;
 }
 void ImageProcess::sensorOUT()
 {
-	isSensorSameWheel = false;
+	bIsInArea = false;
 }
 
 void ImageProcess::wheelTimeout()
 {
-	isWheelStop = true;
+	bWheelStopped = true;
 }
 
 void ImageProcess::doImageProcess()
 {
-	if (!stop)
+	if (!bStopProcess)
 	{
-		if (!sensorTriggered)
+		if (bWheelStopped)//if timeout, which means this wheel is stop, drop the calc and wait for a come-in signal
 		{
-			//if timeout, which means this wheel is stop, drop the calc and wait for a come-in signal
-			if (isWheelStop)
-			{
 				angleSum = 0;
 				angleCount = 0;
 				iImgCount = 0;
-
-			}
+				qWarning("cart stay in the detect area");
+		}
+		else if (!sensorTriggered)
+		{
 			//if return 0, which means no cycle detected, calc the avgAngle for this wheel
+			//否则等待下一帧处理
 			if (!coreImageProcess())
 			{
 				if (angleCount)
 					getAvgAngle();
 			}
 		}
-		else
+		else  //信号驱动：轮子进来(SensorIN)了，才开始处理数据；
+			//一旦圆消失在ROI中，则显示结果,（如果圆侦测有中断，并且又有2帧以上匹配成功的话，有可能显示多个结果）；
+			//当轮子出去(SensorOut)，停止处理，显示结果（如果有的话）。
 		{
-			//if sensor stop this wheel, calc the avgAngle
-			if (!isSensorSameWheel)
+			if (bIsInArea)
 			{
-				if (!angleCount)
-					qWarning("Wheel sensor off triggered without any wheels detected");
-				else
-					getAvgAngle();
+				if (!coreImageProcess())
+				{
+					if (angleCount)
+					{
+						getAvgAngle();
+						nDetectCount++;
+					}
+				}
 			}
-			coreImageProcess();
+			else if (!bLastOUT)
+			//Once wheel scoll out detect area, calc the avgAngle(if anglecout > 0);
+			//if no avgangle ever, emit miss
+			{
+				bLastOUT = true;
+				if (angleCount)
+				{
+					getAvgAngle();
+					nDetectCount++;
+				}
+				//如果一次都没有显示，报miss
+				if(!nDetectCount)
+					qWarning() << QStringLiteral("↑Miss test↑");
+				qDebug() << "detect count(1 is ok):" << nDetectCount;
+				nDetectCount = 0;
+			}
 		}
 	}
 	emit imageProcessReady();
+	return;
 }
 
 int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait next srcImg
@@ -156,7 +197,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	//time.start();
 	resize(srcImg, srcImg, Size(1280, 720), 0, 0, CV_INTER_LINEAR);
 
-	Rect rect(200, 0, 800, 720);
+	Rect rect(220, 0, 800, 720);
 	Mat roiImage = srcImg(rect);		  //srcImg(rect).copyTo(roiImage);
 	Mat blurImage;//use blurimage to houghcircles
 
@@ -172,12 +213,13 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 		iImgCount = 0;
 		return 0;
 	}
+	qDebug() << "1";
 	/*judge if the circle is out of ROI*/
 	Point center0(cvRound(circles[0][0]), cvRound(circles[0][1])); //圆环中心
 	int radiusOutside = cvRound(circles[0][2]) - 10;	//圆环外径
 	int radiusInside = radiusOutside / 1.5; //圆环内径
 
-											//if the circle is out of ROI, return
+	//if the circle is out of ROI, return
 	if ((center0.x + radiusOutside) > roiImage.cols - 1 ||
 		(center0.x - radiusOutside) < 0 ||
 		(center0.y + radiusOutside) > roiImage.rows - 1 ||
@@ -188,7 +230,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 		return 0;
 	}
 	iImgCount++;
-
+	qDebug() << "2";
 	//qDebug() << circles.size;		//共几个圆
 	//qDebug() << QString("(x,y,r):%1 %2 %3").arg(circles[0][0]).arg(circles[0][1]).arg(circles[0][2]);	//圆半径
 
@@ -203,7 +245,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	imageRing.setTo(0, mask);
 	//imshow("mask", mask);
 	//imshow("imageRing", imageRing);
-
+	qDebug() << "3";
 	if (iImgCount == 1)
 	{
 		imgVessel = imageRing;
@@ -217,6 +259,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 		//iImgCount = 0;//drop the all image//discrete sampling
 		iImgCount = 1;	//continius sampling
 	}
+	qDebug() << "4";
 	//将两次得到的圆环图像调整为同样大小
 	//resize the first dstImg same as the second
 	//so that radius is right
@@ -231,7 +274,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	orb->detect(dstImg[0], allkeypoints1);
 	orb->detect(dstImg[1], allkeypoints2);
 	vector<KeyPoint> keypoints1, keypoints2;	//将allkeypoints中符合圆环范围的筛选出来
-
+	qDebug() << "5";
 	for (int i = 0; i < allkeypoints1.size(); i++)
 	{
 		int temp = (allkeypoints1[i].pt.x - dstImg[0].cols / 2) * (allkeypoints1[i].pt.x - dstImg[0].cols / 2)
@@ -254,10 +297,11 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	}
 	//imshow("dstImg[0]", dstImg[0]);
 	//imshow("dstImg[1]", dstImg[1]);
-
+	qDebug() << "6";
 	Mat descriptors1, descriptors2;
 	orb->compute(dstImg[0], keypoints1, descriptors1);
 	orb->compute(dstImg[1], keypoints2, descriptors2);
+	qDebug() << "7";
 
 	//暴力匹配
 	Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create("BruteForce-Hamming");
@@ -266,6 +310,8 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	//劳氏算法选出优秀的匹配
 	vector< vector<DMatch> > matches;
 	matcher->knnMatch(descriptors1, descriptors2, matches, 2);
+	qDebug() << "8";
+
 	vector<DMatch> good_matches;
 	//计算出关键点之间距离的最大值和最小值
 	/*
@@ -293,18 +339,23 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 		//qDebug("the match point less than 3");
 		return 2;
 	}
-
+	qDebug() << "9";
 
 	//绘制出匹配到的关键点
 	Mat image_matches;
 	drawMatches(dstImg[0], keypoints1, dstImg[1], keypoints2,
 		good_matches, image_matches, Scalar::all(-1), Scalar::all(-1),
 		vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
-	QString dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");//ddd is weekday
-	string fullpath = QStringLiteral("D:/Capture/%1.jpg").arg(dateTime).toStdString();
+	qDebug() << "10";
+
+	QString nowDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");
+	QString nowTime = QDateTime::currentDateTime().toString("hhmmss");
+	string fullpath = QStringLiteral("D:/Capture/%1/%2.jpg").arg(nowDate).arg(nowTime).toStdString();
 	string retname, retpath;
 	GenerateUniqueFileName(retname, retpath, fullpath);
 	imwrite(retpath, image_matches);
+	qDebug() << "11";
+
 	//显示最终结果
 	mutex.lock();
 	imageMatches = image_matches;
@@ -314,6 +365,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	//qDebug() << "match" << time.elapsed() / 1000.0 << "s";
 	//waitKey(30);
 
+	qDebug() << "12";
 
 
 	//***********************计算放射变换矩阵，计算旋转角度**************************//
@@ -326,11 +378,13 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 		obj.push_back(keypoints1[good_matches[i].queryIdx].pt);
 		scene.push_back(keypoints2[good_matches[i].trainIdx].pt);
 	}
+	qDebug() << "13";
 
 	//计算最优放射变换矩阵
 	Mat M = estimateRigidTransform(obj, scene, false);
 	if (M.data == NULL)
 		return 2;
+	qDebug() << "14";
 
 	//计算旋转角度
 	//输出第1行第2个数
@@ -342,11 +396,13 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	angleSum += oneAngle;
 	//isSameWheel = true;
 	/********compute finish*********/
+	qDebug() << "15";
 	return 1;
 }
 
 void ImageProcess::getAvgAngle()
 {
+	qDebug() << "100";
 	//calculate the avg angle
 	double avgAngle = angleSum / angleCount;
 	double lastAvgSpeed = avgAngle * angle2Speed;
@@ -368,4 +424,5 @@ void ImageProcess::getAvgAngle()
 	angleSum = 0;
 	angleCount = 0;
 	iImgCount = 0;
+	qDebug() << "101";
 }
