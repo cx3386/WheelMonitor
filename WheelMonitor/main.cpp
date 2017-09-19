@@ -20,13 +20,11 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 	shared.create(1);
-	QApplication::addLibraryPath("./plugins");
+	QApplication::addLibraryPath("./plugins");	//very important
 	QApplication a(argc, argv);
-	
 	//QFont font = a.font();
 	//font.setPointSize(18);
 	//a.setFont(font);
-	MainWindow w;
 	identification ide;
 	if (ide.flag_cpu_mac == 0)
 	{
@@ -37,6 +35,7 @@ int main(int argc, char *argv[])
 	if (!creatConnection())	//连接到数据库
 		//a.exit(0);
 		return 0;
+	MainWindow w;
 	LoginDialog dlg;
 	if (dlg.exec() == QDialog::Accepted)
 	{
@@ -49,7 +48,6 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-	//w.resize(800, 600);
 	//w.setWindowFlags(w.windowFlags()& ~Qt::WindowMaximizeButtonHint& ~Qt::WindowMinimizeButtonHint);
 	//w.showMaximized();
 	//return a.exec();

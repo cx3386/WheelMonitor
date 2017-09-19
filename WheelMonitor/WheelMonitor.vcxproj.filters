@@ -124,6 +124,9 @@
     <ClCompile Include="logindialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RobustMatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.h">
@@ -187,5 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WheelMonitor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RobustMatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

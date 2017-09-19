@@ -138,6 +138,7 @@
     <ClCompile Include="MyMessageOutput.cpp" />
     <ClCompile Include="mytextbrowser.cpp" />
     <ClCompile Include="PLCSerial.cpp" />
+    <ClCompile Include="RobustMatcher.cpp" />
     <ClCompile Include="SettingDialog.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -408,6 +409,9 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RobustMatcher.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

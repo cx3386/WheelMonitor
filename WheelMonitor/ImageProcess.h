@@ -2,6 +2,7 @@
 #include <QMutex>
 #include <QObject>
 #include <opencv2/opencv.hpp>
+#include "RobustMatcher.h"
 
 class ImageProcess : public QObject {
     Q_OBJECT
@@ -9,7 +10,7 @@ public:
     explicit ImageProcess(QObject* parent = nullptr);
     ~ImageProcess();
 
-    const double angle2Speed = 60 * (M_PI * 0.650 / 360) / (8.0 / 25.0); //周长,只初始化一次，如果改变了interval则失效
+	static double angle2Speed; //周长,只初始化一次，如果改变了interval则失效
     static double angleLowThreshold;
     static double angleHighThreshold; //角度阈值，超出则报警
     static int radius_min; //轮子的半径的下阈值，用于霍夫圆识别
@@ -41,6 +42,7 @@ private:
     bool bWheelStopped;
     bool bStopProcess;
     QMutex mutex;
+	RobustMatcher rMatcher;
 
 signals:
     //void resultReady(const QString &result);

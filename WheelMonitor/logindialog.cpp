@@ -21,9 +21,10 @@ LoginDialog::LoginDialog(QWidget *parent)
 	QPalette palette(this->palette());
 	palette.setColor(QPalette::Background, QColor(0, 170, 255));
 	setPalette(palette);
-	ui.idLineEdit->setFocus();
+	ui.idLineEdit->setText("BaoSteel");
 	ui.idLineEdit->setAttribute(Qt::WA_InputMethodEnabled, false);
 	ui.pwdLineEdit->setEchoMode(QLineEdit::Password);
+	ui.pwdLineEdit->setFocus();
 	ui.loginBtn->setDefault(true);
 }
 //	minButton = new QToolButton(this);   //最小化按钮

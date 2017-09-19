@@ -1,5 +1,6 @@
-#include "HikVideoCapture.h"
 #include "stdafx.h"
+#include "HikVideoCapture.h"
+
 
 using namespace std;
 
@@ -142,8 +143,8 @@ bool HikVideoCapture::startSave()
     bIsSaving = true;
     qDebug() << "save start";
     QString saveDir;
-    QString nowDate = QDateTime::currentDateTime().toString("yyyy-MM-dd"); //ddd is weekday
-    QString nowTime = QDateTime::currentDateTime().toString("hhmmss"); //ddd is weekday
+    QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd"); //ddd is weekday
+    QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss"); //ddd is weekday
     saveDir = QStringLiteral("D:/Capture/%1/%2.mp4").arg(nowDate).arg(nowTime);
     mutex.lock();
     //saveDirLink = QStringLiteral("file:///D:/Capture/%1.mp4").arg(dateTime);
@@ -151,7 +152,7 @@ bool HikVideoCapture::startSave()
     mutex.unlock();
     QByteArray ba = saveDir.toLatin1();
     if (NET_DVR_SaveRealData(lRealPlayHandle, ba.data())) {
-        QTimer::singleShot(50000, this, SLOT(timeoutSave())); //wait 50s
+		QTimer::singleShot(50000, this, SLOT(timeoutSave())); //wait 50s
         //emit isStartSave(true);
         return true;
     } else {
@@ -190,7 +191,8 @@ bool HikVideoCapture::timeoutSave()
 void HikVideoCapture::imageProcessReady()
 {
     //mutex.lock();
-    bIsProcessing = false; //如果图像处理完成，则允许录制下一帧；否则阻塞
+    bIsProcessing = false; 
+	//如果图像处理完成，则允许录制下一帧；否则阻塞
     //mutex.unlock();
 }
 
@@ -216,10 +218,10 @@ void CALLBACK HikVideoCapture::DecCBFun(long nPort, char* pBuf, long nSize, FRAM
         mutex.lock();
         pRawImage = pImg;
         mutex.unlock();
-        emit pVideoCapture->imageNeedProcess(); //单向通知,单向阻塞
         //mutex.lock();
         bIsProcessing = true; //不用锁，因为是automic（原子）操作
         //mutex.unlock();
+		emit pVideoCapture->imageNeedProcess(); //单向通知,单向阻塞
     }
     gbHandling = capInterval; // every 8 frame
 }

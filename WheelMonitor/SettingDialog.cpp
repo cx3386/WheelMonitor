@@ -30,6 +30,7 @@ void SettingDialog::setOption()
 	ImageProcess::radius_max = ui.radiusMaxSpinBox->value();
 	ImageProcess::radius_min = ui.radiusMinSpinBox->value();
 	HikVideoCapture::capInterval = ui.capIntervalSpinBox->value();
+	ImageProcess::angle2Speed = 60 * (M_PI * 0.650 / 360) / ((HikVideoCapture::capInterval + 1) / 25.0);
 	mutex.unlock();
 	qWarning("Option changed");
 }

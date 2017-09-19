@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget* parent)
 	readSettings();
 	configWindow();
 	//auto start
-	on_action_Start_triggered();
+	//on_action_Start_triggered();
 }
 
 MainWindow::~MainWindow()
@@ -41,21 +41,30 @@ MainWindow::~MainWindow()
 }
 void MainWindow::configWindow()
 {
+	/***************setup reclabel****************/
 	recLabel = new QLabel(ui.playerTab);
 	recLabel->setObjectName(QStringLiteral("recLabel"));
 	recLabel->setGeometry(20, 20, 50, 35);
 	recLabel->setScaledContents(true);
-	onRecStop();//init as grey
-				//recLabel->raise();
-				//recLabel->setAttribute(Qt::WA_TranslucentBackground);
 	recLabel->setVisible(false);
-	//updatenow
-	QString nowDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");
+	onRecStop();//init as grey
+	//recLabel->raise();
+	//recLabel->setAttribute(Qt::WA_TranslucentBackground);
+
+	/***************update now*****************/
+	//make dir for capture save
+	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
 	QString saveDir = QStringLiteral("D:/Capture/%1").arg(nowDate);
 	makeDir(saveDir);
+
 	//定时任务，每天00:00触发
 	int time_2_24 = QTime::currentTime().msecsTo(QTime(23, 59, 59, 999));
 	QTimer::singleShot(time_2_24, this, SLOT(update24()));
+
+	////Only for testing 定时emit startsave and stopsave
+	//QTimer *timerTMP1 = new QTimer(this);
+	//connect(timerTMP1, SIGNAL(timeout()), this, SLOT(startOrStopSave()));
+	//timerTMP1->start(10000);
 
 	connect(ui.action_About_Qt, &QAction::triggered, qApp, &QApplication::aboutQt);
 	//ui.imageMatchesLabel->setFixedSize(ui.imageMatchesLabel->size());
@@ -163,13 +172,14 @@ void MainWindow::readSettings()
 	ImageProcess::radius_min = settings.value("ImageProcess/radius_min", 250).toInt();
 
 	HikVideoCapture::capInterval = settings.value("VideoCapture/capInterval", 7).toInt();
+	ImageProcess::angle2Speed = 60 * (M_PI * 0.650 / 360) / ((HikVideoCapture::capInterval + 1) / 25.0);
 }
 
 void MainWindow::writeSettings()
 {
 	QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
 	settings.beginGroup("ImageProcess");
-	settings.setValue("sensorTriggered", ImageProcess::sensorTriggered);
+		settings.setValue("sensorTriggered", ImageProcess::sensorTriggered);
 	settings.setValue("angleHighThreshold", ImageProcess::angleHighThreshold);
 	settings.setValue("angleLowThreshold", ImageProcess::angleLowThreshold);
 	settings.setValue("radius_max", ImageProcess::radius_max);
@@ -208,6 +218,36 @@ void MainWindow::clearLog(int nDays)
 	}
 }
 
+bool MainWindow::delCapDir(int nDays)
+{
+	bool r = true;
+	QDir dir("D:/Capture");	//必须保证该文件夹里面没有其他文件，否则会误删
+	QStringList filters;
+	dir.setFilter(QDir::Dirs);
+	dir.setSorting(QDir::Name);	//from little to big
+	QFileInfoList list = dir.entryInfoList();
+	int nDirName = QDate::currentDate().toString("yyyyMMdd").toInt();
+	if (list.length() != 0)
+		for (int i = 0; i < list.size(); ++i) {
+			//prevent to del the '.' and '..' dirs, very important
+			if (list.at(i).fileName() == "." || list.at(i).fileName() == "..")
+				continue;
+			if (list.at(i).fileName().toInt() <= (nDirName - nDays)) {
+				dir = list.at(i).absoluteFilePath();
+				if (!dir.removeRecursively())
+					r = false;
+			}
+			else
+				break;
+		}
+	else {
+		qDebug() << "no file";
+		return false;
+	}
+	return r;
+}
+
+
 bool MainWindow::makeDir(QString fullPath)
 {
 	QDir dir(fullPath);
@@ -237,21 +277,13 @@ void MainWindow::closeEvent(QCloseEvent * event)
 
 void MainWindow::uiShowMatches()
 {
-	//static QVector<QRgb> sColorTable;
-	//// only create our color table once
-	//if (sColorTable.isEmpty()) {
-	//	for (int i = 0; i < 256; ++i)
-	//		sColorTable.push_back(qRgb(i, i, i));
-	//}
 	mutex.lock();
 	QImage image(imageProcess->imageMatches.data, imageProcess->imageMatches.cols, imageProcess->imageMatches.rows, imageProcess->imageMatches.step, QImage::Format_RGB888);
-	//cv::imshow("matches", imageProcess->imageMatches);
-	//qWarning() << imageProcess->imageMatches.type();	//CV_8UC3
 	mutex.unlock();
 	image.rgbSwapped();
 	//image.setColorTable(sColorTable);
 	image = image.scaled(ui.imageMatchesLabel->size(), Qt::KeepAspectRatio); //需要赋值
-	ui.imageMatchesLabel->setPixmap(QPixmap::fromImage(image));		//必须label->setscaledcontent()
+	ui.imageMatchesLabel->setPixmap(QPixmap::fromImage(image));		//label->setscaledcontent()
 }
 
 void MainWindow::uiShowLastSpeed(double speed)
@@ -297,14 +329,19 @@ void MainWindow::update24()
 	{
 		//delete log
 		clearLog(3);
+		//clear capVideo
+		delCapDir(30);
+
+		//mkpath for capVideo
 		QString nowDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");
 		QString saveDir = QStringLiteral("D:/Capture/%1").arg(nowDate);
 		makeDir(saveDir);
+		
 
 		//restart
-		on_action_Stop_triggered();
-		//等待一段时间
-		on_action_Start_triggered();
+		//on_action_Stop_triggered();
+		////等待一段时间
+		//on_action_Start_triggered();
 	}
 }
 
@@ -436,15 +473,16 @@ bool MainWindow::isStopWheelSensor(bool r)
 	return r;
 }
 
-//void MainWindow::on_startSaveBtn_clicked()
+//void MainWindow::startOrStopSave()
 //{
-//	plcSerial->emit startSave();
+//	static bool bRec = false;
+//	if (bRec)
+//		plcSerial->emit stopSave();
+//	else
+//		plcSerial->emit startSave();
+//	bRec = !bRec;
 //}
-//
-//void MainWindow::on_stopSaveBtn_clicked()
-//{
-//	plcSerial->emit stopSave();
-//}
+
 
 void MainWindow::on_action_About_triggered()
 {
@@ -455,12 +493,3 @@ void MainWindow::on_action_About_triggered()
 			"<p>本软件由浙江大学开发，如果问题请联系cx3386@163.com"));
 }
 
-//void MainWindow::reverseLabel()
-//{
-//	static bool bRec = false;
-//	if (bRec)
-//		onRecStart();
-//	else
-//		onRecStop();
-//	bRec = !bRec;
-//}

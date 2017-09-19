@@ -41,6 +41,7 @@ private:
 	
 	
 	void clearLog(int nDays);	//保留最近n天的日志
+	bool delCapDir(int nDays);	//保留最近n天的录像文件
 	bool makeDir(QString fullPath);
 	bool bIsTimer24First;
 	//for test
@@ -76,11 +77,7 @@ private slots:
 	bool isStartWheelSensor(bool r);
 	bool isStopWheelSensor(bool r);
 
-	//void on_startSaveBtn_clicked();
-	//void on_stopSaveBtn_clicked();
-
-	
-	//void reverseLabel();
+	//void startOrStopSave();
 
 signals:
 	void installLogSystem();
