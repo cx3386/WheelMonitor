@@ -88,23 +88,23 @@ bool HikVideoCapture::startCap(HWND h)
 
     lRealPlayHandle = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo, NULL, NULL);
 
-    NET_DVR_PREVIEWINFO struPlayInfo1 = { 0 };
-    struPlayInfo1.hPlayWnd = nullptr; //需要SDK解码时句柄设为有效值，仅取流不解码时可设为空
-    struPlayInfo1.lChannel = 1; //预览通道号
-    struPlayInfo1.dwStreamType = 0; //0-主码流，1-子码流，2-码流3，3-码流4，以此类推
-    struPlayInfo1.dwLinkMode = 0; //0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
-    struPlayInfo1.bBlocked = 1; //0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
+    NET_DVR_PREVIEWINFO struPlayInfo_HS = { 0 };
+    struPlayInfo_HS.hPlayWnd = nullptr; //需要SDK解码时句柄设为有效值，仅取流不解码时可设为空
+    struPlayInfo_HS.lChannel = 1; //预览通道号
+    struPlayInfo_HS.dwStreamType = 0; //0-主码流，1-子码流，2-码流3，3-码流4，以此类推
+    struPlayInfo_HS.dwLinkMode = 0; //0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
+    struPlayInfo_HS.bBlocked = 1; //0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
 
-    lRealPlayHandle1 = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo1, NULL, NULL);
+    lRealPlayHandle_HS = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo_HS, NULL, NULL);
 
-    if (!NET_DVR_SetRealDataCallBack(lRealPlayHandle1, fRealDataCallBack, lUserID)) {
+    if (!NET_DVR_SetRealDataCallBack(lRealPlayHandle_HS, fRealDataCallBack, lUserID)) {
         qDebug("NET_DVR_SetRealDataCallBack error, %d", NET_DVR_GetLastError());
         NET_DVR_Logout(lUserID);
         NET_DVR_Cleanup();
         emit isStartCap(false);
         return false;
     }
-    if ((lRealPlayHandle < 0) || (lRealPlayHandle1 < 0)) {
+    if ((lRealPlayHandle < 0) || (lRealPlayHandle_HS < 0)) {
         qDebug("NET_DVR_RealPlay_V40 error, %d", NET_DVR_GetLastError());
         NET_DVR_Logout(lUserID);
         NET_DVR_Cleanup();
@@ -118,7 +118,7 @@ bool HikVideoCapture::stopCap()
 {
     //---------------------------------------
     //关闭预览
-    if ((!NET_DVR_StopRealPlay(lRealPlayHandle)) || (!NET_DVR_StopRealPlay(lRealPlayHandle1))) {
+    if ((!NET_DVR_StopRealPlay(lRealPlayHandle)) || (!NET_DVR_StopRealPlay(lRealPlayHandle_HS))) {
         emit isStopCap(false);
         return false;
     }

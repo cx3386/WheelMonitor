@@ -159,7 +159,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	static Mat imgVessel, dstImg[2];	//不断刷新的容器//目标图像
 	static Mat maskVessel, mask[2];
 
-	int debugI = 0;
+	//int debugI = 0;
 
 	mutex.lock();
 	srcImg = HikVideoCapture::pRawImage;

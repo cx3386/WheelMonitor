@@ -1,9 +1,9 @@
 #pragma once
 #include <QObject>
-#include <Windows.h>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
+//#include <Windows.h>
+//#include <cstdlib>
+//#include <cstring>
+//#include <iostream>
 #include "HCNetSDK.h"
 #include "plaympeg4.h"
 
@@ -34,7 +34,7 @@ private:
 	static QMutex mutex;
 	LONG lUserID;
 	LONG lRealPlayHandle;
-	LONG lRealPlayHandle1;
+	LONG lRealPlayHandle_HS;
 	bool bIsSaving;
 
 signals:
