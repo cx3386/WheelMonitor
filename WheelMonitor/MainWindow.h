@@ -43,7 +43,6 @@ private:
 	void clearLog(int nDays);	//保留最近n天的日志
 	bool delCapDir(int nDays);	//保留最近n天的录像文件
 	bool makeDir(QString fullPath);
-	bool bIsTimer24First;
 	//for test
 	//QPushButton *startSaveBtn;
 	//QPushButton *stopSaveBtn;
