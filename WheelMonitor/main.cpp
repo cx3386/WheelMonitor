@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 	SingleApplication a(argc, argv);
 	MainWindow w;
 	QObject::connect(&a, &SingleApplication::instanceStarted, [&w]() {
-		w.showMinimized();
-		w.showMaximized();
+		w.raise();
+		w.activateWindow();
 	});
 	//QFont font = a.font();
 	//font.setPointSize(18);
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	{
 		QMessageBox::critical(&w, QStringLiteral("宝钢环冷机台车轮子状态检测"), QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
 		//a.exit(0);
-		return 0;
+		//return 0;
 	}
 	if (!creatConnection())	//连接到数据库
 		return 0;

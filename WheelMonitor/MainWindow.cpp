@@ -4,19 +4,20 @@
 
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent)
+	, bIsTimer24First(true)
 	, bRunningState(false)
 {
 	qRegisterMetaType<HWND>("HWND");
 	qRegisterMetaType<PLCSerial::AlarmColor>("AlarmColor");
-	//startSaveBtn = new QPushButton;
-//connect(startSaveBtn, SIGNAL(clicked()), this, SLOT(on_startSaveBtn_clicked()));
-//startSaveBtn->setText(QStringLiteral("开始保存"));
-//stopSaveBtn = new QPushButton;
-//connect(stopSaveBtn, SIGNAL(clicked()), this, SLOT(on_stopSaveBtn_clicked()));
-//stopSaveBtn->setText(QStringLiteral("停止保存"));
-//ui.horizontalLayout->addWidget(startSaveBtn);
-//ui.horizontalLayout->addWidget(stopSaveBtn);
-//action or menu
+		//startSaveBtn = new QPushButton;
+	//connect(startSaveBtn, SIGNAL(clicked()), this, SLOT(on_startSaveBtn_clicked()));
+	//startSaveBtn->setText(QStringLiteral("开始保存"));
+	//stopSaveBtn = new QPushButton;
+	//connect(stopSaveBtn, SIGNAL(clicked()), this, SLOT(on_stopSaveBtn_clicked()));
+	//stopSaveBtn->setText(QStringLiteral("停止保存"));
+	//ui.horizontalLayout->addWidget(startSaveBtn);
+	//ui.horizontalLayout->addWidget(stopSaveBtn);
+	//action or menu
 
 	ui.setupUi(this);
 	readSettings();
@@ -57,7 +58,7 @@ void MainWindow::configWindow()
 	makeDir(saveDir);
 
 	//定时任务，每天00:00触发
-	int time_2_24 = QTime::currentTime().msecsTo(QTime(23, 59, 59, 999)) + 1;
+	int time_2_24 = QTime::currentTime().msecsTo(QTime(23, 59, 59, 999));
 	QTimer::singleShot(time_2_24, this, SLOT(update24()));
 
 	////Only for testing 定时emit startsave and stopsave
@@ -178,7 +179,7 @@ void MainWindow::writeSettings()
 {
 	QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
 	settings.beginGroup("ImageProcess");
-	settings.setValue("sensorTriggered", ImageProcess::sensorTriggered);
+		settings.setValue("sensorTriggered", ImageProcess::sensorTriggered);
 	settings.setValue("angleHighThreshold", ImageProcess::angleHighThreshold);
 	settings.setValue("angleLowThreshold", ImageProcess::angleLowThreshold);
 	settings.setValue("radius_max", ImageProcess::radius_max);
@@ -268,7 +269,7 @@ void MainWindow::closeEvent(QCloseEvent * event)
 		writeSettings();
 		event->accept();
 	}
-	else
+	else 
 	{
 		event->ignore();
 	}
@@ -316,7 +317,6 @@ void MainWindow::anchorClickedSlot(const QUrl& url)
 
 void MainWindow::update24()
 {
-	static bool bIsTimer24First = true;
 	if (bIsTimer24First)
 	{
 		QTimer *timer24 = new QTimer(this);
@@ -328,15 +328,15 @@ void MainWindow::update24()
 	else
 	{
 		//delete log
-		clearLog(30);
+		clearLog(3);
 		//clear capVideo
 		delCapDir(30);
 
 		//mkpath for capVideo
-		QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
+		QString nowDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");
 		QString saveDir = QStringLiteral("D:/Capture/%1").arg(nowDate);
 		makeDir(saveDir);
-
+		
 
 		//restart
 		//on_action_Stop_triggered();
@@ -492,3 +492,4 @@ void MainWindow::on_action_About_triggered()
 			"<p>Copyright &copy; 2017 ZJU SKL."
 			"<p>本软件由浙江大学开发，如果问题请联系cx3386@163.com"));
 }
+
