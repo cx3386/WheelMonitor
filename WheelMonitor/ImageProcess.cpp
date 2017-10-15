@@ -22,6 +22,7 @@ bool ImageProcess::sensorTriggered = false;
 bool getUniqueFile(QString& fullFileName)
 {
 	QFileInfo fileInfo(fullFileName);
+	QString baseName_src = fileInfo.baseName();
 	for (int i = 1; i < 11; i++) //max 10 repeat
 	{
 		if (!fileInfo.exists()) {
@@ -29,7 +30,7 @@ bool getUniqueFile(QString& fullFileName)
 			return true;
 		}
 		else {
-			QString newBaseName(QStringLiteral("%1(%2)").arg(fileInfo.baseName()).arg(i));
+			QString newBaseName(QStringLiteral("%1(%2)").arg(baseName_src).arg(i));
 			fullFileName = QStringLiteral("%1/%2.%3").arg(fileInfo.absolutePath()).arg(newBaseName).arg(fileInfo.completeSuffix());
 			//sure file has suffix, omit this judgement.
 			/*if (!fileInfo.completeSuffix().isEmpty())
@@ -139,9 +140,10 @@ void ImageProcess::doImageProcess()
 					getAvgAngle();
 					nDetectCount++;
 				}
-				//如果一次都没有显示，报miss
+				//在轮子离开之前没有测得任何平均速度，报miss
 				if(!nDetectCount)
 					qWarning() << QStringLiteral("↑Miss test↑");
+				//在轮子离开之前测得了2次以上的平均速度，说明断连了 
 				if(nDetectCount!=1)
 					qDebug() << "detect count Error: " << nDetectCount;
 				nDetectCount = 0;	//每次将detectcount置零
