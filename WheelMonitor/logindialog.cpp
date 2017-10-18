@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "logindialog.h"
-#include "connection.h"
+#include "database.h"
 
 //using namespace std;
 //const static int posMinX = 0;
@@ -65,72 +65,3 @@ void LoginDialog::on_quitBtn_clicked()
 {
 	QDialog::reject();
 }
-
-//void LoginDialog::actionMin()
-//{
-//	showMinimized();
-//}
-//
-//
-//
-//
-///***************关闭************************/
-//void LoginDialog::actionClose()
-//{
-//	close();    //关闭
-//
-//
-//}
-//
-//
-//
-//
-///***************鼠标移动********************/
-//void LoginDialog::mouseMoveEvent(QMouseEvent *event)
-//{
-//	if (isMousePressed == true)
-//	{
-//		QPoint movePot = event->globalPos() - mousePosition;
-//		move(movePot);
-//	}
-//
-//
-//}
-//
-//
-//
-//
-///***************鼠标点击*******************/
-//void LoginDialog::mousePressEvent(QMouseEvent *event)
-//{
-//	mousePosition = event->pos();  //当鼠标单击窗体准备拖动时，初始化鼠标在窗体中的相对位置
-//								   //只对标题栏范围内的鼠标事件进行处理
-//	if (mousePosition.x() <= posMinX)
-//	{
-//		return;
-//	}
-//	if (mousePosition.x() >= posMaxX)
-//	{
-//		return;
-//	}
-//	if (mousePosition.y() <= posMinY)
-//	{
-//		return;
-//	}
-//	if (mousePosition.y() >= posMaxY)
-//	{
-//		return;
-//	}
-//
-//
-//	isMousePressed = true;
-//}
-//
-//
-//
-//
-///***************鼠标释放*******************/
-//void LoginDialog::mouseReleaseEvent(QMouseEvent *event)
-//{
-//	isMousePressed = false;
-//}

@@ -3,12 +3,12 @@
 #include <QtSql>
 #include <QtWidgets>
 
-static bool creatConnection()
+static bool creatDB()
 {
 	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 
 	db.setHostName("127.0.0.1");
-	db.setDatabaseName("file.db");
+	db.setDatabaseName("usersDB.db");
 	db.setUserName("BaoSteel");
 	db.setPassword("123456");
 	if (!db.open())
