@@ -3,14 +3,6 @@
 #include <QSerialPort>
 #include <QTimer>
 
-/*The alarm light control*/
-#define ALARM_LIGHT_ON		"@00WR010000F032*\r"		//1111
-#define ALARM_LIGHT_OFF		"@00WR0100000044*\r"		//0000
-#define ALARM_LIGHT_RED		"@00WR0100001045*\r"	
-#define ALARM_LIGHT_GREEN	"@00WR0100002046*\r"
-#define ALARM_LIGHT_YELLOW	"@00WR0100004040*\r"	
-
-
 class PLCSerial : public QObject
 {
 	Q_OBJECT
@@ -18,11 +10,12 @@ public:
 	explicit PLCSerial(QObject *parent = nullptr);
 	~PLCSerial();
 	enum AlarmColor {
+		ALarmUnkown = 0,
 		AlarmColorGreen = 1,
 		AlarmColorRed = 2,
-		AlarmColorYellow = 4
+		AlarmColorYellow = 4,
+		ALarmOFF = 8
 	};		//可以组合，用|
-
 
 private:
 	bool sensorA;
@@ -34,9 +27,8 @@ private:
 	QByteArray plcData;
 	enum AlarmColor currentAlarmColor;
 
-private slots:
-	void loopWheelSensor();	
-	
+	private slots:
+	void loopWheelSensor();
 
 signals:
 	//void initSignal();
@@ -46,9 +38,9 @@ signals:
 	void isStartWheelSensor(bool r);
 	void isStopWheelSensor(bool r);
 
-public slots :
+	public slots :
 	void init();
-	void Alarm(const char* lightcolor);
+	void Alarm(AlarmColor alarmcolor);
 
 	bool startWheelSensor();//0-00 1-01 2-10 3-11 4-error1 5-error2
 	bool stopWheelSensor();

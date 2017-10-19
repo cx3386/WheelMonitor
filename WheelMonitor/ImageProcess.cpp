@@ -53,9 +53,7 @@ ImageProcess::ImageProcess(QObject *parent) : QObject(parent)
 , bWheelStopped(false)
 //, waitTimeout(0)
 {
-
 }
-
 
 ImageProcess::~ImageProcess()
 {
@@ -100,10 +98,10 @@ void ImageProcess::doImageProcess()
 	{
 		if (bWheelStopped)	//if timeout, which means this wheel is stop, drop the calc and wait for a come-in signal
 		{
-				angleSum = 0;
-				angleCount = 0;
-				iImgCount = 0;
-				qWarning("cart stay in the detect area");
+			angleSum = 0;
+			angleCount = 0;
+			iImgCount = 0;
+			qWarning("cart stay in the detect area");
 		}
 		else if (!sensorTriggered)
 		{
@@ -141,17 +139,17 @@ void ImageProcess::doImageProcess()
 					nDetectCount++;
 				}
 				//在轮子离开之前没有测得任何平均速度，报miss
-				if(!nDetectCount)
+				if (!nDetectCount)
 					qWarning() << QStringLiteral("↑Miss test↑");
-				//在轮子离开之前测得了2次以上的平均速度，说明断连了 
-				if(nDetectCount!=1)
+				//在轮子离开之前测得了2次以上的平均速度，说明断连了
+				if (nDetectCount != 1)
 					qDebug() << "detect count Error: " << nDetectCount;
 				nDetectCount = 0;	//每次将detectcount置零
 			}
 		}
 	}
 	emit imageProcessReady();	//emit ready anyway
-	return;	
+	return;
 }
 
 int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait next srcImg
@@ -206,7 +204,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	{
 		imgVessel = imageRing;
 		maskVessel = maskTmp;
-		return 2; 
+		return 2;
 	}
 	if (iImgCount == 2)
 	{
@@ -225,9 +223,9 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 
 	Mat image_matches;
 	double oneAngle;
-	if(!rMatcher.match(dstImg[0], dstImg[1], mask[0], mask[1], image_matches, oneAngle))
+	if (!rMatcher.match(dstImg[0], dstImg[1], mask[0], mask[1], image_matches, oneAngle))
 		return 2;
-	
+
 	//qDebug() << ++debugI;
 
 	//计算角度
@@ -266,13 +264,13 @@ void ImageProcess::getAvgAngle()
 	qDebug() << "MatchCount: " << angleCount;
 	if (avgAngle < angleLowThreshold)
 	{
-		emit setAlarmLight(ALARM_LIGHT_RED);
+		emit setAlarmLight(PLCSerial::AlarmColorRed);
 		qWarning() << QStringLiteral("↑SLOW↑");
 		qCritical("SLOW");
 	}
 	else if (avgAngle > angleHighThreshold)
 	{
-		emit setAlarmLight(ALARM_LIGHT_YELLOW);
+		emit setAlarmLight(PLCSerial::AlarmColorYellow);
 		qWarning() << QStringLiteral("↑FAST↑");
 		qCritical("FAST");
 	}

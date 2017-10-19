@@ -8,7 +8,7 @@ static bool creatDB()
 	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 
 	db.setHostName("127.0.0.1");
-	db.setDatabaseName("usersDB.db");
+	db.setDatabaseName("WheelMonitor.db3");
 	db.setUserName("BaoSteel");
 	db.setPassword("123456");
 	if (!db.open())
