@@ -8,16 +8,6 @@ MainWindow::MainWindow(QWidget* parent)
 {
 	qRegisterMetaType<HWND>("HWND");
 	qRegisterMetaType<PLCSerial::AlarmColor>("AlarmColor");
-	//startSaveBtn = new QPushButton;
-//connect(startSaveBtn, SIGNAL(clicked()), this, SLOT(on_startSaveBtn_clicked()));
-//startSaveBtn->setText(QStringLiteral("开始保存"));
-//stopSaveBtn = new QPushButton;
-//connect(stopSaveBtn, SIGNAL(clicked()), this, SLOT(on_stopSaveBtn_clicked()));
-//stopSaveBtn->setText(QStringLiteral("停止保存"));
-//ui.horizontalLayout->addWidget(startSaveBtn);
-//ui.horizontalLayout->addWidget(stopSaveBtn);
-//action or menu
-
 	ui.setupUi(this);
 	readSettings();
 	configWindow();
@@ -27,7 +17,7 @@ MainWindow::MainWindow(QWidget* parent)
 
 MainWindow::~MainWindow()
 {
-	emit setAlarm(ALARM_LIGHT_OFF);	//不能从线程外操作
+	emit setAlarm(PLCSerial::ALarmOFF);	//不能从线程外操作
 	//recLabel->deleteLater();
 	videoCaptureThread.quit();
 	videoCaptureThread.wait();
@@ -102,7 +92,6 @@ void MainWindow::configWindow()
 	connect(videoCapture, &HikVideoCapture::isStopCap, this, &MainWindow::isStopCap);
 	connect(videoCapture, &HikVideoCapture::wheelTimeout, imageProcess, &ImageProcess::wheelTimeout);
 
-
 	//connect(this, &MainWindow::startSave, videoCapture, &HikVideoCapture::startSave);
 	//connect(this, &MainWindow::stopSave, videoCapture, &HikVideoCapture::stopSave);
 
@@ -139,7 +128,6 @@ void MainWindow::configWindow()
 	emit initPlcSerial();
 }
 
-
 void MainWindow::uiAlarmLight(PLCSerial::AlarmColor alarmColor) //1-green; 2-red; 4-yellow
 {
 	QPixmap pixmap;
@@ -159,7 +147,6 @@ void MainWindow::uiAlarmLight(PLCSerial::AlarmColor alarmColor) //1-green; 2-red
 	//pixmap = pixmap.scaled(256, 256);
 	ui.alarmPushButton->setIcon(QIcon(pixmap));
 }
-
 
 void MainWindow::readSettings()
 {
@@ -190,14 +177,13 @@ void MainWindow::writeSettings()
 	settings.endGroup();
 }
 
-
 void MainWindow::clearLog(int nDays)
 {
 	QDir dir("D:/");
 	QStringList filters;
 	dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
-	filters << "*.log";//设置过滤类型  
-	dir.setNameFilters(filters);//设置文件名的过滤  
+	filters << "*.log";//设置过滤类型
+	dir.setNameFilters(filters);//设置文件名的过滤
 	dir.setSorting(QDir::Name);
 	QFileInfoList list = dir.entryInfoList();
 	int nlogName = QDate::currentDate().toString("yyyyMMdd").toInt();
@@ -245,7 +231,6 @@ bool MainWindow::delCapDir(int nDays)
 	}
 	return r;
 }
-
 
 bool MainWindow::makeDir(QString fullPath)
 {
@@ -308,7 +293,6 @@ void MainWindow::uiShowErrorMessage(const QString & message)
 	ui.errorTextBrowser->append(errormsg);
 }
 
-
 void MainWindow::anchorClickedSlot(const QUrl& url)
 {
 	QDesktopServices::openUrl(QUrl(url.toString(), QUrl::TolerantMode));
@@ -336,7 +320,6 @@ void MainWindow::update24()
 		QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
 		QString saveDir = QStringLiteral("D:/Capture/%1").arg(nowDate);
 		makeDir(saveDir);
-
 
 		//restart
 		//on_action_Stop_triggered();
@@ -380,7 +363,7 @@ void MainWindow::on_action_Quit_triggered()
 }
 void MainWindow::on_alarmPushButton_clicked()
 {
-	emit setAlarm(ALARM_LIGHT_GREEN);
+	emit setAlarm(PLCSerial::AlarmColorGreen);
 }
 
 void MainWindow::on_errorTextBrowser_textChanged()
@@ -412,7 +395,7 @@ bool MainWindow::isStopCap(bool result)
 {
 	if (result)
 	{
-		emit setAlarm(ALARM_LIGHT_OFF);
+		emit setAlarm(PLCSerial::ALarmOFF);
 		ui.action_Start->setEnabled(true);
 		ui.action_Stop->setEnabled(false);
 		bRunningState = false;
@@ -448,7 +431,7 @@ bool MainWindow::isStartWheelSensor(bool r)
 {
 	if (r)
 	{
-		emit setAlarm(ALARM_LIGHT_GREEN);
+		emit setAlarm(PLCSerial::AlarmColorGreen);
 		ui.action_Start->setEnabled(false);
 		ui.action_Stop->setEnabled(true);
 		bRunningState = true;
@@ -482,7 +465,6 @@ bool MainWindow::isStopWheelSensor(bool r)
 //		plcSerial->emit startSave();
 //	bRec = !bRec;
 //}
-
 
 void MainWindow::on_action_About_triggered()
 {

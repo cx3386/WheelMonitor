@@ -4,7 +4,7 @@
 #include <singleapplication.h>
 #include "identification.h"
 #include "logindialog.h"
-#include "connection.h"
+#include "database.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		//a.exit(0);
 		return 0;
 	}
-	if (!creatConnection())	//连接到数据库
+	if (!initDataBase())	//连接到数据库
 		return 0;
 	MainWindow w;
 	QObject::connect(&a, &SingleApplication::instanceStarted, [&w]() {

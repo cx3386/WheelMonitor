@@ -1,19 +1,26 @@
 #include "stdafx.h"
 #include "PLCSerial.h"
 
+/*Write alarm light*/
+#define ALARM_LIGHT_ON		"@00WR010000F032*\r"		//1111
+#define ALARM_LIGHT_OFF		"@00WR0100000044*\r"		//0000
+#define ALARM_LIGHT_RED		"@00WR0100001045*\r"
+#define ALARM_LIGHT_GREEN	"@00WR0100002046*\r"
+#define ALARM_LIGHT_YELLOW	"@00WR0100004040*\r"
+
+/*Read sensor state*/
 
 PLCSerial::PLCSerial(QObject *parent) : QObject(parent)
-	, sensorA(false)
-	, sensorB(false)
-	, stopSensor(false)
-	, isConnect(false)
+, sensorA(false)
+, sensorB(false)
+, stopSensor(false)
+, isConnect(false)
+, currentAlarmColor(ALarmUnkown)
 {
 }
 
-
-
 PLCSerial::~PLCSerial()
-{	
+{
 	//sensorTimer->deleteLater();
 	plcSerialPort->deleteLater();
 	plcSerialPort->close();
@@ -35,32 +42,20 @@ void PLCSerial::init()
 		isConnect = true;
 }
 
-void PLCSerial::Alarm(const char* lightcolor)		//应该改为Alarm(AlarmColor alarmcolor)的形式，通过&Mask判断FLag的值,再对plcData（不要定义为全局变量）赋值
+void PLCSerial::Alarm(AlarmColor alarmcolor)		//应该改为Alarm(AlarmColor alarmcolor)的形式，通过&Mask判断FLag的值,再对plcData（不要定义为全局变量）赋值
 {
-	plcData = lightcolor;
-	
-	if (plcData == ALARM_LIGHT_GREEN)
-	{
-		emit setUiAlarm(AlarmColorGreen);
-		currentAlarmColor = AlarmColorGreen;
-	}
-	else if (plcData == ALARM_LIGHT_RED)
-	{
-		emit setUiAlarm(AlarmColorRed);
-		currentAlarmColor = AlarmColorRed;
-	}
-	else if (plcData == ALARM_LIGHT_YELLOW)		//yellow light(waring) cannot override red
-	{
-		if (currentAlarmColor == AlarmColorRed)
-		{
-			return;
-		}
-		else
-		{
-			emit setUiAlarm(AlarmColorYellow);
-			currentAlarmColor = AlarmColorYellow;
-		}
-	}
+	if ((currentAlarmColor == alarmcolor) || ((currentAlarmColor == AlarmColorRed) && (alarmcolor & AlarmColorYellow)))	//yellow light(waring) never override red
+		return;	//if alarmcolor is same as currentcolor, or color is now red and to be yellow, return;
+	currentAlarmColor = alarmcolor;
+	if (alarmcolor & AlarmColorGreen)
+		plcData = ALARM_LIGHT_GREEN;
+	else if (alarmcolor & AlarmColorRed)
+		plcData = ALARM_LIGHT_RED;
+	else if (alarmcolor & AlarmColorYellow)
+		plcData = ALARM_LIGHT_YELLOW;
+	else if (alarmcolor & ALarmOFF)
+		plcData = ALARM_LIGHT_OFF;
+	emit setUiAlarm(alarmcolor);
 	plcSerialPort->write(plcData);
 	if (plcSerialPort->waitForBytesWritten(100))
 	{
@@ -75,13 +70,13 @@ void PLCSerial::Alarm(const char* lightcolor)		//应该改为Alarm(AlarmColor alarmc
 	}
 }
 
-bool PLCSerial::startWheelSensor()	
+bool PLCSerial::startWheelSensor()
 {
 	if (isConnect)
 	{
 		sensorTimer = new QTimer;
 		connect(sensorTimer, SIGNAL(timeout()), this, SLOT(loopWheelSensor()));
- 		sensorTimer->start(1000);		//0 is error, 1 is ok.
+		sensorTimer->start(1000);		//0 is error, 1 is ok.
 		emit isStartWheelSensor(true);
 		return true;
 	}
@@ -91,7 +86,6 @@ bool PLCSerial::startWheelSensor()
 		emit isStartWheelSensor(false);
 		return false;
 	}
-	
 }
 bool PLCSerial::stopWheelSensor()
 {
@@ -114,7 +108,7 @@ void PLCSerial::loopWheelSensor()
 
 			if (responseData == "@00RR00000040*\r")
 			{
-				if (sensorA == true && sensorB == false) 
+				if (sensorA == true && sensorB == false)
 				{
 					emit stopSave();
 				}
@@ -151,7 +145,6 @@ void PLCSerial::loopWheelSensor()
 				qWarning() << "Error: the wheel sensor: A&B";
 			}	//11
 			else qWarning() << "Error: the wheel sensor wrong response";
-
 		}
 		else {
 			//QString str(tr("Wait read response timeout %1")
@@ -160,11 +153,9 @@ void PLCSerial::loopWheelSensor()
 		}
 	}
 	else {
-
 		//QString str(tr("Wait write request timeout %1")
 		//.arg(QTime::currentTime().toString()));
 		qWarning() << "Wait write request timeout";
 	}
 	//qDebug() << "SensorA: " << sensorA << "SensorB: " << sensorB;
-
 }

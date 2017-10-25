@@ -7,15 +7,13 @@
 #include "ui_MainWindow.h"
 #include <QtWidgets/QMainWindow>
 
-
-
 class MainWindow : public QMainWindow {
 	Q_OBJECT
 
 public:
 	MainWindow(QWidget* parent = Q_NULLPTR);
 	~MainWindow();
-	
+
 	//void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& msg);
 
 private:
@@ -23,7 +21,7 @@ private:
 	bool bRunningState;
 	QLabel *recLabel;
 	/*****worker******/
-	MyMessageOutput* outputMessage; 
+	MyMessageOutput* outputMessage;
 	ImageProcess* imageProcess;
 	HikVideoCapture* videoCapture;
 	PLCSerial* plcSerial;
@@ -38,8 +36,7 @@ private:
 	void configWindow();
 	void readSettings();
 	void writeSettings();
-	
-	
+
 	void clearLog(int nDays);	//保留最近n天的日志
 	bool delCapDir(int nDays);	//保留最近n天的录像文件
 	bool makeDir(QString fullPath);
@@ -50,7 +47,7 @@ private:
 protected:
 	void closeEvent(QCloseEvent * event);
 
-public slots:
+	public slots:
 	void uiAlarmLight(PLCSerial::AlarmColor alarmColor);
 	void uiShowMatches();
 	void uiShowLastSpeed(double speed);
@@ -58,7 +55,7 @@ public slots:
 	void uiShowLogMessage(const QString &message);
 	void uiShowErrorMessage(const QString &message);
 
-private slots:
+	private slots:
 	void anchorClickedSlot(const QUrl& url);
 	void update24();
 	void on_action_Start_triggered();
@@ -84,10 +81,10 @@ signals:
 	void stopCap();
 	void startProcess();
 	void stopProcess();
-	//void startSave(); //自动认为save阶段不会出错，不需要做处理 
+	//void startSave(); //自动认为save阶段不会出错，不需要做处理
 	//void stopSave();
 	void initPlcSerial();
 	void startWheelSensor();
-	void stopWheelSensor(); 
-	void setAlarm(const char* lightcolor);
+	void stopWheelSensor();
+	void setAlarm(PLCSerial::AlarmColor alarmcolor);
 };
