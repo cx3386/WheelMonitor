@@ -2,13 +2,20 @@
 #include "PLCSerial.h"
 
 /*Write alarm light*/
-#define ALARM_LIGHT_ON		"@00WR010000F032*\r"		//1111
-#define ALARM_LIGHT_OFF		"@00WR0100000044*\r"		//0000
-#define ALARM_LIGHT_RED		"@00WR0100001045*\r"
-#define ALARM_LIGHT_GREEN	"@00WR0100002046*\r"
-#define ALARM_LIGHT_YELLOW	"@00WR0100004040*\r"
+#define ALARM_LIGHT_ON		    "@00WR010000F032*\r"		//1111
+#define ALARM_LIGHT_OFF		    "@00WR0100000044*\r"		//0000
+#define ALARM_LIGHT_RED		    "@00WR0100001045*\r"
+#define ALARM_LIGHT_GREEN	    "@00WR0100002046*\r"
+#define ALARM_LIGHT_YELLOW		"@00WR0100004040*\r"
 
 /*Read sensor state*/
+#define READ_SENSOR_STATE       "@00RR0000000141*\r"
+#define SENSOR_A_OFF_B_OFF	    "@00RR00000040*\r"
+#define SENSOR_A_ON_B_OFF	    "@00RR00000242*\r"
+#define SENSOR_A_OFF_B_ON	    "@00RR00000848*\r"
+#define SENSOR_A_ON_B_ON	    "@00RR00000A31*\r"
+
+#define WR_CORRECT_RESPONSE       "@00WR0045*\r"
 
 PLCSerial::PLCSerial(QObject *parent) : QObject(parent)
 , sensorA(false)
@@ -64,7 +71,7 @@ void PLCSerial::Alarm(AlarmColor alarmcolor)		//应该改为Alarm(AlarmColor alarmco
 			QByteArray responseData = plcSerialPort->readAll();
 			while (plcSerialPort->waitForReadyRead(100))
 				responseData += plcSerialPort->readAll();
-			if (responseData != "@00WR0045*\r")
+			if (responseData != WR_CORRECT_RESPONSE)
 				qWarning() << "Error: Alarm Light wrong return";
 		}
 	}
@@ -98,7 +105,7 @@ bool PLCSerial::stopWheelSensor()
 
 void PLCSerial::loopWheelSensor()
 {
-	plcData = "@00RR0000000141*\r";
+	plcData = READ_SENSOR_STATE;
 	plcSerialPort->write(plcData);
 	if (plcSerialPort->waitForBytesWritten(100)) {
 		if (plcSerialPort->waitForReadyRead(100)) {
@@ -106,7 +113,7 @@ void PLCSerial::loopWheelSensor()
 			while (plcSerialPort->waitForReadyRead(100))
 				responseData += plcSerialPort->readAll();
 
-			if (responseData == "@00RR00000040*\r")
+			if (responseData == SENSOR_A_OFF_B_OFF)
 			{
 				if (sensorA == true && sensorB == false)
 				{
@@ -116,12 +123,12 @@ void PLCSerial::loopWheelSensor()
 				sensorB = false;
 				//00 10->00，即A的下降沿，则认为A出界，停止录像
 			}	//如果状态改变则发出信号否则return
-			else if (responseData == "@00RR00000242*\r")
+			else if (responseData == SENSOR_A_ON_B_OFF)
 			{
 				sensorA = true;
 				sensorB = false;
 			}	//01
-			else if (responseData == "@00RR00000848*\r")
+			else if (responseData == SENSOR_A_OFF_B_ON)
 			{
 				//if (sensorA == false && sensorB == true)
 				//	return;
@@ -140,7 +147,7 @@ void PLCSerial::loopWheelSensor()
 			}	//10 00->01,即B的上升沿，认为B进入，开始录像
 			//planA不变的话就return不管，一旦变成现在的信号（无论从哪个状态变化来的）则判断原来就执行动作；planB触发现在状况后，对上一个状态进行筛选，如果是希望的状态（唯一），则执行动作
 			//planB的执行更加严格，因为它要求上一次状态检测是符合要求的（甚至要却决于另一个传感器）
-			else if (responseData == "@00RR00000A31*\r")
+			else if (responseData == SENSOR_A_ON_B_ON)
 			{
 				qWarning() << "Error: the wheel sensor: A&B";
 			}	//11
