@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "PLCSerial.h"
 
-/*The alarm light control*/
+/*Write alarm light*/
 #define ALARM_LIGHT_ON		"@00WR010000F032*\r"		//1111
 #define ALARM_LIGHT_OFF		"@00WR0100000044*\r"		//0000
 #define ALARM_LIGHT_RED		"@00WR0100001045*\r"
 #define ALARM_LIGHT_GREEN	"@00WR0100002046*\r"
 #define ALARM_LIGHT_YELLOW	"@00WR0100004040*\r"
+
+/*Read sensor state*/
 
 PLCSerial::PLCSerial(QObject *parent) : QObject(parent)
 , sensorA(false)

@@ -8,7 +8,6 @@
 
 int main(int argc, char *argv[])
 {
-
 	////QApplication::addLibraryPath("./plugins");	//very important
 	SingleApplication a(argc, argv);
 	MainWindow w;
@@ -26,7 +25,7 @@ int main(int argc, char *argv[])
 		//a.exit(0);
 		return 0;
 	}
-	if (!creatDB())	//连接到数据库
+	if (!initDataBase())	//连接到数据库
 		return 0;
 	LoginDialog dlg(&w);
 	if (dlg.exec() == QDialog::Accepted)

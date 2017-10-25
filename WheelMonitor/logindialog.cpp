@@ -44,12 +44,12 @@ void LoginDialog::on_loginBtn_clicked()
 		QMessageBox::information(this, QStringLiteral("ÇëÊäÈëÃÜÂë"), QStringLiteral("ÇëÊäÈëÃÜÂëºóÔÙµÇÂ¼!"), QStringLiteral("È·¶¨"));
 		ui.pwdLineEdit->setFocus();
 	}
-	else 
+	else
 	{
 		QSqlQuery query;
-		query.exec(QStringLiteral("select * from user where id='%1' and pwd='%2';").arg(ui.idLineEdit->text()).arg(ui.pwdLineEdit->text()));
-		if(query.next())
-		{ 		
+		query.exec(QStringLiteral("select * from user where username='%1' and pwd='%2';").arg(ui.idLineEdit->text()).arg(ui.pwdLineEdit->text()));
+		if (query.next())
+		{
 			QDialog::accept();
 		}
 		else
@@ -58,7 +58,6 @@ void LoginDialog::on_loginBtn_clicked()
 			ui.idLineEdit->setFocus();
 		}
 	}
-
 }
 
 void LoginDialog::on_quitBtn_clicked()
