@@ -57,6 +57,16 @@ public:
     QLabel *radiusMaxLabel;
     QSpacerItem *horizontalSpacer_8;
     QSpinBox *radiusMaxSpinBox;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *roiLabel_1;
+    QSpinBox *roiSpinBox_x;
+    QLabel *roiLabel_2;
+    QSpinBox *roiSpinBox_y;
+    QLabel *roiLabel_3;
+    QSpinBox *roiSpinBox_w;
+    QLabel *roiLabel_4;
+    QSpinBox *roiSpinBox_h;
+    QLabel *roiLabel_5;
     QSpacerItem *horizontalSpacer_10;
     QGroupBox *videoCaptureGroupBox;
     QGridLayout *gridLayout_3;
@@ -65,8 +75,8 @@ public:
     QSpacerItem *horizontalSpacer_9;
     QSpinBox *capIntervalSpinBox;
     QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *verticalSpacer;
     QSpacerItem *horizontalSpacer;
+    QSpacerItem *verticalSpacer;
     QWidget *tab_2;
     QHBoxLayout *horizontalLayout_5;
     QSpacerItem *horizontalSpacer_5;
@@ -79,7 +89,7 @@ public:
             SettingDialog->setObjectName(QStringLiteral("SettingDialog"));
         SettingDialog->setWindowModality(Qt::ApplicationModal);
         SettingDialog->setEnabled(true);
-        SettingDialog->resize(481, 491);
+        SettingDialog->resize(529, 470);
         gridLayout = new QGridLayout(SettingDialog);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -188,6 +198,61 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_4);
 
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        roiLabel_1 = new QLabel(imageProcessGroupBox);
+        roiLabel_1->setObjectName(QStringLiteral("roiLabel_1"));
+
+        horizontalLayout_7->addWidget(roiLabel_1);
+
+        roiSpinBox_x = new QSpinBox(imageProcessGroupBox);
+        roiSpinBox_x->setObjectName(QStringLiteral("roiSpinBox_x"));
+        roiSpinBox_x->setMaximum(1280);
+
+        horizontalLayout_7->addWidget(roiSpinBox_x);
+
+        roiLabel_2 = new QLabel(imageProcessGroupBox);
+        roiLabel_2->setObjectName(QStringLiteral("roiLabel_2"));
+
+        horizontalLayout_7->addWidget(roiLabel_2);
+
+        roiSpinBox_y = new QSpinBox(imageProcessGroupBox);
+        roiSpinBox_y->setObjectName(QStringLiteral("roiSpinBox_y"));
+        roiSpinBox_y->setMaximum(720);
+
+        horizontalLayout_7->addWidget(roiSpinBox_y);
+
+        roiLabel_3 = new QLabel(imageProcessGroupBox);
+        roiLabel_3->setObjectName(QStringLiteral("roiLabel_3"));
+
+        horizontalLayout_7->addWidget(roiLabel_3);
+
+        roiSpinBox_w = new QSpinBox(imageProcessGroupBox);
+        roiSpinBox_w->setObjectName(QStringLiteral("roiSpinBox_w"));
+        roiSpinBox_w->setMaximum(1280);
+
+        horizontalLayout_7->addWidget(roiSpinBox_w);
+
+        roiLabel_4 = new QLabel(imageProcessGroupBox);
+        roiLabel_4->setObjectName(QStringLiteral("roiLabel_4"));
+
+        horizontalLayout_7->addWidget(roiLabel_4);
+
+        roiSpinBox_h = new QSpinBox(imageProcessGroupBox);
+        roiSpinBox_h->setObjectName(QStringLiteral("roiSpinBox_h"));
+        roiSpinBox_h->setMaximum(720);
+
+        horizontalLayout_7->addWidget(roiSpinBox_h);
+
+        roiLabel_5 = new QLabel(imageProcessGroupBox);
+        roiLabel_5->setObjectName(QStringLiteral("roiLabel_5"));
+
+        horizontalLayout_7->addWidget(roiLabel_5);
+
+
+        verticalLayout->addLayout(horizontalLayout_7);
+
 
         gridLayout_2->addLayout(verticalLayout, 1, 0, 1, 1);
 
@@ -196,7 +261,7 @@ public:
         gridLayout_2->addItem(horizontalSpacer_10, 1, 1, 1, 1);
 
 
-        gridLayout_4->addWidget(imageProcessGroupBox, 0, 0, 1, 1);
+        gridLayout_4->addWidget(imageProcessGroupBox, 0, 0, 1, 2);
 
         videoCaptureGroupBox = new QGroupBox(tab);
         videoCaptureGroupBox->setObjectName(QStringLiteral("videoCaptureGroupBox"));
@@ -232,13 +297,13 @@ public:
 
         gridLayout_4->addWidget(videoCaptureGroupBox, 1, 0, 1, 1);
 
-        verticalSpacer = new QSpacerItem(20, 213, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_4->addItem(verticalSpacer, 2, 0, 1, 1);
-
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_4->addItem(horizontalSpacer, 1, 1, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 213, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_4->addItem(verticalSpacer, 3, 0, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -298,10 +363,15 @@ public:
         SettingDialog->setWindowTitle(QApplication::translate("SettingDialog", "SettingDialog", Q_NULLPTR));
         imageProcessGroupBox->setTitle(QApplication::translate("SettingDialog", "Image Process", Q_NULLPTR));
         sensorCheckBox->setText(QApplication::translate("SettingDialog", "Sensor triggered", Q_NULLPTR));
-        angleHighLabel->setText(QApplication::translate("SettingDialog", "&angleHighThreshold", Q_NULLPTR));
-        angleLowLabel->setText(QApplication::translate("SettingDialog", "&angleLowThreshold", Q_NULLPTR));
+        angleHighLabel->setText(QApplication::translate("SettingDialog", "highRatio", Q_NULLPTR));
+        angleLowLabel->setText(QApplication::translate("SettingDialog", "lowRatio", Q_NULLPTR));
         radiusMinLabel->setText(QApplication::translate("SettingDialog", "&radius_min", Q_NULLPTR));
         radiusMaxLabel->setText(QApplication::translate("SettingDialog", "&radius_max", Q_NULLPTR));
+        roiLabel_1->setText(QApplication::translate("SettingDialog", "roiRect(", Q_NULLPTR));
+        roiLabel_2->setText(QApplication::translate("SettingDialog", ",", Q_NULLPTR));
+        roiLabel_3->setText(QApplication::translate("SettingDialog", ",", Q_NULLPTR));
+        roiLabel_4->setText(QApplication::translate("SettingDialog", ",", Q_NULLPTR));
+        roiLabel_5->setText(QApplication::translate("SettingDialog", ")", Q_NULLPTR));
         videoCaptureGroupBox->setTitle(QApplication::translate("SettingDialog", "Video Capture", Q_NULLPTR));
         capIntervalLabel->setText(QApplication::translate("SettingDialog", "&capInterval", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("SettingDialog", "Tab 1", Q_NULLPTR));

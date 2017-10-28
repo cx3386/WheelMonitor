@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 {
 	////QApplication::addLibraryPath("./plugins");	//very important
 	SingleApplication a(argc, argv);
+
 	identification ide;
 	if (ide.flag_cpu_mac == 0)
 	{

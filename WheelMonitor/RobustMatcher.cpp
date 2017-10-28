@@ -11,13 +11,12 @@ RobustMatcher::RobustMatcher()
 	matcher = DescriptorMatcher::create("BruteForce-Hamming");
 }
 
-
 RobustMatcher::~RobustMatcher()
 {
 	//Œ¥ Õ∑≈ detector & matcher
 }
 
-bool RobustMatcher::match(Mat & image1, Mat & image2, Mat & mask1, Mat &mask2, Mat& img_matches, double& angle)
+bool RobustMatcher::match(Mat& image1, Mat& image2, Mat& mask1, Mat& mask2, Mat& img_matches, double& angle)
 {
 	vector<KeyPoint> keypoints1, keypoints2;
 	// 1a. Detection of the ORB features

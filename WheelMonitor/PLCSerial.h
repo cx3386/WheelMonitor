@@ -34,13 +34,13 @@ signals:
 	//void initSignal();
 	void startSave();
 	void stopSave();
-	void setUiAlarm(AlarmColor alarmColor);
+	void setUiAlarm(PLCSerial::AlarmColor alarmColor);
 	void isStartWheelSensor(bool r);
 	void isStopWheelSensor(bool r);
 
 	public slots :
 	void init();
-	void Alarm(AlarmColor alarmcolor);
+	void Alarm(PLCSerial::AlarmColor alarmcolor);
 
 	bool startWheelSensor();//0-00 1-01 2-10 3-11 4-error1 5-error2
 	bool stopWheelSensor();

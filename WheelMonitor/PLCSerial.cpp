@@ -2,9 +2,10 @@
 #include "PLCSerial.h"
 
 /*Write alarm light*/
+/*the center control alarm is 0001*/
 #define ALARM_LIGHT_ON		    "@00WR010000F032*\r"		//1111
 #define ALARM_LIGHT_OFF		    "@00WR0100000044*\r"		//0000
-#define ALARM_LIGHT_RED		    "@00WR0100001045*\r"
+#define ALARM_LIGHT_RED		    "@00WR0100001144*\r"
 #define ALARM_LIGHT_GREEN	    "@00WR0100002046*\r"
 #define ALARM_LIGHT_YELLOW		"@00WR0100004040*\r"
 
@@ -24,6 +25,7 @@ PLCSerial::PLCSerial(QObject *parent) : QObject(parent)
 , isConnect(false)
 , currentAlarmColor(ALarmUnkown)
 {
+	//qRegisterMetaType<PLCSerial::AlarmColor>("AlarmColor");	//2017/10/26
 }
 
 PLCSerial::~PLCSerial()
@@ -42,14 +44,15 @@ void PLCSerial::init()
 	plcSerialPort->setDataBits(QSerialPort::Data7);
 	plcSerialPort->setStopBits(QSerialPort::TwoStop);
 	plcSerialPort->close();
-	if (!plcSerialPort->open(QIODevice::ReadWrite)) {
-		qWarning() << QString("Can't connect PLC, error code %2").arg(plcSerialPort->error());
+	if (!plcSerialPort->open(QIODevice::ReadWrite))
+	{
+		qWarning() << QString("Can't connect PLC, error code %1").arg(plcSerialPort->error());
 	}
 	else
 		isConnect = true;
 }
 
-void PLCSerial::Alarm(AlarmColor alarmcolor)		//Ó¦¸Ã¸ÄÎªAlarm(AlarmColor alarmcolor)µÄÐÎÊ½£¬Í¨¹ý&MaskÅÐ¶ÏFLagµÄÖµ,ÔÙ¶ÔplcData£¨²»Òª¶¨ÒåÎªÈ«¾Ö±äÁ¿£©¸³Öµ
+void PLCSerial::Alarm(AlarmColor alarmcolor)		//Ó¦ï¿½Ã¸ï¿½ÎªAlarm(AlarmColor alarmcolor)ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Í¨ï¿½ï¿½&Maskï¿½Ð¶ï¿½FLagï¿½ï¿½Öµ,ï¿½Ù¶ï¿½plcDataï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÎªÈ«ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 {
 	if ((currentAlarmColor == alarmcolor) || ((currentAlarmColor == AlarmColorRed) && (alarmcolor & AlarmColorYellow)))	//yellow light(waring) never override red
 		return;	//if alarmcolor is same as currentcolor, or color is now red and to be yellow, return;
@@ -121,8 +124,8 @@ void PLCSerial::loopWheelSensor()
 				}
 				sensorA = false;
 				sensorB = false;
-				//00 10->00£¬¼´AµÄÏÂ½µÑØ£¬ÔòÈÏÎªA³ö½ç£¬Í£Ö¹Â¼Ïñ
-			}	//Èç¹û×´Ì¬¸Ä±äÔò·¢³öÐÅºÅ·ñÔòreturn
+				//00 10->00ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Â½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ÎªAï¿½ï¿½ï¿½ç£¬Í£Ö¹Â¼ï¿½ï¿½
+			}	//ï¿½ï¿½ï¿½×´Ì¬ï¿½Ä±ï¿½ï¿½ò·¢³ï¿½ï¿½ÅºÅ·ï¿½ï¿½ï¿½return
 			else if (responseData == SENSOR_A_ON_B_OFF)
 			{
 				sensorA = true;
@@ -144,9 +147,9 @@ void PLCSerial::loopWheelSensor()
 				}
 				sensorA = false;
 				sensorB = true;
-			}	//10 00->01,¼´BµÄÉÏÉýÑØ£¬ÈÏÎªB½øÈë£¬¿ªÊ¼Â¼Ïñ
-			//planA²»±äµÄ»°¾Íreturn²»¹Ü£¬Ò»µ©±ä³ÉÏÖÔÚµÄÐÅºÅ£¨ÎÞÂÛ´ÓÄÄ¸ö×´Ì¬±ä»¯À´µÄ£©ÔòÅÐ¶ÏÔ­À´¾ÍÖ´ÐÐ¶¯×÷£»planB´¥·¢ÏÖÔÚ×´¿öºó£¬¶ÔÉÏÒ»¸ö×´Ì¬½øÐÐÉ¸Ñ¡£¬Èç¹ûÊÇÏ£ÍûµÄ×´Ì¬£¨Î¨Ò»£©£¬ÔòÖ´ÐÐ¶¯×÷
-			//planBµÄÖ´ÐÐ¸ü¼ÓÑÏ¸ñ£¬ÒòÎªËüÒªÇóÉÏÒ»´Î×´Ì¬¼ì²âÊÇ·ûºÏÒªÇóµÄ£¨ÉõÖÁÒªÈ´¾öÓÚÁíÒ»¸ö´«¸ÐÆ÷£©
+			}	//10 00->01,ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ÎªBï¿½ï¿½ï¿½ë£¬ï¿½ï¿½Ê¼Â¼ï¿½ï¿½
+			//planAï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½returnï¿½ï¿½ï¿½Ü£ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ÅºÅ£ï¿½ï¿½ï¿½ï¿½Û´ï¿½ï¿½Ä¸ï¿½×´Ì¬ï¿½ä»¯ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ô­ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½planBï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´ï¿½ï¿½ï¿½ó£¬¶ï¿½ï¿½ï¿½Ò»ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½É¸Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Î¨Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¶ï¿½ï¿½ï¿½
+			//planBï¿½ï¿½Ö´ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½Îªï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÈ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			else if (responseData == SENSOR_A_ON_B_ON)
 			{
 				qWarning() << "Error: the wheel sensor: A&B";

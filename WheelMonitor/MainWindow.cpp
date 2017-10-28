@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget* parent)
 	, bRunningState(false)
 {
 	qRegisterMetaType<HWND>("HWND");
-	qRegisterMetaType<PLCSerial::AlarmColor>("AlarmColor");
+	qRegisterMetaType<PLCSerial::AlarmColor>("PLCSerial::AlarmColor");
 	ui.setupUi(this);
 	readSettings();
 	configWindow();
@@ -152,10 +152,14 @@ void MainWindow::readSettings()
 {
 	QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
 	ImageProcess::sensorTriggered = settings.value("ImageProcess/sensorTriggered", false).toBool();
-	ImageProcess::angleHighThreshold = settings.value("ImageProcess/angleHighThreshold", 3.0).toDouble();
-	ImageProcess::angleLowThreshold = settings.value("ImageProcess/angleLowThreshold", 2.0).toDouble();
+	ImageProcess::angleBigRatio = settings.value("ImageProcess/angleBigRatio", 1.2).toDouble();
+	ImageProcess::angleSmallRatio = settings.value("ImageProcess/angleSmallRatio", 0.8).toDouble();
 	ImageProcess::radius_max = settings.value("ImageProcess/radius_max", 350).toInt();
 	ImageProcess::radius_min = settings.value("ImageProcess/radius_min", 250).toInt();
+	ImageProcess::roiRect = cv::Rect(settings.value("ImageProcess/roiRect_x", 220).toInt(),
+		settings.value("ImageProcess/roiRect_y", 0).toInt(),
+		settings.value("ImageProcess/roiRect_w", 800).toInt(),
+		settings.value("ImageProcess/roiRect_h", 720).toInt());
 
 	HikVideoCapture::capInterval = settings.value("VideoCapture/capInterval", 7).toInt();
 	ImageProcess::angle2Speed = 60 * (M_PI * 0.650 / 360) / ((HikVideoCapture::capInterval + 1) / 25.0);
@@ -166,10 +170,14 @@ void MainWindow::writeSettings()
 	QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
 	settings.beginGroup("ImageProcess");
 	settings.setValue("sensorTriggered", ImageProcess::sensorTriggered);
-	settings.setValue("angleHighThreshold", ImageProcess::angleHighThreshold);
-	settings.setValue("angleLowThreshold", ImageProcess::angleLowThreshold);
+	settings.setValue("angleBigRatio", ImageProcess::angleBigRatio);
+	settings.setValue("angleSmallRatio", ImageProcess::angleSmallRatio);
 	settings.setValue("radius_max", ImageProcess::radius_max);
 	settings.setValue("radius_min", ImageProcess::radius_min);
+	settings.setValue("roiRect_x", ImageProcess::roiRect.x);
+	settings.setValue("roiRect_y", ImageProcess::roiRect.y);
+	settings.setValue("roiRect_w", ImageProcess::roiRect.width);
+	settings.setValue("roiRect_h", ImageProcess::roiRect.height);
 	settings.endGroup();
 
 	settings.beginGroup("VideoCapture");

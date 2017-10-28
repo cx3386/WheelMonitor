@@ -7,17 +7,18 @@
 using namespace std;
 using namespace cv;
 
-double ImageProcess::angle2Speed = 60 * (M_PI * 0.650 / 360) / (8.0 / 25.0);
-double ImageProcess::angleHighThreshold = 3.0;
-double ImageProcess::angleLowThreshold = 2.0;
-int ImageProcess::radius_max = 300;
-int ImageProcess::radius_min = 200;
+double ImageProcess::angle2Speed = 60 * (M_PI * 0.650 / 360) / (8.0 / 25.0);	//static is not necessary, can change object's value by signal/slot
+double ImageProcess::angleBigRatio = 1.2;
+double ImageProcess::angleSmallRatio = 0.8;
+int ImageProcess::radius_max = 350;
+int ImageProcess::radius_min = 250;
 int ImageProcess::gs1 = 7;
 double ImageProcess::dp = 1;
 double ImageProcess::minDist = 90;
 double ImageProcess::param1 = 300;
 double ImageProcess::param2 = 60;
 bool ImageProcess::sensorTriggered = false;
+Rect ImageProcess::roiRect(220, 0, 800, 720);
 
 bool getUniqueFile(QString& fullFileName)
 {
@@ -46,7 +47,6 @@ ImageProcess::ImageProcess(QObject *parent) : QObject(parent)
 , angleCount(0)
 , angleSum(0)
 , iImgCount(0)
-, nDetectCount(0)
 , bStopProcess(true)
 , bLastOUT(true)//假定轮子在外面
 , bIsInArea(false)
@@ -77,12 +77,14 @@ void ImageProcess::sensorIN()
 	bLastOUT = false;
 	bIsInArea = true;
 	mutex.unlock();
+	time.start();
 }
 void ImageProcess::sensorOUT()
 {
 	//mutex.lock();
 	bIsInArea = false;
 	//mutex.unlock();
+	in_out_time = time.elapsed();
 }
 
 void ImageProcess::wheelTimeout()
@@ -98,19 +100,20 @@ void ImageProcess::doImageProcess()
 	{
 		if (bWheelStopped)	//if timeout, which means this wheel is stop, drop the calc and wait for a come-in signal
 		{
-			angleSum = 0;
-			angleCount = 0;
-			iImgCount = 0;
+			resetCoreProcess();
 			qWarning("cart stay in the detect area");
 		}
-		else if (!sensorTriggered)
+		else if (!sensorTriggered)	//only for test, haven't done.	// 2017-10-27
 		{
 			//if return 0, which means no cycle detected, calc the avgAngle for this wheel
 			//否则等待下一帧处理
 			if (!coreImageProcess())
 			{
 				if (angleCount)
-					getAvgAngle();
+				{
+					alarm(angleSum / angleCount);
+					resetCoreProcess();
+				}
 			}
 		}
 		else  //信号驱动：轮子进来(SensorIN)了，才开始处理数据；
@@ -119,37 +122,64 @@ void ImageProcess::doImageProcess()
 		{
 			if (bIsInArea)
 			{
-				if (!coreImageProcess())
-				{
-					if (angleCount)
-					{
-						getAvgAngle();
-						nDetectCount++;
-					}
-				}
+				static bool lastCore = false;
+				bool nowCore = coreImageProcess();
+				if (nowCore == false && lastCore == true)
+					nDetectCount++;
+				lastCore = nowCore;
 			}
 			else if (!bLastOUT)	//出去的时刻
-			//Once wheel scoll out detect area, calc the avgAngle(if anglecout > 0);
-			//if no avgangle ever, emit miss
+				//Once wheel scoll out detect area, calc the avgAngle(if anglecout > 0);
+				//if no avgangle ever, emit miss
 			{
 				bLastOUT = true;
 				if (angleCount)
 				{
-					getAvgAngle();
-					nDetectCount++;
+					alarm(angleSum / angleCount);
 				}
 				//在轮子离开之前没有测得任何平均速度，报miss
-				if (!nDetectCount)
+				else
 					qWarning() << QStringLiteral("↑Miss test↑");
-				//在轮子离开之前测得了2次以上的平均速度，说明断连了
 				if (nDetectCount != 1)
-					qDebug() << "detect count Error: " << nDetectCount;
+					qDebug() << QString("detect count error: %1").arg(nDetectCount);
 				nDetectCount = 0;	//每次将detectcount置零
 			}
 		}
 	}
 	emit imageProcessReady();	//emit ready anyway
 	return;
+}
+
+void ImageProcess::resetCoreProcess()
+{
+	angleSum = 0;
+	angleCount = 0;
+	iImgCount = 0;
+}
+
+void ImageProcess::alarm(double avgAngle)
+{
+	double lastAvgSpeed = avgAngle * angle2Speed;
+	emit speedClcReady(lastAvgSpeed);
+	qWarning("speed: %.2lfm/min", lastAvgSpeed);
+	qDebug() << "MatchCount: " << angleCount;
+	double length = avgAngle * in_out_time;
+	qDebug("length: %.2lf", length);
+	double high = angleBigRatio * 86000;//换位置
+	double low = angleSmallRatio * 86000;
+	if (length < low)
+	{
+		emit setAlarmLight(PLCSerial::AlarmColorRed);
+		qWarning() << QStringLiteral("↑SLOW↑");
+		qCritical("SLOW");
+	}
+	else if (length > high)
+	{
+		emit setAlarmLight(PLCSerial::AlarmColorYellow);
+		qWarning() << QStringLiteral("↑FAST↑");
+		qCritical("FAST");
+	}
+	resetCoreProcess();
 }
 
 int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait next srcImg
@@ -166,8 +196,8 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	mutex.unlock();
 
 	resize(srcImg, srcImg, Size(1280, 720), 0, 0, CV_INTER_LINEAR);
-	Rect rect(220, 0, 800, 720);
-	Mat roiImage = srcImg(rect);		  //srcImg(rect).copyTo(roiImage);
+	//Rect rect(220, 0, 800, 720);
+	Mat roiImage = srcImg(roiRect);		  //srcImg(rect).copyTo(roiImage);
 	Mat blurImage;//use blurimage for houghcircles, use sourceimage for matches
 
 	//********************霍夫圆检测并分割圆环**************************//
@@ -251,31 +281,4 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	emit showImageMatches();
 	//qDebug() << ++debugI;
 	return 1;
-}
-
-void ImageProcess::getAvgAngle()
-{
-	//qDebug() << "100";
-	//calculate the avg angle
-	double avgAngle = angleSum / angleCount;
-	double lastAvgSpeed = avgAngle * angle2Speed;
-	emit speedClcReady(lastAvgSpeed);
-	qWarning("speed: %.2lfm/min", lastAvgSpeed);
-	qDebug() << "MatchCount: " << angleCount;
-	if (avgAngle < angleLowThreshold)
-	{
-		emit setAlarmLight(PLCSerial::AlarmColorRed);
-		qWarning() << QStringLiteral("↑SLOW↑");
-		qCritical("SLOW");
-	}
-	else if (avgAngle > angleHighThreshold)
-	{
-		emit setAlarmLight(PLCSerial::AlarmColorYellow);
-		qWarning() << QStringLiteral("↑FAST↑");
-		qCritical("FAST");
-	}
-	angleSum = 0;
-	angleCount = 0;
-	iImgCount = 0;
-	//qDebug() << "101";
 }

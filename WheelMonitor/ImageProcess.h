@@ -1,5 +1,6 @@
 #pragma once
 #include <QMutex>
+#include <QTime>
 #include <QObject>
 #include <opencv2/opencv.hpp>
 #include "RobustMatcher.h"
@@ -12,8 +13,8 @@ public:
 	~ImageProcess();
 
 	static double angle2Speed; //周长,只初始化一次，如果改变了interval则失效
-	static double angleLowThreshold;
-	static double angleHighThreshold; //角度阈值，超出则报警
+	static double angleSmallRatio;
+	static double angleBigRatio; //角度阈值，超出则报警
 	static int radius_min; //轮子的半径的下阈值，用于霍夫圆识别
 	static int radius_max; //轮子的半径的上阈值，用于霍夫圆识别
 	static int gs1; //越大越快，准确率越低
@@ -26,6 +27,7 @@ public:
 	//int gs2;//特征匹配没有高斯处理//特征匹配时高斯滤波内核大小，只能为奇数，越大越模糊，增大高斯值，可使特征匹配时集中在主要特征处
 
 	static bool sensorTriggered;
+	static cv::Rect roiRect;
 	cv::Mat imageMatches;
 
 private:
@@ -37,11 +39,14 @@ private:
 	int iImgCount;
 	int nDetectCount;
 
-	void getAvgAngle();
+	void alarm(double avgAngle);
+	void resetCoreProcess();
 	bool bIsInArea;
 	bool bLastOUT;
 	bool bWheelStopped;
 	bool bStopProcess;
+	QTime time;
+	int in_out_time;	//ms
 	QMutex mutex;
 	RobustMatcher rMatcher;
 
