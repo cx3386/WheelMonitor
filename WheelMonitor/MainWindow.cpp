@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "MainWindow.h"
+#include "videoplayer.h"
 #include "SettingDialog.h"
 
 MainWindow::MainWindow(QWidget* parent)
@@ -39,6 +40,14 @@ void MainWindow::configWindow()
 	onRecStop();//init as grey
 	//recLabel->raise();
 	//recLabel->setAttribute(Qt::WA_TranslucentBackground);
+
+	/*********playbackTab**********/
+	VideoPlayer *playbackWidget = new VideoPlayer;
+	playbackWidget->setUrl(QUrl::fromLocalFile("H:/.mp4"));
+	QGridLayout *playbackLayout = new QGridLayout;
+	playbackLayout->addWidget(playbackWidget);
+	ui.playbackTab->setLayout(playbackLayout);
+	/**********end playbackTab**********/
 
 	/***************update now*****************/
 	//make dir for capture save
@@ -303,7 +312,8 @@ void MainWindow::uiShowErrorMessage(const QString & message)
 
 void MainWindow::anchorClickedSlot(const QUrl& url)
 {
-	QDesktopServices::openUrl(QUrl(url.toString(), QUrl::TolerantMode));
+	//QDesktopServices::openUrl(QUrl(url.toString(), QUrl::TolerantMode));
+	QDesktopServices::openUrl(url);
 }
 
 void MainWindow::update24()

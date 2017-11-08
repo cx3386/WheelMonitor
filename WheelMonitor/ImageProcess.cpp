@@ -164,7 +164,7 @@ void ImageProcess::alarm(double avgAngle)
 	qWarning("speed: %.2lfm/min", lastAvgSpeed);
 	qDebug() << "MatchCount: " << angleCount;
 	double length = avgAngle * in_out_time;
-	qDebug("length: %.2lf", length);
+	//qDebug("length: %.2lf", length);
 	double high = angleBigRatio * 86000;//»»Î»ÖÃ
 	double low = angleSmallRatio * 86000;
 	if (length < low)

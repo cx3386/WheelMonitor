@@ -30,7 +30,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="monitorTab">
        <attribute name="title">
@@ -393,6 +393,21 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="playbackTab">
+       <attribute name="title">
+        <string>故障回放</string>
+       </attribute>
+       <widget class="QTableView" name="tableView">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>90</y>
+          <width>256</width>
+          <height>192</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -403,7 +418,7 @@
      <x>0</x>
      <y>0</y>
      <width>987</width>
-     <height>52</height>
+     <height>37</height>
     </rect>
    </property>
    <property name="font">

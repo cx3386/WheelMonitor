@@ -45,7 +45,7 @@ bool RobustMatcher::match(Mat& image1, Mat& image2, Mat& mask1, Mat& mask2, Mat&
 	ratioTest(matches2);
 
 	// 4. Remove non-symmetrical matches
-	vector<DMatch>matches;
+	vector<DMatch> matches;
 	symmetryTest(matches1, matches2, matches);
 
 	// 5. 判断有效匹配点对是否大于等于10个(2个就可以进行计算)
