@@ -5,30 +5,36 @@
 #include <opencv2/opencv.hpp>
 #include "RobustMatcher.h"
 #include "PLCSerial.h"
+#include <ocr.h>
 
-class ImageProcess : public QObject {
+struct ImageProcessParameters
+{
+	ImageProcessParameters();
+	double angle2Speed;
+	double angleSmallRatio;
+	double angleBigRatio;
+	int radius_min;
+	int radius_max;
+	int gs1;
+	int gs2;
+	double dp;
+	double minDist;
+	double param1;
+	double param2;
+	bool sensorTriggered;
+	cv::Rect roiRect;
+};
+
+class ImageProcess : public QObject
+{
 	Q_OBJECT
 public:
-	explicit ImageProcess(QObject* parent = nullptr);
+	explicit ImageProcess(QObject *parent = nullptr);
 	~ImageProcess();
 
-	static double angle2Speed; //周长,只初始化一次，如果改变了interval则失效
-	static double angleSmallRatio;
-	static double angleBigRatio; //角度阈值，超出则报警
-	static int radius_min; //轮子的半径的下阈值，用于霍夫圆识别
-	static int radius_max; //轮子的半径的上阈值，用于霍夫圆识别
-	static int gs1; //越大越快，准确率越低
-	//霍夫圆检测时高斯滤波内核大小，只能为奇数，越大越模糊，圆与背景区分不明显时，减小高斯值
-	static double dp; //圆心累加器图像分辨率与输入图像之比的倒数，值越小，代表累加器分辨率越高，识别圆会更加慢
-	static double minDist; //霍夫变换检测到的圆的圆心之间的最小距离，值越大，某些圆会检测不出来，值越小，多个相邻的圆会被错误的检测成一个重合的圆
-	static double param1; //传递给canny边缘检测算子的高阈值，且低阈值为高阈值的一半
-	static double param2; //50~80大了识别不到，小了找到很多圆。越大越快//检测阶段圆心累加器的阈值，值越大，检测到的圆越完美，值越小，可以检测到更多根本不存在的圆
-	//double s = 1.5;//特征点匹配距离与最小距离的比,如果一直不显示，可适当增大该值，减小gs2
-	//int gs2;//特征匹配没有高斯处理//特征匹配时高斯滤波内核大小，只能为奇数，越大越模糊，增大高斯值，可使特征匹配时集中在主要特征处
-
-	static bool sensorTriggered;
-	static cv::Rect roiRect;
+	static ImageProcessParameters g_imgParam;
 	cv::Mat imageMatches;
+	ocr myocr;
 
 private:
 	//int iImgNoCycle;
@@ -46,18 +52,19 @@ private:
 	bool bWheelStopped;
 	bool bStopProcess;
 	QTime time;
-	int in_out_time;	//ms
+	int in_out_time; //ms
 	QMutex mutex;
 	RobustMatcher rMatcher;
 
 signals:
 	//void resultReady(const QString &result);
 	void imageProcessReady();
+	void showAlarmNum(const QString &s);
 	void showImageMatches();
 	void setAlarmLight(PLCSerial::AlarmColor alarmcolor);
 	void speedClcReady(double speed);
 	void realSpeedReady(double speed);
-	public slots:
+public slots:
 	void doImageProcess();
 	void startImageProcess();
 	void stopImageProcess();

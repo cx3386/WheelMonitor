@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>529</width>
+    <width>628</width>
     <height>470</height>
    </rect>
   </property>
@@ -71,7 +71,17 @@
                </spacer>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="angleHighSpinBox"/>
+               <widget class="QDoubleSpinBox" name="angleHighSpinBox">
+                <property name="minimum">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>10.000000000000000</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.010000000000000</double>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -101,7 +111,14 @@
                </spacer>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="angleLowSpinBox"/>
+               <widget class="QDoubleSpinBox" name="angleLowSpinBox">
+                <property name="maximum">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.010000000000000</double>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -144,7 +161,7 @@
               <item>
                <widget class="QLabel" name="radiusMaxLabel">
                 <property name="text">
-                 <string>&amp;radius_max</string>
+                 <string>radius_max</string>
                 </property>
                 <property name="buddy">
                  <cstring>radiusMaxSpinBox</cstring>

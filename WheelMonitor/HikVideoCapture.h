@@ -12,10 +12,10 @@
 #include <opencv2/opencv.hpp>
 
 class HikVideoCapture : public QObject
-{	
+{
 	Q_OBJECT
-	static void CALLBACK g_ExceptionCallBack(DWORD dwType, LONG lUserID, LONG lHandle, void *pUser);
-	static void CALLBACK fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize,  DWORD dwUser);
+		static void CALLBACK g_ExceptionCallBack(DWORD dwType, LONG lUserID, LONG lHandle, void *pUser);
+	static void CALLBACK fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, DWORD dwUser);
 	static void CALLBACK DecCBFun(long nPort, char * pBuf, long nSize, FRAME_INFO * pFrameInfo, long nReserved1, long nReserved2);
 
 public:
@@ -45,7 +45,8 @@ signals:
 	//void isStartSave(bool result);
 	//void isStopSave(bool result);
 
-public slots :	
+public slots :
+	bool syncCameraTime();
 	bool startCap(HWND h);
 	bool stopCap();
 	bool startSave();

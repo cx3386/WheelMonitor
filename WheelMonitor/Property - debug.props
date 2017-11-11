@@ -3,8 +3,8 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <IncludePath>D:\opencv\opencv3.2\Debug_x64\include;D:\opencv\opencv3.2\Debug_x64\include\opencv;D:\opencv\opencv3.2\Debug_x64\include\opencv2;D:\HIKVISION\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\opencv\opencv3.2\Debug_x64\x64\vc14\lib;D:\HIKVISION\lib;D:\HIKVISION\lib\HCNetSDKCom;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\opencv3.2\Debug_x64\include;E:\opencv3.2\Debug_x64\include\opencv;E:\opencv3.2\Debug_x64\include\opencv2;E:\HIKVISION\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\opencv3.2\Debug_x64\x64\vc14\lib;E:\HIKVISION\lib;E:\HIKVISION\lib\HCNetSDKCom;$(LibraryPath)</LibraryPath>
     <_PropertySheetDisplayName>Debug_x64</_PropertySheetDisplayName>
   </PropertyGroup>
   <ItemDefinitionGroup>

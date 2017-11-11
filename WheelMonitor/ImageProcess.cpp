@@ -7,30 +7,38 @@
 using namespace std;
 using namespace cv;
 
-double ImageProcess::angle2Speed = 60 * (M_PI * 0.650 / 360) / (8.0 / 25.0);	//static is not necessary, can change object's value by signal/slot
-double ImageProcess::angleBigRatio = 1.2;
-double ImageProcess::angleSmallRatio = 0.8;
-int ImageProcess::radius_max = 350;
-int ImageProcess::radius_min = 250;
-int ImageProcess::gs1 = 7;
-double ImageProcess::dp = 1;
-double ImageProcess::minDist = 90;
-double ImageProcess::param1 = 300;
-double ImageProcess::param2 = 60;
-bool ImageProcess::sensorTriggered = false;
-Rect ImageProcess::roiRect(220, 0, 800, 720);
 
-bool getUniqueFile(QString& fullFileName)
+ImageProcessParameters::ImageProcessParameters() :angle2Speed(60 * (M_PI*0.650 / 360) / (8.0 / 25.0)),
+angleBigRatio(1.2),
+angleSmallRatio(0.8),
+radius_max(350),
+radius_min(250),
+gs1(7),
+gs2(7),
+dp(1),
+minDist(90),
+param1(300),
+param2(60),
+sensorTriggered(false),
+roiRect(220, 0, 800, 720)
+{
+}
+
+ImageProcessParameters ImageProcess::g_imgParam;
+
+bool getUniqueFile(QString &fullFileName)
 {
 	QFileInfo fileInfo(fullFileName);
 	QString baseName_src = fileInfo.baseName();
 	for (int i = 1; i < 11; i++) //max 10 repeat
 	{
-		if (!fileInfo.exists()) {
+		if (!fileInfo.exists())
+		{
 			//if not exists, then unique
 			return true;
 		}
-		else {
+		else
+		{
 			QString newBaseName(QStringLiteral("%1(%2)").arg(baseName_src).arg(i));
 			fullFileName = QStringLiteral("%1/%2.%3").arg(fileInfo.absolutePath()).arg(newBaseName).arg(fileInfo.completeSuffix());
 			//sure file has suffix, omit this judgement.
@@ -43,14 +51,11 @@ bool getUniqueFile(QString& fullFileName)
 }
 
 ImageProcess::ImageProcess(QObject *parent) : QObject(parent)
-//, isSameWheel(false)
-, angleCount(0)
-, angleSum(0)
-, iImgCount(0)
-, bStopProcess(true)
-, bLastOUT(true)//¼Ù¶¨ÂÖ×ÓÔÚÍâÃæ
-, bIsInArea(false)
-, bWheelStopped(false)
+											  //, isSameWheel(false)
+											  ,
+											  angleCount(0), angleSum(0), iImgCount(0), bStopProcess(true), bLastOUT(true) //ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+											  ,
+											  bIsInArea(false), bWheelStopped(false)
 //, waitTimeout(0)
 {
 }
@@ -89,24 +94,27 @@ void ImageProcess::sensorOUT()
 
 void ImageProcess::wheelTimeout()
 {
-	//mutex.lock();
-	bWheelStopped = true;
-	//mutex.unlock();
+	mutex.lock();
+	if (!bWheelStopped)
+	{
+		qWarning("Cart is stopped");
+		bWheelStopped = true;
+	}
+	mutex.unlock();
 }
 
 void ImageProcess::doImageProcess()
 {
 	if (!bStopProcess)
 	{
-		if (bWheelStopped)	//if timeout, which means this wheel is stop, drop the calc and wait for a come-in signal
+		if (bWheelStopped) //if timeout, which means this wheel is stop, drop the calc and wait for a come-in signal
 		{
 			resetCoreProcess();
-			qWarning("cart stay in the detect area");
 		}
-		else if (!sensorTriggered)	//only for test, haven't done.	// 2017-10-27
+		else if (!g_imgParam.sensorTriggered) //only for test, haven't done.	// 2017-10-27
 		{
 			//if return 0, which means no cycle detected, calc the avgAngle for this wheel
-			//·ñÔòµÈ´ýÏÂÒ»Ö¡´¦Àí
+			//ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½Ò»Ö¡ï¿½ï¿½ï¿½ï¿½
 			if (!coreImageProcess())
 			{
 				if (angleCount)
@@ -116,9 +124,9 @@ void ImageProcess::doImageProcess()
 				}
 			}
 		}
-		else  //ÐÅºÅÇý¶¯£ºÂÖ×Ó½øÀ´(SensorIN)ÁË£¬²Å¿ªÊ¼´¦ÀíÊý¾Ý£»
-			//Ò»µ©Ô²ÏûÊ§ÔÚROIÖÐ£¬ÔòÏÔÊ¾½á¹û,£¨Èç¹ûÔ²Õì²âÓÐÖÐ¶Ï£¬²¢ÇÒÓÖÓÐ2Ö¡ÒÔÉÏÆ¥Åä³É¹¦µÄ»°£¬ÓÐ¿ÉÄÜÏÔÊ¾¶à¸ö½á¹û£©£»
-			//µ±ÂÖ×Ó³öÈ¥(SensorOut)£¬Í£Ö¹´¦Àí£¬ÏÔÊ¾½á¹û£¨Èç¹ûÓÐµÄ»°£©¡£
+		else //ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½(SensorIN)ï¿½Ë£ï¿½ï¿½Å¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½
+			 //Ò»ï¿½ï¿½Ô²ï¿½ï¿½Ê§ï¿½ï¿½ROIï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2Ö¡ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½É¹ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			 //ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½È¥(SensorOut)ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			if (bIsInArea)
 			{
@@ -128,25 +136,41 @@ void ImageProcess::doImageProcess()
 					nDetectCount++;
 				lastCore = nowCore;
 			}
-			else if (!bLastOUT)	//³öÈ¥µÄÊ±¿Ì
-				//Once wheel scoll out detect area, calc the avgAngle(if anglecout > 0);
-				//if no avgangle ever, emit miss
+			else if (!bLastOUT) //ï¿½ï¿½È¥ï¿½ï¿½Ê±ï¿½ï¿½
+								//Once wheel scoll out detect area, calc the avgAngle(if anglecout > 0);
+								//if no avgangle ever, emit miss
 			{
 				bLastOUT = true;
+				qDebug() << "total result in imageprocess" << myocr.result.size();
+				if (myocr.result.empty())
+				{
+					qDebug() << "no plates ";
+				}
+				else
+				{
+					myocr.get_final_result();
+					qDebug() << " plate number : " << QString::fromStdString(myocr.final_result);
+				}
+
 				if (angleCount)
 				{
 					alarm(angleSum / angleCount);
 				}
-				//ÔÚÂÖ×ÓÀë¿ªÖ®Ç°Ã»ÓÐ²âµÃÈÎºÎÆ½¾ùËÙ¶È£¬±¨miss
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªÖ®Ç°Ã»ï¿½Ð²ï¿½ï¿½ï¿½Îºï¿½Æ½ï¿½ï¿½ï¿½Ù¶È£ï¿½ï¿½ï¿½miss
 				else
-					qWarning() << QStringLiteral("¡üMiss test¡ü");
-				if (nDetectCount != 1)
+				{
+					qWarning() << QStringLiteral("Miss test");
+				}
+				if (nDetectCount != 1) 
+				{
 					qDebug() << QString("detect count error: %1").arg(nDetectCount);
-				nDetectCount = 0;	//Ã¿´Î½«detectcountÖÃÁã
+				}
+				nDetectCount = 0; //Ã¿ï¿½Î½ï¿½detectcountï¿½ï¿½ï¿½ï¿½
+				myocr.resetOcr();
 			}
 		}
 	}
-	emit imageProcessReady();	//emit ready anyway
+	emit imageProcessReady(); //emit ready anyway
 	return;
 }
 
@@ -159,34 +183,35 @@ void ImageProcess::resetCoreProcess()
 
 void ImageProcess::alarm(double avgAngle)
 {
-	double lastAvgSpeed = avgAngle * angle2Speed;
+	double lastAvgSpeed = avgAngle * g_imgParam.angle2Speed;
 	emit speedClcReady(lastAvgSpeed);
-	qWarning("speed: %.2lfm/min", lastAvgSpeed);
+	qWarning("Num:%s speed: %.2lfm/min", myocr.final_result, lastAvgSpeed);
 	qDebug() << "MatchCount: " << angleCount;
 	double length = avgAngle * in_out_time;
 	//qDebug("length: %.2lf", length);
-	double high = angleBigRatio * 86000;//»»Î»ÖÃ
-	double low = angleSmallRatio * 86000;
+	double high = g_imgParam.angleBigRatio * 86000; //ï¿½ï¿½Î»ï¿½ï¿½
+	double low = g_imgParam.angleSmallRatio * 86000;
 	if (length < low)
 	{
 		emit setAlarmLight(PLCSerial::AlarmColorRed);
-		qWarning() << QStringLiteral("¡üSLOW¡ü");
+		emit showAlarmNum(QString::fromStdString(myocr.final_result));
+		qWarning() << QStringLiteral("SLOW");
 		qCritical("SLOW");
 	}
 	else if (length > high)
 	{
 		emit setAlarmLight(PLCSerial::AlarmColorYellow);
-		qWarning() << QStringLiteral("¡üFAST¡ü");
-		qCritical("FAST");
+		qWarning() << QStringLiteral("FAST");
+		qCritical("FAST");	//show log in the alarmtab
 	}
 	resetCoreProcess();
 }
 
-int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait next srcImg
+int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait next srcImg
 {
 	static QMutex mutex;
 	static Mat srcImg;
-	static Mat imgVessel, dstImg[2];	//²»¶ÏË¢ÐÂµÄÈÝÆ÷//Ä¿±êÍ¼Ïñ
+	static Mat imgVessel, dstImg[2]; //ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½//Ä¿ï¿½ï¿½Í¼ï¿½ï¿½
 	static Mat maskVessel, mask[2];
 
 	//int debugI = 0;
@@ -194,18 +219,16 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	mutex.lock();
 	srcImg = HikVideoCapture::pRawImage;
 	mutex.unlock();
-
+	myocr.core_ocr(srcImg); //card num detect gzy 2017/11/9
 	resize(srcImg, srcImg, Size(1280, 720), 0, 0, CV_INTER_LINEAR);
 	//Rect rect(220, 0, 800, 720);
-	Mat roiImage = srcImg(roiRect);		  //srcImg(rect).copyTo(roiImage);
-	Mat blurImage;//use blurimage for houghcircles, use sourceimage for matches
-
-	//********************»ô·òÔ²¼ì²â²¢·Ö¸îÔ²»·**************************//
-	GaussianBlur(roiImage, blurImage, Size(gs1, gs1), 2, 2);//ÐÞ¸ÄÄÚºË´óÐ¡¿É¸ü¸ÄÊ¶±ðÔ²µÄÄÑÒ×£¬Ô½Ð¡Ô½ÈÝÒ×
+	Mat roiImage = srcImg(g_imgParam.roiRect); //srcImg(rect).copyTo(roiImage);
+	Mat blurImage;					//use blurimage for houghcircles, use sourceimage for matches
+	//********************ï¿½ï¿½ï¿½Ô²ï¿½ï¿½â²¢ï¿½Ö¸ï¿½Ô²ï¿½ï¿½**************************//
+	GaussianBlur(roiImage, blurImage, Size(g_imgParam.gs1, g_imgParam.gs1), 2, 2); //ï¿½Þ¸ï¿½ï¿½ÚºË´ï¿½Ð¡ï¿½É¸ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½×£ï¿½Ô½Ð¡Ô½ï¿½ï¿½ï¿½ï¿½
 	vector<Vec3f> circles;
-	//»ô·òÔ²
-	HoughCircles(blurImage, circles, CV_HOUGH_GRADIENT, dp, minDist, param1, param2, radius_min, radius_max); //¿ÉÐÞ¸Ä²ÎÊýµ÷½Ú²¶×½Ô²µÄ×¼È·¶È
-	//HoughCircles(blurImage, circles, CV_HOUGH_GRADIENT, dp, minDist, 110, 40, radius_min, radius_max); //¿ÉÐÞ¸Ä²ÎÊýµ÷½Ú²¶×½Ô²µÄ×¼È·¶È
+	//ï¿½ï¿½ï¿½Ô²
+	HoughCircles(blurImage, circles, CV_HOUGH_GRADIENT, g_imgParam.dp, g_imgParam.minDist, g_imgParam.param1, g_imgParam.param2, g_imgParam.radius_min, g_imgParam.radius_max); //ï¿½ï¿½ï¿½Þ¸Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½×½Ô²ï¿½ï¿½×¼È·ï¿½ï¿½
 	if (circles.size() < 1)
 	{
 		iImgCount = 0;
@@ -214,9 +237,9 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	//qDebug() << ++debugI;
 
 	/***judge if the circle is out of ROI**/
-	Point center0(cvRound(circles[0][0]), cvRound(circles[0][1])); //Ô²»·ÖÐÐÄ
-	int radiusOutside = cvRound(circles[0][2]);	//Ô²»·Íâ¾¶
-	int radiusInside = radiusOutside / 1.6; //Ô²»·ÄÚ¾¶
+	Point center0(cvRound(circles[0][0]), cvRound(circles[0][1])); //Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int radiusOutside = cvRound(circles[0][2]);					   //Ô²ï¿½ï¿½ï¿½â¾¶
+	int radiusInside = radiusOutside / 1.6;						   //Ô²ï¿½ï¿½ï¿½Ú¾ï¿½
 	if ((center0.x + radiusOutside) > roiImage.cols || (center0.x - radiusOutside) < 0 ||
 		(center0.y + radiusOutside) > roiImage.rows || (center0.y - radiusOutside) < 0)
 	{
@@ -224,12 +247,10 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 		return 0;
 	}
 	iImgCount++;
-	//qDebug() << ++debugI;
-
 	/********Ring mask*********/
 	Rect ringRect((center0.x - radiusOutside), (center0.y - radiusOutside), 2 * radiusOutside, 2 * radiusOutside);
 	Mat imageRing = roiImage(ringRect);
-	Mat maskTmp = rMatcher.getMask(imageRing.size(), radiusOutside - 10, radiusInside + 10);	//ÌØÕ÷Æ¥ÅäÇøÍùÔ²»·ÄÚËõÐ¡10¸öÏñËØ
+	Mat maskTmp = rMatcher.getMask(imageRing.size(), radiusOutside - 10, radiusInside + 10); //ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡10ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (iImgCount == 1)
 	{
 		imgVessel = imageRing;
@@ -245,28 +266,25 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 		mask[1] = maskTmp;
 		maskVessel = maskTmp;
 		//iImgCount = 0;//drop the all image//discrete sampling
-		iImgCount = 1;	//continius sampling
+		iImgCount = 1; //continius sampling
 	}
 	//qDebug() << ++debugI;
 
-	//**************************Í¼ÏñÌØÕ÷Æ¥Åä²¿·Ö*****************************************//
+	//**************************Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ä²¿ï¿½ï¿½*****************************************//
 
 	Mat image_matches;
 	double oneAngle;
 	if (!rMatcher.match(dstImg[0], dstImg[1], mask[0], mask[1], image_matches, oneAngle))
 		return 2;
 
-	//qDebug() << ++debugI;
-
-	//¼ÆËã½Ç¶È
-	double realSpeed = oneAngle * angle2Speed;
+	//ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½
+	double realSpeed = oneAngle * g_imgParam.angle2Speed;
 	qDebug() << "realtime speed: " << realSpeed;
 	emit realSpeedReady(realSpeed);
 	angleCount++;
 	angleSum += oneAngle;
-	//qDebug() << ++debugI;
 
-	//±£´æmatchÍ¼Æ¬
+	//ï¿½ï¿½ï¿½ï¿½matchÍ¼Æ¬
 	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
 	QString fullFilePath = QStringLiteral("D:/Capture/%1/%2.jpg").arg(nowDate).arg(nowTime);
@@ -274,7 +292,7 @@ int ImageProcess::coreImageProcess()	//0-no wheel, 1-matches success, 2-wait nex
 	imwrite(fullFilePath.toStdString(), image_matches);
 	//qDebug() << ++debugI;
 
-	//ÏÔÊ¾Æ¥Åä½á¹û
+	//ï¿½ï¿½Ê¾Æ¥ï¿½ï¿½ï¿½ï¿½
 	mutex.lock();
 	imageMatches = image_matches;
 	mutex.unlock();

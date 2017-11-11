@@ -23,12 +23,14 @@ private:
 	bool stopSensor;
 	bool isConnect;
 	QTimer* sensorTimer;
+	//QTimer* ADTimer;
 	QSerialPort* plcSerialPort;
 	QByteArray plcData;
 	enum AlarmColor currentAlarmColor;
 
 	private slots:
 	void loopWheelSensor();
+	void readFromAD();	//2017.11.9
 
 signals:
 	//void initSignal();

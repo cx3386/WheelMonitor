@@ -6,25 +6,27 @@
 #include "PLCSerial.h"
 #include "ui_MainWindow.h"
 #include <QtWidgets/QMainWindow>
+#include <ocr.h>
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
 	Q_OBJECT
 
-public:
-	MainWindow(QWidget* parent = Q_NULLPTR);
+  public:
+	MainWindow(QWidget *parent = Q_NULLPTR);
 	~MainWindow();
 
 	//void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& msg);
 
-private:
+  private:
 	Ui::MainWindowClass ui;
 	bool bRunningState;
 	QLabel *recLabel;
 	/*****worker******/
-	MyMessageOutput* outputMessage;
-	ImageProcess* imageProcess;
-	HikVideoCapture* videoCapture;
-	PLCSerial* plcSerial;
+	MyMessageOutput *outputMessage;
+	ImageProcess *imageProcess;
+	HikVideoCapture *videoCapture;
+	PLCSerial *plcSerial;
 	/***work thread***/
 	QThread videoCaptureThread;
 	QThread imageProcessThread;
@@ -37,26 +39,27 @@ private:
 	void readSettings();
 	void writeSettings();
 
-	void clearLog(int nDays);	//±£Áô×î½ünÌìµÄÈÕÖ¾
-	bool delCapDir(int nDays);	//±£Áô×î½ünÌìµÄÂ¼ÏñÎÄ¼þ
+	void clearLog(int nDays);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
+	bool delCapDir(int nDays); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ä¼ï¿½
 	bool makeDir(QString fullPath);
 	//for test
 	//QPushButton *startSaveBtn;
 	//QPushButton *stopSaveBtn;
 
-protected:
-	void closeEvent(QCloseEvent * event);
+  protected:
+	void closeEvent(QCloseEvent *event);
 
-	public slots:
+  public slots:
 	void uiAlarmLight(PLCSerial::AlarmColor alarmColor);
+	void uiAlarmNum(const QString &num);
 	void uiShowMatches();
 	void uiShowLastSpeed(double speed);
 	void uiShowRealSpeed(double speed);
 	void uiShowLogMessage(const QString &message);
 	void uiShowErrorMessage(const QString &message);
 
-	private slots:
-	void anchorClickedSlot(const QUrl& url);
+  private slots:
+	void anchorClickedSlot(const QUrl &url);
 	void update24();
 	void on_action_Start_triggered();
 	void on_action_Stop_triggered();
@@ -75,13 +78,14 @@ protected:
 
 	//void startOrStopSave();
 
-signals:
+  signals:
 	void installLogSystem();
 	void startCap(HWND handle);
+	void SyncCameraTime();
 	void stopCap();
 	void startProcess();
 	void stopProcess();
-	//void startSave(); //×Ô¶¯ÈÏÎªsave½×¶Î²»»á³ö´í£¬²»ÐèÒª×ö´¦Àí
+	//void startSave(); //2017.11.10 start imgprocess whatever the save conseq is.
 	//void stopSave();
 	void initPlcSerial();
 	void startWheelSensor();

@@ -30,7 +30,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="monitorTab">
        <attribute name="title">
@@ -343,8 +343,7 @@
                 <bool>true</bool>
                </property>
                <property name="styleSheet">
-                <string notr="true">color:rgb(255, 0, 0);
-</string>
+                <string notr="true"/>
                </property>
                <property name="lineWidth">
                 <number>3</number>
@@ -407,6 +406,19 @@
          </rect>
         </property>
        </widget>
+       <widget class="QLabel" name="maLabel">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>150</y>
+          <width>161</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -418,7 +430,7 @@
      <x>0</x>
      <y>0</y>
      <width>987</width>
-     <height>37</height>
+     <height>52</height>
     </rect>
    </property>
    <property name="font">

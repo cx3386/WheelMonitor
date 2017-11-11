@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	{
 		QMessageBox::critical(nullptr, QStringLiteral("宝钢环冷机台车轮子状态检测"), QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
 		//a.exit(0);
-		//return 0;
+		return 0;
 	}
 	if (!initDataBase())	//连接到数据库
 		return 0;
@@ -33,8 +33,7 @@ int main(int argc, char *argv[])
 		return a.exec();
 	}
 	return 0;
-
-	//w.setWindowFlags(w.windowFlags()& ~Qt::WindowMaximizeButtonHint& ~Qt::WindowMinimizeButtonHint);
 	//w.showMaximized();
 	//return a.exec();
+
 }
