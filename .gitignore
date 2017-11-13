@@ -3,6 +3,7 @@
 
 # Custom settings
 [Ii]nstall/
+*.props
 
 # GeneratedFiles by Qt (cx3386@163.com)
 GeneratedFiles/
