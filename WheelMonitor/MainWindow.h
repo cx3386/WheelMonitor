@@ -73,8 +73,8 @@ class MainWindow : public QMainWindow
 	bool isStopCap(bool result);
 	void onRecStart();
 	void onRecStop();
-	bool isStartWheelSensor(bool r);
-	bool isStopWheelSensor(bool r);
+	bool isConnectPLC(bool r);
+	bool isDisconnectPLC(bool r);
 
 	//void startOrStopSave();
 
@@ -88,7 +88,7 @@ class MainWindow : public QMainWindow
 	//void startSave(); //2017.11.10 start imgprocess whatever the save conseq is.
 	//void stopSave();
 	void initPlcSerial();
-	void startWheelSensor();
-	void stopWheelSensor();
+	void connectPLC();
+	void disconnectPLC();
 	void setAlarm(PLCSerial::AlarmColor alarmcolor);
 };

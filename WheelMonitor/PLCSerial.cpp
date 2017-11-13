@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "PLCSerial.h"
 
 /*Write alarm light*/
@@ -22,7 +22,7 @@
 
 #define WR_CORRECT_RESPONSE "@00WR0045*\r"
 
-PLCSerial::PLCSerial(QObject *parent) : QObject(parent), sensorA(false), sensorB(false), stopSensor(false), isConnect(false), currentAlarmColor(ALarmUnkown)
+PLCSerial::PLCSerial(QObject *parent) : QObject(parent), sensorA(false), sensorB(false), stopSensor(false), isConnect(false), currentAlarmColor(AlarmUnkown)
 {
 	//qRegisterMetaType<PLCSerial::AlarmColor>("AlarmColor");	//2017/10/26
 }
@@ -69,6 +69,7 @@ void PLCSerial::init()
 
 void PLCSerial::Alarm(AlarmColor alarmcolor) //应锟矫革拷为Alarm(AlarmColor alarmcolor)锟斤拷锟斤拷式锟斤拷通锟斤拷&Mask锟叫讹拷FLag锟斤拷值,锟劫讹拷plcData锟斤拷锟斤拷要锟斤拷锟斤拷为全锟街憋拷锟斤拷锟斤拷锟斤拷值
 {
+	QMutexLocker locker(&mutex);
 	if ((currentAlarmColor == alarmcolor) || ((currentAlarmColor == AlarmColorRed) && (alarmcolor & AlarmColorYellow))) //yellow light(waring) never override red
 		return;																											//if alarmcolor is same as currentcolor, or color is now red and to be yellow, return;
 	currentAlarmColor = alarmcolor;
@@ -78,7 +79,7 @@ void PLCSerial::Alarm(AlarmColor alarmcolor) //应锟矫革拷为Alarm(AlarmColo
 		plcData = ALARM_LIGHT_RED;
 	else if (alarmcolor & AlarmColorYellow)
 		plcData = ALARM_LIGHT_YELLOW;
-	else if (alarmcolor & ALarmOFF)
+	else if (alarmcolor & AlarmOFF)
 		plcData = ALARM_LIGHT_OFF;
 	emit setUiAlarm(alarmcolor);
 	plcSerialPort->write(plcData);
@@ -95,37 +96,43 @@ void PLCSerial::Alarm(AlarmColor alarmcolor) //应锟矫革拷为Alarm(AlarmColo
 	}
 }
 
-bool PLCSerial::startWheelSensor()
+bool PLCSerial::connectPLC()
 {
 	if (isConnect)
 	{
 		sensorTimer = new QTimer;
-		connect(sensorTimer, SIGNAL(timeout()), this, SLOT(loopWheelSensor()));
+		connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensor()));
 		sensorTimer->start(1000); //0 is error, 1 is ok.
-		//ADTimer = new QTimer;
-		//connect(ADTimer, SIGNAL(timeout()), this, SLOT(loopAD()));
-		//ADTimer->start(100);
-		emit isStartWheelSensor(true);
+		ADTimer = new QTimer;
+		connect(ADTimer, SIGNAL(timeout()), this, SLOT(readAD()));
+		ADTimer->start(320);	//read ad every 320ms, ensure update more frequent than image process 8/25
+		emit isConnectPLC(true);
 		return true;
 	}
 	else
 	{
 		qWarning() << QString("Can't connect PLC, error code %2").arg(plcSerialPort->error());
-		emit isStartWheelSensor(false);
+		emit isConnectPLC(false);
 		return false;
 	}
 }
-bool PLCSerial::stopWheelSensor()
+bool PLCSerial::disconnectPLC()
 {
 	sensorTimer->stop();
 	delete sensorTimer;
 	sensorTimer = nullptr;
-	emit isStopWheelSensor(true);
+	ADTimer->stop();
+	delete ADTimer;
+	ADTimer = nullptr;
+	emit isDisconnectPLC(true);
 	return true;
 }
 
-void PLCSerial::loopWheelSensor()
+void PLCSerial::readSensor()
 {
+	QMutexLocker locker(&mutex);
+	QTime time;
+	time.start();
 	plcData = READ_SENSOR_STATE;
 	plcSerialPort->write(plcData);
 	if (plcSerialPort->waitForBytesWritten(100))
@@ -186,26 +193,41 @@ void PLCSerial::loopWheelSensor()
 	}
 	else
 	{
-		//QString str(tr("Wait write request timeout %1")
-		//.arg(QTime::currentTime().toString()));
 		qWarning() << "PLC(sensor): Wait write request timeout";
 	}
-	//qDebug() << "SensorA: " << sensorA << "SensorB: " << sensorB;
+	qDebug() << "Reading PLC(sensor) needs " << time.elapsed() << "ms";
 }
 
-void PLCSerial::readFromAD()
+void PLCSerial::readAD()	//write and read one time need at least 300ms
 {
-	plcData = READ_AD;
-	plcSerialPort->write(plcData);
-	if (plcSerialPort->waitForBytesWritten(100))
+	QMutexLocker locker(&mutex);
+	QTime time;
+	time.start();
+	QByteArray plcAD = READ_AD;
+	plcSerialPort->write(plcAD);
+	if (plcSerialPort->waitForBytesWritten(100))	
 	{
 		if (plcSerialPort->waitForReadyRead(100))
 		{
 			QByteArray responseData = plcSerialPort->readAll();
 			while (plcSerialPort->waitForReadyRead(100))
 				responseData += plcSerialPort->readAll();
+			mutex.unlock();
 			bool ok;
 			int tmpDec = QString(responseData.mid(7, 4)).toInt(&ok, 16);
+			if (8000 == tmpDec || 65236 <= tmpDec || 65531 <= tmpDec )//8000 or under -5, think ad module is down
+			{
+				emit ADdisconnected();
+				mutex.lock();
+				speedAD = 0;
+				mutex.unlock();
+			}
+			else
+			{
+				mutex.lock();
+				speedAD = tmpDec*3.59 / 6000.0;
+				mutex.unlock();
+			}
 		}
 		else
 		{
@@ -216,4 +238,5 @@ void PLCSerial::readFromAD()
 	{
 		qWarning() << "PLC(AD): Wait write request timeout";
 	}
+	qDebug() << "Reading PLC(AD) needs " << time.elapsed() << "ms";
 }

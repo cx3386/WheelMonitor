@@ -237,9 +237,9 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	//qDebug() << ++debugI;
 
 	/***judge if the circle is out of ROI**/
-	Point center0(cvRound(circles[0][0]), cvRound(circles[0][1])); //Բ������
-	int radiusOutside = cvRound(circles[0][2]);					   //Բ���⾶
-	int radiusInside = radiusOutside / 1.6;						   //Բ���ھ�
+	Point center0(cvRound(circles[0][0]), cvRound(circles[0][1])); //center of the circle
+	int radiusOutside = cvRound(circles[0][2]);					   //Ro
+	int radiusInside = radiusOutside / 1.6;						   //Ri
 	if ((center0.x + radiusOutside) > roiImage.cols || (center0.x - radiusOutside) < 0 ||
 		(center0.y + radiusOutside) > roiImage.rows || (center0.y - radiusOutside) < 0)
 	{

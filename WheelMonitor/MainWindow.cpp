@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-	emit setAlarm(PLCSerial::ALarmOFF); //不能从线程外操作
+	emit setAlarm(PLCSerial::AlarmOFF); //不能从线程外操作
 	//recLabel->deleteLater();
 	videoCaptureThread.quit();
 	videoCaptureThread.wait();
@@ -110,10 +110,10 @@ void MainWindow::configWindow()
 	connect(this, &MainWindow::stopProcess, imageProcess, &ImageProcess::stopImageProcess);
 
 	connect(this, &MainWindow::initPlcSerial, plcSerial, &PLCSerial::init);
-	connect(this, &MainWindow::startWheelSensor, plcSerial, &PLCSerial::startWheelSensor);
-	connect(plcSerial, &PLCSerial::isStartWheelSensor, this, &MainWindow::isStartWheelSensor);
-	connect(this, &MainWindow::stopWheelSensor, plcSerial, &PLCSerial::stopWheelSensor);
-	connect(plcSerial, &PLCSerial::isStopWheelSensor, this, &MainWindow::isStopWheelSensor);
+	connect(this, &MainWindow::connectPLC, plcSerial, &PLCSerial::connectPLC);
+	connect(plcSerial, &PLCSerial::isConnectPLC, this, &MainWindow::isConnectPLC);
+	connect(this, &MainWindow::disconnectPLC, plcSerial, &PLCSerial::disconnectPLC);
+	connect(plcSerial, &PLCSerial::isDisconnectPLC, this, &MainWindow::isDisconnectPLC);
 
 	connect(imageProcess, &ImageProcess::showAlarmNum, this, &MainWindow::uiAlarmNum);
 	connect(imageProcess, &ImageProcess::showImageMatches, this, &MainWindow::uiShowMatches);
@@ -403,7 +403,7 @@ void MainWindow::on_action_Stop_triggered()
 	//防止程序在停止状态下多次调用stop
 	if (bRunningState)
 		//结束顺序: stop sensor cap precess
-		emit stopWheelSensor();
+		emit disconnectPLC();
 	else
 		return;
 }
@@ -444,7 +444,7 @@ bool MainWindow::isStartCap(bool result)
 	{
 		recLabel->setVisible(true);
 		emit startProcess();
-		emit startWheelSensor();
+		emit connectPLC();
 	}
 	else
 	{
@@ -457,7 +457,7 @@ bool MainWindow::isStopCap(bool result)
 {
 	if (result)
 	{
-		emit setAlarm(PLCSerial::ALarmOFF);
+		emit setAlarm(PLCSerial::AlarmOFF);
 		ui.action_Start->setEnabled(true);
 		ui.action_Stop->setEnabled(false);
 		bRunningState = false;
@@ -489,7 +489,7 @@ void MainWindow::onRecStop()
 	//recLabel->show();
 }
 
-bool MainWindow::isStartWheelSensor(bool r)
+bool MainWindow::isConnectPLC(bool r)
 {
 	if (r)
 	{
@@ -506,7 +506,7 @@ bool MainWindow::isStartWheelSensor(bool r)
 	return r;
 }
 
-bool MainWindow::isStopWheelSensor(bool r)
+bool MainWindow::isDisconnectPLC(bool r)
 {
 	if (r)
 	{

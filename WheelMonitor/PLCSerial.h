@@ -10,40 +10,46 @@ public:
 	explicit PLCSerial(QObject *parent = nullptr);
 	~PLCSerial();
 	enum AlarmColor {
-		ALarmUnkown = 0,
+		AlarmUnkown = 0,
 		AlarmColorGreen = 1,
 		AlarmColorRed = 2,
 		AlarmColorYellow = 4,
-		ALarmOFF = 8
-	};		//可以组合，用|
+		AlarmOFF = 8
+	};		
+	//use | to group different color, e.g. AlarmColorRed | AlarmColorYellow = 6, represents showing red & yellow at same time
+	//not implement yet
+
+	double speedAD;	//linear Velocity read from AD, unit:m/min
 
 private:
+	QMutex mutex;
 	bool sensorA;
 	bool sensorB;
 	bool stopSensor;
 	bool isConnect;
 	QTimer* sensorTimer;
-	//QTimer* ADTimer;
+	QTimer* ADTimer;
 	QSerialPort* plcSerialPort;
 	QByteArray plcData;
 	enum AlarmColor currentAlarmColor;
 
 	private slots:
-	void loopWheelSensor();
-	void readFromAD();	//2017.11.9
+	void readSensor();
+	void readAD();	//2017.11.9
 
 signals:
 	//void initSignal();
 	void startSave();
 	void stopSave();
 	void setUiAlarm(PLCSerial::AlarmColor alarmColor);
-	void isStartWheelSensor(bool r);
-	void isStopWheelSensor(bool r);
+	void isConnectPLC(bool r);
+	void isDisconnectPLC(bool r);
+	void ADdisconnected();
 
-	public slots :
+	public slots:
 	void init();
 	void Alarm(PLCSerial::AlarmColor alarmcolor);
 
-	bool startWheelSensor();//0-00 1-01 2-10 3-11 4-error1 5-error2
-	bool stopWheelSensor();
+	bool connectPLC();//0-00 1-01 2-10 3-11 4-error1 5-error2
+	bool disconnectPLC();
 };
