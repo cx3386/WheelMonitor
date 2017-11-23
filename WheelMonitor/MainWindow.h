@@ -60,6 +60,7 @@ class MainWindow : public QMainWindow
 
   private slots:
 	void anchorClickedSlot(const QUrl &url);
+	void start24timer();
 	void update24();
 	void on_action_Start_triggered();
 	void on_action_Stop_triggered();

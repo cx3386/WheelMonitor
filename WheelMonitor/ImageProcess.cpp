@@ -7,7 +7,6 @@
 using namespace std;
 using namespace cv;
 
-
 ImageProcessParameters::ImageProcessParameters() :angle2Speed(60 * (M_PI*0.650 / 360) / (8.0 / 25.0)),
 angleBigRatio(1.2),
 angleSmallRatio(0.8),
@@ -51,11 +50,11 @@ bool getUniqueFile(QString &fullFileName)
 }
 
 ImageProcess::ImageProcess(QObject *parent) : QObject(parent)
-											  //, isSameWheel(false)
-											  ,
-											  angleCount(0), angleSum(0), iImgCount(0), bStopProcess(true), bLastOUT(true) //�ٶ�����������
-											  ,
-											  bIsInArea(false), bWheelStopped(false)
+//, isSameWheel(false)
+,
+angleCount(0), angleSum(0), iImgCount(0), bStopProcess(true), bLastOUT(true) //�ٶ�����������
+,
+bIsInArea(false), bWheelStopped(false)
 //, waitTimeout(0)
 {
 }
@@ -161,7 +160,7 @@ void ImageProcess::doImageProcess()
 				{
 					qWarning() << QStringLiteral("Miss test");
 				}
-				if (nDetectCount != 1) 
+				if (nDetectCount != 1)
 				{
 					qDebug() << QString("detect count error: %1").arg(nDetectCount);
 				}
@@ -251,6 +250,14 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	Rect ringRect((center0.x - radiusOutside), (center0.y - radiusOutside), 2 * radiusOutside, 2 * radiusOutside);
 	Mat imageRing = roiImage(ringRect);
 	Mat maskTmp = rMatcher.getMask(imageRing.size(), radiusOutside - 10, radiusInside + 10); //����ƥ������Բ������С10������
+
+	//test: output all the imageRing //2017/11/23
+	QString nowDate = QDate::currentDate().toString("yyyyMMdd");
+	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
+	QString fullFilePath = QStringLiteral("D:/Capture/%1/S%2.jpg").arg(nowDate).arg(nowTime);
+	getUniqueFile(fullFilePath);
+	imwrite(fullFilePath.toStdString(), imageRing);
+
 	if (iImgCount == 1)
 	{
 		imgVessel = imageRing;
@@ -285,7 +292,7 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	angleSum += oneAngle;
 
 	//����matchͼƬ
-	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
+	QString nowDate = QDate::currentDate().toString("yyyyMMdd");
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
 	QString fullFilePath = QStringLiteral("D:/Capture/%1/%2.jpg").arg(nowDate).arg(nowTime);
 	getUniqueFile(fullFilePath);

@@ -51,14 +51,17 @@ void MainWindow::configWindow()
 	/**********end playbackTab**********/
 
 	/***************update now*****************/
-	//make dir for capture save
-	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
-	QString saveDir = QStringLiteral("D:/Capture/%1").arg(nowDate);
-	makeDir(saveDir);
+	update24();			//1. update right away
 
-	//定时任务，每天00:00触发
-	int time_2_24 = QTime::currentTime().msecsTo(QTime(23, 59, 59, 999)) + 100;	//ensure after the day, qtime has 20ms precision
-	QTimer::singleShot(time_2_24, this, SLOT(update24()));
+	//start the daily mission timer24 at 12:00
+	QDate date = QDate::currentDate();
+	if (QTime::currentTime().msecsTo(QTime(12, 00, 00, 000)) <= 0)
+	{//if the current time is after 12:00,
+		date.addDays(1);	//2. than set date to tomorrow
+	}
+	qint64 msTo12;
+	msTo12 = QDateTime::currentDateTime().msecsTo(QDateTime(date, QTime(12, 00)));//precision of 20ms
+	QTimer::singleShot(msTo12, this, SLOT(setup24timer()));
 
 	////Only for testing 定时emit startsave and stopsave
 	//QTimer *timerTMP1 = new QTimer(this);
@@ -96,7 +99,7 @@ void MainWindow::configWindow()
 	connect(HikVideoCapture::pVideoCapture, &HikVideoCapture::imageNeedProcess, imageProcess, &ImageProcess::doImageProcess);
 	connect(imageProcess, &ImageProcess::imageProcessReady, videoCapture, &HikVideoCapture::imageProcessReady);
 
-	connect(this, &MainWindow::SyncCameraTime, videoCapture, &HikVideoCapture::syncCameraTime);	//2017.11.10
+	connect(this, &MainWindow::SyncCameraTime, videoCapture, &HikVideoCapture::syncCameraTime); //2017.11.10
 	connect(this, &MainWindow::startCap, videoCapture, &HikVideoCapture::startCap);
 	connect(videoCapture, &HikVideoCapture::isStartCap, this, &MainWindow::isStartCap);
 	connect(this, &MainWindow::stopCap, videoCapture, &HikVideoCapture::stopCap);
@@ -170,9 +173,9 @@ void MainWindow::readSettings()
 	ImageProcess::g_imgParam.radius_max = settings.value("ImageProcess/radius_max", 350).toInt();
 	ImageProcess::g_imgParam.radius_min = settings.value("ImageProcess/radius_min", 250).toInt();
 	ImageProcess::g_imgParam.roiRect = cv::Rect(settings.value("ImageProcess/roiRect_x", 220).toInt(),
-									 settings.value("ImageProcess/roiRect_y", 0).toInt(),
-									 settings.value("ImageProcess/roiRect_w", 800).toInt(),
-									 settings.value("ImageProcess/roiRect_h", 720).toInt());
+		settings.value("ImageProcess/roiRect_y", 0).toInt(),
+		settings.value("ImageProcess/roiRect_w", 800).toInt(),
+		settings.value("ImageProcess/roiRect_h", 720).toInt());
 	ocr::p.plate_x_min = settings.value("ocr_parameters/plate_x_min", 100).toInt();
 	ocr::p.plate_x_max = settings.value("ocr_parameters/plate_x_max", 250).toInt();
 	ocr::p.plate_y_min = settings.value("ocr_parameters/plate_y_min", 190).toInt();
@@ -223,7 +226,6 @@ void MainWindow::writeSettings()
 	settings.beginGroup("VideoCapture");
 	settings.setValue("capInterval", HikVideoCapture::capInterval);
 	settings.endGroup();
-
 }
 
 void MainWindow::clearLog(int nDays)
@@ -311,7 +313,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 	}
 }
 
-void MainWindow::uiAlarmNum(const QString & num)
+void MainWindow::uiAlarmNum(const QString &num)
 {
 	ui.lcdNumber->setStyleSheet("color:rgb(255, 0, 0);");
 	ui.lcdNumber->display(num);
@@ -357,35 +359,36 @@ void MainWindow::anchorClickedSlot(const QUrl &url)
 	QDesktopServices::openUrl(url);
 }
 
+void MainWindow::start24timer()
+{//start24timer at 12 o'clock
+	QTimer *timer24 = new QTimer(this);
+	connect(timer24, SIGNAL(timeout()), this, SLOT(update24()));
+	timer24->start(24 * 60 * 60 * 1000);
+	update24();
+}
+
 void MainWindow::update24()
 {
-	static bool bIsFisrtDay = true;
-	if (bIsFisrtDay)
-	{
-		QTimer *timer24 = new QTimer(this);
-		connect(timer24, SIGNAL(timeout()), this, SLOT(update24()));
-		timer24->start(24 * 3600 * 1000);
-		bIsFisrtDay = false;
-		update24(); //当天也要触发
-	}
-	else
-	{
-		//delete log
-		clearLog(30);
-		//clear capVideo
-		delCapDir(30);
-		//sync cameratime
-		emit SyncCameraTime();
-		//mkpath for capVideo
-		QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
-		QString saveDir = QStringLiteral("D:/Capture/%1").arg(nowDate);
-		makeDir(saveDir);
+	//delete log
+	clearLog(30);
+	//clear capVideo
+	delCapDir(30);
+	//sync cameratime
+	emit SyncCameraTime();
+	//mkpath for capVideo
+	QDate date = QDate::currentDate();
 
-		//restart
-		//on_action_Stop_triggered();
-		////等待一段时间
-		//on_action_Start_triggered();
-	}
+	QString today = date.toString("yyyyMMdd");
+	QString saveDir = QStringLiteral("D:/Capture/%1").arg(today);
+	makeDir(saveDir);
+
+	QString tomorrow = date.addDays(1).toString("yyyyMMdd");
+	saveDir = QStringLiteral("D:/Capture/%1").arg(tomorrow);
+	makeDir(saveDir);
+	//restart
+	//on_action_Stop_triggered();
+	////等待一段时间
+	//on_action_Start_triggered();
 }
 
 void MainWindow::on_action_Start_triggered()
@@ -518,7 +521,6 @@ bool MainWindow::isDisconnectPLC(bool r)
 	return r;
 }
 
-
 //void MainWindow::startOrStopSave()
 //{
 //	static bool bRec = false;
@@ -532,8 +534,8 @@ bool MainWindow::isDisconnectPLC(bool r)
 void MainWindow::on_action_About_triggered()
 {
 	QMessageBox::about(this, QStringLiteral("关于"),
-					   QStringLiteral("<h3>宝钢环冷机台车轮子状态检测软件</h3>"
-									  "<p>版本号：<b>v1.1.0</b>"
-									  "<p>Copyright &copy; 2017 ZJU SKL."
-									  "<p>本软件由浙江大学开发，如果问题请联系cx3386@163.com"));
+		QStringLiteral("<h3>宝钢环冷机台车轮子状态检测软件</h3>"
+			"<p>版本号：<b>v1.1.0</b>"
+			"<p>Copyright &copy; 2017 ZJU SKL."
+			"<p>本软件由浙江大学开发，如果问题请联系cx3386@163.com"));
 }
