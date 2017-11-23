@@ -17,6 +17,7 @@ class HikVideoCapture : public QObject
 		static void CALLBACK g_ExceptionCallBack(DWORD dwType, LONG lUserID, LONG lHandle, void *pUser);
 	static void CALLBACK fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, DWORD dwUser);
 	static void CALLBACK DecCBFun(long nPort, char * pBuf, long nSize, FRAME_INFO * pFrameInfo, long nReserved1, long nReserved2);
+	static void CALLBACK fDrawFun(LONG lRealHandle, HDC hDc, DWORD dwUser);
 
 public:
 	explicit HikVideoCapture(QObject *parent = nullptr);
@@ -33,24 +34,27 @@ private:
 	static volatile bool bIsProcessing;
 	static QMutex mutex;
 	LONG lUserID;
-	LONG lRealPlayHandle;
-	LONG lRealPlayHandle_HS;
+	LONG lRealPlayHandle_SD;
+	LONG lRealPlayHandle_HD;
 	bool bIsSaving;
+	bool bSaveTimeout;
+	QTimer *timer;
 
 signals:
 	void imageNeedProcess();
 	void isStartCap(bool result);
 	void isStopCap(bool result);
 	void wheelTimeout();
+	void saveStopped();
 	//void isStartSave(bool result);
 	//void isStopSave(bool result);
 
-public slots :
+	public slots :
 	bool syncCameraTime();
 	bool startCap(HWND h);
 	bool stopCap();
 	bool startSave();
 	bool stopSave();
-	bool timeoutSave();
+	//bool timeoutSave();
 	void imageProcessReady();
 };

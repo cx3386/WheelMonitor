@@ -1,16 +1,23 @@
 ﻿#include "stdafx.h"
 #include "MainWindow.h"
-#include "videoplayer.h"
+#include "player.h"
 #include "SettingDialog.h"
+#include "outlierdetection.h"
+
+bool MainWindow::bAppAutoRun = true;
+bool MainWindow::bVerboseLog = true;
 
 MainWindow::MainWindow(QWidget *parent)
-	: QMainWindow(parent), bRunningState(false)
+	: QMainWindow(parent), bIsRunning(false)
 {
+	//setWindowOpacity(1);
+
 	qRegisterMetaType<HWND>("HWND");
 	qRegisterMetaType<PLCSerial::AlarmColor>("PLCSerial::AlarmColor");
 	ui.setupUi(this);
 	readSettings();
 	configWindow();
+
 	//auto start
 	//on_action_Start_triggered();
 }
@@ -30,6 +37,7 @@ MainWindow::~MainWindow()
 }
 void MainWindow::configWindow()
 {
+	//appAutoRun(true);
 	/***************setup reclabel****************/
 	recLabel = new QLabel(ui.playerTab);
 	recLabel->setObjectName(QStringLiteral("recLabel"));
@@ -39,15 +47,39 @@ void MainWindow::configWindow()
 	onRecStop(); //init as grey
 	//recLabel->raise();
 	//recLabel->setAttribute(Qt::WA_TranslucentBackground);
-
+	//ui.playerWidget->setGeometry(0, 0, 0, 0);	//to initilize the geometry of the playerwidget, make the drawRoiArea() correct
+	/************roi rect**************/
+	lineL = new QFrame(ui.playerTab);
+	lineL->setFrameShape(QFrame::VLine);
+	lineL->setFrameShadow(QFrame::Plain);
+	lineL->setLineWidth(2);
+	lineL->setStyleSheet("color: rgb(255, 0, 0);");
+	lineR = new QFrame(ui.playerTab);
+	lineR->setFrameShape(QFrame::VLine);
+	lineR->setFrameShadow(QFrame::Plain);
+	lineR->setLineWidth(2);
+	lineR->setStyleSheet("color: rgb(255, 0, 0);");
+	lineT = new QFrame(ui.playerTab);
+	lineT->setFrameShape(QFrame::HLine);
+	lineT->setFrameShadow(QFrame::Plain);
+	lineT->setLineWidth(2);
+	lineT->setStyleSheet("color: rgb(255, 0, 0);");
+	lineB = new QFrame(ui.playerTab);
+	lineB->setFrameShape(QFrame::HLine);
+	lineB->setFrameShadow(QFrame::Plain);
+	lineB->setLineWidth(2);
+	lineB->setStyleSheet("color: rgb(255, 0, 0);");
+	//drawRoiArea();
+	connect(ui.playerWidget, &MyWidget::myResize, this, &MainWindow::drawRoiArea);
 	/*********playbackTab**********/
-	VideoPlayer *playbackWidget = new VideoPlayer;
-	//playbackWidget->setUrl(QUrl::fromLocalFile("H:/.mp4"));
+	Player *playbackWidget = new Player(ui.playbackTab);
+	//playbackWidget->setUrl(QUrl::fromLocalFile("H:/3.mp4"));
 	QGridLayout *playbackLayout = new QGridLayout;
 	playbackLayout->addWidget(playbackWidget);
 	ui.playbackTab->setLayout(playbackLayout);
-	//ui.playbackTab->setEnabled(false);
-	ui.centralTabWidget->setTabEnabled(2, false);
+	ui.centralTabWidget->setCurrentIndex(0);
+	//ui.playbackTab->setEnabled(false);	//unclickable and unchosenable
+	//ui.centralTabWidget->setTabEnabled(2, false);	//cant toggle to this tab
 	/**********end playbackTab**********/
 
 	/***************update now*****************/
@@ -105,6 +137,7 @@ void MainWindow::configWindow()
 	connect(this, &MainWindow::stopCap, videoCapture, &HikVideoCapture::stopCap);
 	connect(videoCapture, &HikVideoCapture::isStopCap, this, &MainWindow::isStopCap);
 	connect(videoCapture, &HikVideoCapture::wheelTimeout, imageProcess, &ImageProcess::wheelTimeout);
+	connect(videoCapture, &HikVideoCapture::saveStopped, this, &MainWindow::onRecStop);	//when stop saving video(sensorOUT or saveTimeOut), update UI.REC.gray
 
 	//connect(this, &MainWindow::startSave, videoCapture, &HikVideoCapture::startSave);
 	//connect(this, &MainWindow::stopSave, videoCapture, &HikVideoCapture::stopSave);
@@ -121,16 +154,19 @@ void MainWindow::configWindow()
 	connect(imageProcess, &ImageProcess::showAlarmNum, this, &MainWindow::uiAlarmNum);
 	connect(imageProcess, &ImageProcess::showImageMatches, this, &MainWindow::uiShowMatches);
 	connect(imageProcess, &ImageProcess::speedClcReady, this, &MainWindow::uiShowLastSpeed);
-	connect(imageProcess, &ImageProcess::realSpeedReady, this, &MainWindow::uiShowRealSpeed);
+	connect(imageProcess, &ImageProcess::rtSpeedReady, this, &MainWindow::uiShowRtSpeed);
+	connect(plcSerial, &PLCSerial::ADSpeedReady, this, &MainWindow::uiShowCartSpeed);
 	connect(imageProcess, &ImageProcess::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 
-	connect(plcSerial, &PLCSerial::startSave, videoCapture, &HikVideoCapture::startSave);
-	connect(plcSerial, &PLCSerial::startSave, imageProcess, &ImageProcess::sensorIN); //认为同一个轮子
-	connect(plcSerial, &PLCSerial::startSave, this, &MainWindow::onRecStart);		  //认为同一个轮子
+	//When wheel enters detect area, i.e., lighten the LEFT sensor
+	connect(plcSerial, &PLCSerial::sensorIN, videoCapture, &HikVideoCapture::startSave);	//1. start to save video
+	connect(plcSerial, &PLCSerial::sensorIN, imageProcess, &ImageProcess::sensorIN);	    //2. start image process
+	connect(plcSerial, &PLCSerial::sensorIN, this, &MainWindow::onRecStart);	            //3. update UI.REC.red
 
-	connect(plcSerial, &PLCSerial::stopSave, videoCapture, &HikVideoCapture::stopSave);
-	connect(plcSerial, &PLCSerial::stopSave, imageProcess, &ImageProcess::sensorOUT); //认为结束了该个轮子
-	connect(plcSerial, &PLCSerial::stopSave, this, &MainWindow::onRecStop);			  //认为同一个轮子
+	//When wheel leaves detect area, i.e., leaves the RIGHT sensor
+	connect(plcSerial, &PLCSerial::sensorOUT, videoCapture, &HikVideoCapture::stopSave);	//1. stop to save video
+	connect(plcSerial, &PLCSerial::sensorOUT, imageProcess, &ImageProcess::sensorOUT);      //2. stop image process
+	//connect(plcSerial, &PLCSerial::sensorOUT, this, &MainWindow::onRecStop);			    //3. update UI.REC.gray
 
 	connect(plcSerial, &PLCSerial::setUiAlarm, this, &MainWindow::uiAlarmLight);
 	connect(this, &MainWindow::setAlarm, plcSerial, &PLCSerial::Alarm);
@@ -157,6 +193,8 @@ void MainWindow::uiAlarmLight(PLCSerial::AlarmColor alarmColor) //1-green; 2-red
 	case 4:
 		pixmap = QPixmap(":/images/Resources/images/yellow.png");
 		break;
+	case 8:
+		pixmap = QPixmap(":/images/Resources/images/gray.png");
 	default:
 		break;
 	}
@@ -167,6 +205,10 @@ void MainWindow::uiAlarmLight(PLCSerial::AlarmColor alarmColor) //1-green; 2-red
 void MainWindow::readSettings()
 {
 	QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
+	bAppAutoRun = settings.value("Common/appAutoRun", true).toBool();
+	appAutoRun(bAppAutoRun);
+	bVerboseLog = settings.value("Common/verboseLog", true).toBool();
+	/*implement of verboselog*/
 	ImageProcess::g_imgParam.sensorTriggered = settings.value("ImageProcess/sensorTriggered", false).toBool();
 	ImageProcess::g_imgParam.angleBigRatio = settings.value("ImageProcess/angleBigRatio", 1.2).toDouble();
 	ImageProcess::g_imgParam.angleSmallRatio = settings.value("ImageProcess/angleSmallRatio", 0.8).toDouble();
@@ -196,6 +238,11 @@ void MainWindow::readSettings()
 void MainWindow::writeSettings()
 {
 	QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
+	settings.beginGroup("Common");
+	settings.setValue("appAutoRun", bAppAutoRun);
+	settings.setValue("verboseLog", bVerboseLog);
+	settings.endGroup();
+
 	settings.beginGroup("ImageProcess");
 	settings.setValue("sensorTriggered", ImageProcess::g_imgParam.sensorTriggered);
 	settings.setValue("angleBigRatio", ImageProcess::g_imgParam.angleBigRatio);
@@ -266,7 +313,7 @@ bool MainWindow::delCapDir(int nDays)
 	if (list.length() != 0)
 		for (int i = 0; i < list.size(); ++i)
 		{
-			//prevent to del the '.' and '..' dirs, very important
+			//prevent deleting the '.' and '..' dirs, very important
 			if (list.at(i).fileName() == "." || list.at(i).fileName() == "..")
 				continue;
 			if (list.at(i).fileName().toInt() <= (nDirName - nDays))
@@ -300,9 +347,43 @@ bool MainWindow::makeDir(QString fullPath)
 	}
 }
 
+void MainWindow::appAutoRun(bool bAutoRun)	//autorun when computer start
+{
+	//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+	QSettings  *reg = new QSettings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+
+	if (bAutoRun)
+	{
+		QString strAppPath = QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
+		strAppPath.replace(QChar('/'), QChar('\\'), Qt::CaseInsensitive);
+		reg->setValue("WheelMonitor", strAppPath);
+	}
+	else
+	{
+		reg->setValue("WheelMonitor", "");
+	}
+}
+
+void MainWindow::drawRoiArea()
+{
+	QRect srcRect = QRect(ImageProcess::g_imgParam.roiRect.x, ImageProcess::g_imgParam.roiRect.y, ImageProcess::g_imgParam.roiRect.width, ImageProcess::g_imgParam.roiRect.height);
+
+	QRect rect = ui.playerWidget->geometry();
+	QPoint tl = QPoint(srcRect.topLeft().x() / 1280.0*rect.width(), srcRect.topLeft().y() / 720.0*rect.height());
+	QPoint tr = QPoint(srcRect.topRight().x() / 1280.0*rect.width(), srcRect.topRight().y() / 720.0*rect.height());
+	QPoint bl = QPoint(srcRect.bottomLeft().x() / 1280.0*rect.width(), srcRect.bottomLeft().y() / 720.0*rect.height());
+	//QPoint br = QPoint((srcRect.bottomRight.x() / 1280.0)*rect.width(), (srcRect.bottomRight.y() / 720.0)*rect.height());
+	QSize size = rect.size();
+	QPoint pt = rect.topLeft();
+	lineL->setGeometry(pt.x() + tl.x(), pt.y() + tl.y(), 2, srcRect.height() / 720.0*rect.height());
+	lineR->setGeometry(pt.x() + tr.x(), pt.y() + tr.y(), 2, srcRect.height() / 720.0*rect.height());
+	lineT->setGeometry(pt.x() + tl.x(), pt.y() + tl.y(), srcRect.width() / 1280.0*rect.width(), 2);
+	lineB->setGeometry(pt.x() + bl.x(), pt.y() + bl.y(), srcRect.width() / 1280.0*rect.width(), 2);
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-	if (!(QMessageBox::information(this, QStringLiteral("宝钢环冷机台车轮子状态检测"), QStringLiteral("真的要退出吗？"), QStringLiteral("确定"), QStringLiteral("取消"))))
+	if (!(QMessageBox::information(this, QStringLiteral("宝钢环冷机台车轮子转速监测"), QStringLiteral("真的要退出吗？"), QStringLiteral("确定"), QStringLiteral("取消"))))
 	{
 		writeSettings();
 		event->accept();
@@ -326,7 +407,7 @@ void MainWindow::uiShowMatches()
 	mutex.unlock();
 	image.rgbSwapped();
 	//image.setColorTable(sColorTable);
-	image = image.scaled(ui.imageMatchesLabel->size(), Qt::KeepAspectRatio); //需要赋值
+	image = image.scaled(ui.imageMatchesLabel->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
 	ui.imageMatchesLabel->setPixmap(QPixmap::fromImage(image));				 //label->setscaledcontent()
 }
 
@@ -336,10 +417,16 @@ void MainWindow::uiShowLastSpeed(double speed)
 	ui.lastSpeedLineEdit->setText(str);
 }
 
-void MainWindow::uiShowRealSpeed(double speed)
+void MainWindow::uiShowRtSpeed(double speed)
 {
 	QString str = QString::number(speed, 'f', 2);
-	ui.realSpeedLineEdit->setText(str);
+	ui.rtSpeedLineEdit->setText(str);
+}
+
+void MainWindow::uiShowCartSpeed(double speed)
+{
+	QString str = QString::number(speed, 'f', 2);
+	ui.cartSpeedLineEdit->setText(str);
 }
 
 void MainWindow::uiShowLogMessage(const QString &message)
@@ -351,6 +438,7 @@ void MainWindow::uiShowErrorMessage(const QString &message)
 {
 	QString errormsg = QStringLiteral("%1 <a href = \"%2\">Video</a>").arg(message).arg(videoCapture->saveDirLink);
 	ui.errorTextBrowser->append(errormsg);
+	ui.logTabWidget->setCurrentIndex(1);
 }
 
 void MainWindow::anchorClickedSlot(const QUrl &url)
@@ -394,7 +482,7 @@ void MainWindow::update24()
 void MainWindow::on_action_Start_triggered()
 {
 	//防止程序在停止状态下多次调用stop
-	if (!bRunningState)
+	if (!bIsRunning)
 		//开始顺序： start cap process sensor
 		emit startCap(realPlayHandle);
 	else
@@ -404,17 +492,22 @@ void MainWindow::on_action_Start_triggered()
 void MainWindow::on_action_Stop_triggered()
 {
 	//防止程序在停止状态下多次调用stop
-	if (bRunningState)
+	if (bIsRunning)
 		//结束顺序: stop sensor cap precess
 		emit disconnectPLC();
 	else
 		return;
 }
+void MainWindow::on_action_Restart_triggered()
+{
+	qApp->quit();
+	QProcess::startDetached(qApp->applicationFilePath().replace("/", "\\"), QStringList("restart"));
+}
 void MainWindow::on_action_Property_triggered()
 {
-	SettingDialog *settingDialog = new SettingDialog(this); // 将this作为父窗
+	SettingDialog *settingDialog = new SettingDialog(this); // mainwindow as parant
 	//settingDialog->setAttribute(Qt::WA_DeleteOnClose);
-	settingDialog->deleteLater();
+	settingDialog->deleteLater();	//will delete when return from this funciton
 	if (settingDialog->exec() == QDialog::Accepted)
 	{
 		settingDialog->setOption();
@@ -426,9 +519,17 @@ void MainWindow::on_action_Quit_triggered()
 }
 void MainWindow::on_alarmPushButton_clicked()
 {
+	//when not running, start the monitor.
+	if (false == bIsRunning)
+	{
+		on_action_Start_triggered();
+		return;
+	}
+	//start sucess
 	emit setAlarm(PLCSerial::AlarmColorGreen);
 	ui.lcdNumber->setStyleSheet("color:rgb(0, 255, 0);");
 	ui.lcdNumber->display(QString("888"));
+	ui.logTabWidget->setCurrentIndex(0);	//reset logTabWidget to log tab(not the error tab)
 }
 
 void MainWindow::on_errorTextBrowser_textChanged()
@@ -460,10 +561,10 @@ bool MainWindow::isStopCap(bool result)
 {
 	if (result)
 	{
-		emit setAlarm(PLCSerial::AlarmOFF);
 		ui.action_Start->setEnabled(true);
 		ui.action_Stop->setEnabled(false);
-		bRunningState = false;
+		bIsRunning = false;
+		emit setAlarm(PLCSerial::AlarmOFF);
 		qWarning("stop success");
 	}
 	else
@@ -496,10 +597,10 @@ bool MainWindow::isConnectPLC(bool r)
 {
 	if (r)
 	{
-		on_alarmPushButton_clicked();
 		ui.action_Start->setEnabled(false);
 		ui.action_Stop->setEnabled(true);
-		bRunningState = true;
+		bIsRunning = true;
+		on_alarmPushButton_clicked();
 		qWarning("start success");
 	}
 	else
@@ -513,7 +614,7 @@ bool MainWindow::isDisconnectPLC(bool r)
 {
 	if (r)
 	{
-		plcSerial->emit stopSave();
+		plcSerial->emit sensorOUT();
 		recLabel->setVisible(false);
 		emit stopProcess();
 		emit stopCap();
@@ -521,15 +622,15 @@ bool MainWindow::isDisconnectPLC(bool r)
 	return r;
 }
 
-//void MainWindow::startOrStopSave()
-//{
-//	static bool bRec = false;
-//	if (bRec)
-//		plcSerial->emit stopSave();
-//	else
-//		plcSerial->emit startSave();
-//	bRec = !bRec;
-//}
+void MainWindow::startOrStopSave()
+{
+	static bool bRec = false;
+	if (bRec)
+		plcSerial->emit sensorOUT();
+	else
+		plcSerial->emit sensorIN();
+	bRec = !bRec;
+}
 
 void MainWindow::on_action_About_triggered()
 {

@@ -2,11 +2,18 @@
 #include "SettingDialog.h"
 #include "ImageProcess.h"
 #include "HikVideoCapture.h"
+#include "MainWindow.h"
 
 SettingDialog::SettingDialog(QWidget *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+
+	/*settingsTab*/
+	ui.appAutoRunCheckBox->setChecked(MainWindow::bAppAutoRun);
+	ui.verboseLogCheckBox->setChecked(MainWindow::bVerboseLog);
+
+	/*advancedTab*/
 	ui.sensorCheckBox->setChecked(ImageProcess::g_imgParam.sensorTriggered);
 	ui.angleHighSpinBox->setValue(ImageProcess::g_imgParam.angleBigRatio);
 	ui.angleLowSpinBox->setValue(ImageProcess::g_imgParam.angleSmallRatio);
@@ -27,6 +34,11 @@ void SettingDialog::setOption()
 {
 	static QMutex mutex;
 	mutex.lock();
+	/*settingsTab*/
+	MainWindow::bAppAutoRun = ui.appAutoRunCheckBox->isChecked();
+	MainWindow::bVerboseLog = ui.verboseLogCheckBox->isChecked();
+
+	/*advancedTab*/
 	ImageProcess::g_imgParam.sensorTriggered = ui.sensorCheckBox->isChecked();
 	ImageProcess::g_imgParam.angleBigRatio = ui.angleHighSpinBox->value();
 	ImageProcess::g_imgParam.angleSmallRatio = ui.angleLowSpinBox->value();

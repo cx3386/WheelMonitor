@@ -16,5 +16,5 @@ private:
 	Ui::SettingDialog ui;
 
 protected:
-//	void closeEvent(QCloseEvent *event);
+	//	void closeEvent(QCloseEvent *event);
 };

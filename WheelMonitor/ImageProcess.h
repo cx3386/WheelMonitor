@@ -40,19 +40,22 @@ private:
 	//int iImgNoCycle;
 	int coreImageProcess(); //0-no cycle, 1-matches success
 	//bool isSameWheel;
-	double angleSum;
-	int angleCount;
-	int iImgCount;
-	int nDetectCount;
+	std::vector<double> rtSpeeds;
+	std::vector<double>	refSpeeds;
+	//std::vector<double>	corePeriodSpeeds;	//used in statistics in a imageCoreProcess period, clear when core process is interrupted	//2017/11/20
+	//double angleSum;
+	//int angleCount;	//coreProcess period angle count, replace by rtSpeeds.size();	//2017/11/20
+	int nImgCount;	//has 0/1/2 src imgs to match. when 2, begin to match process; when 0,1, wait the next src img
+	int nFragments;
 
-	void alarm(double avgAngle);
-	void resetCoreProcess();
+	void alarmThisWheel();
+	//void resetCoreProcess();
 	bool bIsInArea;
 	bool bLastOUT;
 	bool bWheelStopped;
 	bool bStopProcess;
-	QTime time;
-	int in_out_time; //ms
+	//QTime time;
+	//int in_out_time; //ms
 	QMutex mutex;
 	RobustMatcher rMatcher;
 
@@ -63,8 +66,8 @@ signals:
 	void showImageMatches();
 	void setAlarmLight(PLCSerial::AlarmColor alarmcolor);
 	void speedClcReady(double speed);
-	void realSpeedReady(double speed);
-public slots:
+	void rtSpeedReady(double speed);
+	public slots:
 	void doImageProcess();
 	void startImageProcess();
 	void stopImageProcess();

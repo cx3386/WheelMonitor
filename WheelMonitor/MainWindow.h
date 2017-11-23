@@ -12,15 +12,17 @@ class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 
-  public:
+public:
 	MainWindow(QWidget *parent = Q_NULLPTR);
 	~MainWindow();
+	static bool bAppAutoRun;
+	static bool bVerboseLog;
 
 	//void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& msg);
 
-  private:
+private:
 	Ui::MainWindowClass ui;
-	bool bRunningState;
+	bool bIsRunning;
 	QLabel *recLabel;
 	/*****worker******/
 	MyMessageOutput *outputMessage;
@@ -42,28 +44,39 @@ class MainWindow : public QMainWindow
 	void clearLog(int nDays);  //�������n�����־
 	bool delCapDir(int nDays); //�������n���¼���ļ�
 	bool makeDir(QString fullPath);
+	void appAutoRun(bool bAutoRun);
+
+	QFrame *lineL;
+	QFrame *lineR;
+	QFrame *lineT;
+	QFrame *lineB;
 	//for test
 	//QPushButton *startSaveBtn;
 	//QPushButton *stopSaveBtn;
 
-  protected:
+protected:
 	void closeEvent(QCloseEvent *event);
+	//void resizeEvent(QResizeEvent *event);
 
-  public slots:
+	public slots:
 	void uiAlarmLight(PLCSerial::AlarmColor alarmColor);
 	void uiAlarmNum(const QString &num);
 	void uiShowMatches();
 	void uiShowLastSpeed(double speed);
-	void uiShowRealSpeed(double speed);
+	void uiShowRtSpeed(double speed);
+	void uiShowCartSpeed(double speed);
 	void uiShowLogMessage(const QString &message);
 	void uiShowErrorMessage(const QString &message);
+	//roi area
+	void drawRoiArea();
 
-  private slots:
+	private slots:
 	void anchorClickedSlot(const QUrl &url);
 	void start24timer();
 	void update24();
 	void on_action_Start_triggered();
 	void on_action_Stop_triggered();
+	void on_action_Restart_triggered();
 	void on_action_Property_triggered();
 	void on_action_Quit_triggered();
 	void on_action_About_triggered();
@@ -77,9 +90,9 @@ class MainWindow : public QMainWindow
 	bool isConnectPLC(bool r);
 	bool isDisconnectPLC(bool r);
 
-	//void startOrStopSave();
+	void startOrStopSave();
 
-  signals:
+signals:
 	void installLogSystem();
 	void startCap(HWND handle);
 	void SyncCameraTime();
