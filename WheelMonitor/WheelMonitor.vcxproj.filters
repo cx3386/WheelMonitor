@@ -162,14 +162,44 @@
     <ClCompile Include="ocr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="videoplayer.cpp">
+    <ClCompile Include="outlierdetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_videoplayer.cpp">
+    <ClCompile Include="customslider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="videowidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_customslider.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_videoplayer.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_customslider.cpp">
       <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_player.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_player.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_videowidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_videowidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_mywidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_mywidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="mywidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -215,7 +245,16 @@
     <CustomBuild Include="stdafx.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="videoplayer.h">
+    <CustomBuild Include="customslider.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="player.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="videowidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mywidget.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -281,6 +320,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ocr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="outlierdetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

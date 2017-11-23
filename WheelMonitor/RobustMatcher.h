@@ -1,6 +1,6 @@
 #pragma once
 #include <opencv.hpp>
-#include <qmath.h>
+
 class RobustMatcher
 {
 public:
@@ -22,4 +22,3 @@ private:
 		std::vector<cv::DMatch>& symMatches);
 	int ratioTest(std::vector<std::vector<cv::DMatch> >& matches);
 };
-

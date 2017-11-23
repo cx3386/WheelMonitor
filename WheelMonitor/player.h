@@ -38,21 +38,67 @@
 **
 ****************************************************************************/
 
-#ifndef VIDEOWIDGET_H
-#define VIDEOWIDGET_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
-#include <QVideoWidget>
+#include "videowidget.h"
 
-class VideoWidget : public QVideoWidget {
-    Q_OBJECT
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include <QWidget>
+
+QT_BEGIN_NAMESPACE
+class QLabel;
+class QMediaPlayer;
+class QPushButton;
+class CustomSlider;
+
+class QVideoWidget;
+QT_END_NAMESPACE
+
+class Player : public QWidget {
+	Q_OBJECT
 
 public:
-    VideoWidget(QWidget* parent = 0);
+	Player(QWidget* parent = 0);
+	~Player();
 
-protected:
-    void keyPressEvent(QKeyEvent* event) override;
-    void mouseDoubleClickEvent(QMouseEvent* event) override;
-    void mousePressEvent(QMouseEvent* event) override;
+	void setUrl(const QUrl &url);	//sql table set the playerurl
+
+signals:
+	void fullScreenChanged(bool fullScreen);
+	void play();
+	void pause();
+
+	private slots:
+	//void open();
+	void durationChanged(qint64 duration);
+	void positionChanged(qint64 progress);
+
+	void seek(int seconds);
+
+	void statusChanged(QMediaPlayer::MediaStatus status);
+	//void stateChanged(QMediaPlayer::State state);
+	void videoAvailableChanged(bool available);
+	void setState(QMediaPlayer::State state);
+	void playClicked();
+	void openFilePath();
+
+private:
+	void handleCursor(QMediaPlayer::MediaStatus status);
+	void updateDurationInfo(qint64 currentInfo);
+	QMediaPlayer::State playerState;
+	QMediaPlayer::State state() const;
+	QMediaPlayer* player;
+	VideoWidget* videoWidget;
+	CustomSlider* slider;
+	QPushButton* playButton;
+	QPushButton* fullScreenButton;
+	QPushButton* openFilePathBtn;
+	QLabel* labelDuration;
+	QString statusInfo;
+	qint64 duration;
+	QString currentFileName;
 };
 
-#endif // VIDEOWIDGET_H
+#endif // PLAYER_H

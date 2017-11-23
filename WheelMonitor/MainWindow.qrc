@@ -6,5 +6,6 @@
         <file>Resources/images/yellow.png</file>
         <file>Resources/images/rec_grey.png</file>
         <file>Resources/images/rec_red.png</file>
+        <file>Resources/images/gray.png</file>
     </qresource>
 </RCC>

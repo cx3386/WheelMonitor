@@ -15,22 +15,22 @@ public:
 		AlarmColorRed = 2,
 		AlarmColorYellow = 4,
 		AlarmOFF = 8
-	};		
+	};
 	//use | to group different color, e.g. AlarmColorRed | AlarmColorYellow = 6, represents showing red & yellow at same time
 	//not implement yet
 
-	double speedAD;	//linear Velocity read from AD, unit:m/min
+	static double speedAD;	//linear Velocity read from AD, unit:m/min
 
 private:
 	QMutex mutex;
-	bool sensorA;
-	bool sensorB;
+	bool sensorRight;	//out
+	bool sensorLeft;	//in
 	bool stopSensor;
 	bool isConnect;
 	QTimer* sensorTimer;
 	QTimer* ADTimer;
 	QSerialPort* plcSerialPort;
-	QByteArray plcData;
+	//QByteArray plcData;
 	enum AlarmColor currentAlarmColor;
 
 	private slots:
@@ -39,12 +39,13 @@ private:
 
 signals:
 	//void initSignal();
-	void startSave();
-	void stopSave();
+	void sensorIN();
+	void sensorOUT();
 	void setUiAlarm(PLCSerial::AlarmColor alarmColor);
 	void isConnectPLC(bool r);
 	void isDisconnectPLC(bool r);
 	void ADdisconnected();
+	void ADSpeedReady(double speed);
 
 	public slots:
 	void init();
