@@ -25,11 +25,13 @@ struct ImageProcessParameters
 	cv::Rect roiRect;
 };
 
+class QSqlTableModel;
+
 class ImageProcess : public QObject
 {
 	Q_OBJECT
 public:
-	explicit ImageProcess(QObject *parent = nullptr);
+	explicit ImageProcess(QSqlTableModel *srcmodel, QObject *parent = Q_NULLPTR);
 	~ImageProcess();
 
 	static ImageProcessParameters g_imgParam;
@@ -37,6 +39,7 @@ public:
 	ocr myocr;
 
 private:
+	QSqlTableModel *model;
 	//int iImgNoCycle;
 	int coreImageProcess(); //0-no cycle, 1-matches success
 	//bool isSameWheel;

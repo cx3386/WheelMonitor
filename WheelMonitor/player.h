@@ -63,6 +63,7 @@ public:
 	Player(QWidget* parent = 0);
 	~Player();
 
+	public slots:
 	void setUrl(const QUrl &url);	//sql table set the playerurl
 
 signals:

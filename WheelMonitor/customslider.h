@@ -5,22 +5,23 @@
 #include <QMouseEvent>
 #include <QSlider>
 
-class CustomSlider : public QSlider {
+class CustomSlider : public QSlider
+{
     Q_OBJECT
-public:
-    CustomSlider(QWidget* parent = 0)
+  public:
+    CustomSlider(QWidget *parent = 0)
         : QSlider(parent)
     {
     }
-    CustomSlider(Qt::Orientation orientation, QWidget* parent = Q_NULLPTR)
+    CustomSlider(Qt::Orientation orientation, QWidget *parent = Q_NULLPTR)
         : QSlider(orientation, parent)
     {
     }
 
-protected:
-    void mousePressEvent(QMouseEvent* ev); //閲嶅啓QSlider鐨刴ousePressEvent浜嬩欢
-signals:
-    void costomSliderClicked(int); //鑷畾涔夌殑榧犳爣鍗曞嚮淇″彿锛岀敤浜庢崟鑾峰苟澶勭悊
+  protected:
+    void mousePressEvent(QMouseEvent *ev); //重写QSlider的mousePressEvent事件
+  signals:
+    void costomSliderClicked(int); //自定义的鼠标单击信号，用于捕获并处理
 };
 
 #endif // CUSTOMSLIDER_H

@@ -1,15 +1,16 @@
 #include "customslider.h"
 
-void CustomSlider::mousePressEvent(QMouseEvent* ev)
+void CustomSlider::mousePressEvent(QMouseEvent *ev)
 {
-    if (ev->button() == Qt::LeftButton) //åˆ¤æ–­å·¦é”®
+    if (ev->button() == Qt::LeftButton) //ÅĞ¶Ï×ó¼ü
     {
         int dur = maximum() - minimum();
         int pos = minimum() + dur * ((double)ev->x() / width());
-        if (pos != sliderPosition()) {
+        if (pos != sliderPosition())
+        {
             setValue(pos);
-        } //å‘é€è‡ªå®šä¹‰çš„é¼ æ ‡å•å‡»ä¿¡å·
+        } //·¢ËÍ×Ô¶¨ÒåµÄÊó±êµ¥»÷ĞÅºÅ
         emit costomSliderClicked(pos);
     }
-    QSlider::mousePressEvent(ev); //æ³¨æ„åº”æœ€åè°ƒç”¨çˆ¶ç±»çš„é¼ æ ‡ç‚¹å‡»å¤„ç†äº‹ä»¶ï¼Œè¿™æ ·å¯ä»¥ä¸å½±å“æ‹–åŠ¨çš„æƒ…å†µ
+    QSlider::mousePressEvent(ev); //×¢ÒâÓ¦×îºóµ÷ÓÃ¸¸ÀàµÄÊó±êµã»÷´¦ÀíÊÂ¼ş£¬ÕâÑù¿ÉÒÔ²»Ó°ÏìÍÏ¶¯µÄÇé¿ö
 }

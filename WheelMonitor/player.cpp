@@ -131,7 +131,7 @@ void Player::setUrl(const QUrl & url)
 {
 	player->setMedia(url);
 	currentFileName = url.toLocalFile();
-	emit playButton->clicked();
+	//emit playButton->clicked();	//if detect media changed, start play
 }
 
 void Player::durationChanged(qint64 duration)

@@ -17,4 +17,10 @@ private:
 
 protected:
 	//	void closeEvent(QCloseEvent *event);
+
+	signals :
+			void roiChanged();
+
+			private slots:
+			void roiSlot(int);
 };

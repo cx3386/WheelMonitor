@@ -8,6 +8,7 @@
 #include <QtWidgets/QMainWindow>
 #include <ocr.h>
 
+class SettingDialog;
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
@@ -35,6 +36,7 @@ private:
 	QThread plcSerialThread;
 	QThread outputMessageThread;
 
+	SettingDialog* settingDialog;
 	HWND realPlayHandle;
 	QMutex mutex;
 	void configWindow();

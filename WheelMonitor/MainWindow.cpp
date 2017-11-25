@@ -3,6 +3,7 @@
 #include "player.h"
 #include "SettingDialog.h"
 #include "outlierdetection.h"
+#include "datatablewidget.h"
 
 bool MainWindow::bAppAutoRun = true;
 bool MainWindow::bVerboseLog = true;
@@ -73,13 +74,16 @@ void MainWindow::configWindow()
 	connect(ui.playerWidget, &MyWidget::myResize, this, &MainWindow::drawRoiArea);
 	/*********playbackTab**********/
 	Player *playbackWidget = new Player(ui.playbackTab);
-	//playbackWidget->setUrl(QUrl::fromLocalFile("H:/3.mp4"));
-	QGridLayout *playbackLayout = new QGridLayout;
-	playbackLayout->addWidget(playbackWidget);
-	ui.playbackTab->setLayout(playbackLayout);
+	DataTableWidget *dataTableWidget = new DataTableWidget(ui.playbackTab);
+	connect(dataTableWidget, &DataTableWidget::showVideo, playbackWidget, &Player::setUrl);
+	//playbackWidget->setUrl(QUrl::fromLocalFile("e:/1.mp4"));
+	QHBoxLayout *hLayout = new QHBoxLayout;
+	hLayout->addWidget(dataTableWidget);
+	hLayout->addWidget(playbackWidget);
+	ui.playbackTab->setLayout(hLayout);
 	ui.centralTabWidget->setCurrentIndex(0);
 	//ui.playbackTab->setEnabled(false);	//unclickable and unchosenable
-	//ui.centralTabWidget->setTabEnabled(2, false);	//cant toggle to this tab
+	ui.centralTabWidget->setTabEnabled(2, false);	//cant toggle to this tab
 	/**********end playbackTab**********/
 
 	/***************update now*****************/
@@ -89,7 +93,7 @@ void MainWindow::configWindow()
 	QDate date = QDate::currentDate();
 	if (QTime::currentTime().msecsTo(QTime(12, 00, 00, 000)) <= 0)
 	{//if the current time is after 12:00,
-		date.addDays(1);	//2. than set date to tomorrow
+		date = date.addDays(1);	//2. than set date to tomorrow
 	}
 	qint64 msTo12;
 	msTo12 = QDateTime::currentDateTime().msecsTo(QDateTime(date, QTime(12, 00)));//precision of 20ms
@@ -110,7 +114,7 @@ void MainWindow::configWindow()
 
 	outputMessage = new MyMessageOutput;
 
-	imageProcess = new ImageProcess;
+	imageProcess = new ImageProcess(dataTableWidget->model);
 	videoCapture = new HikVideoCapture;
 	plcSerial = new PLCSerial;
 
@@ -418,9 +422,9 @@ void MainWindow::uiShowLastSpeed(double speed)
 }
 
 void MainWindow::uiShowRtSpeed(double speed)
-{
+{//do not show the real time speed any more //2017/11/24
 	QString str = QString::number(speed, 'f', 2);
-	ui.rtSpeedLineEdit->setText(str);
+	//ui.rtSpeedLineEdit->setText(str);
 }
 
 void MainWindow::uiShowCartSpeed(double speed)
@@ -505,9 +509,10 @@ void MainWindow::on_action_Restart_triggered()
 }
 void MainWindow::on_action_Property_triggered()
 {
-	SettingDialog *settingDialog = new SettingDialog(this); // mainwindow as parant
+	settingDialog = new SettingDialog(this);
 	//settingDialog->setAttribute(Qt::WA_DeleteOnClose);
-	settingDialog->deleteLater();	//will delete when return from this funciton
+	connect(settingDialog, &SettingDialog::roiChanged, this, &MainWindow::drawRoiArea);
+	settingDialog->deleteLater();	//will delete the connect when return from this funciton
 	if (settingDialog->exec() == QDialog::Accepted)
 	{
 		settingDialog->setOption();

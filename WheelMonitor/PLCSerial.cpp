@@ -108,7 +108,7 @@ bool PLCSerial::connectPLC()
 		sensorTimer->start(1000); //0 is error, 1 is ok.
 		ADTimer = new QTimer;
 		connect(ADTimer, SIGNAL(timeout()), this, SLOT(readAD()));
-		ADTimer->start(320);	//read ad every 320ms, ensure update more frequent than image process 8/25
+		ADTimer->start(250);	//read ad every 250ms, ensure update more frequent than image process 8/25
 		emit isConnectPLC(true);
 		return true;
 	}
@@ -134,8 +134,7 @@ bool PLCSerial::disconnectPLC()
 void PLCSerial::readSensor()
 {
 	QMutexLocker locker(&mutex);
-	QTime time;
-	time.start();
+
 	QByteArray plcData = READ_SENSOR_STATE;
 	plcSerialPort->write(plcData);
 	if (plcSerialPort->waitForBytesWritten(100))
@@ -191,14 +190,11 @@ void PLCSerial::readSensor()
 	{
 		qWarning() << "PLC(sensor): Wait write request timeout";
 	}
-	qDebug() << "Reading PLC(sensor) needs " << time.elapsed() << "ms";
 }
 
 void PLCSerial::readAD()	//write and read one time need at least 300ms
 {
 	QMutexLocker locker(&mutex);
-	QTime time;
-	time.start();
 	QByteArray plcData = READ_AD;
 	plcSerialPort->write(plcData);
 	if (plcSerialPort->waitForBytesWritten(100))
@@ -216,14 +212,12 @@ void PLCSerial::readAD()	//write and read one time need at least 300ms
 				emit ADdisconnected();
 				mutex.lock();
 				speedAD = 0;
-				mutex.unlock();
 			}
 			else
 			{
 				mutex.lock();
 				speedAD = tmpDec*3.59 / 6000.0;
 				emit ADSpeedReady(speedAD);
-				mutex.unlock();
 			}
 		}
 		else
@@ -235,5 +229,4 @@ void PLCSerial::readAD()	//write and read one time need at least 300ms
 	{
 		qWarning() << "PLC(AD): Wait write request timeout";
 	}
-	qDebug() << "Reading PLC(AD) needs " << time.elapsed() << "ms";
 }

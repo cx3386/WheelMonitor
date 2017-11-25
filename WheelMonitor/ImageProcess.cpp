@@ -3,6 +3,7 @@
 #include "HikVideoCapture.h"
 #include "PLCSerial.h"
 #include "outlierdetection.h"	//used for calc mean, replace opencv lib
+#include "datatablewidget.h"
 //#include  <io.h>
 
 using namespace std;
@@ -50,7 +51,7 @@ bool getUniqueFile(QString &fullFileName)
 	return false;
 }
 
-ImageProcess::ImageProcess(QObject *parent)
+ImageProcess::ImageProcess(QSqlTableModel *srcmodel, QObject *parent)
 	: QObject(parent)
 	//, isSameWheel(false)
 	//, angleCount(0)
@@ -64,6 +65,7 @@ ImageProcess::ImageProcess(QObject *parent)
 	, bWheelStopped(false)
 	//, waitTimeout(0)
 {
+	model = srcmodel;
 }
 
 ImageProcess::~ImageProcess()
@@ -116,37 +118,24 @@ void ImageProcess::doImageProcess()
 		if (bWheelStopped) //if timeout, which means this wheel is stop, drop the calc and wait for a come-in signal
 		{//if wheel stop, stop the process to avoid meaningless count
 			alarmThisWheel();
-			nImgCount = 0;
 		}
-		/**image triggered**/
-		//else if (!g_imgParam.sensorTriggered) //only for test, haven't done.	// 2017-10-27
 
 		/*sensor triggered*/
 		else
 		{//decide if the wheel comes in/out by SENSOR IN/OUT
-			static bool lastCore = false;	//record the last return of core process
-
-			//in detect area
-			if (bIsInArea)
+			if (bIsInArea)			//in detect area
 			{//inarea(1)/out(1->0)/lastout(0)
-				bool nowCore = coreImageProcess();	//1->0
-				if (nowCore == false && lastCore == true)
+				static bool lastCore = false;	//record the last return of core process
+				bool nowCore = coreImageProcess();	//0->1, Fragment++ at rise edge, so it can be 0
+				if (nowCore == true && lastCore == false)
 				{
 					nFragments++;
-					//nImgCount = 0;
 				}
 				lastCore = nowCore;
 			}
-
-			//out detect area
-			else if (!bLastOUT)
+			else if (!bLastOUT)			//out detect area
 			{//Once a wheel scoll out the detect area, settle it.
 				bLastOUT = true;	//only triggered once, until the next sensorIN set it to false
-				if (lastCore)
-				{//if lastcore returned true when sensorOUT, seldom happens
-					nFragments++;	//1. fragment++
-					nImgCount = 0;	//2. reset the nImgCount, "There are no srcImage that can be used for match process"
-				}
 				alarmThisWheel();
 			}
 		}
@@ -154,13 +143,6 @@ void ImageProcess::doImageProcess()
 	emit imageProcessReady(); //emit ready anyway
 	return;
 }
-
-//void ImageProcess::resetCoreProcess()
-//{
-//	angleSum = 0;
-//	angleCount = 0;
-//	nImgCount = 0;
-//}
 
 void ImageProcess::alarmThisWheel()
 {
@@ -182,6 +164,7 @@ void ImageProcess::alarmThisWheel()
 	}
 	else
 	{
+		int totalMatchCount = rtSpeeds.size();
 		vector<double> rtSpeedDiffs(rtSpeeds.size());//a vector saves speed difference between imgprocess and PLC(speedAD)
 		transform(rtSpeeds.begin(), rtSpeeds.end(), refSpeeds.begin(), rtSpeedDiffs.begin(), minus<double>());	//rt-ref=diff
 		OutlierDetection outlier;
@@ -190,24 +173,25 @@ void ImageProcess::alarmThisWheel()
 		double meanDiff = outlier.mean(rtSpeedDiffs);
 		double meanSpeed = meanRef + meanDiff;	//mean linear Velocity
 		emit speedClcReady(meanSpeed);
-		qWarning("Num:%s speed: %.2lfm/min", myocr.final_result, meanSpeed);
-		qDebug() << "MatchCount: " << rtSpeedDiffs.size() << "; coreImageProcess fragments: " << nFragments;
+		qDebug("Num:%s speed: %.2lfm/min", myocr.final_result, meanSpeed);
+		qDebug() << "Total Match: " << totalMatchCount << "; Valid: " << rtSpeedDiffs.size() << "; fragments: " << nFragments;
 		if (nFragments != 1)
 		{
 			qDebug() << QString("detect count error: %1").arg(nFragments);
 		}
-		/**************length method***************/
-		//double length = meanAngle * in_out_time;
-		////qDebug("length: %.2lf", length);
-		//double high = g_imgParam.angleBigRatio * 86000; //distance between sensors
-		//double low = g_imgParam.angleSmallRatio * 86000;
 
 		double high = (g_imgParam.angleBigRatio - 1) * meanRef;		//high>0 higher deviation
 		double low = (g_imgParam.angleSmallRatio - 1) * meanRef;	//low<0 lower deviation
 		if (meanDiff < low)
 		{
-			emit setAlarmLight(PLCSerial::AlarmColorRed);
-			emit showAlarmNum(QString::fromStdString(myocr.final_result));
+			if (totalMatchCount >= 5)
+			{//Only if match enough, the result is reliable, then alarm
+				emit setAlarmLight(PLCSerial::AlarmColorRed);
+				emit showAlarmNum(QString::fromStdString(myocr.final_result));
+			}
+			else {
+				emit setAlarmLight(PLCSerial::AlarmColorYellow);
+			}
 			qWarning() << QStringLiteral("SLOW");
 			qCritical() << QString::fromStdString(myocr.final_result) << "SLOW";
 		}
@@ -223,7 +207,7 @@ void ImageProcess::alarmThisWheel()
 	rtSpeeds.clear();	//2. clear rtSpeeds vector
 	refSpeeds.clear();
 	myocr.resetOcr();
-	//nImgCount = 0;	//no need
+	nImgCount = 0;	//no need	//once settle a wheel, force to zero
 }
 
 int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait next srcImg
@@ -274,13 +258,13 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	Mat maskTmp = rMatcher.getMask(imageRing.size(), radiusOutside - 10, radiusInside + 10); //??????????????????§³10??????
 
 	//test: output all the imageRing //2017/11/23
-	QString nowDate = QDate::currentDate().toString("yyyyMMdd");
-	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
-	QString fullFilePath = QStringLiteral("D:/Capture/%1/S%2.jpg").arg(nowDate).arg(nowTime);
-	getUniqueFile(fullFilePath);
-	imwrite(fullFilePath.toStdString(), imageRing);
+	//QString nowDate = QDate::currentDate().toString("yyyyMMdd");
+	//QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
+	//QString fullFilePath = QStringLiteral("D:/Capture/%1/S%2.jpg").arg(nowDate).arg(nowTime);
+	//getUniqueFile(fullFilePath);
+	//imwrite(fullFilePath.toStdString(), imageRing);
 
-	if (iImgCount == 1)
+	if (nImgCount == 1)
 	{
 		imgCache = imageRing;
 		maskCache = maskTmp;
@@ -318,7 +302,7 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 		bWheelStopped = true;
 	}
 
-	//????match??
+	//save matches
 	QString nowDate = QDate::currentDate().toString("yyyyMMdd");
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
 	QString fullFilePath = QStringLiteral("D:/Capture/%1/%2.jpg").arg(nowDate).arg(nowTime);

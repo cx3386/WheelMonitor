@@ -4,6 +4,7 @@
 # Custom settings
 [Ii]nstall/
 *.props
+*.db3
 
 # GeneratedFiles by Qt (cx3386@163.com)
 GeneratedFiles/
