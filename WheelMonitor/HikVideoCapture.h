@@ -20,7 +20,7 @@ class HikVideoCapture : public QObject
 	static void CALLBACK fDrawFun(LONG lRealHandle, HDC hDc, DWORD dwUser);
 
 public:
-	explicit HikVideoCapture(QObject *parent = nullptr);
+	explicit HikVideoCapture(QObject *parent = Q_NULLPTR);
 	~HikVideoCapture();
 
 	static cv::Mat pRawImage;

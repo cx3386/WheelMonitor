@@ -1,17 +1,31 @@
-Ôªø#include "stdafx.h"
+#include "stdafx.h"
 #include "MainWindow.h"
 #include "player.h"
 #include "SettingDialog.h"
 #include "outlierdetection.h"
 #include "datatablewidget.h"
+#include "common.h"
+
+QString appName;
+QString appDirPath;
+QString appFilePath;
+QString captureDirPath;
+QString logDirPath;
 
 bool MainWindow::bAppAutoRun = true;
 bool MainWindow::bVerboseLog = true;
+
+int const MainWindow::EXIT_CODE_REBOOT = -123456789;
 
 MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent), bIsRunning(false)
 {
 	//setWindowOpacity(1);
+	appName = qApp->applicationName();
+	appDirPath = qApp->applicationDirPath();				//the directory contains the app.exe, '/'e.g. C:/QQ
+	appFilePath = qApp->applicationFilePath();				//the file path of app.exe, '/'e.g. C:/QQ/qq.exe
+	captureDirPath = QString("%1/Capture").arg(appDirPath); //capture dir
+	logDirPath = QString("%1/Log").arg(appDirPath);
 
 	qRegisterMetaType<HWND>("HWND");
 	qRegisterMetaType<PLCSerial::AlarmColor>("PLCSerial::AlarmColor");
@@ -25,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-	emit setAlarm(PLCSerial::AlarmOFF); //‰∏çËÉΩ‰ªéÁ∫øÁ®ãÂ§ñÊìç‰Ωú
+	emit setAlarm(PLCSerial::AlarmOFF); //≤ªƒ‹¥”œﬂ≥ÃÕ‚≤Ÿ◊˜
 	//recLabel->deleteLater();
 	videoCaptureThread.quit();
 	videoCaptureThread.wait();
@@ -83,23 +97,23 @@ void MainWindow::configWindow()
 	ui.playbackTab->setLayout(hLayout);
 	ui.centralTabWidget->setCurrentIndex(0);
 	//ui.playbackTab->setEnabled(false);	//unclickable and unchosenable
-	ui.centralTabWidget->setTabEnabled(2, false);	//cant toggle to this tab
+	ui.centralTabWidget->setTabEnabled(2, false); //cant toggle to this tab
 	/**********end playbackTab**********/
 
 	/***************update now*****************/
-	update24();			//1. update right away
+	update24(); //1. update right away
 
 	//start the daily mission timer24 at 12:00
 	QDate date = QDate::currentDate();
 	if (QTime::currentTime().msecsTo(QTime(12, 00, 00, 000)) <= 0)
-	{//if the current time is after 12:00,
-		date = date.addDays(1);	//2. than set date to tomorrow
+	{							//if the current time is after 12:00,
+		date = date.addDays(1); //2. than set date to tomorrow
 	}
 	qint64 msTo12;
-	msTo12 = QDateTime::currentDateTime().msecsTo(QDateTime(date, QTime(12, 00)));//precision of 20ms
+	msTo12 = QDateTime::currentDateTime().msecsTo(QDateTime(date, QTime(12, 00))); //precision of 20ms
 	QTimer::singleShot(msTo12, this, SLOT(setup24timer()));
 
-	////Only for testing ÂÆöÊó∂emit startsave and stopsave
+	////Only for testing ∂® ±emit startsave and stopsave
 	//QTimer *timerTMP1 = new QTimer(this);
 	//connect(timerTMP1, SIGNAL(timeout()), this, SLOT(startOrStopSave()));
 	//timerTMP1->start(10000);
@@ -141,7 +155,7 @@ void MainWindow::configWindow()
 	connect(this, &MainWindow::stopCap, videoCapture, &HikVideoCapture::stopCap);
 	connect(videoCapture, &HikVideoCapture::isStopCap, this, &MainWindow::isStopCap);
 	connect(videoCapture, &HikVideoCapture::wheelTimeout, imageProcess, &ImageProcess::wheelTimeout);
-	connect(videoCapture, &HikVideoCapture::saveStopped, this, &MainWindow::onRecStop);	//when stop saving video(sensorOUT or saveTimeOut), update UI.REC.gray
+	connect(videoCapture, &HikVideoCapture::saveStopped, this, &MainWindow::onRecStop); //when stop saving video(sensorOUT or saveTimeOut), update UI.REC.gray
 
 	//connect(this, &MainWindow::startSave, videoCapture, &HikVideoCapture::startSave);
 	//connect(this, &MainWindow::stopSave, videoCapture, &HikVideoCapture::stopSave);
@@ -163,13 +177,13 @@ void MainWindow::configWindow()
 	connect(imageProcess, &ImageProcess::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 
 	//When wheel enters detect area, i.e., lighten the LEFT sensor
-	connect(plcSerial, &PLCSerial::sensorIN, videoCapture, &HikVideoCapture::startSave);	//1. start to save video
-	connect(plcSerial, &PLCSerial::sensorIN, imageProcess, &ImageProcess::sensorIN);	    //2. start image process
-	connect(plcSerial, &PLCSerial::sensorIN, this, &MainWindow::onRecStart);	            //3. update UI.REC.red
+	connect(plcSerial, &PLCSerial::sensorIN, videoCapture, &HikVideoCapture::startSave); //1. start to save video
+	connect(plcSerial, &PLCSerial::sensorIN, imageProcess, &ImageProcess::sensorIN);	 //2. start image process
+	connect(plcSerial, &PLCSerial::sensorIN, this, &MainWindow::onRecStart);			 //3. update UI.REC.red
 
 	//When wheel leaves detect area, i.e., leaves the RIGHT sensor
-	connect(plcSerial, &PLCSerial::sensorOUT, videoCapture, &HikVideoCapture::stopSave);	//1. stop to save video
-	connect(plcSerial, &PLCSerial::sensorOUT, imageProcess, &ImageProcess::sensorOUT);      //2. stop image process
+	connect(plcSerial, &PLCSerial::sensorOUT, videoCapture, &HikVideoCapture::stopSave); //1. stop to save video
+	connect(plcSerial, &PLCSerial::sensorOUT, imageProcess, &ImageProcess::sensorOUT);   //2. stop image process
 	//connect(plcSerial, &PLCSerial::sensorOUT, this, &MainWindow::onRecStop);			    //3. update UI.REC.gray
 
 	connect(plcSerial, &PLCSerial::setUiAlarm, this, &MainWindow::uiAlarmLight);
@@ -208,7 +222,7 @@ void MainWindow::uiAlarmLight(PLCSerial::AlarmColor alarmColor) //1-green; 2-red
 
 void MainWindow::readSettings()
 {
-	QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
+	QSettings settings(QString("%1/config.ini").arg(appDirPath), QSettings::IniFormat);
 	bAppAutoRun = settings.value("Common/appAutoRun", true).toBool();
 	appAutoRun(bAppAutoRun);
 	bVerboseLog = settings.value("Common/verboseLog", true).toBool();
@@ -241,7 +255,7 @@ void MainWindow::readSettings()
 
 void MainWindow::writeSettings()
 {
-	QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
+	QSettings settings(QString("%1/config.ini").arg(appDirPath), QSettings::IniFormat);
 	settings.beginGroup("Common");
 	settings.setValue("appAutoRun", bAppAutoRun);
 	settings.setValue("verboseLog", bVerboseLog);
@@ -281,11 +295,11 @@ void MainWindow::writeSettings()
 
 void MainWindow::clearLog(int nDays)
 {
-	QDir dir("D:/");
+	QDir dir(logDirPath);
 	QStringList filters;
 	dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
-	filters << "*.log";			 //ËÆæÁΩÆËøáÊª§Á±ªÂûã
-	dir.setNameFilters(filters); //ËÆæÁΩÆÊñá‰ª∂ÂêçÁöÑËøáÊª§
+	filters << "*.log";			 //…Ë÷√π˝¬À¿‡–Õ
+	dir.setNameFilters(filters); //…Ë÷√Œƒº˛√˚µƒπ˝¬À
 	dir.setSorting(QDir::Name);
 	QFileInfoList list = dir.entryInfoList();
 	int nlogName = QDate::currentDate().toString("yyyyMMdd").toInt();
@@ -308,7 +322,7 @@ void MainWindow::clearLog(int nDays)
 bool MainWindow::delCapDir(int nDays)
 {
 	bool r = true;
-	QDir dir("D:/Capture"); //ÂøÖÈ°ª‰øùËØÅËØ•Êñá‰ª∂Â§πÈáåÈù¢Ê≤°ÊúâÂÖ∂‰ªñÊñá‰ª∂ÔºåÂê¶Âàô‰ºöËØØÂà†
+	QDir dir(captureDirPath); //±ÿ–Î±£÷§∏√Œƒº˛º–¿Ô√Ê√ª”–∆‰À˚Œƒº˛£¨∑Ò‘Úª·ŒÛ…æ
 	QStringList filters;
 	dir.setFilter(QDir::Dirs);
 	dir.setSorting(QDir::Name); //from little to big
@@ -331,7 +345,7 @@ bool MainWindow::delCapDir(int nDays)
 		}
 	else
 	{
-		qDebug() << "no file";
+		qDebug() << "MainWindow(delCapDir):no file";
 		return false;
 	}
 	return r;
@@ -340,32 +354,27 @@ bool MainWindow::delCapDir(int nDays)
 bool MainWindow::makeDir(QString fullPath)
 {
 	QDir dir(fullPath);
-	if (dir.exists())
-	{
-		return true;
-	}
-	else
-	{
-		bool ok = dir.mkpath(fullPath); //ÂàõÂª∫Â§öÁ∫ßÁõÆÂΩï
-		return ok;
-	}
+	bool ok = dir.mkpath(fullPath); //create directory path recursively, if exists, returns true.
+	return ok;
 }
 
-void MainWindow::appAutoRun(bool bAutoRun)	//autorun when computer start
+void MainWindow::appAutoRun(bool bAutoRun) //autorun when computer start
 {
 	//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-	QSettings  *reg = new QSettings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+	QSettings *reg = new QSettings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
 
 	if (bAutoRun)
 	{
 		QString strAppPath = QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
-		strAppPath.replace(QChar('/'), QChar('\\'), Qt::CaseInsensitive);
-		reg->setValue("WheelMonitor", strAppPath);
+		//strAppPath.replace(QChar('/'), QChar('\\'), Qt::CaseInsensitive);
+		reg->setValue(appName, QString("%1 --auto").arg(strAppPath));
 	}
 	else
 	{
-		reg->setValue("WheelMonitor", "");
+		//reg->setValue("WheelMonitor", "");
+		reg->remove(appName);
 	}
+	reg->deleteLater();
 }
 
 void MainWindow::drawRoiArea()
@@ -373,21 +382,21 @@ void MainWindow::drawRoiArea()
 	QRect srcRect = QRect(ImageProcess::g_imgParam.roiRect.x, ImageProcess::g_imgParam.roiRect.y, ImageProcess::g_imgParam.roiRect.width, ImageProcess::g_imgParam.roiRect.height);
 
 	QRect rect = ui.playerWidget->geometry();
-	QPoint tl = QPoint(srcRect.topLeft().x() / 1280.0*rect.width(), srcRect.topLeft().y() / 720.0*rect.height());
-	QPoint tr = QPoint(srcRect.topRight().x() / 1280.0*rect.width(), srcRect.topRight().y() / 720.0*rect.height());
-	QPoint bl = QPoint(srcRect.bottomLeft().x() / 1280.0*rect.width(), srcRect.bottomLeft().y() / 720.0*rect.height());
+	QPoint tl = QPoint(srcRect.topLeft().x() / 1280.0 * rect.width(), srcRect.topLeft().y() / 720.0 * rect.height());
+	QPoint tr = QPoint(srcRect.topRight().x() / 1280.0 * rect.width(), srcRect.topRight().y() / 720.0 * rect.height());
+	QPoint bl = QPoint(srcRect.bottomLeft().x() / 1280.0 * rect.width(), srcRect.bottomLeft().y() / 720.0 * rect.height());
 	//QPoint br = QPoint((srcRect.bottomRight.x() / 1280.0)*rect.width(), (srcRect.bottomRight.y() / 720.0)*rect.height());
 	QSize size = rect.size();
 	QPoint pt = rect.topLeft();
-	lineL->setGeometry(pt.x() + tl.x(), pt.y() + tl.y(), 2, srcRect.height() / 720.0*rect.height());
-	lineR->setGeometry(pt.x() + tr.x(), pt.y() + tr.y(), 2, srcRect.height() / 720.0*rect.height());
-	lineT->setGeometry(pt.x() + tl.x(), pt.y() + tl.y(), srcRect.width() / 1280.0*rect.width(), 2);
-	lineB->setGeometry(pt.x() + bl.x(), pt.y() + bl.y(), srcRect.width() / 1280.0*rect.width(), 2);
+	lineL->setGeometry(pt.x() + tl.x(), pt.y() + tl.y(), 2, srcRect.height() / 720.0 * rect.height());
+	lineR->setGeometry(pt.x() + tr.x(), pt.y() + tr.y(), 2, srcRect.height() / 720.0 * rect.height());
+	lineT->setGeometry(pt.x() + tl.x(), pt.y() + tl.y(), srcRect.width() / 1280.0 * rect.width(), 2);
+	lineB->setGeometry(pt.x() + bl.x(), pt.y() + bl.y(), srcRect.width() / 1280.0 * rect.width(), 2);
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-	if (!(QMessageBox::information(this, QStringLiteral("ÂÆùÈí¢ÁéØÂÜ∑Êú∫Âè∞ËΩ¶ËΩÆÂ≠êËΩ¨ÈÄüÁõëÊµã"), QStringLiteral("ÁúüÁöÑË¶ÅÈÄÄÂá∫ÂêóÔºü"), QStringLiteral("Á°ÆÂÆö"), QStringLiteral("ÂèñÊ∂à"))))
+	if (!(QMessageBox::information(this, QStringLiteral("±¶∏÷ª∑¿‰ª˙Ã®≥µ¬÷◊”◊™ÀŸº‡≤‚"), QStringLiteral("’Êµƒ“™ÕÀ≥ˆ¬£ø"), QStringLiteral("»∑∂®"), QStringLiteral("»°œ˚"))))
 	{
 		writeSettings();
 		event->accept();
@@ -422,7 +431,7 @@ void MainWindow::uiShowLastSpeed(double speed)
 }
 
 void MainWindow::uiShowRtSpeed(double speed)
-{//do not show the real time speed any more //2017/11/24
+{ //do not show the real time speed any more //2017/11/24
 	QString str = QString::number(speed, 'f', 2);
 	//ui.rtSpeedLineEdit->setText(str);
 }
@@ -452,7 +461,7 @@ void MainWindow::anchorClickedSlot(const QUrl &url)
 }
 
 void MainWindow::start24timer()
-{//start24timer at 12 o'clock
+{ //start24timer at 12 o'clock
 	QTimer *timer24 = new QTimer(this);
 	connect(timer24, SIGNAL(timeout()), this, SLOT(update24()));
 	timer24->start(24 * 60 * 60 * 1000);
@@ -470,24 +479,24 @@ void MainWindow::update24()
 	//mkpath for capVideo
 	QDate date = QDate::currentDate();
 
+	/*create the directory path everyday*/
 	QString today = date.toString("yyyyMMdd");
-	QString saveDir = QStringLiteral("D:/Capture/%1").arg(today);
+	QString saveDir = QStringLiteral("%1/%2").arg(captureDirPath).arg(today);
 	makeDir(saveDir);
-
 	QString tomorrow = date.addDays(1).toString("yyyyMMdd");
-	saveDir = QStringLiteral("D:/Capture/%1").arg(tomorrow);
+	saveDir = QStringLiteral("%1/%2").arg(captureDirPath).arg(tomorrow);
 	makeDir(saveDir);
+	QString logDir = QStringLiteral("%1").arg(logDirPath);
+	makeDir(logDir);
+
 	//restart
-	//on_action_Stop_triggered();
-	////Á≠âÂæÖ‰∏ÄÊÆµÊó∂Èó¥
-	//on_action_Start_triggered();
 }
 
 void MainWindow::on_action_Start_triggered()
 {
-	//Èò≤Ê≠¢Á®ãÂ∫èÂú®ÂÅúÊ≠¢Áä∂ÊÄÅ‰∏ãÂ§öÊ¨°Ë∞ÉÁî®stop
+	//∑¿÷π≥Ã–Ú‘⁄Õ£÷π◊¥Ã¨œ¬∂‡¥Œµ˜”√stop
 	if (!bIsRunning)
-		//ÂºÄÂßãÈ°∫Â∫èÔºö start cap process sensor
+		//ø™ ºÀ≥–Ú£∫ start cap process sensor
 		emit startCap(realPlayHandle);
 	else
 		return;
@@ -495,28 +504,26 @@ void MainWindow::on_action_Start_triggered()
 
 void MainWindow::on_action_Stop_triggered()
 {
-	//Èò≤Ê≠¢Á®ãÂ∫èÂú®ÂÅúÊ≠¢Áä∂ÊÄÅ‰∏ãÂ§öÊ¨°Ë∞ÉÁî®stop
+	//∑¿÷π≥Ã–Ú‘⁄Õ£÷π◊¥Ã¨œ¬∂‡¥Œµ˜”√stop
 	if (bIsRunning)
-		//ÁªìÊùüÈ°∫Â∫è: stop sensor cap precess
+		//Ω· ¯À≥–Ú: stop sensor cap precess
 		emit disconnectPLC();
 	else
 		return;
 }
 void MainWindow::on_action_Restart_triggered()
 {
-	qApp->quit();
-	QProcess::startDetached(qApp->applicationFilePath().replace("/", "\\"), QStringList("restart"));
+	//qApp->exit(EXIT_CODE_REBOOT);
+	qApp->closeAllWindows();
+	QProcess::startDetached(QDir::toNativeSeparators(qApp->applicationFilePath()), QStringList("--restart"));
 }
 void MainWindow::on_action_Property_triggered()
 {
 	settingDialog = new SettingDialog(this);
 	//settingDialog->setAttribute(Qt::WA_DeleteOnClose);
 	connect(settingDialog, &SettingDialog::roiChanged, this, &MainWindow::drawRoiArea);
-	settingDialog->deleteLater();	//will delete the connect when return from this funciton
-	if (settingDialog->exec() == QDialog::Accepted)
-	{
-		settingDialog->setOption();
-	}
+	settingDialog->deleteLater(); //will delete the connect when return from this funciton
+	settingDialog->exec();
 }
 void MainWindow::on_action_Quit_triggered()
 {
@@ -534,7 +541,7 @@ void MainWindow::on_alarmPushButton_clicked()
 	emit setAlarm(PLCSerial::AlarmColorGreen);
 	ui.lcdNumber->setStyleSheet("color:rgb(0, 255, 0);");
 	ui.lcdNumber->display(QString("888"));
-	ui.logTabWidget->setCurrentIndex(0);	//reset logTabWidget to log tab(not the error tab)
+	ui.logTabWidget->setCurrentIndex(0); //reset logTabWidget to log tab(not the error tab)
 }
 
 void MainWindow::on_errorTextBrowser_textChanged()
@@ -584,7 +591,7 @@ void MainWindow::onRecStart()
 	//QPainter p(&dstImg);
 	//p.fillRect(dstImg.rect(), Qt::blue);
 	////p.setBackgroundMode(Qt::TransparentMode);
-	//p.setCompositionMode(QPainter::CompositionMode_Source);//Ê≥®ÊÑèËøô‰∏ÄË°å‰ª£Á†Å¬†¬†
+	//p.setCompositionMode(QPainter::CompositionMode_Source);//◊¢“‚’‚“ª––¥˙¬Î??
 	//p.drawImage(0, 0, srcImg);
 	recLabel->setPixmap(QPixmap(":/images/Resources/images/rec_red.png"));
 	//recLabel->show();
@@ -639,9 +646,9 @@ void MainWindow::startOrStopSave()
 
 void MainWindow::on_action_About_triggered()
 {
-	QMessageBox::about(this, QStringLiteral("ÂÖ≥‰∫é"),
-		QStringLiteral("<h3>ÂÆùÈí¢ÁéØÂÜ∑Êú∫Âè∞ËΩ¶ËΩÆÂ≠êÁä∂ÊÄÅÊ£ÄÊµãËΩØ‰ª∂</h3>"
-			"<p>ÁâàÊú¨Âè∑Ôºö<b>v1.1.0</b>"
+	QMessageBox::about(this, QStringLiteral("πÿ”⁄"),
+		QStringLiteral("<h3>±¶∏÷ª∑¿‰ª˙Ã®≥µ¬÷◊”◊¥Ã¨ºÏ≤‚»Ìº˛</h3>"
+			"<p>∞Ê±æ∫≈£∫<b>v1.1.0</b>"
 			"<p>Copyright &copy; 2017 ZJU SKL."
-			"<p>Êú¨ËΩØ‰ª∂Áî±ÊµôÊ±üÂ§ßÂ≠¶ÂºÄÂèëÔºåÂ¶ÇÊûúÈóÆÈ¢òËØ∑ËÅîÁ≥ªcx3386@163.com"));
+			"<p>±æ»Ìº˛”…’„Ω≠¥Û—ßø™∑¢£¨»Áπ˚Œ Ã‚«Î¡™œµcx3386@163.com"));
 }

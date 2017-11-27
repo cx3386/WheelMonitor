@@ -7,7 +7,6 @@
 #include "ui_MainWindow.h"
 #include <QtWidgets/QMainWindow>
 #include <ocr.h>
-
 class SettingDialog;
 class MainWindow : public QMainWindow
 {
@@ -19,9 +18,11 @@ public:
 	static bool bAppAutoRun;
 	static bool bVerboseLog;
 
+	static int const EXIT_CODE_REBOOT;
 	//void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& msg);
 
 private:
+
 	Ui::MainWindowClass ui;
 	bool bIsRunning;
 	QLabel *recLabel;

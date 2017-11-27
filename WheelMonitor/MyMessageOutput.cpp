@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "MyMessageOutput.h"
+#include "common.h"
 
 MyMessageOutput* MyMessageOutput::pMyMessageOutput = new MyMessageOutput;	//need init
 
@@ -43,7 +44,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QS
 
 	//QFile outfile(QCoreApplication::applicationDirPath().append("/log.txt"));
 	QString logName = QDate::currentDate().toString("yyyyMMdd");
-	QFile outfile(QStringLiteral("D://%1.log").arg(logName));
+	QFile outfile(QStringLiteral("%1/%2.log").arg(logDirPath).arg(logName));
 	outfile.open(QIODevice::WriteOnly | QIODevice::Append);
 	QTextStream text_stream(&outfile);
 	text_stream << message << "\r\n";

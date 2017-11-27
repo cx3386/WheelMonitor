@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "HikVideoCapture.h"
-
+#include "common.h"	//capsavedir
 using namespace std;
 
 //static member init; just like the global variables
@@ -177,7 +177,7 @@ bool HikVideoCapture::startSave()
 	QString saveDir;
 	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd"); //ddd is weekday
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss"); //ddd is weekday
-	saveDir = QStringLiteral("D:/Capture/%1/%2.mp4").arg(nowDate).arg(nowTime);
+	saveDir = QStringLiteral("%1/%2/%3.mp4").arg(captureDirPath).arg(nowDate).arg(nowTime);
 	mutex.lock();
 	//saveDirLink = QStringLiteral("file:///D:/Capture/%1.mp4").arg(dateTime);
 	saveDirLink = saveDir;

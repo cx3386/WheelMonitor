@@ -6,16 +6,16 @@
 class VideoPlayer : public QWidget
 {
 	Q_OBJECT
-public:
+  public:
 	VideoPlayer(QWidget *parent = Q_NULLPTR);
 	~VideoPlayer();
 
 	HWND playHandle;
 
-	public slots:
-	void setUrl(const QUrl &url);	//sql table set the playerurl
+  public slots:
+	void setUrl(const QUrl &url); //sql table set the playerurl
 
-	private slots :
+  private slots:
 	void play();
 	//void fullScreen();
 	void openFilePath();
@@ -23,9 +23,9 @@ public:
 	void mediaStateChanged(QMediaPlayer::State state);
 	void positionChanged(qint64 position);
 	void durationChanged(qint64 duration);
-	void setPosition(int pos);	//update slider
+	void setPosition(int pos); //update slider
 
-private:
+  private:
 	bool bPlaying;
 	QString currentFileName;
 	//void initUI();

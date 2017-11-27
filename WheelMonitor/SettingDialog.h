@@ -1,19 +1,18 @@
 #pragma once
 
-#include <QDialog>
 #include "ui_SettingDialog.h"
-
-class SettingDialog : public QDialog
-{
+#include <QDialog>
+#include <opencv2/opencv.hpp>
+class SettingDialog : public QDialog {
 	Q_OBJECT
 
 public:
-	SettingDialog(QWidget *parent = Q_NULLPTR);
+	SettingDialog(QWidget* parent = Q_NULLPTR);
 	~SettingDialog();
-	void setOption();
 
 private:
 	Ui::SettingDialog ui;
+	static cv::Rect roiRectCache;
 
 protected:
 	//	void closeEvent(QCloseEvent *event);
@@ -23,4 +22,6 @@ protected:
 
 			private slots:
 			void roiSlot(int);
+			void on_okBtn_clicked();
+			void on_cancelBtn_clicked();
 };

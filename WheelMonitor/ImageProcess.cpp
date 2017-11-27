@@ -4,6 +4,7 @@
 #include "PLCSerial.h"
 #include "outlierdetection.h"	//used for calc mean, replace opencv lib
 #include "datatablewidget.h"
+#include "common.h"
 //#include  <io.h>
 
 using namespace std;
@@ -305,7 +306,7 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	//save matches
 	QString nowDate = QDate::currentDate().toString("yyyyMMdd");
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
-	QString fullFilePath = QStringLiteral("D:/Capture/%1/%2.jpg").arg(nowDate).arg(nowTime);
+	QString fullFilePath = QStringLiteral("%1/%2/%3.jpg").arg(captureDirPath).arg(nowDate).arg(nowTime);
 	getUniqueFile(fullFilePath);
 	imwrite(fullFilePath.toStdString(), image_matches);
 	//qDebug() << ++debugI;
