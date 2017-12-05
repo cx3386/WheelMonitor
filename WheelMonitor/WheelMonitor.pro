@@ -4,11 +4,12 @@
 
 TEMPLATE = app
 TARGET = WheelMonitor
-DESTDIR = ../x64/Release
-QT += core sql network widgets gui serialport
-CONFIG += release
-DEFINES += _WINDOWS WIN64 WIN64 QT_DLL QT_SERIALPORT_LIB QT_WIDGETS_LIB QT_SQL_LIB QT_NETWORK_LIB QAPPLICATION_CLASS=QApplication QT_WIDGETS_LIB QT_SQL_LIB QT_NETWORK_LIB QT_SERIALPORT_LIB
+DESTDIR = ../x64/Debug
+QT += core multimedia sql network widgets gui multimediawidgets serialport
+CONFIG += debug
+DEFINES += _WINDOWS WIN64 _WINDOWS WIN64 WIN64 QT_SERIALPORT_LIB QT_WIDGETS_LIB QT_SQL_LIB QT_NETWORK_LIB QAPPLICATION_CLASS=QApplication QT_WIDGETS_LIB QT_SQL_LIB QT_NETWORK_LIB QT_SERIALPORT_LIB QT_WIDGETS_LIB QT_SQL_LIB QT_NETWORK_LIB QT_SERIALPORT_LIB QT_MULTIMEDIA_LIB QT_MULTIMEDIAWIDGETS_LIB
 INCLUDEPATH += . \
+    . \
     ./GeneratedFiles \
     . \
     ./GeneratedFiles/Release \
@@ -16,35 +17,53 @@ INCLUDEPATH += . \
     ./GeneratedFiles/release \
     ./GeneratedFiles \
     $(QTDIR)/mkspecs/win32-msvc \
+    ./GeneratedFiles \
+    ./GeneratedFiles/debug \
+    ./GeneratedFiles \
+    $(QTDIR)/mkspecs/win32-msvc \
     ./GeneratedFiles
 LIBS += -lshell32 \
     -lAdvapi32
 PRECOMPILED_HEADER = stdafx.h
 DEPENDPATH += .
-MOC_DIR += ./GeneratedFiles/release
-OBJECTS_DIR += release
+MOC_DIR += ./GeneratedFiles/debug
+OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 win32:RC_FILE = WheelMonitor.rc
-HEADERS += ./RobustMatcher.h \
-    ./connection.h \
+HEADERS += ./common.h \
+    ./ocr.h \
+    ./outlierdetection.h \
+    ./RobustMatcher.h \
+    ./database.h \
     ./identification.h \
     ./resource.h \
+    ./videowidget.h \
     ./HikVideoCapture.h \
     ./ImageProcess.h \
     ./MainWindow.h \
-    ./MyMessageOutput.h \
     ./PLCSerial.h \
+    ./customslider.h \
+    ./datatablewidget.h \
+    ./backuplogdialog.h \
+    ./mywidget.h \
+    ./player.h \
     ./SettingDialog.h \
     ./logindialog.h \
     ./mytextbrowser.h \
     ../singleapplication/singleapplication.h \
     ../singleapplication/singleapplication_p.h \
     ./stdafx.h
-SOURCES += ./HikVideoCapture.cpp \
+SOURCES += ./backuplogdialog.cpp \
+    ./customslider.cpp \
+    ./datatablewidget.cpp \
+    ./HikVideoCapture.cpp \
     ./ImageProcess.cpp \
     ./MainWindow.cpp \
-    ./MyMessageOutput.cpp \
+    ./mywidget.cpp \
+    ./ocr.cpp \
+    ./outlierdetection.cpp \
+    ./player.cpp \
     ./PLCSerial.cpp \
     ./RobustMatcher.cpp \
     ./SettingDialog.cpp \
@@ -53,8 +72,10 @@ SOURCES += ./HikVideoCapture.cpp \
     ./main.cpp \
     ./mytextbrowser.cpp \
     ../singleapplication/singleapplication.cpp \
-    ./stdafx.cpp
+    ./stdafx.cpp \
+    ./videowidget.cpp
 FORMS += ./MainWindow.ui \
     ./SettingDialog.ui \
-    ./logindialog.ui
+    ./logindialog.ui \
+    ./backuplogdialog.ui
 RESOURCES += MainWindow.qrc

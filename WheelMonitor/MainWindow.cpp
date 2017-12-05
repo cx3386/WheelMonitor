@@ -5,27 +5,17 @@
 #include "outlierdetection.h"
 #include "datatablewidget.h"
 #include "common.h"
-
-QString appName;
-QString appDirPath;
-QString appFilePath;
-QString captureDirPath;
-QString logDirPath;
+#include "backuplogdialog.h"
 
 bool MainWindow::bAppAutoRun = true;
 bool MainWindow::bVerboseLog = true;
 
-int const MainWindow::EXIT_CODE_REBOOT = -123456789;
+//int const MainWindow::EXIT_CODE_REBOOT = -123456789;
 
 MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent), bIsRunning(false)
 {
 	//setWindowOpacity(1);
-	appName = qApp->applicationName();
-	appDirPath = qApp->applicationDirPath();				//the directory contains the app.exe, '/'e.g. C:/QQ
-	appFilePath = qApp->applicationFilePath();				//the file path of app.exe, '/'e.g. C:/QQ/qq.exe
-	captureDirPath = QString("%1/Capture").arg(appDirPath); //capture dir
-	logDirPath = QString("%1/Log").arg(appDirPath);
 
 	qRegisterMetaType<HWND>("HWND");
 	qRegisterMetaType<PLCSerial::AlarmColor>("PLCSerial::AlarmColor");
@@ -47,8 +37,8 @@ MainWindow::~MainWindow()
 	imageProcessThread.wait();
 	plcSerialThread.quit();
 	plcSerialThread.wait();
-	outputMessageThread.quit();
-	outputMessageThread.wait();
+	//outputMessageThread.quit();
+	//outputMessageThread.wait();
 }
 void MainWindow::configWindow()
 {
@@ -84,6 +74,8 @@ void MainWindow::configWindow()
 	lineB->setFrameShadow(QFrame::Plain);
 	lineB->setLineWidth(2);
 	lineB->setStyleSheet("color: rgb(255, 0, 0);");
+	setRoiVisible(false);	//not show until capture start
+
 	//drawRoiArea();
 	connect(ui.playerWidget, &MyWidget::myResize, this, &MainWindow::drawRoiArea);
 	/*********playbackTab**********/
@@ -111,7 +103,7 @@ void MainWindow::configWindow()
 	}
 	qint64 msTo12;
 	msTo12 = QDateTime::currentDateTime().msecsTo(QDateTime(date, QTime(12, 00))); //precision of 20ms
-	QTimer::singleShot(msTo12, this, SLOT(setup24timer()));
+	QTimer::singleShot(msTo12, this, SLOT(start24timer()));	//once connect will detect if there is the slot or not
 
 	////Only for testing ¶¨Ê±emit startsave and stopsave
 	//QTimer *timerTMP1 = new QTimer(this);
@@ -120,31 +112,31 @@ void MainWindow::configWindow()
 
 	connect(ui.action_About_Qt, &QAction::triggered, qApp, &QApplication::aboutQt);
 	//ui.imageMatchesLabel->setFixedSize(ui.imageMatchesLabel->size());
-	ui.errorTextBrowser->setOpenLinks(false);
-	connect(ui.errorTextBrowser, SIGNAL(anchorClicked(const QUrl &)), this, SLOT(anchorClickedSlot(const QUrl &)));
+	//ui.errorTextBrowser->setOpenLinks(false);
+	//connect(ui.errorTextBrowser, SIGNAL(anchorClicked(const QUrl &)), this, SLOT(anchorClickedSlot(const QUrl &)));
 
 	realPlayHandle = (HWND)ui.playerWidget->winId();
 	//care start order
 
-	outputMessage = new MyMessageOutput;
+	//outputMessage = new MyMessageOutput;
 
-	imageProcess = new ImageProcess(dataTableWidget->model);
+	imageProcess = new ImageProcess(dataTableWidget);
 	videoCapture = new HikVideoCapture;
 	plcSerial = new PLCSerial;
 
-	outputMessage->moveToThread(&outputMessageThread);
+	//outputMessage->moveToThread(&outputMessageThread);
 	imageProcess->moveToThread(&imageProcessThread);
 	videoCapture->moveToThread(&videoCaptureThread);
 	plcSerial->moveToThread(&plcSerialThread);
 
-	connect(&outputMessageThread, &QThread::finished, outputMessage, &QObject::deleteLater);
+	//connect(&outputMessageThread, &QThread::finished, outputMessage, &QObject::deleteLater);
 	connect(&imageProcessThread, &QThread::finished, imageProcess, &QObject::deleteLater);
 	connect(&videoCaptureThread, &QThread::finished, videoCapture, &QObject::deleteLater);
 	connect(&plcSerialThread, &QThread::finished, plcSerial, &QObject::deleteLater);
 
-	connect(this, &MainWindow::installLogSystem, outputMessage, &MyMessageOutput::installMesageHandler);
-	connect(MyMessageOutput::pMyMessageOutput, &MyMessageOutput::logMessage, this, &MainWindow::uiShowLogMessage);
-	connect(MyMessageOutput::pMyMessageOutput, &MyMessageOutput::errorMessage, this, &MainWindow::uiShowErrorMessage);
+	//connect(this, &MainWindow::installLogSystem, outputMessage, &MyMessageOutput::installMesageHandler);
+	//connect(MyMessageOutput::pMyMessageOutput, &MyMessageOutput::logMessage, this, &MainWindow::uiShowLogMessage);
+	//connect(MyMessageOutput::pMyMessageOutput, &MyMessageOutput::errorMessage, this, &MainWindow::uiShowErrorMessage);
 
 	connect(HikVideoCapture::pVideoCapture, &HikVideoCapture::imageNeedProcess, imageProcess, &ImageProcess::doImageProcess);
 	connect(imageProcess, &ImageProcess::imageProcessReady, videoCapture, &HikVideoCapture::imageProcessReady);
@@ -189,8 +181,8 @@ void MainWindow::configWindow()
 	connect(plcSerial, &PLCSerial::setUiAlarm, this, &MainWindow::uiAlarmLight);
 	connect(this, &MainWindow::setAlarm, plcSerial, &PLCSerial::Alarm);
 
-	outputMessageThread.start();
-	emit installLogSystem();
+	//outputMessageThread.start();
+	//emit installLogSystem();
 	imageProcessThread.start();
 	videoCaptureThread.start();
 	plcSerialThread.start();
@@ -315,7 +307,7 @@ void MainWindow::clearLog(int nDays)
 		}
 	else
 	{
-		qDebug() << "no file";
+		qDebug() << "MainWindow(delLog): no file";
 	}
 }
 
@@ -345,7 +337,7 @@ bool MainWindow::delCapDir(int nDays)
 		}
 	else
 	{
-		qDebug() << "MainWindow(delCapDir):no file";
+		qDebug() << "MainWindow(delCapDir): no dir";
 		return false;
 	}
 	return r;
@@ -392,6 +384,24 @@ void MainWindow::drawRoiArea()
 	lineR->setGeometry(pt.x() + tr.x(), pt.y() + tr.y(), 2, srcRect.height() / 720.0 * rect.height());
 	lineT->setGeometry(pt.x() + tl.x(), pt.y() + tl.y(), srcRect.width() / 1280.0 * rect.width(), 2);
 	lineB->setGeometry(pt.x() + bl.x(), pt.y() + bl.y(), srcRect.width() / 1280.0 * rect.width(), 2);
+}
+
+void MainWindow::setRoiVisible(bool b)
+{
+	if (b)
+	{
+		lineL->setVisible(true);
+		lineR->setVisible(true);
+		lineT->setVisible(true);
+		lineB->setVisible(true);
+	}
+	else
+	{
+		lineL->setVisible(false);
+		lineR->setVisible(false);
+		lineT->setVisible(false);
+		lineB->setVisible(false);
+	}
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -442,23 +452,23 @@ void MainWindow::uiShowCartSpeed(double speed)
 	ui.cartSpeedLineEdit->setText(str);
 }
 
-void MainWindow::uiShowLogMessage(const QString &message)
-{
-	ui.logTextBrowser->append(message);
-}
+//void MainWindow::uiShowLogMessage(const QString &message)
+//{
+//	ui.logTextBrowser->append(message);
+//}
 
-void MainWindow::uiShowErrorMessage(const QString &message)
-{
-	QString errormsg = QStringLiteral("%1 <a href = \"%2\">Video</a>").arg(message).arg(videoCapture->saveDirLink);
-	ui.errorTextBrowser->append(errormsg);
-	ui.logTabWidget->setCurrentIndex(1);
-}
+//void MainWindow::uiShowErrorMessage(const QString &message)
+//{
+//	QString errormsg = QStringLiteral("%1 <a href = \"%2\">Video</a>").arg(message).arg(videoCapture->capSaveFileName);
+//	ui.errorTextBrowser->append(errormsg);
+//	ui.logTabWidget->setCurrentIndex(1);
+//}
 
-void MainWindow::anchorClickedSlot(const QUrl &url)
-{
-	//QDesktopServices::openUrl(QUrl(url.toString(), QUrl::TolerantMode));
-	QDesktopServices::openUrl(url);
-}
+//void MainWindow::anchorClickedSlot(const QUrl &url)
+//{
+//	//QDesktopServices::openUrl(QUrl(url.toString(), QUrl::TolerantMode));
+//	QDesktopServices::openUrl(url);
+//}
 
 void MainWindow::start24timer()
 { //start24timer at 12 o'clock
@@ -489,7 +499,8 @@ void MainWindow::update24()
 	QString logDir = QStringLiteral("%1").arg(logDirPath);
 	makeDir(logDir);
 
-	//restart
+	//restart every day
+	//on_action_Restart_triggered();
 }
 
 void MainWindow::on_action_Start_triggered()
@@ -521,7 +532,7 @@ void MainWindow::on_action_Property_triggered()
 {
 	settingDialog = new SettingDialog(this);
 	//settingDialog->setAttribute(Qt::WA_DeleteOnClose);
-	connect(settingDialog, &SettingDialog::roiChanged, this, &MainWindow::drawRoiArea);
+	connect(settingDialog, &SettingDialog::roiChanged, this, &MainWindow::drawRoiArea);	//must connect everytime
 	settingDialog->deleteLater(); //will delete the connect when return from this funciton
 	settingDialog->exec();
 }
@@ -529,6 +540,21 @@ void MainWindow::on_action_Quit_triggered()
 {
 	this->close();
 }
+void MainWindow::on_action_Show_Log_triggered()
+{
+	QString today = QDate::currentDate().toString("yyyyMMdd");
+	QString logFilePath = QStringLiteral("%1/%2.log").arg(logDirPath).arg(today);
+	QUrl url = QUrl::fromLocalFile(logFilePath);
+	QDesktopServices::openUrl(url);
+}
+
+void MainWindow::on_action_Backup_Log_triggered()
+{
+	BackupLogDialog *backupLogDialog = new BackupLogDialog(this);
+	backupLogDialog->deleteLater();
+	backupLogDialog->exec();	//show
+}
+
 void MainWindow::on_alarmPushButton_clicked()
 {
 	//when not running, start the monitor.
@@ -541,18 +567,18 @@ void MainWindow::on_alarmPushButton_clicked()
 	emit setAlarm(PLCSerial::AlarmColorGreen);
 	ui.lcdNumber->setStyleSheet("color:rgb(0, 255, 0);");
 	ui.lcdNumber->display(QString("888"));
-	ui.logTabWidget->setCurrentIndex(0); //reset logTabWidget to log tab(not the error tab)
+	//ui.logTabWidget->setCurrentIndex(0); //reset logTabWidget to log tab(not the error tab)
 }
 
-void MainWindow::on_errorTextBrowser_textChanged()
-{
-	ui.errorTextBrowser->moveCursor(QTextCursor::End);
-}
-
-void MainWindow::on_logTextBrowser_textChanged()
-{
-	ui.logTextBrowser->moveCursor(QTextCursor::End);
-}
+//void MainWindow::on_errorTextBrowser_textChanged()
+//{
+//	//ui.errorTextBrowser->moveCursor(QTextCursor::End);
+//}
+//
+//void MainWindow::on_logTextBrowser_textChanged()
+//{
+//	//ui.logTextBrowser->moveCursor(QTextCursor::End);
+//}
 
 bool MainWindow::isStartCap(bool result)
 {
@@ -561,6 +587,7 @@ bool MainWindow::isStartCap(bool result)
 		recLabel->setVisible(true);
 		emit startProcess();
 		emit connectPLC();
+		setRoiVisible(true);
 	}
 	else
 	{
@@ -577,6 +604,7 @@ bool MainWindow::isStopCap(bool result)
 		ui.action_Stop->setEnabled(false);
 		bIsRunning = false;
 		emit setAlarm(PLCSerial::AlarmOFF);
+		setRoiVisible(false);
 		qWarning("stop success");
 	}
 	else

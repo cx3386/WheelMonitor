@@ -35,10 +35,10 @@ static bool initDataBase()
 			   "validmatch int,"										   //5
 			   "error double,"											   //6
 			   "cartspeed double,"										   //7
-			   "speeds varchar(255)),"									   //save rtspeeds and refspeeds vector
-			   "alarm bool,"											   //is this wheel alarmed
-			   "checked bool,"											   //is the alarm is checked, defaut is null, only alarm wheel need checked
-			   "videopath varchar(255)");
+			   "speeds varchar(255)),"									   //8 save rtspeeds and refspeeds vector
+			   "alarm bool,"											   //9 is this wheel alarmed
+			   "checked bool,"											   //10 is the alarm is checked, defaut is null, only alarm wheel need checked
+			   "videopath varchar(255)");								   //11 videopath
 	//query.exec("insert into wheels (num,videopath) values('007','E:/1.mp4')");
 	return true;
 }

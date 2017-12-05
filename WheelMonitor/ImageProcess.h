@@ -25,13 +25,13 @@ struct ImageProcessParameters
 	cv::Rect roiRect;
 };
 
-class QSqlTableModel;
+class DataTableWidget;
 
 class ImageProcess : public QObject
 {
 	Q_OBJECT
 public:
-	explicit ImageProcess(QSqlTableModel *srcmodel, QObject *parent = Q_NULLPTR);
+	explicit ImageProcess(DataTableWidget *srcmodel, QObject *parent = Q_NULLPTR);
 	~ImageProcess();
 
 	static ImageProcessParameters g_imgParam;
@@ -39,16 +39,16 @@ public:
 	ocr myocr;
 
 private:
-	QSqlTableModel *model;
+	DataTableWidget *model;
 	//int iImgNoCycle;
 	int coreImageProcess(); //0-no cycle, 1-matches success
 	//bool isSameWheel;
 	std::vector<double> rtSpeeds;
-	std::vector<double>	refSpeeds;
+	std::vector<double> refSpeeds;
 	//std::vector<double>	corePeriodSpeeds;	//used in statistics in a imageCoreProcess period, clear when core process is interrupted	//2017/11/20
 	//double angleSum;
 	//int angleCount;	//coreProcess period angle count, replace by rtSpeeds.size();	//2017/11/20
-	int nImgCount;	//has 0/1/2 src imgs to match. when 2, begin to match process; when 0,1, wait the next src img
+	int nImgCount; //has 0/1/2 src imgs to match. when 2, begin to match process; when 0,1, wait the next src img
 	int nFragments;
 
 	void alarmThisWheel();

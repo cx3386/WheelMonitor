@@ -24,7 +24,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QS
 		break;
 	case QtWarningMsg:
 		txt = QStringLiteral("Warning:");
-		uiLogMessage = QStringLiteral("%1\r\n%2").arg(current_date).arg(msg);
+		//uiLogMessage = QStringLiteral("%1\r\n%2").arg(current_date).arg(msg);
 		MyMessageOutput::pMyMessageOutput->emit logMessage(uiLogMessage);
 		//ui.logTextBrowser->moveCursor(QTextCursor::End);
 		break;

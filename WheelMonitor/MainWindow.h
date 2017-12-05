@@ -1,6 +1,5 @@
 #pragma once
 
-#include "MyMessageOutput.h"
 #include "HikVideoCapture.h"
 #include "ImageProcess.h"
 #include "PLCSerial.h"
@@ -18,7 +17,7 @@ public:
 	static bool bAppAutoRun;
 	static bool bVerboseLog;
 
-	static int const EXIT_CODE_REBOOT;
+	//static int const EXIT_CODE_REBOOT;
 	//void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QString& msg);
 
 private:
@@ -27,7 +26,7 @@ private:
 	bool bIsRunning;
 	QLabel *recLabel;
 	/*****worker******/
-	MyMessageOutput *outputMessage;
+	//MyMessageOutput *outputMessage;
 	ImageProcess *imageProcess;
 	HikVideoCapture *videoCapture;
 	PLCSerial *plcSerial;
@@ -35,7 +34,7 @@ private:
 	QThread videoCaptureThread;
 	QThread imageProcessThread;
 	QThread plcSerialThread;
-	QThread outputMessageThread;
+	//QThread outputMessageThread;
 
 	SettingDialog* settingDialog;
 	HWND realPlayHandle;
@@ -68,13 +67,14 @@ protected:
 	void uiShowLastSpeed(double speed);
 	void uiShowRtSpeed(double speed);
 	void uiShowCartSpeed(double speed);
-	void uiShowLogMessage(const QString &message);
-	void uiShowErrorMessage(const QString &message);
+	//void uiShowLogMessage(const QString &message);
+	//void uiShowErrorMessage(const QString &message);
 	//roi area
 	void drawRoiArea();
+	void setRoiVisible(bool b);
 
 	private slots:
-	void anchorClickedSlot(const QUrl &url);
+	//void anchorClickedSlot(const QUrl &url);
 	void start24timer();
 	void update24();
 	void on_action_Start_triggered();
@@ -82,10 +82,12 @@ protected:
 	void on_action_Restart_triggered();
 	void on_action_Property_triggered();
 	void on_action_Quit_triggered();
+	void on_action_Show_Log_triggered();
+	void on_action_Backup_Log_triggered();
 	void on_action_About_triggered();
 	void on_alarmPushButton_clicked();
-	void on_errorTextBrowser_textChanged();
-	void on_logTextBrowser_textChanged();
+	//void on_errorTextBrowser_textChanged();
+	//void on_logTextBrowser_textChanged();
 	bool isStartCap(bool result);
 	bool isStopCap(bool result);
 	void onRecStart();
@@ -96,7 +98,7 @@ protected:
 	void startOrStopSave();
 
 signals:
-	void installLogSystem();
+	//void installLogSystem();
 	void startCap(HWND handle);
 	void SyncCameraTime();
 	void stopCap();

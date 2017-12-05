@@ -50,11 +50,13 @@ void LoginDialog::on_loginBtn_clicked()
 		query.exec(QStringLiteral("select * from user where username='%1' and pwd='%2';").arg(ui.idLineEdit->text()).arg(ui.pwdLineEdit->text()));
 		if (query.next())
 		{
+			qDebug() << "Global: login success";
 			QDialog::accept();
 		}
 		else
 		{
 			QMessageBox::warning(this, QStringLiteral("用户名或密码错误"), QStringLiteral("请输入正确用户名和密码后再登录!"), QStringLiteral("确定"));
+			qDebug() << "Global: login error";
 			ui.idLineEdit->setFocus();
 		}
 	}

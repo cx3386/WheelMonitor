@@ -2,7 +2,7 @@
 
 #pragma once
 
-//App Dir
+//App Dir defined in main.cpp
 extern QString appDirPath;     //the directory contains the app.exe, '/'e.g. C:/QQ
 extern QString appFilePath;    //the file path of app.exe, '/'e.g. C:/QQ/qq.exe
 extern QString captureDirPath; //capture dir

@@ -5,6 +5,7 @@ using namespace std;
 
 //static member init; just like the global variables
 //<数据类型><类名>::<静态数据成员名 >= <值>
+QString HikVideoCapture::capSaveFileName = "";
 int HikVideoCapture::capInterval = 7;
 volatile int HikVideoCapture::gbHandling = HikVideoCapture::capInterval;
 volatile bool HikVideoCapture::bIsProcessing = false;
@@ -174,15 +175,14 @@ bool HikVideoCapture::startSave()
 		return false;
 	bIsSaving = true;
 	qDebug() << "save start";
-	QString saveDir;
+	QString capSaveFilePath;
 	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd"); //ddd is weekday
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss"); //ddd is weekday
-	saveDir = QStringLiteral("%1/%2/%3.mp4").arg(captureDirPath).arg(nowDate).arg(nowTime);
 	mutex.lock();
-	//saveDirLink = QStringLiteral("file:///D:/Capture/%1.mp4").arg(dateTime);
-	saveDirLink = saveDir;
+	capSaveFileName = QStringLiteral("%1/%2.mp4").arg(nowDate).arg(nowTime);
 	mutex.unlock();
-	QByteArray ba = saveDir.toLatin1();
+	capSaveFilePath = QStringLiteral("%1/%2/%3.mp4").arg(captureDirPath).arg(nowDate).arg(nowTime);
+	QByteArray ba = capSaveFilePath.toLatin1();	//QString to char * 官方转换方法//不可以str.toLatin1().data()这样一步完成，可能会出错。//只支持Latin，不支持中文，
 	if (NET_DVR_SaveRealData(lRealPlayHandle_SD, ba.data())) {
 		//QTimer::singleShot(100000, this, SLOT(timeoutSave())); //wait 100s. the singleshot cannot be stopped.
 		timer->start(100000);	//wait 100s	//If the timer is already running, it will be stopped and restarted.

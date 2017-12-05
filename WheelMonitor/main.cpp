@@ -7,8 +7,49 @@
 #include "database.h"
 #include "common.h"
 
+QString appName;
+QString appDirPath;
+QString appFilePath;
+QString captureDirPath;
+QString logDirPath;
+
+void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+	static QMutex mutex;
+	QMutexLocker loker(&mutex);
+	QString currentDateTime = QDateTime::currentDateTime().toString("yyyy/MM/dd hh:mm:ss");
+	QString typeStr;
+	switch (type) {
+	case QtDebugMsg:
+		typeStr = "Debug";
+		break;
+	case QtInfoMsg:
+		typeStr = "Info";
+		break;
+	case QtWarningMsg:
+		typeStr = "Warning";
+		break;
+	case QtCriticalMsg:
+		typeStr = "Critical";
+		break;
+	case QtFatalMsg:
+		typeStr = "Fatal";
+		abort();
+	}
+	QString msgStr = QStringLiteral("[%1][%2]%3").arg(currentDateTime).arg(typeStr).arg(msg);
+	QString today = QDate::currentDate().toString("yyyyMMdd");
+	QString logFilePath = QStringLiteral("%1/%2.log").arg(logDirPath).arg(today);
+	QFile outfile(logFilePath);
+	outfile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);	//On Windows, all '\n' characters are written as '\r\n' if QTextStream's device or string is opened using the QIODevice::Text flag.
+	QTextStream text_stream(&outfile);
+	text_stream << msgStr << endl;	//endl doesn't work without flag QIODevice::Text
+	//outfile.flush(); endl will flush to the device
+	outfile.close();
+}
+
 int main(int argc, char *argv[])
 {
+	qInstallMessageHandler(myMessageOutput);
 	////QApplication::addLibraryPath("./plugins");	//very important
 	if (argc > 1)
 	{
@@ -22,6 +63,12 @@ int main(int argc, char *argv[])
 
 	qApp->setApplicationName("WheelMonitor");
 	qApp->setApplicationVersion("1.1.0");
+
+	appName = qApp->applicationName();
+	appDirPath = qApp->applicationDirPath();				//the directory contains the app.exe, '/'e.g. C:/QQ
+	appFilePath = qApp->applicationFilePath();				//the file path of app.exe, '/'e.g. C:/QQ/qq.exe
+	captureDirPath = QString("%1/Capture").arg(appDirPath); //capture dir
+	logDirPath = QString("%1/Log").arg(appDirPath);
 
 	QCommandLineParser parser;
 	parser.setApplicationDescription(QStringLiteral("宝钢环冷机台车轮子转速监测软件"));

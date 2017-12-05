@@ -48,7 +48,7 @@ void PLCSerial::init()
 	plcSerialPort->close();
 	if (!plcSerialPort->open(QIODevice::ReadWrite))
 	{
-		qWarning() << QString("Can't connect PLC, error code %1").arg(plcSerialPort->error());
+		qWarning() << QStringLiteral("PLC: Can't connect PLC, error code %1").arg(plcSerialPort->error());
 	}
 	else
 		isConnect = true;
@@ -64,7 +64,7 @@ void PLCSerial::init()
 			while (plcSerialPort->waitForReadyRead(100))
 				responseData += plcSerialPort->readAll();
 			if (responseData != WR_CORRECT_RESPONSE)
-				qWarning() << "Error: init PLC(AD) failed";
+				qWarning() << "PLC: Init PLC(AD) failed";
 		}
 	}
 }
@@ -94,7 +94,7 @@ void PLCSerial::Alarm(AlarmColor alarmcolor) //应锟矫革拷为Alarm(AlarmColo
 			while (plcSerialPort->waitForReadyRead(100))
 				responseData += plcSerialPort->readAll();
 			if (responseData != WR_CORRECT_RESPONSE)
-				qWarning() << "Error: Alarm Light wrong return";
+				qWarning() << "PLC: Alarm Light wrong return";
 		}
 	}
 }
@@ -114,7 +114,7 @@ bool PLCSerial::connectPLC()
 	}
 	else
 	{
-		qWarning() << QString("Can't connect PLC, error code %2").arg(plcSerialPort->error());
+		qWarning() << QStringLiteral("PLC: Can't connect PLC, error code %2").arg(plcSerialPort->error());
 		emit isConnectPLC(false);
 		return false;
 	}

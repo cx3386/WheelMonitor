@@ -66,9 +66,6 @@
     <ClCompile Include="MainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyMessageOutput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PLCSerial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -112,12 +109,6 @@
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_singleapplication_p.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_MyMessageOutput.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_MyMessageOutput.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_MainWindow.cpp">
@@ -210,6 +201,15 @@
     <ClCompile Include="datatablewidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_backuplogdialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_backuplogdialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="backuplogdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="HikVideoCapture.h">
@@ -219,9 +219,6 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="MainWindow.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="MyMessageOutput.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="PLCSerial.h">
@@ -267,6 +264,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="datatablewidget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="backuplogdialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

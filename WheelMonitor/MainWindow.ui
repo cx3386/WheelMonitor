@@ -38,31 +38,6 @@
         <string>监视</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_7">
-        <item row="0" column="0">
-         <widget class="QLabel" name="imageMatchesLabel">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="scaledContents">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="0">
          <layout class="QGridLayout" name="gridLayout_6">
           <item row="1" column="1">
@@ -162,6 +137,31 @@
            </widget>
           </item>
          </layout>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="imageMatchesLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item row="2" column="0">
          <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -278,93 +278,7 @@
           </item>
          </layout>
         </item>
-        <item row="0" column="1" rowspan="3">
-         <widget class="QTabWidget" name="logTabWidget">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="currentIndex">
-           <number>1</number>
-          </property>
-          <widget class="QWidget" name="logTab">
-           <attribute name="title">
-            <string>日志</string>
-           </attribute>
-           <layout class="QGridLayout" name="gridLayout_5">
-            <item row="0" column="0">
-             <widget class="myTextBrowser" name="logTextBrowser">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>9</pointsize>
-               </font>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="lineWrapMode">
-               <enum>QTextEdit::NoWrap</enum>
-              </property>
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="errorTab">
-           <attribute name="title">
-            <string>报警</string>
-           </attribute>
-           <layout class="QGridLayout" name="gridLayout_3">
-            <item row="0" column="0">
-             <widget class="myTextBrowser" name="errorTextBrowser">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>9</pointsize>
-               </font>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::StrongFocus</enum>
-              </property>
-              <property name="autoFillBackground">
-               <bool>false</bool>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Sunken</enum>
-              </property>
-              <property name="lineWrapMode">
-               <enum>QTextEdit::NoWrap</enum>
-              </property>
-              <property name="placeholderText">
-               <string/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
        </layout>
-       <zorder>logTabWidget</zorder>
-       <zorder>imageMatchesLabel</zorder>
       </widget>
       <widget class="QWidget" name="playerTab">
        <attribute name="title">
@@ -391,7 +305,7 @@
      <x>0</x>
      <y>0</y>
      <width>794</width>
-     <height>47</height>
+     <height>34</height>
     </rect>
    </property>
    <property name="font">
@@ -462,6 +376,9 @@
     <property name="title">
      <string>帮助(&amp;H)</string>
     </property>
+    <addaction name="action_Show_Log"/>
+    <addaction name="action_Backup_Log"/>
+    <addaction name="separator"/>
     <addaction name="action_About"/>
     <addaction name="action_About_Qt"/>
    </widget>
@@ -523,6 +440,9 @@
    <property name="text">
     <string>关于(&amp;A)</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
   </action>
   <action name="action_Quit">
    <property name="text">
@@ -534,14 +454,19 @@
     <string>重启(&amp;R)</string>
    </property>
   </action>
+  <action name="action_Show_Log">
+   <property name="text">
+    <string>显示日志(&amp;L)</string>
+   </property>
+  </action>
+  <action name="action_Backup_Log">
+   <property name="text">
+    <string>备份日志到(&amp;B)...</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
-  <customwidget>
-   <class>myTextBrowser</class>
-   <extends>QTextBrowser</extends>
-   <header>mytextbrowser.h</header>
-  </customwidget>
   <customwidget>
    <class>MyWidget</class>
    <extends>QWidget</extends>

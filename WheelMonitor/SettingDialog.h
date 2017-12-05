@@ -3,6 +3,11 @@
 #include "ui_SettingDialog.h"
 #include <QDialog>
 #include <opencv2/opencv.hpp>
+
+//namespace cv
+//{
+//	class Rect;
+//}
 class SettingDialog : public QDialog {
 	Q_OBJECT
 

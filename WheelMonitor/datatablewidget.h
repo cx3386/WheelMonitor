@@ -10,9 +10,13 @@ class DataTableWidget : public QWidget
 public:
 	DataTableWidget(QWidget *parent = Q_NULLPTR);
 	~DataTableWidget();
-	QSqlTableModel *model;
+	bool insertRecord(QString num, QString time, int fragment, int totalmatch, int validmatch, double error, double cartspeed, QString speeds, bool alarm, bool checked, QString videopath);
 
 private:
+	QSqlTableModel *model;
+
+	public slots:
+	//void selectTableView();
 
 	private slots :
 		void readVideoPath(QModelIndex);

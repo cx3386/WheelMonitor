@@ -9,12 +9,12 @@ class MyMessageOutput : public QObject
 public:
 	MyMessageOutput(QObject *parent = nullptr);
 	~MyMessageOutput();
-	static MyMessageOutput *pMyMessageOutput;
-	
+	static MyMessageOutput *pMyMessageOutput;	//used to emit static signals from static myMessageoutput() function
+
 signals:
 	void logMessage(const QString &message);
 	void errorMessage(const QString &message);
 
-public slots:
+	public slots:
 	void installMesageHandler();
 };

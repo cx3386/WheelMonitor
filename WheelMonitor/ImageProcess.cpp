@@ -2,15 +2,17 @@
 #include "ImageProcess.h"
 #include "HikVideoCapture.h"
 #include "PLCSerial.h"
-#include "outlierdetection.h"	//used for calc mean, replace opencv lib
+#include "outlierdetection.h" //used for calc mean, replace opencv lib
 #include "datatablewidget.h"
 #include "common.h"
+#include <QtSql>
+
 //#include  <io.h>
 
 using namespace std;
 using namespace cv;
 
-ImageProcessParameters::ImageProcessParameters() :angle2Speed(60 * (M_PI*0.650 / 360) / (8.0 / 25.0)),
+ImageProcessParameters::ImageProcessParameters() : angle2Speed(60 * (M_PI * 0.650 / 360) / (8.0 / 25.0)),
 angleBigRatio(1.2),
 angleSmallRatio(0.8),
 radius_max(350),
@@ -28,45 +30,20 @@ roiRect(220, 0, 800, 720)
 
 ImageProcessParameters ImageProcess::g_imgParam;
 
-bool getUniqueFile(QString &fullFileName)
-{
-	QFileInfo fileInfo(fullFileName);
-	QString baseName_src = fileInfo.baseName();
-	for (int i = 1; i < 11; i++) //max 10 repeat
-	{
-		if (!fileInfo.exists())
-		{
-			//not existing means current filename is unique
-			return true;
-		}
-		else
-		{
-			QString newBaseName(QStringLiteral("%1(%2)").arg(baseName_src).arg(i));
-			fullFileName = QStringLiteral("%1/%2.%3").arg(fileInfo.absolutePath()).arg(newBaseName).arg(fileInfo.completeSuffix());
-			//sure file has suffix, omit this judgement.
-			/*if (!fileInfo.completeSuffix().isEmpty())
-				fullFileName += "." + fileInfo.completeSuffix();*/
-			fileInfo = QFileInfo(fullFileName);
-		}
-	}
-	return false;
-}
-
-ImageProcess::ImageProcess(QSqlTableModel *srcmodel, QObject *parent)
+ImageProcess::ImageProcess(DataTableWidget *srcmodel, QObject *parent)
 	: QObject(parent)
 	//, isSameWheel(false)
 	//, angleCount(0)
 	//, angleSum(0)
-	, nImgCount(0)
+	,
+	nImgCount(0)
 	//, in_out_time(0)
-	, nFragments(0)
-	, bStopProcess(true)
-	, bLastOUT(true)	//assum ths wheel is out at initial, won't be set to true until a new wheel comes in.
-	, bIsInArea(false)
-	, bWheelStopped(false)
+	,
+	nFragments(0), bStopProcess(true), bLastOUT(true) //assum ths wheel is out at initial, won't be set to true until a new wheel comes in.
+	,
+	bIsInArea(false), bWheelStopped(false), model(srcmodel)
 	//, waitTimeout(0)
 {
-	model = srcmodel;
 }
 
 ImageProcess::~ImageProcess()
@@ -117,26 +94,26 @@ void ImageProcess::doImageProcess()
 	if (!bStopProcess)
 	{
 		if (bWheelStopped) //if timeout, which means this wheel is stop, drop the calc and wait for a come-in signal
-		{//if wheel stop, stop the process to avoid meaningless count
+		{				   //if wheel stop, stop the process to avoid meaningless count
 			alarmThisWheel();
 		}
 
 		/*sensor triggered*/
 		else
-		{//decide if the wheel comes in/out by SENSOR IN/OUT
-			if (bIsInArea)			//in detect area
-			{//inarea(1)/out(1->0)/lastout(0)
-				static bool lastCore = false;	//record the last return of core process
-				bool nowCore = coreImageProcess();	//0->1, Fragment++ at rise edge, so it can be 0
+		{										   //decide if the wheel comes in/out by SENSOR IN/OUT
+			if (bIsInArea)						   //in detect area
+			{									   //inarea(1)/out(1->0)/lastout(0)
+				static bool lastCore = false;	  //record the last return of core process
+				bool nowCore = coreImageProcess(); //0->1, Fragment++ at rise edge, so it can be 0
 				if (nowCore == true && lastCore == false)
 				{
 					nFragments++;
 				}
 				lastCore = nowCore;
 			}
-			else if (!bLastOUT)			//out detect area
-			{//Once a wheel scoll out the detect area, settle it.
-				bLastOUT = true;	//only triggered once, until the next sensorIN set it to false
+			else if (!bLastOUT)  //out detect area
+			{					 //Once a wheel scoll out the detect area, settle it.
+				bLastOUT = true; //only triggered once, until the next sensorIN set it to false
 				alarmThisWheel();
 			}
 		}
@@ -148,6 +125,12 @@ void ImageProcess::doImageProcess()
 void ImageProcess::alarmThisWheel()
 {
 	/*ocr*/
+	QString num = "";
+	int totalMatchCount = 0;
+	int validMatchCount = 0;
+	double meanDiff = 0;
+	double meanRef = 0;
+	bool isAlarm = false;
 	qDebug() << "total result in imageprocess" << myocr.result.size();
 	if (myocr.result.empty())
 	{
@@ -156,41 +139,45 @@ void ImageProcess::alarmThisWheel()
 	else
 	{
 		myocr.get_final_result();
-		qDebug() << " plate number : " << QString::fromStdString(myocr.final_result);
+		num = QString::fromStdString(myocr.final_result);
+		qDebug() << " plate number : " << num;
 	}
 	/*speed*/
 	if (!rtSpeeds.size())
-	{//no any matches, coreImageProcess returned no one
+	{ //no any matches, coreImageProcess returned no one
 		qWarning() << QStringLiteral("Miss test");
 	}
 	else
 	{
-		int totalMatchCount = rtSpeeds.size();
-		vector<double> rtSpeedDiffs(rtSpeeds.size());//a vector saves speed difference between imgprocess and PLC(speedAD)
-		transform(rtSpeeds.begin(), rtSpeeds.end(), refSpeeds.begin(), rtSpeedDiffs.begin(), minus<double>());	//rt-ref=diff
+		totalMatchCount = rtSpeeds.size();
+		vector<double> rtSpeedDiffs(rtSpeeds.size());														   //a vector saves speed difference between imgprocess and PLC(speedAD)
+		transform(rtSpeeds.begin(), rtSpeeds.end(), refSpeeds.begin(), rtSpeedDiffs.begin(), minus<double>()); //rt-ref=diff
 		OutlierDetection outlier;
-		outlier.grubbs(rtSpeedDiffs);	//kick out the bad results by grubbs certai
-		double meanRef = outlier.mean(refSpeeds);
-		double meanDiff = outlier.mean(rtSpeedDiffs);
-		double meanSpeed = meanRef + meanDiff;	//mean linear Velocity
+		outlier.grubbs(rtSpeedDiffs); //kick out the bad results by grubbs certai
+		meanRef = outlier.mean(refSpeeds);
+		meanDiff = outlier.mean(rtSpeedDiffs);
+		double meanSpeed = meanRef + meanDiff; //mean linear Velocity
 		emit speedClcReady(meanSpeed);
 		qDebug("Num:%s speed: %.2lfm/min", myocr.final_result, meanSpeed);
-		qDebug() << "Total Match: " << totalMatchCount << "; Valid: " << rtSpeedDiffs.size() << "; fragments: " << nFragments;
+		validMatchCount = rtSpeedDiffs.size();
+		qDebug() << "Total Match: " << totalMatchCount << "; Valid: " << validMatchCount << "; fragments: " << nFragments;
 		if (nFragments != 1)
 		{
 			qDebug() << QString("detect count error: %1").arg(nFragments);
 		}
 
-		double high = (g_imgParam.angleBigRatio - 1) * meanRef;		//high>0 higher deviation
-		double low = (g_imgParam.angleSmallRatio - 1) * meanRef;	//low<0 lower deviation
+		double high = (g_imgParam.angleBigRatio - 1) * meanRef;  //high>0 higher deviation
+		double low = (g_imgParam.angleSmallRatio - 1) * meanRef; //low<0 lower deviation
 		if (meanDiff < low)
 		{
 			if (totalMatchCount >= 5)
-			{//Only if match enough, the result is reliable, then alarm
+			{ //Only if match enough, the result is reliable, then alarm
 				emit setAlarmLight(PLCSerial::AlarmColorRed);
 				emit showAlarmNum(QString::fromStdString(myocr.final_result));
+				isAlarm = true;
 			}
-			else {
+			else
+			{
 				emit setAlarmLight(PLCSerial::AlarmColorYellow);
 			}
 			qWarning() << QStringLiteral("SLOW");
@@ -200,15 +187,25 @@ void ImageProcess::alarmThisWheel()
 		{
 			emit setAlarmLight(PLCSerial::AlarmColorYellow);
 			qWarning() << QStringLiteral("FAST");
-			qCritical() << QString::fromStdString(myocr.final_result) << "FAST";	//show log in the alarmtab
+			qCritical() << QString::fromStdString(myocr.final_result) << "FAST"; //show log in the alarmtab
 		}
 	}
 	//when wheel is leaving the detect area
-	nFragments = 0;	//1. reset detectcount
-	rtSpeeds.clear();	//2. clear rtSpeeds vector
+	QString time = QDateTime::currentDateTime().toString("yyyy/MM/dd hh:mm:ss");
+	QString speedsStr;
+	for (auto it = rtSpeeds.begin(); it != rtSpeeds.end(); ++it) {
+		speedsStr += QString(" %1").arg(*it);
+	}
+	speedsStr += ";";
+	for (auto it = refSpeeds.begin(); it != refSpeeds.end(); ++it) {
+		speedsStr += QString(" %1").arg(*it);
+	}
+	model->insertRecord(num, time, nFragments, totalMatchCount, validMatchCount, meanDiff, meanRef, speedsStr, isAlarm, false, HikVideoCapture::capSaveFileName);
+	nFragments = 0;   //1. reset detectcount
+	rtSpeeds.clear(); //2. clear rtSpeeds vector
 	refSpeeds.clear();
 	myocr.resetOcr();
-	nImgCount = 0;	//no need	//once settle a wheel, force to zero
+	nImgCount = 0; //no need	//once settle a wheel, force to zero
 }
 
 int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait next srcImg
@@ -229,7 +226,7 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	resize(srcImg, srcImg, Size(1280, 720), 0, 0, CV_INTER_LINEAR);
 	//Rect rect(220, 0, 800, 720);
 	Mat roiImage = srcImg(g_imgParam.roiRect); //srcImg(rect).copyTo(roiImage);
-	Mat blurImage;					//use blurimage for houghcircles, use sourceimage for matches
+	Mat blurImage;							   //use blurimage for houghcircles, use sourceimage for matches
 	//********************?????????????**************************//
 	GaussianBlur(roiImage, blurImage, Size(g_imgParam.gs1, g_imgParam.gs1), 2, 2); //???????§³?????????????????§³?????
 	vector<Vec3f> circles;
@@ -298,16 +295,16 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	rtSpeeds.push_back(rtSpeed);
 	refSpeeds.push_back(refSpeed);
 	if (rtSpeed < 0.05)
-	{//if wheelstop, end and settle this wheel.
+	{ //if wheelstop, end and settle this wheel.
 		//won't stop the videocap save, until 100s
 		bWheelStopped = true;
 	}
 
 	//save matches
 	QString nowDate = QDate::currentDate().toString("yyyyMMdd");
-	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
+	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
 	QString fullFilePath = QStringLiteral("%1/%2/%3.jpg").arg(captureDirPath).arg(nowDate).arg(nowTime);
-	getUniqueFile(fullFilePath);
+	//getUniqueFile(fullFilePath);
 	imwrite(fullFilePath.toStdString(), image_matches);
 	//qDebug() << ++debugI;
 
