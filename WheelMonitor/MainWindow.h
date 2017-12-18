@@ -43,8 +43,8 @@ private:
 	void readSettings();
 	void writeSettings();
 
-	void clearLog(int nDays);  //�������n�����־
-	bool delCapDir(int nDays); //�������n���¼���ļ�
+	//void clearLog(int nDays);  //retain nDays log file //deprecated 2017/12/11
+	bool cleanDir(QString dir, int nDays); //retain nDays save files, include video/match/log and so on, defualt retain for 0 days, which means clean all
 	bool makeDir(QString fullPath);
 	void appAutoRun(bool bAutoRun);
 

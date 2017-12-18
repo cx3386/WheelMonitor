@@ -50,11 +50,11 @@
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/ucrt",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
-                "E:\\opencv3.2\\Release_x64\\include",
-                "E:\\opencv3.2\\Release_x64\\include\\opencv",
-                "E:\\opencv3.2\\Release_x64\\include\\opencv2",
-                "E:\\HIKVISION\\include",
-                "C:\\Qt\\Qt5.9.1\\5.9.1\\msvc2017_64\\include",
+                "C:/Qt/Qt5.9.1/5.9.3/msvc2017_64/include/*",
+                "D:/opencv/build/include",
+                "D:/opencv/build/include/opencv",
+                "D:/opencv/build/include/opencv2",
+                "D:/HIKVISION/include",
                 "${workspaceRoot}"
             ],
             "defines": [
@@ -69,9 +69,14 @@
                     "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/ucrt",
                     "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
                     "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
+                    "C:/Qt/Qt5.9.1/5.9.3/msvc2017_64/include/*",
+                    "D:/opencv/build/include",
+                    "D:/opencv/build/include/opencv",
+                    "D:/opencv/build/include/opencv2",
+                    "D:/HIKVISION/include",
                     "${workspaceRoot}"
                 ],
-                "limitSymbolsToIncludedHeaders": true,
+                "limitSymbolsToIncludedHeaders": false,
                 "databaseFilename": ""
             }
         }

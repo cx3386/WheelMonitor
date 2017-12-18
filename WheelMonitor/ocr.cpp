@@ -1,44 +1,43 @@
 #include "stdafx.h"
 #include "ocr.h"
 
-CharSegment::CharSegment(){}
-CharSegment::CharSegment(Mat i, Rect p){
+CharSegment::CharSegment() {}
+CharSegment::CharSegment(Mat i, Rect p) {
 	img = i;
 	pos = p;
 }
 
-ocr_parameters::ocr_parameters(){}
+ocr_parameters::ocr_parameters() {}
 
 ocr_parameters ocr::p;
 
-ocr::ocr(){//加载样本
+ocr::ocr() {//加载样本
 	charSize = 20;
 	string local = QCoreApplication::applicationDirPath().append("/ocr_pattern/").toStdString();
-	for (int i = 0; i < 10; i++){
+	for (int i = 0; i < 10; i++) {
 		stringstream patternname;
 		//patternname << "E://postgradu//ComputerVision//project/hmpsb_9.20//hmpsb_9.20//char//pattern//1012char20//" << i << ".jpg";
 		patternname << local << i << ".jpg";
 
-		pattern[i] = imread(patternname.str(),-1);
-		
+		pattern[i] = imread(patternname.str(), -1);
+
 		if (pattern[i].empty())
 		{
-			//qDebug()<< "Could not open or find pattern!" ;			
+			//qDebug()<< "Could not open or find pattern!" ;
 		}
 	}
 	//qDebug() << "patterns loaded";
 	resetOcr();
 }
 
-void ocr::resetOcr(){
+void ocr::resetOcr() {
 	unit_char.clear();
 	result.clear();
 	final_result.clear();
 	//qDebug() << "ocr initial complete";
 }
 
-vector<Mat> ocr::detect_plate(Mat frame){
-
+vector<Mat> ocr::detect_plate(Mat frame) {
 	vector<Mat> output;
 	Mat fullscreen;
 	double fx = 1920.0 / frame.cols;
@@ -86,16 +85,16 @@ vector<Mat> ocr::detect_plate(Mat frame){
 		Rect re = boundingRect(Mat(*itc));
 		//rectangle(result, re, Scalar(0, 255, 0));
 
-		if (//re.x > p.plate_x_min && re.x < p.plate_x_max && 
+		if (//re.x > p.plate_x_min && re.x < p.plate_x_max &&
 			re.y > p.plate_y_min && re.y < p.plate_y_max &&
 			re.width > p.plate_width_min && re.width < p.plate_width_max &&
-			re.height > p.plate_height_min && re.height < p.plate_height_max){
+			re.height > p.plate_height_min && re.height < p.plate_height_max) {
 			rectangle(fliter, re, Scalar(0, 255, 0));
 			Mat hmp(fliter, re);
 			output.push_back(hmp);
 			stringstream filename;
 			string local = QCoreApplication::applicationDirPath().append("/ocr_pattern/").toStdString();
-			filename << local << getTime() << "hmp"  << ".jpg";
+			filename << local << getTime() << "hmp" << ".jpg";
 			imwrite(filename.str(), hmp);
 		}
 		++itc;
@@ -107,12 +106,12 @@ void ocr::recognize(Mat in)
 {
 	unit_char.clear();
 	Mat threshold = preprocess(in);
-	//imshow("prepro", threshold);	
+	//imshow("prepro", threshold);
 	unit_char = find_ch(threshold);
 
 	int count = 0;
 	stringstream out;
-	for (int i = 0; i<unit_char.size(); i++){
+	for (int i = 0; i < unit_char.size(); i++) {
 		//Preprocess each char for all images have same sizes
 		Mat StandardChar = processChar(unit_char[i].img);
 		//稳定后注释掉
@@ -122,16 +121,16 @@ void ocr::recognize(Mat in)
 		imwrite(filename.str(), StandardChar);
 
 		int temp = judge(StandardChar);
-		if (temp>=0){
+		if (temp >= 0) {
 			out << temp;
 			count++;
 		}
-	}	
-	if (count < 3){//不能识别的号码牌直接return,不直接判定unit_char.size()是因为杂质可能被判定为unit_char,但judge()可以一定程度上分辨杂质和真数字
+	}
+	if (count < 3) {//不能识别的号码牌直接return,不直接判定unit_char.size()是因为杂质可能被判定为unit_char,但judge()可以一定程度上分辨杂质和真数字
 		//qDebug() << "get one invalide result" ;
 		return;
 	}
-	else{
+	else {
 		result.push_back(out.str());
 		//qDebug() << "get one result, result size come to" << result.size();
 
@@ -139,21 +138,19 @@ void ocr::recognize(Mat in)
 	}
 }
 
-Mat ocr::preprocess(Mat src){
-	Mat binary=src;
+Mat ocr::preprocess(Mat src) {
+	Mat binary = src;
 	//imshow("src", src);
 
-	for (int i = 0; i < src.rows; i++){
+	for (int i = 0; i < src.rows; i++) {
 		//cout << i << endl;
-		for (int j = 0; j < src.cols; j++){
+		for (int j = 0; j < src.cols; j++) {
 			int t = src.at<uchar>(i, j);
 
-				if (t < 180){
-					binary.at<uchar>(i, j) = 0;
-				}
-				else binary.at<uchar>(i, j) = 255;
-			
-
+			if (t < 180) {
+				binary.at<uchar>(i, j) = 0;
+			}
+			else binary.at<uchar>(i, j) = 255;
 		}
 	}
 	Mat img_threshold;
@@ -165,7 +162,7 @@ Mat ocr::preprocess(Mat src){
 	return img_threshold;
 }
 
-vector<CharSegment> ocr::find_ch(Mat img_threshold){
+vector<CharSegment> ocr::find_ch(Mat img_threshold) {
 	vector<CharSegment> output;
 
 	Mat img_contours;
@@ -187,9 +184,9 @@ vector<CharSegment> ocr::find_ch(Mat img_threshold){
 		1); // with a thickness of 1
 	//Start to iterate to each contour founded
 	//imshow("contour", result);
-	
+
 	vector<vector<Point> >::iterator itc = contours.begin();
-	
+
 	Rect re[5];
 	int index = 0;
 
@@ -197,11 +194,11 @@ vector<CharSegment> ocr::find_ch(Mat img_threshold){
 		//Create bounding rect of object
 		Rect mr = boundingRect(Mat(*itc));
 		rectangle(result, mr, Scalar(0, 255, 0));
-		if (mr.width >= p.num_width_min && mr.width <= p.num_width_max && 
-			mr.height >= p.num_height_min && mr.height <= p.num_height_max){//筛选有效的框***   mr.width >= 20 && mr.width <= 35 && mr.height >= 20 && mr.height <= 50
+		if (mr.width >= p.num_width_min && mr.width <= p.num_width_max &&
+			mr.height >= p.num_height_min && mr.height <= p.num_height_max) {//筛选有效的框***   mr.width >= 20 && mr.width <= 35 && mr.height >= 20 && mr.height <= 50
 			re[index] = mr;
 			Mat num_cut(img_threshold, re[index]);
-			output.push_back(CharSegment(num_cut, re[index]));		
+			output.push_back(CharSegment(num_cut, re[index]));
 			index++;
 		}
 		++itc;
@@ -212,7 +209,7 @@ vector<CharSegment> ocr::find_ch(Mat img_threshold){
 	return output;
 }
 
-Mat ocr::processChar(Mat in){
+Mat ocr::processChar(Mat in) {
 	//Remap image
 	int h = in.rows;
 	int w = in.cols;
@@ -230,44 +227,41 @@ Mat ocr::processChar(Mat in){
 	return out;
 }
 
-int ocr::judge(Mat test){
+int ocr::judge(Mat test) {
 	float dis[10];
-	int index=0;
+	int index = 0;
 	cout << "数组";
-	for (int i = 0; i < 10;  i++){
+	for (int i = 0; i < 10; i++) {
 		dis[i] = oudistance(pattern[i], test);
 		cout << dis[i] << "  ";
-
 	}
 	cout << endl;
 
 	double temp = dis[0];
-	for (int i = 0; i < 10; i++){
-		if (dis[i] < temp){
+	for (int i = 0; i < 10; i++) {
+		if (dis[i] < temp) {
 			temp = dis[i];
 			index = i;
 		}
 	}
-	if (dis[index] < 2400){
+	if (dis[index] < 2400) {
 		return index;
-
 	}
-	else{
+	else {
 		return -1;
 	}
 }
 
-float ocr::oudistance(Mat pattern, Mat test){
+float ocr::oudistance(Mat pattern, Mat test) {
 	float distance = 0;
-	for (int i = 0; i < pattern.cols; i++){
-		for (int j = 0; j < pattern.rows; j++){
+	for (int i = 0; i < pattern.cols; i++) {
+		for (int j = 0; j < pattern.rows; j++) {
 			distance += (pattern.at<uchar>(i, j) - test.at<uchar>(i, j))*(pattern.at<uchar>(i, j) - test.at<uchar>(i, j));
 		}
 	}
 	distance = sqrt(distance);
 	return distance;
 }
-
 
 string ocr::getTime()
 {
@@ -283,18 +277,18 @@ string ocr::getTime()
 	return ss.str();
 }
 
-void ocr::generate_pattern(Mat in){
+void ocr::generate_pattern(Mat in) {
 	Mat frame;
 	in.copyTo(frame);
 	vector<Mat> plates = detect_plate(frame);
 	if (debug)
 		cout << "find plates" << plates.size();
-	for (int j = 0; j < plates.size(); j++){
+	for (int j = 0; j < plates.size(); j++) {
 		Mat threshold = preprocess(plates[j]);
 
 		vector<CharSegment> ch = find_ch(threshold);
 
-		for (int i = 0; i<ch.size(); i++){
+		for (int i = 0; i < ch.size(); i++) {
 			//Preprocess each char for all images have same sizes
 			Mat StandardChar = processChar(ch[i].img);
 			stringstream filename;
@@ -305,34 +299,31 @@ void ocr::generate_pattern(Mat in){
 	}
 }
 
-
-void ocr::core_ocr(Mat src){
+void ocr::core_ocr(Mat src) {
 	Mat frame;
 	src.copyTo(frame);
 	vector<Mat> plates = detect_plate(frame);
 	if (debug) cout << "find plates " << plates.size();
-	for (int j = 0; j < plates.size(); j++){
+	for (int j = 0; j < plates.size(); j++) {
 		recognize(plates[j]);
 		if (debug) cout << "find num " << unit_char.size();
 	}
-
 }
-void ocr::get_final_result(){
+void ocr::get_final_result() {
 	if (result.empty())
 		return;
 	vector<string> temp = result;
 	sort(temp.begin(), temp.end());
 	temp.erase(unique(temp.begin(), temp.end()), temp.end());//temp是排序后剔除相同元素的result
 	vector<int> result_count;
-	for (int i = 0; i < temp.size(); i++){
-		result_count.push_back(count(result.begin(),result.end(),temp[i]));		
+	for (int i = 0; i < temp.size(); i++) {
+		result_count.push_back(count(result.begin(), result.end(), temp[i]));
 	}
 	int index = 0;
-	for (int i = 0; i < result_count.size(); i++){
-		if (result_count[i]>result_count[index]){
+	for (int i = 0; i < result_count.size(); i++) {
+		if (result_count[i] > result_count[index]) {
 			index = i;
 		}
-	}	
+	}
 	final_result = temp[index];
-	
 }

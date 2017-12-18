@@ -35,13 +35,10 @@ ImageProcess::ImageProcess(DataTableWidget *srcmodel, QObject *parent)
 	//, isSameWheel(false)
 	//, angleCount(0)
 	//, angleSum(0)
-	,
-	nImgCount(0)
+	, nImgCount(0)
 	//, in_out_time(0)
-	,
-	nFragments(0), bStopProcess(true), bLastOUT(true) //assum ths wheel is out at initial, won't be set to true until a new wheel comes in.
-	,
-	bIsInArea(false), bWheelStopped(false), model(srcmodel)
+	, nFragments(0), bStopProcess(true), bLastOUT(true) //assum ths wheel is out at initial, won't be set to true until a new wheel comes in.
+	, bIsInArea(false), bWheelStopped(false), model(srcmodel)
 	//, waitTimeout(0)
 {
 }
@@ -303,7 +300,7 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	//save matches
 	QString nowDate = QDate::currentDate().toString("yyyyMMdd");
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
-	QString fullFilePath = QStringLiteral("%1/%2/%3.jpg").arg(captureDirPath).arg(nowDate).arg(nowTime);
+	QString fullFilePath = QStringLiteral("%1/%2/%3.jpg").arg(matchDirPath).arg(nowDate).arg(nowTime);
 	//getUniqueFile(fullFilePath);
 	imwrite(fullFilePath.toStdString(), image_matches);
 	//qDebug() << ++debugI;

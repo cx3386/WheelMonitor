@@ -10,7 +10,11 @@
 QString appName;
 QString appDirPath;
 QString appFilePath;
-QString captureDirPath;
+QString captureDirPath; //cap dir
+QString configDirPath; //cap dir
+QString videoDirPath; //video dir
+QString matchDirPath;	//match dir
+QString imageDirPath; //imageDirPath
 QString logDirPath;
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -38,7 +42,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 	}
 	QString msgStr = QStringLiteral("[%1][%2]%3").arg(currentDateTime).arg(typeStr).arg(msg);
 	QString today = QDate::currentDate().toString("yyyyMMdd");
-	QString logFilePath = QStringLiteral("%1/%2.log").arg(logDirPath).arg(today);
+	QString logFilePath = QStringLiteral("%1/%2/%3.log").arg(logDirPath).arg(today).arg(today);
 	QFile outfile(logFilePath);
 	outfile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);	//On Windows, all '\n' characters are written as '\r\n' if QTextStream's device or string is opened using the QIODevice::Text flag.
 	QTextStream text_stream(&outfile);
@@ -65,9 +69,13 @@ int main(int argc, char *argv[])
 	qApp->setApplicationVersion("1.1.0");
 
 	appName = qApp->applicationName();
-	appDirPath = qApp->applicationDirPath();				//the directory contains the app.exe, '/'e.g. C:/QQ
-	appFilePath = qApp->applicationFilePath();				//the file path of app.exe, '/'e.g. C:/QQ/qq.exe
+	//use cleanPath() or absolutePath() or canonicalPath() to remove the redudant . or ..
+	appDirPath = QDir::cleanPath(qApp->applicationDirPath());				//the directory contains the app.exe, '/'e.g. C:/QQ
+	appFilePath = QDir::cleanPath(qApp->applicationFilePath());				//the file path of app.exe, '/'e.g. C:/QQ/qq.exe
 	captureDirPath = QString("%1/Capture").arg(appDirPath); //capture dir
+	configDirPath = appDirPath;
+	videoDirPath = QString("%1/Video").arg(captureDirPath);
+	imageDirPath = matchDirPath = QString("%1/Image").arg(captureDirPath);
 	logDirPath = QString("%1/Log").arg(appDirPath);
 
 	QCommandLineParser parser;

@@ -181,7 +181,7 @@ bool HikVideoCapture::startSave()
 	mutex.lock();
 	capSaveFileName = QStringLiteral("%1/%2.mp4").arg(nowDate).arg(nowTime);
 	mutex.unlock();
-	capSaveFilePath = QStringLiteral("%1/%2/%3.mp4").arg(captureDirPath).arg(nowDate).arg(nowTime);
+	capSaveFilePath = QStringLiteral("%1/%2/%3.mp4").arg(videoDirPath).arg(nowDate).arg(nowTime);
 	QByteArray ba = capSaveFilePath.toLatin1();	//QString to char * 官方转换方法//不可以str.toLatin1().data()这样一步完成，可能会出错。//只支持Latin，不支持中文，
 	if (NET_DVR_SaveRealData(lRealPlayHandle_SD, ba.data())) {
 		//QTimer::singleShot(100000, this, SLOT(timeoutSave())); //wait 100s. the singleshot cannot be stopped.

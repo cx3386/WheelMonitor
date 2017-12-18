@@ -3,6 +3,16 @@
 
 #include <QDialog>
 
+struct BackupInfo
+{
+	QString dirPath;
+	bool isSelected;
+	bool isAll;
+	int day;
+	int max_day;
+	//QStringList files;
+};
+
 class BackupLogDialog : public QDialog {
 	Q_OBJECT
 
@@ -13,26 +23,24 @@ public:
 	private slots:
 	void chooseDirPath();
 
-	void startCopy();
+	bool startCopy();
 
-	void on_DirPathLineEdit_textChanged(const QString& arg1);
+	//void on_dirPathLineEdit_textChanged(const QString& arg1);
 
 private:
-	QString usbDrivePath;
-	QString copyDirPath;
 
-	QList<int> daysList;
-	QList<bool> contentList;
-	//QGroupBox *contentGroupBox;
+	QList<BackupInfo> backupInfoList;
+	QStringList getFiles(const BackupInfo& backupInfo);
+	QStringList getFiles(const QString & srcDirPath, const int & nDays, const bool & isAll);
+	int getMaxDay(const QString &path);
+	quint64 getDiskFreeSpace(QString & driver);	//driver free space in bytes
+	quint64 getNeedSpace();	//need space in bytes
+	QString desDirPath;
+	quint64 lfNeedSpace;
+	quint64 lfFreeSpace;
 
-	//QCheckBox *logCheckBox;
-	//QCheckBox *vedioCheckBox;
-	//QCheckBox *matchCheckBox;
-
-	//QGroupBox *dirGroupBox;
 	QLabel *freeSpaceLabel;
 	QLineEdit *dirPathLineEdit;
-
 	QPushButton *copyBtn;
 };
 
