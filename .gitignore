@@ -5,6 +5,7 @@
 [Ii]nstall/
 *.props
 *.db3
+!**/config.ini
 
 # GeneratedFiles by Qt (cx3386@163.com)
 GeneratedFiles/
@@ -29,8 +30,6 @@ GeneratedFiles/
 bld/
 [Bb]in/
 [Oo]bj/
-![Xx]64/[Dd]ebug/config.ini
-![Xx]64/[Rr]elease/config.ini
 
 # Visual Studio 2015 cache/options directory
 .vs/
