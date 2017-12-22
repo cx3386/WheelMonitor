@@ -29,8 +29,8 @@ GeneratedFiles/
 bld/
 [Bb]in/
 [Oo]bj/
-![Xx]64/[Dd]ebug/*.ini
-![Xx]64/[Rr]elease/*.ini
+![Xx]64/[Dd]ebug/config.ini
+![Xx]64/[Rr]elease/config.ini
 
 # Visual Studio 2015 cache/options directory
 .vs/
