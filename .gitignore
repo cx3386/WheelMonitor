@@ -5,6 +5,8 @@
 [Ii]nstall/
 *.props
 *.db3
+!**/[Dd]ebug/*.ini
+!**/[Rr]elease/*.ini
 
 # GeneratedFiles by Qt (cx3386@163.com)
 GeneratedFiles/
@@ -252,4 +254,3 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 *.zip
-
