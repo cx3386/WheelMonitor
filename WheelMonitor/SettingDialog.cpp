@@ -17,8 +17,8 @@ SettingDialog::SettingDialog(QWidget *parent)
 
 	/*advancedTab*/
 	ui.sensorCheckBox->setChecked(ImageProcess::g_imgParam.sensorTriggered);
-	ui.angleHighSpinBox->setValue(ImageProcess::g_imgParam.angleBigRatio);
-	ui.angleLowSpinBox->setValue(ImageProcess::g_imgParam.angleSmallRatio);
+	ui.alarmRatioSpinBox->setValue(ImageProcess::g_imgParam.alarmRatio);
+	ui.warningRatioSpinBox->setValue(ImageProcess::g_imgParam.warningRatio);
 	ui.radiusMaxSpinBox->setValue(ImageProcess::g_imgParam.radius_max);
 	ui.radiusMinSpinBox->setValue(ImageProcess::g_imgParam.radius_min);
 	ui.capIntervalSpinBox->setValue(HikVideoCapture::capInterval);
@@ -66,15 +66,15 @@ void SettingDialog::on_okBtn_clicked()
 		ImageProcess::g_imgParam.sensorTriggered = ui.sensorCheckBox->isChecked();
 		isChanged = true;
 	}
-	if (ImageProcess::g_imgParam.angleBigRatio != ui.angleHighSpinBox->value())
+	if (ImageProcess::g_imgParam.alarmRatio != ui.alarmRatioSpinBox->value())
 	{
-		ImageProcess::g_imgParam.angleBigRatio = ui.angleHighSpinBox->value();
+		ImageProcess::g_imgParam.alarmRatio = ui.alarmRatioSpinBox->value();
 		isChanged = true;
 	}
 
-	if (ImageProcess::g_imgParam.angleSmallRatio != ui.angleLowSpinBox->value())
+	if (ImageProcess::g_imgParam.warningRatio != ui.warningRatioSpinBox->value())
 	{
-		ImageProcess::g_imgParam.angleSmallRatio = ui.angleLowSpinBox->value();
+		ImageProcess::g_imgParam.warningRatio = ui.warningRatioSpinBox->value();
 		isChanged = true;
 	}
 	if (ImageProcess::g_imgParam.radius_max != ui.radiusMaxSpinBox->value())

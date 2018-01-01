@@ -5,12 +5,12 @@ BackupLogDialog::BackupLogDialog(QWidget *parent)
 	: QDialog(parent)
 	, lfNeedSpace(0.0), lfFreeSpace(0.0)
 {
-	BackupInfo bifs[3] = { {logDirPath,true,true,0,0},{videoDirPath,false,true,0,0},{matchDirPath,false,true,0,0} };
+	BackupInfo bifs[3] = { {logDirPath,true,true,0,0},{videoDirPath,false,true,0,0},{ocrDirPath,false,true,0,0} };
 	for (auto&& bif : std::as_const(bifs))
 	{
 		backupInfoList << bif;
 	}
-	for (auto&& bif : backupInfoList)//to write the bif, use deduction to forwarding reference, and NOT use std::as_const
+	for (auto& bif : backupInfoList)//to write the bif, use deduction to forwarding reference, and NOT use std::as_const
 	{
 		bif.max_day = getMaxDay(bif.dirPath);
 		bif.day = std::min(10, bif.max_day);
@@ -24,7 +24,7 @@ BackupLogDialog::BackupLogDialog(QWidget *parent)
 	QStringList itemsList;
 	itemsList << QStringLiteral("日志文件(log)")
 		<< QStringLiteral("录像文件")
-		<< QStringLiteral("匹配图片");
+		<< QStringLiteral("字符识别文件");
 	QVBoxLayout *contentLayout = new QVBoxLayout;
 
 	int i = 0;
@@ -187,69 +187,68 @@ bool BackupLogDialog::startCopy()
 		{
 			for (auto&& qs : getFiles(bif))//fileList must start with srcPath
 			{
-				QString relativeFilePath = srcDir.relativeFilePath(qs);
-				QString desFileName = QString("%1/%2").arg(desDirPath).arg(relativeFilePath);//get the relative path
-				QFileInfo desFileInfo(desFileName);
-				//if (fileInfo.isFile()) // if exist then delete
-				//{
-				//	QFile::remove(desFileName);
-				//}
-				QFile desFile(desFileName);
-				//desFile.setPermissions(QFile::WriteOwner);
-				if (!desFile.open(QIODevice::WriteOnly | QIODevice::Truncate))
-				{
-					QDir dir;
-					dir.mkpath(desFileInfo.absolutePath());//desFileInfo.canonicalPath() //returns "."
-					desFile.open(QIODevice::WriteOnly);
-				}
-				QFile srcFile(qs);
-				srcFile.open(QIODevice::ReadOnly);
-
-				QByteArray byteArray;
-				int count = 0;
-				while (!srcFile.atEnd())
-				{
-					count++;
-					byteArray = srcFile.read(1024);
-					desFile.write(byteArray);
-					pgDlg.setValue(curSize / 1024 + count);
-
-					if (pgDlg.wasCanceled())
-					{
-						desFile.close();
-						srcFile.close();
-						QFile::remove(desFileName);
-						pgDlg.setValue(lfNeedSpace / 1024);	//close
-						return true;
-					}
-				}
-
-				desFile.close();
-				srcFile.close();
-				curSize += desFileInfo.size();
+				if (copyOneFile(srcDir, qs, pgDlg, curSize)) return true;
 			}
 		}
 	}
+	if (copyOneFile(srcDir, databaseFilePath, pgDlg, curSize)) return true;
 	QMessageBox::information(this, QStringLiteral("备份日志"), QStringLiteral("文件复制完成！"), QStringLiteral("确认"));
 	return true;
 }
 
+bool BackupLogDialog::copyOneFile(QDir &srcDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize)
+{
+	QString relativeFilePath = srcDir.relativeFilePath(srcFilePath);
+	QString desFileName = QString("%1/%2").arg(desDirPath).arg(relativeFilePath);//get the relative path
+	QFileInfo desFileInfo(desFileName);
+	//if (fileInfo.isFile()) // if exist then delete
+	//{
+	//	QFile::remove(desFileName);
+	//}
+	QFile desFile(desFileName);
+	//desFile.setPermissions(QFile::WriteOwner);
+	if (!desFile.open(QIODevice::WriteOnly | QIODevice::Truncate))
+	{
+		QDir dir;
+		dir.mkpath(desFileInfo.absolutePath());//desFileInfo.canonicalPath() //returns "."
+		desFile.open(QIODevice::WriteOnly);
+	}
+	QFile srcFile(srcFilePath);
+	srcFile.open(QIODevice::ReadOnly);
+
+	QByteArray byteArray;
+	int count = 0;
+	while (!srcFile.atEnd())
+	{
+		count++;
+		byteArray = srcFile.read(1024);
+		desFile.write(byteArray);
+		pgDlg.setValue(curSize / 1024 + count);
+
+		if (pgDlg.wasCanceled())
+		{
+			desFile.close();
+			srcFile.close();
+			QFile::remove(desFileName);
+			pgDlg.setValue(lfNeedSpace / 1024);	//close
+			return true;
+		}
+	}
+
+	desFile.close();
+	srcFile.close();
+	curSize += desFileInfo.size();
+	return false;
+}
+
 void BackupLogDialog::chooseDirPath()
 {
-	//QFileDialog fileDialog(this);
-	//// fileDialog.setAcceptMode(QFileDialog::AcceptOpen);
-	//fileDialog.setFileMode(QFileDialog::Directory);
-	//fileDialog.setOption(QFileDialog::ShowDirsOnly);
-	//fileDialog.setViewMode(QFileDialog::Detail);
-	//fileDialog.setWindowTitle(QStringLiteral("选择备份目录"));
-
+	copyBtn->setEnabled(false);
 	QString usbDrivePath(QDir::drives().back().filePath());//the last of the drives
-	//fileDialog.setDirectory(usbDrivePath);
-	//if (fileDialog.exec() == QDialog::Accepted) {
 	desDirPath = QFileDialog::getExistingDirectory(this, QStringLiteral("选择备份目录"), usbDrivePath, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 	if (desDirPath.isEmpty())
-		copyBtn->setEnabled(false);
 		return;
+
 	if (desDirPath.endsWith("/")) //if des is root, i.e.,"c:/", it will endswith /
 	{
 		desDirPath.chop(1);
@@ -271,12 +270,12 @@ void BackupLogDialog::chooseDirPath()
 	copyBtn->setEnabled(true);
 }
 
-QStringList BackupLogDialog::getFiles(const BackupInfo & info)
+QStringList BackupLogDialog::getFiles(const BackupInfo & info) const
 {//overload
 	return getFiles(info.dirPath, info.day, info.isAll);
 }
 
-QStringList BackupLogDialog::getFiles(const QString & path, const int & day, const bool & isAll)
+QStringList BackupLogDialog::getFiles(const QString & path, const int & day, const bool & isAll) const
 {//filter the dirs by retain days
 	QStringList files;
 	QDir dir(path);
@@ -302,7 +301,7 @@ QStringList BackupLogDialog::getFiles(const QString & path, const int & day, con
 	return files;
 }
 
-int BackupLogDialog::getMaxDay(const QString &path)
+int BackupLogDialog::getMaxDay(const QString &path) const
 {
 	int count = 0;
 	QDir dir(path);
@@ -320,7 +319,7 @@ int BackupLogDialog::getMaxDay(const QString &path)
 	return count;
 }
 
-quint64 BackupLogDialog::getNeedSpace()
+quint64 BackupLogDialog::getNeedSpace() const
 {//get the total size of fileList
 	quint64 size = 0;
 	for (auto&& bif : std::as_const(backupInfoList)) {
@@ -334,11 +333,13 @@ quint64 BackupLogDialog::getNeedSpace()
 			size += info.size();
 		}
 	}
+	QFileInfo info(databaseFilePath);
+	size += info.size();
 	return size;
 }
 
-quint64 BackupLogDialog::getDiskFreeSpace(QString & driver)
-{//"C:\"
+quint64 BackupLogDialog::getDiskFreeSpace(QString & driver) const
+{//e.g."C:\"
 	LPCWSTR lpcwstrDriver = (LPCWSTR)driver.utf16();
 	ULARGE_INTEGER liFreeBytesAvailable, liTotalBytes, liTotalFreeBytes;
 	if (!GetDiskFreeSpaceEx(lpcwstrDriver, &liFreeBytesAvailable, &liTotalBytes, &liTotalFreeBytes))

@@ -61,6 +61,7 @@ Player::Player(QWidget* parent)
 	connect(player, SIGNAL(videoAvailableChanged(bool)), this, SLOT(videoAvailableChanged(bool)));
 
 	videoWidget = new VideoWidget(this);
+	videoWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	player->setVideoOutput(videoWidget);
 
 	slider = new CustomSlider(Qt::Horizontal, this);
@@ -131,7 +132,7 @@ void Player::setUrl(const QUrl & url)
 {
 	player->setMedia(url);
 	currentFileName = url.toLocalFile();
-	//emit playButton->clicked();	//if detect media changed, start play
+	emit playButton->clicked();	//if detect media changed, start play
 }
 
 void Player::durationChanged(qint64 duration)

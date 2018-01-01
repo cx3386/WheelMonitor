@@ -1,70 +1,54 @@
 #include "stdafx.h"
+#include "HikVideoCapture.h"
 #include "ocr.h"
+#include "common.h"
 
-CharSegment::CharSegment() {}
-CharSegment::CharSegment(Mat i, Rect p) {
-	img = i;
-	pos = p;
-}
+ocr_parameters OCR::p; //init static member of OCR
 
-ocr_parameters::ocr_parameters() {}
-
-ocr_parameters ocr::p;
-
-ocr::ocr() {//加载样本
-	charSize = 20;
-	string local = QCoreApplication::applicationDirPath().append("/ocr_pattern/").toStdString();
+OCR::OCR() : charSize(20), bDbg(false), lastNum(0)
+{//加载样本
 	for (int i = 0; i < 10; i++) {
-		stringstream patternname;
-		//patternname << "E://postgradu//ComputerVision//project/hmpsb_9.20//hmpsb_9.20//char//pattern//1012char20//" << i << ".jpg";
-		patternname << local << i << ".jpg";
-
-		pattern[i] = imread(patternname.str(), -1);
+		QString patternName = QString("%1/%2.jpg").arg(ocrPatternDirPath).arg(i);
+		pattern[i] = imread(patternName.toStdString(), -1);
 
 		if (pattern[i].empty())
 		{
-			//qDebug()<< "Could not open or find pattern!" ;
+			qWarning() << "OCR: Could not open or find pattern[" << i << "]";
 		}
 	}
-	//qDebug() << "patterns loaded";
 	resetOcr();
 }
 
-void ocr::resetOcr() {
+void OCR::resetOcr() {
 	unit_char.clear();
 	result.clear();
-	final_result.clear();
 	//qDebug() << "ocr initial complete";
 }
 
-vector<Mat> ocr::detect_plate(Mat frame) {
-	vector<Mat> output;
+vector<Mat> OCR::detect_plate(Mat frame) {
 	Mat fullscreen;
-	double fx = 1920.0 / frame.cols;
-	double fy = 1080.0 / frame.rows;
-	resize(frame, fullscreen, Size(0, 0), fx, fy);//归一到全屏
-	//resize(frame, fullscreen, Size(1920, 1080), 0, 0, CV_INTER_LINEAR);
+	resize(frame, fullscreen, Size(1920, 1080), 0, 0, CV_INTER_LINEAR);
 
-	Rect re(1100, 0, 450, 400);
+	Rect re(1100, 100, 450, 380);
 	Mat window(fullscreen, re);
 	//Mat win_gray;
 	//cvtColor(window, win_gray, CV_BGR2GRAY);//如果输入是bgr则需要这两行
 
-	if (debug)
+	if (bDbg)
 		imshow("window", window);
 
 	//方法1  canny的两个阈值都比较低
 	Mat gauss;
-	GaussianBlur(window, gauss, Size(7, 7), 0, 0);
+	GaussianBlur(window, gauss, Size(5, 5), 0, 0);
 	Mat img_canny;
-	Canny(gauss, img_canny, 40, 120, 3, true);
+	Canny(gauss, img_canny, 40, 100, 3, true);
 
 	////方法2  canny的两个阈值都比较高
 	//Mat img_canny;
 	//Canny(win_gray, img_canny, 125, 350);
 	//threshold(img_canny, img_canny, 128, 255, THRESH_BINARY_INV);
-	//if (debug)
-	//	imshow("img_canny", img_canny);
+	if (bDbg)
+		imshow("img_canny", img_canny);
 
 	vector< vector< Point> > contours;
 	findContours(img_canny,
@@ -72,41 +56,37 @@ vector<Mat> ocr::detect_plate(Mat frame) {
 		CV_RETR_EXTERNAL, // retrieve the external contours
 		CV_CHAIN_APPROX_NONE); // all pixels of each contours
 
-	//Start to iterate to each contour founded
-	vector<vector<Point> >::iterator itc = contours.begin();
 	//vector<RotatedRect> rects;
 
-	Mat fliter;
-	window.copyTo(fliter);
-
-	while (itc != contours.end()) {
+	//Start to iterate to each contour founded
+	vector<Mat> output;
+	for (auto&& ct : contours)
+	{
 		//Create bounding rect of object
 		//RotatedRect mr = minAreaRect(Mat(*itc));
-		Rect re = boundingRect(Mat(*itc));
+		Rect re = boundingRect(Mat(ct));
 		//rectangle(result, re, Scalar(0, 255, 0));
 
 		if (//re.x > p.plate_x_min && re.x < p.plate_x_max &&
 			re.y > p.plate_y_min && re.y < p.plate_y_max &&
 			re.width > p.plate_width_min && re.width < p.plate_width_max &&
 			re.height > p.plate_height_min && re.height < p.plate_height_max) {
-			rectangle(fliter, re, Scalar(0, 255, 0));
-			Mat hmp(fliter, re);
+			Mat hmp(window, re);
 			output.push_back(hmp);
-			stringstream filename;
-			string local = QCoreApplication::applicationDirPath().append("/ocr_pattern/").toStdString();
-			filename << local << getTime() << "hmp" << ".jpg";
-			imwrite(filename.str(), hmp);
+			//save hmp
+			QString nowDate = QDate::currentDate().toString("yyyyMMdd");
+			QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
+			QString fullFilePath = QStringLiteral("%1/%2/%3hmp.jpg").arg(ocrDirPath).arg(nowDate).arg(nowTime);
+			imwrite(fullFilePath.toStdString(), hmp);
 		}
-		++itc;
 	}
 	return output;
 }
 
-void ocr::recognize(Mat in)
+void OCR::recognize(Mat in)
 {
 	unit_char.clear();
 	Mat threshold = preprocess(in);
-	//imshow("prepro", threshold);
 	unit_char = find_ch(threshold);
 
 	int count = 0;
@@ -115,10 +95,10 @@ void ocr::recognize(Mat in)
 		//Preprocess each char for all images have same sizes
 		Mat StandardChar = processChar(unit_char[i].img);
 		//稳定后注释掉
-		stringstream filename;
-		string local = QCoreApplication::applicationDirPath().append("/ocr_pattern/").toStdString();
-		filename << local << getTime() << "_" << i << ".jpg";
-		imwrite(filename.str(), StandardChar);
+		QString nowDate = QDate::currentDate().toString("yyyyMMdd");
+		QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
+		QString fullFilePath = QStringLiteral("%1/%2/%3_%4.jpg").arg(ocrDirPath).arg(nowDate).arg(nowTime).arg(i);
+		imwrite(fullFilePath.toStdString(), StandardChar);
 
 		int temp = judge(StandardChar);
 		if (temp >= 0) {
@@ -138,78 +118,40 @@ void ocr::recognize(Mat in)
 	}
 }
 
-Mat ocr::preprocess(Mat src) {
-	Mat binary = src;
-	//imshow("src", src);
-
-	for (int i = 0; i < src.rows; i++) {
-		//cout << i << endl;
-		for (int j = 0; j < src.cols; j++) {
-			int t = src.at<uchar>(i, j);
-
-			if (t < 180) {
-				binary.at<uchar>(i, j) = 0;
-			}
-			else binary.at<uchar>(i, j) = 255;
-		}
-	}
-	Mat img_threshold;
-	threshold(binary, img_threshold, 90, 255, cv::THRESH_BINARY);
-
-	//imshow("s", img_threshold);
-	//waitKey();
-
-	return img_threshold;
+cv::Mat OCR::preprocess(const Mat &in) {
+	Mat binary;
+	threshold(in, binary, 180, 255, cv::THRESH_BINARY);
+	return binary;
 }
 
-vector<CharSegment> ocr::find_ch(Mat img_threshold) {
-	vector<CharSegment> output;
-
-	Mat img_contours;
-	img_threshold.copyTo(img_contours);
+vector<CharSegment> OCR::find_ch(Mat img_threshold) {
 	//Find contours of possibles characters
 	vector< vector< Point> > contours;
-	findContours(img_contours,
+	findContours(img_threshold,
 		contours, // a vector of contours
 		CV_RETR_EXTERNAL, // retrieve the external contours
 		CV_CHAIN_APPROX_NONE); // all pixels of each contours
 
-	// Draw blue contours on a white image
-	cv::Mat result;
-	img_threshold.copyTo(result);
-	cvtColor(result, result, CV_GRAY2RGB);
-	cv::drawContours(result, contours,
-		-1, // draw all contours
-		cv::Scalar(255, 0, 0), // in blue
-		1); // with a thickness of 1
-	//Start to iterate to each contour founded
-	//imshow("contour", result);
-
-	vector<vector<Point> >::iterator itc = contours.begin();
-
 	Rect re[5];
-	int index = 0;
-
-	while (itc != contours.end()) {
-		//Create bounding rect of object
-		Rect mr = boundingRect(Mat(*itc));
-		rectangle(result, mr, Scalar(0, 255, 0));
+	vector<CharSegment> output;
+	int i = 0;
+	for (auto&& ct : contours) {		//Create bounding rect of object
+		Rect mr = boundingRect(Mat(ct));
 		if (mr.width >= p.num_width_min && mr.width <= p.num_width_max &&
 			mr.height >= p.num_height_min && mr.height <= p.num_height_max) {//筛选有效的框***   mr.width >= 20 && mr.width <= 35 && mr.height >= 20 && mr.height <= 50
-			re[index] = mr;
-			Mat num_cut(img_threshold, re[index]);
-			output.push_back(CharSegment(num_cut, re[index]));
-			index++;
+			re[i] = mr;
+			Mat num_cut(img_threshold, re[i]);
+			output.emplace_back(num_cut, re[i]);
+			i++;
 		}
-		++itc;
 	}
-	cout << index << endl;
+	cout << i << endl;
 
-	sort(output.begin(), output.end(), CharSegment::LcNum);
+	sort(output.begin(), output.end(), [](auto X, auto Y) {return X.pos.x < Y.pos.x; });
 	return output;
 }
 
-Mat ocr::processChar(Mat in) {
+Mat OCR::processChar(Mat in) {
 	//Remap image
 	int h = in.rows;
 	int w = in.cols;
@@ -227,7 +169,7 @@ Mat ocr::processChar(Mat in) {
 	return out;
 }
 
-int ocr::judge(Mat test) {
+int OCR::judge(Mat test) {
 	float dis[10];
 	int index = 0;
 	cout << "数组";
@@ -252,18 +194,17 @@ int ocr::judge(Mat test) {
 	}
 }
 
-float ocr::oudistance(Mat pattern, Mat test) {
+float OCR::oudistance(Mat a, Mat b) const {
 	float distance = 0;
-	for (int i = 0; i < pattern.cols; i++) {
-		for (int j = 0; j < pattern.rows; j++) {
-			distance += (pattern.at<uchar>(i, j) - test.at<uchar>(i, j))*(pattern.at<uchar>(i, j) - test.at<uchar>(i, j));
+	for (int i = 0; i < a.cols; i++) {
+		for (int j = 0; j < a.rows; j++) {
+			distance += (a.at<uchar>(i, j) - b.at<uchar>(i, j))*(a.at<uchar>(i, j) - b.at<uchar>(i, j));
 		}
 	}
-	distance = sqrt(distance);
-	return distance;
+	return sqrt(distance);
 }
 
-string ocr::getTime()
+std::string OCR::getTime() const
 {
 	time_t timep;
 	struct tm now_time;
@@ -277,53 +218,63 @@ string ocr::getTime()
 	return ss.str();
 }
 
-void ocr::generate_pattern(Mat in) {
-	Mat frame;
-	in.copyTo(frame);
-	vector<Mat> plates = detect_plate(frame);
-	if (debug)
+void OCR::generate_pattern(Mat in) {
+	auto plates = detect_plate(in);
+	if (bDbg)
 		cout << "find plates" << plates.size();
-	for (int j = 0; j < plates.size(); j++) {
-		Mat threshold = preprocess(plates[j]);
-
-		vector<CharSegment> ch = find_ch(threshold);
-
-		for (int i = 0; i < ch.size(); i++) {
+	for (auto&& pl : plates) {
+		Mat threshold = preprocess(pl);
+		auto chs = find_ch(threshold);
+		int i = 0;
+		for (auto& ch : chs) {
 			//Preprocess each char for all images have same sizes
-			Mat StandardChar = processChar(ch[i].img);
-			stringstream filename;
-			string local = QCoreApplication::applicationDirPath().append("/ocr_pattern/").toStdString();
-			filename << local << getTime() << "_" << i << ".jpg";
-			imwrite(filename.str(), StandardChar);
+			Mat StandardChar = processChar(ch.img);
+			QString nowDate = QDate::currentDate().toString("yyyyMMdd");
+			QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
+			QString fullFilePath = QStringLiteral("%1/%2/%3_%4.jpg").arg(ocrDirPath).arg(nowDate).arg(nowTime).arg(i);
+			imwrite(fullFilePath.toStdString(), StandardChar);
+			++i;
 		}
 	}
 }
 
-void ocr::core_ocr(Mat src) {
-	Mat frame;
-	src.copyTo(frame);
-	vector<Mat> plates = detect_plate(frame);
-	if (debug) cout << "find plates " << plates.size();
-	for (int j = 0; j < plates.size(); j++) {
-		recognize(plates[j]);
-		if (debug) cout << "find num " << unit_char.size();
+void OCR::core_ocr(Mat src) {
+	vector<Mat> plates = detect_plate(src);
+	if (bDbg) cout << "find plates " << plates.size();
+	for (auto&& pl : plates)
+	{
+		recognize(pl);
+		if (bDbg) cout << "find num " << unit_char.size();
 	}
 }
-void ocr::get_final_result() {
-	if (result.empty())
-		return;
-	vector<string> temp = result;
-	sort(temp.begin(), temp.end());
-	temp.erase(unique(temp.begin(), temp.end()), temp.end());//temp是排序后剔除相同元素的result
-	vector<int> result_count;
-	for (int i = 0; i < temp.size(); i++) {
-		result_count.push_back(count(result.begin(), result.end(), temp[i]));
-	}
-	int index = 0;
-	for (int i = 0; i < result_count.size(); i++) {
-		if (result_count[i] > result_count[index]) {
-			index = i;
+
+std::string OCR::get_final_result()
+{
+	map<string, int> keyList; //take result value as key and the count as value
+	for (auto&& str : result) { keyList[str]++; }
+	string key = "";
+	int maxValue = 0;//遍历keyList找到value(count)最大的key
+	for (auto&& mp : keyList) {
+		if (mp.second >= maxValue) {
+			maxValue = mp.second;
+			key = mp.first;
 		}
 	}
-	final_result = temp[index];
+	//if the key is null or the length != 3, means the result is wrong
+	if (key.length() != 3)
+	{
+		if (lastNum == 82)
+			key = "001";
+		else
+		{
+			key = QString("%1").arg(lastNum + 1, 3, 10, QChar('0')).toStdString();
+		}
+	}
+	lastNum = QString::fromStdString(key).toUInt();
+	return key;
+}
+
+int OCR::get_results_size() const
+{
+	return result.size();
 }

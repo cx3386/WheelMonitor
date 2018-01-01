@@ -29,7 +29,6 @@ GeneratedFiles/
 bld/
 [Bb]in/
 [Oo]bj/
-!**/config.ini
 
 # Visual Studio 2015 cache/options directory
 .vs/

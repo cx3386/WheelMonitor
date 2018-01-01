@@ -1,12 +1,15 @@
 #pragma once
 
-#include "HikVideoCapture.h"
-#include "ImageProcess.h"
-#include "PLCSerial.h"
 #include "ui_MainWindow.h"
 #include <QtWidgets/QMainWindow>
 #include <ocr.h>
+#include "PLCSerial.h"
+
 class SettingDialog;
+class ImageProcess;
+class HikVideoCapture;
+class PLCSerial;
+class QThread;
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
@@ -24,16 +27,18 @@ private:
 
 	Ui::MainWindowClass ui;
 	bool bIsRunning;
-	QLabel *recLabel;
+	QLabel *recLabel_pre; //in preview tab
+	QLabel *recLabel_input; //in realframe
 	/*****worker******/
 	//MyMessageOutput *outputMessage;
 	ImageProcess *imageProcess;
 	HikVideoCapture *videoCapture;
 	PLCSerial *plcSerial;
 	/***work thread***/
-	QThread videoCaptureThread;
-	QThread imageProcessThread;
-	QThread plcSerialThread;
+	QThread *videoCaptureThread;
+	QThread *imageProcessThread;
+	QThread *plcSerialThread;
+
 	//QThread outputMessageThread;
 
 	SettingDialog* settingDialog;
@@ -45,13 +50,8 @@ private:
 
 	//void clearLog(int nDays);  //retain nDays log file //deprecated 2017/12/11
 	bool cleanDir(QString dir, int nDays); //retain nDays save files, include video/match/log and so on, defualt retain for 0 days, which means clean all
-	bool makeDir(QString fullPath);
 	void appAutoRun(bool bAutoRun);
 
-	QFrame *lineL;
-	QFrame *lineR;
-	QFrame *lineT;
-	QFrame *lineB;
 	//for test
 	//QPushButton *startSaveBtn;
 	//QPushButton *stopSaveBtn;
@@ -60,20 +60,15 @@ protected:
 	void closeEvent(QCloseEvent *event);
 	//void resizeEvent(QResizeEvent *event);
 
-	public slots:
-	void uiAlarmLight(PLCSerial::AlarmColor alarmColor);
-	void uiAlarmNum(const QString &num);
-	void uiShowMatches();
-	void uiShowLastSpeed(double speed);
-	void uiShowRtSpeed(double speed);
-	void uiShowCartSpeed(double speed);
-	//void uiShowLogMessage(const QString &message);
-	//void uiShowErrorMessage(const QString &message);
-	//roi area
-	void drawRoiArea();
-	void setRoiVisible(bool b);
+	private slots :
 
-	private slots:
+	void uiAlarmLight(PLCSerial::AlarmColor alarmColor);
+	void uiShowAlarmNum(const QString &num);
+	void uiShowRealtimeImage();
+	void uiShowMatches();
+	void uiShowWheelSpeed(double speed);
+	void uiShowWheelNum(const QString &s);
+	void uiShowCartSpeed(double speed);
 	//void anchorClickedSlot(const QUrl &url);
 	void start24timer();
 	void update24();
@@ -110,4 +105,6 @@ signals:
 	void connectPLC();
 	void disconnectPLC();
 	void setAlarm(PLCSerial::AlarmColor alarmcolor);
+private:
+	QToolButton * testBtn;
 };

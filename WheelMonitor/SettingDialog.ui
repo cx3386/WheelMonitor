@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>388</width>
-    <height>349</height>
+    <width>418</width>
+    <height>343</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -107,13 +107,13 @@
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="imageProcessGroupBox">
          <property name="title">
-          <string>Image Process</string>
+          <string>图像处理</string>
          </property>
          <layout class="QFormLayout" name="formLayout_2">
           <item row="0" column="0">
            <widget class="QCheckBox" name="sensorCheckBox">
             <property name="text">
-             <string>Sensor triggered</string>
+             <string>传感器触发</string>
             </property>
            </widget>
           </item>
@@ -122,12 +122,12 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout">
               <item>
-               <widget class="QLabel" name="angleHighLabel">
+               <widget class="QLabel" name="alarmRatioLabel">
                 <property name="text">
-                 <string>highRatio</string>
+                 <string>报警值（越小越灵敏）</string>
                 </property>
                 <property name="buddy">
-                 <cstring>angleHighSpinBox</cstring>
+                 <cstring>alarmRatioSpinBox</cstring>
                 </property>
                </widget>
               </item>
@@ -145,13 +145,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="angleHighSpinBox">
-                <property name="minimum">
-                 <double>1.000000000000000</double>
-                </property>
-                <property name="maximum">
-                 <double>10.000000000000000</double>
-                </property>
+               <widget class="QDoubleSpinBox" name="alarmRatioSpinBox">
                 <property name="singleStep">
                  <double>0.010000000000000</double>
                 </property>
@@ -162,12 +156,12 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QLabel" name="angleLowLabel">
+               <widget class="QLabel" name="warningLabel">
                 <property name="text">
-                 <string>lowRatio</string>
+                 <string>预警值（越小越灵敏）</string>
                 </property>
                 <property name="buddy">
-                 <cstring>angleLowSpinBox</cstring>
+                 <cstring>warningRatioSpinBox</cstring>
                 </property>
                </widget>
               </item>
@@ -185,10 +179,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="angleLowSpinBox">
-                <property name="maximum">
-                 <double>1.000000000000000</double>
-                </property>
+               <widget class="QDoubleSpinBox" name="warningRatioSpinBox">
                 <property name="singleStep">
                  <double>0.010000000000000</double>
                 </property>
@@ -201,7 +192,7 @@
               <item>
                <widget class="QLabel" name="radiusMinLabel">
                 <property name="text">
-                 <string>&amp;radius_min</string>
+                 <string>内圆半径(pix)</string>
                 </property>
                 <property name="buddy">
                  <cstring>radiusMinSpinBox</cstring>
@@ -235,7 +226,7 @@
               <item>
                <widget class="QLabel" name="radiusMaxLabel">
                 <property name="text">
-                 <string>radius_max</string>
+                 <string>外圆半径(pix)</string>
                 </property>
                 <property name="buddy">
                  <cstring>radiusMaxSpinBox</cstring>
@@ -269,7 +260,7 @@
               <item>
                <widget class="QLabel" name="roiLabel_1">
                 <property name="text">
-                 <string>roiRect(</string>
+                 <string>检测区域(pix)</string>
                 </property>
                </widget>
               </item>
@@ -339,7 +330,7 @@
        <item row="1" column="0" colspan="2">
         <widget class="QGroupBox" name="videoCaptureGroupBox">
          <property name="title">
-          <string>Video Capture</string>
+          <string>图像采集</string>
          </property>
          <layout class="QFormLayout" name="formLayout">
           <item row="0" column="0">
@@ -347,7 +338,7 @@
             <item>
              <widget class="QLabel" name="capIntervalLabel">
               <property name="text">
-               <string>&amp;capInterval</string>
+               <string>帧间距</string>
               </property>
               <property name="buddy">
                <cstring>capIntervalSpinBox</cstring>
@@ -379,19 +370,6 @@
          </layout>
         </widget>
        </item>
-       <item row="2" column="0" colspan="2">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
       </layout>
      </widget>
     </widget>
@@ -402,13 +380,19 @@
  <tabstops>
   <tabstop>tabWidget</tabstop>
   <tabstop>sensorCheckBox</tabstop>
-  <tabstop>angleHighSpinBox</tabstop>
-  <tabstop>angleLowSpinBox</tabstop>
+  <tabstop>alarmRatioSpinBox</tabstop>
+  <tabstop>warningRatioSpinBox</tabstop>
   <tabstop>radiusMinSpinBox</tabstop>
   <tabstop>radiusMaxSpinBox</tabstop>
+  <tabstop>roiSpinBox_x</tabstop>
+  <tabstop>roiSpinBox_y</tabstop>
+  <tabstop>roiSpinBox_w</tabstop>
+  <tabstop>roiSpinBox_h</tabstop>
   <tabstop>capIntervalSpinBox</tabstop>
   <tabstop>okBtn</tabstop>
   <tabstop>cancelBtn</tabstop>
+  <tabstop>verboseLogCheckBox</tabstop>
+  <tabstop>appAutoRunCheckBox</tabstop>
  </tabstops>
  <resources/>
  <connections>

@@ -25,16 +25,18 @@ public:
 
 	bool startCopy();
 
+	bool copyOneFile(QDir &srcDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize);
+
 	//void on_dirPathLineEdit_textChanged(const QString& arg1);
 
 private:
 
 	QList<BackupInfo> backupInfoList;
-	QStringList getFiles(const BackupInfo& backupInfo);
-	QStringList getFiles(const QString & srcDirPath, const int & nDays, const bool & isAll);
-	int getMaxDay(const QString &path);
-	quint64 getDiskFreeSpace(QString & driver);	//driver free space in bytes
-	quint64 getNeedSpace();	//need space in bytes
+	QStringList getFiles(const BackupInfo& backupInfo) const;
+	QStringList getFiles(const QString & srcDirPath, const int & nDays, const bool & isAll) const;
+	int getMaxDay(const QString &path) const;
+	quint64 getDiskFreeSpace(QString & driver) const;	//driver free space in bytes
+	quint64 getNeedSpace() const;	//need space in bytes
 	QString desDirPath;
 	quint64 lfNeedSpace;
 	quint64 lfFreeSpace;

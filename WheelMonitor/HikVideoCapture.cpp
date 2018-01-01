@@ -5,12 +5,12 @@ using namespace std;
 
 //static member init; just like the global variables
 //<数据类型><类名>::<静态数据成员名 >= <值>
-QString HikVideoCapture::capSaveFileName = "";
+QString HikVideoCapture::videoRelativeFilePath = "";	//static, to save videoname to database;
+cv::Mat HikVideoCapture::pRawImage;	//Because the DecBFun(HIKVISION SDK) must be static/global, so the member in it must be static.
 int HikVideoCapture::capInterval = 7;
 volatile int HikVideoCapture::gbHandling = HikVideoCapture::capInterval;
 volatile bool HikVideoCapture::bIsProcessing = false;
 LONG HikVideoCapture::nPort = -1;
-cv::Mat HikVideoCapture::pRawImage;
 QMutex HikVideoCapture::mutex;
 HikVideoCapture* HikVideoCapture::pVideoCapture = new HikVideoCapture; //need init
 
@@ -175,14 +175,14 @@ bool HikVideoCapture::startSave()
 		return false;
 	bIsSaving = true;
 	qDebug() << "save start";
-	QString capSaveFilePath;
+	QString videoFilePath;
 	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd"); //ddd is weekday
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss"); //ddd is weekday
 	mutex.lock();
-	capSaveFileName = QStringLiteral("%1/%2.mp4").arg(nowDate).arg(nowTime);
+	videoRelativeFilePath = QStringLiteral("%1/%2.mp4").arg(nowDate).arg(nowTime);
 	mutex.unlock();
-	capSaveFilePath = QStringLiteral("%1/%2/%3.mp4").arg(videoDirPath).arg(nowDate).arg(nowTime);
-	QByteArray ba = capSaveFilePath.toLatin1();	//QString to char * 官方转换方法//不可以str.toLatin1().data()这样一步完成，可能会出错。//只支持Latin，不支持中文，
+	videoFilePath = QStringLiteral("%1/%2").arg(videoDirPath).arg(videoRelativeFilePath);
+	QByteArray ba = videoFilePath.toLatin1();	//QString to char * 官方转换方法//不可以str.toLatin1().data()这样一步完成，可能会出错。//只支持Latin，不支持中文，
 	if (NET_DVR_SaveRealData(lRealPlayHandle_SD, ba.data())) {
 		//QTimer::singleShot(100000, this, SLOT(timeoutSave())); //wait 100s. the singleshot cannot be stopped.
 		timer->start(100000);	//wait 100s	//If the timer is already running, it will be stopped and restarted.
@@ -224,10 +224,8 @@ bool HikVideoCapture::stopSave()
 
 void HikVideoCapture::imageProcessReady()
 {
-	//mutex.lock();
-	bIsProcessing = false;
 	//如果图像处理完成，则允许录制下一帧；否则阻塞
-	//mutex.unlock();
+	bIsProcessing = false;
 }
 
 void CALLBACK HikVideoCapture::DecCBFun(long nPort, char* pBuf, long nSize, FRAME_INFO* pFrameInfo, long nReserved1, long nReserved2)
@@ -251,10 +249,8 @@ void CALLBACK HikVideoCapture::DecCBFun(long nPort, char* pBuf, long nSize, FRAM
 		mutex.lock();
 		pRawImage = pImg;
 		mutex.unlock();
-		//mutex.lock();
 		bIsProcessing = true; //bool need no mutex, because bool is guaranteed atomic operations
-		//mutex.unlock();
-		emit pVideoCapture->imageNeedProcess(); //单向通知,单向阻塞
+		emit pVideoCapture->imageNeedProcess(); //正向通知,反向阻塞(bStop)
 	}
 	gbHandling = capInterval; // every 8 frame
 }

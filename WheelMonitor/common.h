@@ -9,8 +9,12 @@ extern QString captureDirPath; //capture dir
 extern QString configDirPath;     //config dir
 extern QString videoDirPath; //video dir
 extern QString matchDirPath;	//match dir
-extern QString imageDirPath; //imageDirPath
+//extern QString imageDirPath; //imageDirPath
 extern QString logDirPath;     //log dir
+extern QString ocrPatternDirPath;     //ocr sample dir
+extern QString ocrDirPath;     //ocr dir
+extern QString databaseFilePath; //database file path
+
 //QString dbDir = QString("%1").arg(appDirPath);	//db dir	-same as appdir
 //QString iniDir = QString("%1").arg(appDirPath);	//ini dir	-same as appdir
 extern QString appName;

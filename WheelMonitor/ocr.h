@@ -1,25 +1,12 @@
 #ifndef extract_h
 #define extract_h
 
-#include <QObject>
-#include <QCoreApplication>
-#include <highgui.hpp>
 #include <opencv.hpp>
-#include <imgproc.hpp>
-#include <iostream>
-#include <core.hpp>
-#include <sstream>
-#include <string>
-#include <vector>
-#include "time.h"
-
 
 using namespace std;
 using namespace cv;
 
-class ocr_parameters {
-public:
-	ocr_parameters();
+struct ocr_parameters {
 	int plate_x_min;
 	int plate_x_max;
 	int plate_y_min;
@@ -34,45 +21,36 @@ public:
 	int num_height_max;
 };
 
-class CharSegment{
-public:
-	CharSegment();
-	CharSegment(Mat i, Rect p);
+struct CharSegment {
 	Mat img;
 	Rect pos;
-
-	static inline bool LcNum(const CharSegment & X, const CharSegment & Y) { return X.pos.x < Y.pos.x; }
+	CharSegment(Mat i, Rect p) :img(i), pos(p) { }
 };
 
-class ocr {
+class OCR {
 public:
-	ocr();
-	static ocr_parameters p;
-	void resetOcr();//清空vector
+	OCR();
 	void core_ocr(Mat src);//= detect_plate() + recogenize()
-
-	vector<Mat> detect_plate(Mat frame);//输入RGB格式的帧，输出GRAY格式的号码牌
-	void recognize(Mat plate);//输入GRAY格式的号码牌，得到string放入容器result
-	void generate_pattern(Mat in);//生成样本
-	void get_final_result();
-
-	Mat preprocess(Mat in);
+	void resetOcr();//清空vector
+	static ocr_parameters p;
+	string get_final_result();
+	int get_results_size() const;
+private:
+	uint lastNum;
+	bool bDbg;//调试标志位，显示过程图像
+	vector<string> result;
 	vector<CharSegment> find_ch(Mat threshold);
+	void generate_pattern(Mat in);//生成样本
+	void recognize(Mat plate);//输入GRAY格式的号码牌，得到string放入容器result
+	vector<Mat> detect_plate(Mat frame);//输入RGB格式的帧，输出GRAY格式的号码牌
+	Mat preprocess(const Mat &in);
 	int charSize;
 	Mat processChar(Mat in);
 	int judge(Mat test);
 	Mat pattern[10];
-	float oudistance(Mat a, Mat b);
+	float oudistance(Mat a, Mat b) const;
 	vector<CharSegment> unit_char;
-
-	vector<string> result;
-	string final_result;
-
-	string getTime();//用于保存调试的文件
-	bool debug = false;//调试标志位，显示过程图像
-
-
-
+	string getTime() const;//用于保存调试的文件
 };
 
 #endif

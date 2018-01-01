@@ -14,42 +14,13 @@ QString captureDirPath; //cap dir
 QString configDirPath; //cap dir
 QString videoDirPath; //video dir
 QString matchDirPath;	//match dir
-QString imageDirPath; //imageDirPath
+//QString imageDirPath; //imageDirPath
 QString logDirPath;
+QString ocrPatternDirPath;
+QString ocrDirPath;
+QString databaseFilePath;
 
-void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
-{
-	static QMutex mutex;
-	QMutexLocker loker(&mutex);
-	QString currentDateTime = QDateTime::currentDateTime().toString("yyyy/MM/dd hh:mm:ss");
-	QString typeStr;
-	switch (type) {
-	case QtDebugMsg:
-		typeStr = "Debug";
-		break;
-	case QtInfoMsg:
-		typeStr = "Info";
-		break;
-	case QtWarningMsg:
-		typeStr = "Warning";
-		break;
-	case QtCriticalMsg:
-		typeStr = "Critical";
-		break;
-	case QtFatalMsg:
-		typeStr = "Fatal";
-		abort();
-	}
-	QString msgStr = QStringLiteral("[%1][%2]%3").arg(currentDateTime).arg(typeStr).arg(msg);
-	QString today = QDate::currentDate().toString("yyyyMMdd");
-	QString logFilePath = QStringLiteral("%1/%2/%3.log").arg(logDirPath).arg(today).arg(today);
-	QFile outfile(logFilePath);
-	outfile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);	//On Windows, all '\n' characters are written as '\r\n' if QTextStream's device or string is opened using the QIODevice::Text flag.
-	QTextStream text_stream(&outfile);
-	text_stream << msgStr << endl;	//endl doesn't work without flag QIODevice::Text
-	//outfile.flush(); endl will flush to the device
-	outfile.close();
-}
+void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg);
 
 int main(int argc, char *argv[])
 {
@@ -75,8 +46,11 @@ int main(int argc, char *argv[])
 	captureDirPath = QString("%1/Capture").arg(appDirPath); //capture dir
 	configDirPath = appDirPath;
 	videoDirPath = QString("%1/Video").arg(captureDirPath);
-	imageDirPath = matchDirPath = QString("%1/Image").arg(captureDirPath);
+	matchDirPath = QString("%1/Match").arg(captureDirPath);
+	ocrDirPath = QString("%1/Ocr").arg(captureDirPath);
 	logDirPath = QString("%1/Log").arg(appDirPath);
+	ocrPatternDirPath = QString("%1/OcrPattern").arg(appDirPath);
+	databaseFilePath = QString("%1/WheelMonitor.db3").arg(appDirPath);
 
 	QCommandLineParser parser;
 	parser.setApplicationDescription(QStringLiteral("宝钢环冷机台车轮子转速监测软件"));
@@ -134,4 +108,37 @@ int main(int argc, char *argv[])
 	w.showMaximized();
 
 	return a.exec();
+}
+void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+	static QMutex mutex;
+	QMutexLocker loker(&mutex);
+	QString currentDateTime = QDateTime::currentDateTime().toString("yyyy/MM/dd hh:mm:ss");
+	QString typeStr;
+	switch (type) {
+	case QtDebugMsg:
+		typeStr = "Debug";
+		break;
+	case QtInfoMsg:
+		typeStr = "Info";
+		break;
+	case QtWarningMsg:
+		typeStr = "Warning";
+		break;
+	case QtCriticalMsg:
+		typeStr = "Critical";
+		break;
+	case QtFatalMsg:
+		typeStr = "Fatal";
+		abort();
+	}
+	QString msgStr = QStringLiteral("[%1][%2]%3").arg(currentDateTime).arg(typeStr).arg(msg);
+	QString today = QDate::currentDate().toString("yyyyMMdd");
+	QString logFilePath = QStringLiteral("%1/%2/%3.log").arg(logDirPath).arg(today).arg(today);
+	QFile outfile(logFilePath);
+	outfile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);	//On Windows, all '\n' characters are written as '\r\n' if QTextStream's device or string is opened using the QIODevice::Text flag.
+	QTextStream text_stream(&outfile);
+	text_stream << msgStr << endl;	//endl doesn't work without flag QIODevice::Text
+	//outfile.flush(); endl will flush to the device
+	outfile.close();
 }

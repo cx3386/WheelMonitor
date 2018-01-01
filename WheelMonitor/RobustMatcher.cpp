@@ -130,7 +130,7 @@ int RobustMatcher::ratioTest(vector<vector<DMatch>>& matches)
 	return removed; //返回被删除的点数量
 }
 
-cv::Mat RobustMatcher::getMask(cv::Size size, int Ro, int Ri)
+cv::Mat RobustMatcher::getMask(cv::Size size, int Ro, int Ri) const
 {
 	cv::Mat mask = cv::Mat::zeros(size, CV_8UC1);
 	cv::circle(mask, cv::Point(mask.rows / 2, mask.cols / 2), Ro, cv::Scalar(255), -1, 8);

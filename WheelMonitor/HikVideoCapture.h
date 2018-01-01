@@ -26,7 +26,7 @@ public:
 	static cv::Mat pRawImage;
 	static HikVideoCapture *pVideoCapture;
 	static int capInterval;
-	static QString capSaveFileName;
+	static QString videoRelativeFilePath;
 
 private:
 	static volatile int gbHandling;
