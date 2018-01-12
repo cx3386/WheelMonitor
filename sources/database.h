@@ -25,19 +25,21 @@ static bool initDataBase()
 	query.exec("create table user (id integer primary key autoincrement, username varchar(20) unique, pwd varchar(20))");
 	query.exec("insert into user (username, pwd) values('BaoSteel', '123456')");
 	//query.exec("create table matches(id integer primary key autoincrement, wheelid int, match 1, speed double, cart speed)");
-	query.exec("create table wheels (id integer primary key autoincrement," //0
-		"num varchar(3),"										   //1
-		"time datetime,"										   //2
-		"calcspeed double,"										   //3
-		"refspeed double,"										   //4
-		"error double,"											   //5
-		"alarmlevel bool,"										   //6 0-right,1-warn,2-alrm
-		"checked bool,"											   //7 is the alarm is checked, defaut is null, only alarm wheel need checked
-		"fragment int,"											   //8
-		"totalmatch int,"										   //9
-		"validmatch int,"										   //10
-		"speeds varchar(255),"									   //11 save rtspeeds and refspeeds vector
-		"videopath varchar(255))");								   //12 videopath
+	query.exec("CREATE TABLE wheels ( "
+		"id         INTEGER         PRIMARY KEY AUTOINCREMENT,"
+		"num        VARCHAR( 3 ),"
+		"time       DATETIME,"
+		"calcspeed  DOUBLE,"
+		"refspeed   DOUBLE,"
+		"error      DOUBLE,"
+		"alarmlevel INT,"
+		"checkstate INT,"
+		"fragment   INT,"
+		"totalmatch INT,"
+		"validmatch INT,"
+		"speeds     VARCHAR( 255 ),"
+		"videopath  VARCHAR( 255 ) "
+		");");
 	//query.exec("insert into wheels (num,videopath) values('007','E:/1.mp4')");
 	return true;
 }

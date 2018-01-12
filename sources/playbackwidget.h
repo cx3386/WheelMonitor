@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QWidget>
+#include "plcserial.h"
 
 class MySqlTableModel;
 class Player;
@@ -22,13 +23,20 @@ public:
 		Wheels_RefSpeed,
 		Wheels_Error,
 		Wheels_AlarmLevel,
-		Wheels_Checked,
+		Wheels_CheckState,
 		Wheels_Fragment,
 		Wheels_TotalMatch,
 		Wheels_ValidMatch,
 		Wheels_Speeds,
-		Wheels_VideoPath
+		Wheels_VideoPath,
 	};
+	enum CheckState
+	{
+		NoNeedCheck = 0,
+		NeedCheck,
+		Checked,
+	};
+	bool hasAlarm() const;
 
 private:
 	MySqlTableModel * model;
@@ -36,6 +44,10 @@ private:
 	Player *player;
 	void showAlarm();
 	void showAll();
+
+signals:
+	void setAlarmLight(PLCSerial::AlarmColor alarmcolor);
+
 	public slots:
 	bool insertRecord(const QString &num, int alarmLevel, double absError, double refSpeed, int fragment, int totalMatch, int validMatch, const QString &savedSpeeds, const QString &videoPath);
 

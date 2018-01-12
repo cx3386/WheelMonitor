@@ -67,9 +67,9 @@ void MainWindow::configWindow()
 	onRecStop(); //init as gray
 	/************roi rect**************/
 	/*********playbackTab**********/
-	PlayBackWidget *faultPlayBackWidget = new PlayBackWidget(ui.playbackTab);
+	playBackWidget = new PlayBackWidget(ui.playbackTab);
 	QGridLayout *playBackLayout = new QGridLayout(ui.playbackTab);
-	playBackLayout->addWidget(faultPlayBackWidget);
+	playBackLayout->addWidget(playBackWidget);
 
 	ui.centralTabWidget->setCurrentIndex(0);
 	//ui.playbackTab->setEnabled(false);	//unclickable and unchosenable
@@ -107,27 +107,19 @@ void MainWindow::configWindow()
 	/***************************/
 
 	connect(ui.action_About_Qt, &QAction::triggered, qApp, &QApplication::aboutQt);
-	//ui.imageMatchesLabel->setFixedSize(ui.imageMatchesLabel->size());
-	//ui.errorTextBrowser->setOpenLinks(false);
-	//connect(ui.errorTextBrowser, SIGNAL(anchorClicked(const QUrl &)), this, SLOT(anchorClickedSlot(const QUrl &)));
 
 	realPlayHandle = (HWND)ui.previewWidget->winId();
 	//care start order
-
-	//outputMessage = new MyMessageOutput;
-
 	imageProcess = new ImageProcess();
 	videoCapture = new HikVideoCapture;
 	plcSerial = new PLCSerial;
 	videoCaptureThread = new QThread(this);
 	imageProcessThread = new QThread(this);
 	plcSerialThread = new QThread(this);
-	//outputMessage->moveToThread(&outputMessageThread);
 	imageProcess->moveToThread(imageProcessThread);
 	videoCapture->moveToThread(videoCaptureThread);
 	plcSerial->moveToThread(plcSerialThread);
 
-	//connect(&outputMessageThread, &QThread::finished, outputMessage, &QObject::deleteLater);
 	connect(imageProcessThread, &QThread::finished, imageProcess, &QObject::deleteLater);
 	connect(videoCaptureThread, &QThread::finished, videoCapture, &QObject::deleteLater);
 	connect(plcSerialThread, &QThread::finished, plcSerial, &QObject::deleteLater);
@@ -160,9 +152,8 @@ void MainWindow::configWindow()
 	connect(imageProcess, &ImageProcess::showImageMatches, this, &MainWindow::uiShowMatches);
 	connect(imageProcess, &ImageProcess::showWheelSpeed, this, &MainWindow::uiShowWheelSpeed);
 	connect(imageProcess, &ImageProcess::showWheelNum, this, &MainWindow::uiShowWheelNum);
-	connect(imageProcess, &ImageProcess::insertRecord, faultPlayBackWidget, &PlayBackWidget::insertRecord);
+	connect(imageProcess, &ImageProcess::insertRecord, playBackWidget, &PlayBackWidget::insertRecord);
 	connect(plcSerial, &PLCSerial::ADSpeedReady, this, &MainWindow::uiShowCartSpeed);	//bind plc::adSpeed to cartSpeed
-	connect(imageProcess, &ImageProcess::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 
 	//When wheel enters detect area, i.e., lighten the LEFT sensor
 	connect(plcSerial, &PLCSerial::sensorIN, videoCapture, &HikVideoCapture::startSave); //1. start to save video
@@ -174,8 +165,11 @@ void MainWindow::configWindow()
 	connect(plcSerial, &PLCSerial::sensorOUT, imageProcess, &ImageProcess::sensorOUT);   //2. stop image process
 	//connect(plcSerial, &PLCSerial::sensorOUT, this, &MainWindow::onRecStop);			    //3. update UI.REC.gray
 
-	connect(plcSerial, &PLCSerial::setUiAlarm, this, &MainWindow::uiAlarmLight);
+	///alarmLight
+	connect(imageProcess, &ImageProcess::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 	connect(this, &MainWindow::setAlarm, plcSerial, &PLCSerial::Alarm);
+	connect(playBackWidget, &PlayBackWidget::setAlarmLight, plcSerial, &PLCSerial::Alarm);
+	connect(plcSerial, &PLCSerial::setUiAlarm, this, &MainWindow::uiAlarmLight);
 
 	//outputMessageThread.start();
 	//emit installLogSystem();
@@ -394,7 +388,7 @@ void MainWindow::uiShowWheelSpeed(double speed)
 	}
 	else
 	{
-		QString str = QString::number(speed, 'f', 2);
+		QString str = QString::number(speed, 'f', 1);
 		ui.lastSpeedLineEdit->setText(str);
 	}
 }
@@ -406,7 +400,7 @@ void MainWindow::uiShowWheelNum(const QString &s)
 
 void MainWindow::uiShowCartSpeed(double speed)
 {
-	QString str = QString::number(speed*0.954, 'f', 2);
+	QString str = QString::number(speed*0.954, 'f', 1);
 	ui.cartSpeedLineEdit->setText(str);
 }
 
@@ -508,7 +502,13 @@ void MainWindow::on_alarmPushButton_clicked()
 		on_action_Start_triggered();
 		return;
 	}
-	//start sucess
+	if (playBackWidget->hasAlarm())
+	{
+		ui.centralTabWidget->setCurrentIndex(2);
+		QMessageBox::information(this, QStringLiteral("重置警报"), QStringLiteral("有未经排除的故障, 请确认清除后再重置警报"), QStringLiteral("确定"));
+		return;
+	}
+	//start success
 	emit setAlarm(PLCSerial::AlarmColorGreen);
 	ui.lcdNumber->setStyleSheet("color:rgb(0, 255, 0);");
 	ui.lcdNumber->display(QString("888"));

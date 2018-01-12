@@ -5,6 +5,7 @@
 #include <ocr.h>
 #include "plcserial.h"
 
+class PlayBackWidget;
 class SettingDialog;
 class ImageProcess;
 class HikVideoCapture;
@@ -38,6 +39,7 @@ private:
 	QThread *videoCaptureThread;
 	QThread *imageProcessThread;
 	QThread *plcSerialThread;
+	PlayBackWidget * playBackWidget;
 
 	//QThread outputMessageThread;
 

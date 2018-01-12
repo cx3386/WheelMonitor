@@ -16,17 +16,15 @@ PlayBackWidget::PlayBackWidget(QWidget *parent)
 	view = new QTableView(this);
 	view->setModel(model);
 	//view->setWindowTitle("");
-	view->setFont(QFont("Times", 16));
-	view->horizontalHeader()->setFont(QFont("Times", 16));
+	view->setFont(QFont("Arial Narrow", 14));
+	view->horizontalHeader()->setFont(QFont(QStringLiteral("宋体"), 14));
 	view->setEditTriggers(QAbstractItemView::NoEditTriggers);
 	view->setSortingEnabled(true);
 	view->setSelectionBehavior(QAbstractItemView::SelectRows);
 	view->setSelectionMode(QAbstractItemView::SingleSelection);
 	view->setShowGrid(true);
 	view->setAlternatingRowColors(true);
-	view->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 	view->horizontalHeader()->setStretchLastSection(true);
-	view->resizeColumnsToContents();
 	//connect(view, &QTableView::clicked, this, &FaultPlayBackWidget::readVideoPath);
 	connect(view, &QTableView::activated, this, &PlayBackWidget::readVideoPath); //double-click or enter
 
@@ -45,16 +43,41 @@ PlayBackWidget::PlayBackWidget(QWidget *parent)
 		default:
 			break;
 		}});
+	///failure level indication
+	QFormLayout *fLayout = new QFormLayout;
+	QLabel *lv1Label = new QLabel(this);
+	lv1Label->setFixedSize(30, 18);
+	lv1Label->setStyleSheet("background-color:rgb(255,255,0);");
+	QLabel *lv1TextLabel = new QLabel(this);
+	lv1TextLabel->setText(QStringLiteral("轻微"));
+	lv1TextLabel->setStyleSheet("font:12pt;");
+	fLayout->addRow(lv1Label, lv1TextLabel);
+	QLabel *lv2Label = new QLabel(this);
+	lv2Label->setFixedSize(30, 20);
+	lv2Label->setStyleSheet("background-color:rgb(255,192,0);");
+	QLabel *lv2TextLabel = new QLabel(this);
+	lv2TextLabel->setText(QStringLiteral("一般"));
+	lv2TextLabel->setStyleSheet("font:12pt;");
+	fLayout->addRow(lv2Label, lv2TextLabel);
+	QLabel *lv3Label = new QLabel(this);
+	lv3Label->setFixedSize(30, 20);
+	lv3Label->setStyleSheet("background-color:rgb(255,0,0);");
+	QLabel *lv3TextLabel = new QLabel(this);
+	lv3TextLabel->setText(QStringLiteral("严重"));
+	lv3TextLabel->setStyleSheet("font:12pt;");
+	fLayout->addRow(lv3Label, lv3TextLabel);
+
 	QPushButton *checkSelBtn = new QPushButton(this);
-	checkSelBtn->setText(QStringLiteral("解除当前警报"));
+	checkSelBtn->setText(QStringLiteral("解除"));  //delete
 	connect(checkSelBtn, &QPushButton::clicked, this, &PlayBackWidget::setSelectedChecked);
 	QPushButton *checkAllBtn = new QPushButton(this);
-	checkAllBtn->setText(QStringLiteral("全部解除"));
+	checkAllBtn->setText(QStringLiteral("全清"));  //clear all
 	connect(checkAllBtn, &QPushButton::clicked, this, &PlayBackWidget::setAllChecked);
 	QHBoxLayout *toolLayout = new QHBoxLayout;
 	toolLayout->addWidget(viewCb);
 	toolLayout->addWidget(checkSelBtn);
 	toolLayout->addWidget(checkAllBtn);
+	toolLayout->addLayout(fLayout);
 	toolLayout->addStretch();
 
 	player = new Player(this);
@@ -76,15 +99,16 @@ PlayBackWidget::PlayBackWidget(QWidget *parent)
 
 void PlayBackWidget::showAlarm()
 {
-	model->setFilter("checked=0");
+	view->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+	view->resizeColumnsToContents();
+	model->setFilter("checkstate=1");
 	model->setHeaderData(Wheels_Num, Qt::Horizontal, QStringLiteral("序号"));
-	model->setHeaderData(Wheels_Time, Qt::Horizontal, QStringLiteral("时间"));
-	model->setHeaderData(Wheels_CalcSpeed, Qt::Horizontal, QStringLiteral("测速"));
+	model->setHeaderData(Wheels_Time, Qt::Horizontal, QStringLiteral("报警时间"));
+	model->setHeaderData(Wheels_CalcSpeed, Qt::Horizontal, QStringLiteral("测量"));
 	model->setHeaderData(Wheels_RefSpeed, Qt::Horizontal, QStringLiteral("参考"));
-	model->setHeaderData(Wheels_Error, Qt::Horizontal, QStringLiteral("误差(%)"));
-	model->setHeaderData(Wheels_AlarmLevel, Qt::Horizontal, QStringLiteral("故障等级"));
+	model->setHeaderData(Wheels_Error, Qt::Horizontal, QStringLiteral("±%"));
 	view->hideColumn(0);
-	for (int i = Wheels_Checked; i <= Wheels_VideoPath; ++i)
+	for (int i = Wheels_AlarmLevel; i <= Wheels_VideoPath; ++i)
 	{
 		view->hideColumn(i);
 	}
@@ -92,6 +116,8 @@ void PlayBackWidget::showAlarm()
 
 void PlayBackWidget::showAll()
 {
+	view->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+	view->resizeColumnsToContents();
 	model->setFilter("");
 	model->setHeaderData(Wheels_ID, Qt::Horizontal, QStringLiteral("ID"));
 	model->setHeaderData(Wheels_Num, Qt::Horizontal, QStringLiteral("num"));
@@ -99,7 +125,6 @@ void PlayBackWidget::showAll()
 	model->setHeaderData(Wheels_CalcSpeed, Qt::Horizontal, QStringLiteral("calcspeed"));
 	model->setHeaderData(Wheels_RefSpeed, Qt::Horizontal, QStringLiteral("refspeed"));
 	model->setHeaderData(Wheels_Error, Qt::Horizontal, QStringLiteral("error"));
-	model->setHeaderData(Wheels_AlarmLevel, Qt::Horizontal, QStringLiteral("alarmlevel"));
 	for (int i = 0; i <= Wheels_VideoPath; ++i)
 	{
 		view->setColumnHidden(i, false);
@@ -109,10 +134,23 @@ void PlayBackWidget::showAll()
 PlayBackWidget::~PlayBackWidget()
 = default;
 
+bool PlayBackWidget::hasAlarm() const
+{
+	QSqlTableModel model;
+	model.setTable("wheels");
+	model.setFilter("checkstate=1");
+	model.select();
+	if (model.rowCount())
+	{
+		return true;
+	}
+	return false;
+}
+
 bool PlayBackWidget::insertRecord(const QString &num, int alarmLevel, double absError, double refSpeed, int fragment, int totalMatch, int validMatch, const QString &savedSpeeds, const QString &videoPath)
 {
 	QSqlRecord record = model->record();
-	QString time = QDateTime::currentDateTime().toString("yyyy/MM/dd hh:mm:ss");
+	QString time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
 	auto calSpeed_rough = QString::number(absError + refSpeed, 'f', 1).toDouble();
 	auto refSpeed_rough = QString::number(refSpeed, 'f', 1).toDouble();
 	auto relError = QString::number(absError / refSpeed * 100, 'f', 0).toDouble();
@@ -122,16 +160,28 @@ bool PlayBackWidget::insertRecord(const QString &num, int alarmLevel, double abs
 	record.setValue(Wheels_RefSpeed, QVariant(refSpeed_rough));
 	record.setValue(Wheels_Error, QVariant(relError));
 	record.setValue(Wheels_AlarmLevel, QVariant(alarmLevel));
-	if (alarmLevel > 0) {
-		record.setValue(Wheels_Checked, QVariant(false));
+	int checkState;
+	switch (alarmLevel)
+	{
+	case -2:
+	case 1:
+	case 2:
+		checkState = NeedCheck;
+		break;
+	case -1:
+	case 0:
+	default:
+		checkState = NoNeedCheck;
+		break;
 	}
+	record.setValue(Wheels_CheckState, QVariant(checkState));
 	record.setValue(Wheels_Speeds, QVariant(savedSpeeds));
 	record.setValue(Wheels_Fragment, QVariant(fragment));
 	record.setValue(Wheels_TotalMatch, QVariant(totalMatch));
 	record.setValue(Wheels_ValidMatch, QVariant(validMatch));
 	record.setValue(Wheels_VideoPath, QVariant(videoPath)); //relative path, e.g. 20170912/241343.mp4
 	bool r = model->insertRecord(-1, record);
-	r &= model->submitAll(); //on manualsubmit need to submitAll()
+	r &= model->submitAll(); //on manualsubmit, use submitAll()
 	return r;
 }
 
@@ -145,21 +195,40 @@ void PlayBackWidget::readVideoPath(QModelIndex index)
 
 void PlayBackWidget::setSelectedChecked()
 {
+	if (!hasAlarm())
+	{
+		QMessageBox::information(this, QStringLiteral("解除警报"), QStringLiteral("当前无故障"), QStringLiteral("确定"));
+		return;
+	}
 	QModelIndexList selected = view->selectionModel()->selectedRows();
+	if (selected.empty())
+	{
+		QMessageBox::information(this, QStringLiteral("解除警报"), QStringLiteral("请选中一行记录，确认无故障后删除"), QStringLiteral("确定"));
+		return;
+	}
 	for (auto&& slc : selected)
 	{
-		model->setData(model->index(slc.row(), Wheels_Checked), QVariant(true));
-		//QSqlRecord record = model->record(slc.row());
+		model->setData(model->index(slc.row(), Wheels_CheckState), QVariant(Checked));
 	}
 	model->submitAll();
+	if (!hasAlarm())
+	{
+		emit setAlarmLight(PLCSerial::AlarmColorGreen);
+	}
 }
 
 void PlayBackWidget::setAllChecked()
 {
+	if (!hasAlarm())
+	{
+		QMessageBox::information(this, QStringLiteral("解除警报"), QStringLiteral("当前无故障"), QStringLiteral("确定"));
+		return;
+	}
 	auto rows = model->rowCount();
 	for (int i = 0; i < rows; ++i)
 	{
-		model->setData(model->index(i, Wheels_Checked), QVariant(true));
+		model->setData(model->index(i, Wheels_CheckState), QVariant(Checked));
 	}
 	model->submitAll();
+	emit setAlarmLight(PLCSerial::AlarmColorGreen);
 }

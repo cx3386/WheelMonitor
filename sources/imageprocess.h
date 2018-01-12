@@ -42,7 +42,7 @@ private:
 	OCR * ocr;
 	// int iImgNoCycle;
 	cv::Mat cameraUndistort(cv::Mat src);
-	bool isLastAlarm(const QString & num) const;
+	int previousAlarmLevel(const QString & num) const;
 	int coreImageProcess(); // 0-no cycle, 1-matches success
 
 	void foreverPreProcess();
@@ -75,7 +75,7 @@ signals:
 	void showWheelSpeed(double speed);
 
 	void insertRecord(const QString &num, int alarmLevel, double absError, double refspeed, int fragment, int totalmatch, int validmatch, const QString &speeds, const QString &videopath);
-	void readLastAlarm();
+	//void readLastAlarm();
 
 	public slots:
 	void doImageProcess();

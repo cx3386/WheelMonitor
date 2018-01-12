@@ -17,7 +17,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>SettingDialog</string>
+   <string>属性</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">

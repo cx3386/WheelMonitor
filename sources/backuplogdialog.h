@@ -25,8 +25,8 @@ public:
 
 	bool startCopy();
 
-	bool copyOneFile(QDir &srcDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize);
-
+	bool copyFile(QDir &srcDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize);
+	bool zipFiles(QDir &srcDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize) const;
 	//void on_dirPathLineEdit_textChanged(const QString& arg1);
 
 private:

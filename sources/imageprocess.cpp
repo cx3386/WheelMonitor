@@ -250,17 +250,18 @@ void ImageProcess::alarmThisWheel()
 	double meanDiff = 0;
 	double meanRef = 0;
 	int alarmLevel = 0;
-	/*ocr*/
 	QString num = QString::fromStdString(ocr->get_final_result());
 	emit showWheelNum(num);
 	qDebug() << "Num: " << num;
 
-	/*speed*/
-	if (!totalMatchCount)
+	///no result
+	if (totalMatchCount<1)
 	{
-		qWarning() << "ImageProcess: Miss Test";
 		emit showWheelSpeed(MISS_TEST_SPEED);
+		alarmLevel = -1;
+		qCritical() << "ImageProcess: MISS, no match result";
 	}
+	///has >1 result
 	else
 	{
 		vector<double> rtSpeedDiffs(rtSpeeds.size());														   //a vector saves speed difference between imgprocess and PLC(speedAD)
@@ -269,18 +270,15 @@ void ImageProcess::alarmThisWheel()
 		outlier.reject(rtSpeedDiffs); //kick out the bad results by grubbs certain
 		meanRef = outlier.mean(refSpeeds);
 		meanDiff = outlier.mean(rtSpeedDiffs);
-		double meanRt = meanRef + meanDiff; //mean linear Velocity
-		emit showWheelSpeed(meanRt);
-		qDebug("Speed: %.2lfm/min", meanRt);
 		validMatchCount = rtSpeedDiffs.size();
-		if (nFragments != 1)
-		{
-			qWarning() << "ImageProcess: detect count error: " << nFragments;
-		}
 
-		//Only if match count is enough, the result is reliable, then alarm
+		///reliable results
 		if (validMatchCount >= 10)
 		{
+			double meanRt = meanRef + meanDiff; //mean linear Velocity
+			emit showWheelSpeed(meanRt);
+			qDebug("Speed: %.2lfm/min", meanRt);
+			///unacceptable error
 			if (fabs(meanDiff) > meanRef * g_imgParam.warningRatio)
 			{
 				if (fabs(meanDiff) < meanRef * g_imgParam.alarmRatio) //if this wheel is too too slow
@@ -289,7 +287,7 @@ void ImageProcess::alarmThisWheel()
 					qCritical() << "ImageProcess: WHEEL FATAL ERROR(single too slow)";
 					alarmLevel = 2;
 				}
-				else if (isLastAlarm(num)) //if the last wheel is alarmed
+				else if (previousAlarmLevel(num) > 0) //if the last wheel is alarmed
 				{
 					emit setAlarmLight(PLCSerial::AlarmColorRed);
 					qCritical() << "ImageProcess: WHEEL FATAL ERROR(double slow)";
@@ -301,22 +299,34 @@ void ImageProcess::alarmThisWheel()
 					qCritical() << "ImageProcess: WHEEL WARNING ERROR";
 					alarmLevel = 1;
 				}
-
 				emit showAlarmNum(num);
 			}
+			///acceptable, good result
+			else
+			{
+				alarmLevel = 0;
+			}
 		}
+		///unreliable, invalid
 		else
 		{
-			alarmLevel = -1;
-			if (totalMatchCount < 10)
+			if (previousAlarmLevel(num) < 0)
 			{
-				qWarning() << "ImageProcess: totalMatchCount < 10";
+				emit setAlarmLight(PLCSerial::AlarmColorYellow);
+				qCritical() << "ImageProcess: WHEEL FATAL ERROR(double invalid)";
+				alarmLevel = -2;
 			}
 			else
 			{
-				qWarning() << "ImageProcess: validMatchCount < 10(totalMatchCount >= 10)";
+				emit showWheelSpeed(MISS_TEST_SPEED);
+				alarmLevel = -1;
+				qCritical() << "ImageProcess: No enough valid results";
 			}
 		}
+	}
+	if (nFragments != 1)
+	{
+		qWarning() << "ImageProcess: detect count error: " << nFragments;
 	}
 	//when wheel is leaving the detect area
 	QString speedsStr; //" rt1 rt2 rt3 rt4; ref1 ref2 ref3 ref4"
@@ -409,17 +419,16 @@ cv::Mat ImageProcess::cameraUndistort(cv::Mat src)
 	return srcCalibration;
 }
 
-bool ImageProcess::isLastAlarm(const QString & num) const
+int ImageProcess::previousAlarmLevel(const QString & num) const
 {
 	QSqlTableModel model;
 	model.setTable("wheels");
-	model.setFilter(QString("num='%1' and warn is not null and alarm is not null").arg(num));
+	model.setFilter(QString("num='%1'").arg(num));
 	model.select();
 	int row = model.rowCount();
 	if (row > 0)
 	{
-		if (model.data(model.index(row - 1, PlayBackWidget::Wheels_AlarmLevel)).toInt() > 0)
-			return true;
+		return model.data(model.index(row - 1, PlayBackWidget::Wheels_AlarmLevel)).toInt();
 	}
-	return false;
+	return 0;  //if no previous result, regard it as a good wheel
 }

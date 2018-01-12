@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>970</width>
-    <height>673</height>
+    <width>897</width>
+    <height>625</height>
    </rect>
   </property>
   <property name="font">
@@ -31,7 +31,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="monitorTab">
        <attribute name="title">
@@ -224,13 +224,13 @@
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>55</width>
+                 <width>49</width>
                  <height>0</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>55</width>
+                 <width>49</width>
                  <height>16777215</height>
                 </size>
                </property>
@@ -259,13 +259,13 @@
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>55</width>
+                 <width>49</width>
                  <height>0</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>55</width>
+                 <width>49</width>
                  <height>16777215</height>
                 </size>
                </property>
@@ -294,13 +294,13 @@
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>55</width>
+                 <width>49</width>
                  <height>0</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>55</width>
+                 <width>49</width>
                  <height>16777215</height>
                 </size>
                </property>
@@ -343,7 +343,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>970</width>
+     <width>897</width>
      <height>34</height>
     </rect>
    </property>

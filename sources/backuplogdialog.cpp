@@ -1,6 +1,7 @@
 #include "backuplogdialog.h"
 #include "common.h"
-#include "JlCompress.h"
+#include "quazip.h"
+#include "quazipfile.h"
 
 BackupLogDialog::BackupLogDialog(QWidget *parent)
 	: QDialog(parent)
@@ -188,18 +189,18 @@ bool BackupLogDialog::startCopy()
 		{
 			for (auto&& qs : getFiles(bif))//fileList must start with srcPath
 			{
-				if (copyOneFile(srcDir, qs, pgDlg, curSize)) return true;
+				if (copyFile(srcDir, qs, pgDlg, curSize)) return true;
 			}
 		}
 	}
-	if (copyOneFile(srcDir, databaseFilePath, pgDlg, curSize)) return true;
+	if (copyFile(srcDir, databaseFilePath, pgDlg, curSize)) return true;
 	QMessageBox::information(this, QStringLiteral("备份日志"), QStringLiteral("文件复制完成！"), QStringLiteral("确认"));
 	return true;
 }
 
-bool BackupLogDialog::copyOneFile(QDir &srcDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize)
+bool BackupLogDialog::copyFile(QDir &srcRootDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize)
 {
-	QString relativeFilePath = srcDir.relativeFilePath(srcFilePath);
+	QString relativeFilePath = srcRootDir.relativeFilePath(srcFilePath);
 	QString desFileName = QString("%1/%2").arg(desDirPath).arg(relativeFilePath);//get the relative path
 	QFileInfo desFileInfo(desFileName);
 	QFile desFile(desFileName);
@@ -237,6 +238,78 @@ bool BackupLogDialog::copyOneFile(QDir &srcDir, QString & srcFilePath, QProgress
 	srcFile.close();
 	curSize += desFileInfo.size();
 	return false;
+}
+
+bool BackupLogDialog::zipFiles(QDir & srcRootDir, QStringList & srcFileList, QProgressDialog &pgDlg, quint64 &curSize) const
+{
+	QStringList srcRelativeFileList;
+	for (auto && srcFile : srcFileList)
+	{
+		auto srcRelativeFile = srcRootDir.relativeFilePath(srcFile);
+		srcRelativeFileList << srcRelativeFile;
+	}
+
+	QuaZip zip("path/to/zip.zip");
+
+	if (!zip.open(QuaZip::mdCreate)) {
+		return false;
+	}
+
+	QuaZipFile outZipFile(&zip);
+
+	// Copy file and folder to zip file
+
+	foreach(auto && sourceFilePath, srcRelativeFileList) {
+		QFileInfo sourceFI(srcRootDir.absoluteFilePath(sourceFilePath));
+
+		// FOLDER (this is the part that interests you!!!)
+		if (sourceFI.isDir()) {
+			QString sourceFolderPath = sourceFilePath;
+			if (!sourceFolderPath.endsWith("/")) {
+				sourceFolderPath.append("/");
+			}
+
+			if (!outZipFile.open(QIODevice::WriteOnly, QuaZipNewInfo(sourceFolderPath, sourceFI.absoluteFilePath()))) {
+				return false;
+			}
+			outZipFile.close();
+
+			// FILE
+		}
+		else if (sourceFI.isFile()) {
+			QFile inFile(sourceFI.absoluteFilePath());
+			if (!inFile.open(QIODevice::ReadOnly)) {
+				zip.close();
+				return false;
+			}
+
+			// Note: since relative, source=dst
+			if (!outZipFile.open(QIODevice::WriteOnly, QuaZipNewInfo(sourceFilePath, sourceFI.absoluteFilePath()))) {
+				inFile.close();
+				zip.close();
+				return false;
+			}
+
+			// Copy
+			qDebug() << "         copy start";
+			QByteArray buffer;
+			int chunksize = 256; // Whatever chunk size you like
+			buffer = inFile.read(chunksize);
+			while (!buffer.isEmpty()) {
+				qDebug() << "         copy " << buffer.count();
+				outZipFile.write(buffer);
+				buffer = inFile.read(chunksize);
+			}
+
+			outZipFile.close();
+			inFile.close();
+		}
+		else {
+			// Probably symbolic, ignore
+		}
+	}
+	zip.close();
+	return true;
 }
 
 void BackupLogDialog::chooseDirPath()
