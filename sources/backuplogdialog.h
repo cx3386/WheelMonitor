@@ -5,7 +5,7 @@
 
 struct BackupInfo
 {
-	QString dirPath;
+	QString path;
 	bool isSelected;
 	bool isAll;
 	int day;
@@ -17,7 +17,7 @@ class BackupLogDialog : public QDialog {
 	Q_OBJECT
 
 public:
-	explicit BackupLogDialog(QWidget* parent = 0);
+	explicit BackupLogDialog(QWidget* parent = nullptr);
 	~BackupLogDialog();
 
 	private slots:
@@ -25,17 +25,15 @@ public:
 
 	bool startCopy();
 
-	bool copyFile(QDir &srcDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize);
-	bool zipFiles(QDir &srcDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize) const;
+	bool zipFiles(QString fileCompressd, QStringList files, QString srcRootPath);
 	//void on_dirPathLineEdit_textChanged(const QString& arg1);
 
 private:
 
 	QList<BackupInfo> backupInfoList;
-	QStringList getFiles(const BackupInfo& backupInfo) const;
-	QStringList getFiles(const QString & srcDirPath, const int & nDays, const bool & isAll) const;
-	int getMaxDay(const QString &path) const;
-	quint64 getDiskFreeSpace(QString & driver) const;	//driver free space in bytes
+	QStringList getBackupFiles() const;
+	QStringList getDayList(QString path, int day = 36500) const;
+	quint64 getDiskFreeSpace(QString driver) const;	//driver free space in bytes
 	quint64 getNeedSpace() const;	//need space in bytes
 	QString desDirPath;
 	quint64 lfNeedSpace;

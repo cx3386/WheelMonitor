@@ -19,6 +19,6 @@ extern QString databaseFilePath; //database file path
 //QString iniDir = QString("%1").arg(appDirPath);	//ini dir	-same as appdir
 extern QString appName;
 
-#define BACKUP_FOLDER_NAME "WheelMonitor Bak"
+#define BACKUP_ZIP_NAME "WheelMonitor Bak.zip"
 //need identity of cpu and mac
 //bool bNeedIdentity;

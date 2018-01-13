@@ -7,14 +7,14 @@ BackupLogDialog::BackupLogDialog(QWidget *parent)
 	: QDialog(parent)
 	, lfNeedSpace(0.0), lfFreeSpace(0.0)
 {
-	BackupInfo bifs[3] = { {logDirPath,true,true,0,0},{videoDirPath,false,true,0,0},{ocrDirPath,false,true,0,0} };
+	BackupInfo bifs[3] = { {logDirPath,true,true},{videoDirPath,false,true},{ocrDirPath,false,true} };
 	for (auto&& bif : std::as_const(bifs))
 	{
 		backupInfoList << bif;
 	}
 	for (auto& bif : backupInfoList)//to write the bif, use deduction to forwarding reference, and NOT use std::as_const
 	{
-		bif.max_day = getMaxDay(bif.dirPath);
+		bif.max_day = getDayList(bif.path).size();
 		bif.day = std::min(10, bif.max_day);
 	}
 
@@ -177,80 +177,26 @@ bool BackupLogDialog::startCopy()
 		QMessageBox::warning(this, QStringLiteral("备份日志"), QStringLiteral("空间不足，请重新选择"), QStringLiteral("确认"));
 		return false;
 	}
-
-	QProgressDialog pgDlg(QStringLiteral("拷贝文件中..."), QStringLiteral("取消"), 0, (int)(lfNeedSpace / 1024), this);
-	pgDlg.setMinimumDuration(0);	//time(ms) before the dialog appears
-	pgDlg.setWindowModality(Qt::WindowModal);
-	quint64 curSize = 0;
-	QDir srcDir(appDirPath);
-	for (auto&& bif : std::as_const(backupInfoList))
-	{
-		if (bif.isSelected)
-		{
-			for (auto&& qs : getFiles(bif))//fileList must start with srcPath
-			{
-				if (copyFile(srcDir, qs, pgDlg, curSize)) return true;
-			}
-		}
-	}
-	if (copyFile(srcDir, databaseFilePath, pgDlg, curSize)) return true;
-	QMessageBox::information(this, QStringLiteral("备份日志"), QStringLiteral("文件复制完成！"), QStringLiteral("确认"));
+	QDir desDir(desDirPath);
+	auto zipFile = desDir.absoluteFilePath(BACKUP_ZIP_NAME);
+	if (!zipFiles(zipFile, getBackupFiles(), appDirPath)) { return false; }
+	QMessageBox::information(this, QStringLiteral("备份日志"), QStringLiteral("日志备份完成！"), QStringLiteral("确认"));
 	return true;
 }
 
-bool BackupLogDialog::copyFile(QDir &srcRootDir, QString & srcFilePath, QProgressDialog &pgDlg, quint64 &curSize)
+//************************************
+// Method:    zipFiles no-recursively
+// FullName:  BackupLogDialog::zipFiles
+// Access:    private
+// Returns:   bool
+// Qualifier: const
+// Parameter: QString fileCompressd: absoluteFilePath of zip file
+// Parameter: QStringList files: absolute/relativeFilePath List of files to zip
+// Parameter: QString srcRootPath
+//************************************
+bool BackupLogDialog::zipFiles(QString fileCompressd, QStringList files, QString srcRootPath)
 {
-	QString relativeFilePath = srcRootDir.relativeFilePath(srcFilePath);
-	QString desFileName = QString("%1/%2").arg(desDirPath).arg(relativeFilePath);//get the relative path
-	QFileInfo desFileInfo(desFileName);
-	QFile desFile(desFileName);
-	//desFile.setPermissions(QFile::WriteOwner);
-	if (!desFile.open(QIODevice::WriteOnly | QIODevice::Truncate))
-	{
-		QDir dir;
-		dir.mkpath(desFileInfo.absolutePath());//desFileInfo.canonicalPath() //returns "."
-		desFile.open(QIODevice::WriteOnly);
-	}
-	QFile srcFile(srcFilePath);
-	srcFile.open(QIODevice::ReadOnly);
-
-	QByteArray byteArray;
-	int count = 0;
-	while (!srcFile.atEnd())
-	{
-		count++;
-		byteArray = srcFile.read(1024);
-		desFile.write(byteArray);
-		pgDlg.setValue(curSize / 1024 + count);
-
-		if (pgDlg.wasCanceled())
-		{
-			desFile.close();
-			srcFile.close();
-			QFile::remove(desFileName);
-			pgDlg.setValue(lfNeedSpace / 1024);	//close
-			return true;
-		}
-		qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-	}
-
-	desFile.close();
-	srcFile.close();
-	curSize += desFileInfo.size();
-	return false;
-}
-
-bool BackupLogDialog::zipFiles(QDir & srcRootDir, QStringList & srcFileList, QProgressDialog &pgDlg, quint64 &curSize) const
-{
-	QStringList srcRelativeFileList;
-	for (auto && srcFile : srcFileList)
-	{
-		auto srcRelativeFile = srcRootDir.relativeFilePath(srcFile);
-		srcRelativeFileList << srcRelativeFile;
-	}
-
-	QuaZip zip("path/to/zip.zip");
-
+	QuaZip zip(fileCompressd);
 	if (!zip.open(QuaZip::mdCreate)) {
 		return false;
 	}
@@ -258,49 +204,52 @@ bool BackupLogDialog::zipFiles(QDir & srcRootDir, QStringList & srcFileList, QPr
 	QuaZipFile outZipFile(&zip);
 
 	// Copy file and folder to zip file
-
-	foreach(auto && sourceFilePath, srcRelativeFileList) {
-		QFileInfo sourceFI(srcRootDir.absoluteFilePath(sourceFilePath));
-
+	QDir srcRootDir(srcRootPath);
+	QProgressDialog pgDlg(QStringLiteral("正在复制备份文件..."), QStringLiteral("取消"), 0, (int)(lfNeedSpace / 1024), this);
+	pgDlg.setMinimumDuration(0);	//time(ms) before the dialog appears
+	pgDlg.setWindowModality(Qt::WindowModal);
+	quint64 curSize = 0;
+	for (auto && file : files) {
+		auto relativeFile = srcRootDir.relativeFilePath(file);
+		auto absoluteFile = srcRootDir.absoluteFilePath(file);
+		QFileInfo info(absoluteFile);
 		// FOLDER (this is the part that interests you!!!)
-		if (sourceFI.isDir()) {
-			QString sourceFolderPath = sourceFilePath;
-			if (!sourceFolderPath.endsWith("/")) {
-				sourceFolderPath.append("/");
-			}
-
-			if (!outZipFile.open(QIODevice::WriteOnly, QuaZipNewInfo(sourceFolderPath, sourceFI.absoluteFilePath()))) {
+		if (info.isDir()) {
+			if (!outZipFile.open(QIODevice::WriteOnly, QuaZipNewInfo(relativeFile + "/", absoluteFile))) {
 				return false;
 			}
 			outZipFile.close();
-
-			// FILE
 		}
-		else if (sourceFI.isFile()) {
-			QFile inFile(sourceFI.absoluteFilePath());
+		// FILE
+		else if (info.isFile()) {
+			QFile inFile(absoluteFile);
 			if (!inFile.open(QIODevice::ReadOnly)) {
 				zip.close();
 				return false;
 			}
-
-			// Note: since relative, source=dst
-			if (!outZipFile.open(QIODevice::WriteOnly, QuaZipNewInfo(sourceFilePath, sourceFI.absoluteFilePath()))) {
+			if (!outZipFile.open(QIODevice::WriteOnly, QuaZipNewInfo(relativeFile, absoluteFile))) {
 				inFile.close();
 				zip.close();
 				return false;
 			}
 
 			// Copy
-			qDebug() << "         copy start";
 			QByteArray buffer;
-			int chunksize = 256; // Whatever chunk size you like
-			buffer = inFile.read(chunksize);
-			while (!buffer.isEmpty()) {
-				qDebug() << "         copy " << buffer.count();
+			while (!inFile.atEnd())
+			{
+				buffer = inFile.read(1024);
 				outZipFile.write(buffer);
-				buffer = inFile.read(chunksize);
+				curSize += buffer.count();
+				pgDlg.setValue(curSize / 1024);
+				qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+				if (pgDlg.wasCanceled())
+				{
+					outZipFile.close();
+					inFile.close();
+					pgDlg.setValue(lfNeedSpace / 1024);	//close
+					return false;
+				}
 			}
-
 			outZipFile.close();
 			inFile.close();
 		}
@@ -319,13 +268,8 @@ void BackupLogDialog::chooseDirPath()
 	desDirPath = QFileDialog::getExistingDirectory(this, QStringLiteral("选择备份目录"), usbDrivePath, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 	if (desDirPath.isEmpty())
 		return;
-
-	if (desDirPath.endsWith("/")) //if des is root, i.e.,"c:/", it will endswith /
-	{
-		desDirPath.chop(1);
-	}
-	desDirPath.append("/").append(BACKUP_FOLDER_NAME);
-	dirPathLineEdit->setText(desDirPath);
+	QDir desDir(desDirPath);
+	dirPathLineEdit->setText(desDir.absoluteFilePath(BACKUP_ZIP_NAME));
 	lfNeedSpace = getNeedSpace();
 	lfFreeSpace = getDiskFreeSpace(desDirPath.left(3));
 	auto needGB = (double)lfNeedSpace / 1024 / 1024 / 1024;
@@ -341,75 +285,62 @@ void BackupLogDialog::chooseDirPath()
 	copyBtn->setEnabled(true);
 }
 
-QStringList BackupLogDialog::getFiles(const BackupInfo & info) const
-{//overload
-	return getFiles(info.dirPath, info.day, info.isAll);
-}
-
-QStringList BackupLogDialog::getFiles(const QString & path, const int & day, const bool & isAll) const
-{//filter the dirs by retain days
+QStringList BackupLogDialog::getBackupFiles() const
+{
 	QStringList files;
-	QDir dir(path);
-	dir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot); //prevent deleting the '.' and '..' dirs, very important
-	auto list = dir.entryInfoList();
-	int nToday = QDate::currentDate().toString("yyyyMMdd").toInt();
-	int minDay;
-	if (isAll) { minDay = 19700000 - 1; }
-	else { minDay = nToday - day; }
-
-	for (auto&& info : std::as_const(list))
+	for (auto &&backupInfo : backupInfoList)
 	{
-		bool ok;
-		int nFileDay = info.fileName().toInt(&ok);
-		if (ok && (nFileDay > minDay) && nFileDay <= 21000000) {
-			QDirIterator it(info.absoluteFilePath(), QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
+		if (!backupInfo.isSelected) { continue; }
+		QStringList dirs;
+		if (backupInfo.isAll) { dirs = getDayList(backupInfo.path); }
+		else { dirs = getDayList(backupInfo.path, backupInfo.day); }
+		for (auto && dir : dirs)
+		{
+			files << dir;
+			QDirIterator it(dir, QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
 			while (it.hasNext()) {
 				it.next();
 				files << it.filePath();
 			}
 		}
 	}
+	files << databaseFilePath;
 	return files;
 }
 
-int BackupLogDialog::getMaxDay(const QString &path) const
+QStringList BackupLogDialog::getDayList(QString path, int day /*= 36500*/) const
 {
-	int count = 0;
 	QDir dir(path);
 	dir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
 	auto list = dir.entryInfoList();
 	int nToday = QDate::currentDate().toString("yyyyMMdd").toInt();
+	QStringList dayList;
+	int count = 0;
 	for (auto&& info : std::as_const(list))
 	{
 		bool ok;
 		int nFileDay = info.fileName().toInt(&ok);
 		if (ok && (nFileDay <= nToday) && nFileDay >= 19700000) {
-			++count;
+			count++;
+			if (count > day) break;
+			dayList << info.filePath();
 		}
 	}
-	return count;
+	return dayList;
 }
 
 quint64 BackupLogDialog::getNeedSpace() const
 {//get the total size of fileList
 	quint64 size = 0;
-	for (auto&& bif : std::as_const(backupInfoList)) {
-		if (!bif.isSelected)
-		{
-			continue;
-		}
-		for (auto&& qsFilePath : getFiles(bif))
-		{
-			QFileInfo info(qsFilePath);
-			size += info.size();
-		}
+	auto files = getBackupFiles();
+	for (auto && file : files) {
+		QFileInfo info(file);
+		size += info.size();
 	}
-	QFileInfo info(databaseFilePath);
-	size += info.size();
 	return size;
 }
 
-quint64 BackupLogDialog::getDiskFreeSpace(QString & driver) const
+quint64 BackupLogDialog::getDiskFreeSpace(QString driver) const
 {//e.g."C:\"
 	LPCWSTR lpcwstrDriver = (LPCWSTR)driver.utf16();
 	ULARGE_INTEGER liFreeBytesAvailable, liTotalBytes, liTotalFreeBytes;
