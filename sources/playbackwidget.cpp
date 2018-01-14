@@ -67,10 +67,10 @@ PlayBackWidget::PlayBackWidget(QWidget *parent)
 	lv3TextLabel->setStyleSheet("font:12pt;");
 	fLayout->addRow(lv3Label, lv3TextLabel);
 
-	QPushButton *checkSelBtn = new QPushButton(this);
+	checkSelBtn = new QPushButton(this);
 	checkSelBtn->setText(QStringLiteral("½â³ý"));  //delete
 	connect(checkSelBtn, &QPushButton::clicked, this, &PlayBackWidget::setSelectedChecked);
-	QPushButton *checkAllBtn = new QPushButton(this);
+	checkAllBtn = new QPushButton(this);
 	checkAllBtn->setText(QStringLiteral("È«Çå"));  //clear all
 	connect(checkAllBtn, &QPushButton::clicked, this, &PlayBackWidget::setAllChecked);
 	QHBoxLayout *toolLayout = new QHBoxLayout;
@@ -112,6 +112,8 @@ void PlayBackWidget::showAlarm()
 	{
 		view->hideColumn(i);
 	}
+	checkSelBtn->setEnabled(true);
+	checkAllBtn->setEnabled(true);
 }
 
 void PlayBackWidget::showAll()
@@ -129,6 +131,8 @@ void PlayBackWidget::showAll()
 	{
 		view->setColumnHidden(i, false);
 	}
+	checkSelBtn->setEnabled(false);
+	checkAllBtn->setEnabled(false);
 }
 
 PlayBackWidget::~PlayBackWidget()
@@ -185,12 +189,11 @@ bool PlayBackWidget::insertRecord(const QString &num, int alarmLevel, double abs
 	return r;
 }
 
-void PlayBackWidget::readVideoPath(QModelIndex index)
+void PlayBackWidget::readVideoPath(QModelIndex index) const
 {
-	QString relativePath = model->data(model->index(index.row(), Wheels_VideoPath)).toString();
-	QString fullPath = QString("%1/%2").arg(videoDirPath).arg(relativePath);
-
-	player->setUrl(QUrl::fromLocalFile(fullPath));
+	QString path = model->data(model->index(index.row(), Wheels_VideoPath)).toString();
+	QDir dir(videoDirPath);
+	player->setUrl(QUrl::fromLocalFile(dir.absoluteFilePath(path)));
 }
 
 void PlayBackWidget::setSelectedChecked()

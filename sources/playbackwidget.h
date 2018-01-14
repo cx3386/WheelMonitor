@@ -45,6 +45,8 @@ private:
 	void showAlarm();
 	void showAll();
 
+	QPushButton* checkSelBtn;
+	QPushButton* checkAllBtn;
 signals:
 	void setAlarmLight(PLCSerial::AlarmColor alarmcolor);
 
@@ -52,7 +54,7 @@ signals:
 	bool insertRecord(const QString &num, int alarmLevel, double absError, double refSpeed, int fragment, int totalMatch, int validMatch, const QString &savedSpeeds, const QString &videoPath);
 
 	private slots :
-	void readVideoPath(QModelIndex);
+	void readVideoPath(QModelIndex) const;
 	void setSelectedChecked();
 	void setAllChecked();
 };

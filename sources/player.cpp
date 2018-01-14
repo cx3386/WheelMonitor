@@ -103,7 +103,6 @@ Player::Player(QWidget* parent)
 
 	openFilePathBtn = new QPushButton(this);
 	openFilePathBtn->setToolTip(QStringLiteral("´ò¿ªÂ·¾¶"));
-	//openFilePathBtn->setEnabled(false);
 	openFilePathBtn->setIcon(style()->standardIcon(QStyle::SP_DialogOpenButton));
 	connect(openFilePathBtn, &QPushButton::clicked, this, &Player::openFilePath);
 
