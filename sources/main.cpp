@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 			return 0;
 		}
 	}
-	if (!initDataBase()) //connect to database
+	if (!initMainDb()) //connect to database
 	{
 		return 0;
 	}

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "mysqltablemodel.h"
-#include "playbackwidget.h"
+#include "database.h"
 
 MySqlTableModel::MySqlTableModel(QObject *parent /*= Q_NULLPTR*/, QSqlDatabase db /*= QSqlDatabase()*/) :QSqlTableModel(parent, db)
 {
@@ -13,7 +13,7 @@ QVariant MySqlTableModel::data(const QModelIndex &item, int role /*= Qt::Display
 {
 	if (role == Qt::BackgroundColorRole)
 	{
-		int level = data(index(item.row(), PlayBackWidget::Wheels_AlarmLevel)).toInt();
+		int level = data(index(item.row(), Wheels_AlarmLevel)).toInt();
 		switch (level) //alertlevel standard is red, orange, yellow, blue(decrease order)
 		{
 		case -2:return QVariant(QColor(Qt::yellow));

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "common.h"
-#include "playbackwidget.h"
+#include "database.h"
 #include "hikvideocapture.h"
 #include "imageprocess.h"
 #include "outlierhelper.h" //used for calc mean, replace opencv lib
@@ -39,10 +39,12 @@ ImageProcess::ImageProcess(QObject *parent /*= Q_NULLPTR*/) : QObject(parent)
 , bWheelStopped(false)
 , ocr(new OCR)
 {
+	connect(this, &ImageProcess::initModel, this, &ImageProcess::setupModel);
 }
 
 ImageProcess::~ImageProcess()
 = default;
+
 void ImageProcess::doImageProcess()
 {
 	foreverPreProcess();
@@ -251,11 +253,12 @@ void ImageProcess::alarmThisWheel()
 	double meanRef = 0;
 	int alarmLevel = 0;
 	QString num = QString::fromStdString(ocr->get_final_result());
+	int ocrSize = ocr->size();
 	emit showWheelNum(num);
 	qDebug() << "Num: " << num;
 
 	///no result
-	if (totalMatchCount<1)
+	if (totalMatchCount < 1)
 	{
 		emit showWheelSpeed(MISS_TEST_SPEED);
 		alarmLevel = -1;
@@ -283,19 +286,19 @@ void ImageProcess::alarmThisWheel()
 			{
 				if (fabs(meanDiff) < meanRef * g_imgParam.alarmRatio) //if this wheel is too too slow
 				{
-					emit setAlarmLight(PLCSerial::AlarmColorRed);
+					emit setAlarmLight(AlarmColorRed);
 					qCritical() << "ImageProcess: WHEEL FATAL ERROR(single too slow)";
 					alarmLevel = 2;
 				}
 				else if (previousAlarmLevel(num) > 0) //if the last wheel is alarmed
 				{
-					emit setAlarmLight(PLCSerial::AlarmColorRed);
+					emit setAlarmLight(AlarmColorRed);
 					qCritical() << "ImageProcess: WHEEL FATAL ERROR(double slow)";
 					alarmLevel = 2;
 				}
 				else
 				{
-					emit setAlarmLight(PLCSerial::AlarmColorYellow);
+					emit setAlarmLight(AlarmColorYellow);
 					qCritical() << "ImageProcess: WHEEL WARNING ERROR";
 					alarmLevel = 1;
 				}
@@ -312,15 +315,15 @@ void ImageProcess::alarmThisWheel()
 		{
 			if (previousAlarmLevel(num) < 0)
 			{
-				emit setAlarmLight(PLCSerial::AlarmColorYellow);
+				emit setAlarmLight(AlarmColorYellow);
 				qCritical() << "ImageProcess: WHEEL FATAL ERROR(double invalid)";
 				alarmLevel = -2;
 			}
 			else
 			{
 				emit showWheelSpeed(MISS_TEST_SPEED);
-				alarmLevel = -1;
 				qCritical() << "ImageProcess: No enough valid results";
+				alarmLevel = -1;
 			}
 		}
 	}
@@ -337,7 +340,7 @@ void ImageProcess::alarmThisWheel()
 	for (auto&& sp : refSpeeds) {
 		speedsStr += QString(" %1").arg(sp, 0, 'f', 2);
 	}
-	emit insertRecord(num, alarmLevel, meanDiff, meanRef, nFragments, totalMatchCount, validMatchCount, speedsStr, HikVideoCapture::videoRelativeFilePath);
+	insertRecord(num, alarmLevel, meanDiff, meanRef, ocrSize, nFragments, totalMatchCount, validMatchCount, speedsStr, HikVideoCapture::videoRelativeFilePath);
 
 	/************************************************************************/
 	/* reset parameters of this wheel                                       */
@@ -345,7 +348,6 @@ void ImageProcess::alarmThisWheel()
 	rtSpeeds.clear();
 	refSpeeds.clear();
 	nImgCount = 0; //no need	//once settle a wheel, force to zero
-	ocr->resetOcr();
 	/************************************************************************/
 }
 void ImageProcess::startImageProcess()
@@ -419,16 +421,64 @@ cv::Mat ImageProcess::cameraUndistort(cv::Mat src)
 	return srcCalibration;
 }
 
+void ImageProcess::setupModel()
+{
+	initThreadDb();
+}
+
+bool ImageProcess::insertRecord(const QString &num, int alarmLevel, double absError, double refSpeed, int ocrsize, int fragment, int totalMatch, int validMatch, const QString &savedSpeeds, const QString &videoPath)
+{
+	QSqlTableModel *model = new QSqlTableModel(nullptr, QSqlDatabase::database(ThreadConnectionName));
+	model->setTable("wheels");
+	model->select();
+	QSqlRecord record = model->record();
+	QString time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+	auto calSpeed_rough = QString::number(absError + refSpeed, 'f', 1).toDouble();
+	auto refSpeed_rough = QString::number(refSpeed, 'f', 1).toDouble();
+	auto relError = QString::number(absError / refSpeed * 100, 'f', 0).toDouble();
+	record.setValue(Wheels_Num, QVariant(num));
+	record.setValue(Wheels_Time, QVariant(time));
+	record.setValue(Wheels_CalcSpeed, QVariant(calSpeed_rough));
+	record.setValue(Wheels_RefSpeed, QVariant(refSpeed_rough));
+	record.setValue(Wheels_Error, QVariant(relError));
+	record.setValue(Wheels_AlarmLevel, QVariant(alarmLevel));
+	record.setValue(Wheels_OcrSize, QVariant(ocrsize));
+	int checkState;
+	switch (alarmLevel)
+	{
+	case -2:
+	case 1:
+	case 2:
+		checkState = NeedCheck;
+		break;
+	case -1:
+	case 0:
+	default:
+		checkState = NoNeedCheck;
+		break;
+	}
+	record.setValue(Wheels_CheckState, QVariant(checkState));
+	record.setValue(Wheels_Speeds, QVariant(savedSpeeds));
+	record.setValue(Wheels_Fragment, QVariant(fragment));
+	record.setValue(Wheels_TotalMatch, QVariant(totalMatch));
+	record.setValue(Wheels_ValidMatch, QVariant(validMatch));
+	record.setValue(Wheels_VideoPath, QVariant(videoPath)); //relative path, e.g. 20170912/241343.mp4
+	bool r = model->insertRecord(-1, record);
+	r &= model->submitAll(); //on manualsubmit, use submitAll()
+	return r;
+}
+
 int ImageProcess::previousAlarmLevel(const QString & num) const
 {
-	QSqlTableModel model;
-	model.setTable("wheels");
-	model.setFilter(QString("num='%1'").arg(num));
-	model.select();
-	int row = model.rowCount();
+	//every query is up to data using select();
+	QSqlTableModel *model = new QSqlTableModel(nullptr, QSqlDatabase::database(ThreadConnectionName));
+	model->setTable("wheels");
+	model->setFilter(QString("num='%1'").arg(num));
+	model->select();
+	int row = model->rowCount();
 	if (row > 0)
 	{
-		return model.data(model.index(row - 1, PlayBackWidget::Wheels_AlarmLevel)).toInt();
+		return model->data(model->index(row - 1, Wheels_AlarmLevel)).toInt();
 	}
 	return 0;  //if no previous result, regard it as a good wheel
 }

@@ -230,6 +230,11 @@ void HikVideoCapture::imageProcessReady()
 
 void CALLBACK HikVideoCapture::DecCBFun(long nPort, char* pBuf, long nSize, FRAME_INFO* pFrameInfo, long nReserved1, long nReserved2)
 {
+	Q_UNUSED(nReserved1);
+	Q_UNUSED(nReserved2);
+	Q_UNUSED(nSize);
+	Q_UNUSED(nPort);
+
 	if (gbHandling) {
 		gbHandling--;
 		return;
@@ -257,6 +262,8 @@ void CALLBACK HikVideoCapture::DecCBFun(long nPort, char* pBuf, long nSize, FRAM
 
 void CALLBACK HikVideoCapture::fDrawFun(LONG lRealHandle, HDC hDc, DWORD dwUser)
 {
+	Q_UNUSED(lRealHandle);
+	Q_UNUSED(dwUser);
 	HDC hdcSrc = CreateCompatibleDC(hDc);
 	HBITMAP hBitmap = CreateCompatibleBitmap(hDc, 500, 600);
 	SelectObject(hdcSrc, hBitmap);

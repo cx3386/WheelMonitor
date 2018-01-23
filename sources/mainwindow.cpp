@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 	qRegisterMetaType<HWND>("HWND");
 	qRegisterMetaType<QVector<int>>("QVector<int>");
-	qRegisterMetaType<PLCSerial::AlarmColor>("PLCSerial::AlarmColor");
+	qRegisterMetaType<AlarmColor>("AlarmColor");
 
 	ui.setupUi(this);
 	readSettings();
@@ -39,8 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
 	bool b = true;
-	connect(plcSerial, &PLCSerial::setUiAlarm, this, [&b] {b = false; });
-	emit setAlarm(PLCSerial::AlarmOFF); //cannot op outof thread. But emit will delete pointer this.引发了异常: 读取访问权限冲突。**this** 是 0xFFFFFFFFFFFFFFFF
+	connect(plcSerial, &PLCSerial::setUiAlarm, this, [&b] {b = false; });  //before setUiAlarm finished, DONOT delete the pointer "this". 引发了异常: 读取访问权限冲突。**this** 是 0xFFFFFFFFFFFFFFFF
+	emit setAlarm(AlarmOFF); //cannot operate out of thread.so use Siganl-Slot.
 	while (b) //wait until light is set off
 	{
 		QCoreApplication::processEvents();
@@ -51,11 +51,12 @@ MainWindow::~MainWindow()
 	imageProcessThread->wait();
 	plcSerialThread->quit();
 	plcSerialThread->wait();
+	dbWatcher->quit();
+	dbWatcher->wait();
 }
 void MainWindow::configWindow()
 {
-	//appAutoRun(true);
-	/***************setup reclabel****************/
+	/// Setup the record(save) indication of VideoCapture
 	recLabel_pre = new QLabel(ui.previewTab);
 	recLabel_pre->setGeometry(20, 20, 50, 35);
 	recLabel_pre->setScaledContents(true); //scale its contents to fill all available space.
@@ -65,16 +66,16 @@ void MainWindow::configWindow()
 	recLabel_input->setScaledContents(true);
 	recLabel_input->setVisible(false);
 	onRecStop(); //init as gray
-	/************roi rect**************/
-	/*********playbackTab**********/
-	playBackWidget = new PlayBackWidget(ui.playbackTab);
-	QGridLayout *playBackLayout = new QGridLayout(ui.playbackTab);
-	playBackLayout->addWidget(playBackWidget);
+	/// Setup the record(save) indication of VideoCapture
 
-	ui.centralTabWidget->setCurrentIndex(0);
+	/// playbackTab
+	playBackWidget = new PlayBackWidget(ui.playbackTab);
+	auto *playBackLayout = new QGridLayout(ui.playbackTab);
+	playBackLayout->addWidget(playBackWidget);
+	connect(ui.centralTabWidget, &QTabWidget::currentChanged, playBackWidget, &PlayBackWidget::clearMedia);
 	//ui.playbackTab->setEnabled(false);	//unclickable and unchosenable
 	//ui.centralTabWidget->setTabEnabled(2, false); //cant toggle to this tab
-	/**********end playbackTab**********/
+	/// playbackTab
 
 	/***************update now*****************/
 	update24(); //1. update right away
@@ -110,7 +111,7 @@ void MainWindow::configWindow()
 
 	realPlayHandle = (HWND)ui.previewWidget->winId();
 	//care start order
-	imageProcess = new ImageProcess();
+	imageProcess = new ImageProcess;
 	videoCapture = new HikVideoCapture;
 	plcSerial = new PLCSerial;
 	videoCaptureThread = new QThread(this);
@@ -152,7 +153,6 @@ void MainWindow::configWindow()
 	connect(imageProcess, &ImageProcess::showImageMatches, this, &MainWindow::uiShowMatches);
 	connect(imageProcess, &ImageProcess::showWheelSpeed, this, &MainWindow::uiShowWheelSpeed);
 	connect(imageProcess, &ImageProcess::showWheelNum, this, &MainWindow::uiShowWheelNum);
-	connect(imageProcess, &ImageProcess::insertRecord, playBackWidget, &PlayBackWidget::insertRecord);
 	connect(plcSerial, &PLCSerial::ADSpeedReady, this, &MainWindow::uiShowCartSpeed);	//bind plc::adSpeed to cartSpeed
 
 	//When wheel enters detect area, i.e., lighten the LEFT sensor
@@ -174,10 +174,18 @@ void MainWindow::configWindow()
 	//outputMessageThread.start();
 	//emit installLogSystem();
 	imageProcessThread->start();
+	imageProcess->emit initModel();
 	videoCaptureThread->start();
 	plcSerialThread->start();
 	emit initPlcSerial();
 
+	dbWatcher = new QThread(this);
+	auto * watcher = new QFileSystemWatcher;
+	watcher->addPath(databaseFilePath);
+	watcher->moveToThread(dbWatcher);
+	//connect(dbWatcher, &QThread::finished, watcher, &QFileSystemWatcher::deleteLater);   ///< playBackWidget is child of this, so it's handled by this, do not delete it manually.
+	connect(watcher, &QFileSystemWatcher::fileChanged, playBackWidget, &PlayBackWidget::dbChanged);
+	dbWatcher->start();
 	/************************************************************************/
 	/* for test                                                             */
 	/************************************************************************/
@@ -296,10 +304,10 @@ bool MainWindow::cleanDir(QString dirPath, int nDays)
 	return r;
 }
 
-void MainWindow::appAutoRun(bool bAutoRun) //autorun when computer start
+void MainWindow::appAutoRun(bool bAutoRun) ///< autorun when computer start
 {
 	//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-	QSettings *reg = new QSettings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
+	QSettings *reg = new QSettings(R"(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run)", QSettings::NativeFormat);
 
 	if (bAutoRun)
 	{
@@ -328,35 +336,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
 	}
 }
 
-void MainWindow::uiAlarmLight(PLCSerial::AlarmColor alarmColor) //1-green; 2-red; 4-yellow
-{
-	QPixmap pixmap;
-	switch (alarmColor)
-	{
-	case 1:
-		pixmap = QPixmap(":/images/Resources/images/green.png");
-		break;
-	case 2:
-		pixmap = QPixmap(":/images/Resources/images/red.png");
-		break;
-	case 4:
-		pixmap = QPixmap(":/images/Resources/images/yellow.png");
-		break;
-	case 8:
-		pixmap = QPixmap(":/images/Resources/images/gray.png");
-	default:
-		break;
-	}
-	//pixmap = pixmap.scaled(256, 256);
-	ui.alarmPushButton->setIcon(QIcon(pixmap));
-}
-
-void MainWindow::uiShowAlarmNum(const QString &num)
-{
-	ui.lcdNumber->setStyleSheet("color:rgb(255, 0, 0);");
-	ui.lcdNumber->display(num);
-}
-
 void MainWindow::uiShowRealtimeImage()
 {
 	mutex.lock();
@@ -380,6 +359,38 @@ void MainWindow::uiShowMatches()
 	ui.imageMatchesLabel->setPixmap(QPixmap::fromImage(dstImage));				 //label->setscaledcontent()
 }
 
+void MainWindow::uiAlarmLight(AlarmColor alarmColor) //1-green; 2-red; 4-yellow
+{
+	QPixmap pixmap;
+	switch (alarmColor)
+	{
+	case 1:
+		pixmap = QPixmap(":/images/Resources/images/green.png");
+		break;
+	case 2:
+		pixmap = QPixmap(":/images/Resources/images/red.png");
+		break;
+	case 4:
+		pixmap = QPixmap(":/images/Resources/images/yellow.png");
+		break;
+	case 8:
+		pixmap = QPixmap(":/images/Resources/images/gray.png");
+	default:
+		break;
+	}
+	ui.alarmPushButton->setIcon(QIcon(pixmap));
+}
+
+void MainWindow::uiShowAlarmNum(const QString &num)
+{
+	ui.lcdNumber->display(num);
+}
+
+void MainWindow::uiShowWheelNum(const QString &s)
+{
+	ui.numLineEdit->setText(s);
+}
+
 void MainWindow::uiShowWheelSpeed(double speed)
 {
 	if (speed == MISS_TEST_SPEED)
@@ -393,11 +404,6 @@ void MainWindow::uiShowWheelSpeed(double speed)
 	}
 }
 
-void MainWindow::uiShowWheelNum(const QString &s)
-{
-	ui.numLineEdit->setText(s);
-}
-
 void MainWindow::uiShowCartSpeed(double speed)
 {
 	QString str = QString::number(speed*0.954, 'f', 1);
@@ -406,7 +412,7 @@ void MainWindow::uiShowCartSpeed(double speed)
 
 void MainWindow::start24timer()
 { //start24timer at 12 o'clock
-	QTimer *timer24 = new QTimer(this);
+	auto *timer24 = new QTimer(this);
 	connect(timer24, SIGNAL(timeout()), this, SLOT(update24()));
 	timer24->start(24 * 60 * 60 * 1000);
 	update24();
@@ -480,7 +486,7 @@ void MainWindow::on_action_Show_Log_triggered()
 
 void MainWindow::on_action_Backup_Log_triggered()
 {
-	BackupLogDialog *backupLogDialog = new BackupLogDialog(this);
+	auto *backupLogDialog = new BackupLogDialog(this);
 
 	backupLogDialog->deleteLater();
 	backupLogDialog->exec();	//show
@@ -489,10 +495,10 @@ void MainWindow::on_action_Backup_Log_triggered()
 void MainWindow::on_action_About_triggered()
 {
 	QMessageBox::about(this, QStringLiteral("关于"),
-		QStringLiteral("<h3>宝钢环冷机台车轮子状态检测软件</h3>"
-			"<p>版本号：<b>v1.1.0</b>"
-			"<p>Copyright &copy; 2017 ZJU SKL."
-			"<p>本软件由浙江大学开发，如果问题请联系cx3386@163.com"));
+		QStringLiteral("<h3>%1</h3>"
+			"<p>版本号：<b>%2</b>"
+			"<p>%3"
+			"<p>本软件由浙江大学开发，如果问题请联系%4").arg(ProductName).arg(ProductVer).arg(Copyright).arg(Author));
 }
 void MainWindow::on_alarmPushButton_clicked()
 {
@@ -509,9 +515,7 @@ void MainWindow::on_alarmPushButton_clicked()
 		return;
 	}
 	//start success
-	emit setAlarm(PLCSerial::AlarmColorGreen);
-	ui.lcdNumber->setStyleSheet("color:rgb(0, 255, 0);");
-	ui.lcdNumber->display(QString("888"));
+	emit setAlarm(AlarmColorGreen);
 	//ui.logTabWidget->setCurrentIndex(0); //reset logTabWidget to log tab(not the error tab)
 }
 
@@ -540,7 +544,7 @@ bool MainWindow::isStopCap(bool result)
 		ui.action_Start->setEnabled(true);
 		ui.action_Stop->setEnabled(false);
 		bIsRunning = false;
-		emit setAlarm(PLCSerial::AlarmOFF);
+		emit setAlarm(AlarmOFF);
 		qDebug("stop success");
 	}
 	else

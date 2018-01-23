@@ -51,6 +51,7 @@ void SettingDialog::on_okBtn_clicked()
 	if (MainWindow::bAppAutoRun != ui.appAutoRunCheckBox->isChecked())
 	{
 		MainWindow::bAppAutoRun = ui.appAutoRunCheckBox->isChecked();
+		//MainWindow::appAutoRun(MainWindow::bAppAutoRun);
 		isChanged = true;
 	}
 

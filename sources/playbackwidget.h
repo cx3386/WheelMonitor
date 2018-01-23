@@ -5,6 +5,7 @@
 
 class MySqlTableModel;
 class Player;
+
 class PlayBackWidget : public QWidget
 {
 	Q_OBJECT
@@ -14,44 +15,44 @@ public:
 
 	~PlayBackWidget();
 
-	enum WheelsHeader
-	{
-		Wheels_ID = 0,
-		Wheels_Num,
-		Wheels_Time,
-		Wheels_CalcSpeed,
-		Wheels_RefSpeed,
-		Wheels_Error,
-		Wheels_AlarmLevel,
-		Wheels_CheckState,
-		Wheels_Fragment,
-		Wheels_TotalMatch,
-		Wheels_ValidMatch,
-		Wheels_Speeds,
-		Wheels_VideoPath,
-	};
-	enum CheckState
-	{
-		NoNeedCheck = 0,
-		NeedCheck,
-		Checked,
-	};
+	/**
+	 * \brief Returns true if the alarm list is not null;otherwise returns false.
+	 *
+	 * \sa alarmList()
+	 *
+	 */
 	bool hasAlarm() const;
 
+	/**
+	 * \brief Returns the alarmList querying database
+	 *
+	 * \sa hasAlarm()
+	 */
 private:
-	MySqlTableModel * model;
-	QTableView* view;
+	MySqlTableModel * allModel;  ///< tableModel for all record
+	QTableView* allView;  ///< tableview for all record
+	MySqlTableModel* alarmModel;  ///< talbleModel for unchecked record
+	QTableView* alarmView;  ///< tableview for unchecked record
 	Player *player;
-	void showAlarm();
-	void showAll();
 
+	/**
+	 * \brief initialize the alram(unchecked) table view
+	 *
+	 */
+	void initAlarmTable();
+	/**
+	 * \brief initialize the all-record table view
+	 *
+	 */
+	void initAllTable();
 	QPushButton* checkSelBtn;
 	QPushButton* checkAllBtn;
 signals:
-	void setAlarmLight(PLCSerial::AlarmColor alarmcolor);
+	void setAlarmLight(AlarmColor alarmcolor);
 
 	public slots:
-	bool insertRecord(const QString &num, int alarmLevel, double absError, double refSpeed, int fragment, int totalMatch, int validMatch, const QString &savedSpeeds, const QString &videoPath);
+	void clearMedia(int index);
+	void dbChanged();
 
 	private slots :
 	void readVideoPath(QModelIndex) const;

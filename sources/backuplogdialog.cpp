@@ -18,10 +18,11 @@ BackupLogDialog::BackupLogDialog(QWidget *parent)
 		bif.day = std::min(10, bif.max_day);
 	}
 
-	/************************************************************************/
-	/* UI                                                                     */
-	/************************************************************************/
+	///UI
 	setWindowTitle(QStringLiteral("备份日志"));
+	QIcon icon;
+	icon.addFile(QStringLiteral(":/images/Resources/images/backup.png"), QSize(), QIcon::Normal, QIcon::Off);
+	setWindowIcon(icon);
 
 	QStringList itemsList;
 	itemsList << QStringLiteral("日志文件(log)")
@@ -104,6 +105,11 @@ BackupLogDialog::BackupLogDialog(QWidget *parent)
 		contentLayout->addLayout(layout);
 		++i;
 	}
+	QCheckBox *dbCheckBox = new QCheckBox(this);
+	dbCheckBox->setText(QStringLiteral("数据库文件"));
+	dbCheckBox->setCheckState(Qt::Checked);
+	dbCheckBox->setEnabled(false);
+	contentLayout->insertWidget(0, dbCheckBox);
 	QGroupBox *contentGroupBox = new QGroupBox(this);
 	contentGroupBox->setTitle(QStringLiteral("选择要备份的内容"));
 	contentGroupBox->setLayout(contentLayout);
@@ -161,7 +167,7 @@ BackupLogDialog::~BackupLogDialog()
 bool BackupLogDialog::startCopy()
 {
 	lfNeedSpace = getNeedSpace();
-	lfFreeSpace = getDiskFreeSpace(desDirPath.left(3));
+	lfFreeSpace = getDiskFreeSpace(desFilePath.left(3));
 	auto needGB = (double)lfNeedSpace / 1024 / 1024 / 1024;
 	auto freeGB = (double)lfFreeSpace / 1024 / 1024 / 1024;
 	if (lfFreeSpace < lfNeedSpace)
@@ -177,9 +183,7 @@ bool BackupLogDialog::startCopy()
 		QMessageBox::warning(this, QStringLiteral("备份日志"), QStringLiteral("空间不足，请重新选择"), QStringLiteral("确认"));
 		return false;
 	}
-	QDir desDir(desDirPath);
-	auto zipFile = desDir.absoluteFilePath(BACKUP_ZIP_NAME);
-	if (!zipFiles(zipFile, getBackupFiles(), appDirPath)) { return false; }
+	if (!zipFiles(desFilePath, getBackupFiles(), appDirPath)) { return false; }
 	QMessageBox::information(this, QStringLiteral("备份日志"), QStringLiteral("日志备份完成！"), QStringLiteral("确认"));
 	return true;
 }
@@ -264,14 +268,14 @@ bool BackupLogDialog::zipFiles(QString fileCompressd, QStringList files, QString
 void BackupLogDialog::chooseDirPath()
 {
 	copyBtn->setEnabled(false);
-	QString usbDrivePath(QDir::drives().back().filePath());//the last of the drives
-	desDirPath = QFileDialog::getExistingDirectory(this, QStringLiteral("选择备份目录"), usbDrivePath, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-	if (desDirPath.isEmpty())
+	QDir usbDriveDir(QDir::drives().back().filePath());//the last of the drives
+	auto defaultZipFile = usbDriveDir.absoluteFilePath(BackupZipName);
+	desFilePath = QFileDialog::getSaveFileName(this, QStringLiteral("另存为"), defaultZipFile, QStringLiteral("压缩包 (*.zip)"));
+	if (desFilePath.isEmpty())
 		return;
-	QDir desDir(desDirPath);
-	dirPathLineEdit->setText(desDir.absoluteFilePath(BACKUP_ZIP_NAME));
+	dirPathLineEdit->setText(desFilePath);
 	lfNeedSpace = getNeedSpace();
-	lfFreeSpace = getDiskFreeSpace(desDirPath.left(3));
+	lfFreeSpace = getDiskFreeSpace(desFilePath.left(3));
 	auto needGB = (double)lfNeedSpace / 1024 / 1024 / 1024;
 	auto freeGB = (double)lfFreeSpace / 1024 / 1024 / 1024;
 	if (lfFreeSpace < lfNeedSpace)

@@ -34,10 +34,12 @@ public:
 	void resetOcr();//清空vector
 	static ocr_parameters p;
 	string get_final_result();
+	int size() const { return final_result_size; };  //valid after call get_final_result and before the next call of get_final_result
 private:
 	uint lastNum;
-	bool bDbg;//调试标志位，显示过程图像
+	bool isDbg;//调试标志位，显示过程图像
 	vector<string> result;
+	int final_result_size;
 	vector<CharSegment> find_ch(Mat threshold);
 	void generate_pattern(Mat in);//生成样本
 	void recognize(Mat plate);//输入GRAY格式的号码牌，得到string放入容器result

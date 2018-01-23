@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>属性</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="mainwindow.qrc">
+    <normaloff>:/images/Resources/images/setting.png</normaloff>:/images/Resources/images/setting.png</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -394,7 +398,9 @@
   <tabstop>verboseLogCheckBox</tabstop>
   <tabstop>appAutoRunCheckBox</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="mainwindow.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>okBtn</sender>

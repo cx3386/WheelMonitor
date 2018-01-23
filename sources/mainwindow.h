@@ -14,7 +14,6 @@ class QThread;
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
-
 public:
 	MainWindow(QWidget *parent = Q_NULLPTR);
 	~MainWindow();
@@ -39,6 +38,7 @@ private:
 	QThread *videoCaptureThread;
 	QThread *imageProcessThread;
 	QThread *plcSerialThread;
+	QThread *dbWatcher;
 	PlayBackWidget * playBackWidget;
 
 	//QThread outputMessageThread;
@@ -64,7 +64,7 @@ protected:
 
 	private slots :
 
-	void uiAlarmLight(PLCSerial::AlarmColor alarmColor);
+	void uiAlarmLight(AlarmColor alarmColor);
 	void uiShowAlarmNum(const QString &num);
 	void uiShowRealtimeImage();
 	void uiShowMatches();
@@ -106,5 +106,5 @@ signals:
 	void initPlcSerial();
 	void connectPLC();
 	void disconnectPLC();
-	void setAlarm(PLCSerial::AlarmColor alarmcolor);
+	void setAlarm(AlarmColor alarmcolor);
 };

@@ -4,7 +4,7 @@
 #include <QObject>
 #include <opencv2/opencv.hpp>
 
-#define MISS_TEST_SPEED -8.88
+#define MISS_TEST_SPEED -888
 
 struct ImageProcessParameters {
 	ImageProcessParameters();
@@ -62,22 +62,24 @@ private:
 	// int in_out_time; //ms
 	QMutex mutex;
 	RobustMatcher rMatcher;
+	bool insertRecord(const QString &num, int alarmLevel, double absError, double refspeed, int ocrsize, int fragment, int totalmatch, int validmatch, const QString &speeds, const QString &videopath);
 
 signals:
 	// void resultReady(const QString &result);
+	void initModel();
 	void imageProcessReady();
 	void showAlarmNum(const QString &s);
 	void showRealtimeImage();
 	void showImageMatches();
-	void setAlarmLight(PLCSerial::AlarmColor alarmcolor);
+	void setAlarmLight(AlarmColor alarmcolor);
 
 	void showWheelNum(const QString &s);
 	void showWheelSpeed(double speed);
 
-	void insertRecord(const QString &num, int alarmLevel, double absError, double refspeed, int fragment, int totalmatch, int validmatch, const QString &speeds, const QString &videopath);
 	//void readLastAlarm();
 
 	public slots:
+	void setupModel();
 	void doImageProcess();
 	void startImageProcess();
 	void stopImageProcess();

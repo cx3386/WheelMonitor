@@ -1,5 +1,6 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "plcserial.h"
+#include "common.h"
 
 /*Write alarm light*/
 /*the center control alarm is 0001*/
@@ -24,7 +25,7 @@
 
 double PLCSerial::speedAD = 0.0;
 
-PLCSerial::PLCSerial(QObject *parent) : QObject(parent), sensorRight(false), sensorLeft(false), stopSensor(false), isConnect(false), currentAlarmColor(AlarmUnkown)
+PLCSerial::PLCSerial(QObject *parent) : QObject(parent), sensorRight(false), sensorLeft(false), stopSensor(false), isConnect(false), currentAlarmColor(AlarmColorUnkown)
 {
 	//qRegisterMetaType<PLCSerial::AlarmColor>("AlarmColor");	//2017/10/26
 }
@@ -69,7 +70,7 @@ void PLCSerial::init()
 	}
 }
 
-void PLCSerial::Alarm(AlarmColor alarmcolor) //应锟矫革拷为Alarm(AlarmColor alarmcolor)锟斤拷锟斤拷式锟斤拷通锟斤拷&Mask锟叫讹拷FLag锟斤拷值,锟劫讹拷plcData锟斤拷锟斤拷要锟斤拷锟斤拷为全锟街憋拷锟斤拷锟斤拷锟斤拷值
+void PLCSerial::Alarm(AlarmColor alarmcolor)
 {
 	QMutexLocker locker(&mutex);
 	if ((currentAlarmColor == alarmcolor) || ((currentAlarmColor == AlarmColorRed) && (alarmcolor & AlarmColorYellow))) //yellow light(waring) never override red

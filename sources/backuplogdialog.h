@@ -35,7 +35,7 @@ private:
 	QStringList getDayList(QString path, int day = 36500) const;
 	quint64 getDiskFreeSpace(QString driver) const;	//driver free space in bytes
 	quint64 getNeedSpace() const;	//need space in bytes
-	QString desDirPath;
+	QString desFilePath;
 	quint64 lfNeedSpace;
 	quint64 lfFreeSpace;
 

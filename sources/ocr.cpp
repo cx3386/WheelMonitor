@@ -5,7 +5,7 @@
 
 ocr_parameters OCR::p; //init static member of OCR
 
-OCR::OCR() : charSize(20), bDbg(false), lastNum(0)
+OCR::OCR() : charSize(20), isDbg(false), lastNum(0), final_result_size(0)
 {//加载样本
 	for (int i = 0; i < 10; i++) {
 		QString patternName = QString("%1/%2.jpg").arg(ocrPatternDirPath).arg(i);
@@ -34,7 +34,7 @@ vector<Mat> OCR::detect_plate(Mat frame) {
 	//Mat win_gray;
 	//cvtColor(window, win_gray, CV_BGR2GRAY);//如果输入是bgr则需要这两行
 
-	if (bDbg)
+	if (isDbg)
 		imshow("window", window);
 
 	//方法1  canny的两个阈值都比较低
@@ -47,7 +47,7 @@ vector<Mat> OCR::detect_plate(Mat frame) {
 	//Mat img_canny;
 	//Canny(win_gray, img_canny, 125, 350);
 	//threshold(img_canny, img_canny, 128, 255, THRESH_BINARY_INV);
-	if (bDbg)
+	if (isDbg)
 		imshow("img_canny", img_canny);
 
 	vector< vector< Point> > contours;
@@ -220,7 +220,7 @@ std::string OCR::getTime() const
 
 void OCR::generate_pattern(Mat in) {
 	auto plates = detect_plate(in);
-	if (bDbg)
+	if (isDbg)
 		cout << "find plates" << plates.size();
 	for (auto&& pl : plates) {
 		Mat threshold = preprocess(pl);
@@ -240,17 +240,17 @@ void OCR::generate_pattern(Mat in) {
 
 void OCR::core_ocr(Mat src) {
 	vector<Mat> plates = detect_plate(src);
-	if (bDbg) cout << "find plates " << plates.size();
+	if (isDbg) cout << "find plates " << plates.size();
 	for (auto&& pl : plates)
 	{
 		recognize(pl);
-		if (bDbg) cout << "find num " << unit_char.size();
+		if (isDbg) cout << "find num " << unit_char.size();
 	}
 }
 
 std::string OCR::get_final_result()
 {
-	qDebug() << "Ocr: result size" << result.size();
+	final_result_size = result.size();
 	map<string, int> keyList; //take result value as key and the count as value
 	for (auto&& str : result) { keyList[str]++; }
 	string key = "";
@@ -272,5 +272,6 @@ std::string OCR::get_final_result()
 		}
 	}
 	lastNum = QString::fromStdString(key).toUInt();
+	resetOcr();  //aferter output a result, reset the vectorsl
 	return key;
 }

@@ -60,19 +60,19 @@ class Player : public QWidget
 {
 	Q_OBJECT
 
-  public:
-	Player(QWidget *parent = 0);
+public:
+	Player(QWidget *parent = nullptr);
 	~Player();
 
-  public slots:
+	public slots:
 	void setUrl(const QUrl &url); //sql table set the playerurl
 
-  signals:
+signals:
 	void fullScreenChanged(bool fullScreen);
 	void play();
 	void pause();
 
-  private slots:
+	private slots:
 	//void open();
 	void durationChanged(qint64 duration);
 	void positionChanged(qint64 progress);
@@ -86,7 +86,7 @@ class Player : public QWidget
 	void playClicked();
 	void openFilePath();
 
-  private:
+private:
 	void handleCursor(QMediaPlayer::MediaStatus status);
 	void updateDurationInfo(qint64 currentInfo);
 	QMediaPlayer::State playerState;
