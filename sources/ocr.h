@@ -1,6 +1,7 @@
 #ifndef extract_h
 #define extract_h
 
+#include <QObject>
 #include <opencv.hpp>
 
 using namespace std;
@@ -27,9 +28,10 @@ struct CharSegment {
 	CharSegment(Mat i, Rect p) :img(i), pos(p) { }
 };
 
-class OCR {
+class OCR :public QObject
+{
 public:
-	OCR();
+	OCR(QObject *parent = Q_NULLPTR);
 	void core_ocr(Mat src);//= detect_plate() + recogenize()
 	void resetOcr();//Çå¿Õvector
 	static ocr_parameters p;

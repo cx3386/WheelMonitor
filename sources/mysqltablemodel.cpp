@@ -2,18 +2,11 @@
 #include "mysqltablemodel.h"
 #include "database.h"
 
-MySqlTableModel::MySqlTableModel(QObject *parent /*= Q_NULLPTR*/, QSqlDatabase db /*= QSqlDatabase()*/) :QSqlTableModel(parent, db)
-{
-}
-
-MySqlTableModel::~MySqlTableModel()
-= default;
-
 QVariant MySqlTableModel::data(const QModelIndex &item, int role /*= Qt::DisplayRole*/) const
 {
 	if (role == Qt::BackgroundColorRole)
 	{
-		int level = data(index(item.row(), Wheels_AlarmLevel)).toInt();
+		int level = data(index(item.row(), Wheel_AlarmLevel)).toInt();
 		switch (level) //alertlevel standard is red, orange, yellow, blue(decrease order)
 		{
 		case -2:return QVariant(QColor(Qt::yellow));

@@ -44,7 +44,6 @@
 #include "videowidget.h"
 
 #include <QMediaPlayer>
-#include <QMediaPlaylist>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE

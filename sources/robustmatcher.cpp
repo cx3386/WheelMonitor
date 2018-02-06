@@ -1,5 +1,8 @@
-#include "stdafx.h"
 #include "robustmatcher.h"
+//#include <qmath.h> //use M_PI
+#ifndef M_PI
+#define M_PI (3.14159265358979323846)
+#endif
 
 using namespace std;
 using namespace cv;
@@ -13,7 +16,10 @@ RobustMatcher::RobustMatcher()
 
 RobustMatcher::~RobustMatcher()
 {
-	//未释放 detector & matcher
+	// A Ptr<T> pretends to be a pointer to an object of type T.
+	// The object will be automatically cleaned up once all Ptr instances pointing to it are destroyed.
+	// SO there is no need to call delete detector and matcher.
+	// \see std::shared_ptr since C++11
 }
 
 bool RobustMatcher::match(Mat& image1, Mat& image2, Mat& mask1, Mat& mask2, Mat& img_matches, double& angle)
@@ -33,10 +39,10 @@ bool RobustMatcher::match(Mat& image1, Mat& image2, Mat& mask1, Mat& mask2, Mat&
 	// 2. Match the two image descriptors
 	// from image 1 to image 2 based on k nearest neighbours (with k=2)
 	vector<vector<DMatch> > matches1; // vector of matches (up to 2 per entry)
-	matcher->knnMatch(descriptors1, descriptors2, matches1, 2); // return 2 nearest neighbours
+	matcher->knnMatch(descriptors1, descriptors2, matches1, 2); // return 2 nearest neighbors
 	// from image 2 to image 1 based on k nearest neighbours (with k=2)
 	vector<vector<DMatch> > matches2; // vector of matches (up to 2 per entry)
-	matcher->knnMatch(descriptors2, descriptors1, matches2, 2); // return 2 nearest neighbours
+	matcher->knnMatch(descriptors2, descriptors1, matches2, 2); // return 2 nearest neighbors
 
 	// 3. Remove matches for which NN ratio > threshold
 	// clean image 1 -> image 2 matches
@@ -106,6 +112,10 @@ void RobustMatcher::symmetryTest(const vector<vector<DMatch>>& matches1, const v
 	}
 }
 
+/** \brief kNN
+ * \param matches input matches
+ * \return the removed points number
+ */
 int RobustMatcher::ratioTest(vector<vector<DMatch>>& matches)
 {
 	int removed = 0;
@@ -122,14 +132,20 @@ int RobustMatcher::ratioTest(vector<vector<DMatch>>& matches)
 				removed++;
 			}
 		}
-		else { // does not have 2 neighbours
+		else { // does not have 2 neighbors
 			matchIterator->clear(); // remove match
 			removed++;
 		}
 	}
-	return removed; //返回被删除的点数量
+	return removed;
 }
 
+/** \brief get a white ring mask for the srcImg.
+ * \param size the size of mask, usually the same as srcImg.
+ * \param Ro
+ * \param Ri
+ * \return a mask
+ */
 cv::Mat RobustMatcher::getMask(cv::Size size, int Ro, int Ri) const
 {
 	cv::Mat mask = cv::Mat::zeros(size, CV_8UC1);

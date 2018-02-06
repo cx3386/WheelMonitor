@@ -10,10 +10,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>quazip.lib;opencv_world340.lib;GdiPlus.lib;HCCore.lib;HCNetSDK.lib;PlayCtrl.lib;HCAlarm.lib;HCGeneralCfgMgr.lib;HCPreview.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Advapi32.lib;quazip.lib;opencv_world340.lib;GdiPlus.lib;HCCore.lib;HCNetSDK.lib;PlayCtrl.lib;HCAlarm.lib;HCGeneralCfgMgr.lib;HCPreview.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ClCompile />
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessorDefinitions>QAPPLICATION_CLASS=QApplication;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />

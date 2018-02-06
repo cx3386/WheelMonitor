@@ -1,15 +1,13 @@
 #ifndef CUSTOMSLIDER_H
 #define CUSTOMSLIDER_H
 
-#include <QCoreApplication>
-#include <QMouseEvent>
 #include <QSlider>
 
 class CustomSlider : public QSlider
 {
 	Q_OBJECT
 public:
-	CustomSlider(QWidget *parent = 0)
+	CustomSlider(QWidget *parent = nullptr)
 		: QSlider(parent)
 	{
 	}
@@ -19,9 +17,15 @@ public:
 	}
 
 protected:
-	void mousePressEvent(QMouseEvent *ev); //重写QSlider的mousePressEvent事件
+	/** \brief override QSlider::mousePressEvent
+	 */
+	void mousePressEvent(QMouseEvent *ev) override;
 signals:
-	void costomSliderClicked(int); //自定义的鼠标单击信号，用于捕获并处理
+	/** \brief A custom mouse-click signal for capturing and processing
+	 * \param
+	 * \return
+	 */
+	void costomSliderClicked(int);
 };
 
 #endif // CUSTOMSLIDER_H

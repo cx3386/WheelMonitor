@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "plcserial.h"
-#include "common.h"
+#include <QSerialPort>
 
 /*Write alarm light*/
 /*the center control alarm is 0001*/
@@ -27,7 +27,6 @@ double PLCSerial::speedAD = 0.0;
 
 PLCSerial::PLCSerial(QObject *parent) : QObject(parent), sensorRight(false), sensorLeft(false), stopSensor(false), isConnect(false), currentAlarmColor(AlarmColorUnkown)
 {
-	//qRegisterMetaType<PLCSerial::AlarmColor>("AlarmColor");	//2017/10/26
 }
 
 PLCSerial::~PLCSerial()

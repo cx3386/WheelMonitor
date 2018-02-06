@@ -38,11 +38,10 @@
 **
 ****************************************************************************/
 
+#include "stdafx.h"
 #include "player.h"
-
 #include "customslider.h"
 #include <QMediaService>
-#include <QtWidgets>
 
 Player::Player(QWidget* parent)
 	: QWidget(parent)

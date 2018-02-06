@@ -1,14 +1,7 @@
 #pragma once
 #include <QObject>
-//#include <Windows.h>
-//#include <cstdlib>
-//#include <cstring>
-//#include <iostream>
 #include "HCNetSDK.h"
 #include "plaympeg4.h"
-
-#include <QMutex>
-//#include <time.h>
 #include <opencv2/opencv.hpp>
 
 class HikVideoCapture : public QObject
@@ -17,7 +10,6 @@ class HikVideoCapture : public QObject
 		static void CALLBACK g_ExceptionCallBack(DWORD dwType, LONG lUserID, LONG lHandle, void *pUser);
 	static void CALLBACK fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, DWORD dwUser);
 	static void CALLBACK DecCBFun(long nPort, char * pBuf, long nSize, FRAME_INFO * pFrameInfo, long nReserved1, long nReserved2);
-	static void CALLBACK fDrawFun(LONG lRealHandle, HDC hDc, DWORD dwUser);
 
 public:
 	explicit HikVideoCapture(QObject *parent = Q_NULLPTR);

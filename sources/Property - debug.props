@@ -7,13 +7,18 @@
     <LibraryPath>3rdparty\opencv\lib;3rdparty\quazip\lib;3rdparty\HIKVISION\lib;3rdparty\HIKVISION\lib\HCNetSDKCom;$(LibraryPath)</LibraryPath>
     <_PropertySheetDisplayName>Debug_x64</_PropertySheetDisplayName>
     <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>quazipd.lib;opencv_world340d.lib;GdiPlus.lib;HCCore.lib;HCNetSDK.lib;PlayCtrl.lib;HCAlarm.lib;HCGeneralCfgMgr.lib;HCPreview.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Advapi32.lib;quazipd.lib;opencv_world340d.lib;GdiPlus.lib;HCCore.lib;HCNetSDK.lib;PlayCtrl.lib;HCAlarm.lib;HCGeneralCfgMgr.lib;HCPreview.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ClCompile />
     <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>QAPPLICATION_CLASS=QApplication</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />

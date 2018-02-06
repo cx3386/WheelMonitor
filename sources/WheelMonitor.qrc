@@ -1,0 +1,27 @@
+<RCC>
+  <qresource prefix="/WheelMonitor">
+    <file>Resources/images/about.png</file>
+    <file>Resources/images/backup.png</file>
+    <file>Resources/images/blue.png</file>
+    <file>Resources/images/fault.png</file>
+    <file>Resources/images/gray.png</file>
+    <file>Resources/images/green.png</file>
+    <file>Resources/images/left.png</file>
+    <file>Resources/images/log.png</file>
+    <file>Resources/images/monitor.png</file>
+    <file>Resources/images/monitor_2.png</file>
+    <file>Resources/images/preview.png</file>
+    <file>Resources/images/qt.png</file>
+    <file>Resources/images/quit.png</file>
+    <file>Resources/images/rec_grey.png</file>
+    <file>Resources/images/rec_red.png</file>
+    <file>Resources/images/red.png</file>
+    <file>Resources/images/restart.png</file>
+    <file>Resources/images/right.png</file>
+    <file>Resources/images/run.png</file>
+    <file>Resources/images/setting.png</file>
+    <file>Resources/images/stop.png</file>
+    <file>Resources/images/WheelMonitor.ico</file>
+    <file>Resources/images/yellow.png</file>
+  </qresource>
+</RCC>

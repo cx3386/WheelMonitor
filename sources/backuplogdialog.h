@@ -13,6 +13,8 @@ struct BackupInfo
 	//QStringList files;
 };
 
+class QLabel;
+class QLineEdit;
 class BackupLogDialog : public QDialog {
 	Q_OBJECT
 

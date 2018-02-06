@@ -1,11 +1,15 @@
 #include "stdafx.h"
-#include "hikvideocapture.h"
 #include "ocr.h"
 #include "common.h"
+#include "hikvideocapture.h"
 
 ocr_parameters OCR::p; //init static member of OCR
 
-OCR::OCR() : charSize(20), isDbg(false), lastNum(0), final_result_size(0)
+OCR::OCR(QObject *parent /*= Q_NULLPTR*/) : QObject(parent)
+, charSize(20)
+, isDbg(false)
+, lastNum(0)
+, final_result_size(0)
 {//¼ÓÔØÑù±¾
 	for (int i = 0; i < 10; i++) {
 		QString patternName = QString("%1/%2.jpg").arg(ocrPatternDirPath).arg(i);

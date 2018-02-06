@@ -5,7 +5,9 @@ class RobustMatcher
 {
 public:
 	RobustMatcher();
+
 	~RobustMatcher();
+
 	cv::Mat getMask(cv::Size size, int Ro, int Ri) const;
 	bool match(cv::Mat& image1, cv::Mat& image2, // input images
 		cv::Mat& mask1, cv::Mat& mask2,	//input mask

@@ -9,34 +9,24 @@ class Player;
 class PlayBackWidget : public QWidget
 {
 	Q_OBJECT
-
 public:
 	PlayBackWidget(QWidget *parent = Q_NULLPTR);
-
 	~PlayBackWidget();
+	MySqlTableModel * allModel;  ///< tableModel for all record
+	MySqlTableModel* alarmModel;  ///< talbleModel for unchecked record
 
 	/**
 	 * \brief Returns true if the alarm list is not null;otherwise returns false.
-	 *
-	 * \sa alarmList()
-	 *
 	 */
 	bool hasAlarm() const;
 
-	/**
-	 * \brief Returns the alarmList querying database
-	 *
-	 * \sa hasAlarm()
-	 */
 private:
-	MySqlTableModel * allModel;  ///< tableModel for all record
-	QTableView* allView;  ///< tableview for all record
-	MySqlTableModel* alarmModel;  ///< talbleModel for unchecked record
+	QTableView * allView;  ///< tableview for all record
 	QTableView* alarmView;  ///< tableview for unchecked record
 	Player *player;
 
 	/**
-	 * \brief initialize the alram(unchecked) table view
+	 * \brief initialize the alarm(unchecked) table view
 	 *
 	 */
 	void initAlarmTable();

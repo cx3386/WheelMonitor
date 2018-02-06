@@ -230,11 +230,6 @@ void HikVideoCapture::imageProcessReady()
 
 void CALLBACK HikVideoCapture::DecCBFun(long nPort, char* pBuf, long nSize, FRAME_INFO* pFrameInfo, long nReserved1, long nReserved2)
 {
-	Q_UNUSED(nReserved1);
-	Q_UNUSED(nReserved2);
-	Q_UNUSED(nSize);
-	Q_UNUSED(nPort);
-
 	if (gbHandling) {
 		gbHandling--;
 		return;
@@ -258,22 +253,6 @@ void CALLBACK HikVideoCapture::DecCBFun(long nPort, char* pBuf, long nSize, FRAM
 		emit pVideoCapture->imageNeedProcess(); //正向通知,反向阻塞(bStop)
 	}
 	gbHandling = capInterval; // every 8 frame
-}
-
-void CALLBACK HikVideoCapture::fDrawFun(LONG lRealHandle, HDC hDc, DWORD dwUser)
-{
-	Q_UNUSED(lRealHandle);
-	Q_UNUSED(dwUser);
-	HDC hdcSrc = CreateCompatibleDC(hDc);
-	HBITMAP hBitmap = CreateCompatibleBitmap(hDc, 500, 600);
-	SelectObject(hdcSrc, hBitmap);
-	HPEN hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
-	auto hOldPen = (HPEN)SelectObject(hDc, hPen);
-	HBRUSH hBrush = CreateSolidBrush(RGB(255, 0, 0));
-	auto hOldBrush = (HBRUSH)SelectObject(hDc, hBrush);
-	Rectangle(hdcSrc, 100, 100, 100, 200);
-	BitBlt(hDc, 300, 500, 100, 250, hdcSrc, 100, 100, SRCCOPY);
-	//SelectObject(hDc, &hOldBitmap);
 }
 
 //实时流回调

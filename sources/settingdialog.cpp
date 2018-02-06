@@ -1,8 +1,8 @@
+#include "stdafx.h"
 #include "settingdialog.h"
 #include "hikvideocapture.h"
 #include "imageprocess.h"
-#include "mainwindow.h"
-#include "stdafx.h"
+#include "wheelmonitor.h"
 
 cv::Rect SettingDialog::roiRectCache;
 
@@ -10,10 +10,11 @@ SettingDialog::SettingDialog(QWidget *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+	setWindowFlag(Qt::MSWindowsFixedSizeDialogHint);
 	roiRectCache = ImageProcess::g_imgParam.roiRect;
 	/*settingsTab*/
-	ui.appAutoRunCheckBox->setChecked(MainWindow::bAppAutoRun);
-	ui.verboseLogCheckBox->setChecked(MainWindow::bVerboseLog);
+	ui.appAutoRunCheckBox->setChecked(WheelMonitor::bAppAutoRun);
+	ui.verboseLogCheckBox->setChecked(WheelMonitor::bVerboseLog);
 
 	/*advancedTab*/
 	ui.sensorCheckBox->setChecked(ImageProcess::g_imgParam.sensorTriggered);
@@ -48,16 +49,16 @@ void SettingDialog::on_okBtn_clicked()
 	static QMutex mutex;
 	mutex.lock();
 	/*settingsTab*/
-	if (MainWindow::bAppAutoRun != ui.appAutoRunCheckBox->isChecked())
+	if (WheelMonitor::bAppAutoRun != ui.appAutoRunCheckBox->isChecked())
 	{
-		MainWindow::bAppAutoRun = ui.appAutoRunCheckBox->isChecked();
+		WheelMonitor::bAppAutoRun = ui.appAutoRunCheckBox->isChecked();
 		//MainWindow::appAutoRun(MainWindow::bAppAutoRun);
 		isChanged = true;
 	}
 
-	if (MainWindow::bVerboseLog != ui.verboseLogCheckBox->isChecked())
+	if (WheelMonitor::bVerboseLog != ui.verboseLogCheckBox->isChecked())
 	{
-		MainWindow::bVerboseLog = ui.verboseLogCheckBox->isChecked();
+		WheelMonitor::bVerboseLog = ui.verboseLogCheckBox->isChecked();
 		isChanged = true;
 	}
 

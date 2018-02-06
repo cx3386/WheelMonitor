@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "mainwindow.h"
-#include <QtWidgets/QApplication>
+#include "wheelmonitor.h"
 #include "3rdparty/singleapplication/singleapplication.h"
 #include "identification.h"
 #include "logindialog.h"
@@ -85,11 +84,9 @@ int main(int argc, char *argv[])
 
 	if (!bNoIdentity)
 	{
-		identification ide;
-		if (ide.flag_cpu_mac == 0)
+		if (!Identification::check())
 		{
-			QMessageBox::critical(nullptr, QStringLiteral("宝钢环冷机台车轮子转速监测"), QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
-			//a.exit(0);
+			QMessageBox::critical(nullptr, PRODUCT_NAME, QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
 			return 0;
 		}
 	}
@@ -97,7 +94,7 @@ int main(int argc, char *argv[])
 	{
 		return 0;
 	}
-	MainWindow w;
+	WheelMonitor w;
 	QObject::connect(&a, &SingleApplication::instanceStarted, [&w]() {
 		w.raise();
 		w.activateWindow();
@@ -106,13 +103,14 @@ int main(int argc, char *argv[])
 	w.showMinimized();
 
 	if (!bRestart)
-	{//restart won't show the login interface
+	{
 		LoginDialog dlg(&w);
 		if (dlg.exec() != QDialog::Accepted)
 			return 0;
 	}
 	//w.setWindowFlags(w.windowFlags()& ~Qt::WindowMaximizeButtonHint);
 	//w.showMaximized();
+	// #TESTONLY
 	w.resize(800, 600);
 	w.show();
 

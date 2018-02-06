@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "backuplogdialog.h"
 #include "common.h"
 #include "quazip.h"
@@ -21,7 +22,7 @@ BackupLogDialog::BackupLogDialog(QWidget *parent)
 	///UI
 	setWindowTitle(QStringLiteral("备份日志"));
 	QIcon icon;
-	icon.addFile(QStringLiteral(":/images/Resources/images/backup.png"), QSize(), QIcon::Normal, QIcon::Off);
+	icon.addFile(QStringLiteral(":/WheelMonitor/Resources/images/backup.png"), QSize(), QIcon::Normal, QIcon::Off);
 	setWindowIcon(icon);
 
 	QStringList itemsList;
@@ -188,16 +189,13 @@ bool BackupLogDialog::startCopy()
 	return true;
 }
 
-//************************************
-// Method:    zipFiles no-recursively
-// FullName:  BackupLogDialog::zipFiles
-// Access:    private
-// Returns:   bool
-// Qualifier: const
-// Parameter: QString fileCompressd: absoluteFilePath of zip file
-// Parameter: QStringList files: absolute/relativeFilePath List of files to zip
-// Parameter: QString srcRootPath
-//************************************
+/**
+ * \brief compress files to a zip. not recursively
+ *
+ * \param QString fileCompressd
+ * \param QStringList files
+ * \param QString srcRootPath
+ */
 bool BackupLogDialog::zipFiles(QString fileCompressd, QStringList files, QString srcRootPath)
 {
 	QuaZip zip(fileCompressd);
@@ -269,7 +267,7 @@ void BackupLogDialog::chooseDirPath()
 {
 	copyBtn->setEnabled(false);
 	QDir usbDriveDir(QDir::drives().back().filePath());//the last of the drives
-	auto defaultZipFile = usbDriveDir.absoluteFilePath(BackupZipName);
+	auto defaultZipFile = usbDriveDir.absoluteFilePath(BACKUP_ZIP_NAME);
 	desFilePath = QFileDialog::getSaveFileName(this, QStringLiteral("另存为"), defaultZipFile, QStringLiteral("压缩包 (*.zip)"));
 	if (desFilePath.isEmpty())
 		return;

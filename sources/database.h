@@ -4,22 +4,42 @@
 #include "common.h"
 
 /// field index of table "wheels"
-enum WheelsHeader
+enum
+	WheelHeader
 {
-	Wheels_ID = 0,
-	Wheels_Num,
-	Wheels_CalcSpeed,
-	Wheels_RefSpeed,
-	Wheels_Error,
-	Wheels_Time,
-	Wheels_AlarmLevel,
-	Wheels_CheckState,
-	Wheels_OcrSize,
-	Wheels_Fragment,
-	Wheels_TotalMatch,
-	Wheels_ValidMatch,
-	Wheels_Speeds,
-	Wheels_VideoPath,
+	Wheel_ID = 0,
+	Wheel_Num,
+	Wheel_CalcSpeed,
+	Wheel_RefSpeed,
+	Wheel_Error,
+	Wheel_Time,
+	Wheel_AlarmLevel,
+	Wheel_CheckState,
+	Wheel_OcrSize,
+	Wheel_Fragment,
+	Wheel_TotalMatch,
+	Wheel_ValidMatch,
+	Wheel_Speeds,
+	Wheel_VideoPath,
+};
+
+/// parameters of wheels to be recorded in the database
+struct WheelParam
+{
+	int id;
+	QString num;
+	double calcspeed;
+	double refspeed;
+	double error;
+	QString time;
+	int alarmlevel;
+	int checkstate;
+	int ocrsize;
+	int fragment;
+	int totalmatch;
+	int validmatch;
+	QString speeds;
+	QString videopath;
 };
 
 /// the value of field "wheels_checkstate", represent whether need check. if need check, it will show in the alarm table
@@ -32,26 +52,25 @@ enum CheckState
 
 static bool initMainDb()
 {
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", MainConnectionName);
-
+	if (!QSqlDatabase::drivers().contains("QSQLITE"))
+	{
+		qWarning() << "database: no SQLITE driver.";
+		QMessageBox::critical(Q_NULLPTR, "Unable to load database", "This app needs the SQLITE driver");
+	}
+	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", MAIN_CONNECTION_NAME);
 	db.setDatabaseName(databaseFilePath);
 	if (!db.open())
 	{
-		//qWarning() << "Database Error" << db.lastError().text(); //not log at this time
-		QMessageBox::critical(0, qApp->tr("Cannot open database"),
-			qApp->tr("Unable to establish a database connection.\n"
-				"This application needs SQLite support. Please read "
-				"the Qt SQL driver documentation for information how "
-				"to build it.\n\n"
-				"Click Cancel to exit."),
-			QMessageBox::Cancel);
+		qWarning() << "database: initMainDb failed. " << db.lastError().text();
+		QMessageBox::critical(Q_NULLPTR, "Unable to initialize Database",
+			"Eror initializing database: " + db.lastError().text());
 		return false;
 	}
 	QSqlQuery query(db);
 	QSqlTableModel model(nullptr, db);
 	model.setTable("user");
 	model.select();
-	/// if no user table, insert the default user;
+	// if no user table, insert the default user;
 	if (!model.rowCount())
 	{
 		query.exec("create table user (id integer primary key autoincrement, username varchar(20) unique, pwd varchar(20))");
@@ -60,9 +79,17 @@ static bool initMainDb()
 	return true;
 }
 
-static void initThreadDb()
+static bool initThreadDb()
 {
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", ThreadConnectionName);
+	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", THEAD_CONNECTION_NAME);
+	db.setDatabaseName(databaseFilePath);
+	if (!db.open())
+	{
+		qWarning() << "database: initThreadDb failed. " << db.lastError().text();
+		QMessageBox::critical(Q_NULLPTR, "Unable to initialize Database",
+			"Eror initializing database: " + db.lastError().text());
+		return false;
+	}
 	QSqlTableModel model(nullptr, db);
 	model.setTable("wheels");
 	model.select();
@@ -94,4 +121,5 @@ static void initThreadDb()
 			"videopath  VARCHAR( 255 ) "
 			");");
 	}
+	return true;
 }

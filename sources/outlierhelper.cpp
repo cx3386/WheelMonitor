@@ -1,14 +1,9 @@
-#include "stdafx.h"
 #include "outlierhelper.h"
+#include <vector>
+#include <algorithm>
+#include <numeric>
 
 using namespace std;
-OutlierHelper::OutlierHelper()
-{
-}
-
-OutlierHelper::~OutlierHelper()
-{
-}
 
 void OutlierHelper::reject(std::vector<double>& v) const
 {
