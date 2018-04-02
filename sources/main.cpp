@@ -6,6 +6,7 @@
 #include "logindialog.h"
 #include "database.h"
 #include "common.h"
+#include "confighelper.h"
 
 QString appName;
 QString appDirPath;
@@ -24,8 +25,18 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 
 int main(int argc, char *argv[])
 {
+	qRegisterMetaType<HWND>("HWND");
+	qRegisterMetaType<QVector<int>>("QVector<int>");
+	qRegisterMetaType<AlarmColor>("AlarmColor");
+	qRegisterMetaType<ImProfile>("ImProfile");
+	qRegisterMetaTypeStreamOperators<ImProfile>("ImProfile");
+	qRegisterMetaType<OcrProfile>("OcrProfile");
+	qRegisterMetaTypeStreamOperators<OcrProfile>("OcrProfile");
+	qRegisterMetaType<CamProfile>("CamProfile");
+	qRegisterMetaTypeStreamOperators<CamProfile>("CamProfile");
 	qInstallMessageHandler(myMessageOutput);
-	////QApplication::addLibraryPath("./plugins");	//very important
+
+	// actually works for the "restart" command -- this command must handle by 1s after the previous instance killed
 	if (argc > 1)
 	{
 		for (int i = 1; i < argc; i++)
@@ -40,9 +51,12 @@ int main(int argc, char *argv[])
 	}
 	SingleApplication a(argc, argv);
 
-	qApp->setApplicationName("WheelMonitor");
-	qApp->setApplicationVersion("1.1.0");
+	//setupApplication
+	qApp->setApplicationName(FileSpec);
+	qApp->setApplicationDisplayName(ProductName);
+	qApp->setApplicationVersion(ProductVer);
 
+	//define the declaration in common.h
 	appName = qApp->applicationName();
 	//use cleanPath() or absolutePath() or canonicalPath() to remove the redudant . or ..
 	appDirPath = QDir::cleanPath(qApp->applicationDirPath());				//the directory contains the app.exe, '/'e.g. C:/QQ
@@ -56,32 +70,37 @@ int main(int argc, char *argv[])
 	ocrPatternDirPath = QString("%1/OcrPattern").arg(appDirPath);
 	databaseFilePath = QString("%1/WheelMonitor.db3").arg(appDirPath);
 
+	//command line parser
 	QCommandLineParser parser;
 	parser.setApplicationDescription(QStringLiteral("宝钢环冷机台车轮子转速监测软件"));
 	parser.addHelpOption();
 	parser.addVersionOption();
 	//-a --auto
 	QCommandLineOption autoOption(QStringList() << "a"
-		<< "auto",
-		QCoreApplication::translate("main", "auto start."));
+		<< "auto", "auto start.");
 	parser.addOption(autoOption);
 	//-r --restart
 	QCommandLineOption restartOption(QStringList() << "r"
-		<< "restart",
-		QCoreApplication::translate("main", "restart app."));
+		<< "restart", "restart app.");
 	parser.addOption(restartOption);
-	QCommandLineOption identityOption(QStringList() << "no-identity",
-		QCoreApplication::translate("main", "skip identity."));
+	//-c
+	QCommandLineOption configFileOption("c", "specify configuration file.", "config.ini");
+	parser.addHelpOption(configFileOption);
+	//--no-identity
+	QCommandLineOption identityOption("no-identity", "skip identity.");
 	parser.addOption(identityOption);
 	parser.process(a);
 	bool bAuto = parser.isSet(autoOption);
 	bool bRestart = parser.isSet(restartOption);
 	bool bNoIdentity = parser.isSet(identityOption);
+	QString configFile = parser.value(configFileOption);
+	if (configFile.isEmpty())
+	{
+		configFile = configDirPath + "config.ini";
+	}
 
-	//if (bAuto)
-	//{//jundge if autorun
-	//	Sleep(5000);
-	//}
+	//if the app is auto run when powerboot, should sleep for 1s
+	//no longer use
 
 	if (!bNoIdentity)
 	{
@@ -97,7 +116,8 @@ int main(int argc, char *argv[])
 	{
 		return 0;
 	}
-	MainWindow w;
+	ConfigHelper conf(configFile);
+	MainWindow w(&conf);
 	QObject::connect(&a, &SingleApplication::instanceStarted, [&w]() {
 		w.raise();
 		w.activateWindow();

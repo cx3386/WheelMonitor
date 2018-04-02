@@ -3,9 +3,9 @@
 #include "ocr.h"
 #include "common.h"
 
-ocr_parameters OCR::p; //init static member of OCR
+//ocr_parameters OCR::p; //init static member of OCR
 
-OCR::OCR() : charSize(20), isDbg(false), lastNum(0), final_result_size(0)
+OCR::OCR() : charSize(20), nContinuousMissCount(0), tooMuchMiss(true), isDbg(false), lastNum(0), final_result_size(0)
 {//¼ÓÔØÑù±¾
 	for (int i = 0; i < 10; i++) {
 		QString patternName = QString("%1/%2.jpg").arg(ocrPatternDirPath).arg(i);
@@ -261,15 +261,32 @@ std::string OCR::get_final_result()
 			key = mp.first;
 		}
 	}
+
 	//if the key is null or the length != 3, means the result is wrong
 	if (key.length() != 3)
 	{
-		if (lastNum == 82)
+		//if miss for 5 times, no longer output predict num, output miss instead, until a real num is detected.
+		if (++nContinuousMissCount >= 5)
+		{
+			tooMuchMiss = true;
+		}
+		if (tooMuchMiss)
+		{
+			key = "MISS";
+		}
+		else if (lastNum == 82)
+		{
 			key = "001";
+		}
 		else
 		{
 			key = QString("%1").arg(lastNum + 1, 3, 10, QChar('0')).toStdString();
 		}
+	}
+	else
+	{
+		nContinuousMissCount = 0;
+		tooMuchMiss = false;
 	}
 	lastNum = QString::fromStdString(key).toUInt();
 	resetOcr();  //aferter output a result, reset the vectorsl

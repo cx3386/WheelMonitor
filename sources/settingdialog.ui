@@ -24,359 +24,633 @@
     <normaloff>:/images/Resources/images/setting.png</normaloff>:/images/Resources/images/setting.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
-     <item>
-      <spacer name="horizontalSpacer_5">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="okBtn">
-       <property name="text">
-        <string>OK</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="cancelBtn">
-       <property name="text">
-        <string>Cancel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
       <number>1</number>
      </property>
-     <widget class="QWidget" name="settingsTab">
+     <widget class="QWidget" name="commonTab">
       <attribute name="title">
-       <string>设置</string>
+       <string>常规</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QGroupBox" name="commonGroupBox">
-         <property name="title">
-          <string>常规</string>
-         </property>
-         <layout class="QFormLayout" name="formLayout_3">
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="appAutoRunCheckBox">
-            <property name="text">
-             <string>开机自动启动</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="verboseLogCheckBox">
-            <property name="text">
-             <string>记录详细日志</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <spacer name="verticalSpacer_2">
+       <item row="5" column="1">
+        <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>151</height>
+           <height>220</height>
           </size>
          </property>
         </spacer>
        </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="advancedTab">
-      <attribute name="title">
-       <string>高级</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0" colspan="2">
-        <widget class="QGroupBox" name="imageProcessGroupBox">
-         <property name="title">
-          <string>图像处理</string>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="startAtLaunchCheckBox">
+         <property name="text">
+          <string>启动自动开始监测</string>
          </property>
-         <layout class="QFormLayout" name="formLayout_2">
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="sensorCheckBox">
-            <property name="text">
-             <string>传感器触发</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout">
-              <item>
-               <widget class="QLabel" name="alarmRatioLabel">
-                <property name="text">
-                 <string>报警值（越小越灵敏）</string>
-                </property>
-                <property name="buddy">
-                 <cstring>alarmRatioSpinBox</cstring>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QDoubleSpinBox" name="alarmRatioSpinBox">
-                <property name="singleStep">
-                 <double>0.010000000000000</double>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <item>
-               <widget class="QLabel" name="warningLabel">
-                <property name="text">
-                 <string>预警值（越小越灵敏）</string>
-                </property>
-                <property name="buddy">
-                 <cstring>warningRatioSpinBox</cstring>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_4">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QDoubleSpinBox" name="warningRatioSpinBox">
-                <property name="singleStep">
-                 <double>0.010000000000000</double>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QLabel" name="radiusMinLabel">
-                <property name="text">
-                 <string>内圆半径(pix)</string>
-                </property>
-                <property name="buddy">
-                 <cstring>radiusMinSpinBox</cstring>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_6">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QSpinBox" name="radiusMinSpinBox">
-                <property name="maximum">
-                 <number>1000</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <item>
-               <widget class="QLabel" name="radiusMaxLabel">
-                <property name="text">
-                 <string>外圆半径(pix)</string>
-                </property>
-                <property name="buddy">
-                 <cstring>radiusMaxSpinBox</cstring>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_8">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QSpinBox" name="radiusMaxSpinBox">
-                <property name="maximum">
-                 <number>1000</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
-              <item>
-               <widget class="QLabel" name="roiLabel_1">
-                <property name="text">
-                 <string>检测区域(pix)</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QSpinBox" name="roiSpinBox_x">
-                <property name="maximum">
-                 <number>1280</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="roiLabel_2">
-                <property name="text">
-                 <string>,</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QSpinBox" name="roiSpinBox_y">
-                <property name="maximum">
-                 <number>720</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="roiLabel_3">
-                <property name="text">
-                 <string>,</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QSpinBox" name="roiSpinBox_w">
-                <property name="maximum">
-                 <number>1280</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="roiLabel_4">
-                <property name="text">
-                 <string>,</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QSpinBox" name="roiSpinBox_h">
-                <property name="maximum">
-                 <number>720</number>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="roiLabel_5">
-                <property name="text">
-                 <string>)</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-         </layout>
         </widget>
        </item>
-       <item row="1" column="0" colspan="2">
-        <widget class="QGroupBox" name="videoCaptureGroupBox">
-         <property name="title">
-          <string>图像采集</string>
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="LaunchAtLoginCheckBox">
+         <property name="text">
+          <string>开机自动启动</string>
          </property>
-         <layout class="QFormLayout" name="formLayout">
-          <item row="0" column="0">
-           <layout class="QHBoxLayout" name="horizontalLayout_6">
-            <item>
-             <widget class="QLabel" name="capIntervalLabel">
-              <property name="text">
-               <string>帧间距</string>
-              </property>
-              <property name="buddy">
-               <cstring>capIntervalSpinBox</cstring>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_9">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QSpinBox" name="capIntervalSpinBox">
-              <property name="maximum">
-               <number>1000</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QCheckBox" name="verboseLogCheckBox">
+         <property name="text">
+          <string>记录详细日志</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="deviceTab">
+      <attribute name="title">
+       <string>设备</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="1" column="0">
+        <widget class="QTabWidget" name="deviceTabWidget">
+         <property name="tabPosition">
+          <enum>QTabWidget::North</enum>
+         </property>
+         <property name="tabShape">
+          <enum>QTabWidget::Rounded</enum>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="dev1">
+          <attribute name="title">
+           <string>外圈</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="videoCaptureGroupBox">
+             <property name="title">
+              <string>图像采集</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QLabel" name="capIntervalLabel">
+                  <property name="text">
+                   <string>帧间距</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>capIntervalSpinBox</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_9">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="capIntervalSpinBox">
+                  <property name="maximum">
+                   <number>1000</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="imageProcessGroupBox">
+             <property name="title">
+              <string>图像处理</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_9">
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="sensorCheckBox">
+                <property name="text">
+                 <string>传感器触发</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout">
+                  <item>
+                   <widget class="QLabel" name="alarmRatioLabel">
+                    <property name="text">
+                     <string>报警值（越小越灵敏）</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>alarmRatioSpinBox</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_3">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="alarmRatioSpinBox">
+                    <property name="singleStep">
+                     <double>0.010000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QLabel" name="warningLabel">
+                    <property name="text">
+                     <string>预警值（越小越灵敏）</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>warningRatioSpinBox</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="warningRatioSpinBox">
+                    <property name="singleStep">
+                     <double>0.010000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <item>
+                   <widget class="QLabel" name="radiusMinLabel">
+                    <property name="text">
+                     <string>内圆半径(pix)</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>radiusMinSpinBox</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_6">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="radiusMinSpinBox">
+                    <property name="maximum">
+                     <number>1000</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_4">
+                  <item>
+                   <widget class="QLabel" name="radiusMaxLabel">
+                    <property name="text">
+                     <string>外圆半径(pix)</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>radiusMaxSpinBox</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_8">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="radiusMaxSpinBox">
+                    <property name="maximum">
+                     <number>1000</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <item>
+                   <widget class="QLabel" name="roiLabel_1">
+                    <property name="text">
+                     <string>检测区域(pix)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="roiSpinBox_x">
+                    <property name="maximum">
+                     <number>1280</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="roiLabel_2">
+                    <property name="text">
+                     <string>,</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="roiSpinBox_y">
+                    <property name="maximum">
+                     <number>720</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="roiLabel_3">
+                    <property name="text">
+                     <string>,</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="roiSpinBox_w">
+                    <property name="maximum">
+                     <number>1280</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="roiLabel_4">
+                    <property name="text">
+                     <string>,</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="roiSpinBox_h">
+                    <property name="maximum">
+                     <number>720</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="roiLabel_5">
+                    <property name="text">
+                     <string>)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="dev2">
+          <attribute name="title">
+           <string>内圈</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="videoCaptureGroupBox_3">
+             <property name="title">
+              <string>图像采集</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_19">
+                <item>
+                 <widget class="QLabel" name="capIntervalLabel_3">
+                  <property name="text">
+                   <string>帧间距</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>capIntervalSpinBox</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_18">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="capIntervalSpinBox_3">
+                  <property name="maximum">
+                   <number>1000</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="imageProcessGroupBox_3">
+             <property name="title">
+              <string>图像处理</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_8">
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="sensorCheckBox_3">
+                <property name="text">
+                 <string>传感器触发</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_3">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_14">
+                  <item>
+                   <widget class="QLabel" name="alarmRatioLabel_3">
+                    <property name="text">
+                     <string>报警值（越小越灵敏）</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>alarmRatioSpinBox</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_14">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="alarmRatioSpinBox_3">
+                    <property name="singleStep">
+                     <double>0.010000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_15">
+                  <item>
+                   <widget class="QLabel" name="warningLabel_3">
+                    <property name="text">
+                     <string>预警值（越小越灵敏）</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>warningRatioSpinBox</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_15">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QDoubleSpinBox" name="warningRatioSpinBox_3">
+                    <property name="singleStep">
+                     <double>0.010000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_16">
+                  <item>
+                   <widget class="QLabel" name="radiusMinLabel_3">
+                    <property name="text">
+                     <string>内圆半径(pix)</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>radiusMinSpinBox</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_16">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="radiusMinSpinBox_3">
+                    <property name="maximum">
+                     <number>1000</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_17">
+                  <item>
+                   <widget class="QLabel" name="radiusMaxLabel_3">
+                    <property name="text">
+                     <string>外圆半径(pix)</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>radiusMaxSpinBox</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_17">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="radiusMaxSpinBox_3">
+                    <property name="maximum">
+                     <number>1000</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_18">
+                  <item>
+                   <widget class="QLabel" name="roiLabel_11">
+                    <property name="text">
+                     <string>检测区域(pix)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="roiSpinBox_x_3">
+                    <property name="maximum">
+                     <number>1280</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="roiLabel_12">
+                    <property name="text">
+                     <string>,</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="roiSpinBox_y_3">
+                    <property name="maximum">
+                     <number>720</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="roiLabel_13">
+                    <property name="text">
+                     <string>,</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="roiSpinBox_w_3">
+                    <property name="maximum">
+                     <number>1280</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="roiLabel_14">
+                    <property name="text">
+                     <string>,</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="roiSpinBox_h_3">
+                    <property name="maximum">
+                     <number>720</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="roiLabel_15">
+                    <property name="text">
+                     <string>)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
      </widget>
     </widget>
+   </item>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+       </property>
+       <property name="centerButtons">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -393,46 +667,9 @@
   <tabstop>roiSpinBox_w</tabstop>
   <tabstop>roiSpinBox_h</tabstop>
   <tabstop>capIntervalSpinBox</tabstop>
-  <tabstop>okBtn</tabstop>
-  <tabstop>cancelBtn</tabstop>
-  <tabstop>verboseLogCheckBox</tabstop>
-  <tabstop>appAutoRunCheckBox</tabstop>
  </tabstops>
  <resources>
   <include location="mainwindow.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>okBtn</sender>
-   <signal>clicked()</signal>
-   <receiver>SettingDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>319</x>
-     <y>533</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>255</x>
-     <y>282</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>cancelBtn</sender>
-   <signal>clicked()</signal>
-   <receiver>SettingDialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>440</x>
-     <y>533</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>255</x>
-     <y>282</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

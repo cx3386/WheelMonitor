@@ -6,23 +6,6 @@
 
 #define MISS_TEST_SPEED -888
 
-struct ImageProcessParameters {
-	ImageProcessParameters();
-	double angle2Speed;
-	double warningRatio;
-	double alarmRatio;
-	int radius_min;
-	int radius_max;
-	int gs1;
-	int gs2;
-	double dp;
-	double minDist;
-	double param1;
-	double param2;
-	bool sensorTriggered;
-	cv::Rect roiRect;
-};
-
 class OCR;
 
 class ImageProcess : public QObject {

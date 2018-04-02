@@ -9,31 +9,26 @@
 #include "settingdialog.h"
 #include "stdafx.h"
 #include "testvideo.h"
+#include "confighelper.h"
 
 bool MainWindow::bAppAutoRun = true;
 bool MainWindow::bVerboseLog = true;
 
-//int const MainWindow::EXIT_CODE_REBOOT = -123456789;
-
-MainWindow::MainWindow(QWidget *parent)
-	: QMainWindow(parent), bIsRunning(false)
+MainWindow::MainWindow(const ConfigHelper &helper, QWidget *parent /*= Q_NULLPTR*/)
+	: QMainWindow(parent)
+	, configHelper(&helper)
 {
 	//setWindowOpacity(1);
-
-	qRegisterMetaType<HWND>("HWND");
-	qRegisterMetaType<QVector<int>>("QVector<int>");
-	qRegisterMetaType<AlarmColor>("AlarmColor");
-
 	ui.setupUi(this);
-	readSettings();
 	configWindow();
 	const auto deskRect = QApplication::desktop()->availableGeometry();
 	if (deskRect.width() < 1920)
 	{
 		this->setFixedSize(deskRect.size());
 	}
+
 	//auto start
-	//on_action_Start_triggered();
+	if (configHelper->startAtLaunch) { on_action_Start_triggered(); }
 }
 
 MainWindow::~MainWindow()
@@ -65,7 +60,7 @@ void MainWindow::configWindow()
 	recLabel_input->setGeometry(10, 10, 40, 28);
 	recLabel_input->setScaledContents(true);
 	recLabel_input->setVisible(false);
-	onRecStop(); //init as gray
+	onRecordOFF(); //init as gray
 	/// Setup the record(save) indication of VideoCapture
 
 	/// playbackTab
@@ -110,7 +105,7 @@ void MainWindow::configWindow()
 	connect(ui.action_About_Qt, &QAction::triggered, qApp, &QApplication::aboutQt);
 
 	realPlayHandle = (HWND)ui.previewWidget->winId();
-	//care start order
+	//CARE start order
 	imageProcess = new ImageProcess;
 	videoCapture = new HikVideoCapture;
 	plcSerial = new PLCSerial;
@@ -125,16 +120,17 @@ void MainWindow::configWindow()
 	connect(videoCaptureThread, &QThread::finished, videoCapture, &QObject::deleteLater);
 	connect(plcSerialThread, &QThread::finished, plcSerial, &QObject::deleteLater);
 
-	connect(HikVideoCapture::pVideoCapture, &HikVideoCapture::imageNeedProcess, imageProcess, &ImageProcess::doImageProcess);
-	connect(imageProcess, &ImageProcess::imageProcessReady, videoCapture, &HikVideoCapture::imageProcessReady);
+	connect(HikVideoCapture::pVideoCapture, &HikVideoCapture::captureOneImage, imageProcess, &ImageProcess::doImageProcess);
+	connect(imageProcess, &ImageProcess::imageProcessReady, videoCapture, &HikVideoCapture::currentImageProcessReady);
 
 	connect(this, &MainWindow::SyncCameraTime, videoCapture, &HikVideoCapture::syncCameraTime); //2017.11.10
-	connect(this, &MainWindow::startCap, videoCapture, &HikVideoCapture::startCap);
+	connect(this, &MainWindow::startCap, videoCapture, &HikVideoCapture::startCapture);
 	connect(videoCapture, &HikVideoCapture::isStartCap, this, &MainWindow::isStartCap);
-	connect(this, &MainWindow::stopCap, videoCapture, &HikVideoCapture::stopCap);
+	connect(this, &MainWindow::stopCap, videoCapture, &HikVideoCapture::stopCapture);
 	connect(videoCapture, &HikVideoCapture::isStopCap, this, &MainWindow::isStopCap);
-	connect(videoCapture, &HikVideoCapture::wheelTimeout, imageProcess, &ImageProcess::wheelTimeout);
-	connect(videoCapture, &HikVideoCapture::saveStopped, this, &MainWindow::onRecStop); //when stop saving video(sensorOUT or saveTimeOut), update UI.REC.gray
+	connect(videoCapture, &HikVideoCapture::recordTimeout, imageProcess, &ImageProcess::wheelTimeout);
+	connect(videoCapture, &HikVideoCapture::recordON, this, &MainWindow::onRecordON); //when stop saving video(sensorOUT or saveTimeOut), update UI.REC.gray
+	connect(videoCapture, &HikVideoCapture::recordOFF, this, &MainWindow::onRecordOFF); //when stop saving video(sensorOUT or saveTimeOut), update UI.REC.gray
 
 	//connect(this, &MainWindow::startSave, videoCapture, &HikVideoCapture::startSave);
 	//connect(this, &MainWindow::stopSave, videoCapture, &HikVideoCapture::stopSave);
@@ -156,12 +152,12 @@ void MainWindow::configWindow()
 	connect(plcSerial, &PLCSerial::ADSpeedReady, this, &MainWindow::uiShowCartSpeed);	//bind plc::adSpeed to cartSpeed
 
 	//When wheel enters detect area, i.e., lighten the LEFT sensor
-	connect(plcSerial, &PLCSerial::sensorIN, videoCapture, &HikVideoCapture::startSave); //1. start to save video
+	connect(plcSerial, &PLCSerial::sensorIN, videoCapture, &HikVideoCapture::startRecord); //1. start to save video
 	connect(plcSerial, &PLCSerial::sensorIN, imageProcess, &ImageProcess::sensorIN);	 //2. start image process
-	connect(plcSerial, &PLCSerial::sensorIN, this, &MainWindow::onRecStart);			 //3. update UI.REC.red
+	//connect(plcSerial, &PLCSerial::sensorIN, this, &MainWindow::onRecStart);			 //3. update UI.REC.red
 
 	//When wheel leaves detect area, i.e., leaves the RIGHT sensor
-	connect(plcSerial, &PLCSerial::sensorOUT, videoCapture, &HikVideoCapture::stopSave); //1. stop to save video
+	connect(plcSerial, &PLCSerial::sensorOUT, videoCapture, static_cast<void (HikVideoCapture::*)()>(&HikVideoCapture::stopRecord)); //1. stop to save video
 	connect(plcSerial, &PLCSerial::sensorOUT, imageProcess, &ImageProcess::sensorOUT);   //2. stop image process
 	//connect(plcSerial, &PLCSerial::sensorOUT, this, &MainWindow::onRecStop);			    //3. update UI.REC.gray
 
@@ -202,79 +198,6 @@ void MainWindow::configWindow()
 	//QTimer::singleShot(1000, testVideo, &TestVideo::sendVideoFrame);
 }
 
-void MainWindow::readSettings()
-{
-	QSettings settings(QString("%1/config.ini").arg(configDirPath), QSettings::IniFormat);
-	bAppAutoRun = settings.value("Common/appAutoRun", true).toBool();
-	appAutoRun(bAppAutoRun);
-	bVerboseLog = settings.value("Common/verboseLog", true).toBool();
-	/*implement of verboselog*/
-	ImageProcess::g_imgParam.sensorTriggered = settings.value("ImageProcess/sensorTriggered", false).toBool();
-	ImageProcess::g_imgParam.warningRatio = settings.value("ImageProcess/warningRatio", 0.05).toDouble();
-	ImageProcess::g_imgParam.alarmRatio = settings.value("ImageProcess/alarmRatio", 0.10).toDouble();
-	ImageProcess::g_imgParam.radius_max = settings.value("ImageProcess/radius_max", 350).toInt();
-	ImageProcess::g_imgParam.radius_min = settings.value("ImageProcess/radius_min", 250).toInt();
-	ImageProcess::g_imgParam.roiRect = cv::Rect(settings.value("ImageProcess/roiRect_x", 220).toInt(),
-		settings.value("ImageProcess/roiRect_y", 0).toInt(),
-		settings.value("ImageProcess/roiRect_w", 800).toInt(),
-		settings.value("ImageProcess/roiRect_h", 720).toInt());
-	OCR::p.plate_x_min = settings.value("ocr_parameters/plate_x_min", 100).toInt();
-	OCR::p.plate_x_max = settings.value("ocr_parameters/plate_x_max", 250).toInt();
-	OCR::p.plate_y_min = settings.value("ocr_parameters/plate_y_min", 190).toInt();
-	OCR::p.plate_y_max = settings.value("ocr_parameters/plate_y_max", 250).toInt();
-	OCR::p.plate_width_min = settings.value("ocr_parameters/plate_width_min", 160).toInt();
-	OCR::p.plate_width_max = settings.value("ocr_parameters/plate_width_max", 190).toInt();
-	OCR::p.plate_height_min = settings.value("ocr_parameters/plate_height_min", 110).toInt();
-	OCR::p.plate_height_max = settings.value("ocr_parameters/plate_height_max", 130).toInt();
-	OCR::p.num_width_min = settings.value("ocr_parameters/num_width_min", 20).toInt();
-	OCR::p.num_width_max = settings.value("ocr_parameters/num_width_max", 50).toInt();
-	OCR::p.num_height_min = settings.value("ocr_parameters/num_height_min", 50).toInt();
-	OCR::p.num_height_max = settings.value("ocr_parameters/num_height_max", 75).toInt();
-
-	HikVideoCapture::capInterval = settings.value("VideoCapture/capInterval", 7).toInt();
-	ImageProcess::g_imgParam.angle2Speed = 60 * (M_PI * 0.650 / 360) / ((HikVideoCapture::capInterval + 1) / 25.0);
-}
-
-void MainWindow::writeSettings()
-{
-	QSettings settings(QString("%1/config.ini").arg(appDirPath), QSettings::IniFormat);
-	settings.beginGroup("Common");
-	settings.setValue("appAutoRun", bAppAutoRun);
-	settings.setValue("verboseLog", bVerboseLog);
-	settings.endGroup();
-
-	settings.beginGroup("ImageProcess");
-	settings.setValue("sensorTriggered", ImageProcess::g_imgParam.sensorTriggered);
-	settings.setValue("warningRatio", ImageProcess::g_imgParam.warningRatio);
-	settings.setValue("alarmRatio", ImageProcess::g_imgParam.alarmRatio);
-	settings.setValue("radius_max", ImageProcess::g_imgParam.radius_max);
-	settings.setValue("radius_min", ImageProcess::g_imgParam.radius_min);
-	settings.setValue("roiRect_x", ImageProcess::g_imgParam.roiRect.x);
-	settings.setValue("roiRect_y", ImageProcess::g_imgParam.roiRect.y);
-	settings.setValue("roiRect_w", ImageProcess::g_imgParam.roiRect.width);
-	settings.setValue("roiRect_h", ImageProcess::g_imgParam.roiRect.height);
-	settings.endGroup();
-
-	settings.beginGroup("ocr_parameters");
-	settings.setValue("plate_x_min", OCR::p.plate_x_min);
-	settings.setValue("plate_x_max", OCR::p.plate_x_max);
-	settings.setValue("plate_y_min", OCR::p.plate_y_min);
-	settings.setValue("plate_y_max", OCR::p.plate_y_max);
-	settings.setValue("plate_width_min", OCR::p.plate_width_min);
-	settings.setValue("plate_width_max", OCR::p.plate_width_max);
-	settings.setValue("plate_height_min", OCR::p.plate_height_min);
-	settings.setValue("plate_height_max", OCR::p.plate_height_max);
-	settings.setValue("num_width_min", OCR::p.num_width_min);
-	settings.setValue("num_width_max", OCR::p.num_width_max);
-	settings.setValue("num_height_min", OCR::p.num_height_min);
-	settings.setValue("num_height_max", OCR::p.num_height_max);
-	settings.endGroup();
-
-	settings.beginGroup("VideoCapture");
-	settings.setValue("capInterval", HikVideoCapture::capInterval);
-	settings.endGroup();
-}
-
 bool MainWindow::cleanDir(QString dirPath, int nDays)
 {
 	//planA:only clean the file that auto generated by app
@@ -304,30 +227,11 @@ bool MainWindow::cleanDir(QString dirPath, int nDays)
 	return r;
 }
 
-void MainWindow::appAutoRun(bool bAutoRun) ///< autorun when computer start
-{
-	//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-	QSettings *reg = new QSettings(R"(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run)", QSettings::NativeFormat);
-
-	if (bAutoRun)
-	{
-		QString strAppPath = QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
-		//strAppPath.replace(QChar('/'), QChar('\\'), Qt::CaseInsensitive);
-		reg->setValue(appName, QString("%1 --auto").arg(strAppPath));
-	}
-	else
-	{
-		//reg->setValue("WheelMonitor", "");
-		reg->remove(appName);
-	}
-	reg->deleteLater();
-}
-
 void MainWindow::closeEvent(QCloseEvent *event)
 {
 	if (!(QMessageBox::information(this, QStringLiteral("宝钢环冷机台车轮子转速监测"), QStringLiteral("真的要退出吗？"), QStringLiteral("确定"), QStringLiteral("取消"))))
 	{
-		writeSettings();
+		configHelper->save();
 		event->accept();
 	}
 	else
@@ -468,9 +372,13 @@ void MainWindow::on_action_Restart_triggered()
 }
 void MainWindow::on_action_Property_triggered()
 {
-	settingDialog = new SettingDialog(this);
-	settingDialog->deleteLater(); //will delete the connect when return from this funciton
-	settingDialog->exec();
+	auto sDlg = new SettingDialog(this);
+	connect(sDlg, &SettingsDialog::finished,
+		sDlg, &SettingsDialog::deleteLater);
+	if (sDlg->exec()) {
+		//TODO
+		configHelper->save();
+	}
 }
 void MainWindow::on_action_Quit_triggered()
 {
@@ -552,13 +460,13 @@ bool MainWindow::isStopCap(bool result)
 	return result;
 }
 
-void MainWindow::onRecStart()
+void MainWindow::onRecordON()
 {
 	recLabel_pre->setPixmap(QPixmap(":/images/Resources/images/rec_red.png"));
 	recLabel_input->setPixmap(QPixmap(":/images/Resources/images/rec_red.png"));
 }
 
-void MainWindow::onRecStop()
+void MainWindow::onRecordOFF()
 {
 	recLabel_pre->setPixmap(QPixmap(":/images/Resources/images/rec_grey.png"));
 	recLabel_input->setPixmap(QPixmap(":/images/Resources/images/rec_grey.png"));

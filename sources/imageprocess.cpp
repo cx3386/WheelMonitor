@@ -13,22 +13,6 @@
 using namespace std;
 using namespace cv;
 
-ImageProcessParameters::ImageProcessParameters() : angle2Speed(60 * (M_PI * 0.650 / 360) / (8.0 / 25.0)),
-alarmRatio(0.05),
-warningRatio(0.10),
-radius_max(250),
-radius_min(200),
-gs1(9),
-gs2(9),
-dp(2),
-minDist(180),
-param1(200),
-param2(100),
-sensorTriggered(false),
-roiRect(220, 0, 800, 720)
-{
-}
-
 ImageProcessParameters ImageProcess::g_imgParam;
 
 ImageProcess::ImageProcess(QObject *parent /*= Q_NULLPTR*/) : QObject(parent)

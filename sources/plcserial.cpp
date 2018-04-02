@@ -4,24 +4,24 @@
 
 /*Write alarm light*/
 /*the center control alarm is 0001*/
-#define ALARM_LIGHT_ON      "@00WR010000F032*\r"	//1111
-#define ALARM_LIGHT_OFF     "@00WR0100000044*\r"	//0000
-#define ALARM_LIGHT_RED     "@00WR0100001144*\r"
-#define ALARM_LIGHT_GREEN   "@00WR0100002046*\r"
-#define ALARM_LIGHT_YELLOW  "@00WR0100004040*\r"
+const char* ALARM_LIGHT_ON = "@00WR010000F032*\r";	//1111
+const char* ALARM_LIGHT_OFF = "@00WR0100000044*\r";	//0000
+const char* ALARM_LIGHT_RED = "@00WR0100001144*\r";
+const char* ALARM_LIGHT_GREEN = "@00WR0100002046*\r";
+const char* ALARM_LIGHT_YELLOW = "@00WR0100004040*\r";
 
 /*Read sensor state*/
-#define READ_SENSOR_STATE   "@00RR0000000141*\r"
-#define SENSOR_L_OFF_R_OFF  "@00RR00000040*\r"	//00
-#define SENSOR_L_OFF_R_ON   "@00RR00000242*\r"	//01
-#define SENSOR_L_ON_R_OFF   "@00RR00000848*\r"	//10
-#define SENSOR_L_ON_R_ON    "@00RR00000A31*\r"	//11
+const char* READ_SENSOR_STATE = "@00RR0000000141*\r";
+const char* SENSOR_L_OFF_R_OFF = "@00RR00000040*\r"; //00
+const char* SENSOR_L_OFF_R_ON = "@00RR00000242*\r";	//01
+const char* SENSOR_L_ON_R_OFF = "@00RR00000848*\r";	//10
+const char* SENSOR_L_ON_R_ON = "@00RR00000A31*\r"; //11
 
 /*AD module*/
-#define INIT_AD             "@00WR0102800A800037*\r" //use ad ad input port01, 4-20ma, no average
-#define READ_AD             "@00RR0002000143*\r"
+const char* INIT_AD = "@00WR0102800A800037*\r";//use ad ad input port01, 4-20ma, no average
+const char* READ_AD = "@00RR0002000143*\r";
 
-#define WR_CORRECT_RESPONSE "@00WR0045*\r"
+const char* WR_CORRECT_RESPONSE = "@00WR0045*\r";
 
 double PLCSerial::speedAD = 0.0;
 

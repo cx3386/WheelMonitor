@@ -4,25 +4,27 @@
 #include <QDialog>
 #include <opencv2/opencv.hpp>
 
+class ConfigHelper;
 class SettingDialog : public QDialog {
 	Q_OBJECT
 
 public:
-	SettingDialog(QWidget* parent = Q_NULLPTR);
+	explicit SettingDialog(ConfigHelper& ch, QWidget* parent = Q_NULLPTR);
 	~SettingDialog();
 
 private:
 	Ui::SettingDialog ui;
-	static cv::Rect roiRectCache;
+	ConfigHelper *helper;
 
-protected:
-	//	void closeEvent(QCloseEvent *event);
+	void helperToUi();
+	void uiToHelper();
 
-	signals :
-			void roiChanged();
-
-			private slots:
-			void roiSlot(int);
-			void on_okBtn_clicked();
-			void on_cancelBtn_clicked();
+	private slots:
+	void onAccepted();
+	void onRejected();
+	void onChanged();
+	void onRestore();
+	void roiSlot(int);
+	void on_okBtn_clicked();
+	void on_cancelBtn_clicked();
 };

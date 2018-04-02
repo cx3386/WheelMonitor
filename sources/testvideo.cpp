@@ -110,7 +110,7 @@ int TestVideo::sendVideoFrame()
 		mutex.lock();
 		HikVideoCapture::pRawImage = frame;
 		mutex.unlock();
-		emit HikVideoCapture::pVideoCapture->imageNeedProcess(); //单向通知,单向阻塞
+		emit HikVideoCapture::pVideoCapture->captureAnImage(); //单向通知,单向阻塞
 		iImgHanding = 7; //every 8 frame
 	}
 	//关闭视频文件

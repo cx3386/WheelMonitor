@@ -23,7 +23,7 @@
 
 /// detailed information about this application.
 
-const QString FileSpec = QStringLiteral("宝钢环冷机台车轮子速度检测软件");
+const QString FileSpec = "WheelMonitor";
 const QString FileVer = "1.1.1";
 const QString ProductName = QStringLiteral("宝钢环冷机台车轮子速度检测软件");
 const QString ProductVer = "1.1.1";
@@ -66,4 +66,7 @@ enum AlarmColor {
 	AlarmColorYellow = 4,
 	AlarmColorGray = 8,
 	AlarmOFF = AlarmColorGray
+};
+
+enum DEVNAMES {
 };

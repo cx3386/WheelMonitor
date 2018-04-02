@@ -6,21 +6,6 @@
 using namespace std;
 using namespace cv;
 
-struct ocr_parameters {
-	int plate_x_min;
-	int plate_x_max;
-	int plate_y_min;
-	int plate_y_max;
-	int plate_width_min;
-	int plate_width_max;
-	int plate_height_min;
-	int plate_height_max;
-	int num_width_min;
-	int num_width_max;
-	int num_height_min;
-	int num_height_max;
-};
-
 struct CharSegment {
 	Mat img;
 	Rect pos;
@@ -36,6 +21,8 @@ public:
 	string get_final_result();
 	int size() const { return final_result_size; };  //valid after call get_final_result and before the next call of get_final_result
 private:
+	bool tooMuchMiss;
+	int nContinuousMissCount;
 	uint lastNum;
 	bool isDbg;//调试标志位，显示过程图像
 	vector<string> result;
