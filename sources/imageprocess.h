@@ -46,7 +46,7 @@ private:
 	QMutex mutex;
 	RobustMatcher rMatcher;
 	bool insertRecord(const QString &num, int alarmLevel, double absError, double refspeed, int ocrsize, int fragment, int totalmatch, int validmatch, const QString &speeds, const QString &videopath);
-
+	bool insertRecord(WheelParam wheel);
 signals:
 	// void resultReady(const QString &result);
 	void initModel();

@@ -1,8 +1,8 @@
 #pragma once
 #include <QObject>
-#include <QSerialPort>
-#include <QTimer>
+#include "common.h"
 
+class QSerialPort;
 class PLCSerial : public QObject
 {
 	Q_OBJECT

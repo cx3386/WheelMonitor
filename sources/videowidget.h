@@ -44,15 +44,15 @@
 #include <QVideoWidget>
 
 class VideoWidget : public QVideoWidget {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    VideoWidget(QWidget* parent = 0);
+	VideoWidget(QWidget* parent = 0);
 
 protected:
-    void keyPressEvent(QKeyEvent* event) override;
-    void mouseDoubleClickEvent(QMouseEvent* event) override;
-    void mousePressEvent(QMouseEvent* event) override;
+	void keyPressEvent(QKeyEvent* event) override;
+	void mouseDoubleClickEvent(QMouseEvent* event) override;
+	void mousePressEvent(QMouseEvent* event) override;
 };
 
 #endif // VIDEOWIDGET_H

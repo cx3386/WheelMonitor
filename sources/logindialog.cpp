@@ -46,7 +46,7 @@ void LoginDialog::on_loginBtn_clicked()
 	}
 	else
 	{
-		QSqlQuery query(QSqlDatabase::database(MainConnectionName));
+		QSqlQuery query(QSqlDatabase::database(MAIN_CONNECTION_NAME));
 		query.exec(QStringLiteral("select * from user where username='%1' and pwd='%2';").arg(ui.idLineEdit->text()).arg(ui.pwdLineEdit->text()));
 		if (query.next())
 		{

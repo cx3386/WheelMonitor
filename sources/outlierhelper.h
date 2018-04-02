@@ -1,10 +1,11 @@
 #pragma once
+#include <vector>
 
 class OutlierHelper
 {
 public:
-	OutlierHelper();
-	~OutlierHelper();
+	OutlierHelper() = default;
+	~OutlierHelper() = default;
 	void reject(std::vector<double>& v) const;
 	double mean(std::vector<double> v) const;	//arithmetical mean
 	double stDev(std::vector<double> v) const;

@@ -71,7 +71,7 @@ PlayBackWidget::PlayBackWidget(QWidget *parent)
 	//#TESTONLY
 	//auto* tmpLabel = new QLabel(this);
 	//tmpLabel->setScaledContents(true);
-	//tmpLabel->setPixmap(QPixmap(":/images/Resources/images/tmp.png"));
+	//tmpLabel->setPixmap(QPixmap(":/WheelMonitor/Resources/images/tmp.png"));
 	auto *vLayout = new QVBoxLayout;
 	vLayout->addLayout(toolLayout);
 	vLayout->addLayout(hLayout);
@@ -81,7 +81,7 @@ PlayBackWidget::PlayBackWidget(QWidget *parent)
 
 void PlayBackWidget::initAlarmTable()
 {
-	alarmModel = new MySqlTableModel(this, QSqlDatabase::database(MainConnectionName));
+	alarmModel = new MySqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
 	alarmModel->setTable("wheels");
 	alarmModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 	alarmModel->setFilter("checkstate=1");
@@ -99,13 +99,13 @@ void PlayBackWidget::initAlarmTable()
 	alarmView->horizontalHeader()->setStretchLastSection(true);
 	alarmView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 	alarmView->resizeColumnsToContents();
-	alarmModel->setHeaderData(Wheels_Num, Qt::Horizontal, QStringLiteral("序号"));
-	alarmModel->setHeaderData(Wheels_CalcSpeed, Qt::Horizontal, QStringLiteral("测量"));
-	alarmModel->setHeaderData(Wheels_RefSpeed, Qt::Horizontal, QStringLiteral("参考"));
-	alarmModel->setHeaderData(Wheels_Error, Qt::Horizontal, QStringLiteral("±%"));
-	alarmModel->setHeaderData(Wheels_Time, Qt::Horizontal, QStringLiteral("报警时间"));
+	alarmModel->setHeaderData(Wheel_Num, Qt::Horizontal, QStringLiteral("序号"));
+	alarmModel->setHeaderData(Wheel_CalcSpeed, Qt::Horizontal, QStringLiteral("测量"));
+	alarmModel->setHeaderData(Wheel_RefSpeed, Qt::Horizontal, QStringLiteral("参考"));
+	alarmModel->setHeaderData(Wheel_Error, Qt::Horizontal, QStringLiteral("±%"));
+	alarmModel->setHeaderData(Wheel_Time, Qt::Horizontal, QStringLiteral("报警时间"));
 	alarmView->hideColumn(0);
-	for (int i = Wheels_AlarmLevel; i <= Wheels_VideoPath; ++i)
+	for (int i = Wheel_AlarmLevel; i <= Wheel_VideoPath; ++i)
 	{
 		alarmView->hideColumn(i);
 	}
@@ -114,7 +114,7 @@ void PlayBackWidget::initAlarmTable()
 
 void PlayBackWidget::initAllTable()
 {
-	allModel = new MySqlTableModel(this, QSqlDatabase::database(MainConnectionName));
+	allModel = new MySqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
 	allModel->setTable("wheels");
 	allModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 	allModel->select();
@@ -161,7 +161,7 @@ void PlayBackWidget::clearMedia(int index)
 
 void PlayBackWidget::readVideoPath(QModelIndex index) const
 {
-	QString path = allModel->data(allModel->index(index.row(), Wheels_VideoPath)).toString();
+	QString path = allModel->data(allModel->index(index.row(), Wheel_VideoPath)).toString();
 	QDir dir(videoDirPath);
 	player->setUrl(QUrl::fromLocalFile(dir.absoluteFilePath(path)));
 }
@@ -181,7 +181,7 @@ void PlayBackWidget::setSelectedChecked()
 	}
 	for (auto&& slc : selected)
 	{
-		alarmModel->setData(alarmModel->index(slc.row(), Wheels_CheckState), QVariant(Checked));
+		alarmModel->setData(alarmModel->index(slc.row(), Wheel_CheckState), QVariant(Checked));
 	}
 	alarmModel->submitAll();
 }
@@ -196,7 +196,7 @@ void PlayBackWidget::setAllChecked()
 	auto rows = alarmModel->rowCount();
 	for (int i = 0; i < rows; ++i)
 	{
-		alarmModel->setData(alarmModel->index(i, Wheels_CheckState), QVariant(Checked));
+		alarmModel->setData(alarmModel->index(i, Wheel_CheckState), QVariant(Checked));
 	}
 	alarmModel->submitAll();
 }
