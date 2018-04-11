@@ -4,10 +4,10 @@
 #include "common.h"
 
 /// field index of table "wheels"
-enum
-	WheelHeader
+enum WheelHeader
 {
 	Wheel_ID = 0,
+	Wheel_I_O,
 	Wheel_Num,
 	Wheel_CalcSpeed,
 	Wheel_RefSpeed,
@@ -24,9 +24,10 @@ enum
 };
 
 /// parameters of wheels to be recorded in the database
-struct WheelParam
+struct WheelDbInfo
 {
 	int id;
+	QString i_o;
 	QString num;
 	double calcspeed;
 	double refspeed;
@@ -79,9 +80,9 @@ static bool initMainDb()
 	return true;
 }
 
-static bool initThreadDb()
+static bool initThreadDb(int deviceIndex)
 {
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", THEAD_CONNECTION_NAME);
+	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", deviceIndex ? THEAD1_CONNECTION_NAME : THEAD0_CONNECTION_NAME);
 	db.setDatabaseName(databaseFilePath);
 	if (!db.open())
 	{
@@ -95,17 +96,18 @@ static bool initThreadDb()
 	model.select();
 	auto record = model.record();
 	QStringList refCols, dbCols;
-	refCols << "id" << "num" << "calcspeed" << "refspeed" << "error" << "time" << "alarmlevel" << "checkstate" << "ocrsize" << "fragment" << "totalmatch" << "validmatch" << "speeds" << "videopath";
+	refCols << "id" << "i_o" << "num" << "calcspeed" << "refspeed" << "error" << "time" << "alarmlevel" << "checkstate" << "ocrsize" << "fragment" << "totalmatch" << "validmatch" << "speeds" << "videopath";
 	for (int i = 0; i < record.count(); ++i)
 	{
 		dbCols << record.fieldName(i);
 	}
 	if (refCols != dbCols)
-	{
+	{//create a new table, this will drop the history records
 		QSqlQuery query(db);
 		query.exec("DROP TABLE wheels;");
 		query.exec("CREATE TABLE wheels ( "
 			"id         INTEGER         PRIMARY KEY AUTOINCREMENT,"
+			"i_o        VARCHAR( 1 ),  "
 			"num        VARCHAR( 3 ),"
 			"calcspeed  DOUBLE,"
 			"refspeed   DOUBLE,"

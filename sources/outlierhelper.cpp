@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void OutlierHelper::reject(std::vector<double>& v) const
+void OutlierHelper::removeOutliers(std::vector<double>& v) const
 {
 	sort(v.begin(), v.end());
 	if (v.size() > 100) { pauta(v); }

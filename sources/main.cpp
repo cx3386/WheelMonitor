@@ -27,7 +27,8 @@ int main(int argc, char *argv[])
 {
 	qRegisterMetaType<HWND>("HWND");
 	qRegisterMetaType<QVector<int>>("QVector<int>");
-	qRegisterMetaType<AlarmColor>("AlarmColor");
+	//qRegisterMetaType<AlarmColor>("AlarmColor");
+	qRegisterMetaType<AlarmEvent>("AlarmEvent");
 	qRegisterMetaType<ImProfile>("ImProfile");
 	qRegisterMetaTypeStreamOperators<ImProfile>("ImProfile");
 	qRegisterMetaType<OcrProfile>("OcrProfile");
@@ -52,9 +53,9 @@ int main(int argc, char *argv[])
 	SingleApplication a(argc, argv);
 
 	//setupApplication
-	qApp->setApplicationName(FileSpec);
-	qApp->setApplicationDisplayName(ProductName);
-	qApp->setApplicationVersion(ProductVer);
+	qApp->setApplicationName(FILE_SPEC);
+	qApp->setApplicationDisplayName(PRODUCT_NAME);
+	qApp->setApplicationVersion(PRODUCT_VER);
 
 	//define the declaration in common.h
 	appName = qApp->applicationName();
@@ -72,7 +73,7 @@ int main(int argc, char *argv[])
 
 	//command line parser
 	QCommandLineParser parser;
-	parser.setApplicationDescription(QStringLiteral("宝钢环冷机台车轮子转速监测软件"));
+	parser.setApplicationDescription(PRODUCT_NAME);
 	parser.addHelpOption();
 	parser.addVersionOption();
 	//-a --auto
@@ -85,7 +86,7 @@ int main(int argc, char *argv[])
 	parser.addOption(restartOption);
 	//-c
 	QCommandLineOption configFileOption("c", "specify configuration file.", "config.ini");
-	parser.addHelpOption(configFileOption);
+	parser.addOption(configFileOption);
 	//--no-identity
 	QCommandLineOption identityOption("no-identity", "skip identity.");
 	parser.addOption(identityOption);
@@ -96,7 +97,7 @@ int main(int argc, char *argv[])
 	QString configFile = parser.value(configFileOption);
 	if (configFile.isEmpty())
 	{
-		configFile = configDirPath + "config.ini";
+		configFile = configDirPath + "/config.ini";
 	}
 
 	//if the app is auto run when powerboot, should sleep for 1s
@@ -104,11 +105,9 @@ int main(int argc, char *argv[])
 
 	if (!bNoIdentity)
 	{
-		identification ide;
-		if (ide.flag_cpu_mac == 0)
+		if (!Identification::check())
 		{
-			QMessageBox::critical(nullptr, QStringLiteral("宝钢环冷机台车轮子转速监测"), QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
-			//a.exit(0);
+			QMessageBox::critical(nullptr, PRODUCT_NAME, QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
 			return 0;
 		}
 	}
@@ -132,9 +131,7 @@ int main(int argc, char *argv[])
 			return 0;
 	}
 	//w.setWindowFlags(w.windowFlags()& ~Qt::WindowMaximizeButtonHint);
-	//w.showMaximized();
-	w.resize(800, 600);
-	w.show();
+	w.showMaximized();
 
 	return a.exec();
 }

@@ -17,9 +17,9 @@
 */
 struct DevSpec
 {
-	CamProfile camProf;
-	ImProfile imProf{ camProf.frameInterv };
-	OcrProfile ocrProf;
+	CamProfile camProfile;
+	ImProfile imProfile{ camProfile.frameInterv };
+	OcrProfile ocrProfile;
 };
 
 class ConfigHelper : public QObject
@@ -35,10 +35,9 @@ public:
 	ConfigHelper(const QString &configuration, QObject *parent = Q_NULLPTR);
 	~ConfigHelper();
 	void read(); ///< read from ini
-	void save() const;
+	void save(); ///< save to ini
 
 private:
-	QSettings * settings;
 	QString configFile;
 	void takeEffect() const; ///< take the indirect change into effect, including common/launchAtLogin, etc. perhaps use signal, or implement by self.
 
@@ -50,5 +49,5 @@ public:
 	bool startAtLaunch;	///< alias click "start" after launch this app
 	bool verboseLog; ///< record verbose log
 
-	DevSpec dev[2];
+	DevSpec device[2];
 };

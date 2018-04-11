@@ -1,12 +1,17 @@
 #include "stdafx.h"
-#include "hikvideocapture.h"
 #include "ocr.h"
 #include "common.h"
+#include "confighelper.h"
 
 //ocr_parameters OCR::p; //init static member of OCR
 
-OCR::OCR() : charSize(20), nContinuousMissCount(0), tooMuchMiss(true), isDbg(false), lastNum(0), final_result_size(0)
-{//加载样本
+OCR::OCR(const ConfigHelper *_configHelper, int _deviceIndex, QObject *parent /*= Q_NULLPTR*/)
+	: QObject(parent)
+	, configHelper(_configHelper)
+	, deviceIndex(_deviceIndex)
+	, ocrProfile(&(configHelper->device[deviceIndex].ocrProfile))
+{
+	//加载样本
 	for (int i = 0; i < 10; i++) {
 		QString patternName = QString("%1/%2.jpg").arg(ocrPatternDirPath).arg(i);
 		pattern[i] = imread(patternName.toStdString(), -1);
@@ -68,9 +73,9 @@ vector<Mat> OCR::detect_plate(Mat frame) {
 		//rectangle(result, re, Scalar(0, 255, 0));
 
 		if (//re.x > p.plate_x_min && re.x < p.plate_x_max &&
-			re.y > p.plate_y_min && re.y < p.plate_y_max &&
-			re.width > p.plate_width_min && re.width < p.plate_width_max &&
-			re.height > p.plate_height_min && re.height < p.plate_height_max) {
+			re.y > ocrProfile->plate_y_min && re.y < ocrProfile->plate_y_max &&
+			re.width > ocrProfile->plate_width_min && re.width < ocrProfile->plate_width_max &&
+			re.height > ocrProfile->plate_height_min && re.height < ocrProfile->plate_height_max) {
 			Mat hmp(window, re);
 			output.push_back(hmp);
 			//save hmp
@@ -137,8 +142,8 @@ vector<CharSegment> OCR::find_ch(Mat img_threshold) {
 	int i = 0;
 	for (auto&& ct : contours) {		//Create bounding rect of object
 		Rect mr = boundingRect(Mat(ct));
-		if (mr.width >= p.num_width_min && mr.width <= p.num_width_max &&
-			mr.height >= p.num_height_min && mr.height <= p.num_height_max) {//筛选有效的框***   mr.width >= 20 && mr.width <= 35 && mr.height >= 20 && mr.height <= 50
+		if (mr.width >= ocrProfile->num_width_min && mr.width <= ocrProfile->num_width_max &&
+			mr.height >= ocrProfile->num_height_min && mr.height <= ocrProfile->num_height_max) {//筛选有效的框***   mr.width >= 20 && mr.width <= 35 && mr.height >= 20 && mr.height <= 50
 			re[i] = mr;
 			Mat num_cut(img_threshold, re[i]);
 			output.emplace_back(num_cut, re[i]);
@@ -265,14 +270,10 @@ std::string OCR::get_final_result()
 	//if the key is null or the length != 3, means the result is wrong
 	if (key.length() != 3)
 	{
-		//if miss for 5 times, no longer output predict num, output miss instead, until a real num is detected.
-		if (++nContinuousMissCount >= 5)
+		//if miss for 5 times, no longer output predict num, output miss instead
+		if (++nContinuousMissCount > 5)
 		{
-			tooMuchMiss = true;
-		}
-		if (tooMuchMiss)
-		{
-			key = "MISS";
+			key = OCR_MISS;
 		}
 		else if (lastNum == 82)
 		{
@@ -284,9 +285,8 @@ std::string OCR::get_final_result()
 		}
 	}
 	else
-	{
+	{//a real num is detected.
 		nContinuousMissCount = 0;
-		tooMuchMiss = false;
 	}
 	lastNum = QString::fromStdString(key).toUInt();
 	resetOcr();  //aferter output a result, reset the vectorsl

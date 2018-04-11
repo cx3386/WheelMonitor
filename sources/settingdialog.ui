@@ -20,7 +20,7 @@
    <string>属性</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="mainwindow.qrc">
+   <iconset>
     <normaloff>:/images/Resources/images/setting.png</normaloff>:/images/Resources/images/setting.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -669,7 +669,7 @@
   <tabstop>capIntervalSpinBox</tabstop>
  </tabstops>
  <resources>
-  <include location="mainwindow.qrc"/>
+  <include location="WheelMonitor.qrc"/>
  </resources>
  <connections/>
 </ui>

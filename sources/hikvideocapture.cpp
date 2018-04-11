@@ -1,40 +1,65 @@
 #include "stdafx.h"
 #include "hikvideocapture.h"
 #include "confighelper.h"
-#include "camprofile.h"
 #include "common.h" //capsavedir
 
 using namespace std;
 using namespace std::placeholders;
 using namespace cv;
 
-QString HikVideoCapture::videoRelativeFilePath = ""; //static, to save videoname to database;
-cv::Mat HikVideoCapture::pRawImage;					 //Because the DecBFun(HIKVISION SDK) must be static/global, so the member in it must be static.
-int HikVideoCapture::capInterval = 7;
-volatile int HikVideoCapture::gbHandling = HikVideoCapture::capInterval;
-volatile bool HikVideoCapture::bIsProcessing = false;
-LONG HikVideoCapture::nPort = -1;
-QMutex HikVideoCapture::mutex;
-HikVideoCapture *HikVideoCapture::pVideoCapture = new HikVideoCapture; //need init
+HikVideoCapture *HikVideoCapture::pCap0, *HikVideoCapture::pCap1;
 
-HikVideoCapture::HikVideoCapture(const ConfigHelper *confHelper, int _deviceIndex, HWND h, QObject *parent)
+HikVideoCapture::HikVideoCapture(const ConfigHelper *_configHelper, int _deviceIndex, HWND h, QObject *parent)
 	: QObject(parent)
-	, configHelper(confHelper)
+	, configHelper(_configHelper)
 	, deviceIndex(_deviceIndex)
 	, hPlayWnd(h)
-	, camProfile(&(confHelper->dev[deviceIndex].camProf))
+	, camProfile(&(configHelper->device[deviceIndex].camProfile))
 {
+	struPlayInfo_HD = {
+		1, // LONG lChannel;//通道号
+		0, // DWORD dwStreamType;    // 码流类型，0-主码流，1-子码流，2-码流3，3-码流4 等以此类推
+		0, // DWORD dwLinkMode;// 0：TCP方式,1：UDP方式,2：多播方式,3 - RTP方式，4-RTP/RTSP,5-RSTP/HTTP
+		hPlayWnd, // HWND hPlayWnd;//播放窗口的句柄,为NULL表示不播放图象
+		1 };	// DWORD bBlocked;  //0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
+	struPlayInfo_SD = {
+		1, // lChannel
+		1, // dwStreamType //子码流为SD
+		0, // dwLinkMode
+		0, // hPlayWnd
+		0 }; // bBlocked //不需要回调，可以非阻塞
+	NET_DVR_Init();
+	NET_DVR_SetConnectTime(2000, 1);
+	NET_DVR_SetReconnect(10000, true);
+	NET_DVR_DEVICEINFO_V30 struDeviceInfo;
+
+	auto ip = str2charx(camProfile->camIP.toStdString());
+	auto user = str2charx(camProfile->camUserName.toStdString());
+	auto pwd = str2charx(camProfile->camPassword.toStdString());
+	lUserID = NET_DVR_Login_V30(ip, camProfile->camPort, user, pwd, &struDeviceInfo);
+	if (lUserID < 0)
+	{
+		qDebug("HikVideoCapture: IPC Login error, %d", NET_DVR_GetLastError());
+		NET_DVR_Cleanup();
+		return;
+	}
+	NET_DVR_SetExceptionCallBack_V30(0, nullptr, ExceptionCallBack, nullptr);
+	syncCameraTime();
+
 	timer = new QTimer;
-	connect(timer, &QTimer::timeout, this, static_cast<void (HikVideoCapture::*)()>(&HikVideoCapture::stopRecord));
 	timer->setSingleShot(true);
+	timer->setInterval(MAX_RECORD_MSEC);
+	connect(timer, &QTimer::timeout, this, [&] {stopRecord(); emit recordTimeout(); });
 }
 
 HikVideoCapture::~HikVideoCapture()
 {
-	stopRecord(false); //save video anyway when quit
-	timer->deleteLater();
+	stopRecord(); //stop record when quit
+	//timer->deleteLater();
+	NET_DVR_Logout(lUserID);
+	NET_DVR_Cleanup();
 }
-bool HikVideoCapture::syncCameraTime()
+void HikVideoCapture::syncCameraTime()
 {
 	/*set camera time*/
 	NET_DVR_TIME struDVRTime;
@@ -46,132 +71,52 @@ bool HikVideoCapture::syncCameraTime()
 	struDVRTime.dwSecond = QDateTime::currentDateTime().toString("ss").toLong();
 	if (!NET_DVR_SetDVRConfig(lUserID, NET_DVR_SET_TIMECFG, 0xFFFFFFFF, &(struDVRTime), sizeof(NET_DVR_TIME)))
 	{
-		qDebug("NET_DVR_SET_TIME error, %d\n", NET_DVR_GetLastError());
+		qDebug("NET_DVR_SET_TIME error, %d", NET_DVR_GetLastError());
 		NET_DVR_Logout(lUserID);
 		NET_DVR_Cleanup();
-		return false;
 	}
-
-	/*get camera time*/
-	//DWORD dwReturned = 0;
-	//memset(&struDVRTime, 0, sizeof(NET_DVR_TIME));
-	//if (!NET_DVR_GetDVRConfig(lUserID, NET_DVR_GET_TIMECFG, 0xFFFFFFFF, &struDVRTime, sizeof(NET_DVR_TIME),
-	//	&dwReturned))
-	//{
-	//	qDebug("NET_DVR_GET_TIME error, %d", NET_DVR_GetLastError());
-	//	NET_DVR_Logout(lUserID);
-	//	NET_DVR_Cleanup();
-	//	emit isStartCap(false);
-	//	return false;
-	//}
-	//qDebug() << struDVRTime.dwYear << struDVRTime.dwMonth << struDVRTime.dwDay << struDVRTime.dwHour << struDVRTime.dwMinute << struDVRTime.dwSecond;
-	return true;
 }
 
 bool HikVideoCapture::startCapture()
 {
-	//initial
-	NET_DVR_Init();
-	//set connect/reconnect time
-	NET_DVR_SetConnectTime(2000, 1);
-	NET_DVR_SetReconnect(10000, true);
-	//LONG lUserID;	//moved to class definition
-
-	//---------------------------------------
-	//register device
-	NET_DVR_DEVICEINFO_V30 struDeviceInfo;
-	lUserID = NET_DVR_Login_V30("192.168.2.84", 8000, "admin", "www.cx3386.com", &struDeviceInfo);
-	if (lUserID < 0)
+	if ((lRealPlayHandle_HD != -1) && (lRealPlayHandle_SD != -1))
 	{
-		qDebug("Login error, %d", NET_DVR_GetLastError());
-		NET_DVR_Cleanup();
-		emit isStartCap(false);
-		return false;
+		qDebug() << "HikVideoCapture: Duplicate start";
+		return true;// already started
 	}
-
-	//设置异常消息回调函数
-	NET_DVR_SetExceptionCallBack_V30(0, nullptr, g_ExceptionCallBack, nullptr);
-
-	//sycn device time to system time
-	if (!syncCameraTime())
-	{
-		emit isStartCap(false);
-		return false;
-	}
-
-	if (h == nullptr)
-	{
-		qDebug() << "the handle of hik realplay is null!";
-	}
-
-	NET_DVR_PREVIEWINFO struPlayInfo_SD = { 0 };
-	struPlayInfo_SD.hPlayWnd = h;	 //需要SDK解码时句柄设为有效值，仅取流不解码时可设为空
-	struPlayInfo_SD.lChannel = 1;	 //预览通道号
-	struPlayInfo_SD.dwStreamType = 1; //0-主码流，1-子码流，2-码流3，3-码流4，以此类推
-	struPlayInfo_SD.dwLinkMode = 0;   //0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
-	struPlayInfo_SD.bBlocked = 1;	 //0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
-
-	lRealPlayHandle_SD = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo_SD, nullptr, nullptr); //SD: stand-definition, used to realplay and save
-
-	//draw to the realplay HDC
-	//NET_DVR_RigisterDrawFun(lRealPlayHandle_SD, fDrawFun, lUserID);
-
-	NET_DVR_PREVIEWINFO struPlayInfo_HD = { 0 };
-	struPlayInfo_HD.hPlayWnd = nullptr; //需要SDK解码时句柄设为有效值，仅取流不解码时可设为空
-	struPlayInfo_HD.lChannel = 1;		//预览通道号
-	struPlayInfo_HD.dwStreamType = 0;   //0-主码流，1-子码流，2-码流3，3-码流4，以此类推
-	struPlayInfo_HD.dwLinkMode = 0;		//0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP
-	struPlayInfo_HD.bBlocked = 1;		//0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
-
-	lRealPlayHandle_HD = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo_HD, nullptr, nullptr); //HD: high-definition, used to imgprocess
-
-	if (!NET_DVR_SetRealDataCallBack(lRealPlayHandle_HD, fRealDataCallBack, lUserID))
-	{
-		qDebug("NET_DVR_SetRealDataCallBack error, %d", NET_DVR_GetLastError());
-		NET_DVR_Logout(lUserID);
-		NET_DVR_Cleanup();
-		emit isStartCap(false);
-		return false;
-	}
-	if ((lRealPlayHandle_SD < 0) || (lRealPlayHandle_HD < 0))
+	lRealPlayHandle_HD = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo_HD, fRealDataCallBack, this);
+	lRealPlayHandle_SD = NET_DVR_RealPlay_V40(lUserID, &struPlayInfo_SD, nullptr, nullptr);
+	if ((lRealPlayHandle_HD == -1) || (lRealPlayHandle_SD == -1))
 	{
 		qDebug("NET_DVR_RealPlay_V40 error, %d", NET_DVR_GetLastError());
 		NET_DVR_Logout(lUserID);
 		NET_DVR_Cleanup();
-		emit isStartCap(false);
 		return false;
 	}
-	emit isStartCap(true);
 	return true;
 }
+
 bool HikVideoCapture::stopCapture()
 {
-	//---------------------------------------
-	//关闭预览
-	if ((!NET_DVR_StopRealPlay(lRealPlayHandle_SD)) || (!NET_DVR_StopRealPlay(lRealPlayHandle_HD)))
+	stopRecord();
+	bool ret = true;
+	if (lRealPlayHandle_HD != -1)
 	{
-		emit isStopCap(false);
-		return false;
+		ret &= NET_DVR_StopRealPlay(lRealPlayHandle_HD);
+		lRealPlayHandle_HD = -1;
 	}
-	//注销用户
-	if (!NET_DVR_Logout(lUserID))
+	if (lRealPlayHandle_SD != -1)
 	{
-		emit isStopCap(false);
-		return false;
+		ret &= NET_DVR_StopRealPlay(lRealPlayHandle_SD);
+		lRealPlayHandle_SD = -1;
 	}
-	//释放SDK资源
-	if (!NET_DVR_Cleanup())
-	{
-		emit isStopCap(false);
-		return false;
-	}
-	emit isStopCap(true);
-	return true;
+	//if handle==-1, already stopped, return true
+	return ret;
 }
 
 void HikVideoCapture::startRecord()
 {
-	if (bIsSaving) return;
+	if (bIsRecording) return;
 	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
 	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
 	mutex.lock();
@@ -184,80 +129,84 @@ void HikVideoCapture::startRecord()
 		qDebug() << "HikVideoCapture: startRecord error";
 		return;
 	}
-	timer->start(MAX_RECORD_MSEC); //wait 100s	//If the timer is already running, it will be stopped and restarted.
-	bIsSaving = true;
+	timer->start(); //wait 100s	//If the timer is already running, it will be stopped and restarted.
+	bIsRecording = true;
 	emit recordON();
 }
 
-void HikVideoCapture::stopRecord(bool bRecordTimeout)
+void HikVideoCapture::stopRecord()
 {
-	if (!bIsSaving) return;
+	if (!bIsRecording) return;
 	if (!NET_DVR_StopSaveRealData(lRealPlayHandle_SD))
 	{
 		qDebug() << "HikVideoCapture: stopRecord error";
 		return;
 	}
-	if (!bRecordTimeout)
-	{
-		timer->stop();//stop the timeout timer
-	}
-	else
-	{
-		emit recordTimeout();
-	}
-	bIsSaving = false;
+	timer->stop();//stop the timeout timer
+	bIsRecording = false;
 	emit recordOFF();
 }
 
-void HikVideoCapture::stopRecord()
+void HikVideoCapture::DecCBFun(char *pBuf, FRAME_INFO *pFrameInfo)
 {
-	stopRecord(false);
-}
-
-void HikVideoCapture::currentImageProcessReady()
-{
-	//如果图像处理完成，则允许录制下一帧；否则阻塞
-	bIsProcessing = false;
-}
-
-void CALLBACK HikVideoCapture::DecCBFun(long nPort, char *pBuf, long nSize, FRAME_INFO *pFrameInfo, long nReserved1, long nReserved2)
-{
-	Q_UNUSED(nReserved1);
-	Q_UNUSED(nReserved2);
-	Q_UNUSED(nSize);
-	Q_UNUSED(nPort);
-
-	if (gbHandling)
+	if (--gbHandling)
 	{
-		gbHandling--;
 		return;
 	}
+	gbHandling = camProfile->frameInterv;
+	static int waitcount = 0;
 	if (bIsProcessing)
 	{
-		qDebug("Image is waiting for processing! Please increase gbhanding");
+		//every 500 wait, write to log
+		if (++waitcount == 500) {
+			qDebug("Image is waiting for processing! Please increase gbhanding");
+			waitcount = 0;
+		}
 		return;
 	}
 	long lFrameType = pFrameInfo->nType;
 	if (lFrameType == T_YV12)
 	{
 		cv::Mat pImg(pFrameInfo->nHeight, pFrameInfo->nWidth, CV_8UC1); //pImg = Gray
-
 		cv::Mat src(pFrameInfo->nHeight + pFrameInfo->nHeight / 2, pFrameInfo->nWidth, CV_8UC1, pBuf);
 		cvtColor(src, pImg, CV_YUV2GRAY_YV12);
-		//cv::imshow("callback", pImg);
-		//cv::waitKey(1);
 		mutex.lock();
-		pRawImage = pImg;
+		rawImage = pImg;
 		mutex.unlock();
-		bIsProcessing = true;					//bool need no mutex, because bool is guaranteed atomic operations
-		emit pVideoCapture->captureOneImage(); //正向通知,反向阻塞(bStop)
+		bIsProcessing = true; // bool need no mutex, because bool is guaranteed atomic operations
+		emit captureOneImage(); // 正向通知,反向阻塞(bStop)
 	}
-	gbHandling = capInterval; // every 8 frame
 }
 
-//实时流回调
-void CALLBACK HikVideoCapture::fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, DWORD dwUser) //void *pUser
+void CALLBACK HikVideoCapture::DecCBFun0(long nPort, char * pBuf, long nSize, FRAME_INFO * pFrameInfo, long nReserved1, long nReserved2)
 {
+	pCap0->DecCBFun(pBuf, pFrameInfo);
+}
+
+void CALLBACK HikVideoCapture::DecCBFun1(long nPort, char * pBuf, long nSize, FRAME_INFO * pFrameInfo, long nReserved1, long nReserved2)
+{
+	pCap1->DecCBFun(pBuf, pFrameInfo);
+}
+
+/// 实时流回调
+void CALLBACK HikVideoCapture::fRealDataCallBack(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser) //void *pUser
+{
+	auto *pCap = static_cast<HikVideoCapture*>(pUser);
+	LONG &nPort = pCap->nPort;
+	auto DecCBFun = [pCap]()->auto {
+		int index = pCap->deviceIndex;
+		switch (index)
+		{
+		case 0:
+			HikVideoCapture::pCap0 = pCap;
+			return HikVideoCapture::DecCBFun0;
+		case 1:
+			HikVideoCapture::pCap1 = pCap;
+			return HikVideoCapture::DecCBFun1;
+		default:
+			break;
+		}
+	};
 	switch (dwDataType)
 	{
 	case NET_DVR_SYSHEAD: //系统头
@@ -280,10 +229,10 @@ void CALLBACK HikVideoCapture::fRealDataCallBack(LONG lRealHandle, DWORD dwDataT
 			}
 
 			if (!PlayM4_Play(nPort, nullptr))
-			{ //播放开始
+			{ //解码，不播放
 				break;
 			}
-			if (!PlayM4_SetDecCallBack(nPort, DecCBFun))
+			if (!PlayM4_SetDecCallBack(nPort, DecCBFun()))
 			{
 				break;
 			}
@@ -294,7 +243,7 @@ void CALLBACK HikVideoCapture::fRealDataCallBack(LONG lRealHandle, DWORD dwDataT
 		{
 			if (!PlayM4_InputData(nPort, pBuffer, dwBufSize))
 			{
-				qDebug() << "error" << PlayM4_GetLastError(nPort);
+				qDebug() << "HikVideoCapture: fRealDataCallBack error" << PlayM4_GetLastError(nPort);
 				break;
 			}
 		}
@@ -309,16 +258,14 @@ void CALLBACK HikVideoCapture::fRealDataCallBack(LONG lRealHandle, DWORD dwDataT
 		}
 		break;
 	}
-	//Sleep(1);
 }
 
-void CALLBACK HikVideoCapture::g_ExceptionCallBack(DWORD dwType, LONG lUserID, LONG lHandle, void *pUser)
+void CALLBACK HikVideoCapture::ExceptionCallBack(DWORD dwType, LONG lUserID, LONG lHandle, void *pUser)
 {
-	char tempbuf[256] = { 0 };
 	switch (dwType)
 	{
 	case EXCEPTION_RECONNECT: //预览时重连
-		qDebug("----------reconnect--------%d\n", time(nullptr));
+		qDebug("---------IPC: reconnect-------%d\n", time(nullptr));
 		break;
 	default:
 		break;

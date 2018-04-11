@@ -4,28 +4,27 @@
 
 /*Write alarm light*/
 /*the center control alarm is 0001*/
-const char* ALARM_LIGHT_ON = "@00WR010000F032*\r";	//1111
-const char* ALARM_LIGHT_OFF = "@00WR0100000044*\r";	//0000
-const char* ALARM_LIGHT_RED = "@00WR0100001144*\r";
-const char* ALARM_LIGHT_GREEN = "@00WR0100002046*\r";
-const char* ALARM_LIGHT_YELLOW = "@00WR0100004040*\r";
+const char ALARM_LIGHT_ON[] = "@00WR010000F032*\r";	///< all on
+const char ALARM_LIGHT_OFF[] = "@00WR0100000044*\r"; ///< all off
+const char ALARM_LIGHT_RED[] = "@00WR0100001144*\r"; ///< red and alarm
+const char ALARM_LIGHT_GREEN[] = "@00WR0100002046*\r"; ///< green
+const char ALARM_LIGHT_YELLOW[] = "@00WR0100004040*\r"; ///< yellow
 
 /*Read sensor state*/
-const char* READ_SENSOR_STATE = "@00RR0000000141*\r";
-const char* SENSOR_L_OFF_R_OFF = "@00RR00000040*\r"; //00
-const char* SENSOR_L_OFF_R_ON = "@00RR00000242*\r";	//01
-const char* SENSOR_L_ON_R_OFF = "@00RR00000848*\r";	//10
-const char* SENSOR_L_ON_R_ON = "@00RR00000A31*\r"; //11
+const char READ_SENSOR_STATE[] = "@00RR0000000141*\r";
+const char SENSOR_L_OFF_R_OFF[] = "@00RR00000040*\r"; //00
+const char SENSOR_L_OFF_R_ON[] = "@00RR00000242*\r";	//01
+const char SENSOR_L_ON_R_OFF[] = "@00RR00000848*\r";	//10
+const char SENSOR_L_ON_R_ON[] = "@00RR00000A31*\r"; //11
 
 /*AD module*/
-const char* INIT_AD = "@00WR0102800A800037*\r";//use ad ad input port01, 4-20ma, no average
-const char* READ_AD = "@00RR0002000143*\r";
+const char INIT_AD[] = "@00WR0102800A800037*\r";//use ad input port01, 4-20ma, no average
+const char READ_AD[] = "@00RR0002000143*\r";
 
-const char* WR_CORRECT_RESPONSE = "@00WR0045*\r";
+const char WR_CORRECT_RESPONSE[] = "@00WR0045*\r"; ///< write read correct
 
-double PLCSerial::speedAD = 0.0;
-
-PLCSerial::PLCSerial(QObject *parent) : QObject(parent), sensorRight(false), sensorLeft(false), stopSensor(false), isConnect(false), currentAlarmColor(AlarmColorUnkown)
+PLCSerial::PLCSerial(QObject *parent)
+	: QObject(parent)
 {
 }
 
@@ -48,154 +47,120 @@ void PLCSerial::init()
 	plcSerialPort->close();
 	if (!plcSerialPort->open(QIODevice::ReadWrite))
 	{
-		qWarning() << QStringLiteral("PLC: Can't connect PLC, error code %1").arg(plcSerialPort->error());
+		qWarning() << QStringLiteral("PLC: Can't open serial, error code %1").arg(plcSerialPort->error());
 	}
 	else
-		isConnect = true;
+	{
+		QMutexLocker locker(&mutex);
+		bIsConnect = true;
+	}
 
 	/*init the AD input mouduole*/
-	QByteArray plcData = INIT_AD;
-	plcSerialPort->write(plcData);
-	if (plcSerialPort->waitForBytesWritten(100))
-	{
-		if (plcSerialPort->waitForReadyRead(100))
-		{
-			QByteArray responseData = plcSerialPort->readAll();
-			while (plcSerialPort->waitForReadyRead(100))
-				responseData += plcSerialPort->readAll();
-			if (responseData != WR_CORRECT_RESPONSE)
-				qWarning() << "PLC: Init PLC(AD) failed";
-		}
-	}
+	writePLC(INIT_AD);
 }
 
-void PLCSerial::Alarm(AlarmColor alarmcolor)
+void PLCSerial::onAlarmEvent(int id)
 {
-	QMutexLocker locker(&mutex);
-	if ((currentAlarmColor == alarmcolor) || ((currentAlarmColor == AlarmColorRed) && (alarmcolor & AlarmColorYellow))) //yellow light(waring) never override red
-		return;																											//if alarmcolor is same as currentcolor, or color is now red and to be yellow, return;
-	currentAlarmColor = alarmcolor;
 	QByteArray plcData;
-	if (alarmcolor & AlarmColorGreen)
-		plcData = ALARM_LIGHT_GREEN;
-	else if (alarmcolor & AlarmColorRed)
-		plcData = ALARM_LIGHT_RED;
-	else if (alarmcolor & AlarmColorYellow)
-		plcData = ALARM_LIGHT_YELLOW;
-	else if (alarmcolor & AlarmOFF)
-		plcData = ALARM_LIGHT_OFF;
-	emit setUiAlarm(alarmcolor);
-	plcSerialPort->write(plcData);
-	if (plcSerialPort->waitForBytesWritten(100))
+	switch ((AlarmColor)id)
 	{
-		if (plcSerialPort->waitForReadyRead(100))
-		{
-			QByteArray responseData = plcSerialPort->readAll();
-			while (plcSerialPort->waitForReadyRead(100))
-				responseData += plcSerialPort->readAll();
-			if (responseData != WR_CORRECT_RESPONSE)
-				qWarning() << "PLC: Alarm Light wrong return";
-		}
+	case AlarmColorGreen:
+		plcData = ALARM_LIGHT_GREEN;
+		break;
+	case AlarmColorRed:
+		plcData = ALARM_LIGHT_RED;
+		break;
+	case AlarmColorYellow:
+		plcData = ALARM_LIGHT_YELLOW;
+		break;
+	case AlarmOFF:
+		plcData = ALARM_LIGHT_OFF;
+		break;
+	default:
+		break;
 	}
+
+	writePLC(plcData);
 }
 
-bool PLCSerial::connectPLC()
+void PLCSerial::startTimer()
 {
-	if (isConnect)
-	{
-		sensorTimer = new QTimer;
-		connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensor()));
-		sensorTimer->start(1000); //0 is error, 1 is ok.
-		ADTimer = new QTimer;
-		connect(ADTimer, SIGNAL(timeout()), this, SLOT(readAD()));
-		ADTimer->start(250);	//read ad every 250ms, ensure update more frequent than image process 8/25
-		emit isConnectPLC(true);
-		return true;
-	}
-	else
-	{
-		qWarning() << QStringLiteral("PLC: Can't connect PLC, error code %2").arg(plcSerialPort->error());
-		emit isConnectPLC(false);
-		return false;
-	}
+	sensorTimer = new QTimer;
+	connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensor()));
+	sensorTimer->start(sensorSamplingPeriod);
+	trolleyTimer = new QTimer;
+	connect(trolleyTimer, SIGNAL(timeout()), this, SLOT(readTrolley()));
+	trolleyTimer->start(trolleySamplingPeriod);
 }
-bool PLCSerial::disconnectPLC()
+void PLCSerial::stopTimer()
 {
 	sensorTimer->stop();
-	delete sensorTimer;
-	sensorTimer = nullptr;
-	ADTimer->stop();
-	delete ADTimer;
-	ADTimer = nullptr;
-	emit isDisconnectPLC(true);
-	return true;
+	sensorTimer->deleteLater();
+	trolleyTimer->stop();
+	trolleyTimer->deleteLater();
 }
 
 void PLCSerial::readSensor()
 {
-	QMutexLocker locker(&mutex);
-
-	QByteArray plcData = READ_SENSOR_STATE;
-	plcSerialPort->write(plcData);
-	if (plcSerialPort->waitForBytesWritten(100))
-	{
-		if (plcSerialPort->waitForReadyRead(100))
-		{
-			QByteArray responseData = plcSerialPort->readAll();
-			while (plcSerialPort->waitForReadyRead(100))
-				responseData += plcSerialPort->readAll();
-
-			if (responseData == SENSOR_L_OFF_R_OFF)
-			{//00
-				if (sensorRight == true && sensorLeft == false)
-				{//01->00 wheel leaves the right sensor
-					emit sensorOUT();
-				}
-				sensorRight = false;
-				sensorLeft = false;
-			}
-			else if (responseData == SENSOR_L_OFF_R_ON)
-			{//01
-				sensorRight = true;
-				sensorLeft = false;
-			}
-			else if (responseData == SENSOR_L_ON_R_OFF)
-			{//10
-				if (sensorRight == false && sensorLeft == false)
-				{//00->10 wheel enters the left sensor
-					emit sensorIN();
-				}
-				sensorRight = false;
-				sensorLeft = true;
-			}
-			else if (responseData == SENSOR_L_ON_R_ON)
-			{//11
-				qWarning() << "PLC(sensor): Both sensors are triggered at the same time, please check if the sensor is broken";
-				sensorRight = true;
-				sensorLeft = true;
-			}
-			else
-			{//wrong response
-				qWarning() << "PLC(sensor): Wrong response";
-			}
+	auto data = readPLC(READ_SENSOR_STATE);
+	if (data.isNull()) return;
+	if (data == SENSOR_L_OFF_R_OFF)
+	{//00
+		if (sensorRight == true && sensorLeft == false)
+		{//01->00 wheel leaves the right sensor
+			emit sensorOUT();
 		}
-		else
-		{
-			//QString str(tr("Wait read response timeout %1")
-			//.arg(QTime::currentTime().toString()));
-			qWarning() << "PLC(sensor): Wait read response timeout";
+		sensorRight = false;
+		sensorLeft = false;
+	}
+	else if (data == SENSOR_L_OFF_R_ON)
+	{//01
+		sensorRight = true;
+		sensorLeft = false;
+	}
+	else if (data == SENSOR_L_ON_R_OFF)
+	{//10
+		if (sensorRight == false && sensorLeft == false)
+		{//00->10 wheel enters the left sensor
+			emit sensorIN();
 		}
+		sensorRight = false;
+		sensorLeft = true;
+	}
+	else if (data == SENSOR_L_ON_R_ON)
+	{//11
+		qWarning() << "PLC(sensor): Both sensors are triggered at the same time, please check if the sensor is broken";
+		sensorRight = true;
+		sensorLeft = true;
 	}
 	else
-	{
-		qWarning() << "PLC(sensor): Wait write request timeout";
+	{//wrong response
+		qWarning() << "PLC: Sensor wrong response";
 	}
 }
 
-void PLCSerial::readAD()	//write and read one time need at least 300ms
+void PLCSerial::readTrolley()	//write and read one time need at least 300ms
 {
+	auto data = readPLC(READ_AD);
+	if (data.isNull())  return;
+	bool ok;
+	int tmpDec = QString(data.mid(7, 4)).toInt(&ok, 16);
 	QMutexLocker locker(&mutex);
-	QByteArray plcData = READ_AD;
+	if (8000 == tmpDec || 65236 <= tmpDec || 65531 <= tmpDec)//8000 or under -5, think ad module is down
+	{
+		trolleySpeed = 0;
+		emit trolleySpeedError();
+	}
+	else
+	{
+		trolleySpeed = tmpDec * 3.59 / 6000.0; //3.59 is max speed
+		emit trolleySpeedReady();
+	}
+}
+
+QByteArray PLCSerial::readPLC(QByteArray plcData)
+{
+	QByteArray responseData;
 	plcSerialPort->write(plcData);
 	if (plcSerialPort->waitForBytesWritten(100))
 	{
@@ -204,29 +169,25 @@ void PLCSerial::readAD()	//write and read one time need at least 300ms
 			QByteArray responseData = plcSerialPort->readAll();
 			while (plcSerialPort->waitForReadyRead(100))
 				responseData += plcSerialPort->readAll();
-			mutex.unlock();
-			bool ok;
-			int tmpDec = QString(responseData.mid(7, 4)).toInt(&ok, 16);
-			if (8000 == tmpDec || 65236 <= tmpDec || 65531 <= tmpDec)//8000 or under -5, think ad module is down
-			{
-				emit ADdisconnected();
-				mutex.lock();
-				speedAD = 0;
-			}
-			else
-			{
-				mutex.lock();
-				speedAD = tmpDec * 3.59 / 6000.0;
-				emit ADSpeedReady(speedAD);
-			}
-		}
-		else
-		{
-			qWarning() << "PLC(AD):Wait read response timeout";
 		}
 	}
-	else
+	if (responseData.isNull())
+		qWarning() << "PLC: readPLC() error";
+	return responseData;
+}
+
+void PLCSerial::writePLC(QByteArray plcData)
+{
+	plcSerialPort->write(plcData);
+	if (plcSerialPort->waitForBytesWritten(100))
 	{
-		qWarning() << "PLC(AD): Wait write request timeout";
+		if (plcSerialPort->waitForReadyRead(100))
+		{
+			QByteArray responseData = plcSerialPort->readAll();
+			while (plcSerialPort->waitForReadyRead(100))
+				responseData += plcSerialPort->readAll();
+			if (responseData != WR_CORRECT_RESPONSE)
+				qWarning() << "PLC: Wrong response!";
+		}
 	}
 }

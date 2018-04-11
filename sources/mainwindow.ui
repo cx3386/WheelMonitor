@@ -6,15 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>836</width>
-    <height>605</height>
+    <width>777</width>
+    <height>539</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>800</width>
-    <height>600</height>
-   </size>
   </property>
   <property name="font">
    <font>
@@ -43,7 +37,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <property name="iconSize">
        <size>
@@ -59,22 +53,13 @@
        <attribute name="title">
         <string>监测</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_5" columnstretch="1,1">
+       <layout class="QGridLayout" name="gridLayout_5" rowstretch="1,0" columnstretch="1,1">
         <item row="1" column="0">
          <widget class="QGroupBox" name="groupBox_2">
-          <property name="minimumSize">
-           <size>
-            <width>376</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
           <property name="title">
            <string>警报</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout">
+          <layout class="QFormLayout" name="formLayout_2">
            <item row="0" column="0">
             <widget class="QPushButton" name="alarmPushButton">
              <property name="enabled">
@@ -99,6 +84,9 @@
                <height>128</height>
               </size>
              </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
              <property name="flat">
               <bool>true</bool>
              </property>
@@ -108,6 +96,9 @@
             <layout class="QVBoxLayout" name="verticalLayout">
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout">
+               <property name="spacing">
+                <number>0</number>
+               </property>
                <item>
                 <widget class="QLabel" name="label">
                  <property name="font">
@@ -118,15 +109,15 @@
                  <property name="text">
                   <string>报警车轮</string>
                  </property>
-                 <property name="textFormat">
-                  <enum>Qt::PlainText</enum>
-                 </property>
                 </widget>
                </item>
                <item>
                 <spacer name="horizontalSpacer_3">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Preferred</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -138,6 +129,12 @@
                </item>
                <item>
                 <widget class="QPushButton" name="numBackwardBtn">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
@@ -158,6 +155,12 @@
                </item>
                <item>
                 <widget class="QPushButton" name="numForwardBtn">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
@@ -185,68 +188,31 @@
               </layout>
              </item>
              <item>
-              <widget class="QLCDNumber" name="lcdNumber">
-               <property name="minimumSize">
-                <size>
-                 <width>187</width>
-                 <height>118</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>187</width>
-                 <height>118</height>
-                </size>
-               </property>
-               <property name="cursor">
-                <cursorShape>PointingHandCursor</cursorShape>
-               </property>
+              <widget class="QFrame" name="frame">
                <property name="frameShape">
                 <enum>QFrame::Box</enum>
                </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
                <property name="lineWidth">
-                <number>3</number>
-               </property>
-               <property name="midLineWidth">
-                <number>0</number>
-               </property>
-               <property name="digitCount">
-                <number>3</number>
+                <number>5</number>
                </property>
               </widget>
              </item>
             </layout>
-           </item>
-           <item row="0" column="2">
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
         </item>
         <item row="0" column="1">
          <widget class="QGroupBox" name="groupBox_4">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
           <property name="title">
-           <string>匹配图</string>
+           <string>内圈</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_7">
            <item row="0" column="0">
-            <widget class="QLabel" name="imageMatchesLabel">
+            <widget class="QLabel" name="realVideoLabel_1">
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
              </property>
@@ -264,11 +230,11 @@
         <item row="0" column="0">
          <widget class="QGroupBox" name="groupBox_3">
           <property name="title">
-           <string>实时输入</string>
+           <string>外圈</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="0">
-            <widget class="QLabel" name="realVideoLabel">
+            <widget class="QLabel" name="realVideoLabel_0">
              <property name="text">
               <string/>
              </property>
@@ -288,7 +254,7 @@
           <property name="title">
            <string>实时</string>
           </property>
-          <layout class="QFormLayout" name="formLayout_2">
+          <layout class="QFormLayout" name="formLayout">
            <item row="0" column="0">
             <widget class="QLabel" name="numLabel">
              <property name="text">
@@ -361,6 +327,12 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="cartSpeedLabel">
+             <property name="minimumSize">
+              <size>
+               <width>149</width>
+               <height>29</height>
+              </size>
+             </property>
              <property name="text">
               <string>台车速度(m/min)</string>
              </property>
@@ -394,19 +366,6 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
         </item>
@@ -422,7 +381,31 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
-         <widget class="QWidget" name="previewWidget" native="true"/>
+         <widget class="QTabWidget" name="previewTabWidget">
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="cam0Tab">
+           <attribute name="title">
+            <string>外圈</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="0" column="0">
+             <widget class="QWidget" name="cam0HWND" native="true"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="cam1Tab">
+           <attribute name="title">
+            <string>内圈</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0">
+             <widget class="QWidget" name="cam1HWND" native="true"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -444,7 +427,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>836</width>
+     <width>777</width>
      <height>34</height>
     </rect>
    </property>

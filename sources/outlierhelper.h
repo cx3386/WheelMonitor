@@ -6,7 +6,7 @@ class OutlierHelper
 public:
 	OutlierHelper() = default;
 	~OutlierHelper() = default;
-	void reject(std::vector<double>& v) const;
+	void removeOutliers(std::vector<double>& v) const;
 	double mean(std::vector<double> v) const;	//arithmetical mean
 	double stDev(std::vector<double> v) const;
 

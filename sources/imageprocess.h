@@ -1,76 +1,71 @@
 #pragma once
-#include "plcserial.h"
-#include "robustmatcher.h"
 #include <QObject>
 #include <opencv2/opencv.hpp>
+#include "database.h"
 
-#define MISS_TEST_SPEED -888
+const int IM_PROC_VALID_MIN_COUNT = 10;
+const int IM_PROC_INVALID_SPEED = 888;
 
+class PLCSerial;
+class RobustMatcher;
 class OCR;
-
+struct ImProfile;
+class ConfigHelper;
+class HikVideoCapture;
+enum AlarmColor;
 class ImageProcess : public QObject {
 	Q_OBJECT
 public:
-	ImageProcess(QObject *parent = Q_NULLPTR);
+	ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_capture, PLCSerial *_plcSerial, QObject *parent = Q_NULLPTR);
 	~ImageProcess();
 
-	static ImageProcessParameters g_imgParam;
-	cv::Mat imageMatches;
-	cv::Mat frameToShow;
-
+	inline cv::Mat getFrameToShow() { QMutexLocker locker(&mutex); return frameToShow; }
+	inline void startProcess() { QMutexLocker locker(&mutex); bIsProcessing = true; }
+	inline void stopProcess() { QMutexLocker locker(&mutex); bIsProcessing = false; }
 private:
+	const ConfigHelper *configHelper;
+	HikVideoCapture *videoCapture;
+	PLCSerial *plcSerial;
+	int deviceIndex;
+	const ImProfile *imProfile;
+
+	WheelDbInfo wheelDbInfo;
 	cv::Mat srcImg;
 	cv::Mat calibratedFrame;
-	double refSpeed;
+	cv::Mat frameToShow;
 	OCR * ocr;
-	// int iImgNoCycle;
-	cv::Mat cameraUndistort(cv::Mat src);
-	int previousAlarmLevel(const QString & num) const;
-	int coreImageProcess(); // 0-no cycle, 1-matches success
+	RobustMatcher *rMatcher;
 
+	QMutex mutex;
+
+	cv::Mat cameraUndistort(cv::Mat src);
+	void alarmThisWheel();
+	int previousAlarmLevel(const QString & num) const;
+	bool insertRecord(const WheelDbInfo &info);
+	void handleAlarmLevel(int lv);
+	int coreImageProcess(); // 0-no cycle, 1-matches success
 	void foreverPreProcess();
 
-	void alarmThisWheel();
 	std::vector<double> rtSpeeds;
 	std::vector<double> refSpeeds;
-	int nImgCount; // has 0/1/2 src imgs to match. when 2, begin to match
+	int nImgCount = 0; // has 0/1/2 src imgs to match. when 2, begin to match
 				   // process; when 0,1, wait the next src img
 
-	int nFragments;
-	// void resetCoreProcess();
-	bool bIsInArea;
-	bool bWheelStopped;
-	bool bStopProcess;
-	// QTime time;
-	// int in_out_time; //ms
-	QMutex mutex;
-	RobustMatcher rMatcher;
-	bool insertRecord(const QString &num, int alarmLevel, double absError, double refspeed, int ocrsize, int fragment, int totalmatch, int validmatch, const QString &speeds, const QString &videopath);
-	bool insertRecord(WheelParam wheel);
+	bool bIsTrolleyInSensors = false;
+	bool bWheelStopped = false;
+	bool bIsProcessing = false;
+	bool bIsTrolleyStopped = false;
+	double rtRefSpeed;
 signals:
-	// void resultReady(const QString &result);
 	void initModel();
 	void imageProcessReady();
-	void showAlarmNum(const QString &s);
 	void showRealtimeImage();
-	void showImageMatches();
 	void setAlarmLight(AlarmColor alarmcolor);
-
-	void showWheelNum(const QString &s);
-	void showWheelSpeed(double speed);
-
-	//void readLastAlarm();
 
 	public slots:
 	void setupModel();
 	void doImageProcess();
-	void startImageProcess();
-	void stopImageProcess();
-	void sensorIN();
-	void sensorOUT();
-	void wheelTimeout();
-	//{
-	// QString result;
-	///* ... here is the expensive or blocking operation ... */
-	// emit resultReady(result);
+	void onSensorIN();
+	void onSensorOUT();
+	void onWheelTimeout();
 };

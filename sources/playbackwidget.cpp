@@ -99,6 +99,7 @@ void PlayBackWidget::initAlarmTable()
 	alarmView->horizontalHeader()->setStretchLastSection(true);
 	alarmView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 	alarmView->resizeColumnsToContents();
+	alarmModel->setHeaderData(Wheel_I_O, Qt::Horizontal, QStringLiteral("I/O"));
 	alarmModel->setHeaderData(Wheel_Num, Qt::Horizontal, QStringLiteral("ÐòºÅ"));
 	alarmModel->setHeaderData(Wheel_CalcSpeed, Qt::Horizontal, QStringLiteral("²âÁ¿"));
 	alarmModel->setHeaderData(Wheel_RefSpeed, Qt::Horizontal, QStringLiteral("²Î¿¼"));

@@ -9,38 +9,46 @@ class PLCSerial : public QObject
 public:
 	explicit PLCSerial(QObject *parent = nullptr);
 	~PLCSerial();
-	static double speedAD;	//linear Velocity read from AD, unit:m/min
+	inline double getTrolleySpeed() { QMutexLocker locker(&mutex); return trolleySpeed * 0.954; }//the rate optimized by LS method (minimize the error)
+	inline double isConnect() { QMutexLocker locker(&mutex); return bIsConnect; }
+	enum AlarmColor {
+		AlarmColorGreen,
+		AlarmColorRed,
+		AlarmColorYellow,
+		AlarmOFF,
+	};
 
 private:
 	QMutex mutex;
-	bool sensorRight;	//out
-	bool sensorLeft;	//in
-	bool stopSensor;
-	bool isConnect;
-	QTimer* sensorTimer;
-	QTimer* ADTimer;
-	QSerialPort* plcSerialPort;
-	//QByteArray plcData;
-	enum AlarmColor currentAlarmColor;
+	QSerialPort *plcSerialPort;
+	double trolleySpeed; //linear Velocity read from AD, unit:m/min
+	bool sensorRight = false; //out
+	bool sensorLeft = false;  //in
+	bool stopSensor = false;
+	bool bIsConnect = false;
+	QTimer *sensorTimer;
+	QTimer *trolleyTimer;
+	/* one read write period >300ms */
+	int sensorSamplingPeriod = 1000; // msec
+	int trolleySamplingPeriod = 250;//msec; should > 7/25 s
+
+	void writePLC(QByteArray plcData);
+	QByteArray readPLC(QByteArray plcData);
 
 	private slots:
 	void readSensor();
-	void readAD();	//2017.11.9
+	void readTrolley(); //2017.11.9 read trolley reference speed through (PC-PLC-AD-Trolley)
 
 signals:
-	//void initSignal();
 	void sensorIN();
 	void sensorOUT();
-	void setUiAlarm(AlarmColor alarmColor);
-	void isConnectPLC(bool r);
-	void isDisconnectPLC(bool r);
-	void ADdisconnected();
-	void ADSpeedReady(double speed);
+	void trolleySpeedReady();
+	void trolleySpeedError();
 
 	public slots:
 	void init();
-	void Alarm(AlarmColor alarmcolor);
+	void onAlarmEvent(int);
 
-	bool connectPLC();//0-00 1-01 2-10 3-11 4-error1 5-error2
-	bool disconnectPLC();
+	void startTimer(); // can't op timer through thread
+	void stopTimer();
 };

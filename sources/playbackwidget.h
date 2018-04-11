@@ -13,7 +13,7 @@ public:
 	PlayBackWidget(QWidget *parent = Q_NULLPTR);
 	~PlayBackWidget();
 	MySqlTableModel * allModel;  ///< tableModel for all record
-	MySqlTableModel* alarmModel;  ///< talbleModel for unchecked record
+	MySqlTableModel * alarmModel;  ///< talbleModel for unchecked record
 
 	/**
 	 * \brief Returns true if the alarm list is not null;otherwise returns false.

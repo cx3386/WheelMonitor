@@ -3,10 +3,10 @@
 #include <QMetaType>
 
 struct CamProfile {
-	char* camIP = "192.168.2.84";
-	WORD camPort = 8000;
-	char* camUserName = "admin";
-	char* camPassword = "www.cx3386.com";
+	QString camIP = "192.168.2.84";
+	int camPort = 8000;
+	QString camUserName = "admin";
+	QString camPassword = "baosteel123";
 	int frameInterv = 7;
 };
 Q_DECLARE_METATYPE(CamProfile)

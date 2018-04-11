@@ -44,19 +44,15 @@ const char BACKUP_ZIP_NAME[] = "WheelMonitor Bak.zip";
 //need identity of cpu and mac
 //bool bNeedIdentity;
 const char MAIN_CONNECTION_NAME[] = "main";
-const char THEAD_CONNECTION_NAME[] = "thread";
+const char THEAD0_CONNECTION_NAME[] = "thread0";
+const char THEAD1_CONNECTION_NAME[] = "thread1";
 
 /// Alarm color, generally used in client-side
-/**
- * use | to group different color
- * e.g. AlarmColorRed | AlarmColorYellow = 6, represents showing red & yellow at same time
- * not implement yet
- */
-enum AlarmColor {
-	AlarmColorUnkown = 0,
-	AlarmColorGreen = 1,
-	AlarmColorRed = 2,
-	AlarmColorYellow = 4,
-	AlarmColorGray = 8,
-	AlarmOFF = AlarmColorGray
+enum AlarmEvent
+{
+	AlarmLevel
 };
+
+static char* str2charx(const std::string &str) {	auto ch = (char *)malloc(std::strlen(str.c_str()) + 1);	std::strcpy(ch, str.c_str());
+	return ch;
+}
