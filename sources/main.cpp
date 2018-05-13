@@ -14,6 +14,7 @@ QString appFilePath;
 QString captureDirPath; //cap dir
 QString configDirPath; //cap dir
 QString videoDirPath; //video dir
+QString cacheDirPath; // cache dir
 QString matchDirPath;	//match dir
 //QString imageDirPath; //imageDirPath
 QString logDirPath;
@@ -65,8 +66,9 @@ int main(int argc, char *argv[])
 	captureDirPath = QString("%1/Capture").arg(appDirPath); //capture dir
 	configDirPath = appDirPath;
 	videoDirPath = QString("%1/Video").arg(captureDirPath);
-	matchDirPath = QString("%1/Match").arg(captureDirPath);
-	ocrDirPath = QString("%1/Ocr").arg(captureDirPath);
+	cacheDirPath = QString("%1/Cache").arg(captureDirPath);
+	matchDirPath = QString("%1/Match").arg(cacheDirPath);
+	ocrDirPath = QString("%1/Ocr").arg(cacheDirPath);
 	logDirPath = QString("%1/Log").arg(appDirPath);
 	ocrPatternDirPath = QString("%1/OcrPattern").arg(appDirPath);
 	databaseFilePath = QString("%1/WheelMonitor.db3").arg(appDirPath);
@@ -137,8 +139,6 @@ int main(int argc, char *argv[])
 }
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-	static QMutex mutex;
-	QMutexLocker loker(&mutex);
 	QString currentDateTime = QDateTime::currentDateTime().toString("yyyy/MM/dd hh:mm:ss.zzz");
 	QString typeStr;
 	switch (type) {
@@ -160,7 +160,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 	}
 	QString msgStr = QStringLiteral("[%1][%2]%3").arg(currentDateTime).arg(typeStr).arg(msg);
 	QString today = QDate::currentDate().toString("yyyyMMdd");
-	QString logFilePath = QStringLiteral("%1/%2/%3.log").arg(logDirPath).arg(today).arg(today);
+	QString logFilePath = QStringLiteral("%1/%2.log").arg(logDirPath).arg(today);
 	QFile outfile(logFilePath);
 	outfile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);	//On Windows, all '\n' characters are written as '\r\n' if QTextStream's device or string is opened using the QIODevice::Text flag.
 	QTextStream text_stream(&outfile);

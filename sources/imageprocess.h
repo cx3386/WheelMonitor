@@ -20,22 +20,21 @@ public:
 	~ImageProcess();
 
 	inline cv::Mat getFrameToShow() { QMutexLocker locker(&mutex); return frameToShow; }
-	inline void startProcess() { QMutexLocker locker(&mutex); bIsProcessing = true; }
-	inline void stopProcess() { QMutexLocker locker(&mutex); bIsProcessing = false; }
+	void start();
+	void stop();
 private:
 	const ConfigHelper *configHelper;
 	HikVideoCapture *videoCapture;
 	PLCSerial *plcSerial;
 	int deviceIndex;
 	const ImProfile *imProfile;
+	OCR * ocr;
+	RobustMatcher *rMatcher;
 
 	WheelDbInfo wheelDbInfo;
 	cv::Mat srcImg;
 	cv::Mat calibratedFrame;
 	cv::Mat frameToShow;
-	OCR * ocr;
-	RobustMatcher *rMatcher;
-
 	QMutex mutex;
 
 	cv::Mat cameraUndistort(cv::Mat src);

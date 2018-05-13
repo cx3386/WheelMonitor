@@ -3,12 +3,13 @@
 #include "QMetaType"
 struct ImProfile
 {
-private:
+  private:
 	int *interv;
-public:
+
+  public:
 	ImProfile() = default;
 	ImProfile(int &framInterv) { interv = &framInterv; }
-	inline double angle2Speed() const { return 60 * (M_PI * 0.650 / 360) / (*interv / 25.0); }
+	inline double angle2Speed() const { return 60 * (0.650 / 2) / (*interv / 25.0); }
 	double warningRatio = 0.05;
 	double alarmRatio = 0.10;
 	int radius_min = 250;
@@ -24,5 +25,5 @@ public:
 };
 Q_DECLARE_METATYPE(ImProfile)
 
-QDataStream& operator << (QDataStream &out, const ImProfile &p);
-QDataStream& operator >> (QDataStream &in, ImProfile &p);
+QDataStream &operator<<(QDataStream &out, const ImProfile &p);
+QDataStream &operator>>(QDataStream &in, ImProfile &p);

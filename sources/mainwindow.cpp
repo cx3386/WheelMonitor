@@ -359,8 +359,8 @@ void MainWindow::on_action_Start_triggered()
 		QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("内圈摄像头未连接成功！"), QStringLiteral("确定"));
 		return;
 	}
-	imageProcess[0]->startProcess();
-	imageProcess[1]->startProcess();
+	imageProcess[0]->start();
+	imageProcess[1]->start();
 	/* rec label visible */
 	recLabel_pre[0]->setVisible(true);
 	recLabel_pre[1]->setVisible(true);
@@ -382,8 +382,8 @@ void MainWindow::on_action_Stop_triggered()
 		QMessageBox::warning(this, QStringLiteral("警告"), QStringLiteral("程序已经停止，请勿重复操作！如有异常，请重启"), QStringLiteral("确定"));
 		return;
 	}
-	imageProcess[0]->stopProcess();
-	imageProcess[1]->stopProcess();
+	imageProcess[0]->stop();
+	imageProcess[1]->stop();
 	emit stopPLC();
 	if (!videoCapture[0]->stopCapture()) return;
 	if (!videoCapture[1]->stopCapture()) return;

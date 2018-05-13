@@ -23,32 +23,48 @@ class OCR :public QObject
 public:
 	OCR(const ConfigHelper * _configHelper, int _deviceIndex, QObject *parent = Q_NULLPTR);
 	void core_ocr(Mat src);//= detect_plate() + recogenize()
-	void resetOcr();//清空vector
 	string get_final_result();
-	int size() const { return final_result_size; };  //valid after call get_final_result and before the next call of get_final_result
+	/// return ocr total match size, should be called after get_final_result();
+	inline int size() const { return ocrDetectCount; }
+	/// when stop process, reset ocr to miss ocr too much
+	inline void resetOcr() { nContinuousMissCount = 5; }
 
 private:
 	const ConfigHelper * configHelper;
-	const OcrProfile * ocrProfile;
 	int deviceIndex;
+	const OcrProfile * ocrProfile; // after deviceIndex/configHelper init. depend on the order in declaration
+	QString deviceMark;
 
-	int nContinuousMissCount = 5;
+	bool isDbg = false; ///< 调试标志位，显示过程图像
+	Mat pattern[10]; ///< number character image samples, 0~9
+
+	string predictAnNum();
 	uint lastNum = 0;
-	bool isDbg = false;//调试标志位，显示过程图像
+	int nContinuousMissCount = 5;
+
 	vector<string> result;
-	int final_result_size = 0;
-	vector<CharSegment> find_ch(Mat threshold);
-	void generate_pattern(Mat in);//生成样本
-	void recognize(Mat plate);//输入GRAY格式的号码牌，得到string放入容器result
-	vector<Mat> detect_plate(Mat frame);//输入RGB格式的帧，输出GRAY格式的号码牌
-	Mat preprocess(const Mat &in);
-	int charSize = 20;
-	Mat processChar(Mat in);
-	int judge(Mat test);
-	Mat pattern[10];
+	int ocrDetectCount = 0;
+	/// 输入RGB/GRAY格式的帧，输出GRAY格式的号码牌
+	vector<Mat> detect_plate(Mat frame);
+	/// 输入GRAY格式的号码牌，得到num放入容器result
+	void recognize(Mat plate);
+	/// 字符分割，输入二值化的号码牌，输出单个字符的位置与图像
+	vector<CharSegment> find_ch(Mat binaryImg);
+	/// 用于将号码牌二值化
+	Mat binaryProcess(const Mat &in);
+	/**
+	 * \brief Preprocess char, make all char images have same sizes.
+	 *
+	 * \param Mat in a char unit
+	 */
+	Mat remapChar(Mat in);
+	/**
+	 * \brief return the num character 0~9, comparing with pattern.
+	 *
+	 * \param Mat charImg the unit char image
+	 */
+	int sampleComparison(Mat charImg);
 	float oudistance(Mat a, Mat b) const;
-	vector<CharSegment> unit_char;
-	string getTime() const;//用于保存调试的文件
 };
 
 #endif

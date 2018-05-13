@@ -5,14 +5,20 @@
 
 using namespace std;
 
-void OutlierHelper::removeOutliers(std::vector<double>& v) const
+void OutlierHelper::removeOutliers(std::vector<double> &v) const
 {
 	sort(v.begin(), v.end());
-	if (v.size() > 100) { pauta(v); }
-	else { grubbs(v); }
+	if (v.size() > 100)
+	{
+		pauta(v);
+	}
+	else
+	{
+		grubbs(v);
+	}
 }
 
-void OutlierHelper::grubbs(std::vector<double>& v) const
+void OutlierHelper::grubbs(std::vector<double> &v) const
 {
 	auto size0 = v.size();
 	if (size0 < 3)
@@ -33,14 +39,14 @@ void OutlierHelper::grubbs(std::vector<double>& v) const
 	{
 		v.erase(v.begin()); //x1 is outlier, delete the first element
 	}
-	if (v.size() == size0)
+	else
 	{
-		return;
+		return; //detect no suspicious value
 	}
 	grubbs(v);
 }
 
-void OutlierHelper::pauta(std::vector<double>& v) const
+void OutlierHelper::pauta(std::vector<double> &v) const
 {
 	auto size0 = v.size();
 	if (size0 <= 10)
@@ -49,15 +55,21 @@ void OutlierHelper::pauta(std::vector<double>& v) const
 	}
 	auto xm = mean(v);
 	auto xd = stDev(v);
-	for (auto it = v.begin(); it != v.end();) {
-		if (fabs(xm - *it) >= 3 * xd) {
+	bool isErase = false;
+	for (auto it = v.begin(); it != v.end();)
+	{
+		if (fabs(xm - *it) >= 3 * xd)
+		{
 			it = v.erase(it);
+			isErase = true;
 		}
-		else {
+		else
+		{
 			++it;
 		}
 	}
-	if (v.size() == size0)
+	if (!isErase)
+	//if(v.size()==size0)
 	{
 		return;
 	}

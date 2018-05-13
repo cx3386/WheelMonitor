@@ -34,7 +34,10 @@ private:
 
 	QList<BackupInfo> backupInfoList;
 	QStringList getBackupFiles() const;
-	QStringList getDayList(QString path, int day = 36500) const;
+
+	QStringList getDayList(QString path, bool isAll, int nDays) const; ///< get day list dirs for n days.
+	QStringList getDayList(QString path, int day) const; ///< for some days.
+	QStringList getDayList(QString path) const; ///< for all days.
 	quint64 getDiskFreeSpace(QString driver) const;	//driver free space in bytes
 	quint64 getNeedSpace() const;	//need space in bytes
 	QString desFilePath;

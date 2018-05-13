@@ -10,6 +10,7 @@ OCR::OCR(const ConfigHelper *_configHelper, int _deviceIndex, QObject *parent /*
 	, configHelper(_configHelper)
 	, deviceIndex(_deviceIndex)
 	, ocrProfile(&(configHelper->device[deviceIndex].ocrProfile))
+	, deviceMark(getDeviceMark(deviceIndex))
 {
 	//加载样本
 	for (int i = 0; i < 10; i++) {
@@ -21,13 +22,15 @@ OCR::OCR(const ConfigHelper *_configHelper, int _deviceIndex, QObject *parent /*
 			qWarning() << "OCR: Could not open or find pattern[" << i << "]";
 		}
 	}
-	resetOcr();
 }
 
-void OCR::resetOcr() {
-	unit_char.clear();
-	result.clear();
-	//qDebug() << "ocr initial complete";
+void OCR::core_ocr(Mat src) {
+	vector<Mat> plates = detect_plate(src);
+	if (isDbg) cout << "find plates " << plates.size();
+	for (auto&& pl : plates)
+	{
+		recognize(pl);
+	}
 }
 
 vector<Mat> OCR::detect_plate(Mat frame) {
@@ -79,9 +82,9 @@ vector<Mat> OCR::detect_plate(Mat frame) {
 			Mat hmp(window, re);
 			output.push_back(hmp);
 			//save hmp
-			QString nowDate = QDate::currentDate().toString("yyyyMMdd");
-			QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
-			QString fullFilePath = QStringLiteral("%1/%2/%3hmp.jpg").arg(ocrDirPath).arg(nowDate).arg(nowTime);
+			QString date = QDate::currentDate().toString("yyyyMMdd");
+			QString dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
+			QString fullFilePath = QStringLiteral("%1/%2/%3_%4hmp.jpg").arg(ocrDirPath).arg(date).arg(deviceMark).arg(dateTime);
 			imwrite(fullFilePath.toStdString(), hmp);
 		}
 	}
@@ -90,73 +93,64 @@ vector<Mat> OCR::detect_plate(Mat frame) {
 
 void OCR::recognize(Mat in)
 {
-	unit_char.clear();
-	Mat threshold = preprocess(in);
-	unit_char = find_ch(threshold);
+	auto unit_chars = find_ch(binaryProcess(in));
 
 	int count = 0;
-	stringstream out;
-	for (int i = 0; i < unit_char.size(); i++) {
-		//Preprocess each char for all images have same sizes
-		Mat StandardChar = processChar(unit_char[i].img);
-		//稳定后注释掉
-		QString nowDate = QDate::currentDate().toString("yyyyMMdd");
-		QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
-		QString fullFilePath = QStringLiteral("%1/%2/%3_%4.jpg").arg(ocrDirPath).arg(nowDate).arg(nowTime).arg(i);
+	QString nums;
+	int i = 0;
+	QString date = QDate::currentDate().toString("yyyyMMdd");
+	QString dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
+	for (auto && unit_char : as_const(unit_chars)) {
+		Mat StandardChar = remapChar(unit_char.img);
+		// save pattern
+		QString fullFilePath = QStringLiteral("%1/%2/%3_%4_%5.jpg").arg(ocrDirPath).arg(date).arg(deviceMark).arg(dateTime).arg(++i);
 		imwrite(fullFilePath.toStdString(), StandardChar);
 
-		int temp = judge(StandardChar);
-		if (temp >= 0) {
-			out << temp;
-			count++;
-		}
+		int num = sampleComparison(StandardChar);
+		if (num != -1)  nums += QString("%1").arg(num);
 	}
-	if (count < 3) {//不能识别的号码牌直接return,不直接判定unit_char.size()是因为杂质可能被判定为unit_char,但judge()可以一定程度上分辨杂质和真数字
-		//qDebug() << "get one invalide result" ;
+	if (nums.size() != 3) {
 		return;
 	}
-	else {
-		result.push_back(out.str());
-		//qDebug() << "get one result, result size come to" << result.size();
-
-		return;
-	}
+	result.push_back(nums.toStdString());
 }
 
-cv::Mat OCR::preprocess(const Mat &in) {
+cv::Mat OCR::binaryProcess(const Mat &in) {
 	Mat binary;
 	threshold(in, binary, 180, 255, cv::THRESH_BINARY);
 	return binary;
 }
 
-vector<CharSegment> OCR::find_ch(Mat img_threshold) {
+vector<CharSegment> OCR::find_ch(Mat binaryImg) {
 	//Find contours of possibles characters
 	vector< vector< Point> > contours;
-	findContours(img_threshold,
+	findContours(binaryImg,
 		contours, // a vector of contours
 		CV_RETR_EXTERNAL, // retrieve the external contours
 		CV_CHAIN_APPROX_NONE); // all pixels of each contours
 
 	Rect re[5];
-	vector<CharSegment> output;
+	vector<CharSegment> unit_chars;
 	int i = 0;
 	for (auto&& ct : contours) {		//Create bounding rect of object
 		Rect mr = boundingRect(Mat(ct));
 		if (mr.width >= ocrProfile->num_width_min && mr.width <= ocrProfile->num_width_max &&
 			mr.height >= ocrProfile->num_height_min && mr.height <= ocrProfile->num_height_max) {//筛选有效的框***   mr.width >= 20 && mr.width <= 35 && mr.height >= 20 && mr.height <= 50
 			re[i] = mr;
-			Mat num_cut(img_threshold, re[i]);
-			output.emplace_back(num_cut, re[i]);
+			Mat num_cut(binaryImg, re[i]);
+			unit_chars.emplace_back(num_cut, re[i]);
 			i++;
 		}
 	}
 	cout << i << endl;
 
-	sort(output.begin(), output.end(), [](auto X, auto Y) {return X.pos.x < Y.pos.x; });
-	return output;
+	// 从左往右对char排序
+	sort(unit_chars.begin(), unit_chars.end(), [](auto X, auto Y) {return X.pos.x < Y.pos.x; });
+	if (isDbg) cout << "find num " << unit_chars.size();
+	return unit_chars;
 }
 
-Mat OCR::processChar(Mat in) {
+Mat OCR::remapChar(Mat in) {
 	//Remap image
 	int h = in.rows;
 	int w = in.cols;
@@ -169,17 +163,17 @@ Mat OCR::processChar(Mat in) {
 	warpAffine(in, warpImage, transformMat, warpImage.size(), INTER_LINEAR, BORDER_CONSTANT, Scalar(0));
 
 	Mat out;
-	resize(warpImage, out, Size(charSize, charSize));
+	resize(warpImage, out, Size(20, 20));
 
 	return out;
 }
 
-int OCR::judge(Mat test) {
+int OCR::sampleComparison(Mat charImg) {
 	float dis[10];
 	int index = 0;
 	cout << "数组";
 	for (int i = 0; i < 10; i++) {
-		dis[i] = oudistance(pattern[i], test);
+		dis[i] = oudistance(pattern[i], charImg);
 		cout << dis[i] << "  ";
 	}
 	cout << endl;
@@ -194,9 +188,7 @@ int OCR::judge(Mat test) {
 	if (dis[index] < 2400) {
 		return index;
 	}
-	else {
-		return -1;
-	}
+	return -1;
 }
 
 float OCR::oudistance(Mat a, Mat b) const {
@@ -209,86 +201,51 @@ float OCR::oudistance(Mat a, Mat b) const {
 	return sqrt(distance);
 }
 
-std::string OCR::getTime() const
-{
-	time_t timep;
-	struct tm now_time;
-
-	time(&timep);
-
-	localtime_s(&now_time, &timep);
-	stringstream ss;
-	ss << now_time.tm_mon + 00 << "_" << now_time.tm_mday + 00 <<
-		"_" << now_time.tm_hour + 00 << "_" << now_time.tm_min + 00 << "_" << now_time.tm_sec + 00;
-	return ss.str();
-}
-
-void OCR::generate_pattern(Mat in) {
-	auto plates = detect_plate(in);
-	if (isDbg)
-		cout << "find plates" << plates.size();
-	for (auto&& pl : plates) {
-		Mat threshold = preprocess(pl);
-		auto chs = find_ch(threshold);
-		int i = 0;
-		for (auto& ch : chs) {
-			//Preprocess each char for all images have same sizes
-			Mat StandardChar = processChar(ch.img);
-			QString nowDate = QDate::currentDate().toString("yyyyMMdd");
-			QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz");
-			QString fullFilePath = QStringLiteral("%1/%2/%3_%4.jpg").arg(ocrDirPath).arg(nowDate).arg(nowTime).arg(i);
-			imwrite(fullFilePath.toStdString(), StandardChar);
-			++i;
-		}
-	}
-}
-
-void OCR::core_ocr(Mat src) {
-	vector<Mat> plates = detect_plate(src);
-	if (isDbg) cout << "find plates " << plates.size();
-	for (auto&& pl : plates)
-	{
-		recognize(pl);
-		if (isDbg) cout << "find num " << unit_char.size();
-	}
-}
-
 std::string OCR::get_final_result()
 {
-	final_result_size = result.size();
-	map<string, int> keyList; //take result value as key and the count as value
-	for (auto&& str : result) { keyList[str]++; }
-	string key = "";
-	int maxValue = 0;//遍历keyList找到value(count)最大的key
-	for (auto&& mp : keyList) {
-		if (mp.second >= maxValue) {
-			maxValue = mp.second;
-			key = mp.first;
+	map<string, int> keyMap; //take result value as key and the count as value
+	for (auto&& str : result) { keyMap[str]++; }
+	string num = "";
+	int maxCount = 0;//遍历keyMap, 找到出现次数最多的num
+	for (auto&& pair : keyMap) {
+		if (pair.second > maxCount) {
+			maxCount = pair.second;
+			num = pair.first;
 		}
 	}
 
-	//if the key is null or the length != 3, means the result is wrong
-	if (key.length() != 3)
-	{
-		//if miss for 5 times, no longer output predict num, output miss instead
-		if (++nContinuousMissCount > 5)
-		{
-			key = OCR_MISS;
-		}
-		else if (lastNum == 82)
-		{
-			key = "001";
-		}
-		else
-		{
-			key = QString("%1").arg(lastNum + 1, 3, 10, QChar('0')).toStdString();
-		}
+	if (num.empty())
+	{// no key is detected.
+		num = predictAnNum(); // might return a miss
 	}
 	else
-	{//a real num is detected.
+	{// a num is detected.
 		nContinuousMissCount = 0;
+		lastNum = QString::fromStdString(num).toUInt(); // record the num
 	}
-	lastNum = QString::fromStdString(key).toUInt();
-	resetOcr();  //aferter output a result, reset the vectorsl
-	return key;
+	ocrDetectCount = result.size();
+	result.clear();
+	return num;
+}
+
+std::string OCR::predictAnNum()
+{
+	string num;
+	// loop
+	if (lastNum == 82)
+	{
+		num = "001";
+	}
+	else
+	{
+		num = QString("%1").arg(lastNum + 1, 3, 10, QChar('0')).toStdString();
+	}
+	lastNum = QString::fromStdString(num).toUInt();
+
+	//if miss for 5 times, not predict
+	if (++nContinuousMissCount > 5)
+	{
+		num = OCR_MISS;
+	}
+	return num;
 }

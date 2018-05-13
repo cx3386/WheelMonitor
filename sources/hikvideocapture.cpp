@@ -117,13 +117,14 @@ bool HikVideoCapture::stopCapture()
 void HikVideoCapture::startRecord()
 {
 	if (bIsRecording) return;
-	QString nowDate = QDateTime::currentDateTime().toString("yyyyMMdd");
-	QString nowTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
+	auto date = QDate::currentDate().toString("yyyyMMdd");
+	auto dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
+	auto mark = getDeviceMark(deviceIndex);
 	mutex.lock();
-	videoRelativeFilePath = QStringLiteral("%1/%2.mp4").arg(nowDate).arg(nowTime);
+	videoRelativeFilePath = QStringLiteral("%1/%2_%3.mp4").arg(date).arg(mark).arg(dateTime);
 	mutex.unlock();
 	QString videoFilePath = QStringLiteral("%1/%2").arg(videoDirPath).arg(videoRelativeFilePath);
-	QByteArray ba = videoFilePath.toLatin1();
+	QByteArray ba = videoFilePath.toLocal8Bit();
 	if (!NET_DVR_SaveRealData(lRealPlayHandle_SD, ba.data()))
 	{
 		qDebug() << "HikVideoCapture: startRecord error";

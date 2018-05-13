@@ -216,6 +216,7 @@ bool BackupLogDialog::zipFiles(QString fileCompressd, QStringList files, QString
 		auto absoluteFile = srcRootDir.absoluteFilePath(file);
 		QFileInfo info(absoluteFile);
 		// FOLDER (this is the part that interests you!!!)
+		// 新建空文件夹
 		if (info.isDir()) {
 			if (!outZipFile.open(QIODevice::WriteOnly, QuaZipNewInfo(relativeFile + "/", absoluteFile))) {
 				return false;
@@ -292,28 +293,31 @@ QStringList BackupLogDialog::getBackupFiles() const
 	QStringList files;
 	for (auto &&backupInfo : backupInfoList)
 	{
-		if (!backupInfo.isSelected) { continue; }
-		QStringList dirs;
-		if (backupInfo.isAll) { dirs = getDayList(backupInfo.path); }
-		else { dirs = getDayList(backupInfo.path, backupInfo.day); }
-		for (auto && dir : dirs)
+		if (!backupInfo.isSelected) continue;
+		auto paths = getDayList(backupInfo.path, backupInfo.isAll, backupInfo.day);
+		for (auto && path : paths)
 		{
-			files << dir;
-			QDirIterator it(dir, QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
+			// 文件和空文件夹一并复制
+			files << path;
+			// Get files in dir recursively, won't include /.
+			QDirIterator it(path, QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
 			while (it.hasNext()) {
 				it.next();
 				files << it.filePath();
 			}
 		}
 	}
+	// database will always copied
 	files << databaseFilePath;
 	return files;
 }
 
-QStringList BackupLogDialog::getDayList(QString path, int day /*= 36500*/) const
+QStringList BackupLogDialog::getDayList(QString path, bool isAll, int nDays) const
 {
+	if (isAll) nDays = 36500;
 	QDir dir(path);
-	dir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
+	// NoDotAndDotDot: in default mode, it lists "dir/."(itself) and "dir/.."(upward)
+	dir.setFilter(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
 	auto list = dir.entryInfoList();
 	int nToday = QDate::currentDate().toString("yyyyMMdd").toInt();
 	QStringList dayList;
@@ -321,14 +325,24 @@ QStringList BackupLogDialog::getDayList(QString path, int day /*= 36500*/) const
 	for (auto&& info : std::as_const(list))
 	{
 		bool ok;
-		int nFileDay = info.fileName().toInt(&ok);
+		int nFileDay = info.baseName().toInt(&ok);
 		if (ok && (nFileDay <= nToday) && nFileDay >= 19700000) {
 			count++;
-			if (count > day) break;
+			if (count > nDays) break;
 			dayList << info.filePath();
 		}
 	}
 	return dayList;
+}
+
+QStringList BackupLogDialog::getDayList(QString path, int day) const
+{
+	getDayList(path, false, day);
+}
+
+QStringList BackupLogDialog::getDayList(QString path) const
+{
+	getDayList(path, true, 0);
 }
 
 quint64 BackupLogDialog::getNeedSpace() const

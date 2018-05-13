@@ -29,6 +29,7 @@ extern QString appFilePath;    ///< the file path of app.exe, '/'e.g. C:/QQ/qq.e
 extern QString captureDirPath; ///< capture dir
 extern QString configDirPath;    ///< config dir
 extern QString videoDirPath; ///< video dir
+extern QString cacheDirPath; ///< cache dir
 extern QString matchDirPath;	///< match dir
 //extern QString imageDirPath; ///< imageDirPath
 extern QString logDirPath;     ///< log dir
@@ -53,6 +54,28 @@ enum AlarmEvent
 	AlarmLevel
 };
 
-static char* str2charx(const std::string &str) {	auto ch = (char *)malloc(std::strlen(str.c_str()) + 1);	std::strcpy(ch, str.c_str());
+static char* str2charx(const std::string &str) {
+	auto ch = (char *)malloc(std::strlen(str.c_str()) + 1);
+	std::strcpy(ch, str.c_str());
 	return ch;
+}
+
+/**
+ * \brief get device mark of device index
+ *
+ * \param int id device index
+ */
+static QString getDeviceMark(int id) {
+	if (0 == id) return QStringLiteral("外");
+	if (1 == id) return QStringLiteral("内");
+}
+
+/**
+ * \brief get device index of device mark
+ *
+ * \param QString qstr device mark
+ */
+static int getDeviceIndex(QString qstr) {
+	if (qstr == QStringLiteral("外")) return 0;
+	if (qstr == QStringLiteral("内")) return 1;
 }

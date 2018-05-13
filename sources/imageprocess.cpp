@@ -38,6 +38,19 @@ ImageProcess::ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_
 ImageProcess::~ImageProcess()
 = default;
 
+void ImageProcess::start()
+{
+	ocr->resetOcr();
+	QMutexLocker locker(&mutex);
+	bIsProcessing = true;
+}
+
+void ImageProcess::stop()
+{
+	QMutexLocker locker(&mutex);
+	bIsProcessing = false;
+}
+
 void ImageProcess::doImageProcess()
 {
 	foreverPreProcess();
@@ -223,9 +236,8 @@ void ImageProcess::foreverPreProcess()
 
 void ImageProcess::alarmThisWheel()
 {
-	/* 未出现在此处的wheelDbInfo, 只在特定时候（valid）时候才有效，refspeed为coreProcess时取得的 */
-	if (0 == deviceIndex) { wheelDbInfo.i_o = QStringLiteral("外"); }
-	else if (1 == deviceIndex) { wheelDbInfo.i_o = QStringLiteral("内"); }
+	/* 未在此处初始化的wheelDbInfo, 只在特定时候（valid）时候才有效，refspeed为coreProcess时取得的 */
+	wheelDbInfo.i_o = getDeviceMark(deviceIndex);
 	wheelDbInfo.num = QString::fromStdString(ocr->get_final_result());
 	qDebug() << "ImageProcess: One wheel ready.";
 	qDebug() << "Wheel Info:" << wheelDbInfo.i_o << wheelDbInfo.num;
