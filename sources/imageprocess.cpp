@@ -13,14 +13,7 @@ using namespace std;
 using namespace cv;
 
 ImageProcess::ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_capture, PLCSerial *_plcSerial, QObject *parent /*= Q_NULLPTR*/)
-	: QObject(parent)
-	, configHelper(_configHelper)
-	, videoCapture(_capture)
-	, plcSerial(_plcSerial)
-	, deviceIndex(videoCapture->getDeviceIndex())
-	, imProfile(&(configHelper->device[deviceIndex].imProfile))
-	, ocr(new OCR(configHelper, deviceIndex, this))
-	, rMatcher(new RobustMatcher)
+	: QObject(parent), configHelper(_configHelper), videoCapture(_capture), plcSerial(_plcSerial), deviceIndex(videoCapture->getDeviceIndex()), imProfile(&(configHelper->device[deviceIndex].imProfile)), ocr(new OCR(configHelper, deviceIndex, this)), rMatcher(new RobustMatcher)
 {
 	connect(this, &ImageProcess::initModel, this, &ImageProcess::setupModel);
 
@@ -28,15 +21,14 @@ ImageProcess::ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_
 	connect(this, &ImageProcess::imageProcessReady, videoCapture, &HikVideoCapture::currentImageProcessReady);
 
 	connect(videoCapture, &HikVideoCapture::recordTimeout, this, &ImageProcess::onWheelTimeout);
-	connect(plcSerial, &PLCSerial::trolleySpeedReady, this, [&]() {rtRefSpeed = plcSerial->getTrolleySpeed(); });
+	connect(plcSerial, &PLCSerial::trolleySpeedReady, this, [&]() { rtRefSpeed = plcSerial->getTrolleySpeed(); });
 	connect(plcSerial, &PLCSerial::sensorIN, this, &ImageProcess::onSensorIN);
 	connect(plcSerial, &PLCSerial::sensorOUT, this, &ImageProcess::onSensorOUT);
 
 	connect(this, &ImageProcess::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 }
 
-ImageProcess::~ImageProcess()
-= default;
+ImageProcess::~ImageProcess() = default;
 
 void ImageProcess::start()
 {
@@ -54,7 +46,7 @@ void ImageProcess::stop()
 void ImageProcess::doImageProcess()
 {
 	foreverPreProcess();
-	mutex.lock(); //prevent reading the frameToShow simultaneously
+	mutex.lock();						 //prevent reading the frameToShow simultaneously
 	calibratedFrame.copyTo(frameToShow); //here we use deep copy, otherwise we will change calibratedFrame when change frameToshow
 	cvtColor(frameToShow, frameToShow, CV_GRAY2BGR);
 	rectangle(frameToShow, imProfile->roiRect, Scalar(0, 0, 255), 2);
@@ -76,13 +68,13 @@ void ImageProcess::doImageProcess()
 			//decide if the wheel comes in/out by SENSOR IN/OUT
 			if (imProfile->sensorTriggered)
 			{
-				static bool lastIsIn = false;	//the wheel is in(1) or out(0) of the detect area. when 1->0(falling edge), which means the wheel is scrolling out, alarm this wheel.
-												//assume wheel is out at initial, won't be set to true until a new wheel comes in.
-				if (bIsTrolleyInSensors)						   //in detect area
+				static bool lastIsIn = false; //the wheel is in(1) or out(0) of the detect area. when 1->0(falling edge), which means the wheel is scrolling out, alarm this wheel.
+											  //assume wheel is out at initial, won't be set to true until a new wheel comes in.
+				if (bIsTrolleyInSensors)	  //in detect area
 				{
 					static bool lastCore = false;	  //record the last return of core process
 					bool nowCore = coreImageProcess(); //0->1, Fragment++ at rise edge. NOTE: it can be 0, which means no circle detected
-					if (nowCore&(!lastCore)) //nowCore == true && lastCore == false
+					if (nowCore & (!lastCore))		   //nowCore == true && lastCore == false
 					{
 						wheelDbInfo.fragment++;
 					}
@@ -105,7 +97,7 @@ void ImageProcess::doImageProcess()
 				{
 					wheelDbInfo.fragment++;
 				}
-				else if (!nowCore&&lastCore) //1->0
+				else if (!nowCore && lastCore) //1->0
 				{
 					alarmThisWheel(); //be careful if it cost too much time(>320ms)
 				}
@@ -122,10 +114,10 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	static Mat imgCache, dstImg[2];
 	static Mat maskCache, mask[2];
 
-	ocr->core_ocr(srcImg); //card num detect gzy 2017/11/9
+	ocr->core_ocr(srcImg);								//card num detect gzy 2017/11/9
 	Mat roiImage = calibratedFrame(imProfile->roiRect); //srcImg(rect).copyTo(roiImage);
-	equalizeHist(roiImage, roiImage); //equalize the image, this will change calibratedFrame//2017/12/21
-	Mat blurImage;							   //use blur image for hough circles, use source image for matches
+	equalizeHist(roiImage, roiImage);					//equalize the image, this will change calibratedFrame//2017/12/21
+	Mat blurImage;										//use blur image for hough circles, use source image for matches
 
 	/************************************************************************/
 	/* hough circles                                                                     */
@@ -152,7 +144,8 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 	//draw circle to ui real video
 	auto circleColor = Scalar(0, 255, 0); //green
 	auto drawCircle = [&] {
-		Size size; Point ofs;
+		Size size;
+		Point ofs;
 		roiImage.locateROI(size, ofs);
 		QMutex mutex;
 		mutex.lock();
@@ -200,7 +193,7 @@ int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait nex
 
 	//**************************orb matches**************************//
 
-	Mat image_matches;
+	Mat image_matches; // no longer show in UI
 	double oneAngle;
 	if (!rMatcher->match(dstImg[0], dstImg[1], mask[0], mask[1], image_matches, oneAngle)) //200ms
 		return 2;
@@ -248,14 +241,14 @@ void ImageProcess::alarmThisWheel()
 	wheelDbInfo.refspeed = rtRefSpeed; // if no match result, it will show the current trolley speed
 
 	if (wheelDbInfo.totalmatch < 1)
-	{//no result
+	{ //no result
 		wheelDbInfo.alarmlevel = -1;
 		qCritical() << "ImageProcess: MISS, no match result";
 	}
 
 	else
-	{//has match results
-		vector<double> absErrors(rtSpeeds.size());														   //a vector saves speed difference between imgprocess and PLC(speedAD)
+	{																										//has match results
+		vector<double> absErrors(rtSpeeds.size());															//a vector saves speed difference between imgprocess and PLC(speedAD)
 		transform(rtSpeeds.begin(), rtSpeeds.end(), refSpeeds.begin(), absErrors.begin(), minus<double>()); //rt-ref=diff
 		OutlierHelper outlier;
 		outlier.removeOutliers(absErrors); //kick out the bad results by grubbs certain
@@ -264,19 +257,19 @@ void ImageProcess::alarmThisWheel()
 		wheelDbInfo.validmatch = absErrors.size();
 
 		if (wheelDbInfo.validmatch >= IM_PROC_VALID_MIN_COUNT)
-		{//reliable results
-		 /* approximate result to write into database */
+		{ //reliable results
+			/* approximate result to write into database */
 			wheelDbInfo.calcspeed = QString::number(absError + refspeed, 'f', 1).toDouble();
 			wheelDbInfo.refspeed = QString::number(refspeed, 'f', 1).toDouble();
 			wheelDbInfo.error = QString::number(absError / refspeed * 100, 'f', 0).toDouble();
 
 			if (fabs(absError) <= refspeed * imProfile->warningRatio)
-			{//acceptable, good result
+			{ //acceptable, good result
 				wheelDbInfo.alarmlevel = 0;
 			}
 			else
-			{//unacceptable error
-				if (fabs(absError) > refspeed *imProfile->alarmRatio) //if this wheel is too too slow
+			{														   //unacceptable error
+				if (fabs(absError) > refspeed * imProfile->alarmRatio) //if this wheel is too too slow
 				{
 					qCritical() << "ImageProcess: Wheel FATAL error(error>alarm ratio )";
 					wheelDbInfo.alarmlevel = 2;
@@ -294,15 +287,20 @@ void ImageProcess::alarmThisWheel()
 			}
 		}
 		///unreliable, invalid
-		else { wheelDbInfo.alarmlevel = -1; }
+		else
+		{
+			wheelDbInfo.alarmlevel = -1;
+		}
 	}
 
 	/* wheelspeeds */
-	for (auto&& sp : rtSpeeds) {
+	for (auto &&sp : rtSpeeds)
+	{
 		wheelDbInfo.speeds += QString(" %1").arg(sp, 0, 'f', 2);
 	}
 	wheelDbInfo.speeds += ";";
-	for (auto&& sp : refSpeeds) {
+	for (auto &&sp : refSpeeds)
+	{
 		wheelDbInfo.speeds += QString(" %1").arg(sp, 0, 'f', 2);
 	}
 
@@ -312,9 +310,9 @@ void ImageProcess::alarmThisWheel()
 	/* reset parameters of this wheel                                       */
 	rtSpeeds.clear();
 	refSpeeds.clear();
-	wheelDbInfo = { 0 };
+	wheelDbInfo = {0};
 	nImgCount = 0; //no need	//once settle a wheel, force to zero
-	/************************************************************************/
+				   /************************************************************************/
 }
 
 void ImageProcess::onSensorIN()
@@ -353,21 +351,22 @@ cv::Mat ImageProcess::cameraUndistort(cv::Mat src)
 		3.503090793118121e+02,
 		0,
 		0,
-		1 };
+		1}; ///> for 1280*720
 
 	Mat cameraMatrix = Mat(3, 3, CV_64F, ma);
 	Mat distCoeffs = (Mat_<double>(5, 1) << -0.126396146351086,
-		0.012067785981004,
-		-6.004717303426694e-04,
-		0.001281258711954,
-		0);
+					  0.012067785981004,
+					  -6.004717303426694e-04,
+					  0.001281258711954,
+					  0);
 
 	Mat view, rview, map1, map2;
 	Size imageSize = src.size();
 
+	//undistort combine initUndistortRectifyMap and remap
 	initUndistortRectifyMap(cameraMatrix, distCoeffs, Mat(),
-		getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, 1, imageSize, nullptr),
-		imageSize, CV_16SC2, map1, map2);
+							getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, 1, imageSize, nullptr),
+							imageSize, CV_16SC2, map1, map2);
 
 	Mat srcCalibration;
 	remap(src, srcCalibration, map1, map2, INTER_LINEAR);
@@ -405,10 +404,10 @@ bool ImageProcess::insertRecord(const WheelDbInfo &info)
 	return r;
 }
 
-int ImageProcess::previousAlarmLevel(const QString & num) const
+int ImageProcess::previousAlarmLevel(const QString &num) const
 {
 	if (num == OCR_MISS)
-	{//号码牌输出MISS, 直接返回正常
+	{ //号码牌输出MISS, 直接返回正常
 		return 0;
 	}
 	//every query is up to data using select();
@@ -421,7 +420,7 @@ int ImageProcess::previousAlarmLevel(const QString & num) const
 	{
 		return model->data(model->index(row - 1, Wheel_AlarmLevel)).toInt();
 	}
-	return 0;  //if no previous result, regard it as a good wheel
+	return 0; //if no previous result, regard it as a good wheel
 }
 
 void ImageProcess::handleAlarmLevel(int lv)

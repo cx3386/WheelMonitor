@@ -13,9 +13,7 @@
 #include "database.h"
 
 MainWindow::MainWindow(ConfigHelper *_configHelper, QWidget *parent /*= Q_NULLPTR*/)
-	: QMainWindow(parent)
-	, configHelper(_configHelper)
-	, plcSerial(new PLCSerial)
+	: QMainWindow(parent), configHelper(_configHelper), plcSerial(new PLCSerial)
 {
 	//setWindowOpacity(1);
 	ui.setupUi(this);
@@ -28,15 +26,18 @@ MainWindow::MainWindow(ConfigHelper *_configHelper, QWidget *parent /*= Q_NULLPT
 	}
 
 	//auto start
-	if (configHelper->startAtLaunch) { on_action_Start_triggered(); }
+	if (configHelper->startAtLaunch)
+	{
+		on_action_Start_triggered();
+	}
 }
 
 MainWindow::~MainWindow()
 {
 	bool b = true;
-	connect(plcSerial, &PLCSerial::setUiAlarm, this, [&b] {b = false; });  //before setUiAlarm finished, DONOT delete the pointer "this". 引发了异常: 读取访问权限冲突。**this** 是 0xFFFFFFFFFFFFFFFF
-	emit setAlarm(AlarmOFF); //cannot operate out of thread. use Signal-Slot.
-	while (b) //wait until light is set off
+	connect(plcSerial, &PLCSerial::setUiAlarm, this, [&b] { b = false; }); //before setUiAlarm finished, DONOT delete the pointer "this". 引发了异常: 读取访问权限冲突。**this** 是 0xFFFFFFFFFFFFFFFF
+	emit setAlarm(AlarmOFF);											   //cannot operate out of thread. use Signal-Slot.
+	while (b)															   //wait until light is set off
 	{
 		QCoreApplication::processEvents();
 	}
@@ -84,7 +85,7 @@ void MainWindow::configWindow()
 	// monitorTab
 	/* setup the mapper */
 	QDataWidgetMapper *allMapper = new QDataWidgetMapper(this);
-	allMapper->setModel((QSqlTableModel*)(playBackWidget->allModel));
+	allMapper->setModel((QSqlTableModel *)(playBackWidget->allModel));
 	allMapper->addMapping(ui.numLineEdit, Wheel_Num);
 	allMapper->addMapping(ui.lastSpeedLineEdit, Wheel_CalcSpeed);
 	allMapper->toLast();
@@ -106,17 +107,17 @@ void MainWindow::configWindow()
 	/* video capture */
 	videoCapture[0] = new HikVideoCapture(configHelper, 0, (HWND)ui.cam0HWND->winId(), this);
 	videoCapture[1] = new HikVideoCapture(configHelper, 1, (HWND)ui.cam1HWND->winId(), this);
-	connect(videoCapture[0], &HikVideoCapture::recordON, this, [&]() {onRecordON(0); });
-	connect(videoCapture[1], &HikVideoCapture::recordON, this, [&]() {onRecordON(1); });
-	connect(videoCapture[0], &HikVideoCapture::recordOFF, this, [&]() {onRecordOFF(0); });
-	connect(videoCapture[1], &HikVideoCapture::recordOFF, this, [&]() {onRecordOFF(1); });
+	connect(videoCapture[0], &HikVideoCapture::recordON, this, [&]() { onRecordON(0); });
+	connect(videoCapture[1], &HikVideoCapture::recordON, this, [&]() { onRecordON(1); });
+	connect(videoCapture[0], &HikVideoCapture::recordOFF, this, [&]() { onRecordOFF(0); });
+	connect(videoCapture[1], &HikVideoCapture::recordOFF, this, [&]() { onRecordOFF(1); });
 
 	/* image process */
 	//plcserial在初始化列表中
 	imageProcess[0] = new ImageProcess(configHelper, videoCapture[0], plcSerial); // don't let parent = this. or can't move to QThread
 	imageProcess[1] = new ImageProcess(configHelper, videoCapture[1], plcSerial);
-	connect(imageProcess[0], &ImageProcess::showRealtimeImage, this, [&]() {uiShowRealtimeImage(0); });
-	connect(imageProcess[1], &ImageProcess::showRealtimeImage, this, [&]() {uiShowRealtimeImage(1); });
+	connect(imageProcess[0], &ImageProcess::showRealtimeImage, this, [&]() { uiShowRealtimeImage(0); });
+	connect(imageProcess[1], &ImageProcess::showRealtimeImage, this, [&]() { uiShowRealtimeImage(1); });
 	/* image process thread */
 	imageProcessThread[0] = new QThread(this);
 	imageProcessThread[1] = new QThread(this);
@@ -132,7 +133,7 @@ void MainWindow::configWindow()
 	plcSerialThread = new QThread(this);
 	plcSerial->moveToThread(plcSerialThread);
 	//connect(plcSerialThread, &QThread::finished, plcSerial, &QObject::deleteLater);
-	connect(plcSerial, &PLCSerial::trolleySpeedReady, this, &MainWindow::uiShowCartSpeed);	//bind plc::adSpeed to cartSpeed
+	connect(plcSerial, &PLCSerial::trolleySpeedReady, this, &MainWindow::uiShowCartSpeed); //bind plc::adSpeed to cartSpeed
 
 	/* plc <-> video capture */
 	connect(plcSerial, &PLCSerial::sensorIN, videoCapture[0], &HikVideoCapture::startRecord);
@@ -141,9 +142,13 @@ void MainWindow::configWindow()
 	connect(plcSerial, &PLCSerial::sensorOUT, videoCapture[1], &HikVideoCapture::stopRecord);
 
 	/* alarmLight */
+	// #TODO:other->ui->plc
 	connect(this, &MainWindow::alarmUi2PLC, plcSerial, &PLCSerial::Alarm);
 	connect(playBackWidget, &PlayBackWidget::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 	connect(plcSerial, &PLCSerial::setUiAlarm, this, &MainWindow::uiAlarmLight);
+
+	/* sensor light */
+	connect(plcSerial, &PLCSerial::showCio2Ui, this, &MainWindow::uiShowCIOLight);
 
 	/* start thread */
 	plcSerialThread->start();
@@ -156,7 +161,7 @@ void MainWindow::configWindow()
 
 	/* database file watcher */
 	dbWatcherThread = new QThread(this);
-	auto * watcher = new QFileSystemWatcher;
+	auto *watcher = new QFileSystemWatcher;
 	watcher->addPath(databaseFilePath);
 	watcher->moveToThread(dbWatcherThread);
 	//connect(dbWatcherThread, &QThread::finished, watcher, &QFileSystemWatcher::deleteLater); // watcher在堆上，由this管理，不要去管它
@@ -179,10 +184,12 @@ bool MainWindow::cleanDir(QString dirPath, int nDays)
 	QFileInfoList list = dir.entryInfoList();
 	int nDirName = QDate::currentDate().toString("yyyyMMdd").toInt();
 	//if (list.length())	//the length can be 0 when the save dir is empty
-	for (const auto & i : list) {
+	for (const auto &i : list)
+	{
 		bool ok;
 		int nFileDay = i.fileName().toInt(&ok);
-		if (ok && (nFileDay <= nDirName - nDays) && nFileDay >= 19700000) {
+		if (ok && (nFileDay <= nDirName - nDays) && nFileDay >= 19700000)
+		{
 			QDir selDir = i.absoluteFilePath();
 			if (!selDir.removeRecursively())
 				r = false;
@@ -259,6 +266,11 @@ void MainWindow::uiShowCartSpeed()
 	ui.cartSpeedLineEdit->setText(str);
 }
 
+void MainWindow::uiShowCIOLight(int cio0)
+{
+	cio0 >> 1 & 1; //
+}
+
 void MainWindow::onAlarmChanged(AlarmEvent alarmevent)
 {
 	QPixmap pixmap;
@@ -279,8 +291,8 @@ void MainWindow::onAlarmChanged(AlarmEvent alarmevent)
 		break;
 	}
 	ui.alarmPushButton->setIcon(QIcon(pixmap));
-	case enablechanged:
-		ui.alarmPushButton->setEnabled(bIsRunning);
+case enablechanged:
+	ui.alarmPushButton->setEnabled(bIsRunning);
 }
 
 void MainWindow::execScheduledTasks()
@@ -294,11 +306,12 @@ void MainWindow::execScheduledTasks()
 	QString tomorrow = date.addDays(1).toString("yyyyMMdd");
 	QStringList dirPathList;
 	dirPathList << logDirPath << videoDirPath << ocrDirPath;
-	for (auto&& path : std::as_const(dirPathList)) {
-		cleanDir(path, 30);//clean video(, matched), logs //can be operated alone
+	for (auto &&path : std::as_const(dirPathList))
+	{
+		cleanDir(path, 30); //clean video(, matched), logs //can be operated alone
 		QString saveDir = QStringLiteral("%1/%2").arg(path).arg(today);
 		QDir dir;
-		dir.mkpath(saveDir); //create directory path recursively, if exists, returns true.
+		dir.mkpath(saveDir);									   //create directory path recursively, if exists, returns true.
 		saveDir = QStringLiteral("%1/%2").arg(path).arg(tomorrow); //create the directory path everyday
 		dir.mkpath(saveDir);
 	}
@@ -322,8 +335,7 @@ void MainWindow::setupScheduler(int hh, int mm, bool execnow /*= true*/, bool ev
 	auto ms_to_hhmm = QDateTime::currentDateTime().msecsTo(QDateTime(date, QTime(hh, mm))); //precision of 20ms
 	if (everyday)
 	{
-		QTimer::singleShot(ms_to_hhmm, this, [&]()
-		{
+		QTimer::singleShot(ms_to_hhmm, this, [&]() {
 			execScheduledTasks();
 			auto *timer24 = new QTimer(this);
 			connect(timer24, SIGNAL(timeout()), this, SLOT(execScheduledTasks()));
@@ -385,8 +397,10 @@ void MainWindow::on_action_Stop_triggered()
 	imageProcess[0]->stop();
 	imageProcess[1]->stop();
 	emit stopPLC();
-	if (!videoCapture[0]->stopCapture()) return;
-	if (!videoCapture[1]->stopCapture()) return;
+	if (!videoCapture[0]->stopCapture())
+		return;
+	if (!videoCapture[1]->stopCapture())
+		return;
 	/* rec label visible */
 	recLabel_pre[0]->setVisible(false);
 	recLabel_pre[1]->setVisible(false);
@@ -429,16 +443,20 @@ void MainWindow::on_action_Backup_Log_triggered()
 	auto *backupLogDialog = new BackupLogDialog(this);
 
 	backupLogDialog->deleteLater();
-	backupLogDialog->exec();	//show
+	backupLogDialog->exec(); //show
 }
 
 void MainWindow::on_action_About_triggered()
 {
 	QMessageBox::about(this, QStringLiteral("关于"),
-		QStringLiteral("<h3>%1</h3>"
-			"<p>版本号：<b>%2</b>"
-			"<p>%3"
-			"<p>本软件由浙江大学开发，如果问题请联系%4").arg(PRODUCT_NAME).arg(PRODUCT_VER).arg(COPYRIGHT).arg(AUTHOR));
+					   QStringLiteral("<h3>%1</h3>"
+									  "<p>版本号：<b>%2</b>"
+									  "<p>%3"
+									  "<p>本软件由浙江大学开发，如果问题请联系%4")
+						   .arg(PRODUCT_NAME)
+						   .arg(PRODUCT_VER)
+						   .arg(COPYRIGHT)
+						   .arg(AUTHOR));
 }
 
 void MainWindow::on_action_About_Qt_triggered()
@@ -506,5 +524,5 @@ void MainWindow::alarmNumUiSetup()
 	ui.verticalLayout->addLayout(stackedLayout);
 
 	alarmFilter->installEventFilter(this);
-	connect(this, &MainWindow::alarmFilterClicked, this, [&]() {ui.centralTabWidget->setCurrentIndex(2); });
+	connect(this, &MainWindow::alarmFilterClicked, this, [&]() { ui.centralTabWidget->setCurrentIndex(2); });
 }

@@ -14,47 +14,48 @@ class ConfigHelper;
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
-public:
+  public:
 	MainWindow(ConfigHelper *helper, QWidget *parent = Q_NULLPTR);
 	~MainWindow();
 
-private:
+  private:
 	Ui::MainWindowClass ui;
 	ConfigHelper *configHelper;
 	QMutex mutex;
 	bool bIsRunning = false;
 	/* rec label */
-	QLabel *recLabel_pre[2]; //in preview tab
+	QLabel *recLabel_pre[2];   //in preview tab
 	QLabel *recLabel_input[2]; //in real frame
 	/* worker */
 	HikVideoCapture *videoCapture[2];
-	PlayBackWidget * playBackWidget;
+	PlayBackWidget *playBackWidget;
 	ImageProcess *imageProcess[2];
 	PLCSerial *plcSerial;
 	/* thread */
 	//thread must be managed in main thread. ~mainwindow(){thread.quit()}
-	QThread* imageProcessThread[2];
-	QThread* plcSerialThread;
-	QThread* dbWatcherThread;
+	QThread *imageProcessThread[2];
+	QThread *plcSerialThread;
+	QThread *dbWatcherThread;
 	/*global*/
 	void configWindow();
 	bool cleanDir(QString dir, int nDays); ///< retain nDays save files, include video/match/log and so on, defualt retain for 0 days, which means clean all
 	/* alarm number show */
 	void alarmNumUiSetup();
-	QLineEdit* alarmIOLineEdit, *alarmNumLineEdit;
-	QWidget* alarmFilter;
+	QLineEdit *alarmIOLineEdit, *alarmNumLineEdit;
+	QWidget *alarmFilter;
 
-	AlarmEvent currentAlarmEvent;///< current alarm state
+	AlarmEvent currentAlarmEvent; ///< current alarm state
 
-protected:
+  protected:
 	virtual void closeEvent(QCloseEvent *event) override;
 	virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
-	private slots :
+  private slots:
 	/* uiShow */
 	void uiAlarmLight(AlarmColor alarmColor);
 	void uiShowRealtimeImage(int deviceIndex);
 	void uiShowCartSpeed();
+	void uiShowCioLight(int cio0);
 
 	/* onAlarmChanged */
 	void onAlarmChanged(AlarmEvent alarmevent);
@@ -78,7 +79,7 @@ protected:
 	void on_action_About_Qt_triggered();
 	void on_alarmPushButton_clicked();
 
-signals:
+  signals:
 	/* about plcserial thread */
 	void initPlcSerial();
 	void startPLC();
@@ -86,5 +87,5 @@ signals:
 	void alarmUi2PLC(AlarmColor alarmcolor);
 
 	/* ui */
-	void  alarmFilterClicked();
+	void alarmFilterClicked();
 };

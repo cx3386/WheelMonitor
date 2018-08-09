@@ -3,10 +3,10 @@
 #include "QMetaType"
 struct ImProfile
 {
-  private:
+private:
 	int *interv;
 
-  public:
+public:
 	ImProfile() = default;
 	ImProfile(int &framInterv) { interv = &framInterv; }
 	inline double angle2Speed() const { return 60 * (0.650 / 2) / (*interv / 25.0); }
@@ -18,7 +18,7 @@ struct ImProfile
 	int gs2 = 9;
 	double dp = 2;
 	double minDist = 180;
-	double param1 = 200;
+	double param1 = 200; ///< maxVal of Canny
 	double param2 = 100;
 	bool sensorTriggered = false;
 	cv::Rect roiRect = cv::Rect(220, 0, 800, 720);

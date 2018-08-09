@@ -13,6 +13,16 @@ const char ALARM_LIGHT_YELLOW[] = "@00WR0100004040*\r"; ///< yellow
 /*Read sensor state command*/
 const char READ_SENSOR_STATE[] = "@00RR0000000141*\r";
 /*Read sensor state response*/
+// data=FF
+const int msk_sol0 = 1 << 1; //cio0.01 NOTE: cio0.00 is NC
+const int msk_sol1 = 1 << 2; //cio0.02
+const int msk_sor0 = 1 << 3; //cio0.03
+const int msk_sor1 = 1 << 4; //cio0.04
+const int msk_sir0 = 1 << 5; //cio0.05
+const int msk_sir0 = 1 << 6; //cio0.06
+const int msk_sil0 = 1 << 7; //cio0.07
+const int msk_sil1 = 1 << 8; //cio0.08
+
 const char SENSOR_L_OFF_R_OFF[] = "@00RR00000040*\r"; //00
 const char SENSOR_L_OFF_R_ON[] = "@00RR00000242*\r";  //01
 const char SENSOR_L_ON_R_OFF[] = "@00RR00000848*\r";  //10
@@ -21,7 +31,7 @@ const char SENSOR_L_ON_R_ON[] = "@00RR00000A31*\r";   //11
 /*AD041 module command*/
 const char INIT_AD[] = "@00WR0102800A800037*\r"; //use ad input port01, 4-20ma, no average
 const char READ_AD[] = "@00RR0002000143*\r";
-//"@00RR00dataFCS*\r" //ad response
+//"@00RR00dataFCS*\r" //ad response, data=FFFF
 
 const char WR_CORRECT_RESPONSE[] = "@00WR0045*\r"; ///< write response: cio correct
 
@@ -105,8 +115,27 @@ void PLCSerial::stopTimer()
 void PLCSerial::readSensor()
 {
 	auto data = readPLC(READ_SENSOR_STATE);
-	if (data.isNull())
+	if (data.isNull() || data.size() != 15)
+	{
+		qWarning() << "PLC: Sensor wrong response";
 		return;
+	}
+	bool ok;
+	int cioNow = QString(data.mid(8, 3)).toInt(&ok, 16); //0~0x1ff
+	if (cio != cioNow)
+	{
+		cio = cioNow;
+		emit showCio2Ui(cio);
+	}
+	sol0 = cio0 & msk_sol0;
+	sol1 = cio0 & msk_sol1;
+	sor0 = cio0 & msk_sor0;
+	sor1 = cio0 & msk_sor1;
+	sir0 = cio0 & msk_sir0;
+	sir1 = cio0 & msk_sir0;
+	sil0 = cio0 & msk_sil0;
+	sil1 = cio0 & msk_sil1;
+
 	if (data == SENSOR_L_OFF_R_OFF)
 	{ //00
 		if (sensorRight == true && sensorLeft == false)
@@ -135,10 +164,6 @@ void PLCSerial::readSensor()
 		qWarning() << "PLC(sensor): Both sensors are triggered at the same time, please check if the sensor is broken";
 		sensorRight = true;
 		sensorLeft = true;
-	}
-	else
-	{ //wrong response
-		qWarning() << "PLC: Sensor wrong response";
 	}
 }
 

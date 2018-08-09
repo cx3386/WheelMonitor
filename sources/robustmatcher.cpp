@@ -8,7 +8,6 @@ using namespace std;
 using namespace cv;
 
 RobustMatcher::RobustMatcher()
-	: ratio(0.65f)
 {
 	detector = ORB::create(1500);
 	matcher = DescriptorMatcher::create("BruteForce-Hamming");
@@ -22,8 +21,21 @@ RobustMatcher::~RobustMatcher()
 	// \see std::shared_ptr since C++11
 }
 
-bool RobustMatcher::match(Mat &image1, Mat &image2, Mat &mask1, Mat &mask2, Mat &img_matches, double &angle)
+bool RobustMatcher::match(Mat src1, Mat src2, Mat msk1, Mat msk2, Mat &img_matches, double &angle)
 {
+	Mat image1, image2, mask1, mask2;
+	src1.copyTo(image1);
+	src2.copyTo(image2);
+	msk1.copyTo(mask1);
+	msk2.copyTo(mask2);
+	// // 0. Scale image2 to image1(1:1), so the scaling factor is one
+	// if (image1.size() != image2.size())
+	// {
+	// 	double fx = image1.cols / image2.cols;
+	// 	double fy = image1.rows / image2.rows;
+	// 	resize(image2, image2, Size(0, 0), fx, fy, CV_INTER_LINEAR);
+	// 	resize(mask2, mask2, Size(0, 0), fx, fy, CV_INTER_LINEAR);
+	// }
 	vector<KeyPoint> keypoints1, keypoints2;
 	// 1a. Detection of the ORB features
 	detector->detect(image1, keypoints1, mask1);
@@ -77,7 +89,9 @@ bool RobustMatcher::match(Mat &image1, Mat &image2, Mat &mask1, Mat &mask2, Mat 
 	if (M.data == NULL)
 		return false;
 	//计算旋转角度，弧度
-	angle = -asin(M.at<double>(0, 1));
+	auto sin_alpha = M.at<double>(1, 0); // sin*s
+	auto cos_alpha = M.at<double>(0, 0); // cos*s
+	angle = atan(sin_alpha / cos_alpha);
 	return true;
 }
 
