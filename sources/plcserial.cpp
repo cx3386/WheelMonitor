@@ -10,11 +10,16 @@ const char ALARM_LIGHT_RED[] = "@00WR0100001144*\r";	///< red and alarm
 const char ALARM_LIGHT_GREEN[] = "@00WR0100002046*\r";  ///< green
 const char ALARM_LIGHT_YELLOW[] = "@00WR0100004040*\r"; ///< yellow
 
+/* CPU: CP1E - N30S1DR - A*/
+/* I/O */
+// INPUT:  2WORD CIO0.0~0.11     CIO1.0~1.05     m=1
+// OUTPUT: 2WORD CIO100.0~100.07 CIO101.0~101.03 n=101
 /*Read sensor state command*/
-const char READ_SENSOR_STATE[] = "@00RR0000000141*\r";
+const char READ_SENSOR_STATE[] = "@00RR0000000141*\r";  ///< read CIO0 for 1 word
 /*Read sensor state response*/
-// data=FF
-const int msk_sol0 = 1 << 1; //cio0.01 NOTE: cio0.00 is NC
+// data=FFFF(2B)
+// NOTE: cio0.00 is NC
+const int msk_sol0 = 1 << 1; //cio0.01
 const int msk_sol1 = 1 << 2; //cio0.02
 const int msk_sor0 = 1 << 3; //cio0.03
 const int msk_sor1 = 1 << 4; //cio0.04
@@ -28,10 +33,22 @@ const char SENSOR_L_OFF_R_ON[] = "@00RR00000242*\r";  //01
 const char SENSOR_L_ON_R_OFF[] = "@00RR00000848*\r";  //10
 const char SENSOR_L_ON_R_ON[] = "@00RR00000A31*\r";   //11
 
-/*AD041 module command*/
-const char INIT_AD[] = "@00WR0102800A800037*\r"; //use ad input port01, 4-20ma, no average
-const char READ_AD[] = "@00RR0002000143*\r";
-//"@00RR00dataFCS*\r" //ad response, data=FFFF
+/* AD041 module */
+// INPUT:  4WORD CIO2~CIO5 m+1~m+4,
+// OUTPUT: 2WORD CIO102~CIO103) n+1,n+2
+// STEPS:
+// 1. write setup data to output word
+//		- use the port
+//		- average calculate
+//		- select analog input range(00:-10~10v;01:0~10v;10:1~5v/4~20ma;11:0~5v/0~20ma)
+//		- recv WR_CORRECT response
+// 2. read A/D result from input word
+//		- sent "read CIO2~5" command to PLC
+//		- recv data(1word) of port01~04 from PLC in "@00RR00dataFCS*\r" data=FFFF(2B)
+// NOTE: must init before it can start AD transverse and can read data from it.
+// once init complete, cannot change until restart CPU
+const char INIT_AD[] = "@00WR0102800A800037*\r"; ///< ADO41 setup data. 800A 8000. use ad analog input port01, no average, 4-20ma
+const char READ_AD[] = "@00RR0002000143*\r"; ///< AD041. read CIO2 for 1 word
 
 const char WR_CORRECT_RESPONSE[] = "@00WR0045*\r"; ///< write response: cio correct
 
@@ -114,18 +131,18 @@ void PLCSerial::stopTimer()
 
 void PLCSerial::readSensor()
 {
-	auto data = readPLC(READ_SENSOR_STATE);
+	auto data = readPLC(READ_SENSOR_STATE); // like "@00RR00000040*\r"
 	if (data.isNull() || data.size() != 15)
 	{
 		qWarning() << "PLC: Sensor wrong response";
 		return;
 	}
 	bool ok;
-	int cioNow = QString(data.mid(8, 3)).toInt(&ok, 16); //0~0x1ff
-	if (cio != cioNow)
+	WORD cioNow = WORD((data.mid(8, 3)).toInt(&ok, 16)); //0x000~0x1ff, in fact cio0~11(16) ranges to 0xffff.
+	if (cio0 != cioNow)
 	{
-		cio = cioNow;
-		emit showCio2Ui(cio);
+		cio0 = cioNow;
+		emit showCio2Ui(cio0);
 	}
 	sol0 = cio0 & msk_sol0;
 	sol1 = cio0 & msk_sol1;

@@ -6,7 +6,7 @@ class QSerialPort;
 class PLCSerial : public QObject
 {
 	Q_OBJECT
-  public:
+public:
 	explicit PLCSerial(QObject *parent = nullptr);
 	~PLCSerial();
 	inline double getTrolleySpeed()
@@ -27,7 +27,7 @@ class PLCSerial : public QObject
 		AlarmOFF,
 	};
 
-  private:
+private:
 	QMutex mutex;
 	QSerialPort *plcSerialPort;
 	double trolleySpeed; //linear Velocity read from AD, unit:m/min
@@ -37,7 +37,9 @@ class PLCSerial : public QObject
 	bool sor = false; ///< sensor out right ÓÒ²àÀë¿ª
 	bool sil = false; ///< sensor in left ×ó²àÀë¿ª
 	bool sir = false; ///< sensor in right ÓÒ²à½øÈë
-	int cio0 = 0;	 ///< cio0 0~0xffff, cio0.1~cio0.8 0~0x1ff, not >>1
+	// for unsigned type like word, >> is logic move right.
+	// for signed type like int, >> is arithmetic move right
+	WORD cio0 = 0;	 ///< cio0 used0.1~0.8
 	bool sol0 = false;
 	bool sol1 = false;
 	bool sor0 = false;
@@ -57,18 +59,18 @@ class PLCSerial : public QObject
 	void writePLC(QByteArray plcData);
 	QByteArray readPLC(QByteArray plcData);
 
-  private slots:
+	private slots:
 	void readSensor();
 	void readTrolley(); //2017.11.9 read trolley reference speed through (PC-PLC-AD-Trolley)
 
-  signals:
-	void showCio2Ui(int);
+signals:
+	void showCio2Ui(WORD);
 	void sensorIN();
 	void sensorOUT();
 	void trolleySpeedReady();
 	void trolleySpeedError();
 
-  public slots:
+	public slots:
 	void init();
 	void onAlarmEvent(int);
 

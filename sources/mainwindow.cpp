@@ -19,6 +19,7 @@ MainWindow::MainWindow(ConfigHelper *_configHelper, QWidget *parent /*= Q_NULLPT
 	ui.setupUi(this);
 	configWindow();
 	const auto deskRect = QApplication::desktop()->availableGeometry();
+	// 分辨率适配
 	if (deskRect.width() < 1920)
 	{
 		setWindowFlag(Qt::MSWindowsFixedSizeDialogHint);
@@ -148,7 +149,7 @@ void MainWindow::configWindow()
 	connect(plcSerial, &PLCSerial::setUiAlarm, this, &MainWindow::uiAlarmLight);
 
 	/* sensor light */
-	connect(plcSerial, &PLCSerial::showCio2Ui, this, &MainWindow::uiShowCIOLight);
+	connect(plcSerial, &PLCSerial::showCio2Ui, this, &MainWindow::uiShowIOLight);
 
 	/* start thread */
 	plcSerialThread->start();
@@ -266,9 +267,36 @@ void MainWindow::uiShowCartSpeed()
 	ui.cartSpeedLineEdit->setText(str);
 }
 
-void MainWindow::uiShowCIOLight(int cio0)
+void MainWindow::uiShowCIO_0(WORD cio0)
 {
-	cio0 >> 1 & 1; //
+	QPixmap green = QPixmap(":/WheelMonitor/Resources/images/green.png");
+	//QPixmap red = QPixmap(":/WheelMonitor/Resources/images/red.png");
+	QPixmap gray = QPixmap(":/WheelMonitor/Resources/images/gray.png");
+	bool b;
+	b = cio0 >> 1 & 1;
+	if (b) { ui.Btn_CIO1_1->setIcon(QIcon(green)); }
+	else { ui.Btn_CIO1_1->setIcon(QIcon(gray)); }
+	b = cio0 >> 2 & 1;
+	if (b) { ui.Btn_CIO1_2->setIcon(QIcon(green)); }
+	else { ui.Btn_CIO1_2->setIcon(QIcon(gray)); }
+	b = cio0 >> 3 & 1;
+	if (b) { ui.Btn_CIO1_3->setIcon(QIcon(green)); }
+	else { ui.Btn_CIO1_3->setIcon(QIcon(gray)); }
+	b = cio0 >> 4 & 1;
+	if (b) { ui.Btn_CIO1_4->setIcon(QIcon(green)); }
+	else { ui.Btn_CIO1_4->setIcon(QIcon(gray)); }
+	b = cio0 >> 5 & 1;
+	if (b) { ui.Btn_CIO1_5->setIcon(QIcon(green)); }
+	else { ui.Btn_CIO1_5->setIcon(QIcon(gray)); }
+	b = cio0 >> 6 & 1;
+	if (b) { ui.Btn_CIO1_6->setIcon(QIcon(green)); }
+	else { ui.Btn_CIO1_6->setIcon(QIcon(gray)); }
+	b = cio0 >> 7 & 1;
+	if (b) { ui.Btn_CIO1_7->setIcon(QIcon(green)); }
+	else { ui.Btn_CIO1_7->setIcon(QIcon(gray)); }
+	b = cio0 >> 8 & 1;
+	if (b) { ui.Btn_CIO1_8->setIcon(QIcon(green)); }
+	else { ui.Btn_CIO1_8->setIcon(QIcon(gray)); }
 }
 
 void MainWindow::onAlarmChanged(AlarmEvent alarmevent)
@@ -449,14 +477,14 @@ void MainWindow::on_action_Backup_Log_triggered()
 void MainWindow::on_action_About_triggered()
 {
 	QMessageBox::about(this, QStringLiteral("关于"),
-					   QStringLiteral("<h3>%1</h3>"
-									  "<p>版本号：<b>%2</b>"
-									  "<p>%3"
-									  "<p>本软件由浙江大学开发，如果问题请联系%4")
-						   .arg(PRODUCT_NAME)
-						   .arg(PRODUCT_VER)
-						   .arg(COPYRIGHT)
-						   .arg(AUTHOR));
+		QStringLiteral("<h3>%1</h3>"
+			"<p>版本号：<b>%2</b>"
+			"<p>%3"
+			"<p>本软件由浙江大学开发，如果问题请联系%4")
+		.arg(PRODUCT_NAME)
+		.arg(PRODUCT_VER)
+		.arg(COPYRIGHT)
+		.arg(AUTHOR));
 }
 
 void MainWindow::on_action_About_Qt_triggered()

@@ -14,11 +14,11 @@ class ConfigHelper;
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
-  public:
+public:
 	MainWindow(ConfigHelper *helper, QWidget *parent = Q_NULLPTR);
 	~MainWindow();
 
-  private:
+private:
 	Ui::MainWindowClass ui;
 	ConfigHelper *configHelper;
 	QMutex mutex;
@@ -46,16 +46,16 @@ class MainWindow : public QMainWindow
 
 	AlarmEvent currentAlarmEvent; ///< current alarm state
 
-  protected:
+protected:
 	virtual void closeEvent(QCloseEvent *event) override;
 	virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
-  private slots:
+	private slots:
 	/* uiShow */
 	void uiAlarmLight(AlarmColor alarmColor);
 	void uiShowRealtimeImage(int deviceIndex);
 	void uiShowCartSpeed();
-	void uiShowCioLight(int cio0);
+	void uiShowCIO_0(WORD cio0);
 
 	/* onAlarmChanged */
 	void onAlarmChanged(AlarmEvent alarmevent);
@@ -79,7 +79,7 @@ class MainWindow : public QMainWindow
 	void on_action_About_Qt_triggered();
 	void on_alarmPushButton_clicked();
 
-  signals:
+signals:
 	/* about plcserial thread */
 	void initPlcSerial();
 	void startPLC();
