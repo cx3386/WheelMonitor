@@ -13,8 +13,9 @@
  */
 #pragma once
 
- // detailed information about this application.
+ // 注意：C++中通过常量初始化的const变量，定义在头文件中
 
+// detailed information about this application.
 const QString FILE_SPEC = QStringLiteral("宝钢环冷机台车轮子速度检测软件");
 const char FILE_VER[] = "1.1.1";
 const QString PRODUCT_NAME = QStringLiteral("宝钢环冷机台车轮子速度检测软件");
@@ -44,14 +45,20 @@ extern QString appName;
 const char BACKUP_ZIP_NAME[] = "WheelMonitor Bak.zip";
 //need identity of cpu and mac
 //bool bNeedIdentity;
+
+/* database connection name*/
 const char MAIN_CONNECTION_NAME[] = "main";
 const char THEAD0_CONNECTION_NAME[] = "thread0";
 const char THEAD1_CONNECTION_NAME[] = "thread1";
+
+/// the rate between inner calc speed and measured speed, of which value is optimized by LS method (minimize the error)
+const double speedCompensationCoeff[2] = { 0.954, 0.950 };// [out, in]
 
 /// Alarm color, generally used in client-side
 enum AlarmEvent
 {
 	AlarmLevel
+	TODO
 };
 
 static char* str2charx(const std::string &str) {
@@ -60,22 +67,25 @@ static char* str2charx(const std::string &str) {
 	return ch;
 }
 
-/**
- * \brief get device mark of device index
- *
- * \param int id device index
- */
-static QString getDeviceMark(int id) {
-	if (0 == id) return QStringLiteral("外");
-	if (1 == id) return QStringLiteral("内");
-}
+//匿名命名空间，LOCAL，与static相同，>C++11
+namespace {
+	/**
+	 * \brief get device mark of device index
+	 *
+	 * \param int id device index
+	 */
+	inline QString getDeviceMark(int id) {
+		if (0 == id) return QStringLiteral("外");
+		if (1 == id) return QStringLiteral("内");
+	}
 
-/**
- * \brief get device index of device mark
- *
- * \param QString qstr device mark
- */
-static int getDeviceIndex(QString qstr) {
-	if (qstr == QStringLiteral("外")) return 0;
-	if (qstr == QStringLiteral("内")) return 1;
+	/**
+	 * \brief get device index of device mark
+	 *
+	 * \param QString qstr device mark
+	 */
+	inline int getDeviceIndex(QString qstr) {
+		if (qstr == QStringLiteral("外")) return 0;
+		if (qstr == QStringLiteral("内")) return 1;
+	}
 }

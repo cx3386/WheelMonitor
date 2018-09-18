@@ -21,14 +21,10 @@ RobustMatcher::~RobustMatcher()
 	// \see std::shared_ptr since C++11
 }
 
-bool RobustMatcher::match(Mat src1, Mat src2, Mat msk1, Mat msk2, Mat &img_matches, double &angle)
+bool RobustMatcher::match(Mat src1, Mat src2, Mat &img_matches, double &angle)
 {
-	Mat image1, image2, mask1, mask2;
-	src1.copyTo(image1);
-	src2.copyTo(image2);
-	msk1.copyTo(mask1);
-	msk2.copyTo(mask2);
-	// // 0. Scale image2 to image1(1:1), so the scaling factor is one
+	Mat mask1 = getMask(src1.size()), mask2 = getMask(src2.size());
+	// // 0. Scale image2 to image1(1:1), so the scaling factor is 1
 	// if (image1.size() != image2.size())
 	// {
 	// 	double fx = image1.cols / image2.cols;
@@ -38,15 +34,15 @@ bool RobustMatcher::match(Mat src1, Mat src2, Mat msk1, Mat msk2, Mat &img_match
 	// }
 	vector<KeyPoint> keypoints1, keypoints2;
 	// 1a. Detection of the ORB features
-	detector->detect(image1, keypoints1, mask1);
-	detector->detect(image2, keypoints2, mask2);
+	detector->detect(src1, keypoints1, mask1);
+	detector->detect(src2, keypoints2, mask2);
 	// ***********if no keypoint detect then return
 	if (keypoints1.empty() || keypoints2.empty())
 		return false;
 	// 1b. Extraction of the ORB descriptors
 	Mat descriptors1, descriptors2;
-	detector->compute(image1, keypoints1, descriptors1);
-	detector->compute(image2, keypoints2, descriptors2);
+	detector->compute(src1, keypoints1, descriptors1);
+	detector->compute(src2, keypoints2, descriptors2);
 
 	// 2. Match the two image descriptors
 	// from image 1 to image 2 based on k nearest neighbours (with k=2)
@@ -72,9 +68,9 @@ bool RobustMatcher::match(Mat src1, Mat src2, Mat msk1, Mat msk2, Mat &img_match
 		//qDebug("the match point less than 2");
 		return false;
 	}
-	drawMatches(image1, keypoints1, image2, keypoints2,
-				matches, img_matches, Scalar::all(-1), Scalar::all(-1),
-				vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
+	drawMatches(src1, keypoints1, src2, keypoints2,
+		matches, img_matches, Scalar::all(-1), Scalar::all(-1),
+		vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
 
 	// 6. 求仿射变换
 	vector<Point2f> obj;
@@ -99,17 +95,17 @@ void RobustMatcher::symmetryTest(const vector<vector<DMatch>> &matches1, const v
 {
 	// for all matches image 1 -> image 2
 	for (vector<vector<DMatch>>::
-			 const_iterator matchIterator1 = matches1.begin();
-		 matchIterator1 != matches1.end(); ++matchIterator1)
+		const_iterator matchIterator1 = matches1.begin();
+		matchIterator1 != matches1.end(); ++matchIterator1)
 	{
 		// ignore deleted matches
 		if (matchIterator1->size() < 2)
 			continue;
 		// for all matches image 2 -> image 1
 		for (vector<vector<DMatch>>::
-				 const_iterator matchIterator2 = matches2.begin();
-			 matchIterator2 != matches2.end();
-			 ++matchIterator2)
+			const_iterator matchIterator2 = matches2.begin();
+			matchIterator2 != matches2.end();
+			++matchIterator2)
 		{
 			// ignore deleted matches
 			if (matchIterator2->size() < 2)
@@ -120,8 +116,8 @@ void RobustMatcher::symmetryTest(const vector<vector<DMatch>> &matches1, const v
 				// add symmetrical match
 				symMatches.push_back(
 					DMatch((*matchIterator1)[0].queryIdx,
-						   (*matchIterator1)[0].trainIdx,
-						   (*matchIterator1)[0].distance));
+					(*matchIterator1)[0].trainIdx,
+						(*matchIterator1)[0].distance));
 				break; // next match in image 1 -> image 2
 			}
 		}
@@ -137,8 +133,8 @@ int RobustMatcher::ratioTest(vector<vector<DMatch>> &matches)
 	int removed = 0;
 	// for all matches
 	for (vector<vector<DMatch>>::iterator
-			 matchIterator = matches.begin();
-		 matchIterator != matches.end(); ++matchIterator)
+		matchIterator = matches.begin();
+		matchIterator != matches.end(); ++matchIterator)
 	{
 		// if 2 NN has been identified
 		if (matchIterator->size() > 1)
@@ -159,17 +155,19 @@ int RobustMatcher::ratioTest(vector<vector<DMatch>> &matches)
 	return removed;
 }
 
-/** \brief get a white ring mask for the srcImg.
- * \param size the size of mask, usually the same as srcImg.
- * \param Ro
- * \param Ri
- * \return a mask
- */
-cv::Mat RobustMatcher::getMask(cv::Size size, int Ro, int Ri) const
+/** s\brief get a white ring mask for the srcImg.
+* 图像大小与源图像相同，外径与内径在此设定
+* \param cv::Size size 源图大小
+*
+*/
+cv::Mat RobustMatcher::getMask(cv::Size size) const
 {
 	cv::Mat mask = cv::Mat::zeros(size, CV_8UC1);
-	cv::circle(mask, cv::Point(mask.rows / 2, mask.cols / 2), Ro, cv::Scalar(255), -1, 8);
+	int r = size.height / 2;
+	int ro = r - 10;
+	int ri = r / 2 + 15;
+	cv::circle(mask, cv::Point(r, r), ro, cv::Scalar(255), -1, 8);
 	//bitwise_not(mask1, mask1);
-	cv::circle(mask, cv::Point(mask.rows / 2, mask.cols / 2), Ri, cv::Scalar(0), -1, 8);
+	cv::circle(mask, cv::Point(r, r), ri, cv::Scalar(0), -1, 8);
 	return mask;
 }

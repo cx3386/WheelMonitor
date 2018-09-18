@@ -29,6 +29,7 @@ void ConfigHelper::read()
 	launchAtLogin = settings->value("launchAtLogin", true).toBool();
 	startAtLaunch = settings->value("startAtLaunch", true).toBool();
 	verboseLog = settings->value("verboseLog", true).toBool();
+	pc2plc_portName = settings->value("pc2plc_portName", "COM3").toString(); // Ä¬ÈÏCOM3¿Ú
 	settings->endGroup();
 
 	int size = settings->beginReadArray(GP_DEV);
@@ -95,6 +96,7 @@ void ConfigHelper::save()
 	settings->setValue("launchAtLogin", QVariant(launchAtLogin));
 	settings->setValue("startAtLaunch", QVariant(startAtLaunch));
 	settings->setValue("verboseLog", QVariant(verboseLog));
+	settings->setValue("pc2plc_portName", QVariant(pc2plc_portName));
 	settings->endGroup();
 
 	settings->beginWriteArray(GP_DEV);

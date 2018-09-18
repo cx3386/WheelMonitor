@@ -72,13 +72,14 @@ void ImageProcess::doImageProcess()
 											  //assume wheel is out at initial, won't be set to true until a new wheel comes in.
 				if (bIsTrolleyInSensors)	  //in detect area
 				{
+				TODO:返回码的意义已经改变
 					static bool lastCore = false;	  //record the last return of core process
-					bool nowCore = coreImageProcess(); //0->1, Fragment++ at rise edge. NOTE: it can be 0, which means no circle detected
-					if (nowCore & (!lastCore))		   //nowCore == true && lastCore == false
-					{
-						wheelDbInfo.fragment++;
-					}
-					lastCore = nowCore;
+					 bool nowCore = coreImageProcess(); //0->1, Fragment++ at rise edge. NOTE: it can be 0, which means no circle detected
+					 if (nowCore & (!lastCore))		   //nowCore == true && lastCore == false
+					 {
+						 wheelDbInfo.fragment++;
+					 }
+					 lastCore = nowCore;
 				}
 				else if (lastIsIn) //lastIsIn==true && bIsInArea==false,which means wheel is out of detect area
 				{
@@ -109,95 +110,70 @@ void ImageProcess::doImageProcess()
 	emit showRealtimeImage();
 }
 
-int ImageProcess::coreImageProcess() //0-no wheel, 1-matches success, 2-wait next srcImg
+int ImageProcess::coreImageProcess()
 {
-	static Mat imgCache, dstImg[2];
-	static Mat maskCache, mask[2];
-
 	ocr->core_ocr(srcImg);								//card num detect gzy 2017/11/9
-	Mat roiImage = calibratedFrame(imProfile->roiRect); //srcImg(rect).copyTo(roiImage);
-	equalizeHist(roiImage, roiImage);					//equalize the image, this will change calibratedFrame//2017/12/21
+	Mat monitorArea = calibratedFrame(imProfile->roiRect); //截取监测区域
+	equalizeHist(monitorArea, monitorArea);					//equalize the image, this will change calibratedFrame//2017/12/21
 	Mat blurImage;										//use blur image for hough circles, use source image for matches
 
-	/************************************************************************/
-	/* hough circles                                                                     */
-	/************************************************************************/
-	// Reduce the noise so we avoid false circle detection
-	GaussianBlur(roiImage, blurImage, Size(imProfile->gs1, imProfile->gs1), 2, 2); //the greater the kernel size is, the less time the hough cost
-	// Canny show
-	//Mat detectEdges;
-	//Canny(blurImage, detectEdges,imProfile->param1 / 2,imProfile->param1, 3);
-	//imshow("edges", detectEdges);
-	// Apply the Hough Transform to find the circles. //cost 40ms
+	// Reduce the noise to avoid false circle detection
+	GaussianBlur(monitorArea, blurImage, Size(imProfile->gs1, imProfile->gs1), 2, 2); //the greater the kernel size is, the less time the hough cost
+	// 霍夫匹配，寻找车轮的外圆。注意：该方法获取的圆可能部分在图像外面
 	vector<Vec3f> circles;
 	HoughCircles(blurImage, circles, CV_HOUGH_GRADIENT, imProfile->dp, imProfile->minDist, imProfile->param1, imProfile->param2, imProfile->radius_min, imProfile->radius_max);
+	//无霍夫圆
 	if (circles.empty())
 	{
-		nImgCount = 0;
-		return 0;
+		wheelFrame_pre.release(); // 有效帧将不连续，置空前一帧
+		return 1; // 车轮定位丢失
 	}
 
-	Point center0(cvRound(circles[0][0]), cvRound(circles[0][1])); //center of the circle
-	int radiusOutside = cvRound(circles[0][2]);					   //Ro
-	int radiusInside = radiusOutside / 2;						   //Ri
+	//取霍夫圆的最大一个，当作车轮外径。取外切矩形用于匹配
+	Point center0(cvRound(circles[0][0]), cvRound(circles[0][1])); // 圆心
+	int radius = cvRound(circles[0][2]);					   // 半径
+	Rect wheelRect((center0.x - radius), (center0.y - radius), 2 * radius, 2 * radius); // 外切矩形的位置
+	Mat wheelFrame = monitorArea(wheelRect); //外切矩形图像
 
-	//draw circle to ui real video
-	auto circleColor = Scalar(0, 255, 0); //green
-	auto drawCircle = [&] {
-		Size size;
-		Point ofs;
-		roiImage.locateROI(size, ofs);
-		QMutex mutex;
-		mutex.lock();
-		circle(frameToShow, center0 + ofs, 3, circleColor, -1);
-		circle(frameToShow, center0 + ofs, radiusOutside, circleColor, 1, LINE_AA);
-		mutex.unlock();
-	};
+	//判断车轮是否在监测区域内
+	Rect monitorRect(0, 0, monitorArea.cols, monitorArea.rows);
+	bool bInside = isInside(wheelRect, monitorRect);
 
-	//judge if the circle is out of ROI
-	if ((center0.x + radiusOutside) > roiImage.cols || (center0.x - radiusOutside) < 0 ||
-		(center0.y + radiusOutside) > roiImage.rows || (center0.y - radiusOutside) < 0)
+	//draw circle to UI
+	auto circleColor = bInside ? Scalar(0, 255, 0) : Scalar(0, 255, 255); // 如果在里面则画绿，否则画黄
+	Size size;
+	Point ofs;
+	monitorArea.locateROI(size, ofs); // get the offset of monitorArea from the srcImg
+	QMutex mutex;
+	mutex.lock();
+	circle(frameToShow, center0 + ofs, 3, circleColor, -1); // center
+	circle(frameToShow, center0 + ofs, radius, circleColor, 1, LINE_AA); // round
+	mutex.unlock();
+
+	// 如果在监测区域外
+	if (!bInside)
 	{
-		circleColor = Scalar(0, 255, 255); //yellow
-		drawCircle();
-		nImgCount = 0;
-		return 0;
-	}
-	drawCircle();
-	nImgCount++;
-
-	/************************************************************************/
-	/********Ring mask*********/
-	Rect ringRect((center0.x - radiusOutside), (center0.y - radiusOutside), 2 * radiusOutside, 2 * radiusOutside);
-	Mat imageRing = roiImage(ringRect);
-	Mat maskTmp = rMatcher->getMask(imageRing.size(), radiusOutside - 10, radiusInside + 15); //get a ring mask, use to match
-
-	if (nImgCount == 1)
-	{
-		imgCache = imageRing;
-		maskCache = maskTmp;
+		wheelFrame_pre.release();
 		return 2;
 	}
-	if (nImgCount == 2)
+
+	// 至此成功锁定（区域内的）车轮，保存
+	Mat matchSrc1 = wheelFrame_pre;
+	wheelFrame_pre = wheelFrame;
+
+	// 前一帧为空
+	if (matchSrc1.empty())
 	{
-		dstImg[0] = imgCache;
-		dstImg[1] = imageRing;
-		imgCache = imageRing;
-		mask[0] = maskCache;
-		mask[1] = maskTmp;
-		maskCache = maskTmp;
-		//nImgCount = 0;//drop the all image//discrete sampling
-		nImgCount = 1; //continuous sampling
+		return 2; // 等待匹配帧
 	}
-	/************************************************************************/
 
-	//**************************orb matches**************************//
-
+	// 开始匹配 //orb matches
 	Mat image_matches; // no longer show in UI
 	double oneAngle;
-	if (!rMatcher->match(dstImg[0], dstImg[1], mask[0], mask[1], image_matches, oneAngle)) //200ms
+	if (!rMatcher->match(matchSrc1, wheelFrame, image_matches, oneAngle)) //200ms
+	{
 		return 2;
-
+	}
 	//angle to linear velocity
 	double rtSpeed = oneAngle * imProfile->angle2Speed();
 	qDebug("imageprocess Speed: %.2lf; refSpeed: %.2lf", rtSpeed, rtRefSpeed);
@@ -310,7 +286,7 @@ void ImageProcess::alarmThisWheel()
 	/* reset parameters of this wheel                                       */
 	rtSpeeds.clear();
 	refSpeeds.clear();
-	wheelDbInfo = {0};
+	wheelDbInfo = { 0 };
 	nImgCount = 0; //no need	//once settle a wheel, force to zero
 				   /************************************************************************/
 }
@@ -343,30 +319,30 @@ void ImageProcess::onWheelTimeout()
 cv::Mat ImageProcess::cameraUndistort(cv::Mat src)
 {
 	double ma[3][3] = {
-		5.465101556178353e+02,
-		0.650701463159305,
-		6.491732555284723e+02,
-		0,
-		5.460864354608683e+02,
-		3.503090793118121e+02,
-		0,
-		0,
-		1}; ///> for 1280*720
+	   5.465101556178353e+02,
+	   0.650701463159305,
+	   6.491732555284723e+02,
+	   0,
+	   5.460864354608683e+02,
+	   3.503090793118121e+02,
+	   0,
+	   0,
+	   1 }; ///< for 1280*720
 
 	Mat cameraMatrix = Mat(3, 3, CV_64F, ma);
 	Mat distCoeffs = (Mat_<double>(5, 1) << -0.126396146351086,
-					  0.012067785981004,
-					  -6.004717303426694e-04,
-					  0.001281258711954,
-					  0);
+		0.012067785981004,
+		-6.004717303426694e-04,
+		0.001281258711954,
+		0);
 
 	Mat view, rview, map1, map2;
 	Size imageSize = src.size();
 
 	//undistort combine initUndistortRectifyMap and remap
 	initUndistortRectifyMap(cameraMatrix, distCoeffs, Mat(),
-							getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, 1, imageSize, nullptr),
-							imageSize, CV_16SC2, map1, map2);
+		getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, 1, imageSize, nullptr),
+		imageSize, CV_16SC2, map1, map2);
 
 	Mat srcCalibration;
 	remap(src, srcCalibration, map1, map2, INTER_LINEAR);

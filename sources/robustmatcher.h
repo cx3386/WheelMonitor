@@ -3,18 +3,22 @@
 
 class RobustMatcher
 {
-  public:
+public:
 	RobustMatcher();
 
 	~RobustMatcher();
 
-	cv::Mat getMask(cv::Size size, int Ro, int Ri) const;
-	bool match(cv::Mat src1, cv::Mat src2, // input images
-			   cv::Mat msk1, cv::Mat msk2, //input mask
-			   cv::Mat &img_matches,	   //output img_matches
-			   double &angle);			   // output angle
-
-  private:
+	/**
+	 * \brief 匹配两幅图像，输出转动角度和匹配图像对，匹配成功返回1
+	 *
+	 * \param cv::Mat src1 输入 前一帧图像
+	 * \param cv::Mat src2 输入 后一帧图像
+	 * \param cv::Mat & img_matches 输出 匹配图像对
+	 * \param double & angle 输出 转动角度
+	 */
+	bool match(cv::Mat src1, cv::Mat src2, cv::Mat &img_matches, double &angle);
+private:
+	cv::Mat getMask(cv::Size) const;
 	cv::Ptr<cv::FeatureDetector> detector;
 	cv::Ptr<cv::DescriptorMatcher> matcher;
 	float ratio = 0.65f;

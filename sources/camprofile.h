@@ -11,5 +11,6 @@ struct CamProfile {
 };
 Q_DECLARE_METATYPE(CamProfile)
 
+// 为了设置文件.ini的可读性，仅保留这些重载，而不使用QSetting的stream功能（会导致qstring以编码形势保存）
 QDataStream& operator << (QDataStream &out, const CamProfile &p);
 QDataStream& operator >> (QDataStream &in, CamProfile &p);
