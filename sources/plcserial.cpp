@@ -144,7 +144,7 @@ void PLCSerial::readSensor()
 	{ //00
 		if (sensorRight == true && sensorLeft == false)
 		{ //01->00 wheel leaves the right sensor
-			emit sensorOUT();
+			emit _DZOut();
 		}
 		sensorRight = false;
 		sensorLeft = false;
@@ -158,7 +158,7 @@ void PLCSerial::readSensor()
 	{ //10
 		if (sensorRight == false && sensorLeft == false)
 		{ //00->10 wheel enters the left sensor
-			emit sensorIN();
+			emit _DZIN();
 		}
 		sensorRight = false;
 		sensorLeft = true;

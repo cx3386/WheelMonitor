@@ -26,7 +26,7 @@ public:
 	string get_final_result();
 	/// return ocr total match size, should be called after get_final_result();
 	inline int size() const { return ocrDetectCount; }
-	/// when stop process, reset ocr to miss ocr too much
+	//! 重置ocr的连续miss计数器
 	inline void resetOcr() { nContinuousMissCount = 5; }
 
 private:

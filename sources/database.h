@@ -23,7 +23,7 @@ enum WheelHeader
 	Wheel_VideoPath,
 };
 
-/// parameters of wheels to be recorded in the database
+//! 记录该车轮结算后的相关参数，以写入数据库
 struct WheelDbInfo
 {
 	int id;
@@ -36,7 +36,7 @@ struct WheelDbInfo
 	int alarmlevel;
 	int checkstate;
 	int ocrsize;
-	int fragment;
+	int interrupts; //!< 记录车轮回合内，检测中断了几次。0-正常 >1-不连续
 	int totalmatch;
 	int validmatch;
 	QString speeds;

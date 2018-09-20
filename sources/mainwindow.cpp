@@ -117,8 +117,8 @@ void MainWindow::configWindow()
 	//plcserial在初始化列表中
 	imageProcess[0] = new ImageProcess(configHelper, videoCapture[0], plcSerial); // don't let parent = this. or can't move to QThread
 	imageProcess[1] = new ImageProcess(configHelper, videoCapture[1], plcSerial);
-	connect(imageProcess[0], &ImageProcess::showRealtimeImage, this, [&]() { uiShowRealtimeImage(0); });
-	connect(imageProcess[1], &ImageProcess::showRealtimeImage, this, [&]() { uiShowRealtimeImage(1); });
+	connect(imageProcess[0], &ImageProcess::showFrame, this, [&]() { uiShowRealtimeImage(0); });
+	connect(imageProcess[1], &ImageProcess::showFrame, this, [&]() { uiShowRealtimeImage(1); });
 	/* image process thread */
 	imageProcessThread[0] = new QThread(this);
 	imageProcessThread[1] = new QThread(this);
@@ -135,12 +135,6 @@ void MainWindow::configWindow()
 	plcSerial->moveToThread(plcSerialThread);
 	//connect(plcSerialThread, &QThread::finished, plcSerial, &QObject::deleteLater);
 	connect(plcSerial, &PLCSerial::trolleySpeedReady, this, &MainWindow::uiShowCartSpeed); //bind plc::adSpeed to cartSpeed
-
-	/* plc <-> video capture */
-	connect(plcSerial, &PLCSerial::sensorIN, videoCapture[0], &HikVideoCapture::startRecord);
-	connect(plcSerial, &PLCSerial::sensorIN, videoCapture[1], &HikVideoCapture::startRecord);
-	connect(plcSerial, &PLCSerial::sensorOUT, videoCapture[0], &HikVideoCapture::stopRecord);
-	connect(plcSerial, &PLCSerial::sensorOUT, videoCapture[1], &HikVideoCapture::stopRecord);
 
 	/* alarmLight */
 	// #TODO:other->ui->plc
@@ -389,12 +383,12 @@ void MainWindow::on_action_Start_triggered()
 		return;
 	}
 	emit startPLC();
-	if (!videoCapture[0]->startCapture())
+	if (!videoCapture[0]->start())
 	{
 		QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("外圈摄像头未连接成功！"), QStringLiteral("确定"));
 		return;
 	}
-	if (!videoCapture[1]->startCapture())
+	if (!videoCapture[1]->start())
 	{
 		QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("内圈摄像头未连接成功！"), QStringLiteral("确定"));
 		return;
@@ -425,9 +419,9 @@ void MainWindow::on_action_Stop_triggered()
 	imageProcess[0]->stop();
 	imageProcess[1]->stop();
 	emit stopPLC();
-	if (!videoCapture[0]->stopCapture())
+	if (!videoCapture[0]->stop())
 		return;
-	if (!videoCapture[1]->stopCapture())
+	if (!videoCapture[1]->stop())
 		return;
 	/* rec label visible */
 	recLabel_pre[0]->setVisible(false);

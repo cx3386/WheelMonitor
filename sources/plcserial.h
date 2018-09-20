@@ -119,8 +119,8 @@ private slots:
 
 signals:
 	void showCio2Ui(WORD);
-	void sensorIN();
-	void sensorOUT();
+	void _DZIn();
+	void _DZOut();
 	void trolleySpeedReady();
 	/**
 	 * \brief 台车(中轴)速度信号读取错误

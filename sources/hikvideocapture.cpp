@@ -77,7 +77,7 @@ void HikVideoCapture::syncCameraTime()
 	}
 }
 
-bool HikVideoCapture::startCapture()
+bool HikVideoCapture::start()
 {
 	if ((lRealPlayHandle_HD != -1) && (lRealPlayHandle_SD != -1))
 	{
@@ -93,10 +93,11 @@ bool HikVideoCapture::startCapture()
 		NET_DVR_Cleanup();
 		return false;
 	}
+	nHandling = nHandling_Start;
 	return true;
 }
 
-bool HikVideoCapture::stopCapture()
+bool HikVideoCapture::stop()
 {
 	stopRecord();
 	bool ret = true;
@@ -150,15 +151,15 @@ void HikVideoCapture::stopRecord()
 
 void HikVideoCapture::DecCBFun(char *pBuf, FRAME_INFO *pFrameInfo)
 {
-	if (--gbHandling)
-	{
-		return;
-	}
-	gbHandling = camProfile->frameInterv;
+	// 每x帧捕获1帧
+	if (--nHandling) return;
+	nHandling = camProfile->frameInterv;
+
 	static int waitcount = 0;
-	if (bIsProcessing)
+	//检查库存：还没处理完
+	if (nPendingFrame > 0)
 	{
-		//every 500 wait, write to log
+		// 防止写入太密集
 		if (++waitcount == 500) {
 			qDebug("Image is waiting for processing! Please increase gbhanding");
 			waitcount = 0;
@@ -173,9 +174,9 @@ void HikVideoCapture::DecCBFun(char *pBuf, FRAME_INFO *pFrameInfo)
 		cvtColor(src, pImg, CV_YUV2GRAY_YV12);
 		mutex.lock();
 		rawImage = pImg;
+		nPendingFrame++;
 		mutex.unlock();
-		bIsProcessing = true; // bool need no mutex, because bool is guaranteed atomic operations
-		emit captureOneImage(); // 正向通知,反向阻塞(bStop)
+		emit frameCaptured(); // 正向通知,反向阻塞(bStop)
 	}
 }
 

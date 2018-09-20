@@ -17,14 +17,24 @@ ImageProcess::ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_
 {
 	connect(this, &ImageProcess::initModel, this, &ImageProcess::setupModel);
 
-	connect(videoCapture, &HikVideoCapture::captureOneImage, this, &ImageProcess::doImageProcess);
-	connect(this, &ImageProcess::imageProcessReady, videoCapture, &HikVideoCapture::currentImageProcessReady);
-
 	connect(videoCapture, &HikVideoCapture::recordTimeout, this, &ImageProcess::onWheelTimeout);
 	connect(plcSerial, &PLCSerial::trolleySpeedReady, this, [&]() { rtRefSpeed = plcSerial->getTrolleySpeed(); });
-	connect(plcSerial, &PLCSerial::sensorIN, this, &ImageProcess::onSensorIN);
-	connect(plcSerial, &PLCSerial::sensorOUT, this, &ImageProcess::onSensorOUT);
+	// plc -> imageprocess
+	connect(plcSerial, &PLCSerial::_DZIn, this, &ImageProcess::onSensorIN);
+	connect(plcSerial, &PLCSerial::_DZOut, this, &ImageProcess::onSensorOUT);
 
+	//videocapture -> imageprocess
+	connect(this, &ImageProcess::_MAIn, videoCapture, &HikVideoCapture::startRecord);
+	connect(this, &ImageProcess::_MAOut, videoCapture, &HikVideoCapture::stopRecord);
+	// //双向通知：cap->handle->cap->handle...是一个库存为1的生产者消费者模型，
+	connect(this, &ImageProcess::frameHandled, videoCapture, &HikVideoCapture::frameProcessed);
+	// videocapute -> imageproecss
+	connect(videoCapture, &HikVideoCapture::frameCaptured, this, &ImageProcess::handleFrame);
+
+	// plc -> video capture
+	connect(plcSerial, &PLCSerial::_DZIn, videoCapture, &HikVideoCapture::startRecord);
+	connect(plcSerial, &PLCSerial::_DZOut, videoCapture, &HikVideoCapture::stopRecord);
+	// videocapture -> plc // 放弃，用一个专门的报警类来控制报警 [9/20/2018 cx3386]
 	connect(this, &ImageProcess::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 }
 
@@ -32,88 +42,126 @@ ImageProcess::~ImageProcess() = default;
 
 void ImageProcess::start()
 {
-	ocr->resetOcr();
+	// 有被mainwindow直接调用的情况（此时为主线程），因此需要线程锁
 	QMutexLocker locker(&mutex);
-	bIsProcessing = true;
+	if (bUsrCtrl)
+	{
+		qWarning() << "ImageProcess: repeated start";
+		return;
+	}
+	_DZRecorder.push(0); // DZ初始化
+	_MAState = 1; //因此不会触发结束1
+	//nCore_pre = FindFail;
+	bUsrCtrl = true;
 }
 
 void ImageProcess::stop()
 {
 	QMutexLocker locker(&mutex);
-	bIsProcessing = false;
+	if (!bUsrCtrl)
+	{
+		qWarning() << "ImageProcess: repeated stop";
+		return;
+	}
+	// 连续性中断，重置相关量为原始状态
+	ocr->resetOcr(); // ocr重置
+	_DZRecorder.clear(); // DZ清空
+	clearWheel();
+	bUsrCtrl = false;
 }
 
-void ImageProcess::doImageProcess()
+void ImageProcess::handleFrame()
 {
-	foreverPreProcess();
-	mutex.lock();						 //prevent reading the frameToShow simultaneously
-	calibratedFrame.copyTo(frameToShow); //here we use deep copy, otherwise we will change calibratedFrame when change frameToshow
-	cvtColor(frameToShow, frameToShow, CV_GRAY2BGR);
-	rectangle(frameToShow, imProfile->roiRect, Scalar(0, 0, 255), 2);
-	mutex.unlock();
-	if (bIsProcessing)
+	makeFrame4Show(); //只要cap发送信号，则显示到界面上
+	if (bUsrCtrl)
 	{
-		//when wheel is stop,
-		//1. stop the process to avoid meaningless count
-		//2. drop the calc results and wait for a come-in signal.
-		//this usually happens when wheel timeout, or the speed is detected as zero
+		// 台车停止，丢弃帧，丢弃该车轮，停止处理。
+		// 发生在光电开关未在规定时间内检测到离开信号，或者测到台车速度为0
 		if (bIsTrolleyStopped)
-		{
-			alarmThisWheel();
-		}
-
+			checkoutWheel();
 		else
 		{
-			/*sensor triggered*/
-			//decide if the wheel comes in/out by SENSOR IN/OUT
+			//sensor triggered. 通过SENSOR IN/OUT信号开始/结束本车轮的检测，而无论core的返回值
 			if (imProfile->sensorTriggered)
 			{
-				static bool lastIsIn = false; //the wheel is in(1) or out(0) of the detect area. when 1->0(falling edge), which means the wheel is scrolling out, alarm this wheel.
-											  //assume wheel is out at initial, won't be set to true until a new wheel comes in.
-				if (bIsTrolleyInSensors)	  //in detect area
+				int state = _DZRecorder.state(0);
+				// 车轮进入、正在DZ
+				if (state == LevelRecorder::HighLevel || state == LevelRecorder::PositiveEdge)	  //in detect area
 				{
-				TODO:返回码的意义已经改变
-					static bool lastCore = false;	  //record the last return of core process
-					 bool nowCore = coreImageProcess(); //0->1, Fragment++ at rise edge. NOTE: it can be 0, which means no circle detected
-					 if (nowCore & (!lastCore))		   //nowCore == true && lastCore == false
-					 {
-						 wheelDbInfo.fragment++;
-					 }
-					 lastCore = nowCore;
+					int nCore = coreImageProcess(); //0->1, Fragment++ at rise edge. NOTE: it can be 0, which means no circle detected
+					if (nCore == FindFail && nCore_pre > RMA)		   //nowCore == true && lastCore == false
+						interrupts++;
+					nCore_pre = nCore;
 				}
-				else if (lastIsIn) //lastIsIn==true && bIsInArea==false,which means wheel is out of detect area
+				// 车轮离开DZ，结算
+				else if (state == LevelRecorder::NegativeEdge)
 				{
-					//Once a wheel scroll out the detect area, settle it.
-					alarmThisWheel();
+					checkoutWheel();
 				}
-				lastIsIn = bIsTrolleyInSensors;
 			}
-			/*image triggered*/
-			//for test manually, independent on cameracapsave
+			//image triggered
+			//通过LMA变InMA的上升沿开始，InMA变RMA的下降沿结算车轮；
+			// 边界反复跳动：开始1(跳过)-->开始2,3..（清零）-->中断-->结束1（结算）-->结束2,3..（跳过）
 			else
 			{
-				static bool lastCore = false;
-				bool nowCore = coreImageProcess();
-				if (nowCore && !lastCore) //0->1
+				int nCore = coreImageProcess();
+				// LMA->InMA上升沿 开始
+				if (nCore > RMA && nCore_pre == LMA)
 				{
-					wheelDbInfo.fragment++;
+					// 开始1
+					if (_MAState != 0)
+					{
+						_MAState = 0;
+					}
+					// 开始2,3...
+					else
+					{
+						rtSpeeds.clear();
+						refSpeeds.clear();
+						interrupts = 0;
+						//wheelFrame_pre.release(); // 因为pre是LMA,所以frame_pre必然是空的
+					}
 				}
-				else if (!nowCore && lastCore) //1->0
+				// InMA->RMA下降沿 结算
+				else if (nCore == RMA && nCore_pre > RMA)
 				{
-					alarmThisWheel(); //be careful if it cost too much time(>320ms)
+					// 结束1
+					if (_MAState != 1)
+					{
+						_MAState = 1;
+						// ncore重置为FindFail，实际应该为RMA, 但并不影响判断（无pre==RMA或FindFail的判断条件）
+						// 此时wheelFrame_pre已经自动release了
+						checkoutWheel();
+					}
 				}
-				lastCore = nowCore;
+				// InMA->MissWheel 中断
+				else if (nCore == FindFail && nCore_pre > RMA)
+				{
+					_MAState = 2;
+					interrupts++;
+				}
+				nCore_pre = nCore;
 			}
 		}
 	}
-	emit imageProcessReady();
-	emit showRealtimeImage();
+	emit frameHandled();
+	emit showFrame();
+}
+
+void ImageProcess::makeFrame4Show()
+{
+	preprocess();
+	mutex.lock();						 //prevent reading the frameToShow simultaneously
+	undistortedFrame.copyTo(frameToShow); // 深拷贝，因为undistortedFrame将与framToShow的内容不同
+	cvtColor(frameToShow, frameToShow, CV_GRAY2BGR); // 转换成彩图因为要在图中画彩色线框
+	rectangle(frameToShow, imProfile->roiRect, Scalar(0, 0, 255), 2);
+	mutex.unlock();
 }
 
 int ImageProcess::coreImageProcess()
 {
 	ocr->core_ocr(srcImg);								//card num detect gzy 2017/11/9
-	Mat monitorArea = calibratedFrame(imProfile->roiRect); //截取监测区域
+	Mat monitorArea = undistortedFrame(imProfile->roiRect); //截取监测区域
 	equalizeHist(monitorArea, monitorArea);					//equalize the image, this will change calibratedFrame//2017/12/21
 	Mat blurImage;										//use blur image for hough circles, use source image for matches
 
@@ -126,7 +174,7 @@ int ImageProcess::coreImageProcess()
 	if (circles.empty())
 	{
 		wheelFrame_pre.release(); // 有效帧将不连续，置空前一帧
-		return 1; // 车轮定位丢失
+		return FindFail; // 车轮定位丢失
 	}
 
 	//取霍夫圆的最大一个，当作车轮外径。取外切矩形用于匹配
@@ -150,11 +198,16 @@ int ImageProcess::coreImageProcess()
 	circle(frameToShow, center0 + ofs, radius, circleColor, 1, LINE_AA); // round
 	mutex.unlock();
 
-	// 如果在监测区域外
+	// 未完全在监测区域内，调用时应注意颤抖引起的在边界的反复横跳
 	if (!bInside)
 	{
-		wheelFrame_pre.release();
-		return 2;
+		wheelFrame_pre.release(); // 置空前一帧
+		//车轮在MA的左边，即未进入
+		if (wheelRect.tl.x < monitorRect.tl.x)
+			return LMA;
+		//车轮在MA的右侧，即已退出
+		if (wheelRect.br.x > monitorRect.br.x)
+			return RMA; //软件判别法应该结算该车轮
 	}
 
 	// 至此成功锁定（区域内的）车轮，保存
@@ -164,7 +217,7 @@ int ImageProcess::coreImageProcess()
 	// 前一帧为空
 	if (matchSrc1.empty())
 	{
-		return 2; // 等待匹配帧
+		return NoPre; // 等待匹配帧
 	}
 
 	// 开始匹配 //orb matches
@@ -172,7 +225,7 @@ int ImageProcess::coreImageProcess()
 	double oneAngle;
 	if (!rMatcher->match(matchSrc1, wheelFrame, image_matches, oneAngle)) //200ms
 	{
-		return 2;
+		return MatchFail;
 	}
 	//angle to linear velocity
 	double rtSpeed = oneAngle * imProfile->angle2Speed();
@@ -180,38 +233,38 @@ int ImageProcess::coreImageProcess()
 	rtSpeeds.push_back(rtSpeed);
 	refSpeeds.push_back(rtRefSpeed);
 
-	/************************************************************************/
-	/*if wheel stops, end and settle this wheel.*/
-	/*to avoid the error rtSpeed, this judge should be refSpeed and rtSpeed*/
-	/*this won't stop the video cap save, until save timeout(100s)*/
-	/************************************************************************/
-
+	// if trolley stops, give up this wheel.
+	// to avoid the error rtSpeed, this judge should be refSpeed and rtSpeed
+	// this won't stop the video cap save, until save timeout(100s)
 	if (rtRefSpeed < 0.05 && rtSpeed < 0.05)
 	{
 		bIsTrolleyStopped = true;
+		return TrolleySpZero;
 	}
-	return 1;
+	return Success;
 }
 
-void ImageProcess::foreverPreProcess()
+void ImageProcess::preprocess()
 {
 	srcImg = videoCapture->getRawImage();
 	//real time velocity difference between imgprocess and PLC(speedAD)
 	//test
 	Mat resizedFrame;
 	resize(srcImg, resizedFrame, Size(1280, 720), 0, 0, CV_INTER_LINEAR);
-	calibratedFrame = cameraUndistort(resizedFrame); //calibrate the srcImg //cost 50ms
+	undistortedFrame = cameraUndistort(resizedFrame); //calibrate the srcImg //cost 50ms
 }
 
-void ImageProcess::alarmThisWheel()
+void ImageProcess::checkoutWheel()
 {
 	/* 未在此处初始化的wheelDbInfo, 只在特定时候（valid）时候才有效，refspeed为coreProcess时取得的 */
+	WheelDbInfo wheelDbInfo;
 	wheelDbInfo.i_o = getDeviceMark(deviceIndex);
 	wheelDbInfo.num = QString::fromStdString(ocr->get_final_result());
 	qDebug() << "ImageProcess: One wheel ready.";
 	qDebug() << "Wheel Info:" << wheelDbInfo.i_o << wheelDbInfo.num;
 	wheelDbInfo.time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
 	wheelDbInfo.ocrsize = ocr->size();
+	wheelDbInfo.interrupts = interrupts;
 	wheelDbInfo.validmatch = wheelDbInfo.totalmatch = rtSpeeds.size(); // match size
 	wheelDbInfo.videopath = videoCapture->getVideoRelativeFilePath();
 	wheelDbInfo.refspeed = rtRefSpeed; // if no match result, it will show the current trolley speed
@@ -280,30 +333,32 @@ void ImageProcess::alarmThisWheel()
 		wheelDbInfo.speeds += QString(" %1").arg(sp, 0, 'f', 2);
 	}
 
-	handleAlarmLevel(wheelDbInfo.alarmlevel);
+	handleAlarmLevel(wheelDbInfo);//引用
 	insertRecord(wheelDbInfo);
-	/************************************************************************/
-	/* reset parameters of this wheel                                       */
+	/* reset parameters of this wheel */
+	clearWheel();
+}
+
+void ImageProcess::clearWheel()
+{
 	rtSpeeds.clear();
 	refSpeeds.clear();
-	wheelDbInfo = { 0 };
-	nImgCount = 0; //no need	//once settle a wheel, force to zero
-				   /************************************************************************/
+	interrupts = 0;
+	//防止对下一个车轮干扰，只对sensor triggered有效,image tri会（在目前限制的条件下）自动清除以下两项
+	nCore_pre = FindFail;
+	wheelFrame_pre.release();
 }
 
 void ImageProcess::onSensorIN()
 {
-	mutex.lock();
+	QMutexLocker locker(&mutex);
 	bIsTrolleyStopped = false;
-	bIsTrolleyInSensors = true;
-	mutex.unlock();
-	//time.start();
+	_DZRecorder.push(1);
 }
 void ImageProcess::onSensorOUT()
 {
-	mutex.lock();
-	bIsTrolleyInSensors = false;
-	mutex.unlock();
+	QMutexLocker locker(&mutex);
+	_DZRecorder.push(0);
 }
 
 void ImageProcess::onWheelTimeout()
@@ -370,7 +425,7 @@ bool ImageProcess::insertRecord(const WheelDbInfo &info)
 	record.setValue(Wheel_AlarmLevel, QVariant(info.alarmlevel));
 	record.setValue(Wheel_CheckState, QVariant(info.checkstate));
 	record.setValue(Wheel_OcrSize, QVariant(info.ocrsize));
-	record.setValue(Wheel_Fragment, QVariant(info.fragment));
+	record.setValue(Wheel_Fragment, QVariant(info.interrupts));
 	record.setValue(Wheel_TotalMatch, QVariant(info.totalmatch));
 	record.setValue(Wheel_ValidMatch, QVariant(info.validmatch));
 	record.setValue(Wheel_Speeds, QVariant(info.speeds));
@@ -399,8 +454,9 @@ int ImageProcess::previousAlarmLevel(const QString &num) const
 	return 0; //if no previous result, regard it as a good wheel
 }
 
-void ImageProcess::handleAlarmLevel(int lv)
+void ImageProcess::handleAlarmLevel(WheelDbInfo & wheelDbInfo)
 {
+	int lv = wheelDbInfo.alarmlevel;
 	switch (lv)
 	{
 	case -2:
@@ -412,7 +468,7 @@ void ImageProcess::handleAlarmLevel(int lv)
 		if (previousAlarmLevel(wheelDbInfo.num) < 0)
 		{
 			wheelDbInfo.alarmlevel = -2;
-			handleAlarmLevel(-2);
+			handleAlarmLevel(TODO);
 			return;
 		}
 		else

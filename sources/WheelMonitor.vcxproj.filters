@@ -234,6 +234,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_imageprocess.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="LevelRecorder.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="identification.h">
@@ -286,6 +289,9 @@
     </ClInclude>
     <ClInclude Include="camprofile.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelRecorder.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
