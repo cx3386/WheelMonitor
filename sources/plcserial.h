@@ -12,10 +12,10 @@ public:
 	explicit PLCSerial(const ConfigHelper *_configHelper, QObject *parent = nullptr);
 	~PLCSerial();
 
-	inline double getTrolleySpeed(int deviceIndex)
+	inline double getTruckSpeed(int deviceIndex)
 	{
 		QMutexLocker locker(&mutex);
-		return trolleySpeed * speedCompensationCoeff[deviceIndex];
+		return truckSpeed * speedCompensationCoeff[deviceIndex];
 	}
 	inline double isConnect()
 	{
@@ -34,7 +34,7 @@ private:
 	const ConfigHelper *configHelper;
 	QMutex mutex;
 	QSerialPort *plcSerialPort;
-	double trolleySpeed; //linear Velocity read from AD, unit:m/min
+	double truckSpeed; //linear Velocity read from AD, unit:m/min
 
 	// bool sensorRight = false; //out
 	// bool sensorLeft = false;  //in
@@ -56,10 +56,10 @@ private:
 	bool stopSensor = false;
 	bool bIsConnect = false;
 	QTimer *sensorTimer;
-	QTimer *trolleyTimer;
+	QTimer *truckTimer;
 	/* one read write period >300ms */
 	int sensorSamplingPeriod = 1000; // msec
-	int trolleySamplingPeriod = 250; //msec; should > 7/25 s
+	int truckSamplingPeriod = 250; //msec; should > 7/25 s
 
 	void writePLC(QByteArray plcData);
 	QByteArray readPLC(QByteArray plcData);
@@ -112,23 +112,23 @@ private:
 private slots:
 	void readSensor();
 	/**
-	 * \brief read trolley reference speed from AD module
+	 * \brief read truck reference speed from AD module
 	 * a cycle includes sending cmd and recv response, costs ~ 300ms
 	 */
-	void readTrolley();
+	void readTruck();
 
 signals:
 	void showCio2Ui(WORD);
 	void _DZIn();
 	void _DZOut();
-	void trolleySpeedReady();
+	void truckSpeedReady();
 	/**
 	 * \brief 台车(中轴)速度信号读取错误
 	 * errcode 1: disconnect
 	 * errcode 2: out of range(4~20ma)
 	 * \param int errorCode
 	 */
-	void trolleySpeedError(int);
+	void truckSpeedError(int);
 
 public slots:
 	/**

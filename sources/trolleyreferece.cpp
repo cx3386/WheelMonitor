@@ -1,20 +1,20 @@
 #include "stdafx.h"
-#include "trolleyreferece.h"
+#include "truckreferece.h"
 #include "plcserial.h"
 
-TrolleyReferece::TrolleyReferece(PLCSerial *plcSerial, QObject *parent /*= Q_NULLPTR*/)
+TruckReferece::TruckReferece(PLCSerial *plcSerial, QObject *parent /*= Q_NULLPTR*/)
 	: QObject(parent)
 	, plc(plcSerial)
 {
 }
 
-TrolleyReferece::~TrolleyReferece()
+TruckReferece::~TruckReferece()
 = default;
 
-void TrolleyReferece::speedIntegrator()
+void TruckReferece::speedIntegrator()
 {
 	for (double & i : traveledDistance)
 	{
-		i += timeInterval * (plc->getTrolleySpeed());
+		i += timeInterval * (plc->getTruckSpeed());
 	}
 }

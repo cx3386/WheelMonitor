@@ -103,16 +103,16 @@ void PLCSerial::startTimer()
 	sensorTimer = new QTimer;
 	connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensor()));
 	sensorTimer->start(sensorSamplingPeriod);
-	trolleyTimer = new QTimer;
-	connect(trolleyTimer, SIGNAL(timeout()), this, SLOT(readTrolley()));
-	trolleyTimer->start(trolleySamplingPeriod);
+	truckTimer = new QTimer;
+	connect(truckTimer, SIGNAL(timeout()), this, SLOT(readTruck()));
+	truckTimer->start(truckSamplingPeriod);
 }
 void PLCSerial::stopTimer()
 {
 	sensorTimer->stop();
 	sensorTimer->deleteLater();
-	trolleyTimer->stop();
-	trolleyTimer->deleteLater();
+	truckTimer->stop();
+	truckTimer->deleteLater();
 }
 
 void PLCSerial::readSensor()
@@ -171,7 +171,7 @@ void PLCSerial::readSensor()
 	}
 }
 
-void PLCSerial::readTrolley()
+void PLCSerial::readTruck()
 {
 	/*	AD分辨率为 1/6000，精度为0.8%满量程（0~55°C），即48单位。
 	4~20mA电流范围对应 0000~1770hex(0~6000)。对应的台车（中轴）速度为0~3.59m/min
@@ -185,30 +185,30 @@ void PLCSerial::readTrolley()
 	auto dataList = getRRData(ansCode);
 	if (dataList.size() != 1) // the data should be 1 word
 	{
-		qWarning() << "PLCSerial: readTrolley error";
+		qWarning() << "PLCSerial: readTruck error";
 		return;
 	}
 	bool ok;
 	const short dec = QString(dataList.at(1)).toInt(&ok, 16); // convert 'FFFF' to int(10)
-	QMutexLocker locker(&mutex);// protect trolleySpeed
-	trolleySpeed = 0;
+	QMutexLocker locker(&mutex);// protect truckSpeed
+	truckSpeed = 0;
 	//断线检测
 	if (AD_err == dec)
 	{
-		emit trolleySpeedError(1);
+		emit truckSpeedError(1);
 		return;
 	}
 	// out of range(4~20ma), consider the accuracy/resolution
 	if (dec < AD_4ma - AD_res || dec > AD_20ma + AD_res)
 	{
-		emit trolleySpeedError(2);
+		emit truckSpeedError(2);
 		return;
 	}
 	//正常数据
 	else
 	{
-		trolleySpeed = dec * scale;
-		emit trolleySpeedReady();
+		truckSpeed = dec * scale;
+		emit truckSpeedReady();
 	}
 }
 

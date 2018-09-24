@@ -3,13 +3,13 @@
 #include <QObject>
 
 class PLCSerial;
-class TrolleyReferece : public QObject
+class TruckReferece : public QObject
 {
 	Q_OBJECT
 
 public:
-	TrolleyReferece(PLCSerial *plcSerial, QObject *parent = Q_NULLPTR);
-	~TrolleyReferece();
+	TruckReferece(PLCSerial *plcSerial, QObject *parent = Q_NULLPTR);
+	~TruckReferece();
 
 private:
 	PLCSerial * plc;

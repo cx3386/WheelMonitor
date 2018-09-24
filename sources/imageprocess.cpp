@@ -18,7 +18,7 @@ ImageProcess::ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_
 	connect(this, &ImageProcess::initModel, this, &ImageProcess::setupModel);
 
 	connect(videoCapture, &HikVideoCapture::recordTimeout, this, &ImageProcess::onWheelTimeout);
-	connect(plcSerial, &PLCSerial::trolleySpeedReady, this, [&]() { rtRefSpeed = plcSerial->getTrolleySpeed(); });
+	connect(plcSerial, &PLCSerial::truckSpeedReady, this, [&]() { rtRefSpeed = plcSerial->getTruckSpeed(); });
 	// plc -> imageprocess
 	connect(plcSerial, &PLCSerial::_DZIn, this, &ImageProcess::onSensorIN);
 	connect(plcSerial, &PLCSerial::_DZOut, this, &ImageProcess::onSensorOUT);
@@ -77,7 +77,7 @@ void ImageProcess::handleFrame()
 	{
 		// 台车停止，丢弃帧，丢弃该车轮，停止处理。
 		// 发生在光电开关未在规定时间内检测到离开信号，或者测到台车速度为0
-		if (bIsTrolleyStopped)
+		if (bIsTruckStopped)
 			checkoutWheel();
 		else
 		{
@@ -89,7 +89,7 @@ void ImageProcess::handleFrame()
 				if (state == LevelRecorder::HighLevel || state == LevelRecorder::PositiveEdge)	  //in detect area
 				{
 					int nCore = coreImageProcess(); //0->1, Fragment++ at rise edge. NOTE: it can be 0, which means no circle detected
-					if (nCore == FindFail && nCore_pre > RMA)		   //nowCore == true && lastCore == false
+					if (nCore == LocateFail && nCore_pre > RMA)		   //nowCore == true && lastCore == false
 						interrupts++;
 					nCore_pre = nCore;
 				}
@@ -129,13 +129,13 @@ void ImageProcess::handleFrame()
 					if (_MAState != 1)
 					{
 						_MAState = 1;
-						// ncore重置为FindFail，实际应该为RMA, 但并不影响判断（无pre==RMA或FindFail的判断条件）
+						// ncore重置为LocateFail，实际应该为RMA, 但并不影响判断（无pre==RMA或FindFail的判断条件）
 						// 此时wheelFrame_pre已经自动release了
 						checkoutWheel();
 					}
 				}
 				// InMA->MissWheel 中断
-				else if (nCore == FindFail && nCore_pre > RMA)
+				else if (nCore == LocateFail && nCore_pre > RMA)
 				{
 					_MAState = 2;
 					interrupts++;
@@ -153,8 +153,8 @@ void ImageProcess::makeFrame4Show()
 	preprocess();
 	mutex.lock();						 //prevent reading the frameToShow simultaneously
 	undistortedFrame.copyTo(frameToShow); // 深拷贝，因为undistortedFrame将与framToShow的内容不同
-	cvtColor(frameToShow, frameToShow, CV_GRAY2BGR); // 转换成彩图因为要在图中画彩色线框
-	rectangle(frameToShow, imProfile->roiRect, Scalar(0, 0, 255), 2);
+	cvtColor(frameToShow, frameToShow, CV_GRAY2BGR); // 转换成彩图
+	rectangle(frameToShow, imProfile->roiRect, Scalar(0, 0, 255), 2); // 在图中画彩色线框
 	mutex.unlock();
 }
 
@@ -174,7 +174,7 @@ int ImageProcess::coreImageProcess()
 	if (circles.empty())
 	{
 		wheelFrame_pre.release(); // 有效帧将不连续，置空前一帧
-		return FindFail; // 车轮定位丢失
+		return LocateFail; // 车轮定位丢失
 	}
 
 	//取霍夫圆的最大一个，当作车轮外径。取外切矩形用于匹配
@@ -233,13 +233,13 @@ int ImageProcess::coreImageProcess()
 	rtSpeeds.push_back(rtSpeed);
 	refSpeeds.push_back(rtRefSpeed);
 
-	// if trolley stops, give up this wheel.
+	// if truck stops, give up this wheel.
 	// to avoid the error rtSpeed, this judge should be refSpeed and rtSpeed
 	// this won't stop the video cap save, until save timeout(100s)
 	if (rtRefSpeed < 0.05 && rtSpeed < 0.05)
 	{
-		bIsTrolleyStopped = true;
-		return TrolleySpZero;
+		bIsTruckStopped = true;
+		return TruckSpZero;
 	}
 	return Success;
 }
@@ -267,7 +267,7 @@ void ImageProcess::checkoutWheel()
 	wheelDbInfo.interrupts = interrupts;
 	wheelDbInfo.validmatch = wheelDbInfo.totalmatch = rtSpeeds.size(); // match size
 	wheelDbInfo.videopath = videoCapture->getVideoRelativeFilePath();
-	wheelDbInfo.refspeed = rtRefSpeed; // if no match result, it will show the current trolley speed
+	wheelDbInfo.refspeed = rtRefSpeed; // if no match result, it will show the current truck speed
 
 	if (wheelDbInfo.totalmatch < 1)
 	{ //no result
@@ -345,14 +345,14 @@ void ImageProcess::clearWheel()
 	refSpeeds.clear();
 	interrupts = 0;
 	//防止对下一个车轮干扰，只对sensor triggered有效,image tri会（在目前限制的条件下）自动清除以下两项
-	nCore_pre = FindFail;
+	nCore_pre = LocateFail;
 	wheelFrame_pre.release();
 }
 
 void ImageProcess::onSensorIN()
 {
 	QMutexLocker locker(&mutex);
-	bIsTrolleyStopped = false;
+	bIsTruckStopped = false;
 	_DZRecorder.push(1);
 }
 void ImageProcess::onSensorOUT()
@@ -364,10 +364,10 @@ void ImageProcess::onSensorOUT()
 void ImageProcess::onWheelTimeout()
 {
 	QMutexLocker locker(&mutex);
-	if (!bIsTrolleyStopped)
+	if (!bIsTruckStopped)
 	{
 		qWarning("Cart is stopped");
-		bIsTrolleyStopped = true;
+		bIsTruckStopped = true;
 	}
 }
 

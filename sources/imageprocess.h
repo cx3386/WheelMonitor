@@ -54,13 +54,13 @@ private:
 	}
 	enum CoreState
 	{
-		FindFail = 0x1, //!< 车轮定位丢失
+		LocateFail = 0x1, //!< 车轮定位丢失
 		OutMA = 0x2,//!< 车轮在MA外
 		LMA = OutMA | 0x4, //!< 车轮在MA左
 		RMA = OutMA | 0x8, //!< 车轮在MA右
 		NoPre = 0x10, //!< 无前帧
 		MatchFail = 0x20, //!< 匹配失败
-		TrolleySpZero = 0x40, //!< 车轮速度为0
+		TruckSpZero = 0x40, //!< 车轮速度为0
 		Success = 0x80, //!< 匹配完成，正常退出
 	};
 	/*!
@@ -82,8 +82,8 @@ private:
 	//LevelRecorder _MARecorder; //!< 记录车轮是否进入红框的监控区域MA(monitor area) 用于软件检测
 	int interrupts = 0; //!< 本车轮MA内连续匹配过程中，中断的次数,stop重置为0
 	bool bUsrCtrl = false; ///< ctrl the imageprocecss running state 1 is ON, 0 is OFF
-	bool bIsTrolleyStopped = false;
-	int nCore_pre = FindFail; //!< 存本车轮上一次core的返回值，初始化为findfail
+	bool bIsTruckStopped = false;
+	int nCore_pre = LocateFail; //!< 存本车轮上一次core的返回值，初始化为findfail
 	double rtRefSpeed;
 signals:
 	void _MAIn();

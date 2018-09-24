@@ -134,7 +134,7 @@ void MainWindow::configWindow()
 	plcSerialThread = new QThread(this);
 	plcSerial->moveToThread(plcSerialThread);
 	//connect(plcSerialThread, &QThread::finished, plcSerial, &QObject::deleteLater);
-	connect(plcSerial, &PLCSerial::trolleySpeedReady, this, &MainWindow::uiShowCartSpeed); //bind plc::adSpeed to cartSpeed
+	connect(plcSerial, &PLCSerial::truckSpeedReady, this, &MainWindow::uiShowCartSpeed); //bind plc::adSpeed to cartSpeed
 
 	/* alarmLight */
 	// #TODO:other->ui->plc
@@ -257,7 +257,7 @@ void MainWindow::uiAlarmLight(AlarmColor alarmColor) //1-green; 2-red; 4-yellow
 
 void MainWindow::uiShowCartSpeed()
 {
-	QString str = QString::number(plcSerial->getTrolleySpeed(), 'f', 1);
+	QString str = QString::number(plcSerial->getTruckSpeed(), 'f', 1);
 	ui.cartSpeedLineEdit->setText(str);
 }
 
