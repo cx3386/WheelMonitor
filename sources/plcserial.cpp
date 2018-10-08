@@ -15,15 +15,6 @@
 //const char READ_SENSOR_STATE[] = "@00RR0000000141*\r";  ///< read CIO0 for 1 WORD
 /*Read sensor state response*/
 // "@00RR00dataFCS*\r", data=FFFF(2B)
-// NOTE: cio0.00 is NC
-// const int msk_sol0 = 1 << 1; //cio0.01
-// const int msk_sol1 = 1 << 2; //cio0.02
-// const int msk_sor0 = 1 << 3; //cio0.03
-// const int msk_sor1 = 1 << 4; //cio0.04
-// const int msk_sir0 = 1 << 5; //cio0.05
-// const int msk_sir0 = 1 << 6; //cio0.06
-// const int msk_sil0 = 1 << 7; //cio0.07
-// const int msk_sil1 = 1 << 8; //cio0.08
 
 //const char SENSOR_L_OFF_R_OFF[] = "@00RR00000040*\r"; //00
 //const char SENSOR_L_OFF_R_ON[] = "@00RR00000242*\r";  //01
@@ -91,14 +82,14 @@ void PLCSerial::init()
 
 	/*init the AD input module*/
 	bool ok;
-	int w1 = 1 << 15 | QString("1010").toInt(&ok, 2); //note: int32 max ~= 10^10
+	int w1 = 1 << 15 | QString("1010").toInt(&ok, 2); //note: int(32) max ~= 10^10
 	int w2 = 1 << 15;
 	auto word102 = QByteArray::number(w1, 16).rightJustified(4, '0').toUpper();
 	auto word103 = QByteArray::number(w2, 16).rightJustified(4, '0').toUpper();
 	writePLC(genWRCode(102, word102 + word103));
 }
 
-void PLCSerial::startTimer()
+void PLCSerial::onStart()
 {
 	sensorTimer = new QTimer;
 	connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensor()));
@@ -106,13 +97,23 @@ void PLCSerial::startTimer()
 	truckTimer = new QTimer;
 	connect(truckTimer, SIGNAL(timeout()), this, SLOT(readTruck()));
 	truckTimer->start(truckSamplingPeriod);
+	// sensor置为空,使能第一次.state
+	for (auto &ss : sensorRecorders)
+	{
+		ss.push(0);
+	}
 }
-void PLCSerial::stopTimer()
+void PLCSerial::onStop()
 {
 	sensorTimer->stop();
 	sensorTimer->deleteLater();
 	truckTimer->stop();
 	truckTimer->deleteLater();
+	// 清除sensor的历史记录
+	for (auto &ss : sensorRecorders)
+	{
+		ss.clear();
+	}
 }
 
 void PLCSerial::readSensor()
@@ -125,20 +126,18 @@ void PLCSerial::readSensor()
 		return;
 	}
 	bool ok;
-	const WORD cioNow = QString(dataList.at(1)).toInt(&ok, 16); // convert 'FFFF' to int(10) //0x000~0x1ff, in fact cio0~11(16) ranges to 0xffff.
-	if (cio0 != cioNow)
+	WORD cio0 = QString(dataList.at(1)).toInt(&ok, 16); // convert 'FFFF' to int(10) //0x000~0x1ff, in fact cio0~11(16) ranges to 0xffff.
+	   // 输入位CIO发生变化
+	if (cio0_pre != cio0)
 	{
-		cio0 = cioNow;
-		emit showCio2Ui(cio0);
+		cio0_pre = cio0;
+		emit showCio2Ui(cio0_pre); // 更改ui显示
 	}
-	sol0 = cio0 & msk_sol0;
-	sol1 = cio0 & msk_sol1;
-	sor0 = cio0 & msk_sor0;
-	sor1 = cio0 & msk_sor1;
-	sir0 = cio0 & msk_sir0;
-	sir1 = cio0 & msk_sir0;
-	sil0 = cio0 & msk_sil0;
-	sil1 = cio0 & msk_sil1;
+	for (auto &ss : sensorRecorders)
+	{
+		cio0 = cio0 >> 1;
+		ss.push(cio0 & 1);
+	}
 
 	if (ansCode == SENSOR_L_OFF_R_OFF)
 	{ //00
@@ -177,7 +176,7 @@ void PLCSerial::readTruck()
 	4~20mA电流范围对应 0000~1770hex(0~6000)。对应的台车（中轴）速度为0~3.59m/min
 	可转换的数据范围为FED4~189Chex(-300~6300)。3.2~4mA范围内的电流用二进制补码表示。
 	当输入低于指定范围（如低于3.2mA）时，将启动断线检测功能，数据将变为8000hex。
-	注意：这个返回的数据是2byte的有符号数，在**64位编译器**中的short符合条件 */
+	注意：这个返回的数据是2byte的有符号数，在**64位编译器**中的short（16bit）符合条件 */
 	const short AD_min = 0xFED4, AD_max = 0x189c, AD_4ma = 0, AD_20ma = 0x1770, AD_err = 0x8000, AD_res = 48;
 	const double scale = 3.59 / 6000; // 1个刻度对应的速度
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <QObject>
 #include "common.h"
+#include "LevelRecorder.h"
 
 class ConfigHelper;
 class QSerialPort;
@@ -44,15 +45,17 @@ private:
 	bool sir = false; ///< sensor in right 右侧进入
 	// for unsigned type like word, >> is logic move right.
 	// for signed type like int, >> is arithmetic move right
-	WORD cio0 = 0;	 ///< cio0 used0.1~0.8
-	bool sol0 = false;
-	bool sol1 = false;
-	bool sor0 = false;
-	bool sor1 = false;
-	bool sir0 = false;
-	bool sir1 = false;
-	bool sil0 = false;
-	bool sil1 = false;
+	WORD cio0_pre = 0; //!< cio0的历史数据(used0.1~0.8)
+	LevelRecorder sensorRecorders[8]; //!< 用于记录每个传感器的历史信息
+											// 	 sol0 1
+											// 	 sol1 2
+											// 	 sor0 3
+											// 	 sor1 4
+											// 	 sir0 5
+											// 	 sir1 6
+											// 	 sil0 7
+											//   sil1 8
+											//   note: 0.0 is NC
 	bool stopSensor = false;
 	bool bIsConnect = false;
 	QTimer *sensorTimer;
@@ -131,13 +134,11 @@ signals:
 	void truckSpeedError(int);
 
 public slots:
-	/**
-	 * \brief initialize the connection to PLC and setup AD module
-	 *
-	 */
+	//! 连接到PLC，初始化AD041。必须在子线程中执行（只一次）
 	void init();
 	void onAlarmEvent(int);
-
-	void startTimer(); // can't op timer through thread
-	void stopTimer();
+	//! 用于mainwindow的操控，开始循环读取AD041和CIO0的数据
+	void onStart(); // can't op timer across threads
+	//! 用于mainwindow的操控，停止循环读取AD041和CIO0的数据
+	void onStop();  //!< 不会断开与plc的连接
 };

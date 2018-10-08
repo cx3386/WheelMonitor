@@ -61,14 +61,14 @@ enum AlarmEvent
 	TODO
 };
 
-static char* str2charx(const std::string &str) {
-	auto ch = (char *)malloc(std::strlen(str.c_str()) + 1);
-	std::strcpy(ch, str.c_str());
-	return ch;
-}
-
 //匿名命名空间，LOCAL，与static相同，>C++11
 namespace {
+	//! 将string转换为char *
+	static char* str2charx(const std::string &str) {
+		auto ch = (char *)malloc(std::strlen(str.c_str()) + 1);
+		std::strcpy(ch, str.c_str());
+		return ch;
+	}
 	/**
 	 * \brief get device mark of device index
 	 *

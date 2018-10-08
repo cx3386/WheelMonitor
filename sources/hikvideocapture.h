@@ -36,6 +36,8 @@ public:
 	void syncCameraTime();
 	bool start();
 	bool stop();
+	// 必须传入的参数，未作检查，如果没有传入，会发生错误
+	//void setRealPlayWND(HWND val) { hPlayWnd = val; } //!< 设置实时预览的窗口句柄
 private:
 	const ConfigHelper * configHelper;
 	int deviceIndex;
@@ -44,10 +46,10 @@ private:
 
 	QMutex mutex;
 
-	bool bIsRecording = false;
+	bool bIsRecording = false;	 //!< timeoutTimer和plc的sensorout会从子线程改变这个量，需要线程保护//原子操作，不用保护
 	QString videoRelativeFilePath; ///< the fileName of save video.
-	QTimer *timer;
-	const int MAX_RECORD_MSEC = 100000;
+	QTimer *timeoutTimer; //!< 录制的超时计时器，停止录制时停止
+	const int MAX_RECORD_MSEC = 100000; //!< 录制的超时时长，超过会自动停止录制，并发出timeout的信号
 
 	cv::Mat rawImage;
 	const int nHandling_Start = 3; ///< 于开始视频流后进行一次初始化
@@ -78,7 +80,7 @@ signals:
 	void recordOFF();
 
 public slots:
-	void startRecord();
-	void stopRecord();
+	void startRecord(); //! 涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+	void stopRecord(); //!  涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
 	inline void frameProcessed() { nPendingFrame--; }
 };

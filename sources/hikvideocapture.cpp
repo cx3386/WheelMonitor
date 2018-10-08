@@ -16,6 +16,7 @@ HikVideoCapture::HikVideoCapture(const ConfigHelper *_configHelper, int _deviceI
 	, hPlayWnd(h)
 	, camProfile(&(configHelper->device[deviceIndex].camProfile))
 {
+	//构造时连接到摄像头，此后不再中断
 	struPlayInfo_HD = {
 		1, // LONG lChannel;//通道号
 		0, // DWORD dwStreamType;    // 码流类型，0-主码流，1-子码流，2-码流3，3-码流4 等以此类推
@@ -44,17 +45,13 @@ HikVideoCapture::HikVideoCapture(const ConfigHelper *_configHelper, int _deviceI
 		return;
 	}
 	NET_DVR_SetExceptionCallBack_V30(0, nullptr, ExceptionCallBack, nullptr);
-	syncCameraTime();
-
-	timer = new QTimer;
-	timer->setSingleShot(true);
-	timer->setInterval(MAX_RECORD_MSEC);
-	connect(timer, &QTimer::timeout, this, [&] {stopRecord(); emit recordTimeout(); });
+	syncCameraTime(); // 同步相机时间
 }
 
 HikVideoCapture::~HikVideoCapture()
 {
-	stopRecord(); //stop record when quit
+	// 停止录制
+	stop();
 	//timer->deleteLater();
 	NET_DVR_Logout(lUserID);
 	NET_DVR_Cleanup();
@@ -99,7 +96,13 @@ bool HikVideoCapture::start()
 
 bool HikVideoCapture::stop()
 {
-	stopRecord();
+	QTimer::singleShot(0, this, [&] {stopRecord(); }); //从子线程操作
+	// 等待，直到录制已经停止
+	while (bIsRecording)
+	{
+		QCoreApplication::processEvents();
+	}
+	//stopRecord();
 	bool ret = true;
 	if (lRealPlayHandle_HD != -1)
 	{
@@ -117,6 +120,7 @@ bool HikVideoCapture::stop()
 
 void HikVideoCapture::startRecord()
 {
+	QMutexLocker locker(&mutex);
 	if (bIsRecording) return;
 	auto date = QDate::currentDate().toString("yyyyMMdd");
 	auto dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
@@ -131,20 +135,30 @@ void HikVideoCapture::startRecord()
 		qDebug() << "HikVideoCapture: startRecord error";
 		return;
 	}
-	timer->start(); //wait 100s	//If the timer is already running, it will be stopped and restarted.
+	// 子线程操作
+	timeoutTimer = new QTimer;
+	timeoutTimer->setSingleShot(true); // 不直接用QTimer::singleShot，因为一旦开始，无法stop
+	timeoutTimer->setInterval(MAX_RECORD_MSEC);// 设置超时时间为100s
+	connect(timeoutTimer, &QTimer::timeout, this, [&] {
+		stopRecord();//子线程
+		emit recordTimeout();
+	});
+	timeoutTimer->start(); //If the timer is already running, it will be stopped and restarted.
 	bIsRecording = true;
 	emit recordON();
 }
 
 void HikVideoCapture::stopRecord()
 {
+	QMutexLocker locker(&mutex);
 	if (!bIsRecording) return;
 	if (!NET_DVR_StopSaveRealData(lRealPlayHandle_SD))
 	{
 		qDebug() << "HikVideoCapture: stopRecord error";
 		return;
 	}
-	timer->stop();//stop the timeout timer
+	timeoutTimer->stop();// 必须用子线程操作
+	//QTimer::singleShot(0, this, [&] {timeoutTimer->stop(); }); // 即使直接调用stoprecord，也由子线程操控timer，保证安全
 	bIsRecording = false;
 	emit recordOFF();
 }

@@ -128,8 +128,8 @@ void MainWindow::configWindow()
 	//connect(imageProcessThread[1], &QThread::finished, imageProcess[1], &QObject::deleteLater);
 
 	/* plc */
-	connect(this, &MainWindow::startPLC, plcSerial, &PLCSerial::startTimer);
-	connect(this, &MainWindow::stopPLC, plcSerial, &PLCSerial::stopTimer);
+	connect(this, &MainWindow::startPLC, plcSerial, &PLCSerial::onStart);
+	connect(this, &MainWindow::stopPLC, plcSerial, &PLCSerial::onStop);
 	/* plc thread */
 	plcSerialThread = new QThread(this);
 	plcSerial->moveToThread(plcSerialThread);
