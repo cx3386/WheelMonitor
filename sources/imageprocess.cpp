@@ -13,62 +13,40 @@ using namespace std;
 using namespace cv;
 
 ImageProcess::ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_capture, PLCSerial *_plcSerial, QObject *parent /*= Q_NULLPTR*/)
-	: QObject(parent), configHelper(_configHelper), videoCapture(_capture), plcSerial(_plcSerial), deviceIndex(videoCapture->getDeviceIndex()), imProfile(&(configHelper->device[deviceIndex].imProfile)), ocr(new OCR(configHelper, deviceIndex, this)), rMatcher(new RobustMatcher)
+	: QObject(parent)
+	, configHelper(_configHelper)
+	, videoCapture(_capture)
+	, plcSerial(_plcSerial)
+	, deviceIndex(videoCapture->getDeviceIndex())
+	, imProfile(&(configHelper->device[deviceIndex].imProfile))
+	, ocr(new OCR(configHelper, deviceIndex, this))
+	, rMatcher(new RobustMatcher)
 {
-	connect(this, &ImageProcess::initModel, this, &ImageProcess::setupModel);
-
 	connect(videoCapture, &HikVideoCapture::recordTimeout, this, &ImageProcess::onWheelTimeout);
-	connect(plcSerial, &PLCSerial::truckSpeedReady, this, [&]() { rtRefSpeed = plcSerial->getTruckSpeed(); });
+	connect(plcSerial, &PLCSerial::truckSpeedReady, this, [&]() { rtRefSpeed = plcSerial->getTruckSpeed(deviceIndex); });
 	// plc -> imageprocess
-	connect(plcSerial, &PLCSerial::_DZIn, this, &ImageProcess::onSensorIN);
-	connect(plcSerial, &PLCSerial::_DZOut, this, &ImageProcess::onSensorOUT);
+	connect(plcSerial, &PLCSerial::_DZIn, this, [&](int i) { if (deviceIndex == i) onSensorIN(); });
+	connect(plcSerial, &PLCSerial::_DZOut, this, [&](int i) {if (deviceIndex == i) onSensorOUT(); });
 
 	//videocapture -> imageprocess
+	// 图像驱动法
 	connect(this, &ImageProcess::_MAIn, videoCapture, &HikVideoCapture::startRecord);
 	connect(this, &ImageProcess::_MAOut, videoCapture, &HikVideoCapture::stopRecord);
 	// //双向通知：cap->handle->cap->handle...是一个库存为1的生产者消费者模型，
 	connect(this, &ImageProcess::frameHandled, videoCapture, &HikVideoCapture::frameProcessed);
 	// videocapute -> imageproecss
 	connect(videoCapture, &HikVideoCapture::frameCaptured, this, &ImageProcess::handleFrame);
+}
 
-	// plc -> video capture
-	connect(plcSerial, &PLCSerial::_DZIn, videoCapture, &HikVideoCapture::startRecord);
-	connect(plcSerial, &PLCSerial::_DZOut, videoCapture, &HikVideoCapture::stopRecord);
-	// videocapture -> plc // 放弃，用一个专门的报警类来控制报警 [9/20/2018 cx3386]
-	connect(this, &ImageProcess::setAlarmLight, plcSerial, &PLCSerial::Alarm);
+// plc -> video capture
+// 传感器驱动法
+connect(plcSerial, &PLCSerial::_DZIn, videoCapture, &HikVideoCapture::startRecord);
+connect(plcSerial, &PLCSerial::_DZOut, videoCapture, &HikVideoCapture::stopRecord);
+// videocapture -> plc // 放弃，用一个专门的报警类来控制报警 [9/20/2018 cx3386]
+connect(this, &ImageProcess::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 }
 
 ImageProcess::~ImageProcess() = default;
-
-void ImageProcess::start()
-{
-	// 有被mainwindow直接调用的情况（此时为主线程），因此需要线程锁
-	QMutexLocker locker(&mutex);
-	if (bUsrCtrl)
-	{
-		qWarning() << "ImageProcess: repeated start";
-		return;
-	}
-	_DZRecorder.push(0); // DZ初始化
-	_MAState = 1; //因此不会触发结束1
-	//nCore_pre = FindFail;
-	bUsrCtrl = true;
-}
-
-void ImageProcess::stop()
-{
-	QMutexLocker locker(&mutex);
-	if (!bUsrCtrl)
-	{
-		qWarning() << "ImageProcess: repeated stop";
-		return;
-	}
-	// 连续性中断，重置相关量为原始状态
-	ocr->resetOcr(); // ocr重置
-	_DZRecorder.clear(); // DZ清空
-	clearWheel();
-	bUsrCtrl = false;
-}
 
 void ImageProcess::handleFrame()
 {
@@ -402,6 +380,34 @@ cv::Mat ImageProcess::cameraUndistort(cv::Mat src)
 	Mat srcCalibration;
 	remap(src, srcCalibration, map1, map2, INTER_LINEAR);
 	return srcCalibration;
+}
+
+void ImageProcess::onStart()
+{
+	// 总是子线程操作，不需要锁
+	if (bUsrCtrl)
+	{
+		qWarning() << "ImageProcess: repeated start";
+		return;
+	}
+	_DZRecorder.push(0); // DZ初始化
+	_MAState = 1; //因此不会触发结束1
+	//nCore_pre = FindFail;
+	bUsrCtrl = true;
+}
+
+void ImageProcess::onStop()
+{
+	if (!bUsrCtrl)
+	{
+		qWarning() << "ImageProcess: repeated stop";
+		return;
+	}
+	// 连续性中断，重置相关量为原始状态
+	ocr->resetOcr(); // ocr重置
+	_DZRecorder.clear(); // DZ清空
+	clearWheel();
+	bUsrCtrl = false;
 }
 
 void ImageProcess::setupModel()

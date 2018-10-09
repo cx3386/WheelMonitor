@@ -13,7 +13,9 @@
 #include "database.h"
 
 MainWindow::MainWindow(ConfigHelper *_configHelper, QWidget *parent /*= Q_NULLPTR*/)
-	: QMainWindow(parent), configHelper(_configHelper), plcSerial(new PLCSerial)
+	: QMainWindow(parent)
+	, configHelper(_configHelper)
+	, plcSerial(new PLCSerial)
 {
 	//setWindowOpacity(1);
 	ui.setupUi(this);
@@ -127,9 +129,6 @@ void MainWindow::configWindow()
 	//connect(imageProcessThread[0], &QThread::finished, imageProcess[0], &QObject::deleteLater);
 	//connect(imageProcessThread[1], &QThread::finished, imageProcess[1], &QObject::deleteLater);
 
-	/* plc */
-	connect(this, &MainWindow::startPLC, plcSerial, &PLCSerial::onStart);
-	connect(this, &MainWindow::stopPLC, plcSerial, &PLCSerial::onStop);
 	/* plc thread */
 	plcSerialThread = new QThread(this);
 	plcSerial->moveToThread(plcSerialThread);
@@ -141,18 +140,16 @@ void MainWindow::configWindow()
 	connect(this, &MainWindow::alarmUi2PLC, plcSerial, &PLCSerial::Alarm);
 	connect(playBackWidget, &PlayBackWidget::setAlarmLight, plcSerial, &PLCSerial::Alarm);
 	connect(plcSerial, &PLCSerial::setUiAlarm, this, &MainWindow::uiAlarmLight);
-
 	/* sensor light */
 	connect(plcSerial, &PLCSerial::showCio2Ui, this, &MainWindow::uiShowIOLight);
-
 	/* start thread */
 	plcSerialThread->start();
-	connect(this, &MainWindow::initPlcSerial, plcSerial, &PLCSerial::init);
-	emit initPlcSerial();
+	plcSerial->init();
+
 	imageProcessThread[0]->start();
 	imageProcessThread[1]->start();
-	imageProcess[0]->emit initModel();
-	imageProcess[1]->emit initModel();
+	imageProcess[0]->init();
+	imageProcess[1]->init();
 
 	/* database file watcher */
 	dbWatcherThread = new QThread(this);
@@ -257,7 +254,7 @@ void MainWindow::uiAlarmLight(AlarmColor alarmColor) //1-green; 2-red; 4-yellow
 
 void MainWindow::uiShowCartSpeed()
 {
-	QString str = QString::number(plcSerial->getTruckSpeed(), 'f', 1);
+	QString str = QString::number(plcSerial->getTruckSpeed(0), 'f', 1);//外圈速度
 	ui.cartSpeedLineEdit->setText(str);
 }
 
@@ -382,7 +379,7 @@ void MainWindow::on_action_Start_triggered()
 		QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("PLC未连接成功！"), QStringLiteral("确定"));
 		return;
 	}
-	emit startPLC();
+	plcSerial->start();
 	if (!videoCapture[0]->start())
 	{
 		QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("外圈摄像头未连接成功！"), QStringLiteral("确定"));
@@ -418,7 +415,7 @@ void MainWindow::on_action_Stop_triggered()
 	}
 	imageProcess[0]->stop();
 	imageProcess[1]->stop();
-	emit stopPLC();
+	plcSerial->stop();
 	if (!videoCapture[0]->stop())
 		return;
 	if (!videoCapture[1]->stop())

@@ -15,7 +15,8 @@ class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 public:
-	MainWindow(ConfigHelper *helper, QWidget *parent = Q_NULLPTR);
+	//! 只有该类可以改变config，因此不用const
+	explicit MainWindow(ConfigHelper *_configHelper, QWidget *parent = Q_NULLPTR);
 	~MainWindow();
 
 private:
@@ -50,7 +51,7 @@ protected:
 	virtual void closeEvent(QCloseEvent *event) override;
 	virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
-	private slots:
+private slots:
 	/* uiShow */
 	void uiAlarmLight(AlarmColor alarmColor);
 	void uiShowRealtimeImage(int deviceIndex);
@@ -81,9 +82,6 @@ protected:
 
 signals:
 	/* about plcserial thread */
-	void initPlcSerial();
-	void startPLC();
-	void stopPLC();
 	void alarmUi2PLC(AlarmColor alarmcolor);
 
 	/* ui */

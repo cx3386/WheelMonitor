@@ -96,7 +96,7 @@ bool HikVideoCapture::start()
 
 bool HikVideoCapture::stop()
 {
-	QTimer::singleShot(0, this, [&] {stopRecord(); }); //从子线程操作
+	QTimer::singleShot(0, this, &HikVideoCapture::stopRecord); //从子线程操作
 	// 等待，直到录制已经停止
 	while (bIsRecording)
 	{

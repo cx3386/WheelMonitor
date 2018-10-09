@@ -198,7 +198,7 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_singleapplication_p.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_trolleyreferece.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_truckreferece.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_WheelMonitor.cpp">
@@ -246,9 +246,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_singleapplication_p.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_trolleyreferece.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="improfile.cpp" />
     <ClCompile Include="LevelRecorder.cpp" />
     <ClCompile Include="mainwindow.cpp" />
@@ -285,11 +282,11 @@
     <ClCompile Include="logindialog.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="trolleyreferece.cpp" />
+    <ClCompile Include="truckreferece.cpp" />
     <ClCompile Include="videowidget.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="trolleyreferece.h">
+    <CustomBuild Include="truckreferece.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>

@@ -18,14 +18,14 @@ enum AlarmColor;
 class ImageProcess : public QObject {
 	Q_OBJECT
 public:
-	ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_capture, PLCSerial *_plcSerial, QObject *parent = Q_NULLPTR);
+	explicit ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_capture, PLCSerial *_plcSerial, QObject *parent = Q_NULLPTR);
 	~ImageProcess();
 
 	inline cv::Mat getFrameToShow() { QMutexLocker locker(&mutex); return frameToShow; }
-	/// 开始处理
-	void start();
-	/// 停止处理，仍保留每帧显示的功能
-	void stop();
+	// 用于mainwindow跨线程控制
+	void start() { QTimer::singleShot(0, this, &ImageProcess::onStart); }
+	void stop() { QTimer::singleShot(0, this, &ImageProcess::onStop); }
+	void init() { QTimer::singleShot(0, this, &ImageProcess::setupModel); }
 private:
 	const ConfigHelper *configHelper;
 	HikVideoCapture *videoCapture;
@@ -88,13 +88,11 @@ private:
 signals:
 	void _MAIn();
 	void _MAOut();
-	void initModel();
 	void frameHandled();
 	void showFrame();
 	void setAlarmLight(AlarmColor alarmcolor);
 
 public slots:
-	void setupModel();
 	void handleFrame();
 
 	void makeFrame4Show();
@@ -102,4 +100,10 @@ public slots:
 	void onSensorIN(); //!< 完全进入后（进后）
 	void onSensorOUT(); //!< 开始退出前（出前）
 	void onWheelTimeout();
+private slots:
+	//! 开始处理
+	void onStart();
+	//! 停止处理，仍保留每帧显示的功能
+	void onStop();
+	void setupModel();
 };

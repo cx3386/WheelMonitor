@@ -6,13 +6,25 @@
 class ConfigHelper;
 class QSerialPort;
 
+/*!
+ * \class PLCSerial
+ *
+ * \brief
+ *
+ * \author cx3386
+ * \date 十月 2018
+ */
 class PLCSerial : public QObject
 {
 	Q_OBJECT
 public:
+	//! 必须传入configure, const成员变量在初始化列表中初始化
 	explicit PLCSerial(const ConfigHelper *_configHelper, QObject *parent = nullptr);
 	~PLCSerial();
-
+	// 用于mainwindow跨线程控制
+	void start() { QTimer::singleShot(0, this, &PLCSerial::onStart); }
+	void stop() { QTimer::singleShot(0, this, &PLCSerial::onStop); }
+	void init() { QTimer::singleShot(0, this, &PLCSerial::onInit); }
 	inline double getTruckSpeed(int deviceIndex)
 	{
 		QMutexLocker locker(&mutex);
@@ -23,13 +35,6 @@ public:
 		QMutexLocker locker(&mutex);
 		return bIsConnect;
 	}
-	//enum AlarmColor
-	//{
-	//	AlarmColorGreen,
-	//	AlarmColorRed,
-	//	AlarmColorYellow,
-	//	AlarmOFF,
-	//};
 
 private:
 	const ConfigHelper *configHelper;
@@ -119,11 +124,17 @@ private slots:
 	 * a cycle includes sending cmd and recv response, costs ~ 300ms
 	 */
 	void readTruck();
+	//! 连接到PLC，初始化AD041。必须在子线程中执行（只一次）
+	void onInit();
+	//! 用于mainwindow的操控，开始循环读取AD041和CIO0的数据
+	void onStart(); // can't op timer across threads
+	//! 用于mainwindow的操控，停止循环读取AD041和CIO0的数据
+	void onStop();  //!< 不会断开与plc的连接
 
 signals:
 	void showCio2Ui(WORD);
-	void _DZIn();
-	void _DZOut();
+	void _DZIn(int id);  //!< 车轮进入DZ, id为deviceIndex
+	void _DZOut(int id); //!< 车轮离开DZ, id为deviceIndex
 	void truckSpeedReady();
 	/**
 	 * \brief 台车(中轴)速度信号读取错误
@@ -134,11 +145,5 @@ signals:
 	void truckSpeedError(int);
 
 public slots:
-	//! 连接到PLC，初始化AD041。必须在子线程中执行（只一次）
-	void init();
 	void onAlarmEvent(int);
-	//! 用于mainwindow的操控，开始循环读取AD041和CIO0的数据
-	void onStart(); // can't op timer across threads
-	//! 用于mainwindow的操控，停止循环读取AD041和CIO0的数据
-	void onStop();  //!< 不会断开与plc的连接
 };

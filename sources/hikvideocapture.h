@@ -39,6 +39,8 @@ public:
 	// 必须传入的参数，未作检查，如果没有传入，会发生错误
 	//void setRealPlayWND(HWND val) { hPlayWnd = val; } //!< 设置实时预览的窗口句柄
 private:
+	// 初始化列表是先于构造函数的函数体执行，并且成员的初始化列表与成员的声明顺序相同的 [10/9/2018 cx3386]
+	// 因此务必注意声明顺序 [10/9/2018 cx3386]
 	const ConfigHelper * configHelper;
 	int deviceIndex;
 	HWND hPlayWnd;

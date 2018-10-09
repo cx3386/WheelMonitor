@@ -60,7 +60,7 @@ PLCSerial::~PLCSerial()
 	plcSerialPort->close();
 }
 
-void PLCSerial::init()
+void PLCSerial::onInit()
 {
 	/*setup serialport parameters*/
 	plcSerialPort = new QSerialPort;
@@ -100,7 +100,7 @@ void PLCSerial::onStart()
 	// sensor置为空,使能第一次.state
 	for (auto &ss : sensorRecorders)
 	{
-		ss.push(0);
+		ss.push(false);
 	}
 }
 void PLCSerial::onStop()
@@ -139,34 +139,35 @@ void PLCSerial::readSensor()
 		ss.push(cio0 & 1);
 	}
 
-	if (ansCode == SENSOR_L_OFF_R_OFF)
-	{ //00
-		if (sensorRight == true && sensorLeft == false)
-		{ //01->00 wheel leaves the right sensor
-			emit _DZOut();
+	// COL
+	int count0 = 0, count1 = 0; // 传感器触发的次数
+	if (bIsInPredict[0].state == LevelRecorder::HighLevel)
+	{
+		if (sensorRecorders[0].state(0) == LevelRecorder::NegativeEdge)	count0++;
+		if (sensorRecorders[1].state(0) == LevelRecorder::NegativeEdge)	count1++;
+		if (!bEmitted && count0 == 1 && count1 == 1)
+		{
+			emit _DZIn(0);
+			bEmitted == true;
 		}
-		sensorRight = false;
-		sensorLeft = false;
 	}
-	else if (ansCode == SENSOR_L_OFF_R_ON)
-	{ //01
-		sensorRight = true;
-		sensorLeft = false;
-	}
-	else if (ansCode == SENSOR_L_ON_R_OFF)
-	{ //10
-		if (sensorRight == false && sensorLeft == false)
-		{ //00->10 wheel enters the left sensor
-			emit _DZIN();
+	else if (bisInPredict[0].state == LevelRecorder::NegativeEdge)
+	{
+		if (!(count0 == 1 && count1 == 1))
+		{
+			emit error(); // 如果>1,传感器闪烁,为0，则传感器坏了
 		}
-		sensorRight = false;
-		sensorLeft = true;
+		count0 = 0;
+		count1 = 0;
 	}
-	else if (ansCode == SENSOR_L_ON_R_ON)
-	{ //11
-		qWarning() << "PLC(sensor): Both sensors are triggered at the same time, please check if the sensor is broken";
-		sensorRight = true;
-		sensorLeft = true;
+	// 意外情况
+	else if (bisInPredict[0].state == LevelRecorder::LowLevel)
+	{
+		//sensor出现state变化
+		if ()
+		{
+			error!// 传感器闪烁
+		}
 	}
 }
 
