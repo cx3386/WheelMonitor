@@ -7,7 +7,7 @@
 const int IM_PROC_VALID_MIN_COUNT = 10;
 const int IM_PROC_INVALID_SPEED = 888;
 
-class PLCSerial;
+class Plc;
 class RobustMatcher;
 class OCR;
 struct ImProfile;
@@ -18,7 +18,7 @@ enum AlarmColor;
 class ImageProcess : public QObject {
 	Q_OBJECT
 public:
-	explicit ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_capture, PLCSerial *_plcSerial, QObject *parent = Q_NULLPTR);
+	explicit ImageProcess(const ConfigHelper *_configHelper, HikVideoCapture *_capture, Plc *_plcSerial, QObject *parent = Q_NULLPTR);
 	~ImageProcess();
 
 	inline cv::Mat getFrameToShow() { QMutexLocker locker(&mutex); return frameToShow; }
@@ -29,7 +29,7 @@ public:
 private:
 	const ConfigHelper *configHelper;
 	HikVideoCapture *videoCapture;
-	PLCSerial *plcSerial;
+	Plc *plcSerial;
 	int deviceIndex;
 	const ImProfile *imProfile;
 	OCR * ocr;  //!< ocr识别的类，只通过start/stop来控制，常开

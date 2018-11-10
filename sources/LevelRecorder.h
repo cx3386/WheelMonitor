@@ -22,6 +22,7 @@ class LevelRecorder
 public:
 	LevelRecorder();
 	~LevelRecorder();
+	void init(bool b = false) { levels.clear(); levels.push_back(b); }
 	void push(bool); //!< push_back a data to levels
 	//! clear all data
 	void clear() { levels.clear(); }
@@ -30,7 +31,7 @@ public:
 	{
 		HighLevel = 0x1,
 		LowLevel = 0x2,
-		PositiveEdge = HighLevel | 0x4, //!< 即是低电平也是上升沿
+		PositiveEdge = HighLevel | 0x4, //!< 即是高电平也是上升沿
 		NegativeEdge = LowLevel | 0x8, //!< 即使低电平也是下降沿
 		OutOfRange = 0x10,
 	};

@@ -114,9 +114,6 @@
     <ClCompile Include="hikvideocapture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="plcserial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="robustmatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -204,18 +201,6 @@
     <ClCompile Include="mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_trolleyreferece.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_trolleyreferece.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_plcserial.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_plcserial.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_ocr.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -234,10 +219,40 @@
     <ClCompile Include="LevelRecorder.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_truckreferece.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_Plc.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="truckreferece.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_Plc.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Plc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TrunckRef.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TrunckRef.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="TrunckRef.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ViewSensorImage.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ViewSensorImage.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewSensorImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_AlarmLCDBoard.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_AlarmLCDBoard.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="AlarmLCDBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -296,6 +311,12 @@
     <ClInclude Include="LevelRecorder.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_ViewSensorImage.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_AlarmLCDBoard.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="GeneratedFiles\debug\moc_predefs.h.cbt">
@@ -328,17 +349,29 @@
     <CustomBuild Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="plcserial.h">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="WheelMonitor.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
     <CustomBuild Include="imageprocess.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="truckreferece.h">
+    <CustomBuild Include="Plc.h">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TrunckRef.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ViewSensorImage.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ViewSensorImage.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="AlarmLCDBoard.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="AlarmLCDBoard.ui">
+      <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

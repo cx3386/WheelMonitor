@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/WheelMonitor">
+    <file>Resources/images/view_sensor.png</file>
     <file>Resources/images/about.png</file>
     <file>Resources/images/backup.png</file>
     <file>Resources/images/blue.png</file>

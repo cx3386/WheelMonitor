@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QWidget>
-#include "plcserial.h"
+#include "Plc.h"
 
 class MySqlTableModel;
 class Player;
@@ -40,11 +40,11 @@ private:
 signals:
 	void setAlarmLight(AlarmColor alarmcolor);
 
-	public slots:
+public slots:
 	void clearMedia(int index);
 	void dbChanged();
 
-	private slots :
+private slots:
 	void readVideoPath(QModelIndex) const;
 	void setSelectedChecked();
 	void setAllChecked();

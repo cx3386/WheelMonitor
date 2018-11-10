@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>539</width>
-    <height>172</height>
+    <width>314</width>
+    <height>115</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,53 +19,28 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <property name="font">
-   <font>
-    <family>等线</family>
-    <pointsize>20</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
-   <string>LoginDialog</string>
+   <string>登录</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(41, 151, 204);</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="3">
     <widget class="QLabel" name="tittleLabel">
-     <property name="font">
-      <font>
-       <family>等线</family>
-       <pointsize>20</pointsize>
-      </font>
-     </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 127);</string>
      </property>
      <property name="text">
-      <string>欢迎使用宝钢环冷机台车轮子速度监测系统!</string>
+      <string>欢迎使用宝钢环冷机台车车轮状态监测系统!</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-   </item>
-   <item row="1" column="0">
-    <spacer name="horizontalSpacer_3">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
    <item row="1" column="1">
     <layout class="QFormLayout" name="formLayout">
@@ -105,29 +80,10 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="2">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item row="2" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="loginBtn">
-       <property name="font">
-        <font>
-         <family>等线</family>
-         <pointsize>25</pointsize>
-        </font>
-       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(0, 255, 0);</string>
        </property>
@@ -151,12 +107,6 @@
      </item>
      <item>
       <widget class="QPushButton" name="quitBtn">
-       <property name="font">
-        <font>
-         <family>等线</family>
-         <pointsize>25</pointsize>
-        </font>
-       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 0, 0);</string>
        </property>
@@ -166,6 +116,32 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="2">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
