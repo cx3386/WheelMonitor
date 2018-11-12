@@ -1289,7 +1289,7 @@
      <normaloff>:/WheelMonitor/Resources/images/backup.png</normaloff>:/WheelMonitor/Resources/images/backup.png</iconset>
    </property>
    <property name="text">
-    <string>备份日志到(&amp;B)...</string>
+    <string>备份至(&amp;B)...</string>
    </property>
   </action>
   <zorder>dockWidget_dashboard</zorder>
