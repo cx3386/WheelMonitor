@@ -55,9 +55,37 @@ Plc::Plc(const ConfigHelper* _configHelper, QObject* parent)
     , trnkRef(new TrunckRef(this))
 {
     QObject::connect(this, &Plc::ckpTri, trnkRef, &TrunckRef::onCkpTri);
-    QObject::connect(trnkRef, &TrunckRef::expectTriBegin, this, [=](int id) { CkPt.expectIn = true; });
-    QObject::connect(trnkRef, &TrunckRef::expectTriEnd, this, [=](int id) {});
-    TODO;
+    QObject::connect(trnkRef, &TrunckRef::expectTriBegin, this, [=](int id) {
+        int devId = id >> 1;
+        int ckpId = id & 1;
+        auto& ckpt = devs[devId].ckpts[ckpId];
+        // 在预期到达的时间开始时，开始检测点新的周期
+        bool errorCntTri = false;
+        for (auto& ss : ckpt.sensors) {
+            if (ss.nTri != 1) {
+                errorCntTri = true;
+                qDebug() << QStringLiteral("传感器计算异常 ID:") << ss.id << " nTri:" << ss.nTri;
+            }
+        }
+        ckpt.newWheel();
+    });
+    QObject::connect(trnkRef, &TrunckRef::expectTriEnd, this, [=](int id) {
+        int devId = id >> 1;
+        int ckpId = id & 1;
+        auto& ckpt = devs[devId].ckpts[ckpId];
+        // 清算CKPT
+        for (auto& ss : ckpt.sensors) {
+            if (ss.nTri == 1) {
+                ss.expected = true;
+            } else if (ss.nTri == 0) {
+                ss.expected = false;
+            } else {
+            }
+        }
+        // 如果是检测点是车轮离开处，则结算车轮传感器好坏
+        if (ckpt.isLeave())
+            checkBrokenAlarm(devId);
+    });
     refThread = new QThread(this);
     trnkRef->moveToThread(refThread);
     refThread->start();
@@ -78,8 +106,9 @@ void Plc::start()
         bUsrCtrl = true;
         readSensorPeriodically();
         readSpeedPeriodically(); // sensor置为空,使能第一次.state
-        dev0.init();
-        dev1.init();
+        for (auto& dev : devs) {
+            dev.init();
+        }
         // 开始truckref的计数
         trnkRef->start();
     });
@@ -90,7 +119,7 @@ void Plc::stop()
     QTimer::singleShot(0, this, [=]() {
         bUsrCtrl = false;
         trnkRef->stop();
-        emit cio0Changed(0);
+        emit cio0Update(0);
     }); //用timeevent，避免跨线程操作带来的锁的管理。但是需要get的value，必须通过锁管理
 }
 
@@ -139,10 +168,9 @@ void Plc::readSensorPeriodically()
     bool ok;
     WORD cio0 = QString(dataList.at(1)).toInt(&ok, 16); // convert 'FFFF' to int(10) //0x000~0x1ff, in fact cio0~11(16) ranges to 0xffff.
         // 输入位CIO发生变化
-
+    emit cio0Update(cio0);
     recordCio0(cio0);
     checkTri();
-    checkExpect();
 }
 
 void Plc::readSpeedPeriodically()
@@ -186,83 +214,88 @@ void Plc::readSpeedPeriodically()
     }
 }
 
+void Plc::recordCio0(WORD cio0)
+{
+    //cio 0.01 sol0
+    cio0 = cio0 >> 1;
+    devs[SensorDevice::indexOf("outer")].ckpts[CkPt::indexOf("left")].sensors[Sensor::indexOf("left")].sample.push(cio0 & 1);
+    //cio 0.02 sol1
+    cio0 = cio0 >> 1;
+    devs[SensorDevice::indexOf("outer")].ckpts[CkPt::indexOf("left")].sensors[Sensor::indexOf("right")].sample.push(cio0 & 1);
+    //cio 0.03 sor0
+    cio0 = cio0 >> 1;
+    devs[SensorDevice::indexOf("outer")].ckpts[CkPt::indexOf("right")].sensors[Sensor::indexOf("left")].sample.push(cio0 & 1);
+    //cio 0.04 sor1
+    cio0 = cio0 >> 1;
+    devs[SensorDevice::indexOf("outer")].ckpts[CkPt::indexOf("right")].sensors[Sensor::indexOf("right")].sample.push(cio0 & 1);
+    //cio 0.05 sir0
+    cio0 = cio0 >> 1;
+    devs[SensorDevice::indexOf("inner")].ckpts[CkPt::indexOf("right")].sensors[Sensor::indexOf("right")].sample.push(cio0 & 1);
+    //cio 0.06 sir1
+    cio0 = cio0 >> 1;
+    devs[SensorDevice::indexOf("inner")].ckpts[CkPt::indexOf("right")].sensors[Sensor::indexOf("left")].sample.push(cio0 & 1);
+    //cio 0.07 sil0
+    cio0 = cio0 >> 1;
+    devs[SensorDevice::indexOf("inner")].ckpts[CkPt::indexOf("left")].sensors[Sensor::indexOf("right")].sample.push(cio0 & 1);
+    //cio 0.08 sil1
+    cio0 = cio0 >> 1;
+    devs[SensorDevice::indexOf("inner")].ckpts[CkPt::indexOf("left")].sensors[Sensor::indexOf("left")].sample.push(cio0 & 1);
+}
+
 //! 用读取的cio数据检测是否满足触发条件（上升沿/下降沿）
 void Plc::checkTri()
 {
-    auto _fckp = [&](CkPt& ckp) {
-        auto _fss = [&](Sensor& sensor, Sensor& anotherss, bool in) {
-            int triTiming;
-            if (in)
-                triTiming = LevelRecorder::NegativeEdge;
-            else
-                triTiming = LevelRecorder::PositiveEdge;
-            if (sensor.sample.state(0) == triTiming)
-                sensor.nTri++;
-            if (sensor.nTri == 1) {
-                // 如果该检测点另一个传感器没有坏，则检测该传感器是否亮了
-                if (anotherss.lastbroken == 0) {
-                    if (anotherss.nTri == 1)
-                        handleCkpTri(ckp.id); //ol(0) or ir(1)
-                }
-                // 如果另一个传感器已经坏了，则独自工作
-                else {
-                    handleCkpTri(ckp.id);
+    for (auto& dev : devs) {
+        for (auto& ckp : dev.ckpts) {
+            QList<int> brokenId;
+            bool isTrigger = false; //触发
+            for (auto& ss : ckp.sensors) {
+                if (ss.sample.state(0) == ckp.triTiming) {
+                    isTrigger = true;
+                    ss.nTri++;
+                    if (ss.lastbroken == 2)
+                        brokenId << ss.m_id;
                 }
             }
-        };
-        bool in = false;
-        if (ckp.id == 0 || ckp.id == 3)
-            in = true; //ol ir 完全进入
-        _fss(ckp.sensor0, ckp.sensor0, in);
-        _fss(ckp.sensor1, ckp.sensor1, in);
-    };
-    _fckp(dev0.ckpL);
-    _fckp(dev0.ckpR);
-    _fckp(dev1.ckpL);
-    _fckp(dev1.ckpR);
-}
-
-//< 在预测触发的时段内，检测光电开关和掉轮报警
-void Plc::checkExpect()
-{
-    auto _fckp = [&](CkPt& ckp) {
-        int colState = ckp.expectIn.state(0);
-        // 在预期到达的时间开始时，开始检测点新的周期
-        if (colState == LevelRecorder::PositiveEdge) {
-            if (ckp.sensor0.nTri > 1 || ckp.sensor1.nTri > 1) {
-                qDebug() << QStringLiteral("Plc: 传感器计算异常") << "sor0: " << ckp.sensor0.nTri << "sor1: " << ckp.sensor0.nTri;
-            }
-            ckp.newWheel();
-        }
-        // 在预期到达的最迟时间时，清算
-        else if (colState == LevelRecorder::NegativeEdge) {
-            auto _fss = [&](Sensor& sensor) {
-                if (sensor.nTri == 1) {
-                    sensor.expected = true;
-                } else if (sensor.nTri == 0) {
-                    sensor.expected = false;
-                } else { /*默认为正确*/
+            bool ckpSig = false;
+            if (isTrigger) {
+                // 两个都好了
+                if (brokenId.size() == 0) {
+                    if (ckp.sensors[0].nTri == 1 && ckp.sensors[1].nTri == 1)
+                        ckpSig = true;
                 }
-            };
-            _fss(ckp.sensor0);
-            _fss(ckp.sensor1);
-            // 针对车轮离开检测区域的检测点，进行车轮传感器好坏的结算
-            if (ckp.id == 1 || ckp.id == 2)
-                checkBrokenAlarm(ckp.id >> 1);
+                // 两个都坏
+                else if (brokenId.size() == 2) {
+                }
+                // 只有一个好,检查好的那个
+                else if (brokenId.size() == 1) {
+                    if (ckp.sensors[1 - brokenId[0]].nTri == 1)
+                        ckpSig = true;
+                }
+                if (ckpSig) {
+                    if (ckp.isEnter())
+                        emit _DZIn(dev.id);
+                    else {
+                        emit _DZOut(dev.id);
+                    }
+                    emit ckpTri(ckp.id);
+                }
+            }
         }
-    };
-
-    _fckp(dev0.ckpL);
-    _fckp(dev0.ckpR);
-    _fckp(dev1.ckpL);
-    _fckp(dev1.ckpR);
+    }
 }
 
 void Plc::checkBrokenAlarm(int devId)
 {
-    auto&& selDev = [&](int id) -> auto& { return id == 0 ? dev0 : dev1; };
-    auto&& dev = selDev(devId);
-    int countExpected = dev.ckpL.sensor0.expected + dev.ckpL.sensor1.expected + dev.ckpR.sensor0.expected + dev.ckpR.sensor1.expected;
+    auto& dev = devs[devId];
+    int countExpected, cntLastBrk;
+    for (auto& ckp : dev.ckpts) {
+        for (auto& ss : ckp.sensors) {
+            countExpected += ss.expected;
+            if (ss.lastbroken == 2)
+                cntLastBrk++;
+        }
+    }
 
     /*如果没有任何一个传感器检测到车轮正常到达的信号，
 	1. 掉轮了
@@ -271,21 +304,18 @@ void Plc::checkBrokenAlarm(int devId)
         if (dev.lastalarm == 1) {
             /*上个轮子只有一个传感器是好的，并且没有检测到轮子*/
             //这次还是没检测到轮子。传感器全坏了
-            dev.ckpL.sensor0.broken = 2;
-            dev.ckpL.sensor1.broken = 2;
-            dev.ckpR.sensor0.broken = 2;
-            dev.ckpR.sensor1.broken = 2;
+            for (auto& ckp : dev.ckpts) {
+                for (auto& ss : ckp.sensors) {
+                    ss.broken = 2;
+                }
+            }
         }
-        auto _cnt_sensor = [&](Sensor& sensor) {if (sensor.lastbroken == 2) return 1; else return 0; };
-        auto _cnt_ckp = [&](CkPt& ckp) { return _cnt_sensor(ckp.sensor0) + _cnt_sensor(ckp.sensor1); };
-        auto _count_broken = [&](Device& dev) { return _cnt_ckp(dev.ckpL) + _cnt_ckp(dev.ckpR); };
-        int cntbrk = _count_broken(dev);
         /*历史记录中，传感器已经全部坏了*/
-        if (cntbrk == 4) {
+        if (cntLastBrk == 4) {
             dev.alarm = 0;
         }
         /*已经坏了3个传感器，无法确认本次的异常是唯一正常的传感器坏了，还是掉轮了*/
-        else if (cntbrk == 3) {
+        else if (cntLastBrk == 3) {
             dev.alarm = 1;
         }
         /*上次至少还有2个传感器是好的，本次一个都没有检测到车轮到达信号，确认掉轮*/
@@ -294,7 +324,7 @@ void Plc::checkBrokenAlarm(int devId)
             emit alarmwheel(0); //本应该刚刚离开的dz的轮子掉了
         }
     }
-    /*任何一个传感器检测到车轮，掉轮不可能*/
+    /*任何一个传感器检测到车轮，不可能掉轮*/
     else {
         dev.alarm = 0;
         if (dev.lastalarm == 1)
@@ -303,111 +333,30 @@ void Plc::checkBrokenAlarm(int devId)
     }
     //确认没有掉轮情况下，所有unexpected都是由于传感器坏了
     if (dev.alarm == 0) {
-        auto f = [&](Sensor& sensor) {if (sensor.expected == false) { sensor.broken = 2; } };
-        f(dev.ckpL.sensor0);
-        f(dev.ckpL.sensor1);
-        f(dev.ckpR.sensor0);
-        f(dev.ckpR.sensor1);
+        for (auto& ckp : dev.ckpts) {
+            for (auto& ss : ckp.sensors) {
+                if (!ss.expected) {
+                    ss.broken = 2;
+                }
+            }
+        }
     }
     // 无论有没有掉轮，所有正常输出的传感器都是好的all expected set to not broken
-    auto f = [&](Sensor& sensor) {
-        if (sensor.expected == true) {
-            sensor.broken = 0;
+    bool ok;
+    int sensorState = QString("11111111").toInt(&ok, 2);
+    for (auto& ckp : dev.ckpts) {
+        for (auto& ss : ckp.sensors) {
+            if (ss.expected) {
+                ss.broken = 0;
+            }
+            if (ss.lastbroken < 2 && ss.broken == 2) {
+                sensorState ^= (1 << ss.id);
+            }
+            ss.lastbroken = ss.broken;
         }
-        if (sensor.lastbroken < 2 && sensor.broken == 2) {
-            emit 传感器坏咯
-        }
-        sensor.lastbroken = sensor.broken;
-    };
-    f(dev.ckpL.sensor0);
-    f(dev.ckpL.sensor1);
-    f(dev.ckpR.sensor0);
-    f(dev.ckpR.sensor1);
+    }
+    emit sensorUpdate(sensorState);
     dev.lastalarm = dev.alarm;
-}
-
-void Plc::recordCio0(WORD cio0)
-{
-    bool bChanged = false;
-    Device* dev;
-    CkPt* ckp;
-    Sensor* sensor;
-    //cio 0.01 sol0
-    cio0 = cio0 >> 1;
-    dev = &dev0;
-    ckp = &dev->ckpL;
-    sensor = &ckp->sensor0;
-    sensor->sample.push(cio0 & 1); // 记录sensor的状态
-    auto state = sensor->sample.state(0);
-    if (state == LevelRecorder::NegativeEdge || state == LevelRecorder::PositiveEdge)
-        bChanged = true;
-    //cio 0.02 sol1
-    cio0 = cio0 >> 1;
-    dev = &dev0;
-    ckp = &dev->ckpL;
-    sensor = &ckp->sensor1;
-    sensor->sample.push(cio0 & 1); // 记录sensor的状态
-    auto state = sensor->sample.state(0);
-    if (state == LevelRecorder::NegativeEdge || state == LevelRecorder::PositiveEdge)
-        bChanged = true;
-    //cio 0.03 sor0
-    cio0 = cio0 >> 1;
-    dev = &dev0;
-    ckp = &dev->ckpR;
-    sensor = &ckp->sensor0;
-    sensor->sample.push(cio0 & 1); // 记录sensor的状态
-    auto state = sensor->sample.state(0);
-    if (state == LevelRecorder::NegativeEdge || state == LevelRecorder::PositiveEdge)
-        bChanged = true;
-    //cio 0.04 sor1
-    cio0 = cio0 >> 1;
-    dev = &dev0;
-    ckp = &dev->ckpR;
-    sensor = &ckp->sensor1;
-    sensor->sample.push(cio0 & 1); // 记录sensor的状态
-    auto state = sensor->sample.state(0);
-    if (state == LevelRecorder::NegativeEdge || state == LevelRecorder::PositiveEdge)
-        bChanged = true;
-    //cio 0.05 sir0
-    cio0 = cio0 >> 1;
-    dev = &dev1;
-    ckp = &dev->ckpR;
-    sensor = &ckp->sensor0;
-    sensor->sample.push(cio0 & 1); // 记录sensor的状态
-    auto state = sensor->sample.state(0);
-    if (state == LevelRecorder::NegativeEdge || state == LevelRecorder::PositiveEdge)
-        bChanged = true;
-    //cio 0.06 sir1
-    cio0 = cio0 >> 1;
-    dev = &dev1;
-    ckp = &dev->ckpR;
-    sensor = &ckp->sensor1;
-    sensor->sample.push(cio0 & 1); // 记录sensor的状态
-    auto state = sensor->sample.state(0);
-    if (state == LevelRecorder::NegativeEdge || state == LevelRecorder::PositiveEdge)
-        bChanged = true;
-    //cio 0.07 sil0
-    cio0 = cio0 >> 1;
-    dev = &dev1;
-    ckp = &dev->ckpL;
-    sensor = &ckp->sensor0;
-    sensor->sample.push(cio0 & 1); // 记录sensor的状态
-    auto state = sensor->sample.state(0);
-    if (state == LevelRecorder::NegativeEdge || state == LevelRecorder::PositiveEdge)
-        bChanged = true;
-    //cio 0.08 sil1
-    cio0 = cio0 >> 1;
-    dev = &dev1;
-    ckp = &dev->ckpL;
-    sensor = &ckp->sensor1;
-    sensor->sample.push(cio0 & 1); // 记录sensor的状态
-    auto state = sensor->sample.state(0);
-    if (state == LevelRecorder::NegativeEdge || state == LevelRecorder::PositiveEdge)
-        bChanged = true;
-
-    if (bChanged) {
-        emit cio0Changed(cio0);
-    }; // 更改ui显示
 }
 
 QByteArray Plc::readPLC(QByteArray plcData)

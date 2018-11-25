@@ -57,7 +57,7 @@ private slots:
     void uiShowRealtimeImage(int deviceIndex);
     void uiShowCartSpeed();
     void uiShowCio0(WORD cio0);
-
+    void uiShowSensor(int state);
     /* onAlarmChanged */
     void onAlarmChanged(AlarmEvent alarmevent);
     // about REC Label show

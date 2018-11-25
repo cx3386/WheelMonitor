@@ -25,7 +25,7 @@ void TrunckRef::start()
 
 void TrunckRef::stop()
 {
-    QTimer::singleShot(0, this, [=]() { bUsrCtrl = false; }); //用timeevent，避免跨线程操作带来的锁的管理。但是需要get的value，必须通过锁管理
+    QTimer::singleShot(0, this, [=]() { bUsrCtrl = false; }); //用timeevent，避免跨线程操作带来的锁的管理。但是需要直接get的value，必须通过锁管理
 }
 
 void TrunckRef::speedIntegrator()

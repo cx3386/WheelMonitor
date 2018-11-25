@@ -5,6 +5,8 @@
         "vector": "cpp",
         "xstring": "cpp",
         "cmath": "cpp",
-        "xcomplex": "cpp"
+        "xcomplex": "cpp",
+        "xiosbase": "cpp",
+        "xlocale": "cpp"
     }
 }

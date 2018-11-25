@@ -1,5 +1,6 @@
 #pragma once
 #include "LevelRecorder.h"
+#include "SensorDevice.h"
 #include "common.h"
 #include <QObject>
 
@@ -35,78 +36,7 @@ private:
 
     /// the rate between inner calc speed and measured speed, of which value is optimized by LS method (minimize the error)
     const double speedCompensationCoeff[2] = { 0.954, 0.950 }; // [out, in]
-
-    /*一个周期内的计数结构*/
-    struct Sensor {
-        Sensor(int _id)
-            : id()
-        {
-        }
-        int id; //最低位: 0-0;1-1
-        int nTri; // 传感器触发的次数,一个周期内，只应出现一次
-        bool expected = true; //!< 记录传感器是否坏掉
-        LevelRecorder sample; //!< 记录传感器的采样信息
-        int lastbroken; //!< 上个周期内，是否坏掉0-no;1-may;2-yes
-        int broken; //!< 记录传感器是否坏掉（周期结束时更新）
-        void newWheel()
-        {
-            nTri = 0;
-            expected = true;
-            broken = 0;
-        }
-        void init()
-        {
-            newWheel();
-            sample.init(false);
-            lastbroken = 0;
-        }
-    };
-    struct CkPt {
-        CkPt(int _id)
-            : id(id)
-        {
-        }
-        int id; //最低位:0-l;1-r
-        LevelRecorder expectIn; //!< 根据台车速度积分，预测是否到达检测点
-        Sensor sensor0 { id << 1 | 0 }, sensor1 { id << 1 | 1 };
-        void newWheel()
-        {
-            sensor1.newWheel();
-            sensor0.newWheel();
-        }
-        void init()
-        {
-            newWheel();
-            sensor0.init();
-            sensor1.init();
-            expectIn.init(false);
-        }
-    };
-    //col左侧进入 0, cor右侧离开 1, cir右侧进入 2, cil左侧离开 3
-    struct Device {
-        Device(int _id)
-            : id(id)
-        {
-        }
-        int id; // 最低位:0-o;1-i
-        int alarm; //0-正常,1-由下次循环判断,2-掉轮
-        int lastalarm;
-        CkPt ckpL { id << 1 | 0 }, ckpR { id << 1 | 1 };
-        void newWheel()
-        {
-            alarm = 0;
-            ckpL.newWheel();
-            ckpR.newWheel();
-        }
-        void init()
-        {
-            newWheel();
-            ckpL.init();
-            ckpR.init();
-            lastalarm = 0;
-        }
-    } dev0 { 0 }, dev1 { 1 };
-
+    QList<SensorDevice> devs = SensorDevice::createAll();
     bool bUsrCtrl = false;
     bool bConnected = false;
     /* one read write period >300ms */
@@ -168,19 +98,7 @@ private:
 
     void checkTri();
 
-    void checkExpect();
-
     void checkBrokenAlarm(int devId);
-
-    void handleCkpTri(int ckpId)
-    {
-        if (ckpId == 0 || ckpId == 3) {
-            emit _DZIn(ckpId >> 1);
-        } else if (ckpId == 1 || ckpId == 4) {
-            emit _DZOut(ckpId >> 1);
-        }
-        emit ckpTri(ckpId);
-    }
 
 private slots:
     void readSensorPeriodically();
@@ -188,9 +106,15 @@ private slots:
     void readSpeedPeriodically();
 
 signals:
-    void cio0Changed(WORD);
+    //to UI
+    void cio0Update(WORD);
+    void sensorUpdate(int);
+
+    // to 图像处理
     void _DZIn(int id); //!< 车轮进入DZ, id为deviceIndex
     void _DZOut(int id); //!< 车轮离开DZ, id为deviceIndex
+
+    // to速度积分器
     void ckpTri(int ckpId);
     void connectError(int errorId);
     void truckSpeedReady();

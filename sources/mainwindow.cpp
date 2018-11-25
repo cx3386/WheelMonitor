@@ -147,7 +147,8 @@ void MainWindow::configWindow()
     connect(playBackWidget, &PlayBackWidget::setAlarmLight, plc, &Plc::Alarm);
     connect(plc, &Plc::setUiAlarm, this, &MainWindow::uiAlarmLight);
     /* sensor light */
-    connect(plc, &Plc::cio0Changed, this, &MainWindow::uiShowCio0);
+    connect(plc, &Plc::cio0Update, this, &MainWindow::uiShowCio0);
+    connect(plc, &Plc::sensorUpdate, this, &MainWindow::uiShowSensor);
     connect(plc, &Plc::connectError, this, [&](int errorId) {
         if (errorId == 0) {
             QMessageBox::information(this, QStringLiteral("连接成功"), QStringLiteral("成功连接至PLC！"));
@@ -301,6 +302,52 @@ void MainWindow::uiShowCio0(WORD cio0)
     } else {
         ui.Btn_CIO1_8->setIcon(QIcon(gray));
     }
+}
+
+//! 更新界面的光电传感器状态，如果state为-1，则不可选中
+void MainWindow::uiShowSensor(int state)
+{
+    QIcon green = QIcon(QPixmap(":/WheelMonitor/Resources/images/green.png"));
+    QIcon red = QIcon(QPixmap(":/WheelMonitor/Resources/images/red.png"));
+    //QIcon gray = QIcon(QPixmap(":/WheelMonitor/Resources/images/gray.png"));
+    if (state == -1) {
+        ui.groupBox_7->setEnabled(false);
+        return;
+    }
+    ui.groupBox_7->setEnabled(true);
+    bool bit;
+    QIcon icon;
+    bit = state & 1;
+    icon = bit ? green : red;
+    ui.btn_sol0->setIcon(icon); //1
+    state = state >> 1;
+    bit = state & 1;
+    icon = bit ? green : red;
+    ui.btn_sol1->setIcon(icon); //2
+    state = state >> 1;
+    bit = state & 1;
+    icon = bit ? green : red;
+    ui.btn_sor0->setIcon(icon); //3
+    state = state >> 1;
+    bit = state & 1;
+    icon = bit ? green : red;
+    ui.btn_sor1->setIcon(icon); //4
+    state = state >> 1;
+    bit = state & 1;
+    icon = bit ? green : red;
+    ui.btn_sir0->setIcon(icon); //5
+    state = state >> 1;
+    bit = state & 1;
+    icon = bit ? green : red;
+    ui.btn_sir1->setIcon(icon); //6
+    state = state >> 1;
+    bit = state & 1;
+    icon = bit ? green : red;
+    ui.btn_sil0->setIcon(icon); //7
+    state = state >> 1;
+    bit = state & 1;
+    icon = bit ? green : red;
+    ui.btn_sil1->setIcon(icon); //8
 }
 
 void MainWindow::onAlarmChanged(AlarmEvent alarmevent)
