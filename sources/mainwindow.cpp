@@ -1,4 +1,6 @@
-#include "mainwindow.h"
+#include "stdafx.h"
+
+#include "AlarmManager.h"
 #include "Plc.h"
 #include "ViewSensorImage.h"
 #include "backuplogdialog.h"
@@ -7,16 +9,17 @@
 #include "database.h"
 #include "hikvideocapture.h"
 #include "imageprocess.h"
+#include "mainwindow.h"
 #include "mysqltablemodel.h"
 #include "outlierhelper.h"
 #include "playbackwidget.h"
 #include "settingdialog.h"
-#include "stdafx.h"
 
 MainWindow::MainWindow(ConfigHelper* _configHelper, QWidget* parent /*= Q_NULLPTR*/)
     : QMainWindow(parent)
     , configHelper(_configHelper)
-    , plc(new Plc)
+    , plc(new Plc(configHelper))
+    , alarmManager(new AlarmManager(this))
 {
     //setWindowOpacity(1);
     ui.setupUi(this);
@@ -36,13 +39,14 @@ MainWindow::MainWindow(ConfigHelper* _configHelper, QWidget* parent /*= Q_NULLPT
 
 MainWindow::~MainWindow()
 {
-    bool b = true;
-    connect(plc, &Plc::setUiAlarm, this, [&b] { b = false; }); //before setUiAlarm finished, DONOT delete the pointer "this". 引发了异常: 读取访问权限冲突。**this** 是 0xFFFFFFFFFFFFFFFF
-    emit setAlarm(AlarmOFF); //cannot operate out of thread. use Signal-Slot.
-    while (b) //wait until light is set off
-    {
-        QCoreApplication::processEvents();
-    }
+    //bool b = true;
+    //connect(plc, &Plc::setUiAlarm, this, [&b] { b = false; }); //before setUiAlarm finished, DONOT delete the pointer "this". 引发了异常: 读取访问权限冲突。**this** 是 0xFFFFFFFFFFFFFFFF
+    //emit setAlarm(AlarmOFF); //cannot operate out of thread. use Signal-Slot.
+    //while (b) //wait until light is set off
+    //{
+    //    QCoreApplication::processEvents();
+    //}
+
     imageProcessThread[0]->quit();
     imageProcessThread[0]->wait();
     imageProcessThread[1]->quit();
@@ -63,9 +67,11 @@ void MainWindow::configWindow()
     addDockWidget(Qt::BottomDockWidgetArea, m_docks[0]);
     splitDockWidget(m_docks[0], m_docks[1], Qt::Horizontal);
     splitDockWidget(m_docks[1], m_docks[2], Qt::Horizontal);
+    for (auto dock : m_docks) {
+        dock->show();
+    }
     /* Setup the record(save) indication of VideoCapture */
-    recLabel_pre[0]
-        = new QLabel(ui.cam0Tab);
+    recLabel_pre[0] = new QLabel(ui.cam0Tab);
     recLabel_pre[1] = new QLabel(ui.cam1Tab);
     for (auto i : recLabel_pre) {
         i->setGeometry(20, 20, 50, 35);
@@ -81,22 +87,36 @@ void MainWindow::configWindow()
     }
     onRecordOFF(0);
     onRecordOFF(1);
-
     /* playbackTab */
     playBackWidget = new PlayBackWidget(ui.playbackTab);
     auto* playBackLayout = new QGridLayout(ui.playbackTab);
     playBackLayout->addWidget(playBackWidget);
     connect(ui.centralTabWidget, &QTabWidget::currentChanged, playBackWidget, &PlayBackWidget::clearMedia);
-
     // monitorTab
     /* alarm num ui show*/
     connect(ui.alarmLCDBoard, &AlarmLCDBoard::clicked, this, [=]() { ui.centralTabWidget->setCurrentIndex(2); });
-    /* 把数据库“all”表格中的数据映射到dashboard中 */
-    QDataWidgetMapper* allMapper = new QDataWidgetMapper(this);
-    allMapper->setModel((QSqlTableModel*)(playBackWidget->allModel));
-    allMapper->addMapping(ui.numLineEdit, Wheel_Num);
-    allMapper->addMapping(ui.lastSpeedLineEdit, Wheel_CalcSpeed);
-    allMapper->toLast();
+    // 创建数据库wheels表的Model，分别用于显示内外圈
+    // 外圈
+    auto outerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
+    outerModel->setTable("wheels");
+    outerModel->setFilter("i_o=0");
+    outerModel->select();
+    // 显示内圈的model
+    auto innerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
+    innerModel->setTable("wheels");
+    innerModel->setFilter("i_o=1");
+    innerModel->select();
+    /* 把Model中的数据映射到dashboard中 */
+    QDataWidgetMapper* outerMapper = new QDataWidgetMapper(this);
+    outerMapper->setModel(outerModel);
+    outerMapper->addMapping(ui.numLineEdit_o, Wheel_Num);
+    outerMapper->addMapping(ui.lastSpeedLineEdit_o, Wheel_CalcSpeed);
+    outerMapper->toLast();
+    QDataWidgetMapper* innerMapper = new QDataWidgetMapper(this);
+    innerMapper->setModel(innerModel);
+    innerMapper->addMapping(ui.numLineEdit_i, Wheel_Num);
+    innerMapper->addMapping(ui.lastSpeedLineEdit_i, Wheel_CalcSpeed);
+    innerMapper->toLast();
     /* 把数据库“alarm”表格中的数据映射到AlarmNumBoard中 */
     QDataWidgetMapper* alarmMapper = new QDataWidgetMapper(this);
     alarmMapper->setModel((QSqlTableModel*)(playBackWidget->alarmModel));
@@ -142,10 +162,11 @@ void MainWindow::configWindow()
     connect(plc, &Plc::truckSpeedReady, this, &MainWindow::uiShowCartSpeed); //bind plc::adSpeed to cartSpeed
 
     /* alarmLight */
-    // #TODO:other->ui->plc
-    connect(this, &MainWindow::alarmUi2PLC, plc, &Plc::Alarm);
-    connect(playBackWidget, &PlayBackWidget::setAlarmLight, plc, &Plc::Alarm);
-    connect(plc, &Plc::setUiAlarm, this, &MainWindow::uiAlarmLight);
+    alarmManager->bindMainWindow(this);
+    alarmManager->bindPLC(plc);
+    alarmManager->bindPlayBack(playBackWidget);
+    alarmManager->bindImProc(imageProcess[0]);
+    alarmManager->bindImProc(imageProcess[1]);
     /* sensor light */
     connect(plc, &Plc::cio0Update, this, &MainWindow::uiShowCio0);
     connect(plc, &Plc::sensorUpdate, this, &MainWindow::uiShowSensor);
@@ -238,8 +259,34 @@ void MainWindow::uiShowRealtimeImage(int deviceIndex)
     }
 }
 
-void MainWindow::uiAlarmLight(AlarmColor alarmColor) //1-green; 2-red; 4-yellow
+void MainWindow::uiShowAlarmLight(AlarmColor alarmColor)
 {
+    QIcon green = QIcon(QPixmap(":/WheelMonitor/Resources/images/green.png"));
+    QIcon red = QIcon(QPixmap(":/WheelMonitor/Resources/images/red.png"));
+    QIcon gray = QIcon(QPixmap(":/WheelMonitor/Resources/images/gray.png"));
+    QIcon yellow = QIcon(QPixmap(":/WheelMonitor/Resources/images/yellow.png"));
+    QIcon color;
+    switch (alarmColor) {
+    case AlarmColor::Unkown:
+        color = gray;
+        break;
+    case AlarmColor::Green:
+        color = green;
+        break;
+    case AlarmColor::Red:
+        color = red;
+        break;
+    case AlarmColor::Yellow:
+        color = yellow;
+        break;
+    case AlarmColor::Gray:
+        color = gray;
+        break;
+    default:
+        break;
+    }
+    ui.alarmPushButton->setIcon(color);
+    ui.alarmPushButton->setEnabled(bIsRunning);
 }
 
 void MainWindow::uiShowCartSpeed()
@@ -304,17 +351,12 @@ void MainWindow::uiShowCio0(WORD cio0)
     }
 }
 
-//! 更新界面的光电传感器状态，如果state为-1，则不可选中
+//! 更新界面的光电传感器状态
 void MainWindow::uiShowSensor(int state)
 {
     QIcon green = QIcon(QPixmap(":/WheelMonitor/Resources/images/green.png"));
     QIcon red = QIcon(QPixmap(":/WheelMonitor/Resources/images/red.png"));
     //QIcon gray = QIcon(QPixmap(":/WheelMonitor/Resources/images/gray.png"));
-    if (state == -1) {
-        ui.groupBox_7->setEnabled(false);
-        return;
-    }
-    ui.groupBox_7->setEnabled(true);
     bool bit;
     QIcon icon;
     bit = state & 1;
@@ -349,28 +391,30 @@ void MainWindow::uiShowSensor(int state)
     icon = bit ? green : red;
     ui.btn_sil1->setIcon(icon); //8
 }
-
-void MainWindow::onAlarmChanged(AlarmEvent alarmevent)
+//! 显示Cio100的灯。1为亮，0为灭
+void MainWindow::uiShowCio100(int cio100)
 {
-    QPixmap pixmap;
-    switch (alarmevent) {
-    case 1:
-        pixmap = QPixmap(":/WheelMonitor/Resources/images/green.png");
-        break;
-    case 2:
-        pixmap = QPixmap(":/WheelMonitor/Resources/images/red.png");
-        break;
-    case 4:
-        pixmap = QPixmap(":/WheelMonitor/Resources/images/yellow.png");
-        break;
-    case 8:
-        pixmap = QPixmap(":/WheelMonitor/Resources/images/gray.png");
-    default:
-        break;
-    }
-    ui.alarmPushButton->setIcon(QIcon(pixmap));
-case enablechanged:
-    ui.alarmPushButton->setEnabled(bIsRunning);
+    QIcon green = QIcon(QPixmap(":/WheelMonitor/Resources/images/green.png"));
+    QIcon red = QIcon(QPixmap(":/WheelMonitor/Resources/images/red.png"));
+    QIcon yellow = QIcon(QPixmap(":/WheelMonitor/Resources/images/yellow.png"));
+    bool bit;
+    QIcon icon;
+    //c100.4外黄
+    bit = (cio100 >> 4) & 1;
+    icon = bit ? yellow : green;
+    ui.Btn_CIO100_4->setIcon(icon);
+    //c100.5外红
+    bit = (cio100 >> 5) & 1;
+    icon = bit ? red : green;
+    ui.Btn_CIO100_5->setIcon(icon);
+    //c100.6内黄
+    bit = (cio100 >> 6) & 1;
+    icon = bit ? yellow : green;
+    ui.Btn_CIO100_6->setIcon(icon);
+    //c100.7内红
+    bit = (cio100 >> 7) & 1;
+    icon = bit ? red : green;
+    ui.Btn_CIO100_7->setIcon(icon);
 }
 
 void MainWindow::execScheduledTasks()
@@ -383,7 +427,7 @@ void MainWindow::execScheduledTasks()
     QString today = date.toString("yyyyMMdd");
     QString tomorrow = date.addDays(1).toString("yyyyMMdd");
     QStringList dirPathList;
-    dirPathList << logDirPath << videoDirPath << ocrDirPath;
+    dirPathList << videoDirPath << ocrDirPath;
     for (auto&& path : std::as_const(dirPathList)) {
         cleanDir(path, 30); //clean video(, matched), logs //can be operated alone
         QString saveDir = QStringLiteral("%1/%2").arg(path).arg(today);
@@ -392,6 +436,9 @@ void MainWindow::execScheduledTasks()
         saveDir = QStringLiteral("%1/%2").arg(path).arg(tomorrow); //create the directory path everyday
         dir.mkpath(saveDir);
     }
+    // log文件夹为单独的，可以不用创建 [12/6/2018 cx3386]
+    //QDir logDir;
+    //logDir.mkpath(logDirPath);
 
     //restart every day
     //on_action_Restart_triggered();
@@ -446,10 +493,12 @@ void MainWindow::on_action_Start_triggered()
     /* action */
     ui.action_Start->setEnabled(false);
     ui.action_Stop->setEnabled(true);
+    // alarmlight
+    ui.alarmPushButton->setEnabled(true);
     bIsRunning = true;
-    onAlarmChanged();
 
     qDebug("start success");
+    ui.statusBar->showMessage(QStringLiteral("已启动检测"));
 }
 
 void MainWindow::on_action_Stop_triggered()
@@ -473,10 +522,11 @@ void MainWindow::on_action_Stop_triggered()
     /* action */
     ui.action_Start->setEnabled(true);
     ui.action_Stop->setEnabled(false);
+    // alarmlight
+    ui.alarmPushButton->setEnabled(false);
     bIsRunning = false;
-    onAlarmChanged();
-    emit setAlarm(AlarmOFF);
     qDebug("stop success");
+    ui.statusBar->showMessage(QStringLiteral("停止检测"));
 }
 void MainWindow::on_action_Restart_triggered()
 {
@@ -497,7 +547,7 @@ void MainWindow::on_action_Quit_triggered()
 void MainWindow::on_action_Show_Log_triggered()
 {
     QString today = QDate::currentDate().toString("yyyyMMdd");
-    QString logFilePath = QStringLiteral("%1/%2/%3.log").arg(logDirPath).arg(today).arg(today);
+    QString logFilePath = QStringLiteral("%1/%2.log").arg(logDirPath).arg(today);
     QUrl url = QUrl::fromLocalFile(logFilePath);
     QDesktopServices::openUrl(url);
 }
@@ -530,9 +580,7 @@ void MainWindow::on_action_About_Qt_triggered()
 
 void MainWindow::on_alarmPushButton_clicked()
 {
-    if (currentAlarmEvent != normal) {
-        ui.centralTabWidget->setCurrentIndex(2);
-    }
+    ui.centralTabWidget->setCurrentIndex(2);
 }
 
 void MainWindow::showViewSensorImage()

@@ -12,6 +12,8 @@ class HikVideoCapture;
 class Plc;
 class QThread;
 class ConfigHelper;
+class AlarmManager;
+enum class AlarmColor;
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
@@ -29,9 +31,12 @@ private:
     QLabel* recLabel_input[2]; //in real frame
     /* worker */
     HikVideoCapture* videoCapture[2];
+
     PlayBackWidget* playBackWidget;
+
     ImageProcess* imageProcess[2];
     Plc* plc;
+    AlarmManager* alarmManager;
     /* thread */
     //thread must be managed in main thread. ~mainwindow(){thread.quit()}
     //QThread *videoCapture
@@ -44,22 +49,24 @@ private:
     /* alarm number show */
     //void alarmNumUiSetup();
 
-    AlarmEvent currentAlarmEvent; ///< current alarm state
-        //docks
+    //AlarmEvent currentAlarmEvent; ///< current alarm state
+    //docks
     QList<QDockWidget*> m_docks;
 
 protected:
     virtual void closeEvent(QCloseEvent* event) override;
 
+public slots:
+    void uiShowCio100(int cio100);
+    void uiShowAlarmLight(AlarmColor alarmColor);
 private slots:
     /* uiShow */
-    void uiAlarmLight(AlarmColor alarmColor);
     void uiShowRealtimeImage(int deviceIndex);
     void uiShowCartSpeed();
     void uiShowCio0(WORD cio0);
     void uiShowSensor(int state);
     /* onAlarmChanged */
-    void onAlarmChanged(AlarmEvent alarmevent);
+    //void onAlarmChanged(AlarmEvent alarmevent);
     // about REC Label show
     void onRecordON(int deviceIndex);
     void onRecordOFF(int deviceIndex);

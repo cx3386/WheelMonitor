@@ -48,6 +48,7 @@ enum CheckState {
     Checked,
 };
 
+//! 由主线程调用
 static bool initMainDb()
 {
     if (!QSqlDatabase::drivers().contains("QSQLITE")) {
@@ -64,6 +65,7 @@ static bool initMainDb()
     }
     QSqlQuery query(db);
     QSqlTableModel model(nullptr, db);
+    // 检查user表
     model.setTable("user");
     model.select();
     // if no user table, insert the default user;
@@ -71,9 +73,22 @@ static bool initMainDb()
         query.exec("create table user (id integer primary key autoincrement, username varchar(20) unique, pwd varchar(20))");
         query.exec("insert into user (username, pwd) values('BaoSteel', '123456')");
     }
+    //检查iner
+    model.setTable("outer/inner");
+    model.select();
+    if (!model.rowCount()) {
+        query.exec("CREATE TABLE [outer/inner] ("
+                   "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                   "devIndex INTEGER UNIQUE"
+                   "name TEXT,"
+                   ");");
+        query.exec("INSERT INTO 'outer/inner' (devIndex,name) VALUES(0,'外圈');");
+        query.exec("INSERT INTO 'outer/inner' (devIndex,name) VALUES(1,'内圈');");
+    }
     return true;
 }
 
+//! 由两个图像处理线程分别初始化
 static bool initThreadDb(int deviceIndex)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", deviceIndex ? THEAD1_CONNECTION_NAME : THEAD0_CONNECTION_NAME);
@@ -81,7 +96,7 @@ static bool initThreadDb(int deviceIndex)
     if (!db.open()) {
         qWarning() << "database: initThreadDb failed. " << db.lastError().text();
         QMessageBox::critical(Q_NULLPTR, "Unable to initialize Database",
-            "Eror initializing database: " + db.lastError().text());
+            "Error initializing database: " + db.lastError().text());
         return false;
     }
     QSqlTableModel model(nullptr, db);
@@ -117,9 +132,10 @@ static bool initThreadDb(int deviceIndex)
     if (createNewTable) { //create a new table, this will drop the history records
         QSqlQuery query(db);
         query.exec("DROP TABLE wheels;");
+        query.exec("PRAGMA foreign_keys = ON;");
         query.exec("CREATE TABLE wheels ( "
                    "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                   "i_o TEXT,"
+                   "i_o INTEGER REFERENCES [outer/inner] (devIndex),"
                    "num TEXT,"
                    "calcspeed REAL,"
                    "refspeed REAL,"

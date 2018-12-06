@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "3rdparty/singleapplication/singleapplication.h"
 #include "common.h"
 #include "confighelper.h"
@@ -5,7 +7,6 @@
 #include "identification.h"
 #include "logindialog.h"
 #include "mainwindow.h"
-#include "stdafx.h"
 #include <DbgHelp.h>
 #include <QtWidgets/QApplication>
 #include <Windows.h>
@@ -30,8 +31,6 @@ int main(int argc, char* argv[])
 {
     qRegisterMetaType<HWND>("HWND");
     qRegisterMetaType<QVector<int>>("QVector<int>");
-    //qRegisterMetaType<AlarmColor>("AlarmColor");
-    qRegisterMetaType<AlarmEvent>("AlarmEvent");
     qRegisterMetaType<ImProfile>("ImProfile");
     qRegisterMetaTypeStreamOperators<ImProfile>("ImProfile");
     qRegisterMetaType<OcrProfile>("OcrProfile");
@@ -51,15 +50,14 @@ int main(int argc, char* argv[])
         }
     }
     SingleApplication a(argc, argv);
+
 #ifdef Q_OS_WIN
     SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)ApplicationCrashHandler); //注冊异常捕获函数
 #endif
 
-    //qApp->setApplicationName(FILE_SPEC); //QSetting(appName,orzName), 默认为exe文件名
+    //qApp->setApplicationName(FILE_SPEC); //默认为exe文件名,影响到QSetting(appName,orzName)
     qApp->setApplicationDisplayName(PRODUCT_NAME); //窗口标题，默认为appName
     //qApp->setApplicationVersion(PRODUCT_VER); //默认为.rc中的版本号
-    //define the declaration in common.h
-    //appName = qApp->applicationName();
     //use cleanPath() or absolutePath() or canonicalPath() to remove the redudant . or ..
     appDirPath = QDir::cleanPath(qApp->applicationDirPath()); //the directory contains the app.exe, '/'e.g. C:/QQ
     appFilePath = QDir::cleanPath(qApp->applicationFilePath()); //the file path of app.exe, '/'e.g. C:/QQ/qq.exe
@@ -156,7 +154,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QS
         typeStr = "Fatal";
         abort();
     }
-    QString msgStr = QStringLiteral("[%1][%2][%3]%4[%5]").arg(currentDateTime).arg(typeStr).arg(context.file).arg(msg).arg(context.function);
+    QString msgStr = QStringLiteral("[%1][%2]%3 (%4:%5, %6)").arg(currentDateTime).arg(typeStr).arg(msg).arg(context.file).arg(context.line).arg(context.function);
     QString today = QDate::currentDate().toString("yyyyMMdd");
     QString logFilePath = QStringLiteral("%1/%2.log").arg(logDirPath).arg(today);
     QFile outfile(logFilePath);
@@ -167,10 +165,10 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QS
     outfile.close();
 }
 
+#pragma comment(lib, "Dbghelp.lib")
 LONG ApplicationCrashHandler(EXCEPTION_POINTERS* pException)
 {
     //这里弹出一个错误对话框并退出程序
-    EXCEPTION_RECORD* record = pException->ExceptionRecord;
     EXCEPTION_RECORD* record = pException->ExceptionRecord;
     QString errCode(QString::number(record->ExceptionCode, 16));
     QString errAddr(QString::number((uint)record->ExceptionAddress, 16));

@@ -21,7 +21,7 @@ private:
     const double dist_min = 2.3; // unit:m
     const double dist_max = 2.4; // m
     struct Ckpt {
-        bool start = false; //!< 由第一个经过检测点的tri信号开始计数，一旦usrstop,重新等待第一个tri
+        bool bStart = false; //!< 由第一个经过检测点的tri信号开始计数，一旦usrstop,重新等待第一个tri
         double s = 0; //!< 本周期已经走过的行程
         double anchor = 0; //!< tri的地点距离s起点的位置
         void newWheel()

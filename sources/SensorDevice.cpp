@@ -1,13 +1,9 @@
 #include "SensorDevice.h"
 #include "stdafx.h"
 
-const QStringList SensorDevice::names { "outer", "inner" };
-const QStringList Sensor::names { "left", "right" };
-const QStringList CkPt::names { "left", "right" };
-SensorDevice::SensorDevice(QObject* parent)
-    : QObject(parent)
-{
-}
+const QStringList SensorDevice::names{ "outer", "inner" };
+const QStringList Sensor::names{ "left", "right" };
+const QStringList CkPt::names{ "left", "right" };
 
 SensorDevice::SensorDevice(int _id)
     : m_id(_id)
@@ -17,13 +13,14 @@ SensorDevice::SensorDevice(int _id)
     ckpts = CkPt::creatAll(this);
 }
 
+//! 创建所有的（内/外圈）设备，返回设备的列表
 QList<SensorDevice> SensorDevice::createAll()
 {
     QList<SensorDevice> devs;
-    for (int i = 0; i < names.size(); ++i) {
-        devs << SensorDevice(i);
-    }
-    return;
+    //for (int i = 0; i < names.size(); ++i) {
+    //    devs << SensorDevice{ i };
+    //}
+    return devs;
 }
 
 void SensorDevice::newWheel()
@@ -59,7 +56,7 @@ QList<Sensor> Sensor::createAll(CkPt* parent)
 {
     QList<Sensor> sensors;
     for (int i = 0; i < names.size(); ++i) {
-        sensors << Sensor(parent, i);
+        sensors << Sensor{ parent, i };
     }
     return sensors;
 }
@@ -91,7 +88,7 @@ QList<CkPt> CkPt::creatAll(SensorDevice* parent)
 {
     QList<CkPt> ckps;
     for (int i = 0; i < names.size(); ++i) {
-        ckps << CkPt(parent, i);
+        ckps << CkPt{ parent, i };
     }
     return ckps;
 }

@@ -1,13 +1,15 @@
-#include "imageprocess.h"
+#include "stdafx.h"
+
+#include "AlarmEvent.h"
 #include "Plc.h"
 #include "common.h"
 #include "confighelper.h"
 #include "database.h"
 #include "hikvideocapture.h"
+#include "imageprocess.h"
 #include "ocr.h"
 #include "outlierhelper.h" //used for calc mean, replace opencv lib
 #include "robustmatcher.h"
-#include "stdafx.h"
 
 using namespace std;
 using namespace cv;
@@ -42,7 +44,7 @@ ImageProcess::ImageProcess(const ConfigHelper* _configHelper, HikVideoCapture* _
     connect(plcSerial, &Plc::_DZIn, videoCapture, &HikVideoCapture::startRecord);
     connect(plcSerial, &Plc::_DZOut, videoCapture, &HikVideoCapture::stopRecord);
     // videocapture -> plc // 放弃，用一个专门的报警类来控制报警 [9/20/2018 cx3386]
-    connect(this, &ImageProcess::setAlarmLight, plcSerial, &Plc::Alarm);
+    //connect(this, &ImageProcess::setAlarmLight, plcSerial, &Plc::Alarm);
 }
 
 ImageProcess::~ImageProcess() = default;
@@ -167,10 +169,10 @@ int ImageProcess::coreImageProcess()
     if (!bInside) {
         wheelFrame_pre.release(); // 置空前一帧
         //车轮在MA的左边，即未进入
-        if (wheelRect.tl.x < monitorRect.tl.x)
+        if (wheelRect.tl().x < monitorRect.tl().x)
             return LMA;
         //车轮在MA的右侧，即已退出
-        if (wheelRect.br.x > monitorRect.br.x)
+        if (wheelRect.br().x > monitorRect.br().x)
             return RMA; //软件判别法应该结算该车轮
     }
 
@@ -220,7 +222,7 @@ void ImageProcess::checkoutWheel()
 {
     /* 未在此处初始化的wheelDbInfo, 只在特定时候（valid）时候才有效，refspeed为coreProcess时取得的 */
     WheelDbInfo wheelDbInfo;
-    wheelDbInfo.i_o = getDeviceMark(deviceIndex);
+    wheelDbInfo.i_o = deviceIndex;
     wheelDbInfo.num = QString::fromStdString(ocr->get_final_result());
     qDebug() << "ImageProcess: One wheel ready.";
     qDebug() << "Wheel Info:" << wheelDbInfo.i_o << wheelDbInfo.num;
@@ -428,19 +430,20 @@ int ImageProcess::previousAlarmLevel(const QString& num) const
     return 0; //if no previous result, regard it as a good wheel
 }
 
+//! 根据车轮的警报等级向报警处理类发出信号
 void ImageProcess::handleAlarmLevel(WheelDbInfo& wheelDbInfo)
 {
     int lv = wheelDbInfo.alarmlevel;
     switch (lv) {
     case -2:
-        emit setAlarmLight(AlarmColorYellow);
-        qCritical() << "ImageProcess: Wheel FATAL error(continuous invalid)";
+        emit setAlarmLight((int)AlarmColor::Yellow);
+        qCritical() << "handleAlarmLevel: Wheel FATAL error(continuous invalid)";
         wheelDbInfo.calcspeed = IM_PROC_INVALID_SPEED;
         break;
     case -1:
         if (previousAlarmLevel(wheelDbInfo.num) < 0) {
             wheelDbInfo.alarmlevel = -2;
-            handleAlarmLevel(TODO);
+            handleAlarmLevel(wheelDbInfo);
             return;
         } else {
             wheelDbInfo.calcspeed = IM_PROC_INVALID_SPEED;
@@ -450,10 +453,10 @@ void ImageProcess::handleAlarmLevel(WheelDbInfo& wheelDbInfo)
     case 0:
         break;
     case 1:
-        emit setAlarmLight(AlarmColorYellow);
+        emit setAlarmLight((int)AlarmColor::Yellow);
         break;
     case 2:
-        emit setAlarmLight(AlarmColorRed);
+        emit setAlarmLight((int)AlarmColor::Red);
         break;
     default:
         break;

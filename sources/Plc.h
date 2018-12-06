@@ -7,6 +7,7 @@
 class ConfigHelper;
 class QSerialPort;
 class TrunckRef;
+enum class HardwareAlarmEvent;
 
 //! plc其他硬件设备相关类，包括传感器、plc io、plc ad
 class Plc : public QObject {
@@ -118,6 +119,8 @@ signals:
     void ckpTri(int ckpId);
     void connectError(int errorId);
     void truckSpeedReady();
+
+    // to alarmManager
     /**
 	 * \brief 台车(中轴)速度信号读取错误
 	 * errcode 1: disconnect
@@ -125,7 +128,8 @@ signals:
 	 * \param int errorCode
 	 */
     void truckSpeedError(int);
+    void wheelFallOff(int);
 
 public slots:
-    void onAlarmEvent(int);
+    void onHardAlarm(WORD);
 };

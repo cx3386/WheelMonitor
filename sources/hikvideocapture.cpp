@@ -44,7 +44,7 @@ HikVideoCapture::HikVideoCapture(const ConfigHelper* _configHelper, int _deviceI
     char* pwd = ba_pwd.data();
     lUserID = NET_DVR_Login_V30(ip, camProfile->camPort, user, pwd, &struDeviceInfo);
     if (lUserID < 0) {
-        qDebug("HikVideoCapture: IPC Login error, %d", NET_DVR_GetLastError());
+        qDebug()<<"IPC("<<ip<<") Login failed, error code "<< NET_DVR_GetLastError();
         NET_DVR_Cleanup();
         return;
     }

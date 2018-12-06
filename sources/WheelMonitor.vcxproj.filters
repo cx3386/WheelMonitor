@@ -216,9 +216,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_imageprocess.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="LevelRecorder.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_Plc.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -255,13 +252,22 @@
     <ClCompile Include="AlarmLCDBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_SensorDevice.cpp">
+    <ClCompile Include="SensorDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_AlarmManager.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_SensorDevice.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_AlarmManager.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="SensorDevice.cpp">
+    <ClCompile Include="AlarmManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelRecorder.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.h.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -317,14 +323,17 @@
     <ClInclude Include="camprofile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LevelRecorder.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_ViewSensorImage.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_AlarmLCDBoard.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlarmEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelRecorder.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -334,9 +343,6 @@
     <CustomBuild Include="GeneratedFiles\release\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
-    <ClCompile Include="stdafx.h.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <CustomBuild Include="mainwindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
@@ -352,9 +358,6 @@
     <CustomBuild Include="confighelper.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="hikvideocapture.h">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="mainwindow.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
@@ -363,9 +366,6 @@
     </CustomBuild>
     <CustomBuild Include="imageprocess.h">
       <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Plc.h">
-      <Filter>Generated Files</Filter>
     </CustomBuild>
     <CustomBuild Include="TrunckRef.h">
       <Filter>Header Files</Filter>
@@ -383,6 +383,15 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="SensorDevice.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="AlarmManager.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hikvideocapture.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Plc.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

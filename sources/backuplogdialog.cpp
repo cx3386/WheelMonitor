@@ -329,12 +329,12 @@ QStringList BackupLogDialog::getDayList(QString path, bool isAll, int nDays) con
 
 QStringList BackupLogDialog::getDayList(QString path, int day) const
 {
-    getDayList(path, false, day);
+    return getDayList(path, false, day);
 }
 
 QStringList BackupLogDialog::getDayList(QString path) const
 {
-    getDayList(path, true, 0);
+    return getDayList(path, true, 0);
 }
 
 quint64 BackupLogDialog::getNeedSpace() const

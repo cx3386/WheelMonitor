@@ -1,10 +1,11 @@
 #pragma once
 
 #include "LevelRecorder.h"
-#include <QObject>
 
 /*一个周期内的计数结构*/
-
+class SenSor;
+class CkPt;
+class SensorDevice;
 class Sensor {
 public:
     Sensor(CkPt* parent, int _id);
@@ -50,11 +51,8 @@ public:
 private:
 };
 
-class SensorDevice : public QObject {
-    Q_OBJECT
-
+class SensorDevice {
 public:
-    SensorDevice(QObject* parent);
     SensorDevice(int _id);
     int id;
     int m_id; //0-o;1-i

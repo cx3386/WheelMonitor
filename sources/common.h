@@ -51,12 +51,6 @@ const char MAIN_CONNECTION_NAME[] = "main";
 const char THEAD0_CONNECTION_NAME[] = "thread0";
 const char THEAD1_CONNECTION_NAME[] = "thread1";
 
-/// Alarm color, generally used in client-side
-enum AlarmEvent {
-    AlarmLevel
-        TODO
-};
-
 //匿名命名空间，LOCAL，与static相同，C++11
 namespace {
 /**

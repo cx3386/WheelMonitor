@@ -15,10 +15,11 @@ AlarmLCDBoard::AlarmLCDBoard(QWidget* parent)
     auto hLayout = new QHBoxLayout(canvas);
     hLayout->setContentsMargins(0, 0, 0, 0);
     hLayout->setSpacing(0);
+    auto style = QString{"color:red;background:transparent;"};
     //ÏÔÊ¾ÄÚÍâÈ¦×Ö¶Î
     devName = new QLineEdit(this);
     devName->setObjectName(QStringLiteral("alarmIOLineEdit"));
-    devName->setStyleSheet("color:red;font:40pt");
+    devName->setStyleSheet(style);
     devName->setAlignment(Qt::AlignRight);
     devName->setFrame(false);
     devName->setReadOnly(true);
@@ -27,8 +28,8 @@ AlarmLCDBoard::AlarmLCDBoard(QWidget* parent)
     alarmNum->setObjectName(QStringLiteral("alarmNumLineEdit"));
     QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     alarmNum->setSizePolicy(sizePolicy);
-    //alarmNumLineEdit->setFixedSize(130, 116);
-    alarmNum->setStyleSheet("color:red;font:75 68pt \"Agency FB\";");
+    //font:75 68pt \"Agency FB\"
+    alarmNum->setStyleSheet(style);
     alarmNum->setFrame(false);
     alarmNum->setReadOnly(true);
     hLayout->addWidget(devName);

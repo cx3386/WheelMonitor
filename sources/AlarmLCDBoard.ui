@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>AlarmLCDBoard</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 36pt;</string>
+  </property>
   <property name="frameShape">
    <enum>QFrame::Box</enum>
   </property>

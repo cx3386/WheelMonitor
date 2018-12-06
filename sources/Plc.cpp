@@ -1,7 +1,9 @@
+#include "stdafx.h"
+
+#include "AlarmEvent.h"
 #include "Plc.h"
 #include "TrunckRef.h"
 #include "confighelper.h"
-#include "stdafx.h"
 #include <QSerialPort>
 
 /* CPU: CP1E - N30S1DR - A*/
@@ -167,7 +169,22 @@ void Plc::readSensorPeriodically()
     }
     bool ok;
     WORD cio0 = QString(dataList.at(1)).toInt(&ok, 16); // convert 'FFFF' to int(10) //0x000~0x1ff, in fact cio0~11(16) ranges to 0xffff.
-        // 输入位CIO发生变化
+    // PATCH: cioO.02换成cio0.10 //  [12/5/2018 cx3386]
+    // 获取第i位的数据
+    auto getBit = [](const WORD& cio, int loc) -> bool { return cio >> loc & 1; };
+    // 将第i位设置为b
+    auto setBit = [](WORD& cio, int loc, bool bit) {
+        if (bit)
+            cio |= 1 << loc;
+        else
+            cio &= ~(1 << loc);
+    };
+    auto patch_swicth = [getBit, setBit](WORD& cio, int bit1, int bit2) {
+        auto bit_tmp = getBit(cio, bit1);
+        setBit(cio, bit1, getBit(cio, bit2));
+        setBit(cio, bit2, bit_tmp);
+    };
+    patch_swicth(cio0, 2, 10);
     emit cio0Update(cio0);
     recordCio0(cio0);
     checkTri();
@@ -250,7 +267,7 @@ void Plc::checkTri()
             QList<int> brokenId;
             bool isTrigger = false; //触发
             for (auto& ss : ckp.sensors) {
-                if (ss.sample.state(0) == ckp.triTiming) {
+                if (ss.sample.state(0) == ckp.triTiming()) {
                     isTrigger = true;
                     ss.nTri++;
                     if (ss.lastbroken == 2)
@@ -321,7 +338,7 @@ void Plc::checkBrokenAlarm(int devId)
         /*上次至少还有2个传感器是好的，本次一个都没有检测到车轮到达信号，确认掉轮*/
         else {
             dev.alarm = 2;
-            emit alarmwheel(0); //本应该刚刚离开的dz的轮子掉了
+            emit wheelFallOff(0); //本应该刚刚离开的dz的轮子掉了
         }
     }
     /*任何一个传感器检测到车轮，不可能掉轮*/
@@ -329,7 +346,7 @@ void Plc::checkBrokenAlarm(int devId)
         dev.alarm = 0;
         if (dev.lastalarm == 1)
             /*上个轮子只有一个传感器是好的，并且没有检测到轮子。这次却检测到了信号，则好的这个传感器没坏，是上个轮子确实掉了*/
-            emit alarmwheel(-1);
+            emit wheelFallOff(-1);
     }
     //确认没有掉轮情况下，所有unexpected都是由于传感器坏了
     if (dev.alarm == 0) {
@@ -467,35 +484,14 @@ QByteArrayList Plc::getRRData(QByteArray ansCode)
     }
     return words;
 }
-void Plc::onAlarmEvent(int id)
+/**
+ * \brief 向中控发出报警
+ *
+ * 注意：不会覆盖原有状态
+ */
+void Plc::onHardAlarm(WORD cio100)
 {
-    // 此id已经根据调用的deviceIndex进行过处理,外0内1
-    //001 010 101 110
-    //bug2: 如何关闭警报呢-直接清零
     QByteArray plcData;
-
-    //static防止会覆盖原有状态
-    static WORD a = 0;
-    switch (id) {
-    case 0:
-        a = 0; // will send 0000, cut off all alarm
-        break;
-    case 1:
-        a |= 1 << 4; //CIO 100.04 out warn
-        break;
-    case 2:
-        a |= 1 << 5; //CIO 100.05 out alarm
-        break;
-    case 5:
-        a |= 1 << 6; //CIO 100.06 in warn
-        break;
-    case 6:
-        a |= 1 << 7; //CIO 100.07 in alarm
-        break;
-
-    default: // not do anything
-        break;
-    }
-    plcData = genWRCode(100, QByteArray::number(a, 16).rightJustified(4, '0').toUpper());
+    plcData = genWRCode(100, QByteArray::number(cio100, 16).rightJustified(4, '0').toUpper());
     writePLC(plcData);
 }

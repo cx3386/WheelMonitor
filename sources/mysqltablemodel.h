@@ -1,18 +1,17 @@
 #pragma once
 
-#include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
 
-class MySqlTableModel : public QSqlTableModel
-{
-	Q_OBJECT
+class MySqlTableModel : public QSqlRelationalTableModel {
+    Q_OBJECT
 
 public:
+    MySqlTableModel(QObject* parent = Q_NULLPTR, QSqlDatabase db = QSqlDatabase())
+        : QSqlRelationalTableModel(parent, db)
+    {
+    }
 
-	MySqlTableModel(QObject *parent = Q_NULLPTR, QSqlDatabase db = QSqlDatabase()) :QSqlTableModel(parent, db)
-	{
-	}
+    ~MySqlTableModel() = default;
 
-	~MySqlTableModel() = default;
-
-	QVariant data(const QModelIndex &item, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex& item, int role = Qt::DisplayRole) const override;
 };
