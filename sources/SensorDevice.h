@@ -1,19 +1,21 @@
 #pragma once
 
 #include "LevelRecorder.h"
+#include <QObject>
 
 /*一个周期内的计数结构*/
 class SenSor;
 class CkPt;
 class SensorDevice;
-class Sensor {
+class Sensor : public QObject {
+    Q_OBJECT
 public:
-    Sensor(CkPt* parent, int _id);
+    Sensor(int _id, CkPt* parent);
     int id; //最低位: 0-0;1-1
     int m_id;
     static int indexOf(QString _name) { return names.indexOf(_name); }
     static const QStringList names; //!< 每个检测点的传感器
-    static QList<Sensor> createAll(CkPt* parent);
+    static QList<Sensor*> createAll(CkPt* parent);
     void newWheel();
     void init();
     CkPt* parentCkPt;
@@ -26,9 +28,10 @@ public:
 private:
 };
 
-class CkPt {
+class CkPt : public QObject {
+    Q_OBJECT
 public:
-    CkPt(SensorDevice* parent, int _id);
+    CkPt(int _id, SensorDevice* parent);
     int id; //最低位:0-l;1-r
     int m_id;
     SensorDevice* parentDev;
@@ -36,8 +39,8 @@ public:
     //LevelRecorder expectIn; //!< 根据台车速度积分，预测是否到达检测点
     static int indexOf(QString _name) { return names.indexOf(_name); }
     static const QStringList names; //!< 每个检测点的传感器
-    static QList<CkPt> creatAll(SensorDevice* parent); //!< 一次性创建所有的检测点
-    QList<Sensor> sensors;
+    static QList<CkPt*> creatAll(SensorDevice* parent); //!< 一次性创建所有的检测点
+    QList<Sensor*> sensors;
     void newWheel();
     void init();
     //col左侧进入 0, cor右侧离开 1, cir右侧进入 2, cil左侧离开 3
@@ -51,9 +54,10 @@ public:
 private:
 };
 
-class SensorDevice {
+class SensorDevice : public QObject {
+    Q_OBJECT
 public:
-    SensorDevice(int _id);
+    SensorDevice(int _id, QObject* parent);
     int id;
     int m_id; //0-o;1-i
     QString name;
@@ -61,8 +65,8 @@ public:
     int lastalarm;
     static int indexOf(QString _name) { return names.indexOf(_name); }
     static const QStringList names;
-    static QList<SensorDevice> createAll();
-    QList<CkPt> ckpts;
+    static QList<SensorDevice*> createAll(QObject* parent);
+    QList<CkPt*> ckpts;
 
     void newWheel();
     void init();

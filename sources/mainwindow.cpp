@@ -168,14 +168,14 @@ void MainWindow::configWindow()
     alarmManager->bindImProc(imageProcess[0]);
     alarmManager->bindImProc(imageProcess[1]);
     /* sensor light */
-    connect(plc, &Plc::cio0Update, this, &MainWindow::uiShowCio0);
-    connect(plc, &Plc::sensorUpdate, this, &MainWindow::uiShowSensor);
+    connect(plc, &Plc::cio0Update, this, &MainWindow::uiShowCio0); //显示cio0
+    connect(plc, &Plc::sensorUpdate, this, &MainWindow::uiShowSensor); //判断传感器是否发生故障
     connect(plc, &Plc::connectError, this, [&](int errorId) {
         if (errorId == 0) {
-            QMessageBox::information(this, QStringLiteral("连接成功"), QStringLiteral("成功连接至PLC！"));
+            ui.statusBar->showMessage(QStringLiteral("连接至PLC"));
             ui.action_Start->setEnabled(true);
         } else if (errorId == 1) {
-            QMessageBox::critical(this, QStringLiteral("连接失败"), QStringLiteral("未能连接至PLC！请检查设备的连接"), QStringLiteral("确定"));
+            ui.statusBar->showMessage(QStringLiteral("未连接PLC"));
         }
     });
     /* start thread */
@@ -295,8 +295,9 @@ void MainWindow::uiShowCartSpeed()
     ui.cartSpeedLineEdit->setText(str);
 }
 
-void MainWindow::uiShowCio0(WORD cio0)
+void MainWindow::uiShowCio0(int cio0)
 {
+    //return;
     QPixmap green = QPixmap(":/WheelMonitor/Resources/images/green.png");
     //QPixmap red = QPixmap(":/WheelMonitor/Resources/images/red.png");
     QPixmap gray = QPixmap(":/WheelMonitor/Resources/images/gray.png");
@@ -475,30 +476,33 @@ void MainWindow::on_action_Start_triggered()
     }
     // 开始循环读取设备的相关信息
     plc->start();
-    if (!videoCapture[0]->start()) {
-        QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("外圈摄像头未连接成功！"), QStringLiteral("确定"));
-        return;
+    bool cap0 = videoCapture[0]->start();
+    if (cap0) {
+        imageProcess[0]->start();
+        /* rec label visible */
+        recLabel_pre[0]->setVisible(true);
+        recLabel_input[0]->setVisible(true);
+    } else {
+        ui.statusBar->showMessage(QStringLiteral("外圈摄像机连接错误"));
     }
-    if (!videoCapture[1]->start()) {
-        QMessageBox::critical(this, QStringLiteral("错误"), QStringLiteral("内圈摄像头未连接成功！"), QStringLiteral("确定"));
-        return;
+    bool cap1 = videoCapture[1]->start();
+    if (cap1) {
+        imageProcess[1]->start();
+        recLabel_pre[1]->setVisible(true);
+        recLabel_input[1]->setVisible(true);
+    } else {
+        ui.statusBar->showMessage(QStringLiteral("内圈摄像机连接错误"));
     }
-    imageProcess[0]->start();
-    imageProcess[1]->start();
-    /* rec label visible */
-    recLabel_pre[0]->setVisible(true);
-    recLabel_pre[1]->setVisible(true);
-    recLabel_input[0]->setVisible(true);
-    recLabel_input[1]->setVisible(true);
     /* action */
     ui.action_Start->setEnabled(false);
     ui.action_Stop->setEnabled(true);
     // alarmlight
     ui.alarmPushButton->setEnabled(true);
     bIsRunning = true;
-
-    qDebug("start success");
-    ui.statusBar->showMessage(QStringLiteral("已启动检测"));
+    if (cap0 && cap1) {
+        qDebug("start success");
+        ui.statusBar->showMessage(QStringLiteral("已启动检测"));
+    }
 }
 
 void MainWindow::on_action_Stop_triggered()

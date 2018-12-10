@@ -63,7 +63,7 @@ private slots:
     /* uiShow */
     void uiShowRealtimeImage(int deviceIndex);
     void uiShowCartSpeed();
-    void uiShowCio0(WORD cio0);
+    void uiShowCio0(int cio0);
     void uiShowSensor(int state);
     /* onAlarmChanged */
     //void onAlarmChanged(AlarmEvent alarmevent);

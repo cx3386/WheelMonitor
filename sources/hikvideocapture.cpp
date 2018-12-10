@@ -21,7 +21,7 @@ HikVideoCapture::HikVideoCapture(const ConfigHelper* _configHelper, int _deviceI
         1, // LONG lChannel;//通道号
         0, // DWORD dwStreamType;    // 码流类型，0-主码流，1-子码流，2-码流3，3-码流4 等以此类推
         0, // DWORD dwLinkMode;// 0：TCP方式,1：UDP方式,2：多播方式,3 - RTP方式，4-RTP/RTSP,5-RSTP/HTTP
-        hPlayWnd, // HWND hPlayWnd;//播放窗口的句柄,为NULL表示不播放图象
+        hPlayWnd, //播放窗口的句柄,为NULL表示不播放图象
         1
     }; // DWORD bBlocked;  //0-非阻塞取流, 1-阻塞取流, 如果阻塞SDK内部connect失败将会有5s的超时才能够返回,不适合于轮询取流操作.
     struPlayInfo_SD = {
@@ -44,7 +44,7 @@ HikVideoCapture::HikVideoCapture(const ConfigHelper* _configHelper, int _deviceI
     char* pwd = ba_pwd.data();
     lUserID = NET_DVR_Login_V30(ip, camProfile->camPort, user, pwd, &struDeviceInfo);
     if (lUserID < 0) {
-        qDebug()<<"IPC("<<ip<<") Login failed, error code "<< NET_DVR_GetLastError();
+        qDebug() << "IPC(" << ip << ") Login failed, error code " << NET_DVR_GetLastError();
         NET_DVR_Cleanup();
         return;
     }
@@ -124,9 +124,9 @@ void HikVideoCapture::startRecord()
     auto date = QDate::currentDate().toString("yyyyMMdd");
     auto dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
     auto mark = getDeviceMark(deviceIndex);
-    mutex.lock();
+    //mutex.unlock();
     videoRelativeFilePath = QStringLiteral("%1/%2_%3.mp4").arg(date).arg(mark).arg(dateTime);
-    mutex.unlock();
+    //mutex.lock();
     QString videoFilePath = QStringLiteral("%1/%2").arg(videoDirPath).arg(videoRelativeFilePath);
     QByteArray ba = videoFilePath.toLocal8Bit();
     if (!NET_DVR_SaveRealData(lRealPlayHandle_SD, ba.data())) {

@@ -60,32 +60,32 @@ Plc::Plc(const ConfigHelper* _configHelper, QObject* parent)
     QObject::connect(trnkRef, &TrunckRef::expectTriBegin, this, [=](int id) {
         int devId = id >> 1;
         int ckpId = id & 1;
-        auto& ckpt = devs[devId].ckpts[ckpId];
+        auto ckpt = devs[devId]->ckpts[ckpId];
         // 在预期到达的时间开始时，开始检测点新的周期
         bool errorCntTri = false;
-        for (auto& ss : ckpt.sensors) {
-            if (ss.nTri != 1) {
+        for (auto ss : ckpt->sensors) {
+            if (ss->nTri != 1) {
                 errorCntTri = true;
-                qDebug() << QStringLiteral("传感器计算异常 ID:") << ss.id << " nTri:" << ss.nTri;
+                qDebug() << QStringLiteral("传感器计算异常 ID:") << ss->id << " nTri:" << ss->nTri;
             }
         }
-        ckpt.newWheel();
+        ckpt->newWheel();
     });
     QObject::connect(trnkRef, &TrunckRef::expectTriEnd, this, [=](int id) {
         int devId = id >> 1;
         int ckpId = id & 1;
-        auto& ckpt = devs[devId].ckpts[ckpId];
+        auto ckpt = devs[devId]->ckpts[ckpId];
         // 清算CKPT
-        for (auto& ss : ckpt.sensors) {
-            if (ss.nTri == 1) {
-                ss.expected = true;
-            } else if (ss.nTri == 0) {
-                ss.expected = false;
+        for (auto ss : ckpt->sensors) {
+            if (ss->nTri == 1) {
+                ss->expected = true;
+            } else if (ss->nTri == 0) {
+                ss->expected = false;
             } else {
             }
         }
         // 如果是检测点是车轮离开处，则结算车轮传感器好坏
-        if (ckpt.isLeave())
+        if (ckpt->isLeave())
             checkBrokenAlarm(devId);
     });
     refThread = new QThread(this);
@@ -106,10 +106,11 @@ void Plc::start()
         if (!bConnected)
             return;
         bUsrCtrl = true;
+        cio0_pre = 0;
         readSensorPeriodically();
         readSpeedPeriodically(); // sensor置为空,使能第一次.state
-        for (auto& dev : devs) {
-            dev.init();
+        for (auto dev : devs) {
+            dev->init();
         }
         // 开始truckref的计数
         trnkRef->start();
@@ -164,28 +165,31 @@ void Plc::readSensorPeriodically()
     auto dataList = getRRData(ansCode);
     if (dataList.size() != 1) // the data should be 1 word
     {
-        qWarning() << "PLCSerial: readSensor error";
+        qWarning() << "read cio0 error. anscode " << ansCode;
         return;
     }
     bool ok;
-    WORD cio0 = QString(dataList.at(1)).toInt(&ok, 16); // convert 'FFFF' to int(10) //0x000~0x1ff, in fact cio0~11(16) ranges to 0xffff.
+    int cio0 = QString(dataList.at(0)).toInt(&ok, 16); // convert 'FFFF' to int(10) //0x000~0x1ff, in fact cio0~11(16) ranges to 0xffff.
     // PATCH: cioO.02换成cio0.10 //  [12/5/2018 cx3386]
     // 获取第i位的数据
-    auto getBit = [](const WORD& cio, int loc) -> bool { return cio >> loc & 1; };
+    auto getBit = [](int cio, int loc) -> bool { return cio >> loc & 1; };
     // 将第i位设置为b
-    auto setBit = [](WORD& cio, int loc, bool bit) {
+    auto setBit = [](int& cio, int loc, bool bit) {
         if (bit)
             cio |= 1 << loc;
         else
             cio &= ~(1 << loc);
     };
-    auto patch_swicth = [getBit, setBit](WORD& cio, int bit1, int bit2) {
+    auto patch_swicth = [getBit, setBit](int& cio, int bit1, int bit2) {
         auto bit_tmp = getBit(cio, bit1);
         setBit(cio, bit1, getBit(cio, bit2));
         setBit(cio, bit2, bit_tmp);
     };
     patch_swicth(cio0, 2, 10);
-    emit cio0Update(cio0);
+    if (cio0 != cio0_pre) {
+        emit cio0Update(cio0);
+        cio0_pre = cio0;
+    }
     recordCio0(cio0);
     checkTri();
 }
@@ -207,11 +211,11 @@ void Plc::readSpeedPeriodically()
     auto dataList = getRRData(ansCode);
     if (dataList.size() != 1) // the data should be 1 word
     {
-        qWarning() << "PLCSerial: readTruck error";
+        qWarning() << "read ad error. anscode " << ansCode;
         return;
     }
     bool ok;
-    const short dec = QString(dataList.at(1)).toInt(&ok, 16); // convert 'FFFF' to int(10)
+    const short dec = QString(dataList.at(0)).toInt(&ok, 16); // convert 'FFFF' to int(10)
     QMutexLocker locker(&mutex); // protect truckSpeed
     truckSpeed = 0;
     //断线检测
@@ -231,54 +235,54 @@ void Plc::readSpeedPeriodically()
     }
 }
 
-void Plc::recordCio0(WORD cio0)
+void Plc::recordCio0(int cio0)
 {
     //cio 0.01 sol0
     cio0 = cio0 >> 1;
-    devs[SensorDevice::indexOf("outer")].ckpts[CkPt::indexOf("left")].sensors[Sensor::indexOf("left")].sample.push(cio0 & 1);
+    devs[SensorDevice::indexOf("outer")]->ckpts[CkPt::indexOf("left")]->sensors[Sensor::indexOf("left")]->sample.push(cio0 & 1);
     //cio 0.02 sol1
     cio0 = cio0 >> 1;
-    devs[SensorDevice::indexOf("outer")].ckpts[CkPt::indexOf("left")].sensors[Sensor::indexOf("right")].sample.push(cio0 & 1);
+    devs[SensorDevice::indexOf("outer")]->ckpts[CkPt::indexOf("left")]->sensors[Sensor::indexOf("right")]->sample.push(cio0 & 1);
     //cio 0.03 sor0
     cio0 = cio0 >> 1;
-    devs[SensorDevice::indexOf("outer")].ckpts[CkPt::indexOf("right")].sensors[Sensor::indexOf("left")].sample.push(cio0 & 1);
+    devs[SensorDevice::indexOf("outer")]->ckpts[CkPt::indexOf("right")]->sensors[Sensor::indexOf("left")]->sample.push(cio0 & 1);
     //cio 0.04 sor1
     cio0 = cio0 >> 1;
-    devs[SensorDevice::indexOf("outer")].ckpts[CkPt::indexOf("right")].sensors[Sensor::indexOf("right")].sample.push(cio0 & 1);
+    devs[SensorDevice::indexOf("outer")]->ckpts[CkPt::indexOf("right")]->sensors[Sensor::indexOf("right")]->sample.push(cio0 & 1);
     //cio 0.05 sir0
     cio0 = cio0 >> 1;
-    devs[SensorDevice::indexOf("inner")].ckpts[CkPt::indexOf("right")].sensors[Sensor::indexOf("right")].sample.push(cio0 & 1);
+    devs[SensorDevice::indexOf("inner")]->ckpts[CkPt::indexOf("right")]->sensors[Sensor::indexOf("right")]->sample.push(cio0 & 1);
     //cio 0.06 sir1
     cio0 = cio0 >> 1;
-    devs[SensorDevice::indexOf("inner")].ckpts[CkPt::indexOf("right")].sensors[Sensor::indexOf("left")].sample.push(cio0 & 1);
+    devs[SensorDevice::indexOf("inner")]->ckpts[CkPt::indexOf("right")]->sensors[Sensor::indexOf("left")]->sample.push(cio0 & 1);
     //cio 0.07 sil0
     cio0 = cio0 >> 1;
-    devs[SensorDevice::indexOf("inner")].ckpts[CkPt::indexOf("left")].sensors[Sensor::indexOf("right")].sample.push(cio0 & 1);
+    devs[SensorDevice::indexOf("inner")]->ckpts[CkPt::indexOf("left")]->sensors[Sensor::indexOf("right")]->sample.push(cio0 & 1);
     //cio 0.08 sil1
     cio0 = cio0 >> 1;
-    devs[SensorDevice::indexOf("inner")].ckpts[CkPt::indexOf("left")].sensors[Sensor::indexOf("left")].sample.push(cio0 & 1);
+    devs[SensorDevice::indexOf("inner")]->ckpts[CkPt::indexOf("left")]->sensors[Sensor::indexOf("left")]->sample.push(cio0 & 1);
 }
 
 //! 用读取的cio数据检测是否满足触发条件（上升沿/下降沿）
 void Plc::checkTri()
 {
-    for (auto& dev : devs) {
-        for (auto& ckp : dev.ckpts) {
+    for (auto dev : devs) {
+        for (auto ckp : dev->ckpts) {
             QList<int> brokenId;
             bool isTrigger = false; //触发
-            for (auto& ss : ckp.sensors) {
-                if (ss.sample.state(0) == ckp.triTiming()) {
+            for (auto ss : ckp->sensors) {
+                if (ss->sample.state(0) == ckp->triTiming()) {
                     isTrigger = true;
-                    ss.nTri++;
-                    if (ss.lastbroken == 2)
-                        brokenId << ss.m_id;
+                    ss->nTri++;
+                    if (ss->lastbroken == 2)
+                        brokenId << ss->m_id;
                 }
             }
             bool ckpSig = false;
             if (isTrigger) {
                 // 两个都好了
-                if (brokenId.size() == 0) {
-                    if (ckp.sensors[0].nTri == 1 && ckp.sensors[1].nTri == 1)
+                if (brokenId.empty()) {
+                    if (ckp->sensors[0]->nTri == 1 && ckp->sensors[1]->nTri == 1)
                         ckpSig = true;
                 }
                 // 两个都坏
@@ -286,16 +290,16 @@ void Plc::checkTri()
                 }
                 // 只有一个好,检查好的那个
                 else if (brokenId.size() == 1) {
-                    if (ckp.sensors[1 - brokenId[0]].nTri == 1)
+                    if (ckp->sensors[1 - brokenId[0]]->nTri == 1)
                         ckpSig = true;
                 }
                 if (ckpSig) {
-                    if (ckp.isEnter())
-                        emit _DZIn(dev.id);
+                    if (ckp->isEnter())
+                        emit _DZIn(dev->id);
                     else {
-                        emit _DZOut(dev.id);
+                        emit _DZOut(dev->id);
                     }
-                    emit ckpTri(ckp.id);
+                    emit ckpTri(ckp->id);
                 }
             }
         }
@@ -304,12 +308,12 @@ void Plc::checkTri()
 
 void Plc::checkBrokenAlarm(int devId)
 {
-    auto& dev = devs[devId];
+    auto dev = devs[devId];
     int countExpected, cntLastBrk;
-    for (auto& ckp : dev.ckpts) {
-        for (auto& ss : ckp.sensors) {
-            countExpected += ss.expected;
-            if (ss.lastbroken == 2)
+    for (auto ckp : dev->ckpts) {
+        for (auto ss : ckp->sensors) {
+            countExpected += ss->expected;
+            if (ss->lastbroken == 2)
                 cntLastBrk++;
         }
     }
@@ -318,42 +322,42 @@ void Plc::checkBrokenAlarm(int devId)
 	1. 掉轮了
 	2. 传感器已经全部报废了（或只剩一个）*/
     if (countExpected == 0) {
-        if (dev.lastalarm == 1) {
+        if (dev->lastalarm == 1) {
             /*上个轮子只有一个传感器是好的，并且没有检测到轮子*/
             //这次还是没检测到轮子。传感器全坏了
-            for (auto& ckp : dev.ckpts) {
-                for (auto& ss : ckp.sensors) {
-                    ss.broken = 2;
+            for (auto ckp : dev->ckpts) {
+                for (auto ss : ckp->sensors) {
+                    ss->broken = 2;
                 }
             }
         }
         /*历史记录中，传感器已经全部坏了*/
         if (cntLastBrk == 4) {
-            dev.alarm = 0;
+            dev->alarm = 0;
         }
         /*已经坏了3个传感器，无法确认本次的异常是唯一正常的传感器坏了，还是掉轮了*/
         else if (cntLastBrk == 3) {
-            dev.alarm = 1;
+            dev->alarm = 1;
         }
         /*上次至少还有2个传感器是好的，本次一个都没有检测到车轮到达信号，确认掉轮*/
         else {
-            dev.alarm = 2;
+            dev->alarm = 2;
             emit wheelFallOff(0); //本应该刚刚离开的dz的轮子掉了
         }
     }
     /*任何一个传感器检测到车轮，不可能掉轮*/
     else {
-        dev.alarm = 0;
-        if (dev.lastalarm == 1)
+        dev->alarm = 0;
+        if (dev->lastalarm == 1)
             /*上个轮子只有一个传感器是好的，并且没有检测到轮子。这次却检测到了信号，则好的这个传感器没坏，是上个轮子确实掉了*/
             emit wheelFallOff(-1);
     }
     //确认没有掉轮情况下，所有unexpected都是由于传感器坏了
-    if (dev.alarm == 0) {
-        for (auto& ckp : dev.ckpts) {
-            for (auto& ss : ckp.sensors) {
-                if (!ss.expected) {
-                    ss.broken = 2;
+    if (dev->alarm == 0) {
+        for (auto ckp : dev->ckpts) {
+            for (auto ss : ckp->sensors) {
+                if (!ss->expected) {
+                    ss->broken = 2;
                 }
             }
         }
@@ -361,19 +365,19 @@ void Plc::checkBrokenAlarm(int devId)
     // 无论有没有掉轮，所有正常输出的传感器都是好的all expected set to not broken
     bool ok;
     int sensorState = QString("11111111").toInt(&ok, 2);
-    for (auto& ckp : dev.ckpts) {
-        for (auto& ss : ckp.sensors) {
-            if (ss.expected) {
-                ss.broken = 0;
+    for (auto ckp : dev->ckpts) {
+        for (auto ss : ckp->sensors) {
+            if (ss->expected) {
+                ss->broken = 0;
             }
-            if (ss.lastbroken < 2 && ss.broken == 2) {
-                sensorState ^= (1 << ss.id);
+            if (ss->lastbroken < 2 && ss->broken == 2) {
+                sensorState ^= (1 << ss->id);
             }
-            ss.lastbroken = ss.broken;
+            ss->lastbroken = ss->broken;
         }
     }
     emit sensorUpdate(sensorState);
-    dev.lastalarm = dev.alarm;
+    dev->lastalarm = dev->alarm;
 }
 
 QByteArray Plc::readPLC(QByteArray plcData)
@@ -382,13 +386,13 @@ QByteArray Plc::readPLC(QByteArray plcData)
     plcSerialPort->write(plcData);
     if (plcSerialPort->waitForBytesWritten(100)) {
         if (plcSerialPort->waitForReadyRead(100)) {
-            QByteArray responseData = plcSerialPort->readAll();
+            responseData = plcSerialPort->readAll();
             while (plcSerialPort->waitForReadyRead(100))
                 responseData += plcSerialPort->readAll();
         }
     }
     if (responseData.isNull())
-        qWarning() << "PLC: readPLC() error";
+        qWarning() << "response data is null";
     return responseData;
 }
 
@@ -489,9 +493,9 @@ QByteArrayList Plc::getRRData(QByteArray ansCode)
  *
  * 注意：不会覆盖原有状态
  */
-void Plc::onHardAlarm(WORD cio100)
+void Plc::onHardAlarm(int cio)
 {
     QByteArray plcData;
-    plcData = genWRCode(100, QByteArray::number(cio100, 16).rightJustified(4, '0').toUpper());
+    plcData = genWRCode(100, QByteArray::number(cio, 16).rightJustified(4, '0').toUpper());
     writePLC(plcData);
 }

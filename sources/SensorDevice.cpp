@@ -1,12 +1,14 @@
-#include "SensorDevice.h"
 #include "stdafx.h"
+
+#include "SensorDevice.h"
 
 const QStringList SensorDevice::names{ "outer", "inner" };
 const QStringList Sensor::names{ "left", "right" };
 const QStringList CkPt::names{ "left", "right" };
 
-SensorDevice::SensorDevice(int _id)
-    : m_id(_id)
+SensorDevice::SensorDevice(int _id, QObject* parent)
+    : QObject(parent)
+    , m_id(_id)
 {
     name = names[m_id];
     id = m_id;
@@ -14,28 +16,28 @@ SensorDevice::SensorDevice(int _id)
 }
 
 //! 创建所有的（内/外圈）设备，返回设备的列表
-QList<SensorDevice> SensorDevice::createAll()
+QList<SensorDevice*> SensorDevice::createAll(QObject* parent)
 {
-    QList<SensorDevice> devs;
-    //for (int i = 0; i < names.size(); ++i) {
-    //    devs << SensorDevice{ i };
-    //}
+    QList<SensorDevice*> devs;
+    for (int i = 0; i < names.size(); ++i) {
+        devs << new SensorDevice{ i, parent };
+    }
     return devs;
 }
 
 void SensorDevice::newWheel()
 {
     alarm = 0;
-    for (auto& ckpt : ckpts) {
-        ckpt.newWheel();
+    for (auto ckpt : ckpts) {
+        ckpt->newWheel();
     }
 }
 
 void SensorDevice::init()
 {
     newWheel();
-    for (auto& ckpt : ckpts) {
-        ckpt.init();
+    for (auto ckpt : ckpts) {
+        ckpt->init();
     }
     lastalarm = 0;
 }
@@ -44,19 +46,20 @@ SensorDevice::~SensorDevice()
 {
 }
 
-Sensor::Sensor(CkPt* parent, int _id)
-    : parentCkPt(parent)
+Sensor::Sensor(int _id, CkPt* parent)
+    : QObject(parent)
+    , parentCkPt(parent)
     , m_id(_id)
 {
     name = names[m_id];
     id = parentCkPt->id << 1 | m_id;
 }
 
-QList<Sensor> Sensor::createAll(CkPt* parent)
+QList<Sensor*> Sensor::createAll(CkPt* parent)
 {
-    QList<Sensor> sensors;
+    QList<Sensor*> sensors;
     for (int i = 0; i < names.size(); ++i) {
-        sensors << Sensor{ parent, i };
+        sensors << new Sensor{ i, parent };
     }
     return sensors;
 }
@@ -75,36 +78,37 @@ void Sensor::init()
     lastbroken = 0;
 }
 
-CkPt::CkPt(SensorDevice* parent, int _id)
-    : parentDev(parent)
+CkPt::CkPt(int _id, SensorDevice* parent)
+    : QObject(parent)
     , m_id(_id)
+    , parentDev(parent)
 {
     name = names[m_id];
     id = parentDev->id << 1 | m_id;
     sensors = Sensor::createAll(this);
 }
 
-QList<CkPt> CkPt::creatAll(SensorDevice* parent)
+QList<CkPt*> CkPt::creatAll(SensorDevice* parent)
 {
-    QList<CkPt> ckps;
+    QList<CkPt*> ckps;
     for (int i = 0; i < names.size(); ++i) {
-        ckps << CkPt{ parent, i };
+        ckps << new CkPt{ i, parent };
     }
     return ckps;
 }
 
 void CkPt::newWheel()
 {
-    for (auto& sensor : sensors) {
-        sensor.newWheel();
+    for (auto sensor : sensors) {
+        sensor->newWheel();
     }
 }
 
 void CkPt::init()
 {
-    for (auto& sensor : sensors) {
-        sensor.newWheel();
-        sensor.init();
+    for (auto sensor : sensors) {
+        sensor->newWheel();
+        sensor->init();
     }
     //expectIn.init(false);
 }

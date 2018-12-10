@@ -37,13 +37,13 @@ private:
 
     /// the rate between inner calc speed and measured speed, of which value is optimized by LS method (minimize the error)
     const double speedCompensationCoeff[2] = { 0.954, 0.950 }; // [out, in]
-    QList<SensorDevice> devs = SensorDevice::createAll();
+    QList<SensorDevice*> devs = SensorDevice::createAll(this);
     bool bUsrCtrl = false;
     bool bConnected = false;
+    int cio0_pre = 0;
     /* one read write period >300ms */
     int cio0Interval = 1000; // msec
     int adInterval = 250; //msec; should > 7/25 s
-
     void writePLC(QByteArray plcData);
     QByteArray readPLC(QByteArray plcData);
     /**
@@ -95,7 +95,7 @@ private:
 	 */
     static QByteArrayList getRRData(QByteArray);
 
-    void recordCio0(WORD cio0); //!< cio0发送到界面进行处理
+    void recordCio0(int cio0); //!< cio0发送到界面进行处理
 
     void checkTri();
 
@@ -108,7 +108,7 @@ private slots:
 
 signals:
     //to UI
-    void cio0Update(WORD);
+    void cio0Update(int cio);
     void sensorUpdate(int);
 
     // to 图像处理
@@ -131,5 +131,5 @@ signals:
     void wheelFallOff(int);
 
 public slots:
-    void onHardAlarm(WORD);
+    void onHardAlarm(int cio);
 };

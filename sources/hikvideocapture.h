@@ -50,7 +50,7 @@ private:
     // 因此务必注意声明顺序 [10/9/2018 cx3386]
     const ConfigHelper* configHelper;
     int deviceIndex;
-    HWND hPlayWnd;
+    HWND hPlayWnd; //播放窗口句柄
     const CamProfile* camProfile;
 
     mutable QMutex mutex;

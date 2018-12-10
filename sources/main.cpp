@@ -30,6 +30,7 @@ LONG ApplicationCrashHandler(EXCEPTION_POINTERS* pException);
 int main(int argc, char* argv[])
 {
     qRegisterMetaType<HWND>("HWND");
+    //qRegisterMetaType<WORD>("WORD");
     qRegisterMetaType<QVector<int>>("QVector<int>");
     qRegisterMetaType<ImProfile>("ImProfile");
     qRegisterMetaTypeStreamOperators<ImProfile>("ImProfile");
