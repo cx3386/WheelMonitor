@@ -5,6 +5,7 @@
 [Ii]nstall/
 #*.props
 *.db3
+[Tt]ools/
 
 # GeneratedFiles by Qt (cx3386@163.com)
 GeneratedFiles/
