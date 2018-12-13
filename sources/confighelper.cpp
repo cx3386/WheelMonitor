@@ -1,6 +1,7 @@
-#include "confighelper.h"
-#include "common.h"
 #include "stdafx.h"
+
+#include "common.h"
+#include "confighelper.h"
 
 /* Groups Name */
 const QString GP_CAM = "IPCamera";

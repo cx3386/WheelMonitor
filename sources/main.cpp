@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "3rdparty/singleapplication/singleapplication.h"
+#include "singleapplication.h"
 #include "common.h"
 #include "confighelper.h"
 #include "database.h"

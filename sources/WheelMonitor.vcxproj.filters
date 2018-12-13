@@ -1,63 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Form Files">
-      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
-      <Extensions>ui</Extensions>
-      <ParseFiles>false</ParseFiles>
-    </Filter>
-    <Filter Include="Form Files">
-      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
-      <Extensions>ui</Extensions>
-      <ParseFiles>false</ParseFiles>
-    </Filter>
-    <Filter Include="Generated Files">
-      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
-    </Filter>
-    <Filter Include="Generated Files">
-      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Generated Files\Debug">
-      <UniqueIdentifier>{e78d3c52-bcb9-4b96-9903-237367a09ccc}</UniqueIdentifier>
-      <Extensions>cpp;moc</Extensions>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="Generated Files\Release">
-      <UniqueIdentifier>{1f78b306-bb0f-4bdb-81c6-b10b69eaf3a9}</UniqueIdentifier>
-      <Extensions>cpp;moc</Extensions>
-      <SourceControlFiles>False</SourceControlFiles>
+    <Filter Include="Distribution Files">
+      <UniqueIdentifier>{d9948e76-0fb1-4271-a8a1-a7ce8fa78c57}</UniqueIdentifier>
+      <Extensions>*</Extensions>
+      <ParseFiles>false</ParseFiles>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlarmLCDBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlarmManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="backuplogdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camprofile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="confighelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="customslider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hikvideocapture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="identification.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imageprocess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="improfile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelRecorder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="logindialog.cpp">
@@ -66,438 +74,192 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ocr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="customslider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="videowidget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_player.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_player.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_videowidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_videowidget.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_backuplogdialog.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_backuplogdialog.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="backuplogdialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="outlierhelper.cpp">
+    <ClCompile Include="mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mysqltablemodel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="playbackwidget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="hikvideocapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="robustmatcher.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="settingdialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_playbackwidget.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="imageprocess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_settingdialog.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_customslider.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_customslider.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_logindialog.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_logindialog.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_mysqltablemodel.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_mysqltablemodel.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_settingdialog.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_playbackwidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_singleapplication.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_singleapplication.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_singleapplication_p.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_singleapplication_p.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="3rdparty\singleapplication\singleapplication.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_confighelper.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_confighelper.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="confighelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="improfile.cpp">
+    <ClCompile Include="ocr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ocrprofile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="camprofile.cpp">
+    <ClCompile Include="outlierhelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_hikvideocapture.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_hikvideocapture.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_mainwindow.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="mainwindow.cpp">
+    <ClCompile Include="playbackwidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ocr.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ocr.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_WheelMonitor.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_imageprocess.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_imageprocess.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_Plc.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_Plc.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Plc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_TrunckRef.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_TrunckRef.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="TrunckRef.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ViewSensorImage.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ViewSensorImage.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="ViewSensorImage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_AlarmLCDBoard.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_AlarmLCDBoard.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="AlarmLCDBoard.cpp">
+    <ClCompile Include="robustmatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SensorDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_AlarmManager.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_AlarmManager.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="AlarmManager.cpp">
+    <ClCompile Include="settingdialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.h.cpp">
+    <ClCompile Include="TrunckRef.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_SensorDevice.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="videowidget.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_SensorDevice.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="ViewSensorImage.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LevelRecorder.cpp">
+    <ClCompile Include="3rdparty\singleapplication\singleapplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="3rdparty\singleapplication\singleapplication_p.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="identification.h">
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <CustomBuild Include="logindialog.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <CustomBuild Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="customslider.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="player.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="videowidget.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="backuplogdialog.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ocr.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="mysqltablemodel.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="playbackwidget.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="settingdialog.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_settingdialog.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="improfile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ocrprofile.h">
+    <ClInclude Include="AlarmEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="camprofile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_ViewSensorImage.h">
-      <Filter>Generated Files</Filter>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_AlarmLCDBoard.h">
-      <Filter>Generated Files</Filter>
+    <ClInclude Include="database.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AlarmEvent.h">
+    <ClInclude Include="improfile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LevelRecorder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="GeneratedFiles\debug\moc_predefs.h.cbt">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="GeneratedFiles\release\moc_predefs.h.cbt">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="mainwindow.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="settingdialog.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="3rdparty\singleapplication\singleapplication.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="3rdparty\singleapplication\singleapplication_p.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="confighelper.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="mainwindow.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="WheelMonitor.qrc">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="imageprocess.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TrunckRef.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ViewSensorImage.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ViewSensorImage.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="AlarmLCDBoard.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="AlarmLCDBoard.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="SensorDevice.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="AlarmManager.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="hikvideocapture.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Plc.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="logindialog.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\images\WheelMonitor.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\images\green.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\images\rec_grey.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\images\rec_red.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\images\red.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\images\yellow.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="cpp.hint" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="WheelMonitor.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_logindialog.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="database.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
+    <ClInclude Include="ocrprofile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="outlierhelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="robustmatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\images\gray.png">
+    <QtMoc Include="AlarmLCDBoard.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="AlarmManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="backuplogdialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="confighelper.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="customslider.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="hikvideocapture.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="identification.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="imageprocess.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="logindialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="mainwindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="mysqltablemodel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ocr.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="playbackwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="player.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Plc.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SensorDevice.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="settingdialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="TrunckRef.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="videowidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ViewSensorImage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3rdparty\singleapplication\singleapplication.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="3rdparty\singleapplication\singleapplication_p.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="AlarmLCDBoard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="logindialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="settingdialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ViewSensorImage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="WheelMonitor.qrc">
       <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\about.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\backup.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\blue.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\fault.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\left.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\log.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\monitor.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\monitor_2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\preview.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\qt.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\quit.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\restart.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\right.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\run.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\setting.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\images\stop.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WheelMonitor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Filter>Distribution Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

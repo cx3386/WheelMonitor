@@ -1,6 +1,7 @@
-#include "logindialog.h"
-#include "database.h"
 #include "stdafx.h"
+
+#include "database.h"
+#include "logindialog.h"
 
 //using namespace std;
 //const static int posMinX = 0;

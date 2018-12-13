@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WheelMonitor", "sources\WheelMonitor.vcxproj", "{EF4AA9BE-C506-331E-BCCE-FC0941A52823}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WheelMonitor", "sources\WheelMonitor.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quazip", "sources\3rdparty\quazip_fetch\quazip\quazip.vcxproj", "{9BF4A56E-5406-3CB7-892E-A6E85BA87C5D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WheelMonitorSetup", "WheelMonitorSetup\WheelMonitorSetup.vdproj", "{1889B5AB-E2F7-474F-9B82-A93F2C9B7710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,17 +15,22 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EF4AA9BE-C506-331E-BCCE-FC0941A52823}.Debug|x64.ActiveCfg = Debug|x64
-		{EF4AA9BE-C506-331E-BCCE-FC0941A52823}.Debug|x64.Build.0 = Debug|x64
-		{EF4AA9BE-C506-331E-BCCE-FC0941A52823}.Debug|x64.Deploy.0 = Debug|x64
-		{EF4AA9BE-C506-331E-BCCE-FC0941A52823}.Release|x64.ActiveCfg = Release|x64
-		{EF4AA9BE-C506-331E-BCCE-FC0941A52823}.Release|x64.Build.0 = Release|x64
-		{EF4AA9BE-C506-331E-BCCE-FC0941A52823}.Release|x64.Deploy.0 = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.ActiveCfg = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.Build.0 = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
+		{9BF4A56E-5406-3CB7-892E-A6E85BA87C5D}.Debug|x64.ActiveCfg = Debug|x64
+		{9BF4A56E-5406-3CB7-892E-A6E85BA87C5D}.Debug|x64.Build.0 = Debug|x64
+		{9BF4A56E-5406-3CB7-892E-A6E85BA87C5D}.Release|x64.ActiveCfg = Release|x64
+		{9BF4A56E-5406-3CB7-892E-A6E85BA87C5D}.Release|x64.Build.0 = Release|x64
+		{1889B5AB-E2F7-474F-9B82-A93F2C9B7710}.Debug|x64.ActiveCfg = Release
+		{1889B5AB-E2F7-474F-9B82-A93F2C9B7710}.Debug|x64.Build.0 = Release
+		{1889B5AB-E2F7-474F-9B82-A93F2C9B7710}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6E04B590-E66F-479C-AE88-C492728B4378}
+		SolutionGuid = {F0CF76DA-4451-4101-ACC2-1609602246EF}
 	EndGlobalSection
 EndGlobal

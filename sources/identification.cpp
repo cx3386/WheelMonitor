@@ -1,5 +1,6 @@
-#include "identification.h"
 #include "stdafx.h"
+
+#include "identification.h"
 #include <QNetworkInterface>
 #include <intrin.h>
 

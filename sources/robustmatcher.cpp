@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "robustmatcher.h"
 //#include <qmath.h> //use M_PI
 #ifndef M_PI

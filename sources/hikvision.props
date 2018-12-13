@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <HikVisionBin>$(SolutionDir)bin\HIKVISION</HikVisionBin>
+    <HCNetSDKCom>$(HikVisionBin)\HCNetSDKCom</HCNetSDKCom>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>3rdparty\HIKVISION\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>3rdparty\HIKVISION\lib;3rdparty\HIKVISION\lib\HCNetSDKCom;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GdiPlus.lib;HCCore.lib;HCNetSDK.lib;PlayCtrl.lib;HCAlarm.lib;HCGeneralCfgMgr.lib;HCPreview.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="HikVisionBin">
+      <Value>$(HikVisionBin)</Value>
+    </BuildMacro>
+    <BuildMacro Include="HCNetSDKCom">
+      <Value>$(HCNetSDKCom)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

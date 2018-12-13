@@ -1,0 +1,3 @@
+请使用以下命令生成sln
+qmake -r -tp vc quazip.pro INCLUDEPATH+="C:\Qt\Qt5.12.0\5.12.0\Src\qtbase\src\3rdparty\zlib\src"
+生成的sln可以直接编译通过，如果需要运行qztest，需要将quazip生成的dll放在qztest.exe的同一文件夹中

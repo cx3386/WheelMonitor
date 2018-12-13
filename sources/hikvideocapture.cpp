@@ -1,7 +1,8 @@
-#include "hikvideocapture.h"
+#include "stdafx.h"
+
 #include "common.h" //capsavedir
 #include "confighelper.h"
-#include "stdafx.h"
+#include "hikvideocapture.h"
 
 using namespace std;
 using namespace std::placeholders;

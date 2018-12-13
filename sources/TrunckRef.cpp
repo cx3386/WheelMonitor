@@ -1,6 +1,7 @@
-#include "TrunckRef.h"
-#include "Plc.h"
 #include "stdafx.h"
+
+#include "Plc.h"
+#include "TrunckRef.h"
 
 TrunckRef::TrunckRef(Plc* plcSerial, QObject* parent /*= Q_NULLPTR*/)
     : QObject(parent)
@@ -16,7 +17,7 @@ void TrunckRef::start()
     QTimer::singleShot(0, this, [=]() {
         for (int i = 0; i < 4; i++) {
             auto& ckp = ckps[i];
-            ckp = Ckpt{};
+            ckp = Ckpt {};
         }
         bUsrCtrl = true;
         speedIntegrator();

@@ -1,5 +1,6 @@
-#include "AlarmLCDBoard.h"
 #include "stdafx.h"
+
+#include "AlarmLCDBoard.h"
 
 AlarmLCDBoard::AlarmLCDBoard(QWidget* parent)
     : QFrame(parent)
@@ -15,7 +16,7 @@ AlarmLCDBoard::AlarmLCDBoard(QWidget* parent)
     auto hLayout = new QHBoxLayout(canvas);
     hLayout->setContentsMargins(0, 0, 0, 0);
     hLayout->setSpacing(0);
-    auto style = QString{"color:red;background:transparent;"};
+    auto style = QString { "color:red;background:transparent;" };
     //ÏÔÊ¾ÄÚÍâÈ¦×Ö¶Î
     devName = new QLineEdit(this);
     devName->setObjectName(QStringLiteral("alarmIOLineEdit"));
