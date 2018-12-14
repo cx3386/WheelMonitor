@@ -33,12 +33,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0FCD37EB3ADD4B7B89ABC87B2FAB5C26"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_14733CA77FB54ED7A01B333E75DCABF5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -64,12 +58,6 @@
         "Entry"
         {
         "MsmKey" = "8:_25C039897CD643569FB338214C2A1DE4"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_27579B874657493A9953CBCC94FD5FBF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -226,6 +214,12 @@
         "Entry"
         {
         "MsmKey" = "8:_6EA14174E7364F689FB79E4A2FCEB95F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6FE041D1B7B94073BB17DCFDA571AD8E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -393,12 +387,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C1456AC7E4434BDDBBC7B588930F3662"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C361ED0C8B4B443C907D03B88D2A22E1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -472,6 +460,12 @@
         "Entry"
         {
         "MsmKey" = "8:_D468BB7F768F4A1BB3DE9A0D221C8B81"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D4F1D25F233243D582F417B08CE9115E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -583,6 +577,12 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_FE36B1B75A434B4EBA152AB9B7136794"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -591,7 +591,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\WheelMonitorSetup.msi"
+        "OutputFilename" = "8:Release\\WheelMonitorSetup-x64-1.0.2.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -623,17 +623,31 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_650F2B22193940FDB4B5F005CF558D38"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_767908B4B2CC4359BA063FC781E91CBC"
             {
             "Name" = "8:K-Lite_Codec_Pack_1455_Basic.exe"
             "Condition" = "8:"
-            "Object" = "8:_C1456AC7E4434BDDBBC7B588930F3662"
+            "Object" = "8:_6FE041D1B7B94073BB17DCFDA571AD8E"
             "FileType" = "3:2"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:/Install"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_38886EBB_DA29_436E_A09A_2F5CD09526A6"
+            "Identifier" = "8:_3F7F3F77_2584_45B6_AF9F_7B9C11FDAA37"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_7F1D3DD011F54580BA2D807987E220DC"
+            {
+            "Name" = "8:K-Lite_Codec_Pack_1455_Basic.exe"
+            "Condition" = "8:"
+            "Object" = "8:_6FE041D1B7B94073BB17DCFDA571AD8E"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:/Uninstall"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_78F75A32_26FD_4F91_9867_A0C91EA738D4"
             "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
@@ -698,26 +712,6 @@
             "TargetName" = "8:libEGL.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0FCD37EB3ADD4B7B89ABC87B2FAB5C26"
-            {
-            "SourcePath" = "8:..\\tools\\ZLVircom\\ZLVircom4.96_x64.msi"
-            "TargetName" = "8:ZLVircom4.96_x64.msi"
-            "Tag" = "8:"
-            "Folder" = "8:_276DA5D2674444F0A4D66B212F46714B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -818,26 +812,6 @@
             "TargetName" = "8:qt_ar.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_27579B874657493A9953CBCC94FD5FBF"
-            {
-            "SourcePath" = "8:..\\tools\\vcredist\\vc_redist.x64.exe"
-            "TargetName" = "8:vc_redist.x64.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_276DA5D2674444F0A4D66B212F46714B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1318,6 +1292,26 @@
             "TargetName" = "8:HCCore.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6FE041D1B7B94073BB17DCFDA571AD8E"
+            {
+            "SourcePath" = "8:..\\tools\\K-Lite\\K-Lite_Codec_Pack_1455_Basic.exe"
+            "TargetName" = "8:K-Lite_Codec_Pack_1455_Basic.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_F3F445EECC36429AA89E5481CE3A5196"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1872,26 +1866,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C1456AC7E4434BDDBBC7B588930F3662"
-            {
-            "SourcePath" = "8:..\\tools\\K-Lite\\K-Lite_Codec_Pack_1455_Basic.exe"
-            "TargetName" = "8:K-Lite_Codec_Pack_1455_Basic.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_276DA5D2674444F0A4D66B212F46714B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C361ED0C8B4B443C907D03B88D2A22E1"
             {
             "SourcePath" = "8:..\\bin\\HIKVISION\\MP_Render.dll"
@@ -2138,6 +2112,26 @@
             "TargetName" = "8:8.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D4F1D25F233243D582F417B08CE9115E"
+            {
+            "SourcePath" = "8:..\\tools\\ZLVircom\\ZLVircom4.96_x64.msi"
+            "TargetName" = "8:ZLVircom4.96_x64.msi"
+            "Tag" = "8:"
+            "Folder" = "8:_F3F445EECC36429AA89E5481CE3A5196"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2512,6 +2506,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE36B1B75A434B4EBA152AB9B7136794"
+            {
+            "SourcePath" = "8:..\\tools\\vcredist\\vc_redist.x64.exe"
+            "TargetName" = "8:vc_redist.x64.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_F3F445EECC36429AA89E5481CE3A5196"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -2568,17 +2582,6 @@
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_6BE9B6CCE69F472FB86A7CA3892FA00D"
-                        "Folders"
-                        {
-                        }
-                    }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_276DA5D2674444F0A4D66B212F46714B"
-                    {
-                    "Name" = "8:tools"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_A853998749EC4FB484B6260D541F5EC8"
                         "Folders"
                         {
                         }
@@ -2682,6 +2685,17 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F3F445EECC36429AA89E5481CE3A5196"
+                    {
+                    "Name" = "8:tools"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_EDE8D9B07A9A41CFAF7C0C99F538D19A"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_C2CADD58FB0C406884479178211B255B"
@@ -2712,6 +2726,14 @@
         }
         "Locator"
         {
+            "{CF66B7F7-B7DA-4B08-A67A-233430638C9C}:_B5ED3EC0C6AD4C08A74B5DD777189E89"
+            {
+            "Name" = "8:Search for VC Runtime RegistryEntry"
+            "Root" = "2:1"
+            "RegKey" = "8:SOFTWARE\\WOW6432Node\\Microsoft\\DevDiv\\vc\\Servicing\\14.0\\RuntimeMinimum"
+            "Value" = "8:RTM"
+            "Property" = "8:VCRUNTIME"
+            }
         }
         "MsiBootstrapper"
         {
@@ -2723,7 +2745,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WheelMonitor"
         "ProductCode" = "8:{9452EB7A-491A-453F-90B8-FA8599648C40}"
-        "PackageCode" = "8:{D6E4F217-1E63-403A-AD7F-F7D20EBF1E66}"
+        "PackageCode" = "8:{3A976741-1435-4667-A3AD-CD5300FA9014}"
         "UpgradeCode" = "8:{8EE7A6C4-CFDC-4904-B27B-875F775C5FD0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -2736,7 +2758,7 @@
         "ARPHELPLINK" = "8:"
         "Title" = "8:WheelMonitorSetup-x64-1.0.2"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:ZJU"
+        "ARPCONTACT" = "8:cx3386@163.com"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:WheelMonitor"
         "ARPURLINFOABOUT" = "8:"
@@ -3289,7 +3311,7 @@
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:4"
+            "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:Release|x64"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{B12702AD-ABFB-343A-A199-8E24837244A3}"
