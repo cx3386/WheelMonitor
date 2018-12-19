@@ -1,0 +1,19 @@
+本说明介绍如何用CX-Programmer软件设置下位机PLC
+
+0. 安装CX-ONE/CX-Programmer
+1. 使用232线缆(XW2Z-200S-CV)连接PLC与PC
+2. 打开CX-P，选择“自动连接到”PLC，串行通信模式为上位链接(SYSWAY)
+3. 设置PLC的“启动模式”为“监视”
+4. 设置“内置RS232C端口”：波特率115200,格式7,2,E,模式HOSTLINK,单元号0
+5. 将设置（和空的PLC程序）下载到PLC中，重启后生效
+6. 设置和启动AD转换模块（此步忽略，用HOSTLINK命令实现）
+
+设置好后，用串口软件测试通讯和各模块的应答是否正常。
+(ASCII码)
+测试CPU模块的IO输入
+读取：@00RR0000000141*\r
+返回：@00RR00dataFCS*\r data=FFFF
+测试AD模块的台车速度
+初始化：@00WR0102800A800037*\r
+读取 ：@00RR0002000143*\r
+返回：@00RR00dataFCS*\r data=FFFF data(hex)*3.59/6000=转速
