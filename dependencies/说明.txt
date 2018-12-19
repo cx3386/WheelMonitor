@@ -1,0 +1,2 @@
+本文件夹用于放置运行时以来的动态库和其他依赖项，所有文件夹中的文件（夹）都应放在exe的根目录下。其中qt由windeployqt生成，quazip由工程直接生成，config则是项目自带的设置项。
+此目录是setup项目的includepath。
