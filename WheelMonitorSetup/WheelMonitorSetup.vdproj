@@ -465,12 +465,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D4F1D25F233243D582F417B08CE9115E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_DA5CA6E50B374D61B33AAE7C6BDF3D8F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -577,12 +571,6 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_FE36B1B75A434B4EBA152AB9B7136794"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -591,7 +579,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\WheelMonitorSetup-x64-1.0.2.msi"
+        "OutputFilename" = "8:..\\install\\WheelMonitorSetup-x64-1.0.2.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -634,20 +622,6 @@
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
             "Identifier" = "8:_3F7F3F77_2584_45B6_AF9F_7B9C11FDAA37"
-            "InstallerClass" = "11:FALSE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_7F1D3DD011F54580BA2D807987E220DC"
-            {
-            "Name" = "8:K-Lite_Codec_Pack_1455_Basic.exe"
-            "Condition" = "8:"
-            "Object" = "8:_6FE041D1B7B94073BB17DCFDA571AD8E"
-            "FileType" = "3:2"
-            "InstallAction" = "3:4"
-            "Arguments" = "8:/Uninstall"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_78F75A32_26FD_4F91_9867_A0C91EA738D4"
             "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
@@ -2126,26 +2100,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D4F1D25F233243D582F417B08CE9115E"
-            {
-            "SourcePath" = "8:..\\tools\\ZLVircom\\ZLVircom4.96_x64.msi"
-            "TargetName" = "8:ZLVircom4.96_x64.msi"
-            "Tag" = "8:"
-            "Folder" = "8:_F3F445EECC36429AA89E5481CE3A5196"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DA5CA6E50B374D61B33AAE7C6BDF3D8F"
             {
             "SourcePath" = "8:..\\bin\\qt\\imageformats\\qjpeg.dll"
@@ -2506,26 +2460,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE36B1B75A434B4EBA152AB9B7136794"
-            {
-            "SourcePath" = "8:..\\tools\\vcredist\\vc_redist.x64.exe"
-            "TargetName" = "8:vc_redist.x64.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_F3F445EECC36429AA89E5481CE3A5196"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -2556,7 +2490,7 @@
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_14B5A10F94E74C45B355FF642A8B360A"
                     {
                     "Name" = "8:Capture"
-                    "AlwaysCreate" = "11:FALSE"
+                    "AlwaysCreate" = "11:TRUE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_F2E8BB71F5BC44F3BFC3C0FD58362A43"
@@ -2644,7 +2578,7 @@
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_B75E81BEAAA7419AA51B7624EE5D2A24"
                     {
                     "Name" = "8:Log"
-                    "AlwaysCreate" = "11:FALSE"
+                    "AlwaysCreate" = "11:TRUE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_FD0D01DDE1A7499ABAE6D8698E36CAEC"
@@ -2745,7 +2679,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WheelMonitor"
         "ProductCode" = "8:{9452EB7A-491A-453F-90B8-FA8599648C40}"
-        "PackageCode" = "8:{3A976741-1435-4667-A3AD-CD5300FA9014}"
+        "PackageCode" = "8:{EC859131-03A3-4790-9FDC-66CDA8964875}"
         "UpgradeCode" = "8:{8EE7A6C4-CFDC-4904-B27B-875F775C5FD0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"

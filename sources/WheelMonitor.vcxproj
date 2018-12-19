@@ -110,6 +110,7 @@
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Multimedia.lib;Qt5MultimediaWidgets.lib;Qt5SerialPort.lib;Qt5Network.lib;Qt5Sql.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <QtMoc>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
@@ -127,8 +128,12 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="3rdparty\singleapplication\singleapplication.cpp" />
-    <ClCompile Include="3rdparty\singleapplication\singleapplication_p.cpp" />
+    <ClCompile Include="3rdparty\singleapplication\singleapplication.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="3rdparty\singleapplication\singleapplication_p.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="AlarmLCDBoard.cpp" />
     <ClCompile Include="AlarmManager.cpp" />
     <ClCompile Include="backuplogdialog.cpp" />
