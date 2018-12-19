@@ -384,8 +384,8 @@ QByteArray Plc::readPLC(QByteArray plcData)
 {
     QByteArray responseData;
     plcSerialPort->write(plcData);
-    if (plcSerialPort->waitForBytesWritten(100)) {
-        if (plcSerialPort->waitForReadyRead(100)) {
+    if (plcSerialPort->waitForBytesWritten()) {
+        if (plcSerialPort->waitForReadyRead()) {
             responseData = plcSerialPort->readAll();
             while (plcSerialPort->waitForReadyRead(100))
                 responseData += plcSerialPort->readAll();
@@ -399,8 +399,8 @@ QByteArray Plc::readPLC(QByteArray plcData)
 void Plc::writePLC(QByteArray plcData)
 {
     plcSerialPort->write(plcData);
-    if (plcSerialPort->waitForBytesWritten(100)) {
-        if (plcSerialPort->waitForReadyRead(100)) {
+    if (plcSerialPort->waitForBytesWritten()) {
+        if (plcSerialPort->waitForReadyRead()) {
             QByteArray responseData = plcSerialPort->readAll();
             while (plcSerialPort->waitForReadyRead(100))
                 responseData += plcSerialPort->readAll();
