@@ -579,7 +579,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:..\\install\\WheelMonitorSetup-x64-1.0.2.msi"
+        "OutputFilename" = "8:Release\\WheelMonitorSetup-x64-1.0.2.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -642,7 +642,7 @@
         {
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0753CC38052048DE842673ED3F880A3B"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\1.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\1.jpg"
             "TargetName" = "8:1.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -662,7 +662,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_082EB5D6A454464C8E5AE0D54AA1795D"
             {
-            "SourcePath" = "8:..\\bin\\qt\\opengl32sw.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\opengl32sw.dll"
             "TargetName" = "8:opengl32sw.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -682,7 +682,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0BCA22CD4C9D4C78A8C73436A68AEB2E"
             {
-            "SourcePath" = "8:..\\bin\\qt\\libEGL.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\libEGL.dll"
             "TargetName" = "8:libEGL.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -702,7 +702,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_14733CA77FB54ED7A01B333E75DCABF5"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5SerialPort.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5SerialPort.dll"
             "TargetName" = "8:Qt5SerialPort.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -722,7 +722,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_165EBC385C4B41389C27DDE69EF9787D"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\3.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\3.jpg"
             "TargetName" = "8:3.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -742,7 +742,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_186A0FF308E94711A29592ADDC314F9A"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\hlog.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\hlog.dll"
             "TargetName" = "8:hlog.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -762,7 +762,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1FFAF1A214DB4751BE5EAA553EF86FCF"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qico.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qico.dll"
             "TargetName" = "8:qico.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -782,7 +782,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_25C039897CD643569FB338214C2A1DE4"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_ar.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_ar.qm"
             "TargetName" = "8:qt_ar.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -802,7 +802,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_36150EE301C0457CB50720C28AAE9AEB"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_sk.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_sk.qm"
             "TargetName" = "8:qt_sk.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -842,7 +842,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3C2FCBA4A0A34D8983A50C38E15D338B"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_ko.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_ko.qm"
             "TargetName" = "8:qt_ko.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -862,7 +862,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_403628DDAB9D491A99C6EC279E6B7C27"
             {
-            "SourcePath" = "8:..\\bin\\qt\\libGLESV2.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\libGLESV2.dll"
             "TargetName" = "8:libGLESV2.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -882,7 +882,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_435E9163D8554EC89C4376F2F3FFFCF1"
             {
-            "SourcePath" = "8:..\\bin\\qt\\mediaservice\\dsengine.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\mediaservice\\dsengine.dll"
             "TargetName" = "8:dsengine.dll"
             "Tag" = "8:"
             "Folder" = "8:_771B31B3A6FA4BDDB222156F6CB72FE2"
@@ -902,7 +902,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_440620AF91014A8CBE98D6902E6BBE3B"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5OpenGL.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5OpenGL.dll"
             "TargetName" = "8:Qt5OpenGL.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -922,7 +922,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4473A9BE0DA64519892956142C020495"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5Multimedia.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5Multimedia.dll"
             "TargetName" = "8:Qt5Multimedia.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -942,7 +942,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_47E10138A84D4C64899D1C02A04635FF"
             {
-            "SourcePath" = "8:..\\bin\\qt\\mediaservice\\qtmedia_audioengine.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\mediaservice\\qtmedia_audioengine.dll"
             "TargetName" = "8:qtmedia_audioengine.dll"
             "Tag" = "8:"
             "Folder" = "8:_771B31B3A6FA4BDDB222156F6CB72FE2"
@@ -962,7 +962,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4A370F54532E40C1AE367BBD3DC85C3C"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\HWDecode.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HWDecode.dll"
             "TargetName" = "8:HWDecode.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -982,7 +982,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4B671B1DFE7F49AFB8CDE03599105D67"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\6.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\6.jpg"
             "TargetName" = "8:6.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -1002,7 +1002,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4BE872C4E6D7497CBC68A10099281EC7"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\7.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\7.jpg"
             "TargetName" = "8:7.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -1022,7 +1022,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C1621BF1DED4219A97808C37B722FDC"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_da.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_da.qm"
             "TargetName" = "8:qt_da.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1042,7 +1042,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C4CD59917CB4C11A1DE9DE0B9BE9566"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qtga.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qtga.dll"
             "TargetName" = "8:qtga.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -1062,7 +1062,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4EE94F9272354FEB8DF90835C2B97CBE"
             {
-            "SourcePath" = "8:..\\bin\\qt\\iconengines\\qsvgicon.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\iconengines\\qsvgicon.dll"
             "TargetName" = "8:qsvgicon.dll"
             "Tag" = "8:"
             "Folder" = "8:_76BDE7244C344A4F99D62A098D204479"
@@ -1082,7 +1082,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_503B4406C99B4F21895BC85351934059"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qtiff.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qtiff.dll"
             "TargetName" = "8:qtiff.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -1102,7 +1102,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_505F271AF0F04F3EA57C8D8892B09108"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_hu.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_hu.qm"
             "TargetName" = "8:qt_hu.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1122,7 +1122,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5297DC0CEBD04D31A906C30A46259798"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\PlayCtrl.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\PlayCtrl.dll"
             "TargetName" = "8:PlayCtrl.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1142,7 +1142,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5409E90FB064437E8577635F1A69F858"
             {
-            "SourcePath" = "8:..\\bin\\qt\\d3dcompiler_47.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\d3dcompiler_47.dll"
             "TargetName" = "8:d3dcompiler_47.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1162,7 +1162,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_57A94EAC8EBA43EC97CE85EC7C28D1F7"
             {
-            "SourcePath" = "8:..\\bin\\opencv\\opencv_ffmpeg340_64.dll"
+            "SourcePath" = "8:..\\dependencies\\opencv\\opencv_ffmpeg340_64.dll"
             "TargetName" = "8:opencv_ffmpeg340_64.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1182,7 +1182,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C30131BF6FD4E11A469BA271F5DEB40"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\libmmd.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\libmmd.dll"
             "TargetName" = "8:libmmd.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1202,7 +1202,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_613DEB02FDBD41A68F81E10A661554D9"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qsvg.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qsvg.dll"
             "TargetName" = "8:qsvg.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -1222,7 +1222,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66F4BC82114246CABD81C41B5E3D3797"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\hpr.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\hpr.dll"
             "TargetName" = "8:hpr.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1242,7 +1242,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6CF7C1A1A036465B87606A49FD8D1736"
             {
-            "SourcePath" = "8:..\\bin\\qt\\playlistformats\\qtmultimedia_m3u.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\playlistformats\\qtmultimedia_m3u.dll"
             "TargetName" = "8:qtmultimedia_m3u.dll"
             "Tag" = "8:"
             "Folder" = "8:_3AFEF2D204E74D2082F8F04B899E9EC5"
@@ -1262,7 +1262,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EA14174E7364F689FB79E4A2FCEB95F"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\HCCore.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCCore.dll"
             "TargetName" = "8:HCCore.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1302,7 +1302,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_70BCC20F4759404BB526E7CEF9EECCDC"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_gd.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_gd.qm"
             "TargetName" = "8:qt_gd.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1322,7 +1322,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7487B94345434597B7530A1911B0ECA2"
             {
-            "SourcePath" = "8:..\\config\\config.ini"
+            "SourcePath" = "8:..\\dependencies\\config\\config.ini"
             "TargetName" = "8:config.ini"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1342,7 +1342,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_754CD2B21FAA4C818B4BDCD915153CAE"
             {
-            "SourcePath" = "8:..\\bin\\qt\\bearer\\qgenericbearer.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\bearer\\qgenericbearer.dll"
             "TargetName" = "8:qgenericbearer.dll"
             "Tag" = "8:"
             "Folder" = "8:_2A65E5481251454EA97297F2E549646B"
@@ -1362,7 +1362,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7625AF0EAD3A46F297502F1068A75B16"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qicns.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qicns.dll"
             "TargetName" = "8:qicns.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -1382,7 +1382,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_76B57D477B27423EBB8A79E7EB75632B"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\libeay32.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\libeay32.dll"
             "TargetName" = "8:libeay32.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1402,7 +1402,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7F051D9B6E1346A381A623068323F899"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\log4cxx.properties"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\log4cxx.properties"
             "TargetName" = "8:log4cxx.properties"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1422,7 +1422,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7FEB5C61118E4A45A8F60CE3C4BF57E6"
             {
-            "SourcePath" = "8:..\\bin\\qt\\sqldrivers\\qsqlodbc.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\sqldrivers\\qsqlodbc.dll"
             "TargetName" = "8:qsqlodbc.dll"
             "Tag" = "8:"
             "Folder" = "8:_24B87D0C9B644A38BD4A69A471AEB492"
@@ -1442,7 +1442,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8349E42D021E4190A3662E132CBA14BF"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5Core.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5Core.dll"
             "TargetName" = "8:Qt5Core.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1462,7 +1462,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_83AFC875FF154C349A6F8440D2750A8F"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\9.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\9.jpg"
             "TargetName" = "8:9.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -1482,7 +1482,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_868D9223A00145109F28CC51BC4C018C"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_ja.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_ja.qm"
             "TargetName" = "8:qt_ja.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1502,7 +1502,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_88187336330D4B73A6C2E1AB36D68DDB"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qwebp.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qwebp.dll"
             "TargetName" = "8:qwebp.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -1522,7 +1522,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_88CAA603D0934745BDAD8FF639A53074"
             {
-            "SourcePath" = "8:..\\bin\\qt\\sqldrivers\\qsqlpsql.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\sqldrivers\\qsqlpsql.dll"
             "TargetName" = "8:qsqlpsql.dll"
             "Tag" = "8:"
             "Folder" = "8:_24B87D0C9B644A38BD4A69A471AEB492"
@@ -1542,7 +1542,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D0FB541059D4D05B60151BF2BA091B1"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_uk.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_uk.qm"
             "TargetName" = "8:qt_uk.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1562,7 +1562,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90A8FFE524274CAE8D6C7F4C3B1B2303"
             {
-            "SourcePath" = "8:..\\bin\\opencv\\opencv_world340.dll"
+            "SourcePath" = "8:..\\dependencies\\opencv\\opencv_world340.dll"
             "TargetName" = "8:opencv_world340.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1582,7 +1582,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_94276944C8D148618D6DE228D80B262F"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_fr.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_fr.qm"
             "TargetName" = "8:qt_fr.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1602,7 +1602,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9441237BD1D5486BA404D0B6A0C36C46"
             {
-            "SourcePath" = "8:..\\bin\\qt\\styles\\qwindowsvistastyle.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\styles\\qwindowsvistastyle.dll"
             "TargetName" = "8:qwindowsvistastyle.dll"
             "Tag" = "8:"
             "Folder" = "8:_E48F7245F6E748978C1D0FF6D4260D45"
@@ -1622,7 +1622,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_996FE292A5034650803641F81151FA9A"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qwbmp.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qwbmp.dll"
             "TargetName" = "8:qwbmp.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -1642,7 +1642,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C2F0BE550B64C78AD8EAEE691EA1730"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_he.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_he.qm"
             "TargetName" = "8:qt_he.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1662,7 +1662,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9FC4E239BF6A4D38838547CA4B3CF609"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5Network.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5Network.dll"
             "TargetName" = "8:Qt5Network.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1682,7 +1682,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A6232935920D407ABB84E34D42B1427C"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\GdiPlus.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\GdiPlus.dll"
             "TargetName" = "8:GdiPlus.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1702,7 +1702,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A6459D5541C3414DA684AE522CCF9923"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\0.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\0.jpg"
             "TargetName" = "8:0.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -1722,7 +1722,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A68FB79740004E7EB5ECCC340909B8BA"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\ssleay32.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\ssleay32.dll"
             "TargetName" = "8:ssleay32.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1742,7 +1742,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A740224CC336403BAE91A0C365B56CF1"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_en.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_en.qm"
             "TargetName" = "8:qt_en.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1762,7 +1762,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A85E02543A604403B3686091C6B0A02B"
             {
-            "SourcePath" = "8:..\\bin\\qt\\mediaservice\\wmfengine.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\mediaservice\\wmfengine.dll"
             "TargetName" = "8:wmfengine.dll"
             "Tag" = "8:"
             "Folder" = "8:_771B31B3A6FA4BDDB222156F6CB72FE2"
@@ -1782,7 +1782,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AE614A69B61445CDA22BCC5B731441DD"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_ca.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_ca.qm"
             "TargetName" = "8:qt_ca.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1802,7 +1802,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B2858F28FFA741EAA8FF43A4A4D0A88F"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\SuperRender.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\SuperRender.dll"
             "TargetName" = "8:SuperRender.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1822,7 +1822,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6CCECFD58604BEC8C9ACDD1192E62FA"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\NPQos.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\NPQos.dll"
             "TargetName" = "8:NPQos.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1842,7 +1842,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C361ED0C8B4B443C907D03B88D2A22E1"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\MP_Render.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\MP_Render.dll"
             "TargetName" = "8:MP_Render.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1862,7 +1862,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C38CEAE3B861401697EDE965686BA492"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\HCNetSDK.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDK.dll"
             "TargetName" = "8:HCNetSDK.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1882,7 +1882,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4CB9933A26A414587ED4FB6068020F8"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_it.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_it.qm"
             "TargetName" = "8:qt_it.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1902,7 +1902,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C630EC7B3C9849B7A001164DC4A2AF24"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_es.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_es.qm"
             "TargetName" = "8:qt_es.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -1922,7 +1922,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6C477246EC948D1AC105B6CAC67E2F3"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\YUVProcess.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\YUVProcess.dll"
             "TargetName" = "8:YUVProcess.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -1942,7 +1942,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C9971D73AB6E4DE79F4B38654CD73302"
             {
-            "SourcePath" = "8:..\\bin\\qt\\audio\\qtaudio_windows.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\audio\\qtaudio_windows.dll"
             "TargetName" = "8:qtaudio_windows.dll"
             "Tag" = "8:"
             "Folder" = "8:_2303685E470142EEAB839B3BB731EED1"
@@ -1962,7 +1962,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CD4ECCD6B4EC41759EA5D38DE1E69379"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qgif.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qgif.dll"
             "TargetName" = "8:qgif.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -1982,7 +1982,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF09EB29C25746FBADFE37C27D1AB988"
             {
-            "SourcePath" = "8:..\\bin\\qt\\sqldrivers\\qsqlmysql.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\sqldrivers\\qsqlmysql.dll"
             "TargetName" = "8:qsqlmysql.dll"
             "Tag" = "8:"
             "Folder" = "8:_24B87D0C9B644A38BD4A69A471AEB492"
@@ -2002,7 +2002,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF28C86B8C7B4757B3C4C5C55CACA6ED"
             {
-            "SourcePath" = "8:..\\bin\\qt\\platforms\\qwindows.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\platforms\\qwindows.dll"
             "TargetName" = "8:qwindows.dll"
             "Tag" = "8:"
             "Folder" = "8:_9529A5FE87314608A3658FEBF5B4E145"
@@ -2022,7 +2022,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D1DB0A5FD6424B42B135680D155D1F37"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\EagleEyeRender.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\EagleEyeRender.dll"
             "TargetName" = "8:EagleEyeRender.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -2042,7 +2042,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D28BAD7F51C34C769B0A12DB31AA9E0B"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\AudioRender.dll"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\AudioRender.dll"
             "TargetName" = "8:AudioRender.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -2062,7 +2062,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D36A5B4F8EC14739BEAB9E58EEC27E34"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_pl.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_pl.qm"
             "TargetName" = "8:qt_pl.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -2082,7 +2082,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D468BB7F768F4A1BB3DE9A0D221C8B81"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\8.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\8.jpg"
             "TargetName" = "8:8.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -2102,7 +2102,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DA5CA6E50B374D61B33AAE7C6BDF3D8F"
             {
-            "SourcePath" = "8:..\\bin\\qt\\imageformats\\qjpeg.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qjpeg.dll"
             "TargetName" = "8:qjpeg.dll"
             "Tag" = "8:"
             "Folder" = "8:_032ACE18269A46F1979775F81F485FC4"
@@ -2122,7 +2122,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DCB074A5809E4EA2B09367CFB365AAF7"
             {
-            "SourcePath" = "8:..\\bin\\qt\\sqldrivers\\qsqlite.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\sqldrivers\\qsqlite.dll"
             "TargetName" = "8:qsqlite.dll"
             "Tag" = "8:"
             "Folder" = "8:_24B87D0C9B644A38BD4A69A471AEB492"
@@ -2142,7 +2142,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DD47946563514FEF9B820585F21A68E2"
             {
-            "SourcePath" = "8:..\\bin\\qt\\audio\\qtaudio_wasapi.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\audio\\qtaudio_wasapi.dll"
             "TargetName" = "8:qtaudio_wasapi.dll"
             "Tag" = "8:"
             "Folder" = "8:_2303685E470142EEAB839B3BB731EED1"
@@ -2162,7 +2162,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEF00A1702A041798413B45788A3C54E"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5Svg.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5Svg.dll"
             "TargetName" = "8:Qt5Svg.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -2182,7 +2182,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E31FCD33F703475997F47602571DADA4"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\2.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\2.jpg"
             "TargetName" = "8:2.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -2202,7 +2202,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E53CE84EB41B4F518F3B33128D61B2CA"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_de.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_de.qm"
             "TargetName" = "8:qt_de.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -2222,7 +2222,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E9FE19C68FDF42DA8946CCEA055A590F"
             {
-            "SourcePath" = "8:..\\bin\\HIKVISION\\LocalXml.zip"
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\LocalXml.zip"
             "TargetName" = "8:LocalXml.zip"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -2242,7 +2242,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ECB83C5133134727AB9F1A4E5FCCE25C"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_cs.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_cs.qm"
             "TargetName" = "8:qt_cs.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -2262,7 +2262,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDC30E1F79CA4EB2BA431F626D1CB8AC"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\5.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\5.jpg"
             "TargetName" = "8:5.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -2282,7 +2282,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2DD8D800EEE4466AAB3AA136BBE0939"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5Widgets.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5Widgets.dll"
             "TargetName" = "8:Qt5Widgets.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -2302,7 +2302,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F474566CBCFE491C80E56EA19F48B100"
             {
-            "SourcePath" = "8:..\\config\\OcrPattern\\4.jpg"
+            "SourcePath" = "8:..\\dependencies\\config\\OcrPattern\\4.jpg"
             "TargetName" = "8:4.jpg"
             "Tag" = "8:"
             "Folder" = "8:_CE1237A9CC9D4F28A14A9E31A3231101"
@@ -2322,7 +2322,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F8452CF9739A4F408F74B65CCB53E913"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_lv.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_lv.qm"
             "TargetName" = "8:qt_lv.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -2342,7 +2342,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F89E0096C1654C76A1CDCF473F70AF39"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5Sql.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5Sql.dll"
             "TargetName" = "8:Qt5Sql.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -2362,7 +2362,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F95ABC9F598F432FB560B0847E371ABE"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_fi.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_fi.qm"
             "TargetName" = "8:qt_fi.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -2382,7 +2382,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F9868E7B67D24D30B6E3DB1156DD52BD"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_bg.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_bg.qm"
             "TargetName" = "8:qt_bg.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -2402,7 +2402,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FA2C2540B3784B0E891A1DF426FED7F6"
             {
-            "SourcePath" = "8:..\\bin\\qt\\translations\\qt_ru.qm"
+            "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_ru.qm"
             "TargetName" = "8:qt_ru.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
@@ -2422,7 +2422,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FAE53A76486148ADABA81334AB55DF3A"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5MultimediaWidgets.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5MultimediaWidgets.dll"
             "TargetName" = "8:Qt5MultimediaWidgets.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -2442,7 +2442,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FC4D7074AB7943678A39040FDC5C4297"
             {
-            "SourcePath" = "8:..\\bin\\qt\\Qt5Gui.dll"
+            "SourcePath" = "8:..\\dependencies\\qt\\Qt5Gui.dll"
             "TargetName" = "8:Qt5Gui.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
@@ -3256,7 +3256,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_5D22B02452C04DC681329287A3A033F0"
             {
-            "SourcePath" = "8:..\\bin\\quazip\\quazip.dll"
+            "SourcePath" = "8:..\\dependencies\\quazip\\quazip.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"

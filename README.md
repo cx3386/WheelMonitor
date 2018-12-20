@@ -32,7 +32,7 @@ FAQ:
 - VS2017(with Qt VS TOOLS)
 - Qt 5.10.0
 
-打开WheelMonitor.Sln，编译即可
+打开WheelMonitor.Sln，全部生成。运行WheelMonitorSetup\deploytoinstall.bat,将生成的安装包部署到installl文件夹中
 
 ## 开发
 
