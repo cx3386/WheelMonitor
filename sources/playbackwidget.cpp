@@ -60,7 +60,7 @@ PlayBackWidget::PlayBackWidget(QWidget* parent)
     tableLayout->addWidget(allView);
     connect(viewCb, SIGNAL(activated(int)), tableLayout, SLOT(setCurrentIndex(int)));
     connect(viewCb, SIGNAL(currentIndexChanged(int)), this, SLOT(clearMedia(int)));
-    connect(viewCb, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, [&](auto i) {
+    connect(viewCb, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, [=](auto i) {
         checkSelBtn->setEnabled(!i);
         checkAllBtn->setEnabled(!i);
     });

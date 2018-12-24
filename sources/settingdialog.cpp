@@ -9,8 +9,8 @@ SettingDialog::SettingDialog(ConfigHelper* ch, QWidget* parent /*= Q_NULLPTR*/)
 	ui.setupUi(this);
 	ini2ui();
 
-	connect(ui.buttonBox, &QDialogButtonBox::accepted, this, [&]() {ui2ini(); qWarning() << "Option changed"; this->accept(); });
-	connect(ui.buttonBox, &QDialogButtonBox::rejected, this, [&]() {helper->read(); this->reject(); });
+	connect(ui.buttonBox, &QDialogButtonBox::accepted, this, [this]() {ui2ini(); qWarning() << "Option changed"; this->accept(); });
+	connect(ui.buttonBox, &QDialogButtonBox::rejected, this, [this]() {helper->read(); this->reject(); });
 	connect(ui.buttonBox->button(QDialogButtonBox::Reset), &QPushButton::clicked, this, &SettingDialog::ini2ui);
 
 	connect(ui.roiSpinBox_x, SIGNAL(valueChanged(int)), this, SLOT(roiSlot(int)));
@@ -22,33 +22,33 @@ SettingDialog::SettingDialog(ConfigHelper* ch, QWidget* parent /*= Q_NULLPTR*/)
 	connect(ui.roiSpinBox_w_3, SIGNAL(valueChanged(int)), this, SLOT(roiSlot(int)));
 	connect(ui.roiSpinBox_h_3, SIGNAL(valueChanged(int)), this, SLOT(roiSlot(int)));
 
-	auto onChanged = [&]() {ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true); };
-	auto onChanged1 = [&](const QString &) {ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true); };
+	auto onChanged = [this]() { ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true); };
+	auto onChanged1 = [this](const QString&) { ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true); };
 	connect(ui.LaunchAtLoginCheckBox, &QCheckBox::stateChanged, this, onChanged);
 	connect(ui.startAtLaunchCheckBox, &QCheckBox::stateChanged, this, onChanged);
 	connect(ui.verboseLogCheckBox, &QCheckBox::stateChanged, this, onChanged);
 	//dev1
-	connect(ui.capIntervalSpinBox, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.capIntervalSpinBox, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
 	connect(ui.sensorCheckBox, &QCheckBox::stateChanged, this, onChanged);
-	connect(ui.alarmRatioSpinBox, static_cast<void (QDoubleSpinBox::*)(const QString &)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
-	connect(ui.warningRatioSpinBox, static_cast<void (QDoubleSpinBox::*)(const QString &)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
-	connect(ui.radiusMaxSpinBox, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.radiusMinSpinBox, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_x, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_y, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_w, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_h, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.alarmRatioSpinBox, static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
+	connect(ui.warningRatioSpinBox, static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
+	connect(ui.radiusMaxSpinBox, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.radiusMinSpinBox, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.roiSpinBox_x, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.roiSpinBox_y, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.roiSpinBox_w, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.roiSpinBox_h, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
 	//dev2
-	connect(ui.capIntervalSpinBox_3, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.capIntervalSpinBox_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
 	connect(ui.sensorCheckBox_3, &QCheckBox::stateChanged, this, onChanged);
-	connect(ui.alarmRatioSpinBox_3, static_cast<void (QDoubleSpinBox::*)(const QString &)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
-	connect(ui.warningRatioSpinBox_3, static_cast<void (QDoubleSpinBox::*)(const QString &)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
-	connect(ui.radiusMaxSpinBox_3, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.radiusMinSpinBox_3, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_x_3, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_y_3, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_w_3, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_h_3, static_cast<void (QSpinBox::*)(const QString &)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.alarmRatioSpinBox_3, static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
+	connect(ui.warningRatioSpinBox_3, static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
+	connect(ui.radiusMaxSpinBox_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.radiusMinSpinBox_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.roiSpinBox_x_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.roiSpinBox_y_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.roiSpinBox_w_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	connect(ui.roiSpinBox_h_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
 
 	ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 }

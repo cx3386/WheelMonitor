@@ -60,7 +60,9 @@ Player::Player(QWidget* parent)
 	connect(player, SIGNAL(videoAvailableChanged(bool)), this, SLOT(videoAvailableChanged(bool)));
 
 	videoWidget = new VideoWidget(this);
+	videoWidget->setAspectRatioMode(Qt::IgnoreAspectRatio);
 	videoWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	//videoWidget->setFixedSize(720, 405);
 	player->setVideoOutput(videoWidget);
 
 	slider = new CustomSlider(Qt::Horizontal, this);
@@ -93,7 +95,7 @@ Player::Player(QWidget* parent)
 	connect(this, SIGNAL(pause()), player, SLOT(pause()));
 
 	setState(player->state());
-	connect(player, SIGNAL(stateChanged(QMediaPlayer::State)), this, SLOT(setState(QMediaPlayer::State)));	//play/pause
+	connect(player, SIGNAL(stateChanged(QMediaPlayer::State)), this, SLOT(setState(QMediaPlayer::State))); //play/pause
 
 	fullScreenButton = new QPushButton(this);
 	fullScreenButton->setCheckable(true);
@@ -125,11 +127,11 @@ Player::Player(QWidget* parent)
 Player::~Player()
 = default;
 
-void Player::setUrl(const QUrl & url)
+void Player::setUrl(const QUrl& url)
 {
 	player->setMedia(url);
 	currentFileName = url.toLocalFile();
-	emit playButton->clicked();	//if detect media changed, start play
+	emit playButton->clicked(); //if detect media changed, start play
 }
 
 void Player::durationChanged(qint64 duration)

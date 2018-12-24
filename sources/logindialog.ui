@@ -3,14 +3,14 @@
  <class>LoginDialog</class>
  <widget class="QDialog" name="LoginDialog">
   <property name="windowModality">
-   <enum>Qt::NonModal</enum>
+   <enum>Qt::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>314</width>
-    <height>115</height>
+    <width>262</width>
+    <height>87</height>
    </rect>
   </property>
   <property name="sizePolicy">

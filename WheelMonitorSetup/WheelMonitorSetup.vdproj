@@ -27,7 +27,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0881D359AA054141858FF395A9C51EB3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0BCA22CD4C9D4C78A8C73436A68AEB2E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0DF3233F8C32404798A8172FFDB04291"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_111F8A92110940E58163D34581861D95"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,6 +69,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1A56A93F28C844F1B673624025494BCC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1FFAF1A214DB4751BE5EAA553EF86FCF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -58,6 +82,12 @@
         "Entry"
         {
         "MsmKey" = "8:_25C039897CD643569FB338214C2A1DE4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3160231122A641CEA3B6349133ED1D6D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -82,6 +112,12 @@
         "Entry"
         {
         "MsmKey" = "8:_403628DDAB9D491A99C6EC279E6B7C27"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_405C18E935544E7D9F6833C5D03FD3BC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -201,6 +237,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6542D2A5C01643E29906BE85C14CA1B2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_66F4BC82114246CABD81C41B5E3D3797"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -214,12 +256,6 @@
         "Entry"
         {
         "MsmKey" = "8:_6EA14174E7364F689FB79E4A2FCEB95F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6FE041D1B7B94073BB17DCFDA571AD8E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -256,6 +292,12 @@
         "Entry"
         {
         "MsmKey" = "8:_7F051D9B6E1346A381A623068323F899"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7FAB9FC769AA4440BD0151EEEA6E699C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -381,6 +423,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B2FA7AECCA0E497693E0BE0719D9D77F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B6CCECFD58604BEC8C9ACDD1192E62FA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -436,6 +484,12 @@
         "Entry"
         {
         "MsmKey" = "8:_CF28C86B8C7B4757B3C4C5C55CACA6ED"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D134AAE6D2984FCF9D370568A1385441"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -501,6 +555,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E8EE83274E56426B9517CD7C8FAD1897"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E9FE19C68FDF42DA8946CCEA055A590F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -531,6 +591,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F7E76C4DFF5D4604B939A7B41A49EB59"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F8452CF9739A4F408F74B65CCB53E913"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -538,6 +604,12 @@
         "Entry"
         {
         "MsmKey" = "8:_F89E0096C1654C76A1CDCF473F70AF39"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F915124111844C25BD93A954F2FFBF33"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -562,6 +634,12 @@
         "Entry"
         {
         "MsmKey" = "8:_FAE53A76486148ADABA81334AB55DF3A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FB7C13F2BCAF4B21B2A98669EC1D8453"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -611,20 +689,6 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_767908B4B2CC4359BA063FC781E91CBC"
-            {
-            "Name" = "8:K-Lite_Codec_Pack_1455_Basic.exe"
-            "Condition" = "8:"
-            "Object" = "8:_6FE041D1B7B94073BB17DCFDA571AD8E"
-            "FileType" = "3:2"
-            "InstallAction" = "3:2"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_3F7F3F77_2584_45B6_AF9F_7B9C11FDAA37"
-            "InstallerClass" = "11:FALSE"
-            "CustomActionData" = "8:"
-            }
         }
         "DefaultFeature"
         {
@@ -680,12 +744,72 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0881D359AA054141858FF395A9C51EB3"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\HCGeneralCfgMgr.dll"
+            "TargetName" = "8:HCGeneralCfgMgr.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0BCA22CD4C9D4C78A8C73436A68AEB2E"
             {
             "SourcePath" = "8:..\\dependencies\\qt\\libEGL.dll"
             "TargetName" = "8:libEGL.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0DF3233F8C32404798A8172FFDB04291"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\libiconv2.dll"
+            "TargetName" = "8:libiconv2.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_111F8A92110940E58163D34581861D95"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\HCIndustry.dll"
+            "TargetName" = "8:HCIndustry.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -760,6 +884,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A56A93F28C844F1B673624025494BCC"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\HCAlarm.dll"
+            "TargetName" = "8:HCAlarm.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1FFAF1A214DB4751BE5EAA553EF86FCF"
             {
             "SourcePath" = "8:..\\dependencies\\qt\\imageformats\\qico.dll"
@@ -786,6 +930,26 @@
             "TargetName" = "8:qt_ar.qm"
             "Tag" = "8:"
             "Folder" = "8:_F2BED40C9B7C467399D42E83C50AD992"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3160231122A641CEA3B6349133ED1D6D"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\AnalyzeData.dll"
+            "TargetName" = "8:AnalyzeData.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -866,6 +1030,26 @@
             "TargetName" = "8:libGLESV2.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_405C18E935544E7D9F6833C5D03FD3BC"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\OpenAL32.dll"
+            "TargetName" = "8:OpenAL32.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1220,6 +1404,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6542D2A5C01643E29906BE85C14CA1B2"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\HCDisplay.dll"
+            "TargetName" = "8:HCDisplay.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_66F4BC82114246CABD81C41B5E3D3797"
             {
             "SourcePath" = "8:..\\dependencies\\HIKVISION\\hpr.dll"
@@ -1266,26 +1470,6 @@
             "TargetName" = "8:HCCore.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6FE041D1B7B94073BB17DCFDA571AD8E"
-            {
-            "SourcePath" = "8:..\\tools\\K-Lite\\K-Lite_Codec_Pack_1455_Basic.exe"
-            "TargetName" = "8:K-Lite_Codec_Pack_1455_Basic.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_F3F445EECC36429AA89E5481CE3A5196"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1406,6 +1590,26 @@
             "TargetName" = "8:log4cxx.properties"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7FAB9FC769AA4440BD0151EEEA6E699C"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\HCVoiceTalk.dll"
+            "TargetName" = "8:HCVoiceTalk.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1820,6 +2024,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B2FA7AECCA0E497693E0BE0719D9D77F"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\AudioIntercom.dll"
+            "TargetName" = "8:AudioIntercom.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6CCECFD58604BEC8C9ACDD1192E62FA"
             {
             "SourcePath" = "8:..\\dependencies\\HIKVISION\\NPQos.dll"
@@ -2006,6 +2230,26 @@
             "TargetName" = "8:qwindows.dll"
             "Tag" = "8:"
             "Folder" = "8:_9529A5FE87314608A3658FEBF5B4E145"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D134AAE6D2984FCF9D370568A1385441"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\HCPlayBack.dll"
+            "TargetName" = "8:HCPlayBack.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2220,6 +2464,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E8EE83274E56426B9517CD7C8FAD1897"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\HCCoreDevCfg.dll"
+            "TargetName" = "8:HCCoreDevCfg.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E9FE19C68FDF42DA8946CCEA055A590F"
             {
             "SourcePath" = "8:..\\dependencies\\HIKVISION\\LocalXml.zip"
@@ -2320,6 +2584,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F7E76C4DFF5D4604B939A7B41A49EB59"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\HCPreview.dll"
+            "TargetName" = "8:HCPreview.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F8452CF9739A4F408F74B65CCB53E913"
             {
             "SourcePath" = "8:..\\dependencies\\qt\\translations\\qt_lv.qm"
@@ -2346,6 +2630,26 @@
             "TargetName" = "8:Qt5Sql.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F915124111844C25BD93A954F2FFBF33"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\StreamTransClient.dll"
+            "TargetName" = "8:StreamTransClient.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2426,6 +2730,26 @@
             "TargetName" = "8:Qt5MultimediaWidgets.dll"
             "Tag" = "8:"
             "Folder" = "8:_03C69C26569749FDBC3681084B6F9333"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FB7C13F2BCAF4B21B2A98669EC1D8453"
+            {
+            "SourcePath" = "8:..\\dependencies\\HIKVISION\\HCNetSDKCom\\SystemTransform.dll"
+            "TargetName" = "8:SystemTransform.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5555897148E74C879E799B0441B24987"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2542,6 +2866,17 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5555897148E74C879E799B0441B24987"
+                    {
+                    "Name" = "8:HCNetSDKCom"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_F94014AA586042A799850E48A3C99514"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_76BDE7244C344A4F99D62A098D204479"
                     {
                     "Name" = "8:iconengines"
@@ -2619,17 +2954,6 @@
                         {
                         }
                     }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F3F445EECC36429AA89E5481CE3A5196"
-                    {
-                    "Name" = "8:tools"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_EDE8D9B07A9A41CFAF7C0C99F538D19A"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_C2CADD58FB0C406884479178211B255B"
@@ -2679,7 +3003,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WheelMonitor"
         "ProductCode" = "8:{9452EB7A-491A-453F-90B8-FA8599648C40}"
-        "PackageCode" = "8:{EC859131-03A3-4790-9FDC-66CDA8964875}"
+        "PackageCode" = "8:{E91DCC73-F830-4EED-B932-5D5C2540793E}"
         "UpgradeCode" = "8:{8EE7A6C4-CFDC-4904-B27B-875F775C5FD0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"

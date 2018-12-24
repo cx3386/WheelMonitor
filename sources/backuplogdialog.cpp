@@ -43,7 +43,7 @@ BackupLogDialog::BackupLogDialog(QWidget* parent)
         /************************************************************************/
         /* isSel                                                                     */
         /************************************************************************/
-        connect(selCheckBox, &QCheckBox::toggled, this, [&](const bool b) {
+        connect(selCheckBox, &QCheckBox::toggled, this, [this](const bool b) {
             QCheckBox* cb = qobject_cast<QCheckBox*>(sender());
             int id = cb->objectName().toInt();
             backupInfoList[id].isSelected = b;
@@ -60,7 +60,7 @@ BackupLogDialog::BackupLogDialog(QWidget* parent)
         /************************************************************************/
         /* day                                                                     */
         /************************************************************************/
-        connect(spinBox, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, [&](const int d) {
+        connect(spinBox, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, [this](const int d) {
             QSpinBox* sp = qobject_cast<QSpinBox*>(sender()); //without holding up sender, the cast will fail
             int id = sp->objectName().toInt();
             backupInfoList[id].day = d; //QList::at(int)  «÷ª∂¡∑√Œ 
@@ -81,7 +81,7 @@ BackupLogDialog::BackupLogDialog(QWidget* parent)
         /************************************************************************/
         /* all                                                                     */
         /************************************************************************/
-        connect(btnGroup, static_cast<void (QButtonGroup::*)(int, bool)>(&QButtonGroup::buttonToggled), this, [&](const int btnID, bool state) {
+        connect(btnGroup, static_cast<void (QButtonGroup::*)(int, bool)>(&QButtonGroup::buttonToggled), this, [this](const int btnID, bool state) {
             QButtonGroup* bg = qobject_cast<QButtonGroup*>(sender());
             int id = bg->objectName().toInt();
             switch (btnID) {
