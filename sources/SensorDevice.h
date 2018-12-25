@@ -11,8 +11,10 @@ class Sensor : public QObject {
 	Q_OBJECT
 public:
 	Sensor(int _id, CkPt* parent);
-	int id; //最低位: 0-0;1-1
-	int m_id; //id的最低位
+	int id; //!< 000~111
+	int show_id; //!< 标记的位置，1~8
+	int m_id; //id的最低位 0-l,1-r
+	static int id_gb2mem(int gid) { return gid & 1; /*取最低位*/ } //!< 由global id获得局部id
 	static int indexOf(QString _name) { return names.indexOf(_name); }
 	static const QStringList names; //!< 每个检测点的传感器
 	static QList<Sensor*> createAll(CkPt* parent);
@@ -21,10 +23,10 @@ public:
 	CkPt* parentCkPt;
 	QString name;
 	int nTri; // 传感器触发的次数,一个周期内，只应出现一次
-	bool expected = true; //!< 记录传感器是否坏掉
+	bool expected = false; //!< 记录传感器是否坏掉
+	bool broken = true; //!< 记录传感器是否坏掉（周期结束时更新）
 	LevelRecorder sample; //!< 记录传感器的采样信息
-	int lastbroken = 2; //!< 上个周期内，是否坏掉0-no;1-may;2-yes,初始化为坏掉，即开机自检后显示为正常
-	int broken; //!< 记录传感器是否坏掉（周期结束时更新）
+	//int lastbroken = 2; //!< 上个周期内，是否坏掉0-no;1-may;2-yes,初始化为坏掉，即开机自检后显示为正常
 private:
 };
 
@@ -32,11 +34,12 @@ class CkPt : public QObject {
 	Q_OBJECT
 public:
 	CkPt(int _id, SensorDevice* parent);
-	int id; //最低位:0-l;1-r //即00外左进 01外右出 10内左出 11内右进
-	int m_id;
+	int id; //即00外左进 01外右出 10内左出 11内右进
+	int m_id;//最低位:0-l;1-r
 	SensorDevice* parentDev;
 	QString name;
-	//LevelRecorder expectIn; //!< 根据台车速度积分，预测是否到达检测点
+	bool hasTri = false;
+	static int gid2mid(int gid) { return gid & 1; /*取最低位*/ } //!< 由global id获得局部id
 	static int indexOf(QString _name) { return names.indexOf(_name); }
 	static const QStringList names; //!< 每个检测点的传感器
 	static QList<CkPt*> creatAll(SensorDevice* parent); //!< 一次性创建所有的检测点
@@ -60,8 +63,9 @@ public:
 	int id;
 	int m_id; //0-o;1-i
 	QString name;
-	int alarm; //0-正常,1-由下次循环判断,2-掉轮
-	int lastalarm; //!< 只有一个传感器是好的，这个好的传感器又没亮，则无法判断是设备故障还是掉轮故障。交由下一个循环判断
+	//int alarm; //0-正常,1-由下次循环判断,2-掉轮
+	//int lastalarm; //!< 只有一个传感器是好的，这个好的传感器又没亮，则无法判断是设备故障还是掉轮故障。交由下一个循环判断
+	bool needHandled = false;
 	static int indexOf(QString _name) { return names.indexOf(_name); }
 	static const QStringList names;
 	static QList<SensorDevice*> createAll(QObject* parent);

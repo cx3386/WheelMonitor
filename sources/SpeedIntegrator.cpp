@@ -1,20 +1,20 @@
 #include "stdafx.h"
 #include "Plc.h"
-#include "TrunckRef.h"
+#include "SpeedIntegrator.h"
 
-const double TrunckRef::std_L = 2.45;
-const double TrunckRef::dist_min = std_L - 0.1;
-const double TrunckRef::dist_max = std_L + 0.1;
-TrunckRef::TrunckRef(Plc* plcSerial, QObject* parent /*= Q_NULLPTR*/)
+const double SpeedIntegrator::std_L = 2.45;
+const double SpeedIntegrator::dist_min = std_L - 0.1;
+const double SpeedIntegrator::dist_max = std_L + 0.1;
+SpeedIntegrator::SpeedIntegrator(Plc* plcSerial, QObject* parent /*= Q_NULLPTR*/)
 	: QObject(parent)
 	, plc(plcSerial)
 {
 }
 
-TrunckRef::~TrunckRef()
+SpeedIntegrator::~SpeedIntegrator()
 = default;
 
-void TrunckRef::start()
+void SpeedIntegrator::start()
 {
 	//这里必须用[=]而不是[&]
 	QTimer::singleShot(0, this, [=]() {
@@ -26,12 +26,12 @@ void TrunckRef::start()
 	});
 }
 
-void TrunckRef::stop()
+void SpeedIntegrator::stop()
 {
 	QTimer::singleShot(0, this, [=]() { bUsrCtrl = false; }); //用timeevent，避免跨线程操作带来的锁的管理。但是需要直接get的value，必须通过锁管理
 }
 
-void TrunckRef::speedIntegrator()
+void SpeedIntegrator::speedIntegrator()
 {
 	if (!bUsrCtrl)
 		return;
@@ -58,7 +58,7 @@ void TrunckRef::speedIntegrator()
 	}
 }
 
-void TrunckRef::onCkpTri(int ckpId)
+void SpeedIntegrator::onCkpTri(int ckpId)
 {
 	auto& ckp = ckps[ckpId];
 	if (!ckp.bFirstStart)

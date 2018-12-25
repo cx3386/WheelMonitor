@@ -13,6 +13,8 @@ class Plc;
 class QThread;
 class ConfigHelper;
 class AlarmManager;
+class QSqlTableModel;
+class QDataWidgetMapper;
 enum class AlarmColor;
 class MainWindow : public QMainWindow {
 	Q_OBJECT
@@ -31,9 +33,7 @@ private:
 	QLabel* recLabel_input[2]; //in real frame
 	/* worker */
 	HikVideoCapture* videoCapture[2];
-
 	PlayBackWidget* playBackWidget;
-
 	ImageProcess* imageProcess[2];
 	Plc* plc;
 	AlarmManager* alarmManager;
@@ -43,9 +43,14 @@ private:
 	QThread* imageProcessThread[2];
 	QThread* plcThread;
 	QThread* dbWatcherThread;
+	//数据模型和映射
+	QSqlTableModel *outerModel, *innerModel;
+	QDataWidgetMapper *outerMapper, *innerMapper, *alarmMapper;
 	/*global*/
 	void configWindow();
-	bool cleanDir(QString dir, int nDays); ///< retain nDays save files, include video/match/log and so on, defualt retain for 0 days, which means clean all
+	void setupDatabaseWatcher(); //!< 建立对数据库文件的监视
+	void setupDataMapper(); //!< 建立数据库与界面的映射关系
+	bool cleanDir(QString dir, int nDays); //!< retain nDays save files, include video/match/log and so on, defualt retain for 0 days, which means clean all
 	/* alarm number show */
 	//void alarmNumUiSetup();
 
@@ -64,7 +69,7 @@ private slots:
 	void uiShowRealtimeImage(int deviceIndex);
 	void uiShowTruckSpeed();
 	void uiShowCio0(int cio0);
-	void uiShowSensor(int state);
+	void uiShowSensor(int state, int devId);
 	/* onAlarmChanged */
 	//void onAlarmChanged(AlarmEvent alarmevent);
 	// about REC Label show

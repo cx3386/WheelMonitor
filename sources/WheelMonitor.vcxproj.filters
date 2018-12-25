@@ -107,9 +107,6 @@
     <ClCompile Include="settingdialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TrunckRef.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="videowidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -123,6 +120,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedIntegrator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HandleSensorDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -216,9 +219,6 @@
     <QtMoc Include="settingdialog.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="TrunckRef.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="videowidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -229,6 +229,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="3rdparty\singleapplication\singleapplication_p.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SpeedIntegrator.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HandleSensorDevice.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

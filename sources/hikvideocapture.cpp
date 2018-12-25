@@ -98,7 +98,7 @@ bool HikVideoCapture::start()
 
 bool HikVideoCapture::stop()
 {
-	QTimer::singleShot(0, this, [=] {stopRecord(deviceIndex); }); //从子线程操作
+	QTimer::singleShot(0, this, [=] {stopRecord(); }); //从子线程操作
 	// 等待，直到录制已经停止
 	while (bIsRecording) {
 		QCoreApplication::processEvents();
@@ -117,9 +117,8 @@ bool HikVideoCapture::stop()
 	return ret;
 }
 
-void HikVideoCapture::startRecord(int devId)
+void HikVideoCapture::startRecord()
 {
-	if (devId != this->deviceIndex) return;
 	QMutexLocker locker(&mutex);
 	if (bIsRecording)
 		return;
@@ -140,7 +139,7 @@ void HikVideoCapture::startRecord(int devId)
 	timeoutTimer->setSingleShot(true); // 不直接用QTimer::singleShot，因为一旦开始，无法stop
 	timeoutTimer->setInterval(MAX_RECORD_MSEC); // 设置超时时间为100s
 	connect(timeoutTimer, &QTimer::timeout, this, [=] {
-		stopRecord(deviceIndex); //子线程
+		stopRecord(); //子线程
 		emit recordTimeout();
 	});
 	timeoutTimer->start(); //If the timer is already running, it will be stopped and restarted.
@@ -148,9 +147,8 @@ void HikVideoCapture::startRecord(int devId)
 	emit recordON();
 }
 
-void HikVideoCapture::stopRecord(int devId)
+void HikVideoCapture::stopRecord()
 {
-	if (devId != this->deviceIndex)return;
 	QMutexLocker locker(&mutex);
 	if (!bIsRecording)
 		return;

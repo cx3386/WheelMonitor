@@ -543,6 +543,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E2C6550A8C714A0CAB151221A7DDFC41"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E31FCD33F703475997F47602571DADA4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -3003,7 +3009,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WheelMonitor"
         "ProductCode" = "8:{9452EB7A-491A-453F-90B8-FA8599648C40}"
-        "PackageCode" = "8:{E91DCC73-F830-4EED-B932-5D5C2540793E}"
+        "PackageCode" = "8:{C5F37B7E-DA12-480F-B561-E68E7B86545A}"
         "UpgradeCode" = "8:{8EE7A6C4-CFDC-4904-B27B-875F775C5FD0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -3578,7 +3584,7 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_5D22B02452C04DC681329287A3A033F0"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E2C6550A8C714A0CAB151221A7DDFC41"
             {
             "SourcePath" = "8:..\\dependencies\\quazip\\quazip.dll"
             "TargetName" = "8:"

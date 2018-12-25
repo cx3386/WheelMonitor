@@ -89,7 +89,7 @@ signals:
 	void recordOFF();
 
 public slots:
-	void startRecord(int devId); //! 涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
-	void stopRecord(int devId); //!  涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+	void startRecord(); //! 涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+	void stopRecord(); //!  涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
 	inline void frameProcessed() { nPendingFrame--; }
 };

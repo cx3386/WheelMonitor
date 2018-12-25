@@ -92,45 +92,7 @@ void MainWindow::configWindow()
 	auto* playBackLayout = new QGridLayout(ui.playbackTab);
 	playBackLayout->addWidget(playBackWidget);
 	connect(ui.centralTabWidget, &QTabWidget::currentChanged, playBackWidget, &PlayBackWidget::clearMedia);
-	// monitorTab
-	/* alarm num ui show*/
-	connect(ui.alarmLCDBoard, &AlarmLCDBoard::clicked, this, [=]() { ui.centralTabWidget->setCurrentIndex(2); });
-	// 创建数据库wheels表的Model，分别用于显示内外圈
-	// 外圈
-	auto outerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
-	outerModel->setTable("wheels");
-	outerModel->setFilter("i_o=0");
-	outerModel->select();
-	// 显示内圈的model
-	auto innerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
-	innerModel->setTable("wheels");
-	innerModel->setFilter("i_o=1");
-	innerModel->select();
-	/* 把Model中的数据映射到dashboard中 */
-	QDataWidgetMapper* outerMapper = new QDataWidgetMapper(this);
-	outerMapper->setModel(outerModel);
-	outerMapper->addMapping(ui.numLineEdit_o, Wheel_Num);
-	outerMapper->addMapping(ui.lastSpeedLineEdit_o, Wheel_CalcSpeed);
-	outerMapper->toLast();
-	QDataWidgetMapper* innerMapper = new QDataWidgetMapper(this);
-	innerMapper->setModel(innerModel);
-	innerMapper->addMapping(ui.numLineEdit_i, Wheel_Num);
-	innerMapper->addMapping(ui.lastSpeedLineEdit_i, Wheel_CalcSpeed);
-	innerMapper->toLast();
-	/* 把数据库“alarm”表格中的数据映射到AlarmNumBoard中 */
-	QDataWidgetMapper* alarmMapper = new QDataWidgetMapper(this);
-	alarmMapper->setModel((QSqlTableModel*)(playBackWidget->alarmModel));
-	alarmMapper->addMapping(ui.alarmLCDBoard->devName, Wheel_I_O);
-	alarmMapper->addMapping(ui.alarmLCDBoard->alarmNum, Wheel_Num);
-	alarmMapper->toLast(); //最近的报警
-	ui.numBackwardBtn->setEnabled(alarmMapper->currentIndex() > 0);
-	ui.numForwardBtn->setEnabled(false);
-	connect(ui.numBackwardBtn, &QPushButton::clicked, alarmMapper, &QDataWidgetMapper::toPrevious);
-	connect(ui.numForwardBtn, &QPushButton::clicked, alarmMapper, &QDataWidgetMapper::toNext);
-	connect(alarmMapper, &QDataWidgetMapper::currentIndexChanged, this, [=](int row) {
-		ui.numBackwardBtn->setEnabled(row > 0);
-		ui.numForwardBtn->setEnabled(row < playBackWidget->alarmModel->rowCount() - 1);
-	});
+	setupDataMapper();
 
 	//CARE init order: cap, plc, improc
 	/* video capture */
@@ -169,7 +131,8 @@ void MainWindow::configWindow()
 	alarmManager->bindImProc(imageProcess[1]);
 	/* sensor light */
 	connect(plc, &Plc::cio0Update, this, &MainWindow::uiShowCio0); //显示cio0
-	connect(plc, &Plc::sensorUpdate, this, &MainWindow::uiShowSensor); //判断传感器是否发生故障
+	connect(plc->handleSensorDevice[0], &HandleSensorDevice::sensorUpdate, this, [=](int state) {uiShowSensor(state, 0); }); //判断传感器是否发生故障
+	connect(plc->handleSensorDevice[1], &HandleSensorDevice::sensorUpdate, this, [=](int state) {uiShowSensor(state, 1); }); //判断传感器是否发生故障
 	connect(plc, &Plc::connectError, this, [=](int errorId) {
 		if (errorId == 0) {
 			ui.statusBar->showMessage(QStringLiteral("连接至PLC"));
@@ -190,14 +153,7 @@ void MainWindow::configWindow()
 	imageProcess[0]->init();
 	imageProcess[1]->init();
 
-	/* database file watcher */
-	dbWatcherThread = new QThread(this);
-	auto* watcher = new QFileSystemWatcher;
-	watcher->addPath(databaseFilePath);
-	watcher->moveToThread(dbWatcherThread);
-	//connect(dbWatcherThread, &QThread::finished, watcher, &QFileSystemWatcher::deleteLater); // watcher在堆上，由this管理，不要去管它
-	connect(watcher, &QFileSystemWatcher::fileChanged, playBackWidget, &PlayBackWidget::dbChanged);
-	dbWatcherThread->start();
+	setupDatabaseWatcher();
 
 	setupScheduler(12, 00, true, true); //setup the daily planningTask at 12,00
 }
@@ -363,44 +319,50 @@ void MainWindow::uiShowCio0(int cio0)
 }
 
 //! 更新界面的光电传感器状态
-void MainWindow::uiShowSensor(int state)
+void MainWindow::uiShowSensor(int state, int devId)
 {
 	QIcon green = QIcon(QPixmap(":/WheelMonitor/Resources/images/green.png"));
 	QIcon red = QIcon(QPixmap(":/WheelMonitor/Resources/images/red.png"));
 	//QIcon gray = QIcon(QPixmap(":/WheelMonitor/Resources/images/gray.png"));
 	bool bit;
 	QIcon icon;
-	bit = state & 1;
-	icon = bit ? green : red;
-	ui.btn_sol0->setIcon(icon); //1
-	state = state >> 1;
-	bit = state & 1;
-	icon = bit ? green : red;
-	ui.btn_sol1->setIcon(icon); //2
-	state = state >> 1;
-	bit = state & 1;
-	icon = bit ? green : red;
-	ui.btn_sor0->setIcon(icon); //3
-	state = state >> 1;
-	bit = state & 1;
-	icon = bit ? green : red;
-	ui.btn_sor1->setIcon(icon); //4
-	state = state >> 1;
-	bit = state & 1;
-	icon = bit ? green : red;
-	ui.btn_sir0->setIcon(icon); //5
-	state = state >> 1;
-	bit = state & 1;
-	icon = bit ? green : red;
-	ui.btn_sir1->setIcon(icon); //6
-	state = state >> 1;
-	bit = state & 1;
-	icon = bit ? green : red;
-	ui.btn_sil0->setIcon(icon); //7
-	state = state >> 1;
-	bit = state & 1;
-	icon = bit ? green : red;
-	ui.btn_sil1->setIcon(icon); //8
+	//只更新外圈
+	if (devId == 0) {
+		bit = state & 1;
+		icon = bit ? green : red;
+		ui.btn_sol0->setIcon(icon); //1
+		state = state >> 1;
+		bit = state & 1;
+		icon = bit ? green : red;
+		ui.btn_sol1->setIcon(icon); //2
+		state = state >> 1;
+		bit = state & 1;
+		icon = bit ? green : red;
+		ui.btn_sor0->setIcon(icon); //3
+		state = state >> 1;
+		bit = state & 1;
+		icon = bit ? green : red;
+		ui.btn_sor1->setIcon(icon); //4
+	}
+	//只更新内圈
+	else if (devId == 1) {
+		state = state >> 4;
+		bit = state & 1;
+		icon = bit ? green : red;
+		ui.btn_sir0->setIcon(icon); //5
+		state = state >> 1;
+		bit = state & 1;
+		icon = bit ? green : red;
+		ui.btn_sir1->setIcon(icon); //6
+		state = state >> 1;
+		bit = state & 1;
+		icon = bit ? green : red;
+		ui.btn_sil0->setIcon(icon); //7
+		state = state >> 1;
+		bit = state & 1;
+		icon = bit ? green : red;
+		ui.btn_sil1->setIcon(icon); //8
+	}
 }
 //! 显示Cio100的灯。即中控报警灯，1为亮，0为灭
 void MainWindow::uiShowCio100(int cio100)
@@ -487,7 +449,7 @@ void MainWindow::on_action_Start_triggered()
 	}
 	// 开始循环读取设备的相关信息
 	plc->start();
-	return;//测试：只打开plc
+	//return;//测试：只打开plc
 	bool cap0 = videoCapture[0]->start();
 	if (cap0) {
 		imageProcess[0]->start();
@@ -620,4 +582,76 @@ void MainWindow::onRecordOFF(int deviceIndex)
 {
 	recLabel_pre[deviceIndex]->setPixmap(QPixmap(":/WheelMonitor/Resources/images/rec_grey.png"));
 	recLabel_input[deviceIndex]->setPixmap(QPixmap(":/WheelMonitor/Resources/images/rec_grey.png"));
+}
+void MainWindow::setupDataMapper()
+{
+	// monitorTab
+	/* alarm num ui show*/
+	connect(ui.alarmLCDBoard, &AlarmLCDBoard::clicked, this, [=]() {
+		ui.centralTabWidget->setCurrentIndex(2);
+		playBackWidget->selectTableCb->setCurrentIndex(0);
+		int row = alarmMapper->currentIndex();
+		playBackWidget->alarmView->selectRow(row);
+	});
+	// 创建数据库wheels表的Model，分别用于显示内外圈
+	// 外圈
+	outerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
+	outerModel->setTable("wheels");
+	outerModel->setFilter("i_o=0");
+	outerModel->select();
+	// 显示内圈的model
+	innerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
+	innerModel->setTable("wheels");
+	innerModel->setFilter("i_o=1");
+	innerModel->select();
+	/* 把Model中的数据映射到dashboard中 */
+	outerMapper = new QDataWidgetMapper(this);
+	outerMapper->setModel(outerModel);
+	outerMapper->addMapping(ui.numLineEdit_o, Wheel_Num);
+	outerMapper->addMapping(ui.lastSpeedLineEdit_o, Wheel_CalcSpeed);
+	outerMapper->toLast();
+	innerMapper = new QDataWidgetMapper(this);
+	innerMapper->setModel(innerModel);
+	innerMapper->addMapping(ui.numLineEdit_i, Wheel_Num);
+	innerMapper->addMapping(ui.lastSpeedLineEdit_i, Wheel_CalcSpeed);
+	innerMapper->toLast();
+	/* 把数据库“alarm”表格中的数据映射到AlarmNumBoard中 */
+	alarmMapper = new QDataWidgetMapper(this);
+	alarmMapper->setModel((QSqlTableModel*)(playBackWidget->alarmModel));
+	alarmMapper->addMapping(ui.alarmLCDBoard->devName, Wheel_I_O);
+	alarmMapper->addMapping(ui.alarmLCDBoard->alarmNum, Wheel_Num);
+	alarmMapper->toLast(); //最近的报警
+	ui.numBackwardBtn->setEnabled(alarmMapper->currentIndex() > 0);
+	ui.numForwardBtn->setEnabled(false);
+	connect(ui.numBackwardBtn, &QPushButton::clicked, alarmMapper, &QDataWidgetMapper::toPrevious);
+	connect(ui.numForwardBtn, &QPushButton::clicked, alarmMapper, &QDataWidgetMapper::toNext);
+	connect(alarmMapper, &QDataWidgetMapper::currentIndexChanged, this, [=](int row) {
+		ui.numBackwardBtn->setEnabled(row > 0);
+		ui.numForwardBtn->setEnabled(row < playBackWidget->alarmModel->rowCount() - 1);
+	});
+}
+
+void MainWindow::setupDatabaseWatcher()
+{
+	/* database file watcher */
+	dbWatcherThread = new QThread(this);
+	auto* watcher = new QFileSystemWatcher;
+	watcher->addPath(databaseFilePath);
+	watcher->moveToThread(dbWatcherThread);
+	//connect(dbWatcherThread, &QThread::finished, watcher, &QFileSystemWatcher::deleteLater); // watcher在堆上，由this管理，不要去管它
+	//如果model更新了，dataWidgetMapper同时更新。但是其他model对数据库的修改的则不能自动提交
+	connect(watcher, &QFileSystemWatcher::fileChanged, this, [=]() {
+		playBackWidget->dbChanged();//注意：这里的slot由this所在的线程做出，跨线程不能这么传
+		alarmMapper->toLast();//更新报警信号至最新,刷新左右翻页和显示（有可能被清除）
+		int row = alarmMapper->currentIndex();
+		ui.numBackwardBtn->setEnabled(row > 0);
+		ui.numForwardBtn->setEnabled(row < playBackWidget->alarmModel->rowCount() - 1);
+
+		outerModel->select();
+		innerModel->select();
+		outerMapper->toLast();
+		innerMapper->toLast();
+	});
+
+	dbWatcherThread->start();
 }

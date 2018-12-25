@@ -27,8 +27,8 @@ ImageProcess::ImageProcess(const ConfigHelper* _configHelper, HikVideoCapture* _
 	connect(videoCapture, &HikVideoCapture::recordTimeout, this, &ImageProcess::onWheelTimeout);
 	connect(plcSerial, &Plc::truckSpeedReady, this, [=]() { rtRefSpeed = plcSerial->getTruckSpeed(deviceIndex); });
 	// plc -> imageprocess
-	connect(plcSerial, &Plc::_DZIn, this, [=](int i) { if (deviceIndex == i) onSensorIN(); });
-	connect(plcSerial, &Plc::_DZOut, this, [=](int i) {if (deviceIndex == i) onSensorOUT(); });
+	connect(plcSerial->handleSensorDevice[deviceIndex], &HandleSensorDevice::dzIn, this, &ImageProcess::onSensorIN);
+	connect(plcSerial->handleSensorDevice[deviceIndex], &HandleSensorDevice::dzOut, this, &ImageProcess::onSensorOUT);
 
 	//videocapture -> imageprocess
 	// 图像驱动法(TODO)
@@ -41,8 +41,8 @@ ImageProcess::ImageProcess(const ConfigHelper* _configHelper, HikVideoCapture* _
 
 	// plc -> video capture
 	// 传感器驱动法
-	connect(plcSerial, &Plc::_DZIn, videoCapture, &HikVideoCapture::startRecord);
-	connect(plcSerial, &Plc::_DZOut, videoCapture, &HikVideoCapture::stopRecord);
+	connect(plcSerial->handleSensorDevice[deviceIndex], &HandleSensorDevice::dzIn, videoCapture, &HikVideoCapture::startRecord);
+	connect(plcSerial->handleSensorDevice[deviceIndex], &HandleSensorDevice::dzOut, videoCapture, &HikVideoCapture::stopRecord);
 	// videocapture -> plc // 放弃，用一个专门的报警类来控制报警 [9/20/2018 cx3386]
 	//connect(this, &ImageProcess::setAlarmLight, plcSerial, &Plc::Alarm);
 }
@@ -58,11 +58,12 @@ void ImageProcess::handleFrame()
 		if (bIsTruckStopped)
 			checkoutWheel();
 		else {
-			//sensor triggered. 通过SENSOR IN/OUT信号开始/结束本车轮的检测，而无论core的返回值
+			//sensor triggered. 通过SENSOR IN/OUT信号开始，注意，1个周期只收到1次in，1次out。/结束本车轮的检测，而无论core的返回值
 			if (imProfile->sensorTriggered) {
-				int state = _DZRecorder.state(0);
+				//int state = _DZRecorder.state(0);
 				// 车轮进入、正在DZ
-				if (state == LevelRecorder::HighLevel || state == LevelRecorder::PositiveEdge) //in detect area
+				//if (state == LevelRecorder::HighLevel || state == LevelRecorder::PositiveEdge) //in detect area
+				if (bInDz)
 				{
 					int nCore = coreImageProcess(); //0->1, Fragment++ at rise edge. NOTE: it can be 0, which means no circle detected
 					if (nCore == LocateFail && nCore_pre > RMA) //nowCore == true && lastCore == false
@@ -70,9 +71,9 @@ void ImageProcess::handleFrame()
 					nCore_pre = nCore;
 				}
 				// 车轮离开DZ，结算
-				else if (state == LevelRecorder::NegativeEdge) {
-					checkoutWheel();
-				}
+				//else if (state == LevelRecorder::NegativeEdge) {
+				//	checkoutWheel();
+				//}
 			}
 			//image triggered
 			//通过LMA变InMA的上升沿开始，InMA变RMA的下降沿结算车轮；
@@ -203,7 +204,7 @@ int ImageProcess::coreImageProcess()
 	}
 	//angle to linear velocity
 	double rtSpeed = oneAngle * imProfile->angle2Speed();
-	qDebug("imageprocess Speed: %.2lf; refSpeed: %.2lf", rtSpeed, rtRefSpeed);
+	qDebug("dev[%d] Speed: %.2lf; ref: %.2lf", deviceIndex, rtSpeed, rtRefSpeed);
 	rtSpeeds.push_back(rtSpeed);
 	refSpeeds.push_back(rtRefSpeed);
 
@@ -220,6 +221,7 @@ int ImageProcess::coreImageProcess()
 void ImageProcess::preprocess()
 {
 	srcImg = videoCapture->getRawImage();
+	if (deviceIndex == 1) flip(srcImg, srcImg, 1);
 	//real time velocity difference between imgprocess and PLC(speedAD)
 	//test
 	Mat resizedFrame;
@@ -233,7 +235,7 @@ void ImageProcess::checkoutWheel()
 	WheelDbInfo wheelDbInfo;
 	wheelDbInfo.i_o = deviceIndex;
 	wheelDbInfo.num = QString::fromStdString(ocr->get_final_result());
-	qDebug() << "checkoutWheel. device:" << deviceIndex << "num:" << wheelDbInfo.num;
+	qDebug() << "checkoutWheel. dev[" << deviceIndex << "] num[" << wheelDbInfo.num << "]";
 	wheelDbInfo.time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
 	wheelDbInfo.ocrsize = ocr->size();
 	wheelDbInfo.interrupts = interrupts;
@@ -259,7 +261,7 @@ void ImageProcess::checkoutWheel()
 			/* approximate result to write into database */
 			wheelDbInfo.calcspeed = QString::number(absError + refspeed, 'f', 1).toDouble();
 			wheelDbInfo.refspeed = QString::number(refspeed, 'f', 1).toDouble();
-			wheelDbInfo.error = QString::number(absError / refspeed * 100, 'f', 0).toDouble();
+			wheelDbInfo.error = QString::number(absError / refspeed * 100, 'f', 1).toDouble();
 
 			if (fabs(absError) <= refspeed * imProfile->warningRatio) { //acceptable, good result
 				wheelDbInfo.alarmlevel = 0;
@@ -316,12 +318,15 @@ void ImageProcess::onSensorIN()
 {
 	//QMutexLocker locker(&mutex);// 以下变量全部只有本线程操作 [10/12/2018 cx3386]
 	bIsTruckStopped = false;
-	_DZRecorder.push(1);
+	//_DZRecorder.push(true);
+	bInDz = true;
 }
 void ImageProcess::onSensorOUT()
 {
 	//QMutexLocker locker(&mutex);
-	_DZRecorder.push(0);
+	//_DZRecorder.push(false);
+	bInDz = false;//下次handleframe时不再触发coreProc
+	checkoutWheel();
 }
 
 void ImageProcess::onWheelTimeout()
@@ -374,7 +379,8 @@ void ImageProcess::onStart()
 		qWarning() << "ImageProcess: repeated start";
 		return;
 	}
-	_DZRecorder.push(0); // DZ初始化
+	//_DZRecorder.push(0); // DZ初始化
+	bInDz = false;
 	_MAState = 1; //因此不会触发结束1
 	//nCore_pre = FindFail;
 	bUsrCtrl = true;
@@ -388,7 +394,7 @@ void ImageProcess::onStop()
 	}
 	// 连续性中断，重置相关量为原始状态
 	ocr->resetOcr(); // ocr重置
-	_DZRecorder.clear(); // DZ清空
+	//_DZRecorder.clear(); // DZ清空
 	clearWheel();
 	bUsrCtrl = false;
 }

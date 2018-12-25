@@ -1,24 +1,33 @@
+/**
+ * \file SpeedIntegrator.h
+ *
+ * \author cx3386
+ * \date 十二月 2018
+ *
+ *
+ */
+
 #pragma once
 
 #include <QObject>
 #include "Plc.h"
 
-//class Plc;
-class TrunckRef : public QObject {
+ //class Plc;
+class SpeedIntegrator : public QObject {
 	Q_OBJECT
 
 public:
-	TrunckRef(Plc* plcSerial, QObject* parent = Q_NULLPTR);
-	~TrunckRef();
+	SpeedIntegrator(Plc* plcSerial, QObject* parent = Q_NULLPTR);
+	~SpeedIntegrator();
 	/*跨线程调用*/
-	void start();
+	void start(); //!< 开始积分。调用时间：plc初始化后
 	void stop();
 
 private:
 	Plc* plc;
 	bool bUsrCtrl = false;
 	//QTimer* readSpeedTimer; //!< 定时读取台车速度
-	static const int readSpeedInterval = Plc::adInterval; // ms
+	static const int readSpeedInterval = Plc::adInterval; //!< 读取ad的间隔ms
 	static const double std_L; //!< 标准轮距
 	static const double dist_min; // unit:m，积分的精度在5cm以内
 	static const double dist_max; // m

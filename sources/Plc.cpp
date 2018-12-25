@@ -2,7 +2,7 @@
 
 #include "AlarmEvent.h"
 #include "Plc.h"
-#include "TrunckRef.h"
+#include "SpeedIntegrator.h"
 #include "common.h"
 #include "confighelper.h"
 #include <QSerialPort>
@@ -55,42 +55,20 @@
 Plc::Plc(const ConfigHelper* _configHelper, QObject* parent)
 	: QObject(parent)
 	, configHelper(_configHelper)
-	, trnkRef(new TrunckRef(this))
+	, speedIntegrator(new SpeedIntegrator(this))
 {
-	QObject::connect(this, &Plc::ckpTri, trnkRef, &TrunckRef::onCkpTri);
-	QObject::connect(trnkRef, &TrunckRef::expectTriBegin, this, [=](int id) {
-		int devId = id >> 1;
-		int ckpId = id & 1;
-		auto ckpt = devs[devId]->ckpts[ckpId];
-		// 在预期到达的时间开始时，开始检测点新的周期
-		for (auto ss : ckpt->sensors) {
-			if (ss->nTri != 1) {
-				//qDebug() << QStringLiteral("传感器触发次数错误，sensorID:") << ss->id << " nTri:" << ss->nTri;
-			}
-		}
-		ckpt->newWheel();
+	handleSensorDevice[0] = new HandleSensorDevice(0, this);
+	handleSensorDevice[1] = new HandleSensorDevice(1, this);
+	QObject::connect(handleSensorDevice[0], &HandleSensorDevice::triInt, speedIntegrator, &SpeedIntegrator::onCkpTri);
+	QObject::connect(handleSensorDevice[1], &HandleSensorDevice::triInt, speedIntegrator, &SpeedIntegrator::onCkpTri);
+	QObject::connect(speedIntegrator, &SpeedIntegrator::expectTriBegin, this, [=](int ckpId) {
+		handleSensorDevice[ckpId >> 1]->newCkp(ckpId);
 	});
-	QObject::connect(trnkRef, &TrunckRef::expectTriEnd, this, [=](int id) {
-		int devId = id >> 1;
-		int ckpId = id & 1;
-		auto ckpt = devs[devId]->ckpts[ckpId];
-		// 清算CKPT
-		for (auto ss : ckpt->sensors) {
-			if (ss->nTri == 1) {
-				ss->expected = true;
-			}
-			else if (ss->nTri == 0) {
-				ss->expected = false;
-			}
-			else {
-			}
-		}
-		// 如果是检测点是车轮离开处，则结算车轮传感器好坏
-		if (ckpt->isLeave())
-			checkBrokenAlarm(devId);
+	QObject::connect(speedIntegrator, &SpeedIntegrator::expectTriEnd, this, [=](int ckpId) {
+		handleSensorDevice[ckpId >> 1]->checkoutCkp(ckpId);
 	});
 	refThread = new QThread(this);
-	trnkRef->moveToThread(refThread);
+	speedIntegrator->moveToThread(refThread);
 	refThread->start();
 }
 
@@ -107,14 +85,12 @@ void Plc::start()
 		if (!bConnected)
 			return;
 		bUsrCtrl = true;
-		cio0_pre = 0;
 		readSensorPeriodically();
 		readSpeedPeriodically(); // sensor置为空,使能第一次.state
-		for (auto dev : devs) {
-			dev->init();
-		}
+		handleSensorDevice[0]->dev->init();
+		handleSensorDevice[1]->dev->init();
 		// 开始truckref的计数
-		trnkRef->start();
+		speedIntegrator->start();
 	});
 }
 
@@ -122,7 +98,7 @@ void Plc::stop()
 {
 	QTimer::singleShot(0, this, [=]() {
 		bUsrCtrl = false;
-		trnkRef->stop();
+		speedIntegrator->stop();
 		emit cio0Update(0);
 	}); //用timeevent，避免跨线程操作带来的锁的管理。但是需要get的value，必须通过锁管理
 }
@@ -188,23 +164,9 @@ void Plc::readSensorPeriodically()
 		setBit(cio, bit2, bit_tmp);
 	};
 	patch_swicth(cio0, 2, 10);
-	if (cio0 != cio0_pre) {
-		emit cio0Update(cio0);
-		cio0_pre = cio0;
-	}
-	recordCio0(cio0);
-	checkTri();
-	// 临时调试，记录io的实时数据
-	bool tmpdbg = true;
-	if (tmpdbg) {
-		QString logFilePath = QStringLiteral("%1/cio0.log").arg(logDirPath);
-		QFile outfile(logFilePath);
-		outfile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text); //On Windows, all '\n' characters are written as '\r\n' if QTextStream's device or string is opened using the QIODevice::Text flag.
-		QTextStream text_stream(&outfile);
-		text_stream << cio0 << endl; //endl doesn't work without flag QIODevice::Text
-		//outfile.flush(); endl will flush to the device
-		outfile.close();
-	}
+	emit cio0Update(cio0);
+	handleSensorDevice[0]->input(cio0);
+	handleSensorDevice[1]->input(cio0);
 }
 
 void Plc::readSpeedPeriodically()
@@ -248,185 +210,6 @@ void Plc::readSpeedPeriodically()
 	}
 }
 
-void Plc::recordCio0(int cio0)
-{
-	//cio 0.01 sol0
-	cio0 = cio0 >> 1;
-	devs[SensorDevice::indexOf("outer")]->ckpts[CkPt::indexOf("left")]->sensors[Sensor::indexOf("left")]->sample.push(cio0 & 1);
-	//cio 0.02 sol1
-	cio0 = cio0 >> 1;
-	devs[SensorDevice::indexOf("outer")]->ckpts[CkPt::indexOf("left")]->sensors[Sensor::indexOf("right")]->sample.push(cio0 & 1);
-	//cio 0.03 sor0
-	cio0 = cio0 >> 1;
-	devs[SensorDevice::indexOf("outer")]->ckpts[CkPt::indexOf("right")]->sensors[Sensor::indexOf("left")]->sample.push(cio0 & 1);
-	//cio 0.04 sor1
-	cio0 = cio0 >> 1;
-	devs[SensorDevice::indexOf("outer")]->ckpts[CkPt::indexOf("right")]->sensors[Sensor::indexOf("right")]->sample.push(cio0 & 1);
-	//cio 0.05 sir0
-	cio0 = cio0 >> 1;
-	devs[SensorDevice::indexOf("inner")]->ckpts[CkPt::indexOf("right")]->sensors[Sensor::indexOf("right")]->sample.push(cio0 & 1);
-	//cio 0.06 sir1
-	cio0 = cio0 >> 1;
-	devs[SensorDevice::indexOf("inner")]->ckpts[CkPt::indexOf("right")]->sensors[Sensor::indexOf("left")]->sample.push(cio0 & 1);
-	//cio 0.07 sil0
-	cio0 = cio0 >> 1;
-	devs[SensorDevice::indexOf("inner")]->ckpts[CkPt::indexOf("left")]->sensors[Sensor::indexOf("right")]->sample.push(cio0 & 1);
-	//cio 0.08 sil1
-	cio0 = cio0 >> 1;
-	devs[SensorDevice::indexOf("inner")]->ckpts[CkPt::indexOf("left")]->sensors[Sensor::indexOf("left")]->sample.push(cio0 & 1);
-}
-
-//! 用读取的cio数据检测是否满足触发条件（上升沿/下降沿）
-void Plc::checkTri()
-{
-	for (auto dev : devs) {
-		for (auto ckp : dev->ckpts) {
-			QList<int> brokenId;
-			bool isTrigger = false; //该ckp被触发(边缘)
-			for (auto ss : ckp->sensors) {
-				if (ss->sample.state(0) == ckp->triTiming()) {
-					isTrigger = true;
-					ss->nTri++;
-					if (ss->lastbroken == 2)//记录已经坏的传感器
-						brokenId << ss->m_id;
-				}
-			}
-			bool ckpSig = false; // 是否发出速度积分信号
-			if (isTrigger) {
-				// 两个都好，则同时检测两个
-				if (brokenId.empty()) {
-					if (ckp->sensors[0]->nTri == 1 && ckp->sensors[1]->nTri == 1)
-						ckpSig = true;
-				}
-				// 只有一个好,检查好的那个
-				else if (brokenId.size() == 1) {
-					if (ckp->sensors[1 - brokenId[0]]->nTri == 1)
-						ckpSig = true;
-				}
-				// 两个都坏,则检查任意。注意：在结算此轮时会将有正确输出的传感器置为好
-				else if (brokenId.size() == 2) {
-					if (ckp->sensors[0]->nTri == 1 || ckp->sensors[1]->nTri == 1)
-						ckpSig = true;
-				}
-				if (ckpSig) {
-					QString msg;
-					if (ckp->isEnter()) {
-						emit _DZIn(dev->id);
-						msg = "in";
-					}
-
-					else {
-						emit _DZOut(dev->id);
-						msg = "out";
-					}
-					emit ckpTri(ckp->id);
-					// 临时调试，记录io的实时数据
-					bool tmpdbg = true;
-					if (tmpdbg) {
-						QString logFilePath = QStringLiteral("%1/dzin.log").arg(logDirPath);
-						QFile outfile(logFilePath);
-						outfile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text); //On Windows, all '\n' characters are written as '\r\n' if QTextStream's device or string is opened using the QIODevice::Text flag.
-						QTextStream text_stream(&outfile);
-						text_stream << dev->id << ckp->id << msg << endl; //endl doesn't work without flag QIODevice::Text
-						//outfile.flush(); endl will flush to the device
-						outfile.close();
-					}
-				}
-			}
-		}
-	}
-}
-
-/**
- * \brief 在离开侧的expect end时，检测当前dev的坏掉的传感器和掉轮
- *
- * \param int devId
- */
-void Plc::checkBrokenAlarm(int devId)
-{
-	auto dev = devs[devId];
-	int countExpected; //!< 传感器按时亮的个数
-	int cntLastBrk; //!< 上一个车轮的检测中，传感器坏掉（level=yes）的个数
-	for (auto ckp : dev->ckpts) {
-		for (auto ss : ckp->sensors) {
-			countExpected += ss->expected;
-			if (ss->lastbroken == 2)
-				cntLastBrk++;
-		}
-	}
-
-	/*如果没有任何一个传感器检测到车轮正常到达的信号，
-	1. 掉轮了
-	2. 传感器已经全部报废了（或只剩一个）*/
-	if (countExpected == 0) {
-		// 上个车轮悬疑
-		if (dev->lastalarm == 1) {
-			for (auto ckp : dev->ckpts) {
-				for (auto ss : ckp->sensors) {
-					ss->broken = 2; //传感器坏了
-				}
-			}
-		}
-
-		/*历史记录中，传感器已经全部坏了*/
-		if (cntLastBrk == 4) {
-			dev->alarm = 0; //
-		}
-		/*已经坏了3个传感器，无法确认本次的异常是唯一正常的传感器坏了，还是掉轮了，交由下一个循环中判断 */
-		else if (cntLastBrk == 3) {
-			dev->alarm = 1;//本车轮可能掉轮
-		}
-		/*上次至少还有2个传感器是好的，本次一个都没有检测到车轮到达信号*/
-		else if (cntLastBrk <= 2) {
-			dev->alarm = 2;
-			emit wheelFallOff(0); //本轮子掉轮
-		}
-	}
-	/*任何一个传感器检测到车轮*/
-	else {
-		dev->alarm = 0; //本个车轮不可能掉轮
-		if (dev->lastalarm == 1)
-			emit wheelFallOff(-1); //上个轮子掉轮
-	}
-
-	//确认没有掉轮情况下，所有unexpected都是由于传感器坏了
-	if (dev->alarm == 0) {
-		for (auto ckp : dev->ckpts) {
-			for (auto ss : ckp->sensors) {
-				if (!ss->expected) {
-					ss->broken = 2;
-				}
-			}
-		}
-	}
-
-	for (auto ckp : dev->ckpts) {
-		for (auto ss : ckp->sensors) {
-			if (ss->expected) {
-				ss->broken = 0;// 无论有没有掉轮，所有按时输出的传感器都是好的
-			}
-			ss->lastbroken = ss->broken;
-		}
-	}
-
-	bool ok;
-	int sensorState = QString("11111111").toInt(&ok, 2);
-	//统计所有传感器的状态，并更新至ui。注意：合理的设计本来是更新当前dev
-	for (auto dev : devs) {
-		for (auto ckp : dev->ckpts) {
-			for (auto ss : ckp->sensors) {
-				//上一次没坏，而这次坏了，则显示状态
-				//修改：不管上次怎么样，都显示这次的状态
-				if (ss->broken == 2) {
-					sensorState ^= (1 << ss->id);
-				}
-			}
-		}
-	}
-	emit sensorUpdate(sensorState);
-	dev->lastalarm = dev->alarm;
-}
-
 QByteArray Plc::readPLC(QByteArray plcData)
 {
 	QByteArray responseData;
@@ -456,7 +239,7 @@ void Plc::writePLC(QByteArray plcData)
 		}
 	}
 }
-QByteArray Plc::getFCSCode(QByteArray cmd)
+QByteArray Plc::getFCSCode(QByteArray cmd) const
 {
 	int res = 0;
 	for (auto c : cmd) {
@@ -465,7 +248,21 @@ QByteArray Plc::getFCSCode(QByteArray cmd)
 	return QByteArray::number(res, 16).toUpper();
 }
 
-QByteArray Plc::genRRCode(int addr, int num)
+QByteArray Plc::getFullCode(QByteArray cmd) const
+{
+	return cmd + getFCSCode(cmd) + "*\r";
+}
+
+/**
+ * \brief generate a RR command code
+ * PC to PLC ask(command) code
+ * "@00RR0001(ADDR)0001(No. of words)FCS*\r"
+ * except data and end code is hex, the others is BCD.
+ *
+ * \param int addr (cio) register address of beginning word to read
+ * \param int num how many words to read
+ */
+QByteArray Plc::genRRCode(int addr, int num) const
 {
 	if (addr <= 6143 && addr >= 0 && num >= 1 && num <= 6144) {
 		return getFullCode(QString("@00RR%1%2").arg(addr, 4, 10, QChar('0')).arg(num, 4, 10, QChar('0')).toUtf8());
@@ -474,7 +271,16 @@ QByteArray Plc::genRRCode(int addr, int num)
 	return QByteArray();
 }
 
-QByteArray Plc::genWRCode(int addr, QByteArray data)
+/**
+* \brief generate a WR command code
+* PC to PLC ask(command) code
+* "@00WR0100(ADDR)data(words,hex)FCS*\r"
+* except data and end code is hex, the others is BCD.
+*
+* \param int addr (cio) register address of beginning word to write
+* \param QByteArray data how many words to read or the data to write
+*/
+QByteArray Plc::genWRCode(int addr, QByteArray data) const
 {
 	if (addr <= 6143 && addr >= 0 && data.size() % 4 == 0) {
 		return getFullCode(QString("@00WR%1%2").arg(addr, 4, 10, QChar('0')).arg(QString(data)).toUtf8());
@@ -483,21 +289,30 @@ QByteArray Plc::genWRCode(int addr, QByteArray data)
 	return QByteArray();
 }
 
-bool Plc::checkAnsCode(QByteArray code)
+/**
+ * \brief check answer code if it's right.
+ * PLC to PC answer(response) code:
+ * "@00RR00(endcode,hex)data(words,hex)FCS*\r"
+ * "@00WR00(endcode,hex)FCS*\r"
+ * except data and end code is hex, the others is BCD.
+ *
+ * \param QByteArray
+ */
+bool Plc::checkAnsCode(QByteArray ansCode) const
 {
 	// null response
-	if (code.isNull()) {
+	if (ansCode.isNull()) {
 		return false;
 	}
 	//check the format
-	if (code.startsWith("@00") && code.endsWith("*\r")) {
-		code.chop(2); // chop the terminator
-		auto fcs_recv = code.right(2);
-		code.chop(2); // chop the fcs
-		auto fcs_clc = getFCSCode(code);
+	if (ansCode.startsWith("@00") && ansCode.endsWith("*\r")) {
+		ansCode.chop(2); // chop the terminator
+		auto fcs_recv = ansCode.right(2);
+		ansCode.chop(2); // chop the fcs
+		auto fcs_clc = getFCSCode(ansCode);
 		if (fcs_clc == fcs_recv) {
-			auto headerCode = code.mid(3, 2);
-			auto endCode = code.mid(5, 2);
+			auto headerCode = ansCode.mid(3, 2);
+			auto endCode = ansCode.mid(5, 2);
 			if (endCode == "00") {
 				if (headerCode == "WR" || headerCode == "RR") {
 					return true;
@@ -508,7 +323,12 @@ bool Plc::checkAnsCode(QByteArray code)
 	return false;
 }
 
-QByteArrayList Plc::getRRData(QByteArray ansCode)
+/**
+ * \brief get RR data from response code
+ *
+ * \param QByteArrayList hex data list
+ */
+QByteArrayList Plc::getRRData(QByteArray ansCode) const
 {
 	QByteArrayList words;
 	if (!checkAnsCode(ansCode)) {
@@ -540,7 +360,7 @@ QByteArrayList Plc::getRRData(QByteArray ansCode)
  *
  * 注意：不会覆盖原有状态
  */
-void Plc::onHardAlarm(int cio)
+void Plc::sendAlarmToControlCenter(int cio)
 {
 	QByteArray plcData;
 	plcData = genWRCode(100, QByteArray::number(cio, 16).rightJustified(4, '0').toUpper());
