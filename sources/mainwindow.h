@@ -15,6 +15,7 @@ class ConfigHelper;
 class AlarmManager;
 class QSqlTableModel;
 class QDataWidgetMapper;
+class QFileSystemWatcher;
 enum class AlarmColor;
 class MainWindow : public QMainWindow {
 	Q_OBJECT
@@ -35,14 +36,14 @@ private:
 	HikVideoCapture* videoCapture[2];
 	PlayBackWidget* playBackWidget;
 	ImageProcess* imageProcess[2];
+	QThread* imageProcessThread[2];
 	Plc* plc;
+	QThread* plcThread;
+	QFileSystemWatcher* watcher;
+	QThread* dbWatcherThread;
 	AlarmManager* alarmManager;
-	/* thread */
 	//thread must be managed in main thread. ~mainwindow(){thread.quit()}
 	//QThread *videoCapture
-	QThread* imageProcessThread[2];
-	QThread* plcThread;
-	QThread* dbWatcherThread;
 	//数据模型和映射
 	QSqlTableModel *outerModel, *innerModel;
 	QDataWidgetMapper *outerMapper, *innerMapper, *alarmMapper;

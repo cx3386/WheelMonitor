@@ -46,15 +46,19 @@ MainWindow::~MainWindow()
 	//{
 	//    QCoreApplication::processEvents();
 	//}
-
 	imageProcessThread[0]->quit();
 	imageProcessThread[0]->wait();
 	imageProcessThread[1]->quit();
 	imageProcessThread[1]->wait();
+	//由于improc在堆上，并且没有qparent，因此需要手动回收
+	imageProcess[0]->deleteLater();
+	imageProcess[1]->deleteLater();
 	plcThread->quit();
 	plcThread->wait();
+	plc->deleteLater();//跨线程调用了，不行哦
 	dbWatcherThread->quit();
 	dbWatcherThread->wait();
+	watcher->deleteLater();
 }
 
 void MainWindow::configWindow()
@@ -70,6 +74,8 @@ void MainWindow::configWindow()
 	for (auto dock : m_docks) {
 		dock->show();
 	}
+	ui.dockWidget_match0->hide();//默认隐藏matchresult
+	ui.dockWidget_match1->hide();//默认隐藏matchresult
 	/* Setup the record(save) indication of VideoCapture */
 	recLabel_pre[0] = new QLabel(ui.cam0Tab);
 	recLabel_pre[1] = new QLabel(ui.cam1Tab);
@@ -109,6 +115,8 @@ void MainWindow::configWindow()
 	imageProcess[1] = new ImageProcess(configHelper, videoCapture[1], plc);
 	connect(imageProcess[0], &ImageProcess::showFrame, this, [=]() { uiShowRealtimeImage(0); });
 	connect(imageProcess[1], &ImageProcess::showFrame, this, [=]() { uiShowRealtimeImage(1); });
+	ui.matchViewer0->bindDev(imageProcess[0]);
+	ui.matchViewer1->bindDev(imageProcess[1]);
 	/* image process thread */
 	imageProcessThread[0] = new QThread(this);
 	imageProcessThread[1] = new QThread(this);
@@ -191,6 +199,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 	if (!(QMessageBox::information(this, QStringLiteral("退出？"), QStringLiteral("真的要退出吗？\n如果你退出程序，监控将终止。"), QStringLiteral("确定"), QStringLiteral("取消")))) {
 		configHelper->save();
 		event->accept();
+		//qApp->exit(0);//暴力修改：直接退出
 	}
 	else {
 		event->ignore();
@@ -199,18 +208,18 @@ void MainWindow::closeEvent(QCloseEvent* event)
 
 void MainWindow::uiShowRealtimeImage(int deviceIndex)
 {
-	cv::Mat img2show = imageProcess[deviceIndex]->getFrameToShow();
-	QImage image(img2show.data, img2show.cols, img2show.rows, img2show.step, QImage::Format_RGB888);
-	QImage dstImage = image.copy(); //deep copy
-	dstImage = dstImage.rgbSwapped();
+	cv::Mat src = imageProcess[deviceIndex]->getFrameToShow();
+	QImage im(src.data, src.cols, src.rows, src.step, QImage::Format_RGB888);
+	//QImage dstImage = image.copy(); //deep copy
+	im = im.rgbSwapped();
 	switch (deviceIndex) {
 	case 0:
-		dstImage = dstImage.scaled(ui.realVideoLabel_0->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
-		ui.realVideoLabel_0->setPixmap(QPixmap::fromImage(dstImage));
+		im = im.scaled(ui.realVideoLabel_0->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
+		ui.realVideoLabel_0->setPixmap(QPixmap::fromImage(im));
 		break;
 	case 1:
-		dstImage = dstImage.scaled(ui.realVideoLabel_1->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
-		ui.realVideoLabel_1->setPixmap(QPixmap::fromImage(dstImage));
+		im = im.scaled(ui.realVideoLabel_1->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
+		ui.realVideoLabel_1->setPixmap(QPixmap::fromImage(im));
 		break;
 	default:
 		break;
@@ -635,7 +644,7 @@ void MainWindow::setupDatabaseWatcher()
 {
 	/* database file watcher */
 	dbWatcherThread = new QThread(this);
-	auto* watcher = new QFileSystemWatcher;
+	watcher = new QFileSystemWatcher;
 	watcher->addPath(databaseFilePath);
 	watcher->moveToThread(dbWatcherThread);
 	//connect(dbWatcherThread, &QThread::finished, watcher, &QFileSystemWatcher::deleteLater); // watcher在堆上，由this管理，不要去管它

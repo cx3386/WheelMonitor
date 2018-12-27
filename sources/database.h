@@ -25,7 +25,7 @@ enum WheelHeader {
 //! 记录该车轮结算后的相关参数，以写入数据库
 struct WheelDbInfo {
 	int id;
-	QString i_o;
+	int i_o;
 	QString num;
 	double calcspeed;
 	double refspeed;
@@ -34,7 +34,8 @@ struct WheelDbInfo {
 	int alarmlevel;
 	int checkstate;
 	int ocrsize;
-	int interrupts; //!< 记录车轮回合内，检测中断了几次。0-正常 >1-不连续
+	int fragment;
+	//int interrupts; //!< 记录车轮回合内，检测中断了几次。0-正常 >1-不连续
 	int totalmatch;
 	int validmatch;
 	QString speeds;
@@ -97,7 +98,7 @@ static bool initMainDb()
 //! 由两个图像处理线程分别初始化
 static bool initThreadDb(int deviceIndex)
 {
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", deviceIndex ? THEAD1_CONNECTION_NAME : THEAD0_CONNECTION_NAME);
+	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME);
 	db.setDatabaseName(databaseFilePath);
 	if (!db.open()) {
 		qWarning() << "database: initThreadDb failed. " << db.lastError().text();

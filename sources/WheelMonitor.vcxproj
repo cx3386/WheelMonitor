@@ -151,6 +151,7 @@
     <ClCompile Include="logindialog.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="MatchViewer.cpp" />
     <ClCompile Include="mysqltablemodel.cpp" />
     <ClCompile Include="ocr.cpp" />
     <ClCompile Include="ocrprofile.cpp" />
@@ -250,6 +251,14 @@
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h;../../%(Filename)%(Extension)</ForceInclude>
       <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.h;../../%(Filename)%(Extension)</ForceInclude>
     </QtMoc>
+    <QtMoc Include="MatchViewer.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\.;.\GeneratedFiles;.;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtMultimediaWidgets;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtSql;.\3rdparty\singleapplication;.\3rdparty\zlib\include;.\3rdparty\quazip_fetch\quazip;.\3rdparty\HIKVISION\include;.\3rdparty\opencv\include;.\3rdparty\opencv\include\opencv;.\3rdparty\opencv\include\opencv2</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;QT_SQL_LIB;QAPPLICATION_CLASS=QApplication</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\.;.\GeneratedFiles;.;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtMultimediaWidgets;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtSql;.\3rdparty\singleapplication;.\3rdparty\zlib\include;.\3rdparty\quazip_fetch\quazip;.\3rdparty\HIKVISION\include;.\3rdparty\opencv\include;.\3rdparty\opencv\include\opencv;.\3rdparty\opencv\include\opencv2</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">QT_MESSAGELOGCONTEXT;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;QT_SQL_LIB;QAPPLICATION_CLASS=QApplication</Define>
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h;../../%(Filename)%(Extension)</ForceInclude>
+      <ForceInclude Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.h;../../%(Filename)%(Extension)</ForceInclude>
+    </QtMoc>
     <ClInclude Include="ocrprofile.h" />
     <ClInclude Include="outlierhelper.h" />
     <QtMoc Include="playbackwidget.h">
@@ -281,6 +290,7 @@
     <QtUic Include="AlarmLCDBoard.ui" />
     <QtUic Include="logindialog.ui" />
     <QtUic Include="mainwindow.ui" />
+    <QtUic Include="MatchViewer.ui" />
     <QtUic Include="settingdialog.ui" />
     <QtUic Include="ViewSensorImage.ui" />
   </ItemGroup>

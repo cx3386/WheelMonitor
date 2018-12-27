@@ -21,15 +21,13 @@ public:
 	explicit ImageProcess(const ConfigHelper* _configHelper, HikVideoCapture* _capture, Plc* _plcSerial, QObject* parent = Q_NULLPTR);
 	~ImageProcess();
 
-	inline cv::Mat getFrameToShow()
-	{
-		QMutexLocker locker(&mutex);
-		return frameToShow;
-	}
+	cv::Mat getFrameToShow() { QMutexLocker locker(&mutex); return frameToShow; }
+	cv::Mat getMatchResult() { QMutexLocker locker(&mutex); return matchResult; }
 	// 用于mainwindow跨线程控制
 	void start() { QTimer::singleShot(0, this, &ImageProcess::onStart); }
 	void stop() { QTimer::singleShot(0, this, &ImageProcess::onStop); }
 	void init() { QTimer::singleShot(0, this, &ImageProcess::setupModel); }
+	//int getDevId() { QMutexLocker locker(&mutex); return deviceIndex; }
 
 private:
 	const ConfigHelper* configHelper;
@@ -43,6 +41,7 @@ private:
 	cv::Mat srcImg;
 	cv::Mat undistortedFrame;
 	cv::Mat frameToShow;
+	cv::Mat matchResult;
 	QMutex mutex;
 
 	cv::Mat cameraUndistort(cv::Mat src);
@@ -78,6 +77,7 @@ private:
 
 	cv::Mat wheelFrame_pre; //!< 上一帧 车轮外切矩形图像
 	bool bInDz = false; //!< 车轮处于detect zone里
+	bool checkoutAlready = true; //!< 是否需要checkout，防止重复
 	//LevelRecorder _DZRecorder; //!< 记录车轮是否进入光电开关的检测范围DZ(detect zone) 用于硬件检测 start初始化posh 0,在stop重置,ss-tri切换后也应重置（因为可能MA已经结算过1此，将导致重结算）
 	int _MAState; //!< 0-进 1-出 2中断 start初始化为1，ss-tri状态切换后重置1（TODO）
 	//LevelRecorder _MARecorder; //!< 记录车轮是否进入红框的监控区域MA(monitor area) 用于软件检测
@@ -92,6 +92,7 @@ signals:
 	void frameHandled();
 	void showFrame();
 	void setAlarmLight(int alarmcolor);
+	void showMatch();
 
 public slots:
 	void handleFrame(); //!< 处理当前帧，每秒钟3次

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ViewSensorImage</class>
- <widget class="QDialog" name="ViewSensorImage">
+ <class>MatchViewer</class>
+ <widget class="QWidget" name="MatchViewer">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>711</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>传感器位置分布</string>
+   <string>MatchViewer</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -34,19 +34,11 @@
      <property name="text">
       <string/>
      </property>
-     <property name="pixmap">
-      <pixmap resource="WheelMonitor.qrc">:/WheelMonitor/Resources/images/view_sensor.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
     </widget>
    </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="WheelMonitor.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

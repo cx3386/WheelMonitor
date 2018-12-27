@@ -47,7 +47,10 @@ ImageProcess::ImageProcess(const ConfigHelper* _configHelper, HikVideoCapture* _
 	//connect(this, &ImageProcess::setAlarmLight, plcSerial, &Plc::Alarm);
 }
 
-ImageProcess::~ImageProcess() = default;
+ImageProcess::~ImageProcess() {
+	onStop();
+	delete rMatcher;
+};
 
 void ImageProcess::handleFrame()
 {
@@ -65,15 +68,20 @@ void ImageProcess::handleFrame()
 				//if (state == LevelRecorder::HighLevel || state == LevelRecorder::PositiveEdge) //in detect area
 				if (bInDz)
 				{
+					checkoutAlready = false;
 					int nCore = coreImageProcess(); //0->1, Fragment++ at rise edge. NOTE: it can be 0, which means no circle detected
 					if (nCore == LocateFail && nCore_pre > RMA) //nowCore == true && lastCore == false
 						interrupts++;
 					nCore_pre = nCore;
 				}
 				// 车轮离开DZ，结算
-				//else if (state == LevelRecorder::NegativeEdge) {
-				//	checkoutWheel();
-				//}
+				else {
+					if (!checkoutAlready)
+					{
+						checkoutWheel();
+						checkoutAlready = true;
+					}
+				}
 			}
 			//image triggered
 			//通过LMA变InMA的上升沿开始，InMA变RMA的下降沿结算车轮；
@@ -161,7 +169,6 @@ int ImageProcess::coreImageProcess()
 	Size size;
 	Point ofs;
 	monitorArea.locateROI(size, ofs); // get the offset of monitorArea from the srcImg
-	QMutex mutex;
 	mutex.lock();
 	circle(frameToShow, center0 + ofs, 3, circleColor, -1); // center
 	circle(frameToShow, center0 + ofs, radius, circleColor, 1, LINE_AA); // round
@@ -200,8 +207,13 @@ int ImageProcess::coreImageProcess()
 	double oneAngle;
 	if (!rMatcher->match(matchSrc1, matchSrc2, image_matches, oneAngle)) //200ms
 	{
+		qDebug() << "match fail";
 		return MatchFail;
 	}
+	mutex.lock();
+	image_matches.copyTo(matchResult);
+	mutex.unlock();
+	emit showMatch();
 	//angle to linear velocity
 	double rtSpeed = oneAngle * imProfile->angle2Speed();
 	qDebug("dev[%d] Speed: %.2lf; ref: %.2lf", deviceIndex, rtSpeed, rtRefSpeed);
@@ -235,10 +247,10 @@ void ImageProcess::checkoutWheel()
 	WheelDbInfo wheelDbInfo;
 	wheelDbInfo.i_o = deviceIndex;
 	wheelDbInfo.num = QString::fromStdString(ocr->get_final_result());
-	qDebug() << "checkoutWheel. dev[" << deviceIndex << "] num[" << wheelDbInfo.num << "]";
+	//qDebug() << "checkoutWheel. dev" << deviceIndex << "num" << wheelDbInfo.num;
 	wheelDbInfo.time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
 	wheelDbInfo.ocrsize = ocr->size();
-	wheelDbInfo.interrupts = interrupts;
+	wheelDbInfo.fragment = interrupts;
 	wheelDbInfo.validmatch = wheelDbInfo.totalmatch = rtSpeeds.size(); // match size
 	wheelDbInfo.videopath = videoCapture->getVideoRelativeFilePath();
 	wheelDbInfo.refspeed = rtRefSpeed; // if no match result, it will show the current truck speed
@@ -259,10 +271,10 @@ void ImageProcess::checkoutWheel()
 
 		if (wheelDbInfo.validmatch >= IM_PROC_VALID_MIN_COUNT) { //reliable results
 			/* approximate result to write into database */
-			wheelDbInfo.calcspeed = QString::number(absError + refspeed, 'f', 1).toDouble();
-			wheelDbInfo.refspeed = QString::number(refspeed, 'f', 1).toDouble();
+			wheelDbInfo.calcspeed = QString::number(absError + refspeed, 'f', 2).toDouble();
+			wheelDbInfo.refspeed = QString::number(refspeed, 'f', 2).toDouble();
 			wheelDbInfo.error = QString::number(absError / refspeed * 100, 'f', 1).toDouble();
-
+			qDebug() << "Speed: " << wheelDbInfo.calcspeed << ";Ref: " << wheelDbInfo.refspeed;
 			if (fabs(absError) <= refspeed * imProfile->warningRatio) { //acceptable, good result
 				wheelDbInfo.alarmlevel = 0;
 			}
@@ -299,7 +311,8 @@ void ImageProcess::checkoutWheel()
 	}
 
 	handleAlarmLevel(wheelDbInfo); //引用
-	insertRecord(wheelDbInfo);
+	if (!insertRecord(wheelDbInfo))
+		qDebug() << "insert record failed";
 	/* reset parameters of this wheel */
 	clearWheel();
 }
@@ -320,13 +333,15 @@ void ImageProcess::onSensorIN()
 	bIsTruckStopped = false;
 	//_DZRecorder.push(true);
 	bInDz = true;
+	//qDebug() << "dev[" << deviceIndex << "] DZ In";
 }
 void ImageProcess::onSensorOUT()
 {
 	//QMutexLocker locker(&mutex);
 	//_DZRecorder.push(false);
 	bInDz = false;//下次handleframe时不再触发coreProc
-	checkoutWheel();
+	//qDebug() << "dev[" << deviceIndex << "] DZ Out";
+	//checkoutWheel();
 }
 
 void ImageProcess::onWheelTimeout()
@@ -379,7 +394,6 @@ void ImageProcess::onStart()
 		qWarning() << "ImageProcess: repeated start";
 		return;
 	}
-	//_DZRecorder.push(0); // DZ初始化
 	bInDz = false;
 	_MAState = 1; //因此不会触发结束1
 	//nCore_pre = FindFail;
@@ -394,7 +408,7 @@ void ImageProcess::onStop()
 	}
 	// 连续性中断，重置相关量为原始状态
 	ocr->resetOcr(); // ocr重置
-	//_DZRecorder.clear(); // DZ清空
+	checkoutAlready = true;
 	clearWheel();
 	bUsrCtrl = false;
 }
@@ -406,10 +420,10 @@ void ImageProcess::setupModel()
 
 bool ImageProcess::insertRecord(const WheelDbInfo& info)
 {
-	QSqlTableModel* model = new QSqlTableModel(nullptr, QSqlDatabase::database(deviceIndex ? THEAD1_CONNECTION_NAME : THEAD0_CONNECTION_NAME));
-	model->setTable("wheels");
-	model->select();
-	QSqlRecord record = model->record();
+	QSqlTableModel model{ nullptr, QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME) };
+	model.setTable("wheels");
+	model.select();
+	QSqlRecord record = model.record();
 
 	record.setValue(Wheel_I_O, QVariant(info.i_o));
 	record.setValue(Wheel_Num, QVariant(info.num));
@@ -420,13 +434,13 @@ bool ImageProcess::insertRecord(const WheelDbInfo& info)
 	record.setValue(Wheel_AlarmLevel, QVariant(info.alarmlevel));
 	record.setValue(Wheel_CheckState, QVariant(info.checkstate));
 	record.setValue(Wheel_OcrSize, QVariant(info.ocrsize));
-	record.setValue(Wheel_Fragment, QVariant(info.interrupts));
+	record.setValue(Wheel_Fragment, QVariant(info.fragment));
 	record.setValue(Wheel_TotalMatch, QVariant(info.totalmatch));
 	record.setValue(Wheel_ValidMatch, QVariant(info.validmatch));
 	record.setValue(Wheel_Speeds, QVariant(info.speeds));
 	record.setValue(Wheel_VideoPath, QVariant(info.videopath));
-	bool r = model->insertRecord(-1, record);
-	r &= model->submitAll(); //on manualsubmit, use submitAll()
+	bool r = model.insertRecord(-1, record);
+	r &= model.submitAll(); //on manualsubmit, use submitAll()
 	return r;
 }
 
@@ -436,7 +450,7 @@ int ImageProcess::previousAlarmLevel(const QString& num) const
 		return 0;
 	}
 	//every query is up to data using select();
-	QSqlTableModel* model = new QSqlTableModel(nullptr, QSqlDatabase::database(deviceIndex ? THEAD1_CONNECTION_NAME : THEAD0_CONNECTION_NAME));
+	QSqlTableModel* model = new QSqlTableModel(nullptr, QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME));
 	model->setTable("wheels");
 	model->setFilter(QString("num='%1'").arg(num));
 	model->select();

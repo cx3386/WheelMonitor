@@ -14,11 +14,11 @@
 #pragma once
 #include <QString>
 
-// 注意：C中宏，C++中constexpr，应定义在头文件中
+ // 注意：C中宏，C++中constexpr，应定义在头文件中
 
-// detailed information about this application.
-//const QString FILE_SPEC = QStringLiteral("宝钢环冷机台车轮子速度检测软件");
-//const char FILE_VER[] = "1.1.1";
+ // detailed information about this application.
+ //const QString FILE_SPEC = QStringLiteral("宝钢环冷机台车轮子速度检测软件");
+ //const char FILE_VER[] = "1.1.1";
 const QString PRODUCT_NAME = QStringLiteral("宝钢环冷机台车车轮状态监测系统"); //!< displayname
 //const char PRODUCT_VER[] = "1.1.1";
 const char COPYRIGHT[] = "Copyright(C) 2018 ZJU. All Rights Reserved";
@@ -48,34 +48,34 @@ const char BACKUP_ZIP_NAME[] = "WheelMonitor Bak.zip";
 
 /* database connection name*/
 const char MAIN_CONNECTION_NAME[] = "main";
-const char THEAD0_CONNECTION_NAME[] = "thread0";
-const char THEAD1_CONNECTION_NAME[] = "thread1";
+const char THREAD0_CONNECTION_NAME[] = "thread0";
+const char THREAD1_CONNECTION_NAME[] = "thread1";
 
 //匿名命名空间，LOCAL，与static相同，C++11
 namespace {
-/**
-	 * \brief get device mark of device index
-	 *
-	 * \param int id device index
-	 */
-inline QString getDeviceMark(int id)
-{
-    if (0 == id)
-        return QStringLiteral("外");
-    if (1 == id)
-        return QStringLiteral("内");
-}
+	/**
+		 * \brief get device mark of device index
+		 *
+		 * \param int id device index
+		 */
+	inline QString getDeviceMark(int id)
+	{
+		if (0 == id)
+			return QStringLiteral("外");
+		if (1 == id)
+			return QStringLiteral("内");
+	}
 
-/**
-	 * \brief get device index of device mark
-	 *
-	 * \param QString qstr device mark
-	 */
-inline int getDeviceIndex(QString qstr)
-{
-    if (qstr == QStringLiteral("外"))
-        return 0;
-    if (qstr == QStringLiteral("内"))
-        return 1;
-}
+	/**
+		 * \brief get device index of device mark
+		 *
+		 * \param QString qstr device mark
+		 */
+	inline int getDeviceIndex(QString qstr)
+	{
+		if (qstr == QStringLiteral("外"))
+			return 0;
+		if (qstr == QStringLiteral("内"))
+			return 1;
+	}
 }

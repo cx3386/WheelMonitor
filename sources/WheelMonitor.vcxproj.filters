@@ -128,6 +128,9 @@
     <ClCompile Include="HandleSensorDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MatchViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -237,6 +240,9 @@
     <QtMoc Include="HandleSensorDevice.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="MatchViewer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="AlarmLCDBoard.ui">
@@ -252,6 +258,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="ViewSensorImage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="MatchViewer.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

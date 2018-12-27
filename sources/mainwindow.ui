@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>450</width>
-    <height>436</height>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1179,6 +1179,36 @@
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidget_match0">
+   <property name="floating">
+    <bool>true</bool>
+   </property>
+   <property name="windowTitle">
+    <string>实时匹配：外圈</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="MatchViewer" name="matchViewer0"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_match1">
+   <property name="floating">
+    <bool>true</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::AllDockWidgetAreas</set>
+   </property>
+   <property name="windowTitle">
+    <string>实时匹配：内圈</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="MatchViewer" name="matchViewer1"/>
+  </widget>
   <action name="action_Start">
    <property name="checkable">
     <bool>false</bool>
@@ -1290,6 +1320,8 @@
   <zorder>dockWidget_plc</zorder>
   <zorder>dockWidget_dashboard</zorder>
   <zorder>dockWidget_alarm</zorder>
+  <zorder>dockWidget_match0</zorder>
+  <zorder>dockWidget_match1</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -1297,6 +1329,12 @@
    <class>AlarmLCDBoard</class>
    <extends>QFrame</extends>
    <header>AlarmLCDBoard.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MatchViewer</class>
+   <extends>QWidget</extends>
+   <header location="global">MatchViewer.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -10,9 +10,7 @@ Windows10 64位
 
 安装步骤：
 
-1. 运行安装包WheelMonitorSetup-[x64|x86]-[版本号].msi。
-1. 运行解码包K-Lite_Codec_Pack_1455_Basic.exe。如果此前已经安装，跳过此步。
-1. 运行虚拟串口软件安装包ZLVircom4.96_x64.msi。如果此前已经安装，跳过此步。
+1. 解压安装包，运行setup.exe，开始自动安装
 1. 将监测系统的网线连接至电脑，将电脑IP配置到同一网段（192.168.1.*），并测试是否能够ping通摄像机。
 1. 打开监测软件前，请先打开虚拟串口软件，配置虚拟串口：打开软件，工具栏中选择导入配置，将安装包中的ZLVircom_config导入。建议将虚拟串口软件设置为开机启动。
 1. 打开监测软件，开始监测。
@@ -22,6 +20,10 @@ FAQ:
 - 注意：**K-Lite解码包**和**ZLVircom**是**商业软件**。
 - 如安装过程中提示需要组件，请联网后下载；或者手动安装vc_redist.x64.exe后重试。
 - 如果操作系统提示权限不足，请“以管理员身份运行”此程序。
+- 如果自动安装失败，请手动安装：
+	1. 运行安装包WheelMonitorSetup-[x64|x86]-[版本号].msi。
+	1. 运行解码包K-Lite_Codec_Pack_1455_Basic.exe。如果此前已经安装，跳过此步。
+	1. 运行虚拟串口软件安装包ZLVircom4.96_x64.msi。如果此前已经安装，跳过此步。
 
 ## 卸载
 
@@ -34,7 +36,7 @@ FAQ:
 - VS2017(with Qt VS TOOLS)
 - Qt 5.10.0
 
-打开WheelMonitor.Sln，全部生成。运行WheelMonitorSetup\deploytoinstall.bat,将生成的安装包部署到installl文件夹中
+打开WheelMonitor.Sln，全部生成。运行WheelMonitorSetup\deploytoinstall.bat,将生成的msi和其他文件部署到installl文件夹中，将install文件夹压缩（并重命名）即得到安装包
 
 ## 开发
 
