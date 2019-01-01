@@ -36,7 +36,9 @@ FAQ:
 - VS2017(with Qt VS TOOLS)
 - Qt 5.10.0
 
-打开WheelMonitor.Sln，全部生成。运行WheelMonitorSetup\deploytoinstall.bat,将生成的msi和其他文件部署到installl文件夹中，将install文件夹压缩（并重命名）即得到安装包
+1. 打开WheelMonitor.Sln，全部生成。
+2. 运行WheelMonitorSetup\deploytoinstall.bat,该脚本将生成的msi和其他文件部署到installl文件夹中。
+3. 将install文件夹压缩（并重命名）即得到安装包。
 
 ## 开发
 

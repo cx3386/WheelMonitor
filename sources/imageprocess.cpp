@@ -207,7 +207,7 @@ int ImageProcess::coreImageProcess()
 	double oneAngle;
 	if (!rMatcher->match(matchSrc1, matchSrc2, image_matches, oneAngle)) //200ms
 	{
-		qDebug() << "match fail";
+		//qDebug() << "match fail";
 		return MatchFail;
 	}
 	mutex.lock();
