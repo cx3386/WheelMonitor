@@ -125,9 +125,7 @@ void HikVideoCapture::startRecord()
 	auto date = QDate::currentDate().toString("yyyyMMdd");
 	auto dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
 	auto mark = getDeviceMark(deviceIndex);
-	//mutex.unlock();
 	videoRelativeFilePath = QStringLiteral("%1/%2_%3.mp4").arg(date).arg(mark).arg(dateTime);
-	//mutex.lock();
 	QString videoFilePath = QStringLiteral("%1/%2").arg(videoDirPath).arg(videoRelativeFilePath);
 	QByteArray ba = videoFilePath.toLocal8Bit();
 	if (!NET_DVR_SaveRealData(lRealPlayHandle_SD, ba.data())) {
