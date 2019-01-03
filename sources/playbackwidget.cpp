@@ -96,6 +96,8 @@ void PlayBackWidget::initAlarmTable()
 	alarmModel->setRelation(Wheel_I_O, QSqlRelation("devs", "devIndex", "name")); // 手动设置i_o的外键
 	alarmModel->setFilter("checkstate=1");
 	alarmModel->select();
+	while (alarmModel->canFetchMore()) alarmModel->fetchMore();
+
 	alarmModel->setHeaderData(Wheel_I_O, Qt::Horizontal, QStringLiteral("外/内圈"));
 	alarmModel->setHeaderData(Wheel_Num, Qt::Horizontal, QStringLiteral("序号"));
 	alarmModel->setHeaderData(Wheel_CalcSpeed, Qt::Horizontal, QStringLiteral("测量"));
@@ -129,6 +131,8 @@ void PlayBackWidget::initAllTable()
 	allModel->setTable("wheels");
 	allModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 	allModel->select();
+	while (allModel->canFetchMore()) allModel->fetchMore();
+
 	allView = new QTableView(this);
 	allView->setModel(allModel);
 	//allView->setFont(QFont("Arial Narrow", 14));
@@ -156,7 +160,11 @@ bool PlayBackWidget::hasAlarm() const
 void PlayBackWidget::dbChanged()
 {
 	allModel->select();
+	while (allModel->canFetchMore()) allModel->fetchMore();
+
 	alarmModel->select();
+	while (alarmModel->canFetchMore()) alarmModel->fetchMore();
+
 	if (!hasAlarm()) {
 		emit clearAlarm();
 	}
@@ -190,6 +198,7 @@ void PlayBackWidget::setSelectedChecked()
 		alarmModel->setData(alarmModel->index(slc.row(), Wheel_CheckState), QVariant(Checked));
 	}
 	alarmModel->submitAll();
+	while (alarmModel->canFetchMore())alarmModel->fetchMore();
 }
 
 void PlayBackWidget::setAllChecked()
@@ -203,4 +212,5 @@ void PlayBackWidget::setAllChecked()
 		alarmModel->setData(alarmModel->index(i, Wheel_CheckState), QVariant(Checked));
 	}
 	alarmModel->submitAll();
+	while (alarmModel->canFetchMore())alarmModel->fetchMore();
 }

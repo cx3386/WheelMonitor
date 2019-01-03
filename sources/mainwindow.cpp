@@ -32,8 +32,10 @@ MainWindow::MainWindow(ConfigHelper* _configHelper, QWidget* parent /*= Q_NULLPT
 	}
 
 	//auto start
+	//取消此功能，因为有可能导致在init database imthread（通过信号槽）之前开始运算
+	// 改进：延迟一段时间后再开始
 	if (configHelper->startAtLaunch) {
-		on_action_Start_triggered();
+		QTimer::singleShot(10, this, [=]() {on_action_Start_triggered(); });
 	}
 }
 
@@ -158,12 +160,14 @@ void MainWindow::configWindow()
 	imageProcessThread[0]
 		->start();
 	imageProcessThread[1]->start();
-	imageProcess[0]->init();
+	imageProcess[0]->init();//初始化数据库
 	imageProcess[1]->init();
 
 	setupDatabaseWatcher();
 
 	setupScheduler(12, 00, true, true); //setup the daily planningTask at 12,00
+	//ui.action_Start->setEnabled(true);
+	//on_action_Start_triggered();
 }
 
 bool MainWindow::cleanDir(QString dirPath, int nDays)
@@ -461,6 +465,10 @@ void MainWindow::on_action_Start_triggered()
 	// 开始循环读取设备的相关信息
 	plc->start();
 	//return;//测试：只打开plc
+	////测试insertrecord
+	imageProcess[0]->start();
+	imageProcess[1]->start();
+	return;
 	bool cap0 = videoCapture[0]->start();
 	if (cap0) {
 		imageProcess[0]->start();
@@ -610,11 +618,14 @@ void MainWindow::setupDataMapper()
 	outerModel->setTable("wheels");
 	outerModel->setFilter("i_o=0");
 	outerModel->select();
+	while (outerModel->canFetchMore()) outerModel->fetchMore();
 	// 显示内圈的model
 	innerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
 	innerModel->setTable("wheels");
 	innerModel->setFilter("i_o=1");
 	innerModel->select();
+	while (innerModel->canFetchMore()) innerModel->fetchMore();
+
 	/* 把Model中的数据映射到dashboard中 */
 	outerMapper = new QDataWidgetMapper(this);
 	outerMapper->setModel(outerModel);
@@ -652,14 +663,18 @@ void MainWindow::setupDatabaseWatcher()
 	//connect(dbWatcherThread, &QThread::finished, watcher, &QFileSystemWatcher::deleteLater); // watcher在堆上，由this管理，不要去管它
 	//如果model更新了，dataWidgetMapper同时更新。但是其他model对数据库的修改的则不能自动提交
 	connect(watcher, &QFileSystemWatcher::fileChanged, this, [=]() {
-		playBackWidget->dbChanged();//注意：这里的slot由this所在的线程做出，跨线程不能这么传
+		playBackWidget->dbChanged();//更新故障中的表格。注意：这里的slot由this所在的线程做出，跨线程不能这么传
 		alarmMapper->toLast();//更新报警信号至最新,刷新左右翻页和显示（有可能被清除）
 		int row = alarmMapper->currentIndex();
 		ui.numBackwardBtn->setEnabled(row > 0);
 		ui.numForwardBtn->setEnabled(row < playBackWidget->alarmModel->rowCount() - 1);
 
 		outerModel->select();
+		while (outerModel->canFetchMore()) outerModel->fetchMore();
+
 		innerModel->select();
+		while (innerModel->canFetchMore()) innerModel->fetchMore();
+
 		outerMapper->toLast();
 		innerMapper->toLast();
 	});

@@ -398,6 +398,10 @@ void ImageProcess::onStart()
 	_MAState = 1; //因此不会触发结束1
 	//nCore_pre = FindFail;
 	bUsrCtrl = true;
+	//测试insert
+	QTimer *timer = new QTimer;
+	connect(timer, &QTimer::timeout, this, [=]() {insertRecord(WheelDbInfo()); });
+	timer->start(1000);
 }
 
 void ImageProcess::onStop()
@@ -415,48 +419,84 @@ void ImageProcess::onStop()
 
 void ImageProcess::setupModel()
 {
+	// 连接到数据库
 	initThreadDb(deviceIndex);
+
+	//insertModel = new QSqlTableModel{ this, QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME) };
+	//insertModel->setTable("wheels");
+	////insertModel->setEditStrategy(QSqlTableModel::OnFieldChange);//改变会立马submit(不会重新填充)
+	//insertModel->setEditStrategy(QSqlTableModel::OnManualSubmit);//改变后需submitAll(自动重新填充)
+	//insertModel->select();
+	//while (insertModel->canFetchMore())insertModel->fetchMore();
+	previousModel = new QSqlTableModel{ this, QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME) };
+	previousModel->setTable("wheels");
+	previousModel->select();
+	while (previousModel->canFetchMore())previousModel->fetchMore();
 }
 
 bool ImageProcess::insertRecord(const WheelDbInfo& info)
 {
-	QSqlTableModel model{ nullptr, QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME) };
-	model.setTable("wheels");
-	model.select();
-	QSqlRecord record = model.record();
+	//QSqlRecord record = insertModel->record();
+	//record.setValue(Wheel_I_O, QVariant(info.i_o));
+	//record.setValue(Wheel_Num, QVariant(info.num));
+	//record.setValue(Wheel_CalcSpeed, QVariant(info.calcspeed));
+	//record.setValue(Wheel_RefSpeed, QVariant(info.refspeed));
+	//record.setValue(Wheel_Error, QVariant(info.error));
+	//record.setValue(Wheel_Time, QVariant(info.time));
+	//record.setValue(Wheel_AlarmLevel, QVariant(info.alarmlevel));
+	//record.setValue(Wheel_CheckState, QVariant(info.checkstate));
+	//record.setValue(Wheel_OcrSize, QVariant(info.ocrsize));
+	//record.setValue(Wheel_Fragment, QVariant(info.fragment));
+	//record.setValue(Wheel_TotalMatch, QVariant(info.totalmatch));
+	//record.setValue(Wheel_ValidMatch, QVariant(info.validmatch));
+	//record.setValue(Wheel_Speeds, QVariant(info.speeds));
+	//record.setValue(Wheel_VideoPath, QVariant(info.videopath));
+	////on manualsubmit, use submitAll()
+	//if (!insertModel->insertRecord(-1, record) || !insertModel->submitAll()) {
+	//	auto error = insertModel->lastError();
+	//	auto text = error.text();
+	//	qDebug() << text;
+	//	return false;
+	//}
+	//return true;
 
-	record.setValue(Wheel_I_O, QVariant(info.i_o));
-	record.setValue(Wheel_Num, QVariant(info.num));
-	record.setValue(Wheel_CalcSpeed, QVariant(info.calcspeed));
-	record.setValue(Wheel_RefSpeed, QVariant(info.refspeed));
-	record.setValue(Wheel_Error, QVariant(info.error));
-	record.setValue(Wheel_Time, QVariant(info.time));
-	record.setValue(Wheel_AlarmLevel, QVariant(info.alarmlevel));
-	record.setValue(Wheel_CheckState, QVariant(info.checkstate));
-	record.setValue(Wheel_OcrSize, QVariant(info.ocrsize));
-	record.setValue(Wheel_Fragment, QVariant(info.fragment));
-	record.setValue(Wheel_TotalMatch, QVariant(info.totalmatch));
-	record.setValue(Wheel_ValidMatch, QVariant(info.validmatch));
-	record.setValue(Wheel_Speeds, QVariant(info.speeds));
-	record.setValue(Wheel_VideoPath, QVariant(info.videopath));
-	bool r = model.insertRecord(-1, record);
-	r &= model.submitAll(); //on manualsubmit, use submitAll()
-	return r;
+	//QSqlQuery query(QSqlDatabase::database(MAIN_CONNECTION_NAME));
+	QSqlQuery query(QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME));
+
+	query.prepare("INSERT INTO wheels (i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath) VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);");
+	query.bindValue(":i_o", QVariant(info.i_o));
+	query.bindValue(":num", QVariant(info.num));
+	query.bindValue(":calcspeed", QVariant(info.calcspeed));
+	query.bindValue(":refspeed", QVariant(info.refspeed));
+	query.bindValue(":error", QVariant(info.error));
+	query.bindValue(":time", QVariant(info.time));
+	query.bindValue(":alarmlevel", QVariant(info.alarmlevel));
+	query.bindValue(":checkstate", QVariant(info.checkstate));
+	query.bindValue(":ocrsize", QVariant(info.ocrsize));
+	query.bindValue(":fragment", QVariant(info.fragment));
+	query.bindValue(":totalmatch", QVariant(info.totalmatch));
+	query.bindValue(":validmatch", QVariant(info.validmatch));
+	query.bindValue(":speeds", QVariant(info.speeds));
+	query.bindValue(":videopath", QVariant(info.videopath));
+	if (!query.exec()) {
+		auto text = query.lastError().text();
+		return false;
+	}
+	return true;
 }
 
-int ImageProcess::previousAlarmLevel(const QString& num) const
+int ImageProcess::previousAlarmLevel(const QString& num)
 {
 	if (num == OCR_MISS) { //号码牌输出MISS, 直接返回正常
 		return 0;
 	}
-	//every query is up to data using select();
-	QSqlTableModel* model = new QSqlTableModel(nullptr, QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME));
-	model->setTable("wheels");
-	model->setFilter(QString("num='%1'").arg(num));
-	model->select();
-	int row = model->rowCount();
+	previousModel->setFilter(QString("num='%1'").arg(num));//一旦select后，setfilter会自动重新填充
+	previousModel->select();//由于是查询，必须更新到最新
+	while (previousModel->canFetchMore())previousModel->fetchMore();
+
+	int row = previousModel->rowCount();
 	if (row > 0) {
-		return model->data(model->index(row - 1, Wheel_AlarmLevel)).toInt();
+		return previousModel->data(previousModel->index(row - 1, Wheel_AlarmLevel)).toInt();
 	}
 	return 0; //if no previous result, regard it as a good wheel
 }

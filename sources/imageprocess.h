@@ -48,8 +48,10 @@ private:
 	void checkoutWheel(); //!< 结算该车轮
 	void clearWheel(); //!< 清除当前车轮的相关信息
 
-	int previousAlarmLevel(const QString& num) const;
+	int previousAlarmLevel(const QString& num);
+	QSqlTableModel *previousModel;
 	bool insertRecord(const WheelDbInfo& info);
+	//QSqlTableModel *insertModel;
 	void handleAlarmLevel(WheelDbInfo& wheelDbInfo);
 	//! 判断rect1是否在rect2
 	static bool isInside(cv::Rect rect1, cv::Rect rect2)

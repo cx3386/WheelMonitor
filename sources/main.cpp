@@ -160,7 +160,11 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QS
 		typeStr = "Fatal";
 		abort();
 	}
+#if defined(QT_MESSAGELOGCONTEXT)
 	QString msgStr = QStringLiteral("[%1][%2]%3 (%4:%5, %6)").arg(currentDateTime).arg(typeStr).arg(msg).arg(context.file).arg(context.line).arg(context.function);
+#else
+	QString msgStr = QStringLiteral("[%1][%2]%3").arg(currentDateTime).arg(typeStr).arg(msg);
+#endif
 	QString today = QDate::currentDate().toString("yyyyMMdd");
 	QString logFilePath = QStringLiteral("%1/%2.log").arg(logDirPath).arg(today);
 	QFile outfile(logFilePath);

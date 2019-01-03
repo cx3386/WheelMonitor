@@ -69,14 +69,17 @@ static bool initMainDb()
 	// 检查user表
 	model.setTable("user");
 	model.select();
+	while (model.canFetchMore()) model.fetchMore();
 	// if no user table, insert the default user;
 	if (!model.rowCount()) {
 		query.exec("create table user (id integer primary key autoincrement, username varchar(20) unique, pwd varchar(20))");
 		query.exec("insert into user (username, pwd) values('BaoSteel', '123456')");
 	}
-	//检查iner
+	//检查devs
 	model.setTable("devs");
 	model.select();
+	while (model.canFetchMore()) model.fetchMore();
+
 	if (!model.rowCount()) {
 		query.exec("CREATE TABLE devs ("
 			"id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -109,6 +112,8 @@ static bool initThreadDb(int deviceIndex)
 	QSqlTableModel model(nullptr, db);
 	model.setTable("wheels");
 	model.select();
+	while (model.canFetchMore()) model.fetchMore();
+
 	auto record = model.record();
 	bool createNewTable = false;
 	if (record.isEmpty())
