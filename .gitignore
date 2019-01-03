@@ -8,6 +8,7 @@
 *.db3
 quazip*.dll
 quazip*.exp
+dependencies/qt/
 
 # GeneratedFiles by Qt (cx3386@163.com)
 GeneratedFiles/
