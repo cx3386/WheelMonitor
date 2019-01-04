@@ -9,6 +9,7 @@
 quazip*.dll
 quazip*.exp
 dependencies/qt/
+dependencies/quazip/
 
 # GeneratedFiles by Qt (cx3386@163.com)
 GeneratedFiles/

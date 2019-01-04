@@ -1,118 +1,111 @@
 # WheelMonitor
 
-WheelMonitorÊÇÓÃÓÚ±¦¸Ö»·Àä»úÌ¨³µ³µÂÖ×´Ì¬¼à²âÏîÄ¿µÄÓ¦ÓÃÈí¼þ¡£
+WheelMonitoræ˜¯ç”¨äºŽå®é’¢çŽ¯å†·æœºå°è½¦è½¦è½®çŠ¶æ€ç›‘æµ‹é¡¹ç›®çš„åº”ç”¨è½¯ä»¶ã€‚
 
-## Ö§³ÖÆ½Ì¨
+## æ”¯æŒå¹³å°
 
-Windows10 64Î»
+Windows10 64ä½
 
-## °²×°
+## ç¼–è¯‘
 
-°²×°²½Öè£º
+### ç¼–è¯‘çŽ¯å¢ƒ
 
-1. ½âÑ¹°²×°°ü£¬ÔËÐÐsetup.exe£¬¿ªÊ¼×Ô¶¯°²×°
-1. ½«¼à²âÏµÍ³µÄÍøÏßÁ¬½ÓÖÁµçÄÔ£¬½«µçÄÔIPÅäÖÃµ½Í¬Ò»Íø¶Î£¨192.168.1.*£©£¬²¢²âÊÔÊÇ·ñÄÜ¹»pingÍ¨ÉãÏñ»ú¡£
-1. ´ò¿ª¼à²âÈí¼þÇ°£¬ÇëÏÈ´ò¿ªÐéÄâ´®¿ÚÈí¼þ£¬ÅäÖÃÐéÄâ´®¿Ú£º´ò¿ªÈí¼þ£¬¹¤¾ßÀ¸ÖÐÑ¡Ôñµ¼ÈëÅäÖÃ£¬½«°²×°°üÖÐµÄZLVircom_configµ¼Èë¡£½¨Òé½«ÐéÄâ´®¿ÚÈí¼þÉèÖÃÎª¿ª»úÆô¶¯¡£
-1. ´ò¿ª¼à²âÈí¼þ£¬¿ªÊ¼¼à²â¡£
+- VS2017
+- Qt 5.12.0
 
-FAQ:
+### çŽ¯å¢ƒçš„é…ç½®
 
-- ×¢Òâ£º**K-Lite½âÂë°ü**ºÍ**ZLVircom**ÊÇ**ÉÌÒµÈí¼þ**¡£
-- Èç°²×°¹ý³ÌÖÐÌáÊ¾ÐèÒª×é¼þ£¬ÇëÁªÍøºóÏÂÔØ£»»òÕßÊÖ¶¯°²×°vc_redist.x64.exeºóÖØÊÔ¡£
-- Èç¹û²Ù×÷ÏµÍ³ÌáÊ¾È¨ÏÞ²»×ã£¬Çë¡°ÒÔ¹ÜÀíÔ±Éí·ÝÔËÐÐ¡±´Ë³ÌÐò¡£
-- Èç¹û×Ô¶¯°²×°Ê§°Ü£¬ÇëÊÖ¶¯°²×°£º
-	1. ÔËÐÐ°²×°°üWheelMonitorSetup-[x64|x86]-[°æ±¾ºÅ].msi¡£
-	1. ÔËÐÐ½âÂë°üK-Lite_Codec_Pack_1455_Basic.exe¡£Èç¹û´ËÇ°ÒÑ¾­°²×°£¬Ìø¹ý´Ë²½¡£
-	1. ÔËÐÐÐéÄâ´®¿ÚÈí¼þ°²×°°üZLVircom4.96_x64.msi¡£Èç¹û´ËÇ°ÒÑ¾­°²×°£¬Ìø¹ý´Ë²½¡£
+1. ä¸‹è½½å¹¶å®‰è£…VSå’ŒQT,æ³¨æ„ï¼Œéœ€è¦å°†<QT_DIR\bin>åŠ å…¥PATHã€‚è¿™é‡Œçš„<QT_DIR>ä¸ºQTçš„å®‰è£…åœ°å€ï¼Œå¦‚â€œC:\Qt\Qt5.12.0\5.12.0\msvc2017_64â€ã€‚
+1. å®‰è£…VSæ’ä»¶:Qt Visual Studio Toolså’ŒMicrosoft Visual Studio Installer Projectsã€‚æ­¥éª¤ï¼š
+   1. æ‰“å¼€VSï¼Œå·¥å…·â†’æ‰©å±•å’Œæ›´æ–°â†’è”æœºâ†’æœç´¢ï¼Œæœç´¢ä»¥ä¸Šä¸¤ä¸ªæ’ä»¶å¹¶åˆ†åˆ«ä¸‹è½½ï¼Œç„¶åŽå…³é—­VSåŽè‡ªåŠ¨å®‰è£…ï¼Œå®ŒæˆåŽé‡æ–°æ‰“å¼€VSï¼ŒVSèœå•æ å¤šäº†ä¸€ä¸ªQt VS Toolsã€‚
+   1. é…ç½®Qt VS Toolsã€‚Qt VS Toolsâ†’Qt Optionâ†’Addï¼Œåœ¨å¼¹å‡ºçš„Pathä¸­å¡«å…¥Qtçš„å®‰è£…ç›®å½•ï¼ˆå³ä¸Šæ–‡çš„<QT_DIR>ï¼‰ã€‚</br>![Qt Option](https://ws1.sinaimg.cn/large/9e24c3aaly1fyu37g0jsrj20bx095jr8.jpg)
 
-## Ð¶ÔØ
+### é¡¹ç›®çš„é…ç½®
 
-Çëµ½¿ØÖÆÃæ°åÖÐÐ¶ÔØ³ÌÐò¡£×¢Òâ£ºÈç¹ûÓÐÐèÒª£¬K-LiteºÍZLVirCom¿ÉÒÔÍ¨¹ý¿ØÖÆÃæ°å½øÐÐÐ¶ÔØ¡£
+1. å…‹éš†[WheelMonitoré¡¹ç›®](https://github.com/cx3386/WheelMonitor.git)ã€‚å¦‚æžœä¸ç†Ÿæ‚‰gitï¼Œæ­¤å¤„æä¾›ä¸€ä¸ªæ–¹æ³•ï¼šæ‰“å¼€VSâ†’è§†å›¾â†’å›¢é˜Ÿèµ„æºç®¡ç†å™¨â†’è¿žæŽ¥â†’æœ¬åœ°GITå­˜å‚¨åº“â†’å…‹éš†â†’å¡«å…¥é¡¹ç›®åœ°å€å’Œæœ¬åœ°åœ°å€â†’å…‹éš†ã€‚</br>![å›¢é˜Ÿèµ„æºç®¡ç†å™¨](https://ws1.sinaimg.cn/large/9e24c3aaly1fyu3ul6l4jj208g027gli.jpg)</br>![ä»“åº“å…‹éš†](https://ws1.sinaimg.cn/large/9e24c3aaly1fyu3k4by6lj208f05ejri.jpg)
+1. æ‰“å¼€WheelMonitor.Slnè§£å†³æ–¹æ¡ˆï¼Œå¹¶åˆ†åˆ«ç”Ÿæˆquazipå’Œwheelmonitoré¡¹ç›®çš„releaseç‰ˆæœ¬ã€‚å¦‚æžœéœ€è¦è°ƒè¯•ï¼Œè¯·å‚è€ƒ[å¼€å‘](#å¼€å‘)
+1. ç”Ÿæˆå®‰è£…æ–‡ä»¶ã€‚æ­¥éª¤ï¼š
+   1. è¿è¡Œè„šæœ¬ï¼šWheelMonitorSetup\beforeSetup.batã€‚
+   1. ç”ŸæˆWheelMonitorSetupé¡¹ç›®ã€‚å¦‚æžœç”Ÿæˆå¤±è´¥ï¼Œæç¤ºæœ‰æ–‡ä»¶ä¸å­˜åœ¨ï¼Œè¯·é‡æ–°åŠ è½½è¯¥é¡¹ç›®ã€‚
+   1. è¿è¡Œè„šæœ¬ï¼šWheelMonitorSetup\deploytoinstall.bat,è¯¥è„šæœ¬å°†ç”Ÿæˆçš„msiå’Œå…¶ä»–æ–‡ä»¶éƒ¨ç½²åˆ°installlæ–‡ä»¶å¤¹ä¸­ã€‚
+   1. å°†installæ–‡ä»¶å¤¹åŽ‹ç¼©ï¼ˆå¹¶é‡å‘½åä¸ºï¼‰å³å¾—åˆ°å®‰è£…åŒ…ã€‚
 
-## ±àÒë
+## å¼€å‘
 
-±àÒë»·¾³
+æ‰€æœ‰å¼€å‘ä¸­ä½¿ç”¨åˆ°çš„è°ƒè¯•å·¥å…·å’Œé…ç½®å·¥å…·æ”¾åœ¨toolsæ–‡ä»¶å¤¹ä¸­ã€‚å¼€å‘çš„æ­¥éª¤åŒ…æ‹¬ï¼š
 
-- VS2017(with Qt VS TOOLS)
-- Qt 5.10.0
-
-1. ´ò¿ªWheelMonitor.Sln£¬È«²¿Éú³É¡£
-2. ÔËÐÐWheelMonitorSetup\deploytoinstall.bat,¸Ã½Å±¾½«Éú³ÉµÄmsiºÍÆäËûÎÄ¼þ²¿Êðµ½installlÎÄ¼þ¼ÐÖÐ¡£
-3. ½«installÎÄ¼þ¼ÐÑ¹Ëõ£¨²¢ÖØÃüÃû£©¼´µÃµ½°²×°°ü¡£
-
-## ¿ª·¢
-
-ËùÓÐ¿ª·¢ÖÐÊ¹ÓÃµ½µÄµ÷ÊÔ¹¤¾ßºÍÅäÖÃ¹¤¾ß·ÅÔÚtoolsÎÄ¼þ¼ÐÖÐ¡£¿ª·¢µÄ²½Öè°üÀ¨£º
-
-1. ÅäÖÃ/²âÊÔÓ²¼þ
-   - ½«ÍøÏßÁ¬½ÓÖÁµçÄÔ
-   - ²âÊÔÍøÂçÉãÏñ»úµÄÁ¬Í¨ÐÔ
-   - ÐéÄâ´®¿Ú
+1. é…ç½®/æµ‹è¯•ç¡¬ä»¶
+   - å°†ç½‘çº¿è¿žæŽ¥è‡³ç”µè„‘
+   - æµ‹è¯•ç½‘ç»œæ‘„åƒæœºçš„è¿žé€šæ€§
+   - è™šæ‹Ÿä¸²å£
    - PLC
-1. ¿ª·¢/µ÷ÊÔÈí¼þ
+1. å¼€å‘/è°ƒè¯•è½¯ä»¶
 
+### è½¯ä»¶è°ƒè¯•
+
+åœ¨ç”Ÿæˆçš„å¯æ‰§è¡Œæ–‡ä»¶ï¼ˆ.exeï¼‰çš„ç›®å½•ä¸‹ï¼Œè‡³å°‘éœ€è¦config.iniå’ŒOcrPatternä»¥åŠä¸¤ä¸ªç©ºæ–‡ä»¶å¤¹Captureå’ŒLogæ‰èƒ½è°ƒè¯•ï¼Œè¿™äº›æ–‡ä»¶ä½äºŽdependencies\configä¸‹ã€‚
 
 ### CX-ONE/CX-Programer
 
-Å·Ä·ÁúPLCµÄ±à³ÌÈí¼þ£¬ÓÃÓÚPLCµÄ±à³ÌÓëÉèÖÃ¡£
+æ¬§å§†é¾™PLCçš„ç¼–ç¨‹è½¯ä»¶ï¼Œç”¨äºŽPLCçš„ç¼–ç¨‹ä¸Žè®¾ç½®ã€‚
 
-#### ÓÃCX-ProgrammerÈí¼þÉèÖÃÏÂÎ»»úPLC
+#### ç”¨CX-Programmerè½¯ä»¶è®¾ç½®ä¸‹ä½æœºPLC
 
-1. °²×°CX-ONE/CX-Programmer
-1. Ê¹ÓÃ232ÏßÀÂ(XW2Z-200S-CV)Á¬½ÓPLCÓëPC
-1. ´ò¿ªCX-P£¬Ñ¡Ôñ¡°×Ô¶¯Á¬½Óµ½¡±PLC£¬´®ÐÐÍ¨ÐÅÄ£Ê½ÎªÉÏÎ»Á´½Ó(SYSWAY)
-1. ÉèÖÃPLCµÄ¡°Æô¶¯Ä£Ê½¡±Îª¡°¼àÊÓ¡±
-1. ÉèÖÃ¡°ÄÚÖÃRS232C¶Ë¿Ú¡±£º²¨ÌØÂÊ115200,¸ñÊ½7,2,E,Ä£Ê½HOSTLINK,µ¥ÔªºÅ0
-1. ½«ÉèÖÃ£¨ºÍ¿ÕµÄPLC³ÌÐò£©ÏÂÔØµ½PLCÖÐ£¬ÖØÆôºóÉúÐ§
-1. ÉèÖÃºÍÆô¶¯AD×ª»»Ä£¿é£¨´Ë²½ºöÂÔ£¬ÓÃHOSTLINKÃüÁîÊµÏÖ£©
+1. å®‰è£…CX-ONE/CX-Programmer
+1. ä½¿ç”¨232çº¿ç¼†(XW2Z-200S-CV)è¿žæŽ¥PLCä¸ŽPC
+1. æ‰“å¼€CX-Pï¼Œé€‰æ‹©â€œè‡ªåŠ¨è¿žæŽ¥åˆ°â€PLCï¼Œä¸²è¡Œé€šä¿¡æ¨¡å¼ä¸ºä¸Šä½é“¾æŽ¥(SYSWAY)
+1. è®¾ç½®PLCçš„â€œå¯åŠ¨æ¨¡å¼â€ä¸ºâ€œç›‘è§†â€
+1. è®¾ç½®â€œå†…ç½®RS232Cç«¯å£â€ï¼šæ³¢ç‰¹çŽ‡115200,æ ¼å¼7,2,E,æ¨¡å¼HOSTLINK,å•å…ƒå·0
+1. å°†è®¾ç½®ï¼ˆå’Œç©ºçš„PLCç¨‹åºï¼‰ä¸‹è½½åˆ°PLCä¸­ï¼Œé‡å¯åŽç”Ÿæ•ˆ
+1. è®¾ç½®å’Œå¯åŠ¨ADè½¬æ¢æ¨¡å—ï¼ˆæ­¤æ­¥å¿½ç•¥ï¼Œç”¨HOSTLINKå‘½ä»¤å®žçŽ°ï¼‰
 
-#### ²âÊÔPLC
+#### æµ‹è¯•PLC
 
-ÉèÖÃºÃºó£¬ÓÃ´®¿ÚÈí¼þ²âÊÔÍ¨Ñ¶ºÍ¸÷Ä£¿éµÄÓ¦´ðÊÇ·ñÕý³£¡£
-(ASCIIÂë)
-²âÊÔCPUÄ£¿éµÄIOÊäÈë
-¶ÁÈ¡£º@00RR0000000141*\r
-·µ»Ø£º@00RR00dataFCS*\r data=FFFF
-²âÊÔADÄ£¿éµÄÌ¨³µËÙ¶È
-³õÊ¼»¯£º@00WR0102800A800037*\r
-¶ÁÈ¡ £º@00RR0002000143*\r
-·µ»Ø£º@00RR00dataFCS*\r data=FFFF data(hex)*3.59/6000=×ªËÙ
+è®¾ç½®å¥½åŽï¼Œç”¨ä¸²å£è½¯ä»¶æµ‹è¯•é€šè®¯å’Œå„æ¨¡å—çš„åº”ç­”æ˜¯å¦æ­£å¸¸ã€‚
+(ASCIIç )
+æµ‹è¯•CPUæ¨¡å—çš„IOè¾“å…¥
+è¯»å–ï¼š@00RR0000000141*\r
+è¿”å›žï¼š@00RR00dataFCS*\r data=FFFF
+æµ‹è¯•ADæ¨¡å—çš„å°è½¦é€Ÿåº¦
+åˆå§‹åŒ–ï¼š@00WR0102800A800037*\r
+è¯»å– ï¼š@00RR0002000143*\r
+è¿”å›žï¼š@00RR00dataFCS*\r data=FFFF data(hex)*3.59/6000=è½¬é€Ÿ
 
 ### ZLVircom
 
-´®¿Ú·þÎñÆ÷ZLAN5103µÄÅäÖÃÈí¼þ£¬ÓÃÓÚÅäÖÃÐéÄâCOM¿Ú¡£ÄÚÖÃÁËÒ»¿î´®¿Úµ÷ÊÔÈí¼þ
+ä¸²å£æœåŠ¡å™¨ZLAN5103çš„é…ç½®è½¯ä»¶ï¼Œç”¨äºŽé…ç½®è™šæ‹ŸCOMå£ã€‚å†…ç½®äº†ä¸€æ¬¾ä¸²å£è°ƒè¯•è½¯ä»¶
 
 ### Serial Port Utility
 
-ÁíÒ»¿î´®¿Úµ÷ÊÔÈí¼þ
+å¦ä¸€æ¬¾ä¸²å£è°ƒè¯•è½¯ä»¶
 
 ### SQLiteStudio
 
-SQLiteÊý¾Ý¿âµÄ¿ÉÊÓ»¯Èí¼þ£¬ÓÃÓÚ±à¼­/²é¿´wheelmonitor.db3Êý¾Ý¿âÎÄ¼þ
+SQLiteæ•°æ®åº“çš„å¯è§†åŒ–è½¯ä»¶ï¼Œç”¨äºŽç¼–è¾‘/æŸ¥çœ‹wheelmonitor.db3æ•°æ®åº“æ–‡ä»¶
 
-### º£¿µSDK
+### æµ·åº·SDK
 
-ÓÃÓÚÊÓÆµÁ÷Êý¾ÝµÄ»ñÈ¡ºÍ½âÂë£¬²Î¼ûSDKÑ¹Ëõ°ü-->¿ª·¢ÎÄµµ-->IPC±à³ÌÖ¸ÄÏ + SDKÊ¹ÓÃÊÖ²á¡£¶ÔÓÚ±àÒëÀ´Ëµ£¬ÒÑ¾­½«ÐèÒªµÄÎÄ¼þÌáÈ¡³öÀ´²¢ÅäÖÃºÃ¡£ÆäÖÐµÄincludeºÍlibÓÃÓÚ±àÒë£¬dllÓÃÓÚÔËÐÐ
+ç”¨äºŽè§†é¢‘æµæ•°æ®çš„èŽ·å–å’Œè§£ç ï¼Œå‚è§SDKåŽ‹ç¼©åŒ…-->å¼€å‘æ–‡æ¡£-->IPCç¼–ç¨‹æŒ‡å— + SDKä½¿ç”¨æ‰‹å†Œã€‚å¯¹äºŽç¼–è¯‘æ¥è¯´ï¼Œå·²ç»å°†éœ€è¦çš„æ–‡ä»¶æå–å‡ºæ¥å¹¶é…ç½®å¥½ã€‚å…¶ä¸­çš„includeå’Œlibç”¨äºŽç¼–è¯‘ï¼Œdllç”¨äºŽè¿è¡Œ
 
-### Èí¼þ·¢ÐÐ
+### è½¯ä»¶å‘è¡Œ
 
-#### ½â¾öÒÀÀµÎÊÌâ
+#### è§£å†³ä¾èµ–é—®é¢˜
 
-1. QtÒÀÀµÏîºÍVC runtime¡£¹¤¾ß£ºwindeployqt, x64 Native Tools Command Prompt for VS 2017¡£ÔÚVSµÄCMD¹¤¾ßÖÐÊ¹ÓÃwindeployqt /path/wheelmonitor.exe£¬½«×Ô¶¯Éú³ÉqtÒÀÀµÏîºÍvcredist_x64.exe
-1. process explorer¡£²é¿´ÔËÐÐÒÀÀµ¿â¡£ÓÃÓÚÈí¼þ´ò°üÊ±½â¾öÔËÐÐÒÀÀµµÄÎÊÌâ£¬½«ËùÓÐÒÀÀµdllÖ±½Ó¸´ÖÆµ½¿ÉÖ´ÐÐÎÄ¼þ¼ÐÖÐ
-1. º£¿µÒÀÀµÏî¡£³ýÁËHCNetSDK.dll¡¢HCCore.dll¡¢PlayCtrl.dll¡¢SuperRender.dll¡¢AudioRender.dllÕâ¼¸¸ö¿ÉÒÔÓÃprocess explorer²éµ½µÄdll£¬**HCNetSDKComÎÄ¼þ¼Ð**£¨°üº¬ÀïÃæµÄ¹¦ÄÜ×é¼þdll¿âÎÄ¼þ£©ÐèÒªºÍHCNetSDK.dll¡¢HCCore.dllÒ»Æð¼ÓÔØ£¬·ÅÔÚÍ¬Ò»¸öÄ¿Â¼ÏÂ£¬ÇÒHCNetSDKComÎÄ¼þ¼ÐÃû²»ÄÜÐÞ¸Ä¡£
+1. Qtä¾èµ–é¡¹å’ŒVC runtimeã€‚å·¥å…·ï¼šwindeployqt, x64 Native Tools Command Prompt for VS 2017ã€‚åœ¨VSçš„CMDå·¥å…·ä¸­ä½¿ç”¨windeployqt /path/wheelmonitor.exeï¼Œå°†è‡ªåŠ¨ç”Ÿæˆqtä¾èµ–é¡¹å’Œvcredist_x64.exe
+1. process explorerã€‚æŸ¥çœ‹è¿è¡Œä¾èµ–åº“ã€‚ç”¨äºŽè½¯ä»¶æ‰“åŒ…æ—¶è§£å†³è¿è¡Œä¾èµ–çš„é—®é¢˜ï¼Œå°†æ‰€æœ‰ä¾èµ–dllç›´æŽ¥å¤åˆ¶åˆ°å¯æ‰§è¡Œæ–‡ä»¶å¤¹ä¸­
+1. æµ·åº·ä¾èµ–é¡¹ã€‚é™¤äº†HCNetSDK.dllã€HCCore.dllã€PlayCtrl.dllã€SuperRender.dllã€AudioRender.dllè¿™å‡ ä¸ªå¯ä»¥ç”¨process exploreræŸ¥åˆ°çš„dllï¼Œ**HCNetSDKComæ–‡ä»¶å¤¹**ï¼ˆåŒ…å«é‡Œé¢çš„åŠŸèƒ½ç»„ä»¶dllåº“æ–‡ä»¶ï¼‰éœ€è¦å’ŒHCNetSDK.dllã€HCCore.dllä¸€èµ·åŠ è½½ï¼Œæ”¾åœ¨åŒä¸€ä¸ªç›®å½•ä¸‹ï¼Œä¸”HCNetSDKComæ–‡ä»¶å¤¹åä¸èƒ½ä¿®æ”¹ã€‚
 
-#### Èí¼þ´ò°ü
+#### è½¯ä»¶æ‰“åŒ…
 
-Ê¹ÓÃvs2017µÄMicrosoft Visual Studio 2017 Instaler Project¡£¾ßÌå²½ÖèÈçÏÂ
+ä½¿ç”¨vs2017çš„Microsoft Visual Studio 2017 Instaler Projectã€‚
 
-### ÆäËû
+### å…¶ä»–
 
-- ·þÎñÆ÷PCµçÄÔÃÜÂë1
-- ×¨ÓÃqqºÅ3192316445£¬ÃÜÂëbaosteel123£¬ÓÃÓÚ´«ÊäÈí¼þºÍÆäËû×ÊÁÏ¡£
-- º£¿µÍøÂçÉãÏñ»ú IP192.168.1.64/65, ÓÃ»§Ãûadmin£¬ÃÜÂëbaosteel123
+- æœåŠ¡å™¨PCç”µè„‘å¯†ç 1
+- ä¸“ç”¨qqå·3192316445ï¼Œå¯†ç baosteel123ï¼Œç”¨äºŽä¼ è¾“è½¯ä»¶å’Œå…¶ä»–èµ„æ–™ã€‚
+- æµ·åº·ç½‘ç»œæ‘„åƒæœº IP192.168.1.64/65, ç”¨æˆ·åadminï¼Œå¯†ç baosteel123
 
-## µÚÈý·½×é¼þ
+## ç¬¬ä¸‰æ–¹ç»„ä»¶
 
 - [QuaZIP](https://github.com/stachenov/quazip)
 - [SingleApplication](https://github.com/itay-grudev/SingleApplication)

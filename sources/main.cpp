@@ -105,12 +105,12 @@ int main(int argc, char* argv[])
 	//if the app is auto run when powerboot, should sleep for 1s
 	//no longer use
 
-	if (!bNoIdentity) {
-		if (!Identification::check()) {
-			QMessageBox::critical(nullptr, QStringLiteral("未授权"), QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
-			return 0;
-		}
-	}
+	//if (!bNoIdentity) {
+	//	if (!Identification::check()) {
+	//		QMessageBox::critical(nullptr, QStringLiteral("未授权"), QStringLiteral("本软件禁止在未经授权的平台上使用，请联系你的软件管理员！"), QStringLiteral("确定"));
+	//		return 0;
+	//	}
+	//}
 	if (!initMainDb()) //connect to database
 	{
 		return 0;

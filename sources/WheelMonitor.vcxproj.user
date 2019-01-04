@@ -2,14 +2,14 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QTDIR>C:\Qt\Qt5.12.0\5.12.0\msvc2017_64</QTDIR>
-    <LocalDebuggerCommandArguments>-r --no-identity</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-r</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(OpenCVBin)%3b$(HikVisionBin)%3b$(HCNetSDKCom)%3b$(QuaZipBin)%3b(PATH)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QTDIR>C:\Qt\Qt5.12.0\5.12.0\msvc2017_64</QTDIR>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommandArguments>-r --no-identity</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-r</LocalDebuggerCommandArguments>
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(OpenCVBin)%3b$(HikVisionBin)%3b$(HCNetSDKCom)%3b$(QuaZipBin)%3b(PATH)</LocalDebuggerEnvironment>
   </PropertyGroup>
 </Project>
