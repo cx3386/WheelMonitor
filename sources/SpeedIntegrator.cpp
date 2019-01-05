@@ -2,9 +2,9 @@
 #include "Plc.h"
 #include "SpeedIntegrator.h"
 
-const double SpeedIntegrator::std_L = 2.45;
-const double SpeedIntegrator::dist_min = std_L - 0.1;
-const double SpeedIntegrator::dist_max = std_L + 0.1;
+const double SpeedIntegrator::std_L = 2.5;
+const double SpeedIntegrator::dist_min = std_L - 0.2;
+const double SpeedIntegrator::dist_max = std_L + 0.2;
 SpeedIntegrator::SpeedIntegrator(Plc* plcSerial, QObject* parent /*= Q_NULLPTR*/)
 	: QObject(parent)
 	, plc(plcSerial)

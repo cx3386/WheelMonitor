@@ -21,9 +21,11 @@ RobustMatcher::~RobustMatcher()
 	// \see std::shared_ptr since C++11
 }
 
-bool RobustMatcher::match(Mat src1, Mat src2, Mat& img_matches, double& angle)
+bool RobustMatcher::match(cv::Mat src1, cv::Mat src2, double maskOuterRatio, double maskInnerRatio, cv::Mat &img_matches, double &angle)
 {
-	Mat mask1 = getMask(src1.size()), mask2 = getMask(src2.size());
+	int ro1, ri1, ro2, ri2;
+	Mat mask1 = getMask(src1.size(), maskOuterRatio, maskInnerRatio, ro1, ri1);
+	Mat mask2 = getMask(src2.size(), maskOuterRatio, maskInnerRatio, ro2, ri2);
 	auto detector = ORB::create();
 	vector<KeyPoint> keypoints1, keypoints2;
 	// 1a. Detection of the ORB features
@@ -61,9 +63,14 @@ bool RobustMatcher::match(Mat src1, Mat src2, Mat& img_matches, double& angle)
 		//qDebug("the match point less than 2");
 		return false;
 	}
+	// 绘制匹配结果
 	drawMatches(src1, keypoints1, src2, keypoints2,
 		matches, img_matches, Scalar::all(-1), Scalar::all(-1),
 		vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
+	circle(img_matches, Point(mask1.cols / 2, mask1.rows / 2), ro1, Scalar(0, 0, 255), 1, LINE_AA);
+	circle(img_matches, Point(mask1.cols / 2, mask1.rows / 2), ri1, Scalar(0, 255, 0), 1, LINE_AA);
+	circle(img_matches, Point(mask1.cols + mask2.cols / 2, mask2.rows / 2), ro2, Scalar(0, 0, 255), 1, LINE_AA);
+	circle(img_matches, Point(mask1.cols + mask2.cols / 2, mask2.rows / 2), ri2, Scalar(0, 255, 0), 1, LINE_AA);
 
 	// 6. 求仿射变换
 	vector<Point2f> obj;
@@ -144,16 +151,19 @@ int RobustMatcher::ratioTest(vector<vector<DMatch>>& matches)
 }
 
 /** \brief get a white ring mask for the srcImg.
-* 图像大小与源图像相同，外径与内径在此设定
+* 图像为一白色圆环， 图像大小与源图像相同，外径与内径在此设定
 * \param cv::Size size 源图大小
-*
+* \param outerRatio 外圆半径占比
+* \param innerRatio 内圆半径占比
+* \param ro 得到的外圆半径
+* \param ri 得到的内圆半径
 */
-cv::Mat RobustMatcher::getMask(cv::Size size) const
+cv::Mat RobustMatcher::getMask(cv::Size size, double outerRatio, double innerRatio, int &ro, int &ri) const
 {
 	cv::Mat mask = cv::Mat::zeros(size, CV_8UC1);
 	int r = size.height / 2;
-	int ro = r - 10;
-	int ri = r / 2 + 15;
+	ro = r * outerRatio;
+	ri = r * innerRatio;
 	cv::circle(mask, cv::Point(r, r), ro, cv::Scalar(255), -1, 8);
 	//bitwise_not(mask1, mask1);
 	cv::circle(mask, cv::Point(r, r), ri, cv::Scalar(0), -1, 8);

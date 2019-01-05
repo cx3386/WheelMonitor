@@ -90,7 +90,7 @@ PlayBackWidget::PlayBackWidget(QWidget* parent)
 
 void PlayBackWidget::initAlarmTable()
 {
-	alarmModel = new MySqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
+	alarmModel = new MySqlTableModel(this);
 	alarmModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 	alarmModel->setTable("wheels");
 	alarmModel->setRelation(Wheel_I_O, QSqlRelation("devs", "devIndex", "name")); // 手动设置i_o的外键
@@ -127,7 +127,7 @@ void PlayBackWidget::initAlarmTable()
 
 void PlayBackWidget::initAllTable()
 {
-	allModel = new MySqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
+	allModel = new MySqlTableModel(this);
 	allModel->setTable("wheels");
 	allModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 	allModel->select();
@@ -154,7 +154,7 @@ PlayBackWidget::~PlayBackWidget()
 
 bool PlayBackWidget::hasAlarm() const
 {
-	return alarmModel->rowCount();
+	return (bool)alarmModel->rowCount();
 }
 
 void PlayBackWidget::dbChanged()
@@ -198,7 +198,7 @@ void PlayBackWidget::setSelectedChecked()
 		alarmModel->setData(alarmModel->index(slc.row(), Wheel_CheckState), QVariant(Checked));
 	}
 	alarmModel->submitAll();
-	while (alarmModel->canFetchMore())alarmModel->fetchMore();
+	//while (alarmModel->canFetchMore())alarmModel->fetchMore();
 }
 
 void PlayBackWidget::setAllChecked()
@@ -212,5 +212,5 @@ void PlayBackWidget::setAllChecked()
 		alarmModel->setData(alarmModel->index(i, Wheel_CheckState), QVariant(Checked));
 	}
 	alarmModel->submitAll();
-	while (alarmModel->canFetchMore())alarmModel->fetchMore();
+	//while (alarmModel->canFetchMore())alarmModel->fetchMore();
 }

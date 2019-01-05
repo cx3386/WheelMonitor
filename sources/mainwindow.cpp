@@ -160,8 +160,8 @@ void MainWindow::configWindow()
 	imageProcessThread[0]
 		->start();
 	imageProcessThread[1]->start();
-	imageProcess[0]->init();//初始化数据库
-	imageProcess[1]->init();
+	//imageProcess[0]->init();//初始化数据库
+	//imageProcess[1]->init();
 
 	setupDatabaseWatcher();
 
@@ -466,9 +466,9 @@ void MainWindow::on_action_Start_triggered()
 	plc->start();
 	//return;//测试：只打开plc
 	////测试insertrecord
-	imageProcess[0]->start();
-	imageProcess[1]->start();
-	return;
+	//imageProcess[0]->start();
+	//imageProcess[1]->start();
+	//return;
 	bool cap0 = videoCapture[0]->start();
 	if (cap0) {
 		imageProcess[0]->start();
@@ -612,36 +612,38 @@ void MainWindow::setupDataMapper()
 		int row = alarmMapper->currentIndex();
 		playBackWidget->alarmView->selectRow(row);
 	});
-	// 创建数据库wheels表的Model，分别用于显示内外圈
-	// 外圈
-	outerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
-	outerModel->setTable("wheels");
-	outerModel->setFilter("i_o=0");
-	outerModel->select();
-	while (outerModel->canFetchMore()) outerModel->fetchMore();
-	// 显示内圈的model
-	innerModel = new QSqlTableModel(this, QSqlDatabase::database(MAIN_CONNECTION_NAME));
-	innerModel->setTable("wheels");
-	innerModel->setFilter("i_o=1");
-	innerModel->select();
-	while (innerModel->canFetchMore()) innerModel->fetchMore();
+	//// 创建数据库wheels表的Model，分别用于显示内外圈
+	//// 外圈
+	//outerModel = new QSqlTableModel(this);
+	//outerModel->setTable("wheels");
+	//outerModel->setFilter("i_o=0");
+	//outerModel->select();
+	//// 显示内圈的model
+	//innerModel = new QSqlTableModel(this);
+	//innerModel->setTable("wheels");
+	//innerModel->setFilter("i_o=1");
+	//innerModel->select();
 
 	/* 把Model中的数据映射到dashboard中 */
-	outerMapper = new QDataWidgetMapper(this);
-	outerMapper->setModel(outerModel);
-	outerMapper->addMapping(ui.numLineEdit_o, Wheel_Num);
-	outerMapper->addMapping(ui.lastSpeedLineEdit_o, Wheel_CalcSpeed);
-	outerMapper->toLast();
-	innerMapper = new QDataWidgetMapper(this);
-	innerMapper->setModel(innerModel);
-	innerMapper->addMapping(ui.numLineEdit_i, Wheel_Num);
-	innerMapper->addMapping(ui.lastSpeedLineEdit_i, Wheel_CalcSpeed);
-	innerMapper->toLast();
+	// 修改：由于大表格时影响性能，因此不再通过model操作。改为信号槽或者query查询(也没必要)
+	//outerMapper = new QDataWidgetMapper(this);
+	//outerMapper->setModel(outerModel);
+	//outerMapper->addMapping(ui.numLineEdit_o, Wheel_Num);
+	//outerMapper->addMapping(ui.lastSpeedLineEdit_o, Wheel_CalcSpeed);
+	//outerMapper->toLast();
+	//innerMapper = new QDataWidgetMapper(this);
+	//innerMapper->setModel(innerModel);
+	//innerMapper->addMapping(ui.numLineEdit_i, Wheel_Num);
+	//innerMapper->addMapping(ui.lastSpeedLineEdit_i, Wheel_CalcSpeed);
+	//innerMapper->toLast();
 	/* 把数据库“alarm”表格中的数据映射到AlarmNumBoard中 */
+	QSqlQueryModel *alarmQueryModel = new QSqlQueryModel(this);
+	alarmQueryModel->setQuery("SELECT i_o,num FROM wheels WHERE checkstate=1 ORDER BY id ASC");
+	while (alarmQueryModel->canFetchMore()) alarmQueryModel->fetchMore();
 	alarmMapper = new QDataWidgetMapper(this);
-	alarmMapper->setModel((QSqlTableModel*)(playBackWidget->alarmModel));
-	alarmMapper->addMapping(ui.alarmLCDBoard->devName, Wheel_I_O);
-	alarmMapper->addMapping(ui.alarmLCDBoard->alarmNum, Wheel_Num);
+	alarmMapper->setModel(alarmQueryModel);
+	alarmMapper->addMapping(ui.alarmLCDBoard->devIndex, alarmQueryModel->query().record().indexOf("i_o"));
+	alarmMapper->addMapping(ui.alarmLCDBoard->alarmNum, alarmQueryModel->query().record().indexOf("num"));
 	alarmMapper->toLast(); //最近的报警
 	ui.numBackwardBtn->setEnabled(alarmMapper->currentIndex() > 0);
 	ui.numForwardBtn->setEnabled(false);
@@ -664,19 +666,12 @@ void MainWindow::setupDatabaseWatcher()
 	//如果model更新了，dataWidgetMapper同时更新。但是其他model对数据库的修改的则不能自动提交
 	connect(watcher, &QFileSystemWatcher::fileChanged, this, [=]() {
 		playBackWidget->dbChanged();//更新故障中的表格。注意：这里的slot由this所在的线程做出，跨线程不能这么传
+		auto model = static_cast<QSqlQueryModel *>(alarmMapper->model());
+		while (model->canFetchMore()) model->fetchMore();
 		alarmMapper->toLast();//更新报警信号至最新,刷新左右翻页和显示（有可能被清除）
 		int row = alarmMapper->currentIndex();
 		ui.numBackwardBtn->setEnabled(row > 0);
 		ui.numForwardBtn->setEnabled(row < playBackWidget->alarmModel->rowCount() - 1);
-
-		outerModel->select();
-		while (outerModel->canFetchMore()) outerModel->fetchMore();
-
-		innerModel->select();
-		while (innerModel->canFetchMore()) innerModel->fetchMore();
-
-		outerMapper->toLast();
-		innerMapper->toLast();
 	});
 
 	dbWatcherThread->start();

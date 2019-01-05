@@ -45,8 +45,9 @@ private:
 	//thread must be managed in main thread. ~mainwindow(){thread.quit()}
 	//QThread *videoCapture
 	//数据模型和映射
-	QSqlTableModel *outerModel, *innerModel;
-	QDataWidgetMapper *outerMapper, *innerMapper, *alarmMapper;
+	//QSqlQueryModel *outerModel, *innerModel;
+	//QDataWidgetMapper *outerMapper, *innerMapper;
+	QDataWidgetMapper *alarmMapper;
 	/*global*/
 	void configWindow();
 	void setupDatabaseWatcher(); //!< 建立对数据库文件的监视
@@ -65,6 +66,12 @@ protected:
 public slots:
 	void uiShowCio100(int cio100);
 	void uiShowAlarmLight(AlarmColor alarmColor);
+	void uiShowSpeed_i(double speed) { ui.lastSpeedLineEdit_i->setText(QString::number(speed)); }
+	void uiShowError_i(double error) { ui.lastErrorLineEdit_i->setText(QString::number(error)); }
+	void uiShowNum_i(QString num) { ui.numLineEdit_i->setText(num); }
+	void uiShowSpeed_o(double speed) { ui.lastSpeedLineEdit_o->setText(QString::number(speed)); }
+	void uiShowError_o(double error) { ui.lastErrorLineEdit_o->setText(QString::number(error)); }
+	void uiShowNum_o(QString num) { ui.numLineEdit_o->setText(num); }
 private slots:
 	/* uiShow */
 	void uiShowRealtimeImage(int deviceIndex);

@@ -302,6 +302,11 @@
   <ItemGroup>
     <None Include="..\README.md" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="3rdparty\quazip_fetch\quazip\quazip.vcxproj">
+      <Project>{9bf4a56e-5406-3cb7-892e-a6e85ba87c5d}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "common.h"
+#include "ocr.h"
 #include <QtSql>
 
 /// field index of table "wheels"
@@ -31,7 +32,7 @@ struct WheelDbInfo {
 	double refspeed;
 	double error;
 	QString time;
-	int alarmlevel;
+	int alarmlevel; //!< -2：连续两次结果不可信；-1：本次结果不可信；0：正常；1：预警；2：报警
 	int checkstate;
 	int ocrsize;
 	int fragment;
@@ -40,6 +41,9 @@ struct WheelDbInfo {
 	int validmatch;
 	QString speeds;
 	QString videopath;
+	//临时增加
+	double warnRatio;
+	double alarmRatio;
 };
 
 /// the value of field "wheels_checkstate", represent whether need check. if need check, it will show in the alarm table
@@ -49,14 +53,14 @@ enum CheckState {
 	Checked,
 };
 
-//! 由主线程调用
+//! 由主线程调用，连接名为默认
 static bool initMainDb()
 {
 	if (!QSqlDatabase::drivers().contains("QSQLITE")) {
 		qWarning() << "database: no SQLITE driver.";
 		QMessageBox::critical(Q_NULLPTR, "Unable to load database", "This app needs the SQLITE driver");
 	}
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", MAIN_CONNECTION_NAME);
+	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 	db.setDatabaseName(databaseFilePath);
 	if (!db.open()) {
 		qWarning() << "database: initMainDb failed. " << db.lastError().text();
@@ -64,22 +68,20 @@ static bool initMainDb()
 			"Eror initializing database: " + db.lastError().text());
 		return false;
 	}
-	QSqlQuery query(db);
-	QSqlTableModel model(nullptr, db);
+	QSqlQuery query;
+	QSqlTableModel model;
+
 	// 检查user表
 	model.setTable("user");
 	model.select();
-	while (model.canFetchMore()) model.fetchMore();
-	// if no user table, insert the default user;
 	if (!model.rowCount()) {
 		query.exec("create table user (id integer primary key autoincrement, username varchar(20) unique, pwd varchar(20))");
 		query.exec("insert into user (username, pwd) values('BaoSteel', '123456')");
 	}
-	//检查devs
+
+	//检查devs表
 	model.setTable("devs");
 	model.select();
-	while (model.canFetchMore()) model.fetchMore();
-
 	if (!model.rowCount()) {
 		query.exec("CREATE TABLE devs ("
 			"id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -95,56 +97,39 @@ static bool initMainDb()
 		query.bindValue(":devname", getDeviceMark(1));
 		query.exec();
 	}
-	return true;
-}
 
-//! 由两个图像处理线程分别初始化
-static bool initThreadDb(int deviceIndex)
-{
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME);
-	db.setDatabaseName(databaseFilePath);
-	if (!db.open()) {
-		qWarning() << "database: initThreadDb failed. " << db.lastError().text();
-		QMessageBox::critical(Q_NULLPTR, "Unable to initialize Database",
-			"Error initializing database: " + db.lastError().text());
-		return false;
-	}
-	QSqlTableModel model(nullptr, db);
+	//检查wheels表
 	model.setTable("wheels");
 	model.select();
-	while (model.canFetchMore()) model.fetchMore();
-
 	auto record = model.record();
 	bool createNewTable = false;
-	if (record.isEmpty())
-		createNewTable = true;
-	else {
-		//检查数据表结构是否正确
-		QStringList refCols, dbCols;
-		refCols << "id"
-			<< "i_o"
-			<< "num"
-			<< "calcspeed"
-			<< "refspeed"
-			<< "error"
-			<< "time"
-			<< "alarmlevel"
-			<< "checkstate"
-			<< "ocrsize"
-			<< "fragment"
-			<< "totalmatch"
-			<< "validmatch"
-			<< "speeds"
-			<< "videopath";
-		for (int i = 0; i < record.count(); ++i) {
-			dbCols << record.fieldName(i);
-		}
-		createNewTable = refCols != dbCols;
+
+	//检查数据表的列名是否正确
+	QStringList refCols, dbCols;
+	refCols << "id"
+		<< "i_o"
+		<< "num"
+		<< "calcspeed"
+		<< "refspeed"
+		<< "error"
+		<< "time"
+		<< "alarmlevel"
+		<< "checkstate"
+		<< "ocrsize"
+		<< "fragment"
+		<< "totalmatch"
+		<< "validmatch"
+		<< "speeds"
+		<< "videopath";
+	for (int i = 0; i < record.count(); ++i) {
+		dbCols << record.fieldName(i);
 	}
-	if (createNewTable) { //create a new table, this will drop the history records
+	if (refCols != dbCols) {
+		//create a new table, this will drop the history records
 		QSqlQuery query(db);
 		query.exec("DROP TABLE wheels;");
 		query.exec("PRAGMA foreign_keys = ON;");
+		//更改为sqlite3专有语句-2018年11月12日陈翔
 		query.exec("CREATE TABLE wheels ( "
 			"id INTEGER PRIMARY KEY AUTOINCREMENT,"
 			"i_o INTEGER REFERENCES devs (devIndex),"
@@ -161,12 +146,35 @@ static bool initThreadDb(int deviceIndex)
 			"validmatch INTEGER,"
 			"speeds TEXT,"
 			"videopath TEXT"
-			");"); //更改为sqlite3专有语句-2018年11月12日陈翔
- //为车轮序号添加索引
-		query.exec("CREATE INDEX idx_wheels ON wheels ( "
-			"i_o ASC,"
-			"num ASC"
+			");");
+		//添加索引
+		query.exec("CREATE INDEX idx_num_id ON wheels ( "
+			"num ASC,"
+			"id DESC"
+			");");
+		//query.exec("CREATE INDEX idx_io ON wheels ( "
+		//	"i_o"
+		//	");");
+		query.exec("CREATE INDEX idx_checkstate ON wheels ( "
+			"checkstate"
 			");");
 	}
 	return true;
 }
+
+//! 由两个图像处理线程分别初始化
+//! 取消：全部由主线程控制
+//static bool initThreadDb(int deviceIndex)
+//{
+//	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME);
+//	db.setDatabaseName(databaseFilePath);
+//	if (!db.open()) {
+//		qWarning() << "database: initThreadDb failed. " << db.lastError().text();
+//		QMessageBox::critical(Q_NULLPTR, "Unable to initialize Database",
+//			"Error initializing database: " + db.lastError().text());
+//		return false;
+//	}
+//	QSqlTableModel model(nullptr, db);
+//
+//	return true;
+//}

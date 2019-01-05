@@ -56,10 +56,15 @@ void ImageProcess::handleFrame()
 {
 	makeFrame4Show(); //只要cap发送信号，则显示到界面上
 	if (bUsrCtrl) {
-		// 台车停止，丢弃帧，丢弃该车轮，停止处理。
+		// 台车停止，立马结算当前车轮，并停止处理。
 		// 发生在光电开关未在规定时间内检测到离开信号，或者测到台车速度为0
-		if (bIsTruckStopped)
-			checkoutWheel();
+		if (bIsTruckStopped) {
+			if (!checkoutAlready)
+			{
+				checkoutWheel();
+				checkoutAlready = true;
+			}
+		}
 		else {
 			//sensor triggered. 通过SENSOR IN/OUT信号开始，注意，1个周期只收到1次in，1次out。/结束本车轮的检测，而无论core的返回值
 			if (imProfile->sensorTriggered) {
@@ -203,9 +208,9 @@ int ImageProcess::coreImageProcess()
 	}
 
 	// 开始匹配 //orb matches
-	Mat image_matches; // no longer show in UI
+	Mat image_matches; // show in UI
 	double oneAngle;
-	if (!rMatcher->match(matchSrc1, matchSrc2, image_matches, oneAngle)) //200ms
+	if (!rMatcher->match(matchSrc1, matchSrc2, configHelper->matchMaskOuterRatio, configHelper->matchMaskInnerRatio, image_matches, oneAngle)) //200ms
 	{
 		//qDebug() << "match fail";
 		return MatchFail;
@@ -247,74 +252,67 @@ void ImageProcess::checkoutWheel()
 	WheelDbInfo wheelDbInfo;
 	wheelDbInfo.i_o = deviceIndex;
 	wheelDbInfo.num = QString::fromStdString(ocr->get_final_result());
-	//qDebug() << "checkoutWheel. dev" << deviceIndex << "num" << wheelDbInfo.num;
-	wheelDbInfo.time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
-	wheelDbInfo.ocrsize = ocr->size();
-	wheelDbInfo.fragment = interrupts;
-	wheelDbInfo.validmatch = wheelDbInfo.totalmatch = rtSpeeds.size(); // match size
-	wheelDbInfo.videopath = videoCapture->getVideoRelativeFilePath();
-	wheelDbInfo.refspeed = rtRefSpeed; // if no match result, it will show the current truck speed
-
-	if (wheelDbInfo.totalmatch < 1) { //no result
-		wheelDbInfo.alarmlevel = -1;
-		qCritical() << "ImageProcess: MISS, no match result";
-	}
-
-	else { //has match results
-		vector<double> absErrors(rtSpeeds.size()); //a vector saves speed difference between imgprocess and PLC(speedAD)
-		transform(rtSpeeds.begin(), rtSpeeds.end(), refSpeeds.begin(), absErrors.begin(), minus<double>()); //rt-ref=diff
+	// 记录所有的速度值
+	wheelDbInfo.speeds = genSpeeds(rtSpeeds, refSpeeds);
+	wheelDbInfo.totalmatch = rtSpeeds.size(); // match size
+	//如果有足够多数据，进行计算
+	if (refSpeeds.size() >= IM_PROC_VALID_MIN_COUNT) {
+		//计算每一次数据的误差：rt-ref=diff
+		vector<double> absErrors(rtSpeeds.size());
+		transform(rtSpeeds.begin(), rtSpeeds.end(), refSpeeds.begin(), absErrors.begin(), minus<double>());
+		// 剔除异常。注意：总会有结果
 		OutlierHelper outlier;
-		outlier.removeOutliers(absErrors); //kick out the bad results by grubbs certain
+		outlier.removeOutliers(absErrors);
 		double refspeed = outlier.mean(refSpeeds);
 		double absError = outlier.mean(absErrors);
 		wheelDbInfo.validmatch = absErrors.size();
-
-		if (wheelDbInfo.validmatch >= IM_PROC_VALID_MIN_COUNT) { //reliable results
-			/* approximate result to write into database */
-			wheelDbInfo.calcspeed = QString::number(absError + refspeed, 'f', 2).toDouble();
-			wheelDbInfo.refspeed = QString::number(refspeed, 'f', 2).toDouble();
-			wheelDbInfo.error = QString::number(absError / refspeed * 100, 'f', 1).toDouble();
-			qDebug() << "Speed: " << wheelDbInfo.calcspeed << ";Ref: " << wheelDbInfo.refspeed;
-			if (fabs(absError) <= refspeed * imProfile->warningRatio) { //acceptable, good result
-				wheelDbInfo.alarmlevel = 0;
-			}
-			else { //unacceptable error
-				if (fabs(absError) > refspeed * imProfile->alarmRatio) //if this wheel is too too slow
-				{
-					qCritical() << "ImageProcess: Wheel FATAL error(error>alarm ratio )";
-					wheelDbInfo.alarmlevel = 2;
-				}
-				else if (previousAlarmLevel(wheelDbInfo.num) > 0) //if the last wheel is alarmed
-				{
-					qCritical() << "ImageProcess: Wheel FATAL error(continuous warning))";
-					wheelDbInfo.alarmlevel = 2;
-				}
-				else {
-					qCritical() << "ImageProcess: Wheel WARNING error(error>warning ratio)";
-					wheelDbInfo.alarmlevel = 1;
-				}
-			}
+		// 写入数据库的值
+		wheelDbInfo.calcspeed = QString::number(absError + refspeed, 'f', 2).toDouble();
+		wheelDbInfo.refspeed = QString::number(refspeed, 'f', 2).toDouble();
+		wheelDbInfo.error = QString::number(absError / refspeed * 100, 'f', 1).toDouble();
+		qDebug() << "Speed: " << wheelDbInfo.calcspeed << ";Ref: " << wheelDbInfo.refspeed;
+	}
+	//无有效数据
+	else
+	{
+		wheelDbInfo.validmatch = 0;
+		wheelDbInfo.calcspeed = IM_PROC_INVALID_SPEED; // 计算值为溢出
+		wheelDbInfo.refspeed = rtRefSpeed; // 当前参考速度
+		wheelDbInfo.error = 0.0;
+		if (wheelDbInfo.totalmatch == 0)
+		{
+			qCritical() << QStringLiteral("无匹配结果");
 		}
-		//unreliable, invalid
-		else {
-			wheelDbInfo.alarmlevel = -1;
+		else
+		{
+			qCritical() << QStringLiteral("匹配结果太少");
 		}
 	}
+	wheelDbInfo.time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+	wheelDbInfo.ocrsize = ocr->size();
+	wheelDbInfo.fragment = interrupts;
 
-	/* wheelspeeds */
-	for (auto&& sp : rtSpeeds) {
-		wheelDbInfo.speeds += QString(" %1").arg(sp, 0, 'f', 2);
-	}
-	wheelDbInfo.speeds += ";";
-	for (auto&& sp : refSpeeds) {
-		wheelDbInfo.speeds += QString(" %1").arg(sp, 0, 'f', 2);
-	}
+	wheelDbInfo.videopath = videoCapture->getVideoRelativeFilePath();
+	wheelDbInfo.warnRatio = imProfile->warningRatio;
+	wheelDbInfo.alarmRatio = imProfile->alarmRatio;
 
-	handleAlarmLevel(wheelDbInfo); //引用
-	if (!insertRecord(wheelDbInfo))
-		qDebug() << "insert record failed";
+	emit wheelNeedHandled(wheelDbInfo);
 	/* reset parameters of this wheel */
 	clearWheel();
+}
+//! 生成写入数据库speeds列的数据
+QString ImageProcess::genSpeeds(vector<double> rt, vector<double> ref)
+{
+	QStringList rt_str;
+	for (auto sp : rt) {
+		rt_str << QString::number(sp, 'f', 2);
+	}
+	QStringList ref_str;
+	for (auto sp : ref) {
+		ref_str << QString::number(sp, 'f', 2);
+	}
+	QString speeds = rt_str.join(' ') + ";" + ref_str.join(' ');
+	return speeds;
 }
 
 void ImageProcess::clearWheel()
@@ -399,9 +397,9 @@ void ImageProcess::onStart()
 	//nCore_pre = FindFail;
 	bUsrCtrl = true;
 	//测试insert
-	QTimer *timer = new QTimer;
-	connect(timer, &QTimer::timeout, this, [=]() {insertRecord(WheelDbInfo()); });
-	timer->start(1000);
+	//QTimer *timer = new QTimer;
+	//connect(timer, &QTimer::timeout, this, [=]() {insertRecord(WheelDbInfo()); });
+	//timer->start(1000);
 }
 
 void ImageProcess::onStop()
@@ -415,136 +413,4 @@ void ImageProcess::onStop()
 	checkoutAlready = true;
 	clearWheel();
 	bUsrCtrl = false;
-}
-
-void ImageProcess::setupModel()
-{
-	// 连接到数据库
-	initThreadDb(deviceIndex);
-
-	//insertModel = new QSqlTableModel{ this, QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME) };
-	//insertModel->setTable("wheels");
-	////insertModel->setEditStrategy(QSqlTableModel::OnFieldChange);//改变会立马submit(不会重新填充)
-	//insertModel->setEditStrategy(QSqlTableModel::OnManualSubmit);//改变后需submitAll(自动重新填充)
-	//insertModel->select();
-	//while (insertModel->canFetchMore())insertModel->fetchMore();
-	previousModel = new QSqlTableModel{ this, QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME) };
-	previousModel->setTable("wheels");
-	previousModel->select();
-	while (previousModel->canFetchMore())previousModel->fetchMore();
-}
-
-bool ImageProcess::insertRecord(const WheelDbInfo& info)
-{
-	//QSqlRecord record = insertModel->record();
-	//record.setValue(Wheel_I_O, QVariant(info.i_o));
-	//record.setValue(Wheel_Num, QVariant(info.num));
-	//record.setValue(Wheel_CalcSpeed, QVariant(info.calcspeed));
-	//record.setValue(Wheel_RefSpeed, QVariant(info.refspeed));
-	//record.setValue(Wheel_Error, QVariant(info.error));
-	//record.setValue(Wheel_Time, QVariant(info.time));
-	//record.setValue(Wheel_AlarmLevel, QVariant(info.alarmlevel));
-	//record.setValue(Wheel_CheckState, QVariant(info.checkstate));
-	//record.setValue(Wheel_OcrSize, QVariant(info.ocrsize));
-	//record.setValue(Wheel_Fragment, QVariant(info.fragment));
-	//record.setValue(Wheel_TotalMatch, QVariant(info.totalmatch));
-	//record.setValue(Wheel_ValidMatch, QVariant(info.validmatch));
-	//record.setValue(Wheel_Speeds, QVariant(info.speeds));
-	//record.setValue(Wheel_VideoPath, QVariant(info.videopath));
-	////on manualsubmit, use submitAll()
-	//if (!insertModel->insertRecord(-1, record) || !insertModel->submitAll()) {
-	//	auto error = insertModel->lastError();
-	//	auto text = error.text();
-	//	qDebug() << text;
-	//	return false;
-	//}
-	//return true;
-
-	//QSqlQuery query(QSqlDatabase::database(MAIN_CONNECTION_NAME));
-	QSqlQuery query(QSqlDatabase::database(deviceIndex ? THREAD1_CONNECTION_NAME : THREAD0_CONNECTION_NAME));
-
-	query.prepare("INSERT INTO wheels (i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath) VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);");
-	query.bindValue(":i_o", QVariant(info.i_o));
-	query.bindValue(":num", QVariant(info.num));
-	query.bindValue(":calcspeed", QVariant(info.calcspeed));
-	query.bindValue(":refspeed", QVariant(info.refspeed));
-	query.bindValue(":error", QVariant(info.error));
-	query.bindValue(":time", QVariant(info.time));
-	query.bindValue(":alarmlevel", QVariant(info.alarmlevel));
-	query.bindValue(":checkstate", QVariant(info.checkstate));
-	query.bindValue(":ocrsize", QVariant(info.ocrsize));
-	query.bindValue(":fragment", QVariant(info.fragment));
-	query.bindValue(":totalmatch", QVariant(info.totalmatch));
-	query.bindValue(":validmatch", QVariant(info.validmatch));
-	query.bindValue(":speeds", QVariant(info.speeds));
-	query.bindValue(":videopath", QVariant(info.videopath));
-	if (!query.exec()) {
-		auto text = query.lastError().text();
-		return false;
-	}
-	return true;
-}
-
-int ImageProcess::previousAlarmLevel(const QString& num)
-{
-	if (num == OCR_MISS) { //号码牌输出MISS, 直接返回正常
-		return 0;
-	}
-	previousModel->setFilter(QString("num='%1'").arg(num));//一旦select后，setfilter会自动重新填充
-	previousModel->select();//由于是查询，必须更新到最新
-	while (previousModel->canFetchMore())previousModel->fetchMore();
-
-	int row = previousModel->rowCount();
-	if (row > 0) {
-		return previousModel->data(previousModel->index(row - 1, Wheel_AlarmLevel)).toInt();
-	}
-	return 0; //if no previous result, regard it as a good wheel
-}
-
-//! 根据车轮的警报等级向报警处理类发出信号
-void ImageProcess::handleAlarmLevel(WheelDbInfo& wheelDbInfo)
-{
-	int lv = wheelDbInfo.alarmlevel;
-	switch (lv) {
-	case -2:
-		emit setAlarmLight((int)AlarmColor::Yellow);
-		qCritical() << "handleAlarmLevel: Wheel FATAL error(continuous invalid)";
-		wheelDbInfo.calcspeed = IM_PROC_INVALID_SPEED;
-		break;
-	case -1:
-		if (previousAlarmLevel(wheelDbInfo.num) < 0) {
-			wheelDbInfo.alarmlevel = -2;
-			handleAlarmLevel(wheelDbInfo);
-			return;
-		}
-		else {
-			wheelDbInfo.calcspeed = IM_PROC_INVALID_SPEED;
-			qCritical() << "ImageProcess: Miss, No enough valid results";
-		}
-		break;
-	case 0:
-		break;
-	case 1:
-		emit setAlarmLight((int)AlarmColor::Yellow);
-		break;
-	case 2:
-		emit setAlarmLight((int)AlarmColor::Red);
-		break;
-	default:
-		break;
-	}
-
-	/* checkstate */
-	switch (lv) {
-	case -2:
-	case 1:
-	case 2:
-		wheelDbInfo.checkstate = NeedCheck;
-		break;
-	case -1:
-	case 0:
-	default:
-		wheelDbInfo.checkstate = NoNeedCheck;
-		break;
-	}
 }

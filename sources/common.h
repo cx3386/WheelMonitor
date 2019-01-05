@@ -47,9 +47,9 @@ const char BACKUP_ZIP_NAME[] = "WheelMonitor Bak.zip";
 //bool bNeedIdentity;
 
 /* database connection name*/
-const char MAIN_CONNECTION_NAME[] = "main";
-const char THREAD0_CONNECTION_NAME[] = "thread0";
-const char THREAD1_CONNECTION_NAME[] = "thread1";
+//const char MAIN_CONNECTION_NAME[] = "main";
+//const char THREAD0_CONNECTION_NAME[] = "thread0";
+//const char THREAD1_CONNECTION_NAME[] = "thread1";
 
 //匿名命名空间，LOCAL，与static相同，C++11
 namespace {
@@ -60,10 +60,19 @@ namespace {
 		 */
 	inline QString getDeviceMark(int id)
 	{
-		if (0 == id)
-			return QStringLiteral("外");
-		if (1 == id)
-			return QStringLiteral("内");
+		QString mark;
+		switch (id)
+		{
+		case 0:
+			mark = QStringLiteral("外");
+			break;
+		case 1:
+			mark = QStringLiteral("内");
+			break;
+		default:
+			break;
+		}
+		return mark;
 	}
 
 	/**

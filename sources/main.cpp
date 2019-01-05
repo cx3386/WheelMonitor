@@ -32,6 +32,7 @@ int main(int argc, char* argv[])
 	qRegisterMetaType<HWND>("HWND");
 	//qRegisterMetaType<WORD>("WORD");
 	qRegisterMetaType<QVector<int>>("QVector<int>");
+	qRegisterMetaType<WheelDbInfo>("WheelDbInfo");
 	qRegisterMetaType<ImProfile>("ImProfile");
 	qRegisterMetaTypeStreamOperators<ImProfile>("ImProfile");
 	qRegisterMetaType<OcrProfile>("OcrProfile");
@@ -111,10 +112,8 @@ int main(int argc, char* argv[])
 	//		return 0;
 	//	}
 	//}
-	if (!initMainDb()) //connect to database
-	{
-		return 0;
-	}
+	//connect to database
+	if (!initMainDb()) return 0;
 	ConfigHelper conf(configFile);
 	MainWindow w(&conf);
 	w.showMinimized();//这种方式可以被手动点击任务栏打开主界面
@@ -173,7 +172,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QS
 	text_stream << msgStr << endl; //endl doesn't work without flag QIODevice::Text
 	//outfile.flush(); endl will flush to the device
 	outfile.close();
-}
+	}
 
 #pragma comment(lib, "Dbghelp.lib")
 LONG ApplicationCrashHandler(EXCEPTION_POINTERS* pException)

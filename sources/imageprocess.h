@@ -26,7 +26,7 @@ public:
 	// 用于mainwindow跨线程控制
 	void start() { QTimer::singleShot(0, this, &ImageProcess::onStart); }
 	void stop() { QTimer::singleShot(0, this, &ImageProcess::onStop); }
-	void init() { QTimer::singleShot(0, this, &ImageProcess::setupModel); }
+	//void init() { QTimer::singleShot(0, this, &ImageProcess::setupModel); }
 	//int getDevId() { QMutexLocker locker(&mutex); return deviceIndex; }
 
 private:
@@ -46,13 +46,16 @@ private:
 
 	cv::Mat cameraUndistort(cv::Mat src);
 	void checkoutWheel(); //!< 结算该车轮
+
+	QString genSpeeds(std::vector<double> rt, std::vector<double> ref);
+
 	void clearWheel(); //!< 清除当前车轮的相关信息
 
-	int previousAlarmLevel(const QString& num);
-	QSqlTableModel *previousModel;
-	bool insertRecord(const WheelDbInfo& info);
+	//int previousAlarmLevel(const QString& num);
+	//QSqlTableModel *previousModel;
+	//bool insertRecord(const WheelDbInfo& info);
 	//QSqlTableModel *insertModel;
-	void handleAlarmLevel(WheelDbInfo& wheelDbInfo);
+	//void handleAlarmLevel(WheelDbInfo& wheelDbInfo);
 	//! 判断rect1是否在rect2
 	static bool isInside(cv::Rect rect1, cv::Rect rect2)
 	{
@@ -93,8 +96,10 @@ signals:
 	void _MAOut();
 	void frameHandled();
 	void showFrame();
-	void setAlarmLight(int alarmcolor);
+	//void setAlarmLight(int alarmcolor);
 	void showMatch();
+	void wheelNeedHandled(WheelDbInfo info);
+	//void insertRecord();
 
 public slots:
 	void handleFrame(); //!< 处理当前帧，每秒钟3次
@@ -109,5 +114,5 @@ private slots:
 	void onStart();
 	//! 停止处理，仍保留每帧显示的功能
 	void onStop();
-	void setupModel();
+	//void setupModel();
 };

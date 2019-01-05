@@ -39,7 +39,7 @@ void LoginDialog::on_loginBtn_clicked()
 		ui.pwdLineEdit->setFocus();
 	}
 	else {
-		QSqlQuery query(QSqlDatabase::database(MAIN_CONNECTION_NAME));
+		QSqlQuery query;
 		query.exec(QStringLiteral("select * from user where username='%1' and pwd='%2';").arg(ui.idLineEdit->text()).arg(ui.pwdLineEdit->text()));
 		if (query.next()) {
 			qDebug() << "Global: login success";

@@ -38,6 +38,7 @@ private:
 		bool hasTri = false; //!< 本个轮子是否已经收到tri信号
 		bool triBeginReady = false; //!< 已发出exptectbegin信号
 		bool triEndReady = false; //!< 已发出expectend信号
+
 		void newWheel()
 		{
 			// 如果此轮没有收到tri信号，将锚置为标准轮距

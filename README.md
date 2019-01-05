@@ -28,7 +28,7 @@ Windows10 64位
    1. 运行脚本：WheelMonitorSetup\beforeSetup.bat。
    1. 生成WheelMonitorSetup项目。如果生成失败，提示有文件不存在，请重新加载该项目。
    1. 运行脚本：WheelMonitorSetup\deploytoinstall.bat,该脚本将生成的msi和其他文件部署到installl文件夹中。
-   1. 将install文件夹压缩（并重命名为）即得到安装包。
+   1. 将install\WheelMonitorSetup-x64-\<version\>压缩为zip，即得到可发行的安装包。
 
 ## 开发
 
@@ -44,6 +44,12 @@ Windows10 64位
 ### 软件调试
 
 在生成的可执行文件（.exe）的目录下，至少需要config.ini和OcrPattern以及两个空文件夹Capture和Log才能调试，这些文件位于dependencies\config下。
+
+### 待解决的问题
+
+1. 必须定期擦灰
+1. 很多磁铁脱落
+1. 光电开关：6号坏了，2号时好时坏
 
 ### CX-ONE/CX-Programer
 
