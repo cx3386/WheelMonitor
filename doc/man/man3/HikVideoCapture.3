@@ -1,0 +1,150 @@
+.TH "HikVideoCapture" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HikVideoCapture
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hikvideocapture\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBstartRecord\fP ()"
+.br
+.ti -1c
+.RI "void \fBstopRecord\fP ()"
+.br
+.RI "涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 "
+.ti -1c
+.RI "void \fBframeProcessed\fP ()"
+.br
+.RI "涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 "
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBframeCaptured\fP ()"
+.br
+.RI "a frame is captured, need to be processed "
+.ti -1c
+.RI "void \fBrecordTimeout\fP ()"
+.br
+.RI "record out of time, will auto stop and save video "
+.ti -1c
+.RI "void \fBrecordON\fP ()"
+.br
+.RI "now is recording "
+.ti -1c
+.RI "void \fBrecordOFF\fP ()"
+.br
+.RI "now record stopped "
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHikVideoCapture\fP (const \fBConfigHelper\fP *_configHelper, int _deviceIndex, HWND h, QObject *parent=Q_NULLPTR)"
+.br
+.ti -1c
+.RI "\fB~HikVideoCapture\fP ()"
+.br
+.ti -1c
+.RI "QString \fBgetVideoRelativeFilePath\fP () const"
+.br
+.ti -1c
+.RI "int \fBgetDeviceIndex\fP () const"
+.br
+.ti -1c
+.RI "cv::Mat \fBgetRawImage\fP () const"
+.br
+.ti -1c
+.RI "void \fBsyncCameraTime\fP ()"
+.br
+.ti -1c
+.RI "bool \fBstart\fP ()"
+.br
+.ti -1c
+.RI "bool \fBstop\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 22 of file hikvideocapture\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "HikVideoCapture::HikVideoCapture (const \fBConfigHelper\fP * _configHelper, int _deviceIndex, HWND h, QObject * parent = \fCQ_NULLPTR\fP)"
+
+.PP
+Definition at line 13 of file hikvideocapture\&.cpp\&.
+.SS "HikVideoCapture::~HikVideoCapture ()"
+
+.PP
+Definition at line 56 of file hikvideocapture\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void HikVideoCapture::frameCaptured ()\fC [signal]\fP"
+
+.PP
+a frame is captured, need to be processed 
+.SS "void HikVideoCapture::frameProcessed ()\fC [inline]\fP, \fC [slot]\fP"
+
+.PP
+涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 
+.PP
+Definition at line 94 of file hikvideocapture\&.h\&.
+.SS "int HikVideoCapture::getDeviceIndex () const\fC [inline]\fP"
+
+.PP
+Definition at line 34 of file hikvideocapture\&.h\&.
+.SS "cv::Mat HikVideoCapture::getRawImage () const\fC [inline]\fP"
+
+.PP
+Definition at line 35 of file hikvideocapture\&.h\&.
+.SS "QString HikVideoCapture::getVideoRelativeFilePath () const\fC [inline]\fP"
+
+.PP
+Definition at line 29 of file hikvideocapture\&.h\&.
+.SS "void HikVideoCapture::recordOFF ()\fC [signal]\fP"
+
+.PP
+now record stopped 
+.SS "void HikVideoCapture::recordON ()\fC [signal]\fP"
+
+.PP
+now is recording 
+.SS "void HikVideoCapture::recordTimeout ()\fC [signal]\fP"
+
+.PP
+record out of time, will auto stop and save video 
+.SS "bool HikVideoCapture::start ()"
+
+.PP
+Definition at line 81 of file hikvideocapture\&.cpp\&.
+.SS "void HikVideoCapture::startRecord ()\fC [slot]\fP"
+
+.PP
+Definition at line 120 of file hikvideocapture\&.cpp\&.
+.SS "bool HikVideoCapture::stop ()"
+
+.PP
+Definition at line 99 of file hikvideocapture\&.cpp\&.
+.SS "void HikVideoCapture::stopRecord ()\fC [slot]\fP"
+
+.PP
+涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 
+.PP
+Definition at line 148 of file hikvideocapture\&.cpp\&.
+.SS "void HikVideoCapture::syncCameraTime ()"
+
+.PP
+Definition at line 64 of file hikvideocapture\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

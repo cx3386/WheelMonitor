@@ -1,0 +1,249 @@
+\hypertarget{class_plc}{}\section{Plc Class Reference}
+\label{class_plc}\index{Plc@{Plc}}
+
+
+plc其他硬件设备相关类，包括传感器、plc io、plc ad  
+
+
+
+
+{\ttfamily \#include $<$Plc.\+h$>$}
+
+
+
+Inheritance diagram for Plc\+:
+% FIG 0
+
+
+Collaboration diagram for Plc\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_plc_abf51268db3f1eca2b9bb139bf75b83d9}{send\+Alarm\+To\+Control\+Center}} (int cio)
+\begin{DoxyCompactList}\small\item\em 向中控发出报警 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_plc_a6f99f1f3a90a49531f372d0e182872c6}{cio0\+Update}} (int cio)
+\item 
+void \mbox{\hyperlink{class_plc_a14ee604a83d89ea5f96288db01d60a84}{connect\+Error}} (int error\+Id)
+\item 
+void \mbox{\hyperlink{class_plc_adeaecb0eaf8a1d72f01348ca4e7918d1}{truck\+Speed\+Ready}} ()
+\item 
+void \mbox{\hyperlink{class_plc_acf7098f35958347aeea9abbc7371375f}{truck\+Speed\+Error}} (int)
+\begin{DoxyCompactList}\small\item\em 台车(中轴)速度信号读取错误 errcode 1\+: disconnect errcode 2\+: out of range(4$\sim$20ma) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plc_a230190ee27d360a02576184d3450e8d6}{Plc}} (const \mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$\+\_\+config\+Helper, Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em 必须传入configure, const成员变量在初始化列表中初始化 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plc_a25b79d6b196b888dc2d80c5e98b9e733}{$\sim$\+Plc}} ()
+\item 
+void \mbox{\hyperlink{class_plc_a53d31f51484e39fc320b02be053de157}{start}} ()
+\begin{DoxyCompactList}\small\item\em usrctrl \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plc_abf9c8532cb72ba8c88437f50f2631d13}{stop}} ()
+\begin{DoxyCompactList}\small\item\em usrctrl \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plc_ac5213403a3aba0c8c6f2a12c3e2d4fa5}{connect}} ()
+\begin{DoxyCompactList}\small\item\em 连接到\+P\+L\+C，初始化\+A\+D041。在plc创建并移到子线程后执行，应在退出程序时断开 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_plc_a2432a7c4b2bee31da9b2a933d2747ba4}{get\+Truck\+Speed}} (int dev\+Id=0) const
+\begin{DoxyCompactList}\small\item\em 获取台车速度(m/min)，线程安全的 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_handle_sensor_device}{Handle\+Sensor\+Device}} $\ast$ \mbox{\hyperlink{class_plc_a35269fbd5ff006347fc3d29e0a8ebcdf}{handle\+Sensor\+Device}} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_plc_a7a0bfa84c4d0b4610cda92102d8d54a0}{ad\+Interval}} = 1000
+\begin{DoxyCompactList}\small\item\em 读取ad（车速）的间隔，ms // 不应太频繁，应大于图像处理的时间7/25s，否则无意义 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+plc其他硬件设备相关类，包括传感器、plc io、plc ad 
+
+Definition at line 12 of file Plc.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_plc_a230190ee27d360a02576184d3450e8d6}\label{class_plc_a230190ee27d360a02576184d3450e8d6}} 
+\index{Plc@{Plc}!Plc@{Plc}}
+\index{Plc@{Plc}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{Plc()}{Plc()}}
+{\footnotesize\ttfamily Plc\+::\+Plc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$}]{\+\_\+config\+Helper,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+必须传入configure, const成员变量在初始化列表中初始化 
+
+
+
+Definition at line 55 of file Plc.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_plc_a25b79d6b196b888dc2d80c5e98b9e733}\label{class_plc_a25b79d6b196b888dc2d80c5e98b9e733}} 
+\index{Plc@{Plc}!````~Plc@{$\sim$\+Plc}}
+\index{````~Plc@{$\sim$\+Plc}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{$\sim$\+Plc()}{~Plc()}}
+{\footnotesize\ttfamily Plc\+::$\sim$\+Plc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file Plc.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plc_a6f99f1f3a90a49531f372d0e182872c6}\label{class_plc_a6f99f1f3a90a49531f372d0e182872c6}} 
+\index{Plc@{Plc}!cio0\+Update@{cio0\+Update}}
+\index{cio0\+Update@{cio0\+Update}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{cio0\+Update}{cio0Update}}
+{\footnotesize\ttfamily void Plc\+::cio0\+Update (\begin{DoxyParamCaption}\item[{int}]{cio }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_plc_ac5213403a3aba0c8c6f2a12c3e2d4fa5}\label{class_plc_ac5213403a3aba0c8c6f2a12c3e2d4fa5}} 
+\index{Plc@{Plc}!connect@{connect}}
+\index{connect@{connect}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void Plc\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+连接到\+P\+L\+C，初始化\+A\+D041。在plc创建并移到子线程后执行，应在退出程序时断开 
+
+通过串口连接到plc 
+
+Definition at line 107 of file Plc.\+cpp.
+
+\mbox{\Hypertarget{class_plc_a14ee604a83d89ea5f96288db01d60a84}\label{class_plc_a14ee604a83d89ea5f96288db01d60a84}} 
+\index{Plc@{Plc}!connect\+Error@{connect\+Error}}
+\index{connect\+Error@{connect\+Error}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{connect\+Error}{connectError}}
+{\footnotesize\ttfamily void Plc\+::connect\+Error (\begin{DoxyParamCaption}\item[{int}]{error\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_plc_a2432a7c4b2bee31da9b2a933d2747ba4}\label{class_plc_a2432a7c4b2bee31da9b2a933d2747ba4}} 
+\index{Plc@{Plc}!get\+Truck\+Speed@{get\+Truck\+Speed}}
+\index{get\+Truck\+Speed@{get\+Truck\+Speed}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{get\+Truck\+Speed()}{getTruckSpeed()}}
+{\footnotesize\ttfamily double Plc\+::get\+Truck\+Speed (\begin{DoxyParamCaption}\item[{int}]{dev\+Id = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+获取台车速度(m/min)，线程安全的 
+
+
+
+Definition at line 23 of file Plc.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_plc_abf51268db3f1eca2b9bb139bf75b83d9}\label{class_plc_abf51268db3f1eca2b9bb139bf75b83d9}} 
+\index{Plc@{Plc}!send\+Alarm\+To\+Control\+Center@{send\+Alarm\+To\+Control\+Center}}
+\index{send\+Alarm\+To\+Control\+Center@{send\+Alarm\+To\+Control\+Center}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{send\+Alarm\+To\+Control\+Center}{sendAlarmToControlCenter}}
+{\footnotesize\ttfamily void Plc\+::send\+Alarm\+To\+Control\+Center (\begin{DoxyParamCaption}\item[{int}]{cio }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+向中控发出报警 
+
+注意：不会覆盖原有状态 
+
+Definition at line 363 of file Plc.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_plc_a53d31f51484e39fc320b02be053de157}\label{class_plc_a53d31f51484e39fc320b02be053de157}} 
+\index{Plc@{Plc}!start@{start}}
+\index{start@{start}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Plc\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+usrctrl 
+
+
+
+Definition at line 82 of file Plc.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_plc_abf9c8532cb72ba8c88437f50f2631d13}\label{class_plc_abf9c8532cb72ba8c88437f50f2631d13}} 
+\index{Plc@{Plc}!stop@{stop}}
+\index{stop@{stop}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Plc\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+usrctrl 
+
+
+
+Definition at line 97 of file Plc.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_plc_acf7098f35958347aeea9abbc7371375f}\label{class_plc_acf7098f35958347aeea9abbc7371375f}} 
+\index{Plc@{Plc}!truck\+Speed\+Error@{truck\+Speed\+Error}}
+\index{truck\+Speed\+Error@{truck\+Speed\+Error}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{truck\+Speed\+Error}{truckSpeedError}}
+{\footnotesize\ttfamily void Plc\+::truck\+Speed\+Error (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+台车(中轴)速度信号读取错误 errcode 1\+: disconnect errcode 2\+: out of range(4$\sim$20ma) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & error\+Code \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_plc_adeaecb0eaf8a1d72f01348ca4e7918d1}\label{class_plc_adeaecb0eaf8a1d72f01348ca4e7918d1}} 
+\index{Plc@{Plc}!truck\+Speed\+Ready@{truck\+Speed\+Ready}}
+\index{truck\+Speed\+Ready@{truck\+Speed\+Ready}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{truck\+Speed\+Ready}{truckSpeedReady}}
+{\footnotesize\ttfamily void Plc\+::truck\+Speed\+Ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 9
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_plc_a7a0bfa84c4d0b4610cda92102d8d54a0}\label{class_plc_a7a0bfa84c4d0b4610cda92102d8d54a0}} 
+\index{Plc@{Plc}!ad\+Interval@{ad\+Interval}}
+\index{ad\+Interval@{ad\+Interval}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{ad\+Interval}{adInterval}}
+{\footnotesize\ttfamily const int Plc\+::ad\+Interval = 1000\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+读取ad（车速）的间隔，ms // 不应太频繁，应大于图像处理的时间7/25s，否则无意义 
+
+
+
+Definition at line 28 of file Plc.\+h.
+
+\mbox{\Hypertarget{class_plc_a35269fbd5ff006347fc3d29e0a8ebcdf}\label{class_plc_a35269fbd5ff006347fc3d29e0a8ebcdf}} 
+\index{Plc@{Plc}!handle\+Sensor\+Device@{handle\+Sensor\+Device}}
+\index{handle\+Sensor\+Device@{handle\+Sensor\+Device}!Plc@{Plc}}
+\subsubsection{\texorpdfstring{handle\+Sensor\+Device}{handleSensorDevice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_handle_sensor_device}{Handle\+Sensor\+Device}}$\ast$ Plc\+::handle\+Sensor\+Device\mbox{[}2\mbox{]}}
+
+
+
+Definition at line 29 of file Plc.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{_plc_8h}{Plc.\+h}}\item 
+sources/\mbox{\hyperlink{_plc_8cpp}{Plc.\+cpp}}\end{DoxyCompactItemize}

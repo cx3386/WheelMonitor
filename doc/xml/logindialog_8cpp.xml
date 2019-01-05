@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="logindialog_8cpp" kind="file" language="C++">
+    <compoundname>logindialog.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="database_8h" local="yes">database.h</includes>
+    <includes refid="logindialog_8h" local="yes">logindialog.h</includes>
+    <incdepgraph>
+      <node id="352">
+        <label>QObject</label>
+      </node>
+      <node id="355">
+        <label>logindialog.h</label>
+        <link refid="logindialog_8h"/>
+        <childnode refid="356" relation="include">
+        </childnode>
+        <childnode refid="357" relation="include">
+        </childnode>
+      </node>
+      <node id="353">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="356">
+        <label>QDialog</label>
+      </node>
+      <node id="351">
+        <label>ocr.h</label>
+        <link refid="ocr_8h"/>
+        <childnode refid="352" relation="include">
+        </childnode>
+        <childnode refid="353" relation="include">
+        </childnode>
+      </node>
+      <node id="350">
+        <label>QString</label>
+      </node>
+      <node id="347">
+        <label>QtWidgets</label>
+      </node>
+      <node id="348">
+        <label>database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="349" relation="include">
+        </childnode>
+        <childnode refid="351" relation="include">
+        </childnode>
+        <childnode refid="354" relation="include">
+        </childnode>
+      </node>
+      <node id="345">
+        <label>sources/logindialog.cpp</label>
+        <link refid="logindialog_8cpp"/>
+        <childnode refid="346" relation="include">
+        </childnode>
+        <childnode refid="348" relation="include">
+        </childnode>
+        <childnode refid="355" relation="include">
+        </childnode>
+      </node>
+      <node id="349">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="350" relation="include">
+        </childnode>
+      </node>
+      <node id="354">
+        <label>QtSql</label>
+      </node>
+      <node id="357">
+        <label>ui_logindialog.h</label>
+      </node>
+      <node id="346">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="347" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="database_8h" kindref="compound">database.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="logindialog_8h" kindref="compound">logindialog.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//using<sp/>namespace<sp/>std;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>static<sp/>int<sp/>posMinX<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>static<sp/>int<sp/>posMaxX<sp/>=<sp/>20000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>static<sp/>int<sp/>posMinY<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>static<sp/>int<sp/>posMaxY<sp/>=<sp/>40;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_login_dialog_1ab3e48f38918b4fba5523ad4bb9b0d1f6" refkind="member"><highlight class="normal"><ref refid="class_login_dialog_1ab3e48f38918b4fba5523ad4bb9b0d1f6" kindref="member">LoginDialog::LoginDialog</ref>(QWidget*<sp/>parent)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QDialog(parent)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//setFixedSize(490,<sp/>220);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>setWindowFlags(Qt::Window<sp/>|<sp/>Qt::FramelessWindowHint);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>setWindowState(Qt::WindowFullScreen);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.idLineEdit-&gt;setText(</highlight><highlight class="stringliteral">&quot;BaoSteel&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.idLineEdit-&gt;setAttribute(Qt::WA_InputMethodEnabled,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//forbid<sp/>Asian<sp/>input,<sp/>i.e.,<sp/>use<sp/>character/number<sp/>only<sp/><sp/><sp/><sp/>//will<sp/>cause<sp/>virtual<sp/>keyboard<sp/>doesn&apos;t<sp/>wake<sp/>up<sp/>2017/11/25</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.pwdLineEdit-&gt;setEchoMode(QLineEdit::Password);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.pwdLineEdit-&gt;setFocus();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.loginBtn-&gt;setDefault(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="class_login_dialog_1aa5d012ebc424713ca0cbd82be1f81133" refkind="member"><highlight class="normal"><ref refid="class_login_dialog_1aa5d012ebc424713ca0cbd82be1f81133" kindref="member">LoginDialog::~LoginDialog</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LoginDialog::on_loginBtn_clicked()</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ui.idLineEdit-&gt;text().isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;请输入用户名&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;请输入用户名后再登录!&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;确定&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui.idLineEdit-&gt;setFocus();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ui.pwdLineEdit-&gt;text().isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;请输入密码&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;请输入密码后再登录!&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;确定&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui.pwdLineEdit-&gt;setFocus();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(QStringLiteral(</highlight><highlight class="stringliteral">&quot;select<sp/>*<sp/>from<sp/>user<sp/>where<sp/>username=&apos;%1&apos;<sp/>and<sp/>pwd=&apos;%2&apos;;&quot;</highlight><highlight class="normal">).arg(ui.idLineEdit-&gt;text()).arg(ui.pwdLineEdit-&gt;text()));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(query.next())<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Global:<sp/>login<sp/>success&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QDialog::accept();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::warning(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;用户名或密码错误 ),<sp/>QStringLiteral(&quot;请输入正确用户名和密码后再登录!&quot;),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;Global:<sp/>login<sp/>error&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui.idLineEdit-&gt;setFocus();
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+void<sp/>LoginDialog::on_quitBtn_clicked()
+{
+<sp/><sp/>QDialog::reject();
+}&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;请输入正确用户名和密码后再登录!&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;确定&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Global:<sp/>login<sp/>error&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ui.idLineEdit-&gt;setFocus();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LoginDialog::on_quitBtn_clicked()</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>QDialog::reject();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/logindialog.cpp"/>
+  </compounddef>
+</doxygen>

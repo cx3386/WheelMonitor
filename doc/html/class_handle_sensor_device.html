@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: HandleSensorDevice类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#signals">信号</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="class_handle_sensor_device-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">HandleSensorDevice类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_handle_sensor_device_8h_source.html">HandleSensorDevice.h</a>&gt;</code></p>
+<div class="dynheader">
+类 HandleSensorDevice 继承关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device__inherit__graph.png" border="0" usemap="#_handle_sensor_device_inherit__map" alt="Inheritance graph"/></div>
+<map name="_handle_sensor_device_inherit__map" id="_handle_sensor_device_inherit__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<div class="dynheader">
+HandleSensorDevice 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device__coll__graph.png" border="0" usemap="#_handle_sensor_device_coll__map" alt="Collaboration graph"/></div>
+<map name="_handle_sensor_device_coll__map" id="_handle_sensor_device_coll__map">
+<area shape="rect" id="node3" href="class_sensor_device.html" title="SensorDevice" alt="" coords="92,81,193,108"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+信号</h2></td></tr>
+<tr class="memitem:aeef6cec4d94210ddbff3095dd246230c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#aeef6cec4d94210ddbff3095dd246230c">dzIn</a> ()</td></tr>
+<tr class="separator:aeef6cec4d94210ddbff3095dd246230c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91627de0f3ebec10cb3329f226eb7c7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#a91627de0f3ebec10cb3329f226eb7c7e">dzOut</a> ()</td></tr>
+<tr class="separator:a91627de0f3ebec10cb3329f226eb7c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eb776d5c0371a091fbac629f64e55cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#a4eb776d5c0371a091fbac629f64e55cc">triInt</a> (int ckpId)</td></tr>
+<tr class="memdesc:a4eb776d5c0371a091fbac629f64e55cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">至积分器,global ckpid  <a href="#a4eb776d5c0371a091fbac629f64e55cc">更多...</a><br /></td></tr>
+<tr class="separator:a4eb776d5c0371a091fbac629f64e55cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbdc2dd52d6a0a4af46df594f9c1d48d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#afbdc2dd52d6a0a4af46df594f9c1d48d">wheelFallOff</a> (int pos)</td></tr>
+<tr class="memdesc:afbdc2dd52d6a0a4af46df594f9c1d48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">pos:-1前一个;0当前  <a href="#afbdc2dd52d6a0a4af46df594f9c1d48d">更多...</a><br /></td></tr>
+<tr class="separator:afbdc2dd52d6a0a4af46df594f9c1d48d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b16afcd6b6fea22d29862cbd7a64554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#a4b16afcd6b6fea22d29862cbd7a64554">sensorUpdate</a> (int)</td></tr>
+<tr class="separator:a4b16afcd6b6fea22d29862cbd7a64554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a5023b1b9da70eeb729bc6326a67bb8a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#a5023b1b9da70eeb729bc6326a67bb8a1">HandleSensorDevice</a> (int _devId, QObject *parent)</td></tr>
+<tr class="separator:a5023b1b9da70eeb729bc6326a67bb8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c9040fa7c8f0ee178f018632be04d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#a42c9040fa7c8f0ee178f018632be04d8">~HandleSensorDevice</a> ()</td></tr>
+<tr class="separator:a42c9040fa7c8f0ee178f018632be04d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa66351734f4ee220bb13d37297061c58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#aa66351734f4ee220bb13d37297061c58">input</a> (int io)</td></tr>
+<tr class="memdesc:aa66351734f4ee220bb13d37297061c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">输入一个新的io信号  <a href="#aa66351734f4ee220bb13d37297061c58">更多...</a><br /></td></tr>
+<tr class="separator:aa66351734f4ee220bb13d37297061c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a406c0b871807c5b546390360a2a81efc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#a406c0b871807c5b546390360a2a81efc">io2dev</a> (int io)</td></tr>
+<tr class="memdesc:a406c0b871807c5b546390360a2a81efc"><td class="mdescLeft">&#160;</td><td class="mdescRight">将输入的io信号压入devs中  <a href="#a406c0b871807c5b546390360a2a81efc">更多...</a><br /></td></tr>
+<tr class="separator:a406c0b871807c5b546390360a2a81efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ea03c7ab1379f1f5f4b9750ff40683"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#ac3ea03c7ab1379f1f5f4b9750ff40683">checkTri</a> ()</td></tr>
+<tr class="memdesc:ac3ea03c7ab1379f1f5f4b9750ff40683"><td class="mdescLeft">&#160;</td><td class="mdescRight">用读取的cio数据检测是否满足触发条件（上升沿/下降沿）  <a href="#ac3ea03c7ab1379f1f5f4b9750ff40683">更多...</a><br /></td></tr>
+<tr class="separator:ac3ea03c7ab1379f1f5f4b9750ff40683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac43848822075ec66788f3e9bc795daea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea">newCkp</a> (int ckpId)</td></tr>
+<tr class="memdesc:ac43848822075ec66788f3e9bc795daea"><td class="mdescLeft">&#160;</td><td class="mdescRight">expect begin时，开始一个新的ckp  <a href="#ac43848822075ec66788f3e9bc795daea">更多...</a><br /></td></tr>
+<tr class="separator:ac43848822075ec66788f3e9bc795daea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a046f030fe8043ecce0e21b371b874531"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531">checkoutCkp</a> (int ckpId)</td></tr>
+<tr class="memdesc:a046f030fe8043ecce0e21b371b874531"><td class="mdescLeft">&#160;</td><td class="mdescRight">在expect end时，结算ckp。注意：此ckpId为global id  <a href="#a046f030fe8043ecce0e21b371b874531">更多...</a><br /></td></tr>
+<tr class="separator:a046f030fe8043ecce0e21b371b874531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a00cbb35b7e5b8defed7bff62774827cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sensor_device.html">SensorDevice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_handle_sensor_device.html#a00cbb35b7e5b8defed7bff62774827cf">dev</a></td></tr>
+<tr class="separator:a00cbb35b7e5b8defed7bff62774827cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8h_source.html">HandleSensorDevice.h</a> 第 <a class="el" href="_handle_sensor_device_8h_source.html#l00014">14</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a5023b1b9da70eeb729bc6326a67bb8a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5023b1b9da70eeb729bc6326a67bb8a1">&#9670;&nbsp;</a></span>HandleSensorDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HandleSensorDevice::HandleSensorDevice </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_devId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8cpp_source.html">HandleSensorDevice.cpp</a> 第 <a class="el" href="_handle_sensor_device_8cpp_source.html#l00005">5</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a42c9040fa7c8f0ee178f018632be04d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c9040fa7c8f0ee178f018632be04d8">&#9670;&nbsp;</a></span>~HandleSensorDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HandleSensorDevice::~HandleSensorDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8cpp_source.html">HandleSensorDevice.cpp</a> 第 <a class="el" href="_handle_sensor_device_8cpp_source.html#l00012">12</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a046f030fe8043ecce0e21b371b874531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a046f030fe8043ecce0e21b371b874531">&#9670;&nbsp;</a></span>checkoutCkp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::checkoutCkp </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ckpId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在expect end时，结算ckp。注意：此ckpId为global id </p>
+
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8cpp_source.html">HandleSensorDevice.cpp</a> 第 <a class="el" href="_handle_sensor_device_8cpp_source.html#l00122">122</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531_cgraph.png" border="0" usemap="#class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531_cgraph" alt=""/></div>
+<map name="class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531_cgraph" id="class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531_cgraph">
+<area shape="rect" id="node2" href="class_ck_pt.html#ad3259779575bb558490559404afb1903" title="由global id获得局部id " alt="" coords="195,13,299,39"/>
+</map>
+</div>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531_icgraph.png" border="0" usemap="#class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531_icgraph" alt=""/></div>
+<map name="class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531_icgraph" id="class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="195,13,263,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac3ea03c7ab1379f1f5f4b9750ff40683"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ea03c7ab1379f1f5f4b9750ff40683">&#9670;&nbsp;</a></span>checkTri()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::checkTri </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>用读取的cio数据检测是否满足触发条件（上升沿/下降沿） </p>
+<p>&lt; 当前ckp是否有传感器触发 </p>
+
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8cpp_source.html">HandleSensorDevice.cpp</a> 第 <a class="el" href="_handle_sensor_device_8cpp_source.html#l00059">59</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_ac3ea03c7ab1379f1f5f4b9750ff40683_icgraph.png" border="0" usemap="#class_handle_sensor_device_ac3ea03c7ab1379f1f5f4b9750ff40683_icgraph" alt=""/></div>
+<map name="class_handle_sensor_device_ac3ea03c7ab1379f1f5f4b9750ff40683_icgraph" id="class_handle_sensor_device_ac3ea03c7ab1379f1f5f4b9750ff40683_icgraph">
+<area shape="rect" id="node2" href="class_handle_sensor_device.html#aa66351734f4ee220bb13d37297061c58" title="输入一个新的io信号 " alt="" coords="195,5,336,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aeef6cec4d94210ddbff3095dd246230c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeef6cec4d94210ddbff3095dd246230c">&#9670;&nbsp;</a></span>dzIn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::dzIn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_aeef6cec4d94210ddbff3095dd246230c_icgraph.png" border="0" usemap="#class_handle_sensor_device_aeef6cec4d94210ddbff3095dd246230c_icgraph" alt=""/></div>
+<map name="class_handle_sensor_device_aeef6cec4d94210ddbff3095dd246230c_icgraph" id="class_handle_sensor_device_aeef6cec4d94210ddbff3095dd246230c_icgraph">
+<area shape="rect" id="node2" href="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531" title="在expect end时，结算ckp。注意：此ckpId为global id " alt="" coords="222,5,363,47"/>
+<area shape="rect" id="node4" href="class_image_process.html#abc606c9f2c55844cc2f08e6373cdc0b6" title="ImageProcess::ImageProcess" alt="" coords="195,71,391,98"/>
+<area shape="rect" id="node3" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="439,13,507,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a91627de0f3ebec10cb3329f226eb7c7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91627de0f3ebec10cb3329f226eb7c7e">&#9670;&nbsp;</a></span>dzOut</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::dzOut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_a91627de0f3ebec10cb3329f226eb7c7e_icgraph.png" border="0" usemap="#class_handle_sensor_device_a91627de0f3ebec10cb3329f226eb7c7e_icgraph" alt=""/></div>
+<map name="class_handle_sensor_device_a91627de0f3ebec10cb3329f226eb7c7e_icgraph" id="class_handle_sensor_device_a91627de0f3ebec10cb3329f226eb7c7e_icgraph">
+<area shape="rect" id="node2" href="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531" title="在expect end时，结算ckp。注意：此ckpId为global id " alt="" coords="222,5,363,47"/>
+<area shape="rect" id="node4" href="class_image_process.html#abc606c9f2c55844cc2f08e6373cdc0b6" title="ImageProcess::ImageProcess" alt="" coords="195,71,391,98"/>
+<area shape="rect" id="node3" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="439,13,507,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa66351734f4ee220bb13d37297061c58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa66351734f4ee220bb13d37297061c58">&#9670;&nbsp;</a></span>input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::input </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>io</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>输入一个新的io信号 </p>
+
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8cpp_source.html">HandleSensorDevice.cpp</a> 第 <a class="el" href="_handle_sensor_device_8cpp_source.html#l00016">16</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_aa66351734f4ee220bb13d37297061c58_cgraph.png" border="0" usemap="#class_handle_sensor_device_aa66351734f4ee220bb13d37297061c58_cgraph" alt=""/></div>
+<map name="class_handle_sensor_device_aa66351734f4ee220bb13d37297061c58_cgraph" id="class_handle_sensor_device_aa66351734f4ee220bb13d37297061c58_cgraph">
+<area shape="rect" id="node2" href="class_handle_sensor_device.html#a406c0b871807c5b546390360a2a81efc" title="将输入的io信号压入devs中 " alt="" coords="195,23,336,65"/>
+<area shape="rect" id="node5" href="class_handle_sensor_device.html#ac3ea03c7ab1379f1f5f4b9750ff40683" title="用读取的cio数据检测是否满足触发条件（上升沿/下降沿） " alt="" coords="195,89,336,130"/>
+<area shape="rect" id="node3" href="class_ck_pt.html#aae408d0f5cf84a8f4ac7d6281829c1f6" title="CkPt::indexOf" alt="" coords="390,5,493,32"/>
+<area shape="rect" id="node4" href="class_sensor.html#a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" title="Sensor::indexOf" alt="" coords="384,56,499,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a406c0b871807c5b546390360a2a81efc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a406c0b871807c5b546390360a2a81efc">&#9670;&nbsp;</a></span>io2dev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::io2dev </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>io</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将输入的io信号压入devs中 </p>
+
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8cpp_source.html">HandleSensorDevice.cpp</a> 第 <a class="el" href="_handle_sensor_device_8cpp_source.html#l00022">22</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc_cgraph.png" border="0" usemap="#class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc_cgraph" alt=""/></div>
+<map name="class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc_cgraph" id="class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc_cgraph">
+<area shape="rect" id="node2" href="class_ck_pt.html#aae408d0f5cf84a8f4ac7d6281829c1f6" title="CkPt::indexOf" alt="" coords="201,5,303,32"/>
+<area shape="rect" id="node3" href="class_sensor.html#a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" title="Sensor::indexOf" alt="" coords="195,56,309,83"/>
+</map>
+</div>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc_icgraph.png" border="0" usemap="#class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc_icgraph" alt=""/></div>
+<map name="class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc_icgraph" id="class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc_icgraph">
+<area shape="rect" id="node2" href="class_handle_sensor_device.html#aa66351734f4ee220bb13d37297061c58" title="输入一个新的io信号 " alt="" coords="195,5,336,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac43848822075ec66788f3e9bc795daea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac43848822075ec66788f3e9bc795daea">&#9670;&nbsp;</a></span>newCkp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::newCkp </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ckpId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>expect begin时，开始一个新的ckp </p>
+
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8cpp_source.html">HandleSensorDevice.cpp</a> 第 <a class="el" href="_handle_sensor_device_8cpp_source.html#l00114">114</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea_cgraph.png" border="0" usemap="#class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea_cgraph" alt=""/></div>
+<map name="class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea_cgraph" id="class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea_cgraph">
+<area shape="rect" id="node2" href="class_ck_pt.html#ad3259779575bb558490559404afb1903" title="由global id获得局部id " alt="" coords="195,13,299,39"/>
+</map>
+</div>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea_icgraph.png" border="0" usemap="#class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea_icgraph" alt=""/></div>
+<map name="class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea_icgraph" id="class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="195,13,263,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4b16afcd6b6fea22d29862cbd7a64554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b16afcd6b6fea22d29862cbd7a64554">&#9670;&nbsp;</a></span>sensorUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::sensorUpdate </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4eb776d5c0371a091fbac629f64e55cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eb776d5c0371a091fbac629f64e55cc">&#9670;&nbsp;</a></span>triInt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::triInt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ckpId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>至积分器,global ckpid </p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_a4eb776d5c0371a091fbac629f64e55cc_icgraph.png" border="0" usemap="#class_handle_sensor_device_a4eb776d5c0371a091fbac629f64e55cc_icgraph" alt=""/></div>
+<map name="class_handle_sensor_device_a4eb776d5c0371a091fbac629f64e55cc_icgraph" id="class_handle_sensor_device_a4eb776d5c0371a091fbac629f64e55cc_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="195,13,263,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afbdc2dd52d6a0a4af46df594f9c1d48d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbdc2dd52d6a0a4af46df594f9c1d48d">&#9670;&nbsp;</a></span>wheelFallOff</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HandleSensorDevice::wheelFallOff </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>pos:-1前一个;0当前 </p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_handle_sensor_device_afbdc2dd52d6a0a4af46df594f9c1d48d_icgraph.png" border="0" usemap="#class_handle_sensor_device_afbdc2dd52d6a0a4af46df594f9c1d48d_icgraph" alt=""/></div>
+<map name="class_handle_sensor_device_afbdc2dd52d6a0a4af46df594f9c1d48d_icgraph" id="class_handle_sensor_device_afbdc2dd52d6a0a4af46df594f9c1d48d_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a4af37b18f9592a557393e947d033ecaf" title="AlarmManager::bindPLC" alt="" coords="195,13,357,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a00cbb35b7e5b8defed7bff62774827cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00cbb35b7e5b8defed7bff62774827cf">&#9670;&nbsp;</a></span>dev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sensor_device.html">SensorDevice</a>* HandleSensorDevice::dev</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_handle_sensor_device_8h_source.html">HandleSensorDevice.h</a> 第 <a class="el" href="_handle_sensor_device_8h_source.html#l00026">26</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>sources/<a class="el" href="_handle_sensor_device_8h_source.html">HandleSensorDevice.h</a></li>
+<li>sources/<a class="el" href="_handle_sensor_device_8cpp_source.html">HandleSensorDevice.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

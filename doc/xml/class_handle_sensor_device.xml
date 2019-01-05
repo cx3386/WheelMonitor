@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_handle_sensor_device" kind="class" language="C++" prot="public">
+    <compoundname>HandleSensorDevice</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="_handle_sensor_device_8h" local="no">HandleSensorDevice.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" prot="public" static="no" mutable="no">
+        <type><ref refid="class_sensor_device" kindref="compound">SensorDevice</ref> *</type>
+        <definition>SensorDevice* HandleSensorDevice::dev</definition>
+        <argsstring></argsstring>
+        <name>dev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="26" column="1" bodyfile="sources/HandleSensorDevice.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" compoundref="_handle_sensor_device_8cpp" startline="22" endline="57">io2dev</referencedby>
+        <referencedby refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" compoundref="_handle_sensor_device_8cpp" startline="59" endline="74">checkTri</referencedby>
+        <referencedby refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" compoundref="_handle_sensor_device_8cpp" startline="114" endline="120">newCkp</referencedby>
+        <referencedby refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" compoundref="_handle_sensor_device_8cpp" startline="122" endline="150">checkoutCkp</referencedby>
+        <referencedby refid="class_plc_1a53d31f51484e39fc320b02be053de157" compoundref="_plc_8cpp" startline="82" endline="95">Plc::start</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_handle_sensor_device_1a71337c011b7773bdf6f18e4307c980b3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int HandleSensorDevice::devId</definition>
+        <argsstring></argsstring>
+        <name>devId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="28" column="1" bodyfile="sources/HandleSensorDevice.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_handle_sensor_device_1a5023b1b9da70eeb729bc6326a67bb8a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HandleSensorDevice::HandleSensorDevice</definition>
+        <argsstring>(int _devId, QObject *parent)</argsstring>
+        <name>HandleSensorDevice</name>
+        <param>
+          <type>int</type>
+          <declname>_devId</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="19" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="5" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1a42c9040fa7c8f0ee178f018632be04d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HandleSensorDevice::~HandleSensorDevice</definition>
+        <argsstring>()</argsstring>
+        <name>~HandleSensorDevice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="20" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::input</definition>
+        <argsstring>(int io)</argsstring>
+        <name>input</name>
+        <param>
+          <type>int</type>
+          <declname>io</declname>
+        </param>
+        <briefdescription>
+<para>输入一个新的io信号 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="21" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="16" bodyend="20"/>
+        <references refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" compoundref="_handle_sensor_device_8cpp" startline="22" endline="57">io2dev</references>
+        <references refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" compoundref="_handle_sensor_device_8cpp" startline="59" endline="74">checkTri</references>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::io2dev</definition>
+        <argsstring>(int io)</argsstring>
+        <name>io2dev</name>
+        <param>
+          <type>int</type>
+          <declname>io</declname>
+        </param>
+        <briefdescription>
+<para>将输入的io信号压入devs中 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="22" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="22" bodyend="57"/>
+        <references refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" compoundref="_handle_sensor_device_8h" startline="26">dev</references>
+        <references refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" compoundref="_sensor_device_8h" startline="72">SensorDevice::ckpts</references>
+        <references refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" compoundref="_sensor_device_8h" startline="43" endline="43">CkPt::indexOf</references>
+        <references refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" compoundref="_sensor_device_8h" startline="18" endline="18">Sensor::indexOf</references>
+        <referencedby refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" compoundref="_handle_sensor_device_8cpp" startline="16" endline="20">input</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::checkTri</definition>
+        <argsstring>()</argsstring>
+        <name>checkTri</name>
+        <briefdescription>
+<para>用读取的cio数据检测是否满足触发条件（上升沿/下降沿） </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; 当前ckp是否有传感器触发 </para>        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="23" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="59" bodyend="74"/>
+        <references refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" compoundref="_handle_sensor_device_8h" startline="26">dev</references>
+        <references refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" compoundref="_sensor_device_8h" startline="72">SensorDevice::ckpts</references>
+        <referencedby refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" compoundref="_handle_sensor_device_8cpp" startline="16" endline="20">input</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::newCkp</definition>
+        <argsstring>(int ckpId)</argsstring>
+        <name>newCkp</name>
+        <param>
+          <type>int</type>
+          <declname>ckpId</declname>
+        </param>
+        <briefdescription>
+<para>expect begin时，开始一个新的ckp </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="24" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="114" bodyend="120"/>
+        <references refid="class_ck_pt_1ad3259779575bb558490559404afb1903" compoundref="_sensor_device_8h" startline="42">CkPt::gid2mid</references>
+        <references refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" compoundref="_handle_sensor_device_8h" startline="26">dev</references>
+        <references refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" compoundref="_sensor_device_8h" startline="72">SensorDevice::ckpts</references>
+        <referencedby refid="class_plc_1a230190ee27d360a02576184d3450e8d6" compoundref="_plc_8cpp" startline="55" endline="73">Plc::Plc</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::checkoutCkp</definition>
+        <argsstring>(int ckpId)</argsstring>
+        <name>checkoutCkp</name>
+        <param>
+          <type>int</type>
+          <declname>ckpId</declname>
+        </param>
+        <briefdescription>
+<para>在expect end时，结算ckp。注意：此ckpId为global id. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="25" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="122" bodyend="150"/>
+        <references refid="class_ck_pt_1ad3259779575bb558490559404afb1903" compoundref="_sensor_device_8h" startline="42">CkPt::gid2mid</references>
+        <references refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" compoundref="_handle_sensor_device_8h" startline="26">dev</references>
+        <references refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" compoundref="_sensor_device_8h" startline="72">SensorDevice::ckpts</references>
+        <references refid="class_handle_sensor_device_1aeef6cec4d94210ddbff3095dd246230c">dzIn</references>
+        <references refid="class_handle_sensor_device_1a91627de0f3ebec10cb3329f226eb7c7e">dzOut</references>
+        <referencedby refid="class_plc_1a230190ee27d360a02576184d3450e8d6" compoundref="_plc_8cpp" startline="55" endline="73">Plc::Plc</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_handle_sensor_device_1ab7e6c4861c7af5768ba6bf2109549422" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::checkoutDev</definition>
+        <argsstring>()</argsstring>
+        <name>checkoutDev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; 所有expect=true的个数</para><para>&lt; 如果不是掉轮，则更新ss-&gt;broken。</para><para>&lt; 先前已经坏掉的传感器个数 </para>        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="29" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="152" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1ac722d51b208984bec501e447fa4497db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::emitDzSignal</definition>
+        <argsstring>(int ckpId)</argsstring>
+        <name>emitDzSignal</name>
+        <param>
+          <type>int</type>
+          <declname>ckpId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="30" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="76" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1a60354bb7d1affe176409b34ae34d3f13" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::updateBrokenSensor</definition>
+        <argsstring>()</argsstring>
+        <name>updateBrokenSensor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="31" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="204" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1ad7e69771083aaee43c8da0e66fc075a8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::updateGoodSensor</definition>
+        <argsstring>()</argsstring>
+        <name>updateGoodSensor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="32" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="215" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1a6a44de6efbc02bdd63ba569c8d7a646d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int HandleSensorDevice::getBreaks</definition>
+        <argsstring>()</argsstring>
+        <name>getBreaks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; 此周期内坏掉的ss </para>        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="33" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="225" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1a029e6f1215954236fd9ff4b0c074cd3e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int HandleSensorDevice::getBrokens</definition>
+        <argsstring>()</argsstring>
+        <name>getBrokens</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="34" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="236" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1ad20ee97a8a61bacc0499c0e75c9131c0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int HandleSensorDevice::getExpects</definition>
+        <argsstring>()</argsstring>
+        <name>getExpects</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="35" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="247" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="class_handle_sensor_device_1a88a3409da13d8e304a6c39605974e58f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::updateSensorToUi</definition>
+        <argsstring>()</argsstring>
+        <name>updateSensorToUi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="36" column="1" bodyfile="sources/HandleSensorDevice.cpp" bodystart="258" bodyend="271"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_handle_sensor_device_1aeef6cec4d94210ddbff3095dd246230c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::dzIn</definition>
+        <argsstring>()</argsstring>
+        <name>dzIn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="38" column="1"/>
+        <referencedby refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" compoundref="_handle_sensor_device_8cpp" startline="122" endline="150">checkoutCkp</referencedby>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_handle_sensor_device_1a91627de0f3ebec10cb3329f226eb7c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::dzOut</definition>
+        <argsstring>()</argsstring>
+        <name>dzOut</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="39" column="1"/>
+        <referencedby refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" compoundref="_handle_sensor_device_8cpp" startline="122" endline="150">checkoutCkp</referencedby>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_handle_sensor_device_1a4eb776d5c0371a091fbac629f64e55cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::triInt</definition>
+        <argsstring>(int ckpId)</argsstring>
+        <name>triInt</name>
+        <param>
+          <type>int</type>
+          <declname>ckpId</declname>
+        </param>
+        <briefdescription>
+<para>至积分器,global ckpid. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="40" column="1"/>
+        <referencedby refid="class_plc_1a230190ee27d360a02576184d3450e8d6" compoundref="_plc_8cpp" startline="55" endline="73">Plc::Plc</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::wheelFallOff</definition>
+        <argsstring>(int pos)</argsstring>
+        <name>wheelFallOff</name>
+        <param>
+          <type>int</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>pos:-1前一个;0当前 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="41" column="1"/>
+        <referencedby refid="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" compoundref="_alarm_manager_8cpp" startline="16" endline="30">AlarmManager::bindPLC</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_handle_sensor_device_1a4b16afcd6b6fea22d29862cbd7a64554" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HandleSensorDevice::sensorUpdate</definition>
+        <argsstring>(int)</argsstring>
+        <name>sensorUpdate</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/HandleSensorDevice.h" line="42" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="42">
+        <label>HandleSensorDevice</label>
+        <link refid="class_handle_sensor_device"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="44">
+        <label>HandleSensorDevice</label>
+        <link refid="class_handle_sensor_device"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>dev</edgelabel>
+        </childnode>
+      </node>
+      <node id="45">
+        <label>QObject</label>
+      </node>
+      <node id="46">
+        <label>SensorDevice</label>
+        <link refid="class_sensor_device"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/HandleSensorDevice.h" line="15" column="1" bodyfile="sources/HandleSensorDevice.h" bodystart="14" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>checkoutCkp</name></member>
+      <member refid="class_handle_sensor_device_1ab7e6c4861c7af5768ba6bf2109549422" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>checkoutDev</name></member>
+      <member refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>checkTri</name></member>
+      <member refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>dev</name></member>
+      <member refid="class_handle_sensor_device_1a71337c011b7773bdf6f18e4307c980b3" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>devId</name></member>
+      <member refid="class_handle_sensor_device_1aeef6cec4d94210ddbff3095dd246230c" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>dzIn</name></member>
+      <member refid="class_handle_sensor_device_1a91627de0f3ebec10cb3329f226eb7c7e" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>dzOut</name></member>
+      <member refid="class_handle_sensor_device_1ac722d51b208984bec501e447fa4497db" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>emitDzSignal</name></member>
+      <member refid="class_handle_sensor_device_1a6a44de6efbc02bdd63ba569c8d7a646d" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>getBreaks</name></member>
+      <member refid="class_handle_sensor_device_1a029e6f1215954236fd9ff4b0c074cd3e" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>getBrokens</name></member>
+      <member refid="class_handle_sensor_device_1ad20ee97a8a61bacc0499c0e75c9131c0" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>getExpects</name></member>
+      <member refid="class_handle_sensor_device_1a5023b1b9da70eeb729bc6326a67bb8a1" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>HandleSensorDevice</name></member>
+      <member refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>input</name></member>
+      <member refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>io2dev</name></member>
+      <member refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>newCkp</name></member>
+      <member refid="class_handle_sensor_device_1a4b16afcd6b6fea22d29862cbd7a64554" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>sensorUpdate</name></member>
+      <member refid="class_handle_sensor_device_1a4eb776d5c0371a091fbac629f64e55cc" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>triInt</name></member>
+      <member refid="class_handle_sensor_device_1a60354bb7d1affe176409b34ae34d3f13" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>updateBrokenSensor</name></member>
+      <member refid="class_handle_sensor_device_1ad7e69771083aaee43c8da0e66fc075a8" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>updateGoodSensor</name></member>
+      <member refid="class_handle_sensor_device_1a88a3409da13d8e304a6c39605974e58f" prot="private" virt="non-virtual"><scope>HandleSensorDevice</scope><name>updateSensorToUi</name></member>
+      <member refid="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>wheelFallOff</name></member>
+      <member refid="class_handle_sensor_device_1a42c9040fa7c8f0ee178f018632be04d8" prot="public" virt="non-virtual"><scope>HandleSensorDevice</scope><name>~HandleSensorDevice</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

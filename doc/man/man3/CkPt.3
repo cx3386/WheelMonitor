@@ -1,0 +1,171 @@
+.TH "CkPt" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CkPt
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SensorDevice\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCkPt\fP (int _id, \fBSensorDevice\fP *parent)"
+.br
+.ti -1c
+.RI "void \fBnewWheel\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.ti -1c
+.RI "int \fBtriTiming\fP ()"
+.br
+.RI "返回触发的时机，如果是进入，则下降沿触发 "
+.ti -1c
+.RI "bool \fBisEnter\fP ()"
+.br
+.RI "返回是否由此检测点进入 "
+.ti -1c
+.RI "bool \fBisLeave\fP ()"
+.br
+.RI "返回是否由此检测点离开 "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static int \fBgid2mid\fP (int gid)"
+.br
+.RI "由global id获得局部id\&. "
+.ti -1c
+.RI "static int \fBindexOf\fP (QString _name)"
+.br
+.ti -1c
+.RI "static QList< \fBCkPt\fP * > \fBcreatAll\fP (\fBSensorDevice\fP *parent)"
+.br
+.RI "一次性创建所有的检测点 "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.ti -1c
+.RI "int \fBm_id\fP"
+.br
+.ti -1c
+.RI "\fBSensorDevice\fP * \fBparentDev\fP"
+.br
+.ti -1c
+.RI "QString \fBname\fP"
+.br
+.ti -1c
+.RI "bool \fBhasTri\fP = false"
+.br
+.ti -1c
+.RI "QList< \fBSensor\fP * > \fBsensors\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const QStringList \fBnames\fP { 'left', 'right' }"
+.br
+.RI "每个检测点的传感器 "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 33 of file SensorDevice\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "CkPt::CkPt (int _id, \fBSensorDevice\fP * parent)"
+
+.PP
+Definition at line 104 of file SensorDevice\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "QList< \fBCkPt\fP * > CkPt::creatAll (\fBSensorDevice\fP * parent)\fC [static]\fP"
+
+.PP
+一次性创建所有的检测点 
+.PP
+Definition at line 114 of file SensorDevice\&.cpp\&.
+.SS "static int CkPt::gid2mid (int gid)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+由global id获得局部id\&. 
+.PP
+Definition at line 42 of file SensorDevice\&.h\&.
+.SS "static int CkPt::indexOf (QString _name)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Definition at line 43 of file SensorDevice\&.h\&.
+.SS "void CkPt::init ()"
+
+.PP
+Definition at line 131 of file SensorDevice\&.cpp\&.
+.SS "bool CkPt::isEnter ()"
+
+.PP
+返回是否由此检测点进入 
+.PP
+Definition at line 140 of file SensorDevice\&.cpp\&.
+.SS "bool CkPt::isLeave ()\fC [inline]\fP"
+
+.PP
+返回是否由此检测点离开 
+.PP
+Definition at line 54 of file SensorDevice\&.h\&.
+.SS "void CkPt::newWheel ()"
+
+.PP
+Definition at line 123 of file SensorDevice\&.cpp\&.
+.SS "int CkPt::triTiming ()\fC [inline]\fP"
+
+.PP
+返回触发的时机，如果是进入，则下降沿触发 
+.PP
+Definition at line 50 of file SensorDevice\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool CkPt::hasTri = false"
+
+.PP
+Definition at line 41 of file SensorDevice\&.h\&.
+.SS "int CkPt::id"
+
+.PP
+Definition at line 37 of file SensorDevice\&.h\&.
+.SS "int CkPt::m_id"
+
+.PP
+Definition at line 38 of file SensorDevice\&.h\&.
+.SS "QString CkPt::name"
+
+.PP
+Definition at line 40 of file SensorDevice\&.h\&.
+.SS "const QStringList CkPt::names { 'left', 'right' }\fC [static]\fP"
+
+.PP
+每个检测点的传感器 
+.PP
+Definition at line 44 of file SensorDevice\&.h\&.
+.SS "\fBSensorDevice\fP* CkPt::parentDev"
+
+.PP
+Definition at line 39 of file SensorDevice\&.h\&.
+.SS "QList<\fBSensor\fP*> CkPt::sensors"
+
+.PP
+Definition at line 46 of file SensorDevice\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

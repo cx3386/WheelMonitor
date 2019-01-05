@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_speed_integrator_8cpp" kind="file" language="C++">
+    <compoundname>SpeedIntegrator.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="_plc_8h" local="yes">Plc.h</includes>
+    <includes refid="_speed_integrator_8h" local="yes">SpeedIntegrator.h</includes>
+    <incdepgraph>
+      <node id="718">
+        <label>SpeedIntegrator.h</label>
+        <link refid="_speed_integrator_8h"/>
+        <childnode refid="712" relation="include">
+        </childnode>
+        <childnode refid="711" relation="include">
+        </childnode>
+      </node>
+      <node id="717">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="712">
+        <label>QObject</label>
+      </node>
+      <node id="708">
+        <label>sources/SpeedIntegrator.cpp</label>
+        <link refid="_speed_integrator_8cpp"/>
+        <childnode refid="709" relation="include">
+        </childnode>
+        <childnode refid="711" relation="include">
+        </childnode>
+        <childnode refid="718" relation="include">
+        </childnode>
+      </node>
+      <node id="715">
+        <label>HandleSensorDevice.h</label>
+        <link refid="_handle_sensor_device_8h"/>
+        <childnode refid="712" relation="include">
+        </childnode>
+        <childnode refid="716" relation="include">
+        </childnode>
+      </node>
+      <node id="711">
+        <label>Plc.h</label>
+        <link refid="_plc_8h"/>
+        <childnode refid="712" relation="include">
+        </childnode>
+        <childnode refid="713" relation="include">
+        </childnode>
+        <childnode refid="715" relation="include">
+        </childnode>
+      </node>
+      <node id="716">
+        <label>SensorDevice.h</label>
+        <link refid="_sensor_device_8h"/>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="712" relation="include">
+        </childnode>
+      </node>
+      <node id="714">
+        <label>QString</label>
+      </node>
+      <node id="710">
+        <label>QtWidgets</label>
+      </node>
+      <node id="713">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="714" relation="include">
+        </childnode>
+      </node>
+      <node id="709">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="710" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_plc_8h" kindref="compound">Plc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_speed_integrator_8h" kindref="compound">SpeedIntegrator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>SpeedIntegrator::std_L<sp/>=<sp/>2.5;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>SpeedIntegrator::dist_min<sp/>=<sp/>std_L<sp/>-<sp/>0.2;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>SpeedIntegrator::dist_max<sp/>=<sp/>std_L<sp/>+<sp/>0.2;</highlight></codeline>
+<codeline lineno="8" refid="class_speed_integrator_1aa7f2b002b46cf36d489558b59ed90388" refkind="member"><highlight class="normal"><ref refid="class_speed_integrator_1aa7f2b002b46cf36d489558b59ed90388" kindref="member">SpeedIntegrator::SpeedIntegrator</ref>(<ref refid="class_plc" kindref="compound">Plc</ref>*<sp/>plcSerial,<sp/>QObject*<sp/>parent<sp/></highlight><highlight class="comment">/*=<sp/>Q_NULLPTR*/</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>plc(plcSerial)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="class_speed_integrator_1a2831c10b9d9d554f03ae46542c29357d" kindref="member">SpeedIntegrator::~SpeedIntegrator</ref>()</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" kindref="member">SpeedIntegrator::start</ref>()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//这里必须用[=]而不是[&amp;]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer::singleShot(0,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>ckp<sp/>:<sp/>ckps)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp<sp/>=<sp/>Ckpt{};<sp/></highlight><highlight class="comment">//重置</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bUsrCtrl<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>speedIntegrator();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="class_speed_integrator_1a6e1d4a9a0e409e7cd2e8b4f103439fe4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_speed_integrator_1a6e1d4a9a0e409e7cd2e8b4f103439fe4" kindref="member">SpeedIntegrator::stop</ref>()</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer::singleShot(0,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{<sp/>bUsrCtrl<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/>});<sp/></highlight><highlight class="comment">//用timeevent，避免跨线程操作带来的锁的管理。但是需要直接get的value，必须通过锁管理 }
+
+void<sp/>SpeedIntegrator::speedIntegrator()
+{
+<sp/><sp/><sp/>if<sp/>(!bUsrCtrl)
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>QTimer::singleShot(readSpeedInterval,<sp/>this,<sp/>[=]()<sp/>{<sp/>speedIntegrator();<sp/>});
+<sp/>auto<sp/>spd<sp/>=<sp/>plc-&gt;getTruckSpeed();
+<sp/><sp/><sp/>auto<sp/>s_tmp<sp/>=<sp/>spd<sp/>*<sp/>readSpeedInterval<sp/>/<sp/>60000;
+<sp/><sp/>for<sp/>(auto&amp;<sp/>ckp<sp/>:<sp/>ckps)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//从第一次触发后开始
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ckp.bFirstStart)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>continue;
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp.distance<sp/>+=<sp/>s_tmp;
+<sp/><sp/><sp/><sp/><sp/>int<sp/>ckpindex<sp/>=<sp/>&amp;ckp<sp/>-<sp/>ckps;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ckp.triBeginReady<sp/>&amp;&amp;<sp/>ckp.distance<sp/>&gt;<sp/>dist_min)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>expectTriBegin(ckpindex);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;ckp<sp/>expect<sp/>begin&quot;<sp/>&lt;&lt;<sp/>ckpindex;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp.triBeginReady<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ckp.triEndReady<sp/>&amp;&amp;<sp/>ckp.distance<sp/>&gt;<sp/>dist_max)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>expectTriEnd(ckpindex);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;ckp<sp/>expect<sp/>end&quot;<sp/>&lt;&lt;<sp/>ckpindex;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp.triEndReady<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp.newWheel();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+void<sp/>SpeedIntegrator::onCkpTri(int<sp/>ckpId)
+{
+<sp/><sp/><sp/>auto&amp;<sp/>ckp<sp/>=<sp/>ckps[ckpId];
+<sp/><sp/><sp/>if<sp/>(!ckp.bFirstStart)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp.bFirstStart<sp/>=<sp/>true;<sp/>//积分器在第一次tri信号开始运算，此后不间断（不会被置零）
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;ckp<sp/>integrator<sp/>start:&quot;<sp/>&lt;&lt;<sp/>ckpId;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>else
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;ckp<sp/>tri:&quot;<sp/>&lt;&lt;<sp/>ckpId<sp/>&lt;&lt;<sp/>&quot;<sp/>dis:&quot;<sp/>&lt;&lt;<sp/>ckp.distance;
+<sp/><sp/>}
+<sp/><sp/>ckp.anchor<sp/>=<sp/>ckp.distance;
+<sp/>ckp.hasTri<sp/>=<sp/>true;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SpeedIntegrator::speedIntegrator()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bUsrCtrl)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer::singleShot(readSpeedInterval,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{<sp/>speedIntegrator();<sp/>});</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>spd<sp/>=<sp/>plc-&gt;<ref refid="class_plc_1a2432a7c4b2bee31da9b2a933d2747ba4" kindref="member">getTruckSpeed</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>s_tmp<sp/>=<sp/>spd<sp/>*<sp/>readSpeedInterval<sp/>/<sp/>60000;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>ckp<sp/>:<sp/>ckps)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//从第一次触发后开始</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ckp.bFirstStart)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp.distance<sp/>+=<sp/>s_tmp;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpindex<sp/>=<sp/>&amp;ckp<sp/>-<sp/>ckps;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ckp.triBeginReady<sp/>&amp;&amp;<sp/>ckp.distance<sp/>&gt;<sp/>dist_min)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_speed_integrator_1a5a3c3fcf4cf833b11d897c9dea305c82" kindref="member">expectTriBegin</ref>(ckpindex);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qDebug()<sp/>&lt;&lt;<sp/>&quot;ckp<sp/>expect<sp/>begin&quot;<sp/>&lt;&lt;<sp/>ckpindex;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp.triBeginReady<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ckp.triEndReady<sp/>&amp;&amp;<sp/>ckp.distance<sp/>&gt;<sp/>dist_max)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_speed_integrator_1aaabda4cff9d78b288286796cd4690228" kindref="member">expectTriEnd</ref>(ckpindex);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qDebug()<sp/>&lt;&lt;<sp/>&quot;ckp<sp/>expect<sp/>end&quot;<sp/>&lt;&lt;<sp/>ckpindex;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp.triEndReady<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp.newWheel();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="class_speed_integrator_1a66d764b8f94e1547100028927d224aea" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_speed_integrator_1a66d764b8f94e1547100028927d224aea" kindref="member">SpeedIntegrator::onCkpTri</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>ckp<sp/>=<sp/>ckps[ckpId];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ckp.bFirstStart)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp.bFirstStart<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//积分器在第一次tri信号开始运算，此后不间断（不会被置零）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qDebug()<sp/>&lt;&lt;<sp/>&quot;ckp<sp/>integrator<sp/>start:&quot;<sp/>&lt;&lt;<sp/>ckpId;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qDebug()<sp/>&lt;&lt;<sp/>&quot;ckp<sp/>tri:&quot;<sp/>&lt;&lt;<sp/>ckpId<sp/>&lt;&lt;<sp/>&quot;<sp/>dis:&quot;<sp/>&lt;&lt;<sp/>ckp.distance;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>ckp.anchor<sp/>=<sp/>ckp.distance;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>ckp.hasTri<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/SpeedIntegrator.cpp"/>
+  </compounddef>
+</doxygen>

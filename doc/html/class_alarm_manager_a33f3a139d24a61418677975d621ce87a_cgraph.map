@@ -1,0 +1,10 @@
+<map id="AlarmManager::bindMainWindow" name="AlarmManager::bindMainWindow">
+<area shape="rect" id="node2" href="$class_main_window.html#a56c37dd56a54c1e0e4cea19073bd2895" title="MainWindow::uiShowSpeed_o" alt="" coords="271,5,468,32"/>
+<area shape="rect" id="node3" href="$class_main_window.html#a6b59764d9fff055d3a40148b5efe393c" title="MainWindow::uiShowNum_o" alt="" coords="276,56,463,83"/>
+<area shape="rect" id="node4" href="$class_main_window.html#a08c36c996ee5b67ffbb4b0c5f1d18ea6" title="MainWindow::uiShowError_o" alt="" coords="275,107,463,133"/>
+<area shape="rect" id="node5" href="$class_main_window.html#a0b254bab7ba45e2870484474a063afb2" title="MainWindow::uiShowSpeed_i" alt="" coords="273,157,466,184"/>
+<area shape="rect" id="node6" href="$class_main_window.html#af5608598b812a3f37e52f9e68df10f52" title="MainWindow::uiShowNum_i" alt="" coords="278,208,461,235"/>
+<area shape="rect" id="node7" href="$class_main_window.html#a5af6ee21b93fe8660960c6e0ed9ca989" title="MainWindow::uiShowError_i" alt="" coords="277,259,461,285"/>
+<area shape="rect" id="node8" href="$class_main_window.html#a960ef266d511ed4e10820a3106d23e69" title="显示Cio100的灯。即中控报警灯，1为亮，0为灭 " alt="" coords="276,309,463,336"/>
+<area shape="rect" id="node9" href="$class_main_window.html#afa3fc9e034fa98830e87246246d73e0e" title="MainWindow::uiShowAlarmLight" alt="" coords="265,360,473,387"/>
+</map>

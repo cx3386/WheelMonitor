@@ -1,0 +1,4 @@
+<map id="HikVideoCapture::~HikVideoCapture" name="HikVideoCapture::~HikVideoCapture">
+<area shape="rect" id="node2" href="$class_hik_video_capture.html#a895409c64a795d7285dcee5c7d59fdd7" title="HikVideoCapture::stop" alt="" coords="240,13,392,39"/>
+<area shape="rect" id="node3" href="$class_hik_video_capture.html#a4579213b58ec7d6999755e78a48d9ff8" title="涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 " alt="" coords="440,13,633,39"/>
+</map>

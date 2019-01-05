@@ -1,0 +1,122 @@
+.TH "PlayBackWidget" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PlayBackWidget
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <playbackwidget\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBclearMedia\fP ()"
+.br
+.RI "清除媒体信息；应当在失焦时调用 "
+.ti -1c
+.RI "void \fBdbChanged\fP ()"
+.br
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBclearAlarm\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlayBackWidget\fP (QWidget *parent=Q_NULLPTR)"
+.br
+.ti -1c
+.RI "\fB~PlayBackWidget\fP ()"
+.br
+.ti -1c
+.RI "bool \fBhasAlarm\fP () const"
+.br
+.RI "Returns true if the alarm list is not null;otherwise returns false\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBMySqlTableModel\fP * \fBallModel\fP"
+.br
+.RI "tableModel for all record "
+.ti -1c
+.RI "\fBMySqlTableModel\fP * \fBalarmModel\fP"
+.br
+.RI "talbleModel for unchecked record "
+.ti -1c
+.RI "QTableView * \fBalarmView\fP"
+.br
+.RI "tablseview for unchecked record "
+.ti -1c
+.RI "QComboBox * \fBselectTableCb\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 9 of file playbackwidget\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PlayBackWidget::PlayBackWidget (QWidget * parent = \fCQ_NULLPTR\fP)"
+player 
+.PP
+Definition at line 10 of file playbackwidget\&.cpp\&.
+.SS "PlayBackWidget::~PlayBackWidget ()\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void PlayBackWidget::clearAlarm ()\fC [signal]\fP"
+
+.SS "void PlayBackWidget::clearMedia ()\fC [slot]\fP"
+
+.PP
+清除媒体信息；应当在失焦时调用 
+.PP
+Definition at line 173 of file playbackwidget\&.cpp\&.
+.SS "void PlayBackWidget::dbChanged ()\fC [slot]\fP"
+
+.PP
+Definition at line 160 of file playbackwidget\&.cpp\&.
+.SS "bool PlayBackWidget::hasAlarm () const"
+
+.PP
+Returns true if the alarm list is not null;otherwise returns false\&. 
+.PP
+Definition at line 155 of file playbackwidget\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBMySqlTableModel\fP* PlayBackWidget::alarmModel"
+
+.PP
+talbleModel for unchecked record 
+.PP
+Definition at line 15 of file playbackwidget\&.h\&.
+.SS "QTableView* PlayBackWidget::alarmView"
+
+.PP
+tablseview for unchecked record 
+.PP
+Definition at line 21 of file playbackwidget\&.h\&.
+.SS "\fBMySqlTableModel\fP* PlayBackWidget::allModel"
+
+.PP
+tableModel for all record 
+.PP
+Definition at line 14 of file playbackwidget\&.h\&.
+.SS "QComboBox* PlayBackWidget::selectTableCb"
+
+.PP
+Definition at line 22 of file playbackwidget\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

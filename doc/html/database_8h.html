@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: sources/database.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_08d237fc27d4ecd563f71c5d52f2fecc.html">sources</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#enum-members">枚举</a>  </div>
+  <div class="headertitle">
+<div class="title">database.h 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ocr_8h_source.html">ocr.h</a>&quot;</code><br />
+<code>#include &lt;QtSql&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+database.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="database_8h__incl.png" border="0" usemap="#sources_2database_8h" alt=""/></div>
+<map name="sources_2database_8h" id="sources_2database_8h">
+<area shape="rect" id="node2" href="common_8h.html" title="include the common definition. " alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node4" href="ocr_8h.html" title="ocr.h" alt="" coords="113,80,164,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件直接或间接的被哪些文件引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="database_8h__dep__incl.png" border="0" usemap="#sources_2database_8hdep" alt=""/></div>
+<map name="sources_2database_8hdep" id="sources_2database_8hdep">
+<area shape="rect" id="node2" href="imageprocess_8h.html" title="sources/imageprocess.h" alt="" coords="298,80,462,107"/>
+<area shape="rect" id="node5" href="mainwindow_8cpp.html" title="sources/mainwindow.cpp" alt="" coords="211,229,378,256"/>
+<area shape="rect" id="node6" href="imageprocess_8cpp.html" title="sources/imageprocess.cpp" alt="" coords="491,155,669,181"/>
+<area shape="rect" id="node8" href="logindialog_8cpp.html" title="sources/logindialog.cpp" alt="" coords="745,80,903,107"/>
+<area shape="rect" id="node9" href="main_8cpp.html" title="sources/main.cpp" alt="" coords="928,80,1053,107"/>
+<area shape="rect" id="node10" href="mysqltablemodel_8cpp.html" title="sources/mysqltablemodel.cpp" alt="" coords="1077,80,1272,107"/>
+<area shape="rect" id="node11" href="playbackwidget_8cpp.html" title="sources/playbackwidget.cpp" alt="" coords="1296,80,1483,107"/>
+<area shape="rect" id="node3" href="_alarm_manager_8h.html" title="管理所有的报警 " alt="" coords="51,155,218,181"/>
+<area shape="rect" id="node7" href="_match_viewer_8cpp.html" title="sources/MatchViewer.cpp" alt="" coords="294,155,466,181"/>
+<area shape="rect" id="node4" href="_alarm_manager_8cpp.html" title="sources/AlarmManager.cpp" alt="" coords="5,229,187,256"/>
+</map>
+</div>
+</div>
+<p><a href="database_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_wheel_db_info.html">WheelDbInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">记录该车轮结算后的相关参数，以写入数据库  <a href="struct_wheel_db_info.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a9145f452b287f285038b1dae55dac39f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39f">WheelHeader</a> { <br />
+&#160;&#160;<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fac93f469e5dc9266565682cff0633a5e7">Wheel_ID</a> = 0, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea">Wheel_I_O</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537">Wheel_Num</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419">Wheel_CalcSpeed</a>, 
+<br />
+&#160;&#160;<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2">Wheel_RefSpeed</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0">Wheel_Error</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880">Wheel_Time</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33">Wheel_AlarmLevel</a>, 
+<br />
+&#160;&#160;<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8">Wheel_CheckState</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39faf813a99a0689420d89c99e45e3ab6993">Wheel_OcrSize</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fadbab0ed30a0e5394445e98954aab467f">Wheel_Fragment</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa1210163e5138f0b4070bf52eebb76616">Wheel_TotalMatch</a>, 
+<br />
+&#160;&#160;<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fae3dca2c74420f6bac1e955c4e21e61a2">Wheel_ValidMatch</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fae0605f6e0144f634da6e6e875aa009d9">Wheel_Speeds</a>, 
+<a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde">Wheel_VideoPath</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a9145f452b287f285038b1dae55dac39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">field index of table "wheels"  <a href="database_8h.html#a9145f452b287f285038b1dae55dac39f">更多...</a><br /></td></tr>
+<tr class="separator:a9145f452b287f285038b1dae55dac39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a637ca8d507772dc5a9bc8a4e449231c7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7">CheckState</a> { <a class="el" href="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503">NoNeedCheck</a> = 0, 
+<a class="el" href="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d">NeedCheck</a>, 
+<a class="el" href="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33">Checked</a>
+ }</td></tr>
+<tr class="memdesc:a637ca8d507772dc5a9bc8a4e449231c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">the value of field "wheels_checkstate", represent whether need check. if need check, it will show in the alarm table  <a href="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7">更多...</a><br /></td></tr>
+<tr class="separator:a637ca8d507772dc5a9bc8a4e449231c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="a637ca8d507772dc5a9bc8a4e449231c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a637ca8d507772dc5a9bc8a4e449231c7">&#9670;&nbsp;</a></span>CheckState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7">CheckState</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the value of field "wheels_checkstate", represent whether need check. if need check, it will show in the alarm table </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503"></a>NoNeedCheck&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d"></a>NeedCheck&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33"></a>Checked&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="database_8h_source.html">database.h</a> 第 <a class="el" href="database_8h_source.html#l00050">50</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a9145f452b287f285038b1dae55dac39f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9145f452b287f285038b1dae55dac39f">&#9670;&nbsp;</a></span>WheelHeader</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="database_8h.html#a9145f452b287f285038b1dae55dac39f">WheelHeader</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>field index of table "wheels" </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fac93f469e5dc9266565682cff0633a5e7"></a>Wheel_ID&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea"></a>Wheel_I_O&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537"></a>Wheel_Num&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419"></a>Wheel_CalcSpeed&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2"></a>Wheel_RefSpeed&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0"></a>Wheel_Error&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880"></a>Wheel_Time&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33"></a>Wheel_AlarmLevel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8"></a>Wheel_CheckState&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39faf813a99a0689420d89c99e45e3ab6993"></a>Wheel_OcrSize&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fadbab0ed30a0e5394445e98954aab467f"></a>Wheel_Fragment&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa1210163e5138f0b4070bf52eebb76616"></a>Wheel_TotalMatch&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fae3dca2c74420f6bac1e955c4e21e61a2"></a>Wheel_ValidMatch&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fae0605f6e0144f634da6e6e875aa009d9"></a>Wheel_Speeds&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde"></a>Wheel_VideoPath&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="database_8h_source.html">database.h</a> 第 <a class="el" href="database_8h_source.html#l00008">8</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

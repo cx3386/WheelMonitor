@@ -1,0 +1,151 @@
+.TH "ImageProcess" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ImageProcess
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <imageprocess\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBhandleFrame\fP ()"
+.br
+.RI "处理当前帧，每秒钟3次 "
+.ti -1c
+.RI "void \fBmakeFrame4Show\fP ()"
+.br
+.ti -1c
+.RI "void \fBonSensorIN\fP ()"
+.br
+.RI "完全进入后（进后） "
+.ti -1c
+.RI "void \fBonSensorOUT\fP ()"
+.br
+.RI "开始退出前（出前） "
+.ti -1c
+.RI "void \fBonWheelTimeout\fP ()"
+.br
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fB_MAIn\fP ()"
+.br
+.ti -1c
+.RI "void \fB_MAOut\fP ()"
+.br
+.ti -1c
+.RI "void \fBframeHandled\fP ()"
+.br
+.ti -1c
+.RI "void \fBshowFrame\fP ()"
+.br
+.ti -1c
+.RI "void \fBshowMatch\fP ()"
+.br
+.ti -1c
+.RI "void \fBwheelNeedHandled\fP (\fBWheelDbInfo\fP info)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBImageProcess\fP (const \fBConfigHelper\fP *_configHelper, \fBHikVideoCapture\fP *_capture, \fBPlc\fP *_plcSerial, QObject *parent=Q_NULLPTR)"
+.br
+.ti -1c
+.RI "\fB~ImageProcess\fP ()"
+.br
+.ti -1c
+.RI "cv::Mat \fBgetFrameToShow\fP ()"
+.br
+.ti -1c
+.RI "cv::Mat \fBgetMatchResult\fP ()"
+.br
+.ti -1c
+.RI "void \fBstart\fP ()"
+.br
+.ti -1c
+.RI "void \fBstop\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 18 of file imageprocess\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ImageProcess::ImageProcess (const \fBConfigHelper\fP * _configHelper, \fBHikVideoCapture\fP * _capture, \fBPlc\fP * _plcSerial, QObject * parent = \fCQ_NULLPTR\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 17 of file imageprocess\&.cpp\&.
+.SS "ImageProcess::~ImageProcess ()"
+
+.PP
+Definition at line 50 of file imageprocess\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void ImageProcess::_MAIn ()\fC [signal]\fP"
+
+.SS "void ImageProcess::_MAOut ()\fC [signal]\fP"
+
+.SS "void ImageProcess::frameHandled ()\fC [signal]\fP"
+
+.SS "cv::Mat ImageProcess::getFrameToShow ()\fC [inline]\fP"
+
+.PP
+Definition at line 24 of file imageprocess\&.h\&.
+.SS "cv::Mat ImageProcess::getMatchResult ()\fC [inline]\fP"
+
+.PP
+Definition at line 25 of file imageprocess\&.h\&.
+.SS "void ImageProcess::handleFrame ()\fC [slot]\fP"
+
+.PP
+处理当前帧，每秒钟3次 
+.PP
+Definition at line 55 of file imageprocess\&.cpp\&.
+.SS "void ImageProcess::makeFrame4Show ()\fC [slot]\fP"
+
+.PP
+Definition at line 133 of file imageprocess\&.cpp\&.
+.SS "void ImageProcess::onSensorIN ()\fC [slot]\fP"
+
+.PP
+完全进入后（进后） 
+.PP
+Definition at line 328 of file imageprocess\&.cpp\&.
+.SS "void ImageProcess::onSensorOUT ()\fC [slot]\fP"
+
+.PP
+开始退出前（出前） 
+.PP
+Definition at line 336 of file imageprocess\&.cpp\&.
+.SS "void ImageProcess::onWheelTimeout ()\fC [slot]\fP"
+
+.PP
+Definition at line 345 of file imageprocess\&.cpp\&.
+.SS "void ImageProcess::showFrame ()\fC [signal]\fP"
+
+.SS "void ImageProcess::showMatch ()\fC [signal]\fP"
+
+.SS "void ImageProcess::start ()\fC [inline]\fP"
+
+.PP
+Definition at line 27 of file imageprocess\&.h\&.
+.SS "void ImageProcess::stop ()\fC [inline]\fP"
+
+.PP
+Definition at line 28 of file imageprocess\&.h\&.
+.SS "void ImageProcess::wheelNeedHandled (\fBWheelDbInfo\fP info)\fC [signal]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

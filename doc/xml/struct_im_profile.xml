@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="struct_im_profile" kind="struct" language="C++" prot="public">
+    <compoundname>ImProfile</compoundname>
+    <includes refid="improfile_8h" local="no">improfile.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_im_profile_1a366306018336697fd36c0a16cb66cf9d" prot="private" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* ImProfile::interv</definition>
+        <argsstring></argsstring>
+        <name>interv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="7" column="1" bodyfile="sources/improfile.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ImProfile::warningRatio</definition>
+        <argsstring></argsstring>
+        <name>warningRatio</name>
+        <initializer>= 0.05</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="13" column="1" bodyfile="sources/improfile.h" bodystart="13" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ImProfile::alarmRatio</definition>
+        <argsstring></argsstring>
+        <name>alarmRatio</name>
+        <initializer>= 0.10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="14" column="1" bodyfile="sources/improfile.h" bodystart="14" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ImProfile::radius_min</definition>
+        <argsstring></argsstring>
+        <name>radius_min</name>
+        <initializer>= 250</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="15" column="1" bodyfile="sources/improfile.h" bodystart="15" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ImProfile::radius_max</definition>
+        <argsstring></argsstring>
+        <name>radius_max</name>
+        <initializer>= 200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="16" column="1" bodyfile="sources/improfile.h" bodystart="16" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1a9fa1622579348c3d0dccebe11c205a29" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ImProfile::gs1</definition>
+        <argsstring></argsstring>
+        <name>gs1</name>
+        <initializer>= 9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="17" column="1" bodyfile="sources/improfile.h" bodystart="17" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1a10bffd53b4e9115dbf0fae545a426bad" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ImProfile::gs2</definition>
+        <argsstring></argsstring>
+        <name>gs2</name>
+        <initializer>= 9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="18" column="1" bodyfile="sources/improfile.h" bodystart="18" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1ae9a7b67e92d0dd3a829a25edd34fbde8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ImProfile::dp</definition>
+        <argsstring></argsstring>
+        <name>dp</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="19" column="1" bodyfile="sources/improfile.h" bodystart="19" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1af5e44df036b18552062e4f9d9f926310" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ImProfile::minDist</definition>
+        <argsstring></argsstring>
+        <name>minDist</name>
+        <initializer>= 180</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="20" column="1" bodyfile="sources/improfile.h" bodystart="20" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1a921b476664441309c914b58331ead364" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ImProfile::param1</definition>
+        <argsstring></argsstring>
+        <name>param1</name>
+        <initializer>= 200</initializer>
+        <briefdescription>
+<para>maxVal of Canny </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="21" column="1" bodyfile="sources/improfile.h" bodystart="21" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1ac84186e94a1900eaf9f2a6e1a7ab3014" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ImProfile::param2</definition>
+        <argsstring></argsstring>
+        <name>param2</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="22" column="1" bodyfile="sources/improfile.h" bodystart="22" bodyend="-1"/>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ImProfile::sensorTriggered</definition>
+        <argsstring></argsstring>
+        <name>sensorTriggered</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="23" column="1" bodyfile="sources/improfile.h" bodystart="23" bodyend="-1"/>
+        <referencedby refid="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" compoundref="imageprocess_8cpp" startline="55" endline="131">ImageProcess::handleFrame</referencedby>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" prot="public" static="no" mutable="no">
+        <type>cv::Rect</type>
+        <definition>cv::Rect ImProfile::roiRect</definition>
+        <argsstring></argsstring>
+        <name>roiRect</name>
+        <initializer>= cv::Rect(220, 0, 800, 720)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="24" column="1" bodyfile="sources/improfile.h" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_image_process_1a13e7f9c562ff092e8100dcde40beedcd" compoundref="imageprocess_8cpp" startline="133" endline="141">ImageProcess::makeFrame4Show</referencedby>
+        <referencedby refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" compoundref="improfile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" compoundref="improfile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_im_profile_1a2557df4a7094639b2e0abc12e1205d80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImProfile::ImProfile</definition>
+        <argsstring>()=default</argsstring>
+        <name>ImProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="10" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_im_profile_1a010f3183ee92250e952eefc53de47a62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ImProfile::ImProfile</definition>
+        <argsstring>(int &amp;framInterv)</argsstring>
+        <name>ImProfile</name>
+        <param>
+          <type>int &amp;</type>
+          <declname>framInterv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="11" column="1" bodyfile="sources/improfile.h" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_im_profile_1ad0a4f628ebbb926cfa212941fae8d332" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double ImProfile::angle2Speed</definition>
+        <argsstring>() const</argsstring>
+        <name>angle2Speed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.h" line="12" column="1" bodyfile="sources/improfile.h" bodystart="12" bodyend="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/improfile.h" line="5" column="1" bodyfile="sources/improfile.h" bodystart="4" bodyend="25"/>
+    <listofallmembers>
+      <member refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>alarmRatio</name></member>
+      <member refid="struct_im_profile_1ad0a4f628ebbb926cfa212941fae8d332" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>angle2Speed</name></member>
+      <member refid="struct_im_profile_1ae9a7b67e92d0dd3a829a25edd34fbde8" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>dp</name></member>
+      <member refid="struct_im_profile_1a9fa1622579348c3d0dccebe11c205a29" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>gs1</name></member>
+      <member refid="struct_im_profile_1a10bffd53b4e9115dbf0fae545a426bad" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>gs2</name></member>
+      <member refid="struct_im_profile_1a2557df4a7094639b2e0abc12e1205d80" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>ImProfile</name></member>
+      <member refid="struct_im_profile_1a010f3183ee92250e952eefc53de47a62" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>ImProfile</name></member>
+      <member refid="struct_im_profile_1a366306018336697fd36c0a16cb66cf9d" prot="private" virt="non-virtual"><scope>ImProfile</scope><name>interv</name></member>
+      <member refid="struct_im_profile_1af5e44df036b18552062e4f9d9f926310" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>minDist</name></member>
+      <member refid="struct_im_profile_1a921b476664441309c914b58331ead364" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>param1</name></member>
+      <member refid="struct_im_profile_1ac84186e94a1900eaf9f2a6e1a7ab3014" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>param2</name></member>
+      <member refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>radius_max</name></member>
+      <member refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>radius_min</name></member>
+      <member refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>roiRect</name></member>
+      <member refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>sensorTriggered</name></member>
+      <member refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" prot="public" virt="non-virtual"><scope>ImProfile</scope><name>warningRatio</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

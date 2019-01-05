@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_handle_sensor_device_8h" kind="file" language="C++">
+    <compoundname>HandleSensorDevice.h</compoundname>
+    <includes local="no">QObject</includes>
+    <includes refid="_sensor_device_8h" local="yes">SensorDevice.h</includes>
+    <includedby refid="_plc_8h" local="yes">sources/Plc.h</includedby>
+    <includedby refid="_handle_sensor_device_8cpp" local="yes">sources/HandleSensorDevice.cpp</includedby>
+    <incdepgraph>
+      <node id="201">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="199">
+        <label>QObject</label>
+      </node>
+      <node id="198">
+        <label>sources/HandleSensorDevice.h</label>
+        <link refid="_handle_sensor_device_8h"/>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="200">
+        <label>SensorDevice.h</label>
+        <link refid="_sensor_device_8h"/>
+        <childnode refid="201" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="211">
+        <label>sources/SpeedIntegrator.h</label>
+        <link refid="_speed_integrator_8h"/>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+      </node>
+      <node id="212">
+        <label>sources/SpeedIntegrator.cpp</label>
+        <link refid="_speed_integrator_8cpp"/>
+      </node>
+      <node id="210">
+        <label>sources/Plc.cpp</label>
+        <link refid="_plc_8cpp"/>
+      </node>
+      <node id="202">
+        <label>sources/HandleSensorDevice.h</label>
+        <link refid="_handle_sensor_device_8h"/>
+        <childnode refid="203" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+      </node>
+      <node id="203">
+        <label>sources/Plc.h</label>
+        <link refid="_plc_8h"/>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="209" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+      </node>
+      <node id="204">
+        <label>sources/AlarmManager.h</label>
+        <link refid="_alarm_manager_8h"/>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+      </node>
+      <node id="206">
+        <label>sources/mainwindow.cpp</label>
+        <link refid="mainwindow_8cpp"/>
+      </node>
+      <node id="209">
+        <label>sources/imageprocess.cpp</label>
+        <link refid="imageprocess_8cpp"/>
+      </node>
+      <node id="207">
+        <label>sources/playbackwidget.h</label>
+        <link refid="playbackwidget_8h"/>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="208" relation="include">
+        </childnode>
+      </node>
+      <node id="213">
+        <label>sources/HandleSensorDevice.cpp</label>
+        <link refid="_handle_sensor_device_8cpp"/>
+      </node>
+      <node id="205">
+        <label>sources/AlarmManager.cpp</label>
+        <link refid="_alarm_manager_8cpp"/>
+      </node>
+      <node id="208">
+        <label>sources/playbackwidget.cpp</label>
+        <link refid="playbackwidget_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_handle_sensor_device" prot="public">HandleSensorDevice</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sensor_device_8h" kindref="compound">SensorDevice.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="class_handle_sensor_device" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_handle_sensor_device" kindref="compound">HandleSensorDevice</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a5023b1b9da70eeb729bc6326a67bb8a1" kindref="member">HandleSensorDevice</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_devId,<sp/>QObject<sp/>*parent);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a42c9040fa7c8f0ee178f018632be04d8" kindref="member">~HandleSensorDevice</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" kindref="member">input</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>io);<sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" kindref="member">io2dev</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>io);<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" kindref="member">checkTri</ref>();<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" kindref="member">newCkp</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId);<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" kindref="member">checkoutCkp</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId);<sp/></highlight></codeline>
+<codeline lineno="26" refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sensor_device" kindref="compound">SensorDevice</ref>*<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>devId;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>checkoutDev();<sp/></highlight><highlight class="comment">//在离开侧的expect<sp/>end时，检测当前dev的坏掉的传感器和掉轮 <sp/><sp/>void<sp/>emitDzSignal(int<sp/>ckpId);
+<sp/><sp/>void<sp/>updateBrokenSensor();
+<sp/>void<sp/>updateGoodSensor();
+<sp/><sp/><sp/>int<sp/>getBreaks();
+<sp/><sp/><sp/>int<sp/>getBrokens();
+<sp/><sp/>int<sp/>getExpects();
+<sp/><sp/>void<sp/>updateSensorToUi();
+signals:
+<sp/><sp/>void<sp/>dzIn();
+<sp/><sp/><sp/>void<sp/>dzOut();
+<sp/><sp/>void<sp/>triInt(int<sp/>ckpId);<sp/>//!&lt;<sp/>至积分器,global<sp/>ckpid
+<sp/>void<sp/>wheelFallOff(int<sp/>pos);<sp/>//!&lt;<sp/>pos:-1前一个;0当前
+<sp/><sp/><sp/><sp/>void<sp/>sensorUpdate(int);
+};
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>emitDzSignal(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateBrokenSensor();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateGoodSensor();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getBreaks();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getBrokens();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getExpects();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateSensorToUi();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1aeef6cec4d94210ddbff3095dd246230c" kindref="member">dzIn</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1a91627de0f3ebec10cb3329f226eb7c7e" kindref="member">dzOut</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1a4eb776d5c0371a091fbac629f64e55cc" kindref="member">triInt</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId);<sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d" kindref="member">wheelFallOff</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pos);<sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1a4b16afcd6b6fea22d29862cbd7a64554" kindref="member">sensorUpdate</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="sources/HandleSensorDevice.h"/>
+  </compounddef>
+</doxygen>

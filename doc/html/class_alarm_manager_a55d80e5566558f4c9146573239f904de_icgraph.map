@@ -1,0 +1,4 @@
+<map id="AlarmManager::showAlarmLightToUi" name="AlarmManager::showAlarmLightToUi">
+<area shape="rect" id="node2" href="$class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="285,5,497,32"/>
+<area shape="rect" id="node3" href="$class_alarm_manager.html#ac63fabcfc799aecf81f044d41bc7f3f4" title="当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警 " alt="" coords="300,57,483,98"/>
+</map>

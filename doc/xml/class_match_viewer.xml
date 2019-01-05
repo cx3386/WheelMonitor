@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_match_viewer" kind="class" language="C++" prot="public">
+    <compoundname>MatchViewer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QWidget</basecompoundref>
+    <includes refid="_match_viewer_8h" local="no">MatchViewer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_match_viewer_1ab86821d43417a2ceb5b472bb758cfb75" prot="private" static="no" mutable="no">
+        <type>Ui::MatchViewer</type>
+        <definition>Ui::MatchViewer MatchViewer::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/MatchViewer.h" line="17" column="1" bodyfile="sources/MatchViewer.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_match_viewer_1ac071d519d07f5a1b1ed5faaa09c24bc3" prot="private" static="no" mutable="no">
+        <type><ref refid="class_image_process" kindref="compound">ImageProcess</ref> *</type>
+        <definition>ImageProcess* MatchViewer::m_imageProcess</definition>
+        <argsstring></argsstring>
+        <name>m_imageProcess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/MatchViewer.h" line="18" column="1" bodyfile="sources/MatchViewer.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_match_viewer_1a4acd052dbca2987e15ed15801e88ba91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MatchViewer::MatchViewer</definition>
+        <argsstring>(QWidget *parent=Q_NULLPTR)</argsstring>
+        <name>MatchViewer</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/MatchViewer.h" line="12" column="1" bodyfile="sources/MatchViewer.cpp" bodystart="6" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_match_viewer_1aa073473c302a0af0a9433e20af513b23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MatchViewer::~MatchViewer</definition>
+        <argsstring>()</argsstring>
+        <name>~MatchViewer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/MatchViewer.h" line="13" column="1" bodyfile="sources/MatchViewer.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_match_viewer_1abdabdcff52f99428a2cec3f8422a529f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MatchViewer::bindDev</definition>
+        <argsstring>(ImageProcess *imageProcess)</argsstring>
+        <name>bindDev</name>
+        <param>
+          <type><ref refid="class_image_process" kindref="compound">ImageProcess</ref> *</type>
+          <declname>imageProcess</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/MatchViewer.h" line="14" column="1" bodyfile="sources/MatchViewer.cpp" bodystart="16" bodyend="20"/>
+        <references refid="class_image_process_1afde5339b87f2e29683b567f298bf5c89">ImageProcess::showMatch</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_match_viewer_1abb87feca31dc2d263a436eeb76c78946" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MatchViewer::showMatch</definition>
+        <argsstring>()</argsstring>
+        <name>showMatch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/MatchViewer.h" line="20" column="1" bodyfile="sources/MatchViewer.cpp" bodystart="22" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="72">
+        <label>QWidget</label>
+      </node>
+      <node id="71">
+        <label>MatchViewer</label>
+        <link refid="class_match_viewer"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="74">
+        <label>QWidget</label>
+      </node>
+      <node id="73">
+        <label>MatchViewer</label>
+        <link refid="class_match_viewer"/>
+        <childnode refid="74" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/MatchViewer.h" line="8" column="1" bodyfile="sources/MatchViewer.h" bodystart="7" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_match_viewer_1abdabdcff52f99428a2cec3f8422a529f" prot="public" virt="non-virtual"><scope>MatchViewer</scope><name>bindDev</name></member>
+      <member refid="class_match_viewer_1ac071d519d07f5a1b1ed5faaa09c24bc3" prot="private" virt="non-virtual"><scope>MatchViewer</scope><name>m_imageProcess</name></member>
+      <member refid="class_match_viewer_1a4acd052dbca2987e15ed15801e88ba91" prot="public" virt="non-virtual"><scope>MatchViewer</scope><name>MatchViewer</name></member>
+      <member refid="class_match_viewer_1abb87feca31dc2d263a436eeb76c78946" prot="private" virt="non-virtual"><scope>MatchViewer</scope><name>showMatch</name></member>
+      <member refid="class_match_viewer_1ab86821d43417a2ceb5b472bb758cfb75" prot="private" virt="non-virtual"><scope>MatchViewer</scope><name>ui</name></member>
+      <member refid="class_match_viewer_1aa073473c302a0af0a9433e20af513b23" prot="public" virt="non-virtual"><scope>MatchViewer</scope><name>~MatchViewer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

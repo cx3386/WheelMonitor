@@ -1,0 +1,765 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_hik_video_capture" kind="class" language="C++" prot="public">
+    <compoundname>HikVideoCapture</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="hikvideocapture_8h" local="no">hikvideocapture.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_hik_video_capture_1a638a9ef7bcdaef94e46c6003480302f2" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+        <definition>const ConfigHelper* HikVideoCapture::configHelper</definition>
+        <argsstring></argsstring>
+        <name>configHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="51" column="1" bodyfile="sources/hikvideocapture.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a26d0a8027158d5b152c901a12def4413" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int HikVideoCapture::deviceIndex</definition>
+        <argsstring></argsstring>
+        <name>deviceIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="52" column="1" bodyfile="sources/hikvideocapture.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a743989b5aa309fa397a8b18a90a7e5a4" prot="private" static="no" mutable="no">
+        <type>HWND</type>
+        <definition>HWND HikVideoCapture::hPlayWnd</definition>
+        <argsstring></argsstring>
+        <name>hPlayWnd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="53" column="1" bodyfile="sources/hikvideocapture.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a7cfc9caf5f923908d38348035ed9b943" prot="private" static="no" mutable="no">
+        <type>const <ref refid="struct_cam_profile" kindref="compound">CamProfile</ref> *</type>
+        <definition>const CamProfile* HikVideoCapture::camProfile</definition>
+        <argsstring></argsstring>
+        <name>camProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="54" column="1" bodyfile="sources/hikvideocapture.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a95f84f0f59a30433642a4b4b907c1e53" prot="private" static="no" mutable="yes">
+        <type>QMutex</type>
+        <definition>QMutex HikVideoCapture::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="56" column="1" bodyfile="sources/hikvideocapture.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a142081b2d023300df7298cbfb3b069cc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool HikVideoCapture::bIsRecording</definition>
+        <argsstring></argsstring>
+        <name>bIsRecording</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>timeoutTimer和plc的sensorout会从子线程改变这个量，需要线程保护//原子操作，不用保护 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="58" column="1" bodyfile="sources/hikvideocapture.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a29f434c8ec982f772b50b6029288fb5a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString HikVideoCapture::videoRelativeFilePath</definition>
+        <argsstring></argsstring>
+        <name>videoRelativeFilePath</name>
+        <briefdescription>
+<para>the fileName of save video. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="59" column="1" bodyfile="sources/hikvideocapture.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a4851df3dcde12141267616311889046d" prot="private" static="no" mutable="no">
+        <type>QTimer *</type>
+        <definition>QTimer* HikVideoCapture::timeoutTimer</definition>
+        <argsstring></argsstring>
+        <name>timeoutTimer</name>
+        <briefdescription>
+<para>录制的超时计时器，停止录制时停止 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="60" column="1" bodyfile="sources/hikvideocapture.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a243bfae41d4c5739473c1c91344967b9" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int HikVideoCapture::MAX_RECORD_MSEC</definition>
+        <argsstring></argsstring>
+        <name>MAX_RECORD_MSEC</name>
+        <initializer>= 100000</initializer>
+        <briefdescription>
+<para>录制的超时时长，超过会自动停止录制，并发出timeout的信号 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="61" column="1" bodyfile="sources/hikvideocapture.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a51bf75ad21dd803e76cffb466f6677dc" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat HikVideoCapture::rawImage</definition>
+        <argsstring></argsstring>
+        <name>rawImage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="63" column="1" bodyfile="sources/hikvideocapture.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a39d669a5bc22690e34e5eea1d3f2d736" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int HikVideoCapture::nHandling_Start</definition>
+        <argsstring></argsstring>
+        <name>nHandling_Start</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+<para>于开始视频流后进行一次初始化 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="64" column="1" bodyfile="sources/hikvideocapture.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a8b2b8dcc979bbdc624774846e3d6d65d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>volatile int HikVideoCapture::nHandling</definition>
+        <argsstring></argsstring>
+        <name>nHandling</name>
+        <briefdescription>
+<para>the countdown counter 倒计数器 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="65" column="1" bodyfile="sources/hikvideocapture.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1af372132e324453b0e2826bf9d0320b15" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int HikVideoCapture::nPendingFrame</definition>
+        <argsstring></argsstring>
+        <name>nPendingFrame</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>图像线程处理时，对于本线程来说就是待处理的帧，由于不缓存，只能是0或1. 0 is ready for next cap, 1 must wait for processed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="67" column="1" bodyfile="sources/hikvideocapture.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a26426ef2884fe849b495157ed4507495" prot="private" static="no" mutable="no">
+        <type>LONG</type>
+        <definition>LONG HikVideoCapture::lUserID</definition>
+        <argsstring></argsstring>
+        <name>lUserID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="68" column="1" bodyfile="sources/hikvideocapture.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a8782013b0c60bb06366cce17167fa671" prot="private" static="no" mutable="no">
+        <type>LONG</type>
+        <definition>LONG HikVideoCapture::nPort</definition>
+        <argsstring></argsstring>
+        <name>nPort</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="69" column="1" bodyfile="sources/hikvideocapture.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1ab7995700696d36585aef9ba0280ca9ad" prot="private" static="no" mutable="no">
+        <type>LONG</type>
+        <definition>LONG HikVideoCapture::lRealPlayHandle_SD</definition>
+        <argsstring></argsstring>
+        <name>lRealPlayHandle_SD</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>for save video </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="70" column="1" bodyfile="sources/hikvideocapture.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1ae9bcd4cee8c2d07c13ca763121a69bcd" prot="private" static="no" mutable="no">
+        <type>LONG</type>
+        <definition>LONG HikVideoCapture::lRealPlayHandle_HD</definition>
+        <argsstring></argsstring>
+        <name>lRealPlayHandle_HD</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>for process and show </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="71" column="1" bodyfile="sources/hikvideocapture.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1ae306f0a3c04a7eaaf4bcf9858e9aa4b0" prot="private" static="no" mutable="no">
+        <type>NET_DVR_PREVIEWINFO</type>
+        <definition>NET_DVR_PREVIEWINFO HikVideoCapture::struPlayInfo_HD</definition>
+        <argsstring></argsstring>
+        <name>struPlayInfo_HD</name>
+        <briefdescription>
+<para>for process and show </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="72" column="1" bodyfile="sources/hikvideocapture.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1ab91f944b3aafe337f4fb1dea2afc9b63" prot="private" static="no" mutable="no">
+        <type>NET_DVR_PREVIEWINFO</type>
+        <definition>NET_DVR_PREVIEWINFO HikVideoCapture::struPlayInfo_SD</definition>
+        <argsstring></argsstring>
+        <name>struPlayInfo_SD</name>
+        <briefdescription>
+<para>for save </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="73" column="1" bodyfile="sources/hikvideocapture.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_hik_video_capture_1aa89b7061d927186d85e967460bd9adbc" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref> *</type>
+        <definition>HikVideoCapture * HikVideoCapture::pCap0</definition>
+        <argsstring></argsstring>
+        <name>pCap0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="79" column="1" bodyfile="sources/hikvideocapture.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hik_video_capture_1a88904f2f8f1a1b726468b37bc547f35b" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref> *</type>
+        <definition>HikVideoCapture * HikVideoCapture::pCap1</definition>
+        <argsstring></argsstring>
+        <name>pCap1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="79" column="1" bodyfile="sources/hikvideocapture.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HikVideoCapture::HikVideoCapture</definition>
+        <argsstring>(const ConfigHelper *_configHelper, int _deviceIndex, HWND h, QObject *parent=Q_NULLPTR)</argsstring>
+        <name>HikVideoCapture</name>
+        <param>
+          <type>const <ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+          <declname>_configHelper</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_deviceIndex</declname>
+        </param>
+        <param>
+          <type>HWND</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="26" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="13" bodyend="54"/>
+        <references refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" compoundref="camprofile_8h" startline="7">CamProfile::camIP</references>
+        <references refid="struct_cam_profile_1a0ea16ae25e305f80425bd43aaebd5e03" compoundref="camprofile_8h" startline="9">CamProfile::camUserName</references>
+        <references refid="struct_cam_profile_1a858a51162bbd2a1b3cee2efddf16c65f" compoundref="camprofile_8h" startline="10">CamProfile::camPassword</references>
+        <references refid="struct_cam_profile_1aa0b5ff29518521fa54e3d10b13176cea" compoundref="camprofile_8h" startline="8">CamProfile::camPort</references>
+        <references refid="class_hik_video_capture_1a6d07f515f68c9c0819a14ab2afefa97d" compoundref="hikvideocapture_8cpp" startline="64" endline="79">syncCameraTime</references>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1a54a0ba8f296177df923cf5d8d9184a97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HikVideoCapture::~HikVideoCapture</definition>
+        <argsstring>()</argsstring>
+        <name>~HikVideoCapture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="27" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="56" bodyend="63"/>
+        <references refid="class_hik_video_capture_1a895409c64a795d7285dcee5c7d59fdd7" compoundref="hikvideocapture_8cpp" startline="99" endline="118">stop</references>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1a2e4a1d780459ede0318cd935f8bf9121" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString HikVideoCapture::getVideoRelativeFilePath</definition>
+        <argsstring>() const</argsstring>
+        <name>getVideoRelativeFilePath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="29" column="1" bodyfile="sources/hikvideocapture.h" bodystart="29" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1ab25c7c866fe0a2789939fecff5ec6065" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int HikVideoCapture::getDeviceIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>getDeviceIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="34" column="1" bodyfile="sources/hikvideocapture.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1a65e48b66ee3e28508e57bd6d757d5fa8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>cv::Mat</type>
+        <definition>cv::Mat HikVideoCapture::getRawImage</definition>
+        <argsstring>() const</argsstring>
+        <name>getRawImage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="35" column="1" bodyfile="sources/hikvideocapture.h" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1a6d07f515f68c9c0819a14ab2afefa97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::syncCameraTime</definition>
+        <argsstring>()</argsstring>
+        <name>syncCameraTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="43" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="64" bodyend="79"/>
+        <referencedby refid="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" compoundref="hikvideocapture_8cpp" startline="13" endline="54">HikVideoCapture</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1a0359300ea41ac46d327d9f5229465dd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool HikVideoCapture::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="44" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="81" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1a895409c64a795d7285dcee5c7d59fdd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool HikVideoCapture::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="45" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="99" bodyend="118"/>
+        <references refid="class_hik_video_capture_1a4579213b58ec7d6999755e78a48d9ff8" compoundref="hikvideocapture_8cpp" startline="148" endline="161">stopRecord</references>
+        <referencedby refid="class_hik_video_capture_1a54a0ba8f296177df923cf5d8d9184a97" compoundref="hikvideocapture_8cpp" startline="56" endline="63">~HikVideoCapture</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_hik_video_capture_1a546c43f4460f028af78c1f8129b8470d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::DecCBFun</definition>
+        <argsstring>(char *pBuf, FRAME_INFO *pFrameInfo)</argsstring>
+        <name>DecCBFun</name>
+        <param>
+          <type>char *</type>
+          <declname>pBuf</declname>
+        </param>
+        <param>
+          <type>FRAME_INFO *</type>
+          <declname>pFrameInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="74" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="163" bodyend="191"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_hik_video_capture_1a33a845451c815e6558181fe358ffe797" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void CALLBACK</type>
+        <definition>void CALLBACK HikVideoCapture::DecCBFun0</definition>
+        <argsstring>(long nPort, char *pBuf, long nSize, FRAME_INFO *pFrameInfo, long nReserved1, long nReserved2)</argsstring>
+        <name>DecCBFun0</name>
+        <param>
+          <type>long</type>
+          <declname>nPort</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pBuf</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nSize</declname>
+        </param>
+        <param>
+          <type>FRAME_INFO *</type>
+          <declname>pFrameInfo</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nReserved1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nReserved2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="75" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1af0ab6a9270255dad814ecb495798922b" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void CALLBACK</type>
+        <definition>void CALLBACK HikVideoCapture::DecCBFun1</definition>
+        <argsstring>(long nPort, char *pBuf, long nSize, FRAME_INFO *pFrameInfo, long nReserved1, long nReserved2)</argsstring>
+        <name>DecCBFun1</name>
+        <param>
+          <type>long</type>
+          <declname>nPort</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pBuf</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nSize</declname>
+        </param>
+        <param>
+          <type>FRAME_INFO *</type>
+          <declname>pFrameInfo</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nReserved1</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nReserved2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="76" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1a35ad1e0070bb2077513dec8e13072601" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void CALLBACK</type>
+        <definition>void CALLBACK HikVideoCapture::fRealDataCallBack</definition>
+        <argsstring>(LONG lRealHandle, DWORD dwDataType, BYTE *pBuffer, DWORD dwBufSize, void *pUser)</argsstring>
+        <name>fRealDataCallBack</name>
+        <param>
+          <type>LONG</type>
+          <declname>lRealHandle</declname>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>dwDataType</declname>
+        </param>
+        <param>
+          <type>BYTE *</type>
+          <declname>pBuffer</declname>
+        </param>
+        <param>
+          <type>DWORD</type>
+          <declname>dwBufSize</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pUser</declname>
+        </param>
+        <briefdescription>
+<para>实时流回调 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="77" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="204" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hik_video_capture_1a168b0222cdba97ded5c77c4ad745c14e" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void CALLBACK</type>
+        <definition>void CALLBACK HikVideoCapture::ExceptionCallBack</definition>
+        <argsstring>(DWORD dwType, LONG lUserID, LONG lHandle, void *pUser)</argsstring>
+        <name>ExceptionCallBack</name>
+        <param>
+          <type>DWORD</type>
+          <declname>dwType</declname>
+        </param>
+        <param>
+          <type>LONG</type>
+          <declname>lUserID</declname>
+        </param>
+        <param>
+          <type>LONG</type>
+          <declname>lHandle</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pUser</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="78" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="264" bodyend="273"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_hik_video_capture_1ad78643dc9b2cbd98c29e52d1edafeb0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::frameCaptured</definition>
+        <argsstring>()</argsstring>
+        <name>frameCaptured</name>
+        <briefdescription>
+<para>a frame is captured, need to be processed </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="83" column="1"/>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_hik_video_capture_1a1ed1fa642b70117ce0b6bcb06139a7e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::recordTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>recordTimeout</name>
+        <briefdescription>
+<para>record out of time, will auto stop and save video </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="85" column="1"/>
+        <referencedby refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" compoundref="hikvideocapture_8cpp" startline="120" endline="146">startRecord</referencedby>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_hik_video_capture_1ace04c9f5505d7644b8aab786ff5d3f65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::recordON</definition>
+        <argsstring>()</argsstring>
+        <name>recordON</name>
+        <briefdescription>
+<para>now is recording </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="87" column="1"/>
+        <referencedby refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" compoundref="hikvideocapture_8cpp" startline="120" endline="146">startRecord</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_hik_video_capture_1ad46bb13231338d97325d74e7f1e79f00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::recordOFF</definition>
+        <argsstring>()</argsstring>
+        <name>recordOFF</name>
+        <briefdescription>
+<para>now record stopped </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="89" column="1"/>
+        <referencedby refid="class_hik_video_capture_1a4579213b58ec7d6999755e78a48d9ff8" compoundref="hikvideocapture_8cpp" startline="148" endline="161">stopRecord</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::startRecord</definition>
+        <argsstring>()</argsstring>
+        <name>startRecord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="92" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="120" bodyend="146"/>
+        <references refid="common_8h_1a3c8467c4addcfd3ee40b1439311d1349" compoundref="main_8cpp" startline="18">videoDirPath</references>
+        <references refid="class_hik_video_capture_1a4579213b58ec7d6999755e78a48d9ff8" compoundref="hikvideocapture_8cpp" startline="148" endline="161">stopRecord</references>
+        <references refid="class_hik_video_capture_1a1ed1fa642b70117ce0b6bcb06139a7e4">recordTimeout</references>
+        <references refid="class_hik_video_capture_1ace04c9f5505d7644b8aab786ff5d3f65">recordON</references>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_hik_video_capture_1a4579213b58ec7d6999755e78a48d9ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::stopRecord</definition>
+        <argsstring>()</argsstring>
+        <name>stopRecord</name>
+        <briefdescription>
+<para>涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="93" column="1" bodyfile="sources/hikvideocapture.cpp" bodystart="148" bodyend="161"/>
+        <references refid="class_hik_video_capture_1ad46bb13231338d97325d74e7f1e79f00">recordOFF</references>
+        <referencedby refid="class_hik_video_capture_1a895409c64a795d7285dcee5c7d59fdd7" compoundref="hikvideocapture_8cpp" startline="99" endline="118">stop</referencedby>
+        <referencedby refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" compoundref="hikvideocapture_8cpp" startline="120" endline="146">startRecord</referencedby>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_hik_video_capture_1ae437158a5aec5ad399b7880d6e226578" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void HikVideoCapture::frameProcessed</definition>
+        <argsstring>()</argsstring>
+        <name>frameProcessed</name>
+        <briefdescription>
+<para>涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/hikvideocapture.h" line="94" column="1" bodyfile="sources/hikvideocapture.h" bodystart="94" bodyend="94"/>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="48">
+        <label>QObject</label>
+      </node>
+      <node id="47">
+        <label>HikVideoCapture</label>
+        <link refid="class_hik_video_capture"/>
+        <childnode refid="48" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="50">
+        <label>QObject</label>
+      </node>
+      <node id="49">
+        <label>HikVideoCapture</label>
+        <link refid="class_hik_video_capture"/>
+        <childnode refid="50" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/hikvideocapture.h" line="22" column="1" bodyfile="sources/hikvideocapture.h" bodystart="22" bodyend="95"/>
+    <listofallmembers>
+      <member refid="class_hik_video_capture_1a142081b2d023300df7298cbfb3b069cc" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>bIsRecording</name></member>
+      <member refid="class_hik_video_capture_1a7cfc9caf5f923908d38348035ed9b943" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>camProfile</name></member>
+      <member refid="class_hik_video_capture_1a638a9ef7bcdaef94e46c6003480302f2" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>configHelper</name></member>
+      <member refid="class_hik_video_capture_1a546c43f4460f028af78c1f8129b8470d" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>DecCBFun</name></member>
+      <member refid="class_hik_video_capture_1a33a845451c815e6558181fe358ffe797" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>DecCBFun0</name></member>
+      <member refid="class_hik_video_capture_1af0ab6a9270255dad814ecb495798922b" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>DecCBFun1</name></member>
+      <member refid="class_hik_video_capture_1a26d0a8027158d5b152c901a12def4413" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>deviceIndex</name></member>
+      <member refid="class_hik_video_capture_1a168b0222cdba97ded5c77c4ad745c14e" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>ExceptionCallBack</name></member>
+      <member refid="class_hik_video_capture_1ad78643dc9b2cbd98c29e52d1edafeb0c" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>frameCaptured</name></member>
+      <member refid="class_hik_video_capture_1ae437158a5aec5ad399b7880d6e226578" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>frameProcessed</name></member>
+      <member refid="class_hik_video_capture_1a35ad1e0070bb2077513dec8e13072601" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>fRealDataCallBack</name></member>
+      <member refid="class_hik_video_capture_1ab25c7c866fe0a2789939fecff5ec6065" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>getDeviceIndex</name></member>
+      <member refid="class_hik_video_capture_1a65e48b66ee3e28508e57bd6d757d5fa8" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>getRawImage</name></member>
+      <member refid="class_hik_video_capture_1a2e4a1d780459ede0318cd935f8bf9121" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>getVideoRelativeFilePath</name></member>
+      <member refid="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>HikVideoCapture</name></member>
+      <member refid="class_hik_video_capture_1a743989b5aa309fa397a8b18a90a7e5a4" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>hPlayWnd</name></member>
+      <member refid="class_hik_video_capture_1ae9bcd4cee8c2d07c13ca763121a69bcd" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>lRealPlayHandle_HD</name></member>
+      <member refid="class_hik_video_capture_1ab7995700696d36585aef9ba0280ca9ad" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>lRealPlayHandle_SD</name></member>
+      <member refid="class_hik_video_capture_1a26426ef2884fe849b495157ed4507495" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>lUserID</name></member>
+      <member refid="class_hik_video_capture_1a243bfae41d4c5739473c1c91344967b9" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>MAX_RECORD_MSEC</name></member>
+      <member refid="class_hik_video_capture_1a95f84f0f59a30433642a4b4b907c1e53" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>mutex</name></member>
+      <member refid="class_hik_video_capture_1a8b2b8dcc979bbdc624774846e3d6d65d" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>nHandling</name></member>
+      <member refid="class_hik_video_capture_1a39d669a5bc22690e34e5eea1d3f2d736" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>nHandling_Start</name></member>
+      <member refid="class_hik_video_capture_1af372132e324453b0e2826bf9d0320b15" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>nPendingFrame</name></member>
+      <member refid="class_hik_video_capture_1a8782013b0c60bb06366cce17167fa671" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>nPort</name></member>
+      <member refid="class_hik_video_capture_1aa89b7061d927186d85e967460bd9adbc" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>pCap0</name></member>
+      <member refid="class_hik_video_capture_1a88904f2f8f1a1b726468b37bc547f35b" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>pCap1</name></member>
+      <member refid="class_hik_video_capture_1a51bf75ad21dd803e76cffb466f6677dc" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>rawImage</name></member>
+      <member refid="class_hik_video_capture_1ad46bb13231338d97325d74e7f1e79f00" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>recordOFF</name></member>
+      <member refid="class_hik_video_capture_1ace04c9f5505d7644b8aab786ff5d3f65" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>recordON</name></member>
+      <member refid="class_hik_video_capture_1a1ed1fa642b70117ce0b6bcb06139a7e4" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>recordTimeout</name></member>
+      <member refid="class_hik_video_capture_1a0359300ea41ac46d327d9f5229465dd3" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>start</name></member>
+      <member refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>startRecord</name></member>
+      <member refid="class_hik_video_capture_1a895409c64a795d7285dcee5c7d59fdd7" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>stop</name></member>
+      <member refid="class_hik_video_capture_1a4579213b58ec7d6999755e78a48d9ff8" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>stopRecord</name></member>
+      <member refid="class_hik_video_capture_1ae306f0a3c04a7eaaf4bcf9858e9aa4b0" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>struPlayInfo_HD</name></member>
+      <member refid="class_hik_video_capture_1ab91f944b3aafe337f4fb1dea2afc9b63" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>struPlayInfo_SD</name></member>
+      <member refid="class_hik_video_capture_1a6d07f515f68c9c0819a14ab2afefa97d" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>syncCameraTime</name></member>
+      <member refid="class_hik_video_capture_1a4851df3dcde12141267616311889046d" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>timeoutTimer</name></member>
+      <member refid="class_hik_video_capture_1a29f434c8ec982f772b50b6029288fb5a" prot="private" virt="non-virtual"><scope>HikVideoCapture</scope><name>videoRelativeFilePath</name></member>
+      <member refid="class_hik_video_capture_1a54a0ba8f296177df923cf5d8d9184a97" prot="public" virt="non-virtual"><scope>HikVideoCapture</scope><name>~HikVideoCapture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

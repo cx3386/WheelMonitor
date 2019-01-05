@@ -1,0 +1,4 @@
+<map id="MainWindow::uiShowAlarmLight" name="MainWindow::uiShowAlarmLight">
+<area shape="rect" id="node2" href="$class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="261,5,473,32"/>
+<area shape="rect" id="node3" href="$class_alarm_manager.html#afcb1ab3d5f8f3e4c01227ab052bc520f" title="AlarmManager::bindPlayBack" alt="" coords="270,56,465,83"/>
+</map>

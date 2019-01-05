@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: sources/HandleSensorDevice.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_08d237fc27d4ecd563f71c5d52f2fecc.html">sources</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">HandleSensorDevice.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_handle_sensor_device_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_sensor_device_8h.html">SensorDevice.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_handle_sensor_device.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_handle_sensor_device.html">HandleSensorDevice</a> : <span class="keyword">public</span> QObject</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_handle_sensor_device.html#a5023b1b9da70eeb729bc6326a67bb8a1">HandleSensorDevice</a>(<span class="keywordtype">int</span> _devId, QObject *parent);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_handle_sensor_device.html#a42c9040fa7c8f0ee178f018632be04d8">~HandleSensorDevice</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#aa66351734f4ee220bb13d37297061c58">input</a>(<span class="keywordtype">int</span> io); </div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#a406c0b871807c5b546390360a2a81efc">io2dev</a>(<span class="keywordtype">int</span> io); </div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#ac3ea03c7ab1379f1f5f4b9750ff40683">checkTri</a>(); </div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea">newCkp</a>(<span class="keywordtype">int</span> ckpId); </div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531">checkoutCkp</a>(<span class="keywordtype">int</span> ckpId); </div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_handle_sensor_device.html#a00cbb35b7e5b8defed7bff62774827cf">   26</a></span>&#160;    <a class="code" href="class_sensor_device.html">SensorDevice</a>* <a class="code" href="class_handle_sensor_device.html#a00cbb35b7e5b8defed7bff62774827cf">dev</a>;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> devId;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> checkoutDev(); <span class="comment">//在离开侧的expect end时，检测当前dev的坏掉的传感器和掉轮</span></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> emitDzSignal(<span class="keywordtype">int</span> ckpId);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> updateBrokenSensor();</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> updateGoodSensor();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> getBreaks();</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> getBrokens();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> getExpects();</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> updateSensorToUi();</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;signals:</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#aeef6cec4d94210ddbff3095dd246230c">dzIn</a>();</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#a91627de0f3ebec10cb3329f226eb7c7e">dzOut</a>();</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#a4eb776d5c0371a091fbac629f64e55cc">triInt</a>(<span class="keywordtype">int</span> ckpId); </div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#afbdc2dd52d6a0a4af46df594f9c1d48d">wheelFallOff</a>(<span class="keywordtype">int</span> pos); </div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_handle_sensor_device.html#a4b16afcd6b6fea22d29862cbd7a64554">sensorUpdate</a>(<span class="keywordtype">int</span>);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div><div class="ttc" id="class_handle_sensor_device_html_a406c0b871807c5b546390360a2a81efc"><div class="ttname"><a href="class_handle_sensor_device.html#a406c0b871807c5b546390360a2a81efc">HandleSensorDevice::io2dev</a></div><div class="ttdeci">void io2dev(int io)</div><div class="ttdoc">将输入的io信号压入devs中 </div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8cpp_source.html#l00022">HandleSensorDevice.cpp:22</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html_aeef6cec4d94210ddbff3095dd246230c"><div class="ttname"><a href="class_handle_sensor_device.html#aeef6cec4d94210ddbff3095dd246230c">HandleSensorDevice::dzIn</a></div><div class="ttdeci">void dzIn()</div></div>
+<div class="ttc" id="class_handle_sensor_device_html_ac43848822075ec66788f3e9bc795daea"><div class="ttname"><a href="class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea">HandleSensorDevice::newCkp</a></div><div class="ttdeci">void newCkp(int ckpId)</div><div class="ttdoc">expect begin时，开始一个新的ckp </div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8cpp_source.html#l00114">HandleSensorDevice.cpp:114</a></div></div>
+<div class="ttc" id="class_sensor_device_html"><div class="ttname"><a href="class_sensor_device.html">SensorDevice</a></div><div class="ttdef"><b>Definition:</b> <a href="_sensor_device_8h_source.html#l00059">SensorDevice.h:59</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html_a00cbb35b7e5b8defed7bff62774827cf"><div class="ttname"><a href="class_handle_sensor_device.html#a00cbb35b7e5b8defed7bff62774827cf">HandleSensorDevice::dev</a></div><div class="ttdeci">SensorDevice * dev</div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8h_source.html#l00026">HandleSensorDevice.h:26</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html_a91627de0f3ebec10cb3329f226eb7c7e"><div class="ttname"><a href="class_handle_sensor_device.html#a91627de0f3ebec10cb3329f226eb7c7e">HandleSensorDevice::dzOut</a></div><div class="ttdeci">void dzOut()</div></div>
+<div class="ttc" id="_sensor_device_8h_html"><div class="ttname"><a href="_sensor_device_8h.html">SensorDevice.h</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html_afbdc2dd52d6a0a4af46df594f9c1d48d"><div class="ttname"><a href="class_handle_sensor_device.html#afbdc2dd52d6a0a4af46df594f9c1d48d">HandleSensorDevice::wheelFallOff</a></div><div class="ttdeci">void wheelFallOff(int pos)</div><div class="ttdoc">pos:-1前一个;0当前 </div></div>
+<div class="ttc" id="class_handle_sensor_device_html_ac3ea03c7ab1379f1f5f4b9750ff40683"><div class="ttname"><a href="class_handle_sensor_device.html#ac3ea03c7ab1379f1f5f4b9750ff40683">HandleSensorDevice::checkTri</a></div><div class="ttdeci">void checkTri()</div><div class="ttdoc">用读取的cio数据检测是否满足触发条件（上升沿/下降沿） </div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8cpp_source.html#l00059">HandleSensorDevice.cpp:59</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html_a046f030fe8043ecce0e21b371b874531"><div class="ttname"><a href="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531">HandleSensorDevice::checkoutCkp</a></div><div class="ttdeci">void checkoutCkp(int ckpId)</div><div class="ttdoc">在expect end时，结算ckp。注意：此ckpId为global id </div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8cpp_source.html#l00122">HandleSensorDevice.cpp:122</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html_a5023b1b9da70eeb729bc6326a67bb8a1"><div class="ttname"><a href="class_handle_sensor_device.html#a5023b1b9da70eeb729bc6326a67bb8a1">HandleSensorDevice::HandleSensorDevice</a></div><div class="ttdeci">HandleSensorDevice(int _devId, QObject *parent)</div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8cpp_source.html#l00005">HandleSensorDevice.cpp:5</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html"><div class="ttname"><a href="class_handle_sensor_device.html">HandleSensorDevice</a></div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8h_source.html#l00014">HandleSensorDevice.h:14</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html_a4b16afcd6b6fea22d29862cbd7a64554"><div class="ttname"><a href="class_handle_sensor_device.html#a4b16afcd6b6fea22d29862cbd7a64554">HandleSensorDevice::sensorUpdate</a></div><div class="ttdeci">void sensorUpdate(int)</div></div>
+<div class="ttc" id="class_handle_sensor_device_html_a4eb776d5c0371a091fbac629f64e55cc"><div class="ttname"><a href="class_handle_sensor_device.html#a4eb776d5c0371a091fbac629f64e55cc">HandleSensorDevice::triInt</a></div><div class="ttdeci">void triInt(int ckpId)</div><div class="ttdoc">至积分器,global ckpid </div></div>
+<div class="ttc" id="class_handle_sensor_device_html_aa66351734f4ee220bb13d37297061c58"><div class="ttname"><a href="class_handle_sensor_device.html#aa66351734f4ee220bb13d37297061c58">HandleSensorDevice::input</a></div><div class="ttdeci">void input(int io)</div><div class="ttdoc">输入一个新的io信号 </div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8cpp_source.html#l00016">HandleSensorDevice.cpp:16</a></div></div>
+<div class="ttc" id="class_handle_sensor_device_html_a42c9040fa7c8f0ee178f018632be04d8"><div class="ttname"><a href="class_handle_sensor_device.html#a42c9040fa7c8f0ee178f018632be04d8">HandleSensorDevice::~HandleSensorDevice</a></div><div class="ttdeci">~HandleSensorDevice()</div><div class="ttdef"><b>Definition:</b> <a href="_handle_sensor_device_8cpp_source.html#l00012">HandleSensorDevice.cpp:12</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

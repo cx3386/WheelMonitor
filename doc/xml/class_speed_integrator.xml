@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_speed_integrator" kind="class" language="C++" prot="public">
+    <compoundname>SpeedIntegrator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="_speed_integrator_8h" local="no">SpeedIntegrator.h</includes>
+    <innerclass refid="struct_speed_integrator_1_1_ckpt" prot="private">SpeedIntegrator::Ckpt</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_speed_integrator_1a868df6038c261ebca114045ee95fed64" prot="private" static="no" mutable="no">
+        <type><ref refid="class_plc" kindref="compound">Plc</ref> *</type>
+        <definition>Plc* SpeedIntegrator::plc</definition>
+        <argsstring></argsstring>
+        <name>plc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="27" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_speed_integrator_1ab391230f373298df4eb6a50468927f6c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SpeedIntegrator::bUsrCtrl</definition>
+        <argsstring></argsstring>
+        <name>bUsrCtrl</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="28" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_speed_integrator_1a00bd065503d61bca90aa5253026c0c69" prot="private" static="no" mutable="no">
+        <type>struct SpeedIntegrator::Ckpt</type>
+        <definition>struct SpeedIntegrator::Ckpt  SpeedIntegrator::ckps[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>ckps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="56" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_speed_integrator_1a25b8f368a15888e81de8fd1c6dc3e32c" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int SpeedIntegrator::readSpeedInterval</definition>
+        <argsstring></argsstring>
+        <name>readSpeedInterval</name>
+        <initializer>= <ref refid="class_plc_1a7a0bfa84c4d0b4610cda92102d8d54a0" kindref="member">Plc::adInterval</ref></initializer>
+        <briefdescription>
+<para>读取ad的间隔ms </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="30" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_speed_integrator_1ad5ba7a7ad064d2f97ae634f789ad360b" prot="private" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double SpeedIntegrator::std_L</definition>
+        <argsstring></argsstring>
+        <name>std_L</name>
+        <initializer>= 2.5</initializer>
+        <briefdescription>
+<para>标准轮距 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="31" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_speed_integrator_1a6878b4a67bdc2701e7451a6078000d45" prot="private" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double SpeedIntegrator::dist_min</definition>
+        <argsstring></argsstring>
+        <name>dist_min</name>
+        <initializer>= std_L - 0.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="32" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_speed_integrator_1afc12a41e77961400229d52825d686a37" prot="private" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double SpeedIntegrator::dist_max</definition>
+        <argsstring></argsstring>
+        <name>dist_max</name>
+        <initializer>= std_L + 0.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="33" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_speed_integrator_1aa7f2b002b46cf36d489558b59ed90388" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpeedIntegrator::SpeedIntegrator</definition>
+        <argsstring>(Plc *plcSerial, QObject *parent=Q_NULLPTR)</argsstring>
+        <name>SpeedIntegrator</name>
+        <param>
+          <type><ref refid="class_plc" kindref="compound">Plc</ref> *</type>
+          <declname>plcSerial</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="20" column="1" bodyfile="sources/SpeedIntegrator.cpp" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_speed_integrator_1a2831c10b9d9d554f03ae46542c29357d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpeedIntegrator::~SpeedIntegrator</definition>
+        <argsstring>()</argsstring>
+        <name>~SpeedIntegrator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpeedIntegrator::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+<para>开始积分。调用时间：plc初始化后 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="23" column="1" bodyfile="sources/SpeedIntegrator.cpp" bodystart="17" bodyend="27"/>
+        <referencedby refid="class_plc_1a230190ee27d360a02576184d3450e8d6" compoundref="_plc_8cpp" startline="55" endline="73">Plc::Plc</referencedby>
+        <referencedby refid="class_plc_1a53d31f51484e39fc320b02be053de157" compoundref="_plc_8cpp" startline="82" endline="95">Plc::start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_speed_integrator_1a6e1d4a9a0e409e7cd2e8b4f103439fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpeedIntegrator::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="24" column="1" bodyfile="sources/SpeedIntegrator.cpp" bodystart="29" bodyend="32"/>
+        <referencedby refid="class_plc_1abf9c8532cb72ba8c88437f50f2631d13" compoundref="_plc_8cpp" startline="97" endline="104">Plc::stop</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_speed_integrator_1a0de390a8cf985556838f4557e53d8525" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpeedIntegrator::speedIntegrator</definition>
+        <argsstring>()</argsstring>
+        <name>speedIntegrator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="58" column="1" bodyfile="sources/SpeedIntegrator.cpp" bodystart="34" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_speed_integrator_1a66d764b8f94e1547100028927d224aea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpeedIntegrator::onCkpTri</definition>
+        <argsstring>(int ckpId)</argsstring>
+        <name>onCkpTri</name>
+        <param>
+          <type>int</type>
+          <declname>ckpId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="61" column="1" bodyfile="sources/SpeedIntegrator.cpp" bodystart="61" bodyend="75"/>
+        <referencedby refid="class_plc_1a230190ee27d360a02576184d3450e8d6" compoundref="_plc_8cpp" startline="55" endline="73">Plc::Plc</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_speed_integrator_1a5a3c3fcf4cf833b11d897c9dea305c82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpeedIntegrator::expectTriBegin</definition>
+        <argsstring>(int ckpId)</argsstring>
+        <name>expectTriBegin</name>
+        <param>
+          <type>int</type>
+          <declname>ckpId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="64" column="1"/>
+        <referencedby refid="class_plc_1a230190ee27d360a02576184d3450e8d6" compoundref="_plc_8cpp" startline="55" endline="73">Plc::Plc</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_speed_integrator_1aaabda4cff9d78b288286796cd4690228" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpeedIntegrator::expectTriEnd</definition>
+        <argsstring>(int ckpId)</argsstring>
+        <name>expectTriEnd</name>
+        <param>
+          <type>int</type>
+          <declname>ckpId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="65" column="1"/>
+        <referencedby refid="class_plc_1a230190ee27d360a02576184d3450e8d6" compoundref="_plc_8cpp" startline="55" endline="73">Plc::Plc</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="121">
+        <label>QObject</label>
+      </node>
+      <node id="120">
+        <label>SpeedIntegrator</label>
+        <link refid="class_speed_integrator"/>
+        <childnode refid="121" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="123">
+        <label>QObject</label>
+      </node>
+      <node id="122">
+        <label>SpeedIntegrator</label>
+        <link refid="class_speed_integrator"/>
+        <childnode refid="123" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/SpeedIntegrator.h" line="16" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="16" bodyend="66"/>
+    <listofallmembers>
+      <member refid="class_speed_integrator_1ab391230f373298df4eb6a50468927f6c" prot="private" virt="non-virtual"><scope>SpeedIntegrator</scope><name>bUsrCtrl</name></member>
+      <member refid="class_speed_integrator_1a00bd065503d61bca90aa5253026c0c69" prot="private" virt="non-virtual"><scope>SpeedIntegrator</scope><name>ckps</name></member>
+      <member refid="class_speed_integrator_1afc12a41e77961400229d52825d686a37" prot="private" virt="non-virtual"><scope>SpeedIntegrator</scope><name>dist_max</name></member>
+      <member refid="class_speed_integrator_1a6878b4a67bdc2701e7451a6078000d45" prot="private" virt="non-virtual"><scope>SpeedIntegrator</scope><name>dist_min</name></member>
+      <member refid="class_speed_integrator_1a5a3c3fcf4cf833b11d897c9dea305c82" prot="public" virt="non-virtual"><scope>SpeedIntegrator</scope><name>expectTriBegin</name></member>
+      <member refid="class_speed_integrator_1aaabda4cff9d78b288286796cd4690228" prot="public" virt="non-virtual"><scope>SpeedIntegrator</scope><name>expectTriEnd</name></member>
+      <member refid="class_speed_integrator_1a66d764b8f94e1547100028927d224aea" prot="public" virt="non-virtual"><scope>SpeedIntegrator</scope><name>onCkpTri</name></member>
+      <member refid="class_speed_integrator_1a868df6038c261ebca114045ee95fed64" prot="private" virt="non-virtual"><scope>SpeedIntegrator</scope><name>plc</name></member>
+      <member refid="class_speed_integrator_1a25b8f368a15888e81de8fd1c6dc3e32c" prot="private" virt="non-virtual"><scope>SpeedIntegrator</scope><name>readSpeedInterval</name></member>
+      <member refid="class_speed_integrator_1aa7f2b002b46cf36d489558b59ed90388" prot="public" virt="non-virtual"><scope>SpeedIntegrator</scope><name>SpeedIntegrator</name></member>
+      <member refid="class_speed_integrator_1a0de390a8cf985556838f4557e53d8525" prot="private" virt="non-virtual"><scope>SpeedIntegrator</scope><name>speedIntegrator</name></member>
+      <member refid="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" prot="public" virt="non-virtual"><scope>SpeedIntegrator</scope><name>start</name></member>
+      <member refid="class_speed_integrator_1ad5ba7a7ad064d2f97ae634f789ad360b" prot="private" virt="non-virtual"><scope>SpeedIntegrator</scope><name>std_L</name></member>
+      <member refid="class_speed_integrator_1a6e1d4a9a0e409e7cd2e8b4f103439fe4" prot="public" virt="non-virtual"><scope>SpeedIntegrator</scope><name>stop</name></member>
+      <member refid="class_speed_integrator_1a2831c10b9d9d554f03ae46542c29357d" prot="public" virt="non-virtual"><scope>SpeedIntegrator</scope><name>~SpeedIntegrator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

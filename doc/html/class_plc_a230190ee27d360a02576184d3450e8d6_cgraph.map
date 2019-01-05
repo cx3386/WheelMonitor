@@ -1,0 +1,7 @@
+<map id="Plc::Plc" name="Plc::Plc">
+<area shape="rect" id="node2" href="$class_speed_integrator.html#a66d764b8f94e1547100028927d224aea" title="SpeedIntegrator::onCkpTri" alt="" coords="121,5,293,32"/>
+<area shape="rect" id="node3" href="$class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea" title="expect begin时，开始一个新的ckp " alt="" coords="137,57,278,98"/>
+<area shape="rect" id="node5" href="$class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531" title="在expect end时，结算ckp。注意：此ckpId为global id " alt="" coords="137,122,278,163"/>
+<area shape="rect" id="node6" href="$class_speed_integrator.html#ada2cd17f8fbcb20abe6b17ce7e0ed915" title="开始积分。调用时间：plc初始化后 " alt="" coords="134,188,281,215"/>
+<area shape="rect" id="node4" href="$class_ck_pt.html#ad3259779575bb558490559404afb1903" title="由global id获得局部id " alt="" coords="341,97,445,124"/>
+</map>

@@ -1,0 +1,919 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="confighelper_8cpp" kind="file" language="C++">
+    <compoundname>confighelper.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="common_8h" local="yes">common.h</includes>
+    <includes refid="confighelper_8h" local="yes">confighelper.h</includes>
+    <incdepgraph>
+      <node id="142">
+        <label>QSettings</label>
+      </node>
+      <node id="141">
+        <label>QObject</label>
+      </node>
+      <node id="137">
+        <label>QMetaType</label>
+      </node>
+      <node id="138">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="139">
+        <label>improfile.h</label>
+        <link refid="improfile_8h"/>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>QString</label>
+      </node>
+      <node id="132">
+        <label>QtWidgets</label>
+      </node>
+      <node id="136">
+        <label>camprofile.h</label>
+        <link refid="camprofile_8h"/>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>sources/confighelper.cpp</label>
+        <link refid="confighelper_8cpp"/>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+      </node>
+      <node id="133">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="134" relation="include">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>confighelper.h</label>
+        <link refid="confighelper_8h"/>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+      </node>
+      <node id="131">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="140">
+        <label>ocrprofile.h</label>
+        <link refid="ocrprofile_8h"/>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="confighelper_8cpp_1ac448247a1cec8bcbf0b4cd6338bf9a47" prot="public" static="no" mutable="no">
+        <type>const QString</type>
+        <definition>const QString GP_CAM</definition>
+        <argsstring></argsstring>
+        <name>GP_CAM</name>
+        <initializer>= &quot;IPCamera&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.cpp" line="7" column="1" bodyfile="sources/confighelper.cpp" bodystart="7" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">ConfigHelper::read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">ConfigHelper::save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="confighelper_8cpp_1a409643d7322bbc65e743ca21d294c628" prot="public" static="no" mutable="no">
+        <type>const QString</type>
+        <definition>const QString GP_IM</definition>
+        <argsstring></argsstring>
+        <name>GP_IM</name>
+        <initializer>= &quot;ImageProess&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.cpp" line="8" column="1" bodyfile="sources/confighelper.cpp" bodystart="8" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">ConfigHelper::read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">ConfigHelper::save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="confighelper_8cpp_1aa7d89e990d1b56d9a5fe7abf3c016d33" prot="public" static="no" mutable="no">
+        <type>const QString</type>
+        <definition>const QString GP_OCR</definition>
+        <argsstring></argsstring>
+        <name>GP_OCR</name>
+        <initializer>= &quot;ocr&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.cpp" line="9" column="1" bodyfile="sources/confighelper.cpp" bodystart="9" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">ConfigHelper::read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">ConfigHelper::save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="confighelper_8cpp_1ab170c7de5f01a238d1ac3ada931c14bf" prot="public" static="no" mutable="no">
+        <type>const QString</type>
+        <definition>const QString GP_COMMON</definition>
+        <argsstring></argsstring>
+        <name>GP_COMMON</name>
+        <initializer>= &quot;Common&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.cpp" line="10" column="1" bodyfile="sources/confighelper.cpp" bodystart="10" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">ConfigHelper::read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">ConfigHelper::save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="confighelper_8cpp_1afe1f8c39c4e1be1155570b94d7ef2488" prot="public" static="no" mutable="no">
+        <type>const QString</type>
+        <definition>const QString GP_DEV</definition>
+        <argsstring></argsstring>
+        <name>GP_DEV</name>
+        <initializer>= &quot;Device&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.cpp" line="11" column="1" bodyfile="sources/confighelper.cpp" bodystart="11" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">ConfigHelper::read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">ConfigHelper::save</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="common_8h" kindref="compound">common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="confighelper_8h" kindref="compound">confighelper.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Groups<sp/>Name<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="confighelper_8cpp_1ac448247a1cec8bcbf0b4cd6338bf9a47" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="confighelper_8cpp_1ac448247a1cec8bcbf0b4cd6338bf9a47" kindref="member">GP_CAM</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;IPCamera&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="8" refid="confighelper_8cpp_1a409643d7322bbc65e743ca21d294c628" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="confighelper_8cpp_1a409643d7322bbc65e743ca21d294c628" kindref="member">GP_IM</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ImageProess&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="9" refid="confighelper_8cpp_1aa7d89e990d1b56d9a5fe7abf3c016d33" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="confighelper_8cpp_1aa7d89e990d1b56d9a5fe7abf3c016d33" kindref="member">GP_OCR</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ocr&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="10" refid="confighelper_8cpp_1ab170c7de5f01a238d1ac3ada931c14bf" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="confighelper_8cpp_1ab170c7de5f01a238d1ac3ada931c14bf" kindref="member">GP_COMMON</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Common&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11" refid="confighelper_8cpp_1afe1f8c39c4e1be1155570b94d7ef2488" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="confighelper_8cpp_1afe1f8c39c4e1be1155570b94d7ef2488" kindref="member">GP_DEV</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Device&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_config_helper_1a15694a18b65e7cbfb25244dc407ffad1" refkind="member"><highlight class="normal"><ref refid="class_config_helper_1a15694a18b65e7cbfb25244dc407ffad1" kindref="member">ConfigHelper::ConfigHelper</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>configuration,<sp/>QObject*<sp/>parent<sp/></highlight><highlight class="comment">/*=<sp/>Q_NULLPTR*/</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>configFile(configuration)<sp/></highlight><highlight class="comment">//<sp/>初始化列表有顺序之分 {
+<sp/>read();
+}
+
+ConfigHelper::~ConfigHelper()
+{
+<sp/>//<sp/>因为ConfigHelper是QObject子类，类指针成员会被qt内存管理，不需要delete/deleteLater
+<sp/><sp/><sp/>save();<sp/>//on<sp/>exit,<sp/>helper2ini.
+}
+
+void<sp/>ConfigHelper::read()
+{
+<sp/><sp/>auto<sp/>settings<sp/>=<sp/>new<sp/>QSettings(configFile,<sp/>QSettings::IniFormat,<sp/>this);<sp/>//创建名为configFile的INI文件，而不是放在注册表中
+<sp/><sp/>settings-&gt;beginGroup(GP_COMMON);
+<sp/><sp/><sp/>launchAtLogin<sp/>=<sp/>settings-&gt;value(&quot;launchAtLogin&quot;,<sp/>true).toBool();
+<sp/><sp/><sp/>startAtLaunch<sp/>=<sp/>settings-&gt;value(&quot;startAtLaunch&quot;,<sp/>true).toBool();
+<sp/><sp/><sp/>verboseLog<sp/>=<sp/>settings-&gt;value(&quot;verboseLog&quot;,<sp/>true).toBool();
+<sp/>pc2plc_portName<sp/>=<sp/>settings-&gt;value(&quot;pc2plc_portName&quot;,<sp/>&quot;COM3&quot;).toString();<sp/>//<sp/>默认COM3口
+<sp/><sp/><sp/><sp/>matchMaskOuterRatio<sp/>=<sp/>settings-&gt;value(&quot;matchMaskOuterRatio&quot;).toDouble();
+<sp/><sp/><sp/>matchMaskInnerRatio<sp/>=<sp/>settings-&gt;value(&quot;matchMaskInnerRatio&quot;).toDouble();
+<sp/><sp/><sp/>settings-&gt;endGroup();
+
+<sp/>int<sp/>size<sp/>=<sp/>settings-&gt;beginReadArray(GP_DEV);
+<sp/><sp/><sp/>if<sp/>(size<sp/>!=<sp/>2)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(nullptr,<sp/>QStringLiteral(&quot;错误"),<sp/>QStringLiteral(&quot;未能读取配置文件&quot;),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>&quot;ConfigHelper:<sp/>read()<sp/>error&quot;;
+<sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>dev<sp/>=<sp/>device[i];
+<sp/><sp/><sp/><sp/><sp/>//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_CAM);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>cam<sp/>=<sp/>dev.camProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camIP<sp/>=<sp/>settings-&gt;value(&quot;camIP&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPort<sp/>=<sp/>settings-&gt;value(&quot;camPort&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>cam.camUserName<sp/>=<sp/>settings-&gt;value(&quot;camUserName&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPassword<sp/>=<sp/>settings-&gt;value(&quot;camPassword&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.frameInterv<sp/>=<sp/>settings-&gt;value(&quot;frameInterv&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_IM);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>im<sp/>=<sp/>dev.imProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/>im.warningRatio<sp/>=<sp/>settings-&gt;value(&quot;warningRatio&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.alarmRatio<sp/>=<sp/>settings-&gt;value(&quot;alarmRatio&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.radius_min<sp/>=<sp/>settings-&gt;value(&quot;radius_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>im.radius_max<sp/>=<sp/>settings-&gt;value(&quot;radius_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>im.gs1<sp/>=<sp/>settings-&gt;value(&quot;gs1&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.gs2<sp/>=<sp/>settings-&gt;value(&quot;gs2&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.dp<sp/>=<sp/>settings-&gt;value(&quot;dp&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.minDist<sp/>=<sp/>settings-&gt;value(&quot;minDist&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.param1<sp/>=<sp/>settings-&gt;value(&quot;param1&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.param2<sp/>=<sp/>settings-&gt;value(&quot;param2&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.sensorTriggered<sp/>=<sp/>settings-&gt;value(&quot;sensorTriggered&quot;).toBool();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.x<sp/>=<sp/>settings-&gt;value(&quot;roiRect.x&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.y<sp/>=<sp/>settings-&gt;value(&quot;roiRect.y&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.width<sp/>=<sp/>settings-&gt;value(&quot;roiRect.width&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.height<sp/>=<sp/>settings-&gt;value(&quot;roiRect.height&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_OCR);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_min<sp/>=<sp/>settings-&gt;value(&quot;plate_x_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_max<sp/>=<sp/>settings-&gt;value(&quot;plate_x_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_min<sp/>=<sp/>settings-&gt;value(&quot;plate_y_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_max<sp/>=<sp/>settings-&gt;value(&quot;plate_y_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_min<sp/>=<sp/>settings-&gt;value(&quot;plate_width_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_max<sp/>=<sp/>settings-&gt;value(&quot;plate_width_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_min<sp/>=<sp/>settings-&gt;value(&quot;plate_height_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_max<sp/>=<sp/>settings-&gt;value(&quot;plate_height_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_min<sp/>=<sp/>settings-&gt;value(&quot;num_width_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_max<sp/>=<sp/>settings-&gt;value(&quot;num_width_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_min<sp/>=<sp/>settings-&gt;value(&quot;num_height_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_max<sp/>=<sp/>settings-&gt;value(&quot;num_height_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/>}
+<sp/><sp/>settings-&gt;endArray();
+}
+
+void<sp/>ConfigHelper::save()
+{
+<sp/><sp/><sp/>auto<sp/>settings<sp/>=<sp/>new<sp/>QSettings(configFile,<sp/>QSettings::IniFormat,<sp/>this);
+<sp/>takeEffect();
+<sp/><sp/>settings-&gt;beginGroup(GP_COMMON);
+<sp/><sp/><sp/>settings-&gt;setValue(&quot;launchAtLogin&quot;,<sp/>QVariant(launchAtLogin));
+<sp/><sp/>settings-&gt;setValue(&quot;startAtLaunch&quot;,<sp/>QVariant(startAtLaunch));
+<sp/><sp/>settings-&gt;setValue(&quot;verboseLog&quot;,<sp/>QVariant(verboseLog));
+<sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;pc2plc_portName&quot;,<sp/>QVariant(pc2plc_portName));
+<sp/><sp/>settings-&gt;endGroup();
+
+<sp/>settings-&gt;beginWriteArray(GP_DEV);
+<sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>dev<sp/>=<sp/>device[i];
+<sp/><sp/><sp/><sp/><sp/>//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_CAM);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>cam<sp/>=<sp/>dev.camProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camIP&quot;,<sp/>QVariant(cam.camIP));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camPort&quot;,<sp/>QVariant(cam.camPort));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camUserName&quot;,<sp/>QVariant(cam.camUserName));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camPassword&quot;,<sp/>QVariant(cam.camPassword));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;frameInterv&quot;,<sp/>QVariant(cam.frameInterv));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_IM);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>im<sp/>=<sp/>dev.imProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;warningRatio&quot;,<sp/>QVariant(im.warningRatio));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;alarmRatio&quot;,<sp/>QVariant(im.alarmRatio));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;radius_min&quot;,<sp/>QVariant(im.radius_min));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;radius_max&quot;,<sp/>QVariant(im.radius_max));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;gs1&quot;,<sp/>QVariant(im.gs1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;gs2&quot;,<sp/>QVariant(im.gs2));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;dp&quot;,<sp/>QVariant(im.dp));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;minDist&quot;,<sp/>QVariant(im.minDist));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;param1&quot;,<sp/>QVariant(im.param1));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;param2&quot;,<sp/>QVariant(im.param2));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;sensorTriggered&quot;,<sp/>QVariant(im.sensorTriggered));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.x&quot;,<sp/>QVariant(im.roiRect.x));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.y&quot;,<sp/>QVariant(im.roiRect.y));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.width&quot;,<sp/>QVariant(im.roiRect.width));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.height&quot;,<sp/>QVariant(im.roiRect.height));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_OCR);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_x_min&quot;,<sp/>QVariant(ocr.plate_x_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_x_max&quot;,<sp/>QVariant(ocr.plate_x_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_y_min&quot;,<sp/>QVariant(ocr.plate_y_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_y_max&quot;,<sp/>QVariant(ocr.plate_y_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_width_min&quot;,<sp/>QVariant(ocr.plate_width_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_width_max&quot;,<sp/>QVariant(ocr.plate_width_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_height_min&quot;,<sp/>QVariant(ocr.plate_height_min));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_height_max&quot;,<sp/>QVariant(ocr.plate_height_max));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_width_min&quot;,<sp/>QVariant(ocr.num_width_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_width_max&quot;,<sp/>QVariant(ocr.num_width_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_height_min&quot;,<sp/>QVariant(ocr.num_height_min));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_height_max&quot;,<sp/>QVariant(ocr.num_height_max));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/>}
+<sp/><sp/>settings-&gt;endArray();
+}
+
+void<sp/>ConfigHelper::takeEffect()<sp/>const
+{
+<sp/><sp/><sp/>effect_launchAtLogin();
+}
+
+void<sp/>ConfigHelper::effect_launchAtLogin()<sp/>const
+{
+<sp/><sp/><sp/>//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+<sp/>QSettings*<sp/>reg<sp/>=<sp/>new<sp/>QSettings(R&quot;(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run)&quot;,<sp/>QSettings::NativeFormat);
+
+<sp/><sp/><sp/><sp/>if<sp/>(launchAtLogin)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>strAppPath<sp/>=<sp/>QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//strAppPath.replace(QChar(&apos;/&apos;),<sp/>QChar(&apos;\\&apos;),<sp/>Qt::CaseInsensitive);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg-&gt;setValue(qApp-&gt;applicationName(),<sp/>QString(&quot;%1<sp/>--auto&quot;).arg(strAppPath));
+<sp/><sp/>}
+<sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>reg-&gt;remove(qApp-&gt;applicationName());
+<sp/><sp/>}
+<sp/><sp/>reg-&gt;deleteLater();
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" kindref="member">read</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="class_config_helper_1a198df438b93de320f0dd46eeeaede896" refkind="member"><highlight class="normal"><ref refid="class_config_helper_1a198df438b93de320f0dd46eeeaede896" kindref="member">ConfigHelper::~ConfigHelper</ref>()</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>因为ConfigHelper是QObject子类，类指针成员会被qt内存管理，不需要delete/deleteLater</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" kindref="member">save</ref>();<sp/></highlight><highlight class="comment">//on<sp/>exit,<sp/>helper2ini.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" kindref="member">ConfigHelper::read</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>settings<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QSettings(configFile,<sp/>QSettings::IniFormat,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//创建名为configFile的INI文件，而不是放在注册表中 <sp/><sp/>settings-&gt;beginGroup(GP_COMMON);
+<sp/><sp/><sp/>launchAtLogin<sp/>=<sp/>settings-&gt;value(&quot;launchAtLogin&quot;,<sp/>true).toBool();
+<sp/><sp/><sp/>startAtLaunch<sp/>=<sp/>settings-&gt;value(&quot;startAtLaunch&quot;,<sp/>true).toBool();
+<sp/><sp/><sp/>verboseLog<sp/>=<sp/>settings-&gt;value(&quot;verboseLog&quot;,<sp/>true).toBool();
+<sp/>pc2plc_portName<sp/>=<sp/>settings-&gt;value(&quot;pc2plc_portName&quot;,<sp/>&quot;COM3&quot;).toString();<sp/>//<sp/>默认COM3口
+<sp/><sp/><sp/><sp/>matchMaskOuterRatio<sp/>=<sp/>settings-&gt;value(&quot;matchMaskOuterRatio&quot;).toDouble();
+<sp/><sp/><sp/>matchMaskInnerRatio<sp/>=<sp/>settings-&gt;value(&quot;matchMaskInnerRatio&quot;).toDouble();
+<sp/><sp/><sp/>settings-&gt;endGroup();
+
+<sp/>int<sp/>size<sp/>=<sp/>settings-&gt;beginReadArray(GP_DEV);
+<sp/><sp/><sp/>if<sp/>(size<sp/>!=<sp/>2)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(nullptr,<sp/>QStringLiteral(&quot;错误"),<sp/>QStringLiteral(&quot;未能读取配置文件&quot;),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>&quot;ConfigHelper:<sp/>read()<sp/>error&quot;;
+<sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>dev<sp/>=<sp/>device[i];
+<sp/><sp/><sp/><sp/><sp/>//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_CAM);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>cam<sp/>=<sp/>dev.camProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camIP<sp/>=<sp/>settings-&gt;value(&quot;camIP&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPort<sp/>=<sp/>settings-&gt;value(&quot;camPort&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>cam.camUserName<sp/>=<sp/>settings-&gt;value(&quot;camUserName&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPassword<sp/>=<sp/>settings-&gt;value(&quot;camPassword&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.frameInterv<sp/>=<sp/>settings-&gt;value(&quot;frameInterv&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_IM);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>im<sp/>=<sp/>dev.imProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/>im.warningRatio<sp/>=<sp/>settings-&gt;value(&quot;warningRatio&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.alarmRatio<sp/>=<sp/>settings-&gt;value(&quot;alarmRatio&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.radius_min<sp/>=<sp/>settings-&gt;value(&quot;radius_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>im.radius_max<sp/>=<sp/>settings-&gt;value(&quot;radius_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>im.gs1<sp/>=<sp/>settings-&gt;value(&quot;gs1&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.gs2<sp/>=<sp/>settings-&gt;value(&quot;gs2&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.dp<sp/>=<sp/>settings-&gt;value(&quot;dp&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.minDist<sp/>=<sp/>settings-&gt;value(&quot;minDist&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.param1<sp/>=<sp/>settings-&gt;value(&quot;param1&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.param2<sp/>=<sp/>settings-&gt;value(&quot;param2&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.sensorTriggered<sp/>=<sp/>settings-&gt;value(&quot;sensorTriggered&quot;).toBool();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.x<sp/>=<sp/>settings-&gt;value(&quot;roiRect.x&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.y<sp/>=<sp/>settings-&gt;value(&quot;roiRect.y&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.width<sp/>=<sp/>settings-&gt;value(&quot;roiRect.width&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.height<sp/>=<sp/>settings-&gt;value(&quot;roiRect.height&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_OCR);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_min<sp/>=<sp/>settings-&gt;value(&quot;plate_x_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_max<sp/>=<sp/>settings-&gt;value(&quot;plate_x_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_min<sp/>=<sp/>settings-&gt;value(&quot;plate_y_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_max<sp/>=<sp/>settings-&gt;value(&quot;plate_y_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_min<sp/>=<sp/>settings-&gt;value(&quot;plate_width_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_max<sp/>=<sp/>settings-&gt;value(&quot;plate_width_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_min<sp/>=<sp/>settings-&gt;value(&quot;plate_height_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_max<sp/>=<sp/>settings-&gt;value(&quot;plate_height_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_min<sp/>=<sp/>settings-&gt;value(&quot;num_width_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_max<sp/>=<sp/>settings-&gt;value(&quot;num_width_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_min<sp/>=<sp/>settings-&gt;value(&quot;num_height_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_max<sp/>=<sp/>settings-&gt;value(&quot;num_height_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/>}
+<sp/><sp/>settings-&gt;endArray();
+}
+
+void<sp/>ConfigHelper::save()
+{
+<sp/><sp/><sp/>auto<sp/>settings<sp/>=<sp/>new<sp/>QSettings(configFile,<sp/>QSettings::IniFormat,<sp/>this);
+<sp/>takeEffect();
+<sp/><sp/>settings-&gt;beginGroup(GP_COMMON);
+<sp/><sp/><sp/>settings-&gt;setValue(&quot;launchAtLogin&quot;,<sp/>QVariant(launchAtLogin));
+<sp/><sp/>settings-&gt;setValue(&quot;startAtLaunch&quot;,<sp/>QVariant(startAtLaunch));
+<sp/><sp/>settings-&gt;setValue(&quot;verboseLog&quot;,<sp/>QVariant(verboseLog));
+<sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;pc2plc_portName&quot;,<sp/>QVariant(pc2plc_portName));
+<sp/><sp/>settings-&gt;endGroup();
+
+<sp/>settings-&gt;beginWriteArray(GP_DEV);
+<sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>dev<sp/>=<sp/>device[i];
+<sp/><sp/><sp/><sp/><sp/>//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_CAM);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>cam<sp/>=<sp/>dev.camProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camIP&quot;,<sp/>QVariant(cam.camIP));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camPort&quot;,<sp/>QVariant(cam.camPort));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camUserName&quot;,<sp/>QVariant(cam.camUserName));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camPassword&quot;,<sp/>QVariant(cam.camPassword));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;frameInterv&quot;,<sp/>QVariant(cam.frameInterv));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_IM);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>im<sp/>=<sp/>dev.imProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;warningRatio&quot;,<sp/>QVariant(im.warningRatio));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;alarmRatio&quot;,<sp/>QVariant(im.alarmRatio));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;radius_min&quot;,<sp/>QVariant(im.radius_min));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;radius_max&quot;,<sp/>QVariant(im.radius_max));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;gs1&quot;,<sp/>QVariant(im.gs1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;gs2&quot;,<sp/>QVariant(im.gs2));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;dp&quot;,<sp/>QVariant(im.dp));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;minDist&quot;,<sp/>QVariant(im.minDist));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;param1&quot;,<sp/>QVariant(im.param1));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;param2&quot;,<sp/>QVariant(im.param2));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;sensorTriggered&quot;,<sp/>QVariant(im.sensorTriggered));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.x&quot;,<sp/>QVariant(im.roiRect.x));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.y&quot;,<sp/>QVariant(im.roiRect.y));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.width&quot;,<sp/>QVariant(im.roiRect.width));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.height&quot;,<sp/>QVariant(im.roiRect.height));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_OCR);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_x_min&quot;,<sp/>QVariant(ocr.plate_x_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_x_max&quot;,<sp/>QVariant(ocr.plate_x_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_y_min&quot;,<sp/>QVariant(ocr.plate_y_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_y_max&quot;,<sp/>QVariant(ocr.plate_y_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_width_min&quot;,<sp/>QVariant(ocr.plate_width_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_width_max&quot;,<sp/>QVariant(ocr.plate_width_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_height_min&quot;,<sp/>QVariant(ocr.plate_height_min));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_height_max&quot;,<sp/>QVariant(ocr.plate_height_max));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_width_min&quot;,<sp/>QVariant(ocr.num_width_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_width_max&quot;,<sp/>QVariant(ocr.num_width_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_height_min&quot;,<sp/>QVariant(ocr.num_height_min));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_height_max&quot;,<sp/>QVariant(ocr.num_height_max));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/>}
+<sp/><sp/>settings-&gt;endArray();
+}
+
+void<sp/>ConfigHelper::takeEffect()<sp/>const
+{
+<sp/><sp/><sp/>effect_launchAtLogin();
+}
+
+void<sp/>ConfigHelper::effect_launchAtLogin()<sp/>const
+{
+<sp/><sp/><sp/>//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+<sp/>QSettings*<sp/>reg<sp/>=<sp/>new<sp/>QSettings(R&quot;(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run)&quot;,<sp/>QSettings::NativeFormat);
+
+<sp/><sp/><sp/><sp/>if<sp/>(launchAtLogin)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>strAppPath<sp/>=<sp/>QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//strAppPath.replace(QChar(&apos;/&apos;),<sp/>QChar(&apos;\\&apos;),<sp/>Qt::CaseInsensitive);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg-&gt;setValue(qApp-&gt;applicationName(),<sp/>QString(&quot;%1<sp/>--auto&quot;).arg(strAppPath));
+<sp/><sp/>}
+<sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>reg-&gt;remove(qApp-&gt;applicationName());
+<sp/><sp/>}
+<sp/><sp/>reg-&gt;deleteLater();
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(<ref refid="confighelper_8cpp_1ab170c7de5f01a238d1ac3ada931c14bf" kindref="member">GP_COMMON</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" kindref="member">launchAtLogin</ref><sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;launchAtLogin&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">).toBool();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" kindref="member">startAtLaunch</ref><sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;startAtLaunch&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">).toBool();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" kindref="member">verboseLog</ref><sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;verboseLog&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">).toBool();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" kindref="member">pc2plc_portName</ref><sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;pc2plc_portName&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;COM3&quot;</highlight><highlight class="normal">).toString();<sp/></highlight><highlight class="comment">//<sp/>默认COM3口 <sp/><sp/><sp/><sp/>matchMaskOuterRatio<sp/>=<sp/>settings-&gt;value(&quot;matchMaskOuterRatio&quot;).toDouble();
+<sp/><sp/><sp/>matchMaskInnerRatio<sp/>=<sp/>settings-&gt;value(&quot;matchMaskInnerRatio&quot;).toDouble();
+<sp/><sp/><sp/>settings-&gt;endGroup();
+
+<sp/>int<sp/>size<sp/>=<sp/>settings-&gt;beginReadArray(GP_DEV);
+<sp/><sp/><sp/>if<sp/>(size<sp/>!=<sp/>2)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(nullptr,<sp/>QStringLiteral(&quot;错误"),<sp/>QStringLiteral(&quot;未能读取配置文件&quot;),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>&quot;ConfigHelper:<sp/>read()<sp/>error&quot;;
+<sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>dev<sp/>=<sp/>device[i];
+<sp/><sp/><sp/><sp/><sp/>//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_CAM);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>cam<sp/>=<sp/>dev.camProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camIP<sp/>=<sp/>settings-&gt;value(&quot;camIP&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPort<sp/>=<sp/>settings-&gt;value(&quot;camPort&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>cam.camUserName<sp/>=<sp/>settings-&gt;value(&quot;camUserName&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPassword<sp/>=<sp/>settings-&gt;value(&quot;camPassword&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.frameInterv<sp/>=<sp/>settings-&gt;value(&quot;frameInterv&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_IM);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>im<sp/>=<sp/>dev.imProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/>im.warningRatio<sp/>=<sp/>settings-&gt;value(&quot;warningRatio&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.alarmRatio<sp/>=<sp/>settings-&gt;value(&quot;alarmRatio&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.radius_min<sp/>=<sp/>settings-&gt;value(&quot;radius_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>im.radius_max<sp/>=<sp/>settings-&gt;value(&quot;radius_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>im.gs1<sp/>=<sp/>settings-&gt;value(&quot;gs1&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.gs2<sp/>=<sp/>settings-&gt;value(&quot;gs2&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.dp<sp/>=<sp/>settings-&gt;value(&quot;dp&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.minDist<sp/>=<sp/>settings-&gt;value(&quot;minDist&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.param1<sp/>=<sp/>settings-&gt;value(&quot;param1&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.param2<sp/>=<sp/>settings-&gt;value(&quot;param2&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.sensorTriggered<sp/>=<sp/>settings-&gt;value(&quot;sensorTriggered&quot;).toBool();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.x<sp/>=<sp/>settings-&gt;value(&quot;roiRect.x&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.y<sp/>=<sp/>settings-&gt;value(&quot;roiRect.y&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.width<sp/>=<sp/>settings-&gt;value(&quot;roiRect.width&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.height<sp/>=<sp/>settings-&gt;value(&quot;roiRect.height&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_OCR);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_min<sp/>=<sp/>settings-&gt;value(&quot;plate_x_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_max<sp/>=<sp/>settings-&gt;value(&quot;plate_x_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_min<sp/>=<sp/>settings-&gt;value(&quot;plate_y_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_max<sp/>=<sp/>settings-&gt;value(&quot;plate_y_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_min<sp/>=<sp/>settings-&gt;value(&quot;plate_width_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_max<sp/>=<sp/>settings-&gt;value(&quot;plate_width_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_min<sp/>=<sp/>settings-&gt;value(&quot;plate_height_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_max<sp/>=<sp/>settings-&gt;value(&quot;plate_height_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_min<sp/>=<sp/>settings-&gt;value(&quot;num_width_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_max<sp/>=<sp/>settings-&gt;value(&quot;num_width_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_min<sp/>=<sp/>settings-&gt;value(&quot;num_height_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_max<sp/>=<sp/>settings-&gt;value(&quot;num_height_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/>}
+<sp/><sp/>settings-&gt;endArray();
+}
+
+void<sp/>ConfigHelper::save()
+{
+<sp/><sp/><sp/>auto<sp/>settings<sp/>=<sp/>new<sp/>QSettings(configFile,<sp/>QSettings::IniFormat,<sp/>this);
+<sp/>takeEffect();
+<sp/><sp/>settings-&gt;beginGroup(GP_COMMON);
+<sp/><sp/><sp/>settings-&gt;setValue(&quot;launchAtLogin&quot;,<sp/>QVariant(launchAtLogin));
+<sp/><sp/>settings-&gt;setValue(&quot;startAtLaunch&quot;,<sp/>QVariant(startAtLaunch));
+<sp/><sp/>settings-&gt;setValue(&quot;verboseLog&quot;,<sp/>QVariant(verboseLog));
+<sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;pc2plc_portName&quot;,<sp/>QVariant(pc2plc_portName));
+<sp/><sp/>settings-&gt;endGroup();
+
+<sp/>settings-&gt;beginWriteArray(GP_DEV);
+<sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>dev<sp/>=<sp/>device[i];
+<sp/><sp/><sp/><sp/><sp/>//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_CAM);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>cam<sp/>=<sp/>dev.camProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camIP&quot;,<sp/>QVariant(cam.camIP));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camPort&quot;,<sp/>QVariant(cam.camPort));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camUserName&quot;,<sp/>QVariant(cam.camUserName));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camPassword&quot;,<sp/>QVariant(cam.camPassword));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;frameInterv&quot;,<sp/>QVariant(cam.frameInterv));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_IM);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>im<sp/>=<sp/>dev.imProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;warningRatio&quot;,<sp/>QVariant(im.warningRatio));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;alarmRatio&quot;,<sp/>QVariant(im.alarmRatio));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;radius_min&quot;,<sp/>QVariant(im.radius_min));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;radius_max&quot;,<sp/>QVariant(im.radius_max));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;gs1&quot;,<sp/>QVariant(im.gs1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;gs2&quot;,<sp/>QVariant(im.gs2));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;dp&quot;,<sp/>QVariant(im.dp));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;minDist&quot;,<sp/>QVariant(im.minDist));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;param1&quot;,<sp/>QVariant(im.param1));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;param2&quot;,<sp/>QVariant(im.param2));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;sensorTriggered&quot;,<sp/>QVariant(im.sensorTriggered));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.x&quot;,<sp/>QVariant(im.roiRect.x));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.y&quot;,<sp/>QVariant(im.roiRect.y));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.width&quot;,<sp/>QVariant(im.roiRect.width));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.height&quot;,<sp/>QVariant(im.roiRect.height));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_OCR);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_x_min&quot;,<sp/>QVariant(ocr.plate_x_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_x_max&quot;,<sp/>QVariant(ocr.plate_x_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_y_min&quot;,<sp/>QVariant(ocr.plate_y_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_y_max&quot;,<sp/>QVariant(ocr.plate_y_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_width_min&quot;,<sp/>QVariant(ocr.plate_width_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_width_max&quot;,<sp/>QVariant(ocr.plate_width_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_height_min&quot;,<sp/>QVariant(ocr.plate_height_min));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_height_max&quot;,<sp/>QVariant(ocr.plate_height_max));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_width_min&quot;,<sp/>QVariant(ocr.num_width_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_width_max&quot;,<sp/>QVariant(ocr.num_width_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_height_min&quot;,<sp/>QVariant(ocr.num_height_min));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_height_max&quot;,<sp/>QVariant(ocr.num_height_max));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/>}
+<sp/><sp/>settings-&gt;endArray();
+}
+
+void<sp/>ConfigHelper::takeEffect()<sp/>const
+{
+<sp/><sp/><sp/>effect_launchAtLogin();
+}
+
+void<sp/>ConfigHelper::effect_launchAtLogin()<sp/>const
+{
+<sp/><sp/><sp/>//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+<sp/>QSettings*<sp/>reg<sp/>=<sp/>new<sp/>QSettings(R&quot;(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run)&quot;,<sp/>QSettings::NativeFormat);
+
+<sp/><sp/><sp/><sp/>if<sp/>(launchAtLogin)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>strAppPath<sp/>=<sp/>QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//strAppPath.replace(QChar(&apos;/&apos;),<sp/>QChar(&apos;\\&apos;),<sp/>Qt::CaseInsensitive);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg-&gt;setValue(qApp-&gt;applicationName(),<sp/>QString(&quot;%1<sp/>--auto&quot;).arg(strAppPath));
+<sp/><sp/>}
+<sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>reg-&gt;remove(qApp-&gt;applicationName());
+<sp/><sp/>}
+<sp/><sp/>reg-&gt;deleteLater();
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1ae04fa487fbc7ee5b5e247d8330021115" kindref="member">matchMaskOuterRatio</ref><sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;matchMaskOuterRatio&quot;</highlight><highlight class="normal">).toDouble();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1ad0a8c52dccf3495d3d52bf97045588a0" kindref="member">matchMaskInnerRatio</ref><sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;matchMaskInnerRatio&quot;</highlight><highlight class="normal">).toDouble();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;endGroup();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>settings-&gt;beginReadArray(<ref refid="confighelper_8cpp_1afe1f8c39c4e1be1155570b94d7ef2488" kindref="member">GP_DEV</ref>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(size<sp/>!=<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;错误 ),<sp/>QStringLiteral(&quot;未能读取配置文件&quot;),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>&quot;ConfigHelper:<sp/>read()<sp/>error&quot;;
+<sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>dev<sp/>=<sp/>device[i];
+<sp/><sp/><sp/><sp/><sp/>//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_CAM);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>cam<sp/>=<sp/>dev.camProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camIP<sp/>=<sp/>settings-&gt;value(&quot;camIP&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPort<sp/>=<sp/>settings-&gt;value(&quot;camPort&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>cam.camUserName<sp/>=<sp/>settings-&gt;value(&quot;camUserName&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPassword<sp/>=<sp/>settings-&gt;value(&quot;camPassword&quot;).toString();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.frameInterv<sp/>=<sp/>settings-&gt;value(&quot;frameInterv&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_IM);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>im<sp/>=<sp/>dev.imProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/>im.warningRatio<sp/>=<sp/>settings-&gt;value(&quot;warningRatio&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.alarmRatio<sp/>=<sp/>settings-&gt;value(&quot;alarmRatio&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.radius_min<sp/>=<sp/>settings-&gt;value(&quot;radius_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>im.radius_max<sp/>=<sp/>settings-&gt;value(&quot;radius_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>im.gs1<sp/>=<sp/>settings-&gt;value(&quot;gs1&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.gs2<sp/>=<sp/>settings-&gt;value(&quot;gs2&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.dp<sp/>=<sp/>settings-&gt;value(&quot;dp&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.minDist<sp/>=<sp/>settings-&gt;value(&quot;minDist&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.param1<sp/>=<sp/>settings-&gt;value(&quot;param1&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.param2<sp/>=<sp/>settings-&gt;value(&quot;param2&quot;).toDouble();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.sensorTriggered<sp/>=<sp/>settings-&gt;value(&quot;sensorTriggered&quot;).toBool();
+<sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.x<sp/>=<sp/>settings-&gt;value(&quot;roiRect.x&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.y<sp/>=<sp/>settings-&gt;value(&quot;roiRect.y&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.width<sp/>=<sp/>settings-&gt;value(&quot;roiRect.width&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.height<sp/>=<sp/>settings-&gt;value(&quot;roiRect.height&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_OCR);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_min<sp/>=<sp/>settings-&gt;value(&quot;plate_x_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_max<sp/>=<sp/>settings-&gt;value(&quot;plate_x_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_min<sp/>=<sp/>settings-&gt;value(&quot;plate_y_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_max<sp/>=<sp/>settings-&gt;value(&quot;plate_y_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_min<sp/>=<sp/>settings-&gt;value(&quot;plate_width_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_max<sp/>=<sp/>settings-&gt;value(&quot;plate_width_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_min<sp/>=<sp/>settings-&gt;value(&quot;plate_height_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_max<sp/>=<sp/>settings-&gt;value(&quot;plate_height_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_min<sp/>=<sp/>settings-&gt;value(&quot;num_width_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_max<sp/>=<sp/>settings-&gt;value(&quot;num_width_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_min<sp/>=<sp/>settings-&gt;value(&quot;num_height_min&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_max<sp/>=<sp/>settings-&gt;value(&quot;num_height_max&quot;).toInt();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/>}
+<sp/><sp/>settings-&gt;endArray();
+}
+
+void<sp/>ConfigHelper::save()
+{
+<sp/><sp/><sp/>auto<sp/>settings<sp/>=<sp/>new<sp/>QSettings(configFile,<sp/>QSettings::IniFormat,<sp/>this);
+<sp/>takeEffect();
+<sp/><sp/>settings-&gt;beginGroup(GP_COMMON);
+<sp/><sp/><sp/>settings-&gt;setValue(&quot;launchAtLogin&quot;,<sp/>QVariant(launchAtLogin));
+<sp/><sp/>settings-&gt;setValue(&quot;startAtLaunch&quot;,<sp/>QVariant(startAtLaunch));
+<sp/><sp/>settings-&gt;setValue(&quot;verboseLog&quot;,<sp/>QVariant(verboseLog));
+<sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;pc2plc_portName&quot;,<sp/>QVariant(pc2plc_portName));
+<sp/><sp/>settings-&gt;endGroup();
+
+<sp/>settings-&gt;beginWriteArray(GP_DEV);
+<sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>dev<sp/>=<sp/>device[i];
+<sp/><sp/><sp/><sp/><sp/>//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_CAM);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>cam<sp/>=<sp/>dev.camProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camIP&quot;,<sp/>QVariant(cam.camIP));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camPort&quot;,<sp/>QVariant(cam.camPort));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camUserName&quot;,<sp/>QVariant(cam.camUserName));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;camPassword&quot;,<sp/>QVariant(cam.camPassword));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;frameInterv&quot;,<sp/>QVariant(cam.frameInterv));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_IM);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>im<sp/>=<sp/>dev.imProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;warningRatio&quot;,<sp/>QVariant(im.warningRatio));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;alarmRatio&quot;,<sp/>QVariant(im.alarmRatio));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;radius_min&quot;,<sp/>QVariant(im.radius_min));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;radius_max&quot;,<sp/>QVariant(im.radius_max));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;gs1&quot;,<sp/>QVariant(im.gs1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;gs2&quot;,<sp/>QVariant(im.gs2));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;dp&quot;,<sp/>QVariant(im.dp));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;minDist&quot;,<sp/>QVariant(im.minDist));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;param1&quot;,<sp/>QVariant(im.param1));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;param2&quot;,<sp/>QVariant(im.param2));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;sensorTriggered&quot;,<sp/>QVariant(im.sensorTriggered));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.x&quot;,<sp/>QVariant(im.roiRect.x));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.y&quot;,<sp/>QVariant(im.roiRect.y));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.width&quot;,<sp/>QVariant(im.roiRect.width));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;roiRect.height&quot;,<sp/>QVariant(im.roiRect.height));
+<sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(GP_OCR);
+<sp/><sp/><sp/><sp/><sp/><sp/>auto&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_x_min&quot;,<sp/>QVariant(ocr.plate_x_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_x_max&quot;,<sp/>QVariant(ocr.plate_x_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_y_min&quot;,<sp/>QVariant(ocr.plate_y_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_y_max&quot;,<sp/>QVariant(ocr.plate_y_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_width_min&quot;,<sp/>QVariant(ocr.plate_width_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_width_max&quot;,<sp/>QVariant(ocr.plate_width_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_height_min&quot;,<sp/>QVariant(ocr.plate_height_min));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;plate_height_max&quot;,<sp/>QVariant(ocr.plate_height_max));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_width_min&quot;,<sp/>QVariant(ocr.num_width_min));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_width_max&quot;,<sp/>QVariant(ocr.num_width_max));
+<sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_height_min&quot;,<sp/>QVariant(ocr.num_height_min));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(&quot;num_height_max&quot;,<sp/>QVariant(ocr.num_height_max));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();
+<sp/><sp/>}
+<sp/><sp/>settings-&gt;endArray();
+}
+
+void<sp/>ConfigHelper::takeEffect()<sp/>const
+{
+<sp/><sp/><sp/>effect_launchAtLogin();
+}
+
+void<sp/>ConfigHelper::effect_launchAtLogin()<sp/>const
+{
+<sp/><sp/><sp/>//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+<sp/>QSettings*<sp/>reg<sp/>=<sp/>new<sp/>QSettings(R&quot;(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run)&quot;,<sp/>QSettings::NativeFormat);
+
+<sp/><sp/><sp/><sp/>if<sp/>(launchAtLogin)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>strAppPath<sp/>=<sp/>QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//strAppPath.replace(QChar(&apos;/&apos;),<sp/>QChar(&apos;\\&apos;),<sp/>Qt::CaseInsensitive);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg-&gt;setValue(qApp-&gt;applicationName(),<sp/>QString(&quot;%1<sp/>--auto&quot;).arg(strAppPath));
+<sp/><sp/>}
+<sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>reg-&gt;remove(qApp-&gt;applicationName());
+<sp/><sp/>}
+<sp/><sp/>reg-&gt;deleteLater();
+}&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;未能读取配置文件&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;确定&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ConfigHelper:<sp/>read()<sp/>error&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>dev<sp/>=<sp/><ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[i];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(<ref refid="confighelper_8cpp_1ac448247a1cec8bcbf0b4cd6338bf9a47" kindref="member">GP_CAM</ref>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>cam<sp/>=<sp/>dev.<ref refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kindref="member">camProfile</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.<ref refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" kindref="member">camIP</ref><sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;camIP&quot;</highlight><highlight class="normal">).toString();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPort<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;camPort&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camUserName<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;camUserName&quot;</highlight><highlight class="normal">).toString();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.camPassword<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;camPassword&quot;</highlight><highlight class="normal">).toString();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cam.frameInterv<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;frameInterv&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(<ref refid="confighelper_8cpp_1a409643d7322bbc65e743ca21d294c628" kindref="member">GP_IM</ref>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>im<sp/>=<sp/>dev.imProfile;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.warningRatio<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;warningRatio&quot;</highlight><highlight class="normal">).toDouble();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.alarmRatio<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;alarmRatio&quot;</highlight><highlight class="normal">).toDouble();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.radius_min<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;radius_min&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.radius_max<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;radius_max&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.gs1<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;gs1&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.gs2<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;gs2&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.dp<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;dp&quot;</highlight><highlight class="normal">).toDouble();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.minDist<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;minDist&quot;</highlight><highlight class="normal">).toDouble();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.param1<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;param1&quot;</highlight><highlight class="normal">).toDouble();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.param2<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;param2&quot;</highlight><highlight class="normal">).toDouble();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.sensorTriggered<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;sensorTriggered&quot;</highlight><highlight class="normal">).toBool();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.x<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;roiRect.x&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.y<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;roiRect.y&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.width<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;roiRect.width&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>im.roiRect.height<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;roiRect.height&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(<ref refid="confighelper_8cpp_1aa7d89e990d1b56d9a5fe7abf3c016d33" kindref="member">GP_OCR</ref>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_min<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;plate_x_min&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_x_max<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;plate_x_max&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_min<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;plate_y_min&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_y_max<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;plate_y_max&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_min<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;plate_width_min&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_width_max<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;plate_width_max&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_min<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;plate_height_min&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.plate_height_max<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;plate_height_max&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_min<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;num_width_min&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_width_max<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;num_width_max&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_min<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;num_height_min&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocr.num_height_max<sp/>=<sp/>settings-&gt;value(</highlight><highlight class="stringliteral">&quot;num_height_max&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;endArray();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" kindref="member">ConfigHelper::save</ref>()</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>settings<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QSettings(configFile,<sp/>QSettings::IniFormat,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>takeEffect();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(<ref refid="confighelper_8cpp_1ab170c7de5f01a238d1ac3ada931c14bf" kindref="member">GP_COMMON</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;launchAtLogin&quot;</highlight><highlight class="normal">,<sp/>QVariant(<ref refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" kindref="member">launchAtLogin</ref>));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;startAtLaunch&quot;</highlight><highlight class="normal">,<sp/>QVariant(<ref refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" kindref="member">startAtLaunch</ref>));</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;verboseLog&quot;</highlight><highlight class="normal">,<sp/>QVariant(<ref refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" kindref="member">verboseLog</ref>));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;pc2plc_portName&quot;</highlight><highlight class="normal">,<sp/>QVariant(<ref refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" kindref="member">pc2plc_portName</ref>));</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;endGroup();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;beginWriteArray(<ref refid="confighelper_8cpp_1afe1f8c39c4e1be1155570b94d7ef2488" kindref="member">GP_DEV</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setArrayIndex(i);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>dev<sp/>=<sp/><ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[i];</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//settings-&gt;setValue(&quot;CamProfile&quot;,<sp/>QVariant::fromValue&lt;CamProfile&gt;(device[i].camProfile));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(<ref refid="confighelper_8cpp_1ac448247a1cec8bcbf0b4cd6338bf9a47" kindref="member">GP_CAM</ref>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>cam<sp/>=<sp/>dev.<ref refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kindref="member">camProfile</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;camIP&quot;</highlight><highlight class="normal">,<sp/>QVariant(cam.camIP));</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;camPort&quot;</highlight><highlight class="normal">,<sp/>QVariant(cam.camPort));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;camUserName&quot;</highlight><highlight class="normal">,<sp/>QVariant(cam.camUserName));</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;camPassword&quot;</highlight><highlight class="normal">,<sp/>QVariant(cam.camPassword));</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;frameInterv&quot;</highlight><highlight class="normal">,<sp/>QVariant(cam.frameInterv));</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(<ref refid="confighelper_8cpp_1a409643d7322bbc65e743ca21d294c628" kindref="member">GP_IM</ref>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>im<sp/>=<sp/>dev.imProfile;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;warningRatio&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.warningRatio));</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;alarmRatio&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.alarmRatio));</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;radius_min&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.radius_min));</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;radius_max&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.radius_max));</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;gs1&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.gs1));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;gs2&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.gs2));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;dp&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.dp));</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;minDist&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.minDist));</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;param1&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.param1));</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;param2&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.param2));</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;sensorTriggered&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.sensorTriggered));</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;roiRect.x&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.roiRect.x));</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;roiRect.y&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.roiRect.y));</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;roiRect.width&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.roiRect.width));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;roiRect.height&quot;</highlight><highlight class="normal">,<sp/>QVariant(im.roiRect.height));</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;beginGroup(<ref refid="confighelper_8cpp_1aa7d89e990d1b56d9a5fe7abf3c016d33" kindref="member">GP_OCR</ref>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>ocr<sp/>=<sp/>dev.ocrProfile;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;plate_x_min&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.plate_x_min));</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;plate_x_max&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.plate_x_max));</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;plate_y_min&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.plate_y_min));</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;plate_y_max&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.plate_y_max));</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;plate_width_min&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.plate_width_min));</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;plate_width_max&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.plate_width_max));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;plate_height_min&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.plate_height_min));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;plate_height_max&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.plate_height_max));</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;num_width_min&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.num_width_min));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;num_width_max&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.num_width_max));</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;num_height_min&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.num_height_min));</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;setValue(</highlight><highlight class="stringliteral">&quot;num_height_max&quot;</highlight><highlight class="normal">,<sp/>QVariant(ocr.num_height_max));</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>settings-&gt;endGroup();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>settings-&gt;endArray();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ConfigHelper::takeEffect()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="154"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>effect_launchAtLogin();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ConfigHelper::effect_launchAtLogin()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="159"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>QSettings*<sp/>reg<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QSettings(R</highlight><highlight class="stringliteral">&quot;(HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run)&quot;,<sp/>QSettings::NativeFormat);</highlight></codeline>
+<codeline lineno="162"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="163"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" kindref="member">launchAtLogin</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>strAppPath<sp/>=<sp/>QDir::toNativeSeparators(QCoreApplication::applicationFilePath());</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//strAppPath.replace(QChar(&apos;/&apos;),<sp/>QChar(&apos;\\&apos;),<sp/>Qt::CaseInsensitive);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg-&gt;setValue(qApp-&gt;applicationName(),<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1<sp/>--auto&quot;</highlight><highlight class="normal">).arg(strAppPath));</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reg-&gt;remove(qApp-&gt;applicationName());</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>reg-&gt;deleteLater();</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/confighelper.cpp"/>
+  </compounddef>
+</doxygen>

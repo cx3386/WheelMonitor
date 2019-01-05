@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="struct_wheel_db_info" kind="struct" language="C++" prot="public">
+    <compoundname>WheelDbInfo</compoundname>
+    <includes refid="database_8h" local="no">database.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_wheel_db_info_1af351443371b29941a357006ef27795a0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WheelDbInfo::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="28" column="1" bodyfile="sources/database.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1aae1177299aa4b515dbc4e5b5b04ac071" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WheelDbInfo::i_o</definition>
+        <argsstring></argsstring>
+        <name>i_o</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="29" column="1" bodyfile="sources/database.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WheelDbInfo::num</definition>
+        <argsstring></argsstring>
+        <name>num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="30" column="1" bodyfile="sources/database.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1af17e3e7fcfa366aede4f2b1dab764ea5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WheelDbInfo::calcspeed</definition>
+        <argsstring></argsstring>
+        <name>calcspeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="31" column="1" bodyfile="sources/database.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a06da43ab369c21a8f280e902ecaadd24" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WheelDbInfo::refspeed</definition>
+        <argsstring></argsstring>
+        <name>refspeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="32" column="1" bodyfile="sources/database.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WheelDbInfo::error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="33" column="1" bodyfile="sources/database.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a62093bf6e1e60260ac3441852e3508f5" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WheelDbInfo::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="34" column="1" bodyfile="sources/database.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WheelDbInfo::alarmlevel</definition>
+        <argsstring></argsstring>
+        <name>alarmlevel</name>
+        <briefdescription>
+<para>-2：连续两次结果不可信；-1：本次结果不可信；0：正常；1：预警；2：报警 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="35" column="1" bodyfile="sources/database.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1ab673ee45b8a02e9ba8aa72135ed28b6a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WheelDbInfo::checkstate</definition>
+        <argsstring></argsstring>
+        <name>checkstate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="36" column="1" bodyfile="sources/database.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1ad8ea8e08cbb58f268d06186a12c44aca" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WheelDbInfo::ocrsize</definition>
+        <argsstring></argsstring>
+        <name>ocrsize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="37" column="1" bodyfile="sources/database.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a244bfaa82dbb8eb7fb1460d252571ba1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WheelDbInfo::fragment</definition>
+        <argsstring></argsstring>
+        <name>fragment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="38" column="1" bodyfile="sources/database.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a18c5b6628f2c1c164ba3a1f424f98d23" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WheelDbInfo::totalmatch</definition>
+        <argsstring></argsstring>
+        <name>totalmatch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="40" column="1" bodyfile="sources/database.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a21d02e75169f0932fd742dfedd580173" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WheelDbInfo::validmatch</definition>
+        <argsstring></argsstring>
+        <name>validmatch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="41" column="1" bodyfile="sources/database.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a0c02cf2107db2bc81194d0f20aa14b4e" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WheelDbInfo::speeds</definition>
+        <argsstring></argsstring>
+        <name>speeds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="42" column="1" bodyfile="sources/database.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a7c60fb37ebdb5d0e94b54a49e6eb6157" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString WheelDbInfo::videopath</definition>
+        <argsstring></argsstring>
+        <name>videopath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="43" column="1" bodyfile="sources/database.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a9115f83e0e11c2f7aef925ad723343f9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WheelDbInfo::warnRatio</definition>
+        <argsstring></argsstring>
+        <name>warnRatio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="45" column="1" bodyfile="sources/database.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_wheel_db_info_1a9b7285981eab28ac5748f3669a3f6ab8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WheelDbInfo::alarmRatio</definition>
+        <argsstring></argsstring>
+        <name>alarmRatio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="46" column="1" bodyfile="sources/database.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>记录该车轮结算后的相关参数，以写入数据库 </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/database.h" line="27" column="1" bodyfile="sources/database.h" bodystart="27" bodyend="47"/>
+    <listofallmembers>
+      <member refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>alarmlevel</name></member>
+      <member refid="struct_wheel_db_info_1a9b7285981eab28ac5748f3669a3f6ab8" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>alarmRatio</name></member>
+      <member refid="struct_wheel_db_info_1af17e3e7fcfa366aede4f2b1dab764ea5" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>calcspeed</name></member>
+      <member refid="struct_wheel_db_info_1ab673ee45b8a02e9ba8aa72135ed28b6a" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>checkstate</name></member>
+      <member refid="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>error</name></member>
+      <member refid="struct_wheel_db_info_1a244bfaa82dbb8eb7fb1460d252571ba1" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>fragment</name></member>
+      <member refid="struct_wheel_db_info_1aae1177299aa4b515dbc4e5b5b04ac071" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>i_o</name></member>
+      <member refid="struct_wheel_db_info_1af351443371b29941a357006ef27795a0" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>id</name></member>
+      <member refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>num</name></member>
+      <member refid="struct_wheel_db_info_1ad8ea8e08cbb58f268d06186a12c44aca" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>ocrsize</name></member>
+      <member refid="struct_wheel_db_info_1a06da43ab369c21a8f280e902ecaadd24" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>refspeed</name></member>
+      <member refid="struct_wheel_db_info_1a0c02cf2107db2bc81194d0f20aa14b4e" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>speeds</name></member>
+      <member refid="struct_wheel_db_info_1a62093bf6e1e60260ac3441852e3508f5" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>time</name></member>
+      <member refid="struct_wheel_db_info_1a18c5b6628f2c1c164ba3a1f424f98d23" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>totalmatch</name></member>
+      <member refid="struct_wheel_db_info_1a21d02e75169f0932fd742dfedd580173" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>validmatch</name></member>
+      <member refid="struct_wheel_db_info_1a7c60fb37ebdb5d0e94b54a49e6eb6157" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>videopath</name></member>
+      <member refid="struct_wheel_db_info_1a9115f83e0e11c2f7aef925ad723343f9" prot="public" virt="non-virtual"><scope>WheelDbInfo</scope><name>warnRatio</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

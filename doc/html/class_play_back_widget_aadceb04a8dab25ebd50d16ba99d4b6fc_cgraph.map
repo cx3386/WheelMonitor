@@ -1,0 +1,4 @@
+<map id="PlayBackWidget::PlayBackWidget" name="PlayBackWidget::PlayBackWidget">
+<area shape="rect" id="node2" href="$class_play_back_widget.html#a6dd67d2767c0aeb3f1e53d02ed47c6c2" title="清除媒体信息；应当在失焦时调用 " alt="" coords="236,13,427,39"/>
+<area shape="rect" id="node3" href="$class_player.html#a85dda573e6b2b5f4f7bdf930b0c496f4" title="Player::setUrl" alt="" coords="475,13,576,39"/>
+</map>

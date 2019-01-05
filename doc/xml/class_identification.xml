@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_identification" kind="class" language="C++" prot="public">
+    <compoundname>Identification</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="identification_8h" local="no">identification.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_identification_1a5634a37b031a23098a7cb0c707424bba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Identification::Identification</definition>
+        <argsstring>(QObject *parent=Q_NULLPTR)</argsstring>
+        <name>Identification</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/identification.h" line="11" column="1" bodyfile="sources/identification.h" bodystart="11" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_identification_1adfc0f9b4ad6867c277a65b6bcba8206e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Identification::~Identification</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Identification</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/identification.h" line="14" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Identification::check</definition>
+        <argsstring>()</argsstring>
+        <name>check</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/identification.h" line="15" column="1" bodyfile="sources/identification.cpp" bodystart="10" bodyend="18"/>
+        <references refid="class_identification_1a2c6a597de6b24679e755aafba5657fef" compoundref="identification_8cpp" startline="20" endline="31">getCPUID</references>
+        <references refid="class_identification_1aecfba4e5f0c1640f52a6e2b8e01e457e" compoundref="identification_8cpp" startline="58" endline="69">getLocalMAC</references>
+        <references refid="identification_8cpp_1a73dd8abf5290fb6ad8dc3c9f75f52639" compoundref="identification_8cpp" startline="7">CPU_ID</references>
+        <references refid="identification_8cpp_1afae23d92b98b25305f4a96802efc11f3" compoundref="identification_8cpp" startline="8">LOCAL_MAC</references>
+      </memberdef>
+      <memberdef kind="function" id="class_identification_1a2c6a597de6b24679e755aafba5657fef" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Identification::getCPUID</definition>
+        <argsstring>(unsigned int CPUInfo[4], unsigned int InfoType)</argsstring>
+        <name>getCPUID</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>CPUInfo</declname>
+          <array>[4]</array>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>InfoType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/identification.h" line="16" column="1" bodyfile="sources/identification.cpp" bodystart="20" bodyend="31"/>
+        <references refid="class_identification_1ad6429aef1faa0a8bb9bd423998bb8889" compoundref="identification_8cpp" startline="33" endline="56">getCPUIDEX</references>
+        <referencedby refid="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" compoundref="identification_8cpp" startline="10" endline="18">check</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_identification_1ad6429aef1faa0a8bb9bd423998bb8889" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Identification::getCPUIDEX</definition>
+        <argsstring>(unsigned int CPUInfo[4], unsigned int InfoType, unsigned int ECXValue)</argsstring>
+        <name>getCPUIDEX</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>CPUInfo</declname>
+          <array>[4]</array>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>InfoType</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>ECXValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/identification.h" line="17" column="1" bodyfile="sources/identification.cpp" bodystart="33" bodyend="56"/>
+        <referencedby refid="class_identification_1a2c6a597de6b24679e755aafba5657fef" compoundref="identification_8cpp" startline="20" endline="31">getCPUID</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_identification_1aecfba4e5f0c1640f52a6e2b8e01e457e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Identification::getLocalMAC</definition>
+        <argsstring>()</argsstring>
+        <name>getLocalMAC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/identification.h" line="18" column="1" bodyfile="sources/identification.cpp" bodystart="58" bodyend="69"/>
+        <referencedby refid="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" compoundref="identification_8cpp" startline="10" endline="18">check</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="52">
+        <label>QObject</label>
+      </node>
+      <node id="51">
+        <label>Identification</label>
+        <link refid="class_identification"/>
+        <childnode refid="52" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="54">
+        <label>QObject</label>
+      </node>
+      <node id="53">
+        <label>Identification</label>
+        <link refid="class_identification"/>
+        <childnode refid="54" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/identification.h" line="8" column="1" bodyfile="sources/identification.h" bodystart="7" bodyend="19"/>
+    <listofallmembers>
+      <member refid="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" prot="public" virt="non-virtual"><scope>Identification</scope><name>check</name></member>
+      <member refid="class_identification_1a2c6a597de6b24679e755aafba5657fef" prot="public" virt="non-virtual"><scope>Identification</scope><name>getCPUID</name></member>
+      <member refid="class_identification_1ad6429aef1faa0a8bb9bd423998bb8889" prot="public" virt="non-virtual"><scope>Identification</scope><name>getCPUIDEX</name></member>
+      <member refid="class_identification_1aecfba4e5f0c1640f52a6e2b8e01e457e" prot="public" virt="non-virtual"><scope>Identification</scope><name>getLocalMAC</name></member>
+      <member refid="class_identification_1a5634a37b031a23098a7cb0c707424bba" prot="public" virt="non-virtual"><scope>Identification</scope><name>Identification</name></member>
+      <member refid="class_identification_1adfc0f9b4ad6867c277a65b6bcba8206e" prot="public" virt="non-virtual"><scope>Identification</scope><name>~Identification</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_match_viewer_8cpp" kind="file" language="C++">
+    <compoundname>MatchViewer.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="_match_viewer_8h" local="yes">MatchViewer.h</includes>
+    <includes local="yes">opencv.hpp</includes>
+    <includes refid="imageprocess_8h" local="yes">imageprocess.h</includes>
+    <incdepgraph>
+      <node id="446">
+        <label>sources/MatchViewer.cpp</label>
+        <link refid="_match_viewer_8cpp"/>
+        <childnode refid="447" relation="include">
+        </childnode>
+        <childnode refid="449" relation="include">
+        </childnode>
+        <childnode refid="452" relation="include">
+        </childnode>
+        <childnode refid="453" relation="include">
+        </childnode>
+      </node>
+      <node id="454">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="459">
+        <label>QObject</label>
+      </node>
+      <node id="461">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+      <node id="452">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="451">
+        <label>ui_MatchViewer.h</label>
+      </node>
+      <node id="458">
+        <label>ocr.h</label>
+        <link refid="ocr_8h"/>
+        <childnode refid="459" relation="include">
+        </childnode>
+        <childnode refid="452" relation="include">
+        </childnode>
+      </node>
+      <node id="450">
+        <label>QWidget</label>
+      </node>
+      <node id="457">
+        <label>QString</label>
+      </node>
+      <node id="448">
+        <label>QtWidgets</label>
+      </node>
+      <node id="449">
+        <label>MatchViewer.h</label>
+        <link refid="_match_viewer_8h"/>
+        <childnode refid="450" relation="include">
+        </childnode>
+        <childnode refid="451" relation="include">
+        </childnode>
+      </node>
+      <node id="455">
+        <label>database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="456" relation="include">
+        </childnode>
+        <childnode refid="458" relation="include">
+        </childnode>
+        <childnode refid="460" relation="include">
+        </childnode>
+      </node>
+      <node id="456">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="457" relation="include">
+        </childnode>
+      </node>
+      <node id="453">
+        <label>imageprocess.h</label>
+        <link refid="imageprocess_8h"/>
+        <childnode refid="454" relation="include">
+        </childnode>
+        <childnode refid="455" relation="include">
+        </childnode>
+        <childnode refid="459" relation="include">
+        </childnode>
+        <childnode refid="461" relation="include">
+        </childnode>
+      </node>
+      <node id="460">
+        <label>QtSql</label>
+      </node>
+      <node id="447">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="448" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_match_viewer_8h" kindref="compound">MatchViewer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;opencv.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="imageprocess_8h" kindref="compound">imageprocess.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_match_viewer_1a4acd052dbca2987e15ed15801e88ba91" refkind="member"><highlight class="normal"><ref refid="class_match_viewer_1a4acd052dbca2987e15ed15801e88ba91" kindref="member">MatchViewer::MatchViewer</ref>(QWidget<sp/>*parent)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QWidget(parent)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_match_viewer_1aa073473c302a0af0a9433e20af513b23" refkind="member"><highlight class="normal"><ref refid="class_match_viewer_1aa073473c302a0af0a9433e20af513b23" kindref="member">MatchViewer::~MatchViewer</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="class_match_viewer_1abdabdcff52f99428a2cec3f8422a529f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_match_viewer_1abdabdcff52f99428a2cec3f8422a529f" kindref="member">MatchViewer::bindDev</ref>(<ref refid="class_image_process" kindref="compound">ImageProcess</ref><sp/>*imageProcess)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>m_imageProcess<sp/>=<sp/>imageProcess;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(m_imageProcess,<sp/>&amp;<ref refid="class_image_process_1afde5339b87f2e29683b567f298bf5c89" kindref="member">ImageProcess::showMatch</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{showMatch();<sp/>});</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MatchViewer::showMatch()</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/>src<sp/>=<sp/>m_imageProcess-&gt;<ref refid="class_image_process_1a30e74ef6d1a2e4fe98075dcadd8e43f9" kindref="member">getMatchResult</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>QImage<sp/>im(src.data,<sp/>src.cols,<sp/>src.rows,<sp/>src.step,<sp/>QImage::Format_RGB888);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>im<sp/>=<sp/>im.rgbSwapped();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>im<sp/>=<sp/>im.scaled(ui.label-&gt;size(),<sp/>Qt::KeepAspectRatio);<sp/></highlight><highlight class="comment">//Note:<sp/>not<sp/>like<sp/>rezise,<sp/>scaled<sp/>need<sp/>assignment</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.label-&gt;setPixmap(QPixmap::fromImage(im));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/MatchViewer.cpp"/>
+  </compounddef>
+</doxygen>

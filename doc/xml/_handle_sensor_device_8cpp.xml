@@ -1,0 +1,1588 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_handle_sensor_device_8cpp" kind="file" language="C++">
+    <compoundname>HandleSensorDevice.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="_handle_sensor_device_8h" local="yes">HandleSensorDevice.h</includes>
+    <incdepgraph>
+      <node id="196">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="194">
+        <label>QObject</label>
+      </node>
+      <node id="193">
+        <label>HandleSensorDevice.h</label>
+        <link refid="_handle_sensor_device_8h"/>
+        <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+      </node>
+      <node id="195">
+        <label>SensorDevice.h</label>
+        <link refid="_sensor_device_8h"/>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="194" relation="include">
+        </childnode>
+      </node>
+      <node id="190">
+        <label>sources/HandleSensorDevice.cpp</label>
+        <link refid="_handle_sensor_device_8cpp"/>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
+      </node>
+      <node id="192">
+        <label>QtWidgets</label>
+      </node>
+      <node id="191">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="192" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_handle_sensor_device_8h" kindref="compound">HandleSensorDevice.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="class_handle_sensor_device_1a5023b1b9da70eeb729bc6326a67bb8a1" refkind="member"><highlight class="normal"><ref refid="class_handle_sensor_device_1a5023b1b9da70eeb729bc6326a67bb8a1" kindref="member">HandleSensorDevice::HandleSensorDevice</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_devId,<sp/>QObject<sp/>*parent)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>devId(_devId)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>dev(new<sp/><ref refid="class_sensor_device" kindref="compound">SensorDevice</ref>(_devId,<sp/>this))</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_handle_sensor_device_1a42c9040fa7c8f0ee178f018632be04d8" refkind="member"><highlight class="normal"><ref refid="class_handle_sensor_device_1a42c9040fa7c8f0ee178f018632be04d8" kindref="member">HandleSensorDevice::~HandleSensorDevice</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" kindref="member">HandleSensorDevice::input</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>io)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" kindref="member">io2dev</ref>(io);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" kindref="member">checkTri</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" kindref="member">HandleSensorDevice::io2dev</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>io)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(devId)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cio<sp/>0.01<sp/>sol0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io<sp/>=<sp/>io<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[<ref refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kindref="member">CkPt::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)]-&gt;sensors[<ref refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kindref="member">Sensor::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)]-&gt;sample.push(io<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cio<sp/>0.02<sp/>sol1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io<sp/>=<sp/>io<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[<ref refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kindref="member">CkPt::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)]-&gt;sensors[<ref refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kindref="member">Sensor::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)]-&gt;sample.push(io<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cio<sp/>0.03<sp/>sor0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io<sp/>=<sp/>io<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[<ref refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kindref="member">CkPt::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)]-&gt;sensors[<ref refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kindref="member">Sensor::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)]-&gt;sample.push(io<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cio<sp/>0.04<sp/>sor1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io<sp/>=<sp/>io<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[<ref refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kindref="member">CkPt::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)]-&gt;sensors[<ref refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kindref="member">Sensor::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)]-&gt;sample.push(io<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cio<sp/>0.05<sp/>sir0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io<sp/>=<sp/>io<sp/>&gt;&gt;<sp/>5;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[<ref refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kindref="member">CkPt::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)]-&gt;sensors[<ref refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kindref="member">Sensor::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)]-&gt;sample.push(io<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cio<sp/>0.06<sp/>sir1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io<sp/>=<sp/>io<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[<ref refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kindref="member">CkPt::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)]-&gt;sensors[<ref refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kindref="member">Sensor::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)]-&gt;sample.push(io<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cio<sp/>0.07<sp/>sil0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io<sp/>=<sp/>io<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[<ref refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kindref="member">CkPt::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)]-&gt;sensors[<ref refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kindref="member">Sensor::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)]-&gt;sample.push(io<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cio<sp/>0.08<sp/>sil1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io<sp/>=<sp/>io<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[<ref refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kindref="member">CkPt::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)]-&gt;sensors[<ref refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kindref="member">Sensor::indexOf</ref>(</highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)]-&gt;sample.push(io<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" kindref="member">HandleSensorDevice::checkTri</ref>()</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>:<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ckpTri<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ss-&gt;sample.state(0)<sp/>==<sp/>ckp-&gt;triTiming())<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;nTri++;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckpTri<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckpTri<sp/>&amp;&amp;<sp/>!ckp-&gt;hasTri)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emitDzSignal(ckp-&gt;id);</highlight><highlight class="comment">//对每个ckp进行判断，防止重复</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HandleSensorDevice::emitDzSignal(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckp_m_id<sp/>=<sp/><ref refid="class_ck_pt_1ad3259779575bb558490559404afb1903" kindref="member">CkPt::gid2mid</ref>(ckpId);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>=<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[ckp_m_id];</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>broken0<sp/>=<sp/>ckp-&gt;sensors[0]-&gt;broken;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>broken1<sp/>=<sp/>ckp-&gt;sensors[1]-&gt;broken;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ckpTri<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>两个传感器都坏</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(broken0<sp/>&amp;&amp;<sp/>broken1)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//修改：任意</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckp-&gt;sensors[0]-&gt;nTri<sp/>==<sp/>1<sp/>||<sp/>ckp-&gt;sensors[1]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//0是好的 <sp/>else<sp/>if<sp/>(!broken0<sp/>&amp;&amp;<sp/>broken1)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;sensors[0]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/>true;
+<sp/>}
+<sp/><sp/>//1是好的
+<sp/>else<sp/>if<sp/>(broken0<sp/>&amp;&amp;<sp/>!broken1)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;sensors[1]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/>true;
+<sp/>}
+<sp/><sp/>//<sp/>两个传感器都是好的
+<sp/>else<sp/>if<sp/>(!broken0<sp/>&amp;&amp;<sp/>!broken1)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;sensors[0]-&gt;nTri<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>ckp-&gt;sensors[1]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/>true;//同时检测两个
+<sp/><sp/>}
+
+<sp/>if<sp/>(ckpTri)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>triInt(ckp-&gt;id);
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+}
+
+void<sp/>HandleSensorDevice::newCkp(int<sp/>ckpId)
+{
+<sp/><sp/>int<sp/>ckp_m_id<sp/>=<sp/>CkPt::gid2mid(ckpId);
+<sp/><sp/><sp/>auto<sp/>ckpt<sp/>=<sp/>dev-&gt;ckpts[ckp_m_id];
+<sp/><sp/>//<sp/>……检查nTri
+<sp/><sp/>ckpt-&gt;newWheel();
+}
+
+void<sp/>HandleSensorDevice::checkoutCkp(int<sp/>ckpId)
+{
+<sp/>int<sp/>ckp_m_id<sp/>=<sp/>CkPt::gid2mid(ckpId);
+<sp/><sp/><sp/>auto<sp/>ckp<sp/>=<sp/>dev-&gt;ckpts[ckp_m_id];
+<sp/><sp/><sp/>//如果没有检测到，触发图像检测的信号
+<sp/><sp/><sp/>if<sp/>(!ckp-&gt;hasTri)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+
+<sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>int<sp/>nTri<sp/>=<sp/>ss-&gt;nTri;<sp/>//<sp/>在expect区间内，触发的次数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(nTri)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>false;//一次都未触发，则未达到预期
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ckp-&gt;isLeave())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkoutDev();
+}
+
+void<sp/>HandleSensorDevice::checkoutDev()
+{
+<sp/>int<sp/>goodones<sp/>=<sp/>getExpects();<sp/>//!&lt;<sp/>所有expect=true的个数
+<sp/>bool<sp/>updateSensor;<sp/>//!&lt;<sp/>如果不是掉轮，则更新ss-&gt;broken。
+<sp/><sp/><sp/>//检测到信号,不可能掉轮
+<sp/><sp/><sp/><sp/>if<sp/>(goodones<sp/>&gt;<sp/>0)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;dev&quot;<sp/>&lt;&lt;<sp/>devId<sp/>&lt;&lt;<sp/>&quot;,goodones&quot;<sp/>&lt;&lt;<sp/>goodones;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(-1);
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//没有任何一个传感器检测到信号，即现在全坏了
+<sp/><sp/>else
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//此时应该是brokens=4
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上个车轮没有fall<sp/>off
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>brokens<sp/>=<sp/>getBrokens();<sp/>//!&lt;<sp/>先前已经坏掉的传感器个数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(brokens)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2://不可能一次坏2个，是掉轮造成的不亮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(0);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>3://坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>4://全坏
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!broken0<sp/>&amp;&amp;<sp/>broken1)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckp-&gt;sensors[0]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//1是好的 <sp/>else<sp/>if<sp/>(broken0<sp/>&amp;&amp;<sp/>!broken1)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;sensors[1]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/>true;
+<sp/>}
+<sp/><sp/>//<sp/>两个传感器都是好的
+<sp/>else<sp/>if<sp/>(!broken0<sp/>&amp;&amp;<sp/>!broken1)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;sensors[0]-&gt;nTri<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>ckp-&gt;sensors[1]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/>true;//同时检测两个
+<sp/><sp/>}
+
+<sp/>if<sp/>(ckpTri)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>triInt(ckp-&gt;id);
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+}
+
+void<sp/>HandleSensorDevice::newCkp(int<sp/>ckpId)
+{
+<sp/><sp/>int<sp/>ckp_m_id<sp/>=<sp/>CkPt::gid2mid(ckpId);
+<sp/><sp/><sp/>auto<sp/>ckpt<sp/>=<sp/>dev-&gt;ckpts[ckp_m_id];
+<sp/><sp/>//<sp/>……检查nTri
+<sp/><sp/>ckpt-&gt;newWheel();
+}
+
+void<sp/>HandleSensorDevice::checkoutCkp(int<sp/>ckpId)
+{
+<sp/>int<sp/>ckp_m_id<sp/>=<sp/>CkPt::gid2mid(ckpId);
+<sp/><sp/><sp/>auto<sp/>ckp<sp/>=<sp/>dev-&gt;ckpts[ckp_m_id];
+<sp/><sp/><sp/>//如果没有检测到，触发图像检测的信号
+<sp/><sp/><sp/>if<sp/>(!ckp-&gt;hasTri)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+
+<sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>int<sp/>nTri<sp/>=<sp/>ss-&gt;nTri;<sp/>//<sp/>在expect区间内，触发的次数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(nTri)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>false;//一次都未触发，则未达到预期
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ckp-&gt;isLeave())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkoutDev();
+}
+
+void<sp/>HandleSensorDevice::checkoutDev()
+{
+<sp/>int<sp/>goodones<sp/>=<sp/>getExpects();<sp/>//!&lt;<sp/>所有expect=true的个数
+<sp/>bool<sp/>updateSensor;<sp/>//!&lt;<sp/>如果不是掉轮，则更新ss-&gt;broken。
+<sp/><sp/><sp/>//检测到信号,不可能掉轮
+<sp/><sp/><sp/><sp/>if<sp/>(goodones<sp/>&gt;<sp/>0)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;dev&quot;<sp/>&lt;&lt;<sp/>devId<sp/>&lt;&lt;<sp/>&quot;,goodones&quot;<sp/>&lt;&lt;<sp/>goodones;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(-1);
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//没有任何一个传感器检测到信号，即现在全坏了
+<sp/><sp/>else
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//此时应该是brokens=4
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上个车轮没有fall<sp/>off
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>brokens<sp/>=<sp/>getBrokens();<sp/>//!&lt;<sp/>先前已经坏掉的传感器个数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(brokens)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2://不可能一次坏2个，是掉轮造成的不亮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(0);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>3://坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>4://全坏
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(broken0<sp/>&amp;&amp;<sp/>!broken1)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckp-&gt;sensors[1]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>两个传感器都是好的 <sp/>else<sp/>if<sp/>(!broken0<sp/>&amp;&amp;<sp/>!broken1)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;sensors[0]-&gt;nTri<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>ckp-&gt;sensors[1]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/>true;//同时检测两个
+<sp/><sp/>}
+
+<sp/>if<sp/>(ckpTri)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>triInt(ckp-&gt;id);
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+}
+
+void<sp/>HandleSensorDevice::newCkp(int<sp/>ckpId)
+{
+<sp/><sp/>int<sp/>ckp_m_id<sp/>=<sp/>CkPt::gid2mid(ckpId);
+<sp/><sp/><sp/>auto<sp/>ckpt<sp/>=<sp/>dev-&gt;ckpts[ckp_m_id];
+<sp/><sp/>//<sp/>……检查nTri
+<sp/><sp/>ckpt-&gt;newWheel();
+}
+
+void<sp/>HandleSensorDevice::checkoutCkp(int<sp/>ckpId)
+{
+<sp/>int<sp/>ckp_m_id<sp/>=<sp/>CkPt::gid2mid(ckpId);
+<sp/><sp/><sp/>auto<sp/>ckp<sp/>=<sp/>dev-&gt;ckpts[ckp_m_id];
+<sp/><sp/><sp/>//如果没有检测到，触发图像检测的信号
+<sp/><sp/><sp/>if<sp/>(!ckp-&gt;hasTri)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+
+<sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>int<sp/>nTri<sp/>=<sp/>ss-&gt;nTri;<sp/>//<sp/>在expect区间内，触发的次数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(nTri)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>false;//一次都未触发，则未达到预期
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ckp-&gt;isLeave())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkoutDev();
+}
+
+void<sp/>HandleSensorDevice::checkoutDev()
+{
+<sp/>int<sp/>goodones<sp/>=<sp/>getExpects();<sp/>//!&lt;<sp/>所有expect=true的个数
+<sp/>bool<sp/>updateSensor;<sp/>//!&lt;<sp/>如果不是掉轮，则更新ss-&gt;broken。
+<sp/><sp/><sp/>//检测到信号,不可能掉轮
+<sp/><sp/><sp/><sp/>if<sp/>(goodones<sp/>&gt;<sp/>0)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;dev&quot;<sp/>&lt;&lt;<sp/>devId<sp/>&lt;&lt;<sp/>&quot;,goodones&quot;<sp/>&lt;&lt;<sp/>goodones;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(-1);
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//没有任何一个传感器检测到信号，即现在全坏了
+<sp/><sp/>else
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//此时应该是brokens=4
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上个车轮没有fall<sp/>off
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>brokens<sp/>=<sp/>getBrokens();<sp/>//!&lt;<sp/>先前已经坏掉的传感器个数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(brokens)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2://不可能一次坏2个，是掉轮造成的不亮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(0);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>3://坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>4://全坏
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!broken0<sp/>&amp;&amp;<sp/>!broken1)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckp-&gt;sensors[0]-&gt;nTri<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>ckp-&gt;sensors[1]-&gt;nTri<sp/>==<sp/>1)<sp/>ckpTri<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight><highlight class="comment">//同时检测两个 <sp/><sp/>}
+
+<sp/>if<sp/>(ckpTri)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>triInt(ckp-&gt;id);
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+}
+
+void<sp/>HandleSensorDevice::newCkp(int<sp/>ckpId)
+{
+<sp/><sp/>int<sp/>ckp_m_id<sp/>=<sp/>CkPt::gid2mid(ckpId);
+<sp/><sp/><sp/>auto<sp/>ckpt<sp/>=<sp/>dev-&gt;ckpts[ckp_m_id];
+<sp/><sp/>//<sp/>……检查nTri
+<sp/><sp/>ckpt-&gt;newWheel();
+}
+
+void<sp/>HandleSensorDevice::checkoutCkp(int<sp/>ckpId)
+{
+<sp/>int<sp/>ckp_m_id<sp/>=<sp/>CkPt::gid2mid(ckpId);
+<sp/><sp/><sp/>auto<sp/>ckp<sp/>=<sp/>dev-&gt;ckpts[ckp_m_id];
+<sp/><sp/><sp/>//如果没有检测到，触发图像检测的信号
+<sp/><sp/><sp/>if<sp/>(!ckp-&gt;hasTri)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+
+<sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>int<sp/>nTri<sp/>=<sp/>ss-&gt;nTri;<sp/>//<sp/>在expect区间内，触发的次数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(nTri)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>false;//一次都未触发，则未达到预期
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ckp-&gt;isLeave())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkoutDev();
+}
+
+void<sp/>HandleSensorDevice::checkoutDev()
+{
+<sp/>int<sp/>goodones<sp/>=<sp/>getExpects();<sp/>//!&lt;<sp/>所有expect=true的个数
+<sp/>bool<sp/>updateSensor;<sp/>//!&lt;<sp/>如果不是掉轮，则更新ss-&gt;broken。
+<sp/><sp/><sp/>//检测到信号,不可能掉轮
+<sp/><sp/><sp/><sp/>if<sp/>(goodones<sp/>&gt;<sp/>0)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;dev&quot;<sp/>&lt;&lt;<sp/>devId<sp/>&lt;&lt;<sp/>&quot;,goodones&quot;<sp/>&lt;&lt;<sp/>goodones;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(-1);
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//没有任何一个传感器检测到信号，即现在全坏了
+<sp/><sp/>else
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//此时应该是brokens=4
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上个车轮没有fall<sp/>off
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>brokens<sp/>=<sp/>getBrokens();<sp/>//!&lt;<sp/>先前已经坏掉的传感器个数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(brokens)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2://不可能一次坏2个，是掉轮造成的不亮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(0);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>3://坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>4://全坏
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckpTri)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckp-&gt;isEnter())<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_handle_sensor_device_1aeef6cec4d94210ddbff3095dd246230c" kindref="member">dzIn</ref>();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_handle_sensor_device_1a91627de0f3ebec10cb3329f226eb7c7e" kindref="member">dzOut</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_handle_sensor_device_1a4eb776d5c0371a091fbac629f64e55cc" kindref="member">triInt</ref>(ckp-&gt;id);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" kindref="member">HandleSensorDevice::newCkp</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckp_m_id<sp/>=<sp/><ref refid="class_ck_pt_1ad3259779575bb558490559404afb1903" kindref="member">CkPt::gid2mid</ref>(ckpId);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckpt<sp/>=<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[ckp_m_id];</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>……检查nTri</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>ckpt-&gt;newWheel();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" kindref="member">HandleSensorDevice::checkoutCkp</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckp_m_id<sp/>=<sp/><ref refid="class_ck_pt_1ad3259779575bb558490559404afb1903" kindref="member">CkPt::gid2mid</ref>(ckpId);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>=<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>[ckp_m_id];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//如果没有检测到，触发图像检测的信号 <sp/><sp/><sp/>if<sp/>(!ckp-&gt;hasTri)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ckp-&gt;isEnter())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzIn();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dzOut();
+<sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/>}
+
+<sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>int<sp/>nTri<sp/>=<sp/>ss-&gt;nTri;<sp/>//<sp/>在expect区间内，触发的次数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(nTri)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>false;//一次都未触发，则未达到预期
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ckp-&gt;isLeave())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkoutDev();
+}
+
+void<sp/>HandleSensorDevice::checkoutDev()
+{
+<sp/>int<sp/>goodones<sp/>=<sp/>getExpects();<sp/>//!&lt;<sp/>所有expect=true的个数
+<sp/>bool<sp/>updateSensor;<sp/>//!&lt;<sp/>如果不是掉轮，则更新ss-&gt;broken。
+<sp/><sp/><sp/>//检测到信号,不可能掉轮
+<sp/><sp/><sp/><sp/>if<sp/>(goodones<sp/>&gt;<sp/>0)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;dev&quot;<sp/>&lt;&lt;<sp/>devId<sp/>&lt;&lt;<sp/>&quot;,goodones&quot;<sp/>&lt;&lt;<sp/>goodones;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(-1);
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//没有任何一个传感器检测到信号，即现在全坏了
+<sp/><sp/>else
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//此时应该是brokens=4
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上个车轮没有fall<sp/>off
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>brokens<sp/>=<sp/>getBrokens();<sp/>//!&lt;<sp/>先前已经坏掉的传感器个数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(brokens)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2://不可能一次坏2个，是掉轮造成的不亮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(0);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>3://坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>4://全坏
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ckp-&gt;hasTri)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckp-&gt;isEnter())</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_handle_sensor_device_1aeef6cec4d94210ddbff3095dd246230c" kindref="member">dzIn</ref>();</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_handle_sensor_device_1a91627de0f3ebec10cb3329f226eb7c7e" kindref="member">dzOut</ref>();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckp-&gt;hasTri<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nTri<sp/>=<sp/>ss-&gt;nTri;<sp/></highlight><highlight class="comment">//<sp/>在expect区间内，触发的次数 <sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(nTri)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>false;//一次都未触发，则未达到预期
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ckp-&gt;isLeave())
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkoutDev();
+}
+
+void<sp/>HandleSensorDevice::checkoutDev()
+{
+<sp/>int<sp/>goodones<sp/>=<sp/>getExpects();<sp/>//!&lt;<sp/>所有expect=true的个数
+<sp/>bool<sp/>updateSensor;<sp/>//!&lt;<sp/>如果不是掉轮，则更新ss-&gt;broken。
+<sp/><sp/><sp/>//检测到信号,不可能掉轮
+<sp/><sp/><sp/><sp/>if<sp/>(goodones<sp/>&gt;<sp/>0)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;dev&quot;<sp/>&lt;&lt;<sp/>devId<sp/>&lt;&lt;<sp/>&quot;,goodones&quot;<sp/>&lt;&lt;<sp/>goodones;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(-1);
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//没有任何一个传感器检测到信号，即现在全坏了
+<sp/><sp/>else
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//此时应该是brokens=4
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上个车轮没有fall<sp/>off
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>brokens<sp/>=<sp/>getBrokens();<sp/>//!&lt;<sp/>先前已经坏掉的传感器个数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(brokens)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2://不可能一次坏2个，是掉轮造成的不亮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(0);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>3://坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>4://全坏
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(nTri)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight><highlight class="comment">//一次都未触发，则未达到预期</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;expected<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ckp-&gt;isLeave())</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkoutDev();</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HandleSensorDevice::checkoutDev()</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>goodones<sp/>=<sp/>getExpects();<sp/></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>updateSensor;<sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//检测到信号,不可能掉轮 <sp/><sp/><sp/><sp/>if<sp/>(goodones<sp/>&gt;<sp/>0)
+<sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>//qDebug()<sp/>&lt;&lt;<sp/>&quot;dev&quot;<sp/>&lt;&lt;<sp/>devId<sp/>&lt;&lt;<sp/>&quot;,goodones&quot;<sp/>&lt;&lt;<sp/>goodones;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)
+<sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(-1);
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//没有任何一个传感器检测到信号，即现在全坏了
+<sp/><sp/>else
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dev-&gt;needHandled)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//此时应该是brokens=4
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上个车轮没有fall<sp/>off
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>brokens<sp/>=<sp/>getBrokens();<sp/>//!&lt;<sp/>先前已经坏掉的传感器个数
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(brokens)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2://不可能一次坏2个，是掉轮造成的不亮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>wheelFallOff(0);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>3://坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>4://全坏
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(goodones<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qDebug()<sp/>&lt;&lt;<sp/>&quot;dev&quot;<sp/>&lt;&lt;<sp/>devId<sp/>&lt;&lt;<sp/>&quot;,goodones&quot;<sp/>&lt;&lt;<sp/>goodones;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a86e56e6e908524cd1c27425f74b173a4" kindref="member">needHandled</ref>)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d" kindref="member">wheelFallOff</ref>(-1);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//没有任何一个传感器检测到信号，即现在全坏了</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a86e56e6e908524cd1c27425f74b173a4" kindref="member">needHandled</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//此时应该是brokens=4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//上个车轮没有fall<sp/>off</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a86e56e6e908524cd1c27425f74b173a4" kindref="member">needHandled</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>brokens<sp/>=<sp/>getBrokens();<sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(brokens)</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight><highlight class="comment">//不可能一次坏2个，是掉轮造成的不亮</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d" kindref="member">wheelFallOff</ref>(0);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>3:</highlight><highlight class="comment">//坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮 <sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev-&gt;needHandled<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>4://全坏
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateSensor<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a86e56e6e908524cd1c27425f74b173a4" kindref="member">needHandled</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4:</highlight><highlight class="comment">//全坏</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//updateSensor<sp/>=<sp/>true;//上次和这次都全坏，没有必要更新 <sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(updateSensor)
+<sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();//更新所有设备的状态
+<sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();//只更新goodones
+
+<sp/><sp/>updateSensorToUi();
+}
+
+void<sp/>HandleSensorDevice::updateBrokenSensor()
+{
+<sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+void<sp/>HandleSensorDevice::updateGoodSensor()
+{
+<sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+
+int<sp/>HandleSensorDevice::getBreaks()
+{
+<sp/>int<sp/>cnt;<sp/>//!&lt;<sp/>此周期内坏掉的ss
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getBrokens()
+{
+<sp/><sp/>int<sp/>cnt;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+int<sp/>HandleSensorDevice::getExpects()
+{
+<sp/><sp/>int<sp/>cnt<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;expected)<sp/>cnt++;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>cnt;
+}
+
+void<sp/>HandleSensorDevice::updateSensorToUi()
+{
+<sp/><sp/><sp/>//统计所有传感器的状态，并更新至ui。注意：只更新当前dev
+<sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>sensorState<sp/>=<sp/>QString(&quot;11111111&quot;).toInt(&amp;ok,<sp/>2);
+<sp/><sp/><sp/>for<sp/>(auto<sp/>ckp<sp/>:<sp/>dev-&gt;ckpts)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(auto<sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(ss-&gt;broken)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>emit<sp/>sensorUpdate(sensorState);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(updateSensor)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateBrokenSensor();</highlight><highlight class="comment">//更新所有设备的状态</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateGoodSensor();</highlight><highlight class="comment">//只更新goodones</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>updateSensorToUi();</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HandleSensorDevice::updateBrokenSensor()</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>:<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ss-&gt;expected)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HandleSensorDevice::updateGoodSensor()</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>:<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ss-&gt;expected)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ss-&gt;broken<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>HandleSensorDevice::getBreaks()</highlight></codeline>
+<codeline lineno="226"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt;<sp/></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>:<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ss-&gt;expected<sp/>&amp;&amp;<sp/>!ss-&gt;broken)<sp/>cnt++;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cnt;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>HandleSensorDevice::getBrokens()</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>:<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ss-&gt;broken)<sp/>cnt++;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cnt;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>HandleSensorDevice::getExpects()</highlight></codeline>
+<codeline lineno="248"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cnt<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>:<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ss-&gt;expected)<sp/>cnt++;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cnt;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HandleSensorDevice::updateSensorToUi()</highlight></codeline>
+<codeline lineno="259"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//统计所有传感器的状态，并更新至ui。注意：只更新当前dev</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ok;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sensorState<sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;11111111&quot;</highlight><highlight class="normal">).toInt(&amp;ok,<sp/>2);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckp<sp/>:<sp/><ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ss<sp/>:<sp/>ckp-&gt;sensors)<sp/>{</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ss-&gt;broken)<sp/>{</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensorState<sp/>^=<sp/>(1<sp/>&lt;&lt;<sp/>(ss-&gt;show_id<sp/>-<sp/>1));</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_handle_sensor_device_1a4b16afcd6b6fea22d29862cbd7a64554" kindref="member">sensorUpdate</ref>(sensorState);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/HandleSensorDevice.cpp"/>
+  </compounddef>
+</doxygen>

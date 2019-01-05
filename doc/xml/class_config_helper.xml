@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_config_helper" kind="class" language="C++" prot="public">
+    <compoundname>ConfigHelper</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="confighelper_8h" local="no">confighelper.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_config_helper_1a270523c0cddb9412b976b4385e9b62aa" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ConfigHelper::configFile</definition>
+        <argsstring></argsstring>
+        <name>configFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="47" column="1" bodyfile="sources/confighelper.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_config_helper_1a9421d72089dd1d661f26c19af219e859" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ConfigHelper::launchAtLogin</definition>
+        <argsstring></argsstring>
+        <name>launchAtLogin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="55" column="1" bodyfile="sources/confighelper.h" bodystart="55" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ConfigHelper::startAtLaunch</definition>
+        <argsstring></argsstring>
+        <name>startAtLaunch</name>
+        <briefdescription>
+<para>alias click &quot;start&quot; after launch this app </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="56" column="1" bodyfile="sources/confighelper.h" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">save</referencedby>
+        <referencedby refid="class_main_window_1a2e942fbbe12199474f063365a74adf78" compoundref="mainwindow_8cpp" startline="18" endline="40">MainWindow::MainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ConfigHelper::verboseLog</definition>
+        <argsstring></argsstring>
+        <name>verboseLog</name>
+        <briefdescription>
+<para>record verbose log </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="57" column="1" bodyfile="sources/confighelper.h" bodystart="57" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_config_helper_1ab4b04b47f67df886272873832961ebbe" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_dev_spec" kindref="compound">DevSpec</ref></type>
+        <definition>DevSpec ConfigHelper::device[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>device</name>
+        <briefdescription>
+<para>所有的属性值都储存在这里，每次使用时都调用helper类，才能保证设置的生效的实时性。 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="59" column="1" bodyfile="sources/confighelper.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ConfigHelper::pc2plc_portName</definition>
+        <argsstring></argsstring>
+        <name>pc2plc_portName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="61" column="1" bodyfile="sources/confighelper.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">save</referencedby>
+        <referencedby refid="class_plc_1ac5213403a3aba0c8c6f2a12c3e2d4fa5" compoundref="_plc_8cpp" startline="107" endline="135">Plc::connect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_config_helper_1ad0a8c52dccf3495d3d52bf97045588a0" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConfigHelper::matchMaskInnerRatio</definition>
+        <argsstring></argsstring>
+        <name>matchMaskInnerRatio</name>
+        <briefdescription>
+<para>匹配时，抠出的内圆半径占车轮的比例 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="62" column="1" bodyfile="sources/confighelper.h" bodystart="62" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">read</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_config_helper_1ae04fa487fbc7ee5b5e247d8330021115" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConfigHelper::matchMaskOuterRatio</definition>
+        <argsstring></argsstring>
+        <name>matchMaskOuterRatio</name>
+        <briefdescription>
+<para>匹配时，抠出的外圆半径占车轮的比例 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="63" column="1" bodyfile="sources/confighelper.h" bodystart="63" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">read</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_config_helper_1a15694a18b65e7cbfb25244dc407ffad1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ConfigHelper::ConfigHelper</definition>
+        <argsstring>(const QString &amp;configuration, QObject *parent=Q_NULLPTR)</argsstring>
+        <name>ConfigHelper</name>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>configuration</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+<para>construct a confighelper object using specified file </para>        </briefdescription>
+        <detaileddescription>
+<para>this constructor will auto <ref refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" kindref="member">read()</ref> config.ini. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="41" column="1" bodyfile="sources/confighelper.cpp" bodystart="13" bodyend="18"/>
+        <references refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">read</references>
+      </memberdef>
+      <memberdef kind="function" id="class_config_helper_1a198df438b93de320f0dd46eeeaede896" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ConfigHelper::~ConfigHelper</definition>
+        <argsstring>()</argsstring>
+        <name>~ConfigHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="42" column="1" bodyfile="sources/confighelper.cpp" bodystart="20" bodyend="24"/>
+        <references refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">save</references>
+      </memberdef>
+      <memberdef kind="function" id="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConfigHelper::read</definition>
+        <argsstring>()</argsstring>
+        <name>read</name>
+        <briefdescription>
+<para>read from ini </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="43" column="1" bodyfile="sources/confighelper.cpp" bodystart="26" bodyend="90"/>
+        <references refid="confighelper_8cpp_1ab170c7de5f01a238d1ac3ada931c14bf" compoundref="confighelper_8cpp" startline="10">GP_COMMON</references>
+        <references refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" compoundref="confighelper_8h" startline="55">launchAtLogin</references>
+        <references refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" compoundref="confighelper_8h" startline="56">startAtLaunch</references>
+        <references refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" compoundref="confighelper_8h" startline="57">verboseLog</references>
+        <references refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" compoundref="confighelper_8h" startline="61">pc2plc_portName</references>
+        <references refid="class_config_helper_1ae04fa487fbc7ee5b5e247d8330021115" compoundref="confighelper_8h" startline="63">matchMaskOuterRatio</references>
+        <references refid="class_config_helper_1ad0a8c52dccf3495d3d52bf97045588a0" compoundref="confighelper_8h" startline="62">matchMaskInnerRatio</references>
+        <references refid="confighelper_8cpp_1afe1f8c39c4e1be1155570b94d7ef2488" compoundref="confighelper_8cpp" startline="11">GP_DEV</references>
+        <references refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" compoundref="confighelper_8h" startline="59">device</references>
+        <references refid="confighelper_8cpp_1ac448247a1cec8bcbf0b4cd6338bf9a47" compoundref="confighelper_8cpp" startline="7">GP_CAM</references>
+        <references refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" compoundref="confighelper_8h" startline="19">DevSpec::camProfile</references>
+        <references refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" compoundref="camprofile_8h" startline="7">CamProfile::camIP</references>
+        <references refid="confighelper_8cpp_1a409643d7322bbc65e743ca21d294c628" compoundref="confighelper_8cpp" startline="8">GP_IM</references>
+        <references refid="confighelper_8cpp_1aa7d89e990d1b56d9a5fe7abf3c016d33" compoundref="confighelper_8cpp" startline="9">GP_OCR</references>
+        <referencedby refid="class_config_helper_1a15694a18b65e7cbfb25244dc407ffad1" compoundref="confighelper_8cpp" startline="13" endline="18">ConfigHelper</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConfigHelper::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="44" column="1" bodyfile="sources/confighelper.cpp" bodystart="92" bodyend="151"/>
+        <references refid="confighelper_8cpp_1ab170c7de5f01a238d1ac3ada931c14bf" compoundref="confighelper_8cpp" startline="10">GP_COMMON</references>
+        <references refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" compoundref="confighelper_8h" startline="55">launchAtLogin</references>
+        <references refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" compoundref="confighelper_8h" startline="56">startAtLaunch</references>
+        <references refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" compoundref="confighelper_8h" startline="57">verboseLog</references>
+        <references refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" compoundref="confighelper_8h" startline="61">pc2plc_portName</references>
+        <references refid="confighelper_8cpp_1afe1f8c39c4e1be1155570b94d7ef2488" compoundref="confighelper_8cpp" startline="11">GP_DEV</references>
+        <references refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" compoundref="confighelper_8h" startline="59">device</references>
+        <references refid="confighelper_8cpp_1ac448247a1cec8bcbf0b4cd6338bf9a47" compoundref="confighelper_8cpp" startline="7">GP_CAM</references>
+        <references refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" compoundref="confighelper_8h" startline="19">DevSpec::camProfile</references>
+        <references refid="confighelper_8cpp_1a409643d7322bbc65e743ca21d294c628" compoundref="confighelper_8cpp" startline="8">GP_IM</references>
+        <references refid="confighelper_8cpp_1aa7d89e990d1b56d9a5fe7abf3c016d33" compoundref="confighelper_8cpp" startline="9">GP_OCR</references>
+        <referencedby refid="class_config_helper_1a198df438b93de320f0dd46eeeaede896" compoundref="confighelper_8cpp" startline="20" endline="24">~ConfigHelper</referencedby>
+        <referencedby refid="class_main_window_1a05fb9d72c044aa3bb7d187b994704e2f" compoundref="mainwindow_8cpp" startline="203" endline="213">MainWindow::closeEvent</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_config_helper_1a46578ba25406ad3f080d1757ecb321c9" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConfigHelper::takeEffect</definition>
+        <argsstring>() const</argsstring>
+        <name>takeEffect</name>
+        <briefdescription>
+<para>take the indirect change into effect, including common/launchAtLogin, etc. perhaps use signal, or implement by self.在保存时，向外主动输出（一次性），而不是供其他类（在调用时）查询 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="48" column="1" bodyfile="sources/confighelper.cpp" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_helper_1ac24bac033fa12f152bd047f6f95071b1" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConfigHelper::effect_launchAtLogin</definition>
+        <argsstring>() const</argsstring>
+        <name>effect_launchAtLogin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="50" column="1" bodyfile="sources/confighelper.cpp" bodystart="158" bodyend="172"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>用于设置文件ini的相关操作，包括读取和保存 </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>cx3386 </para></simplesect>
+<simplesect kind="date"><para>九月 2018 </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="26">
+        <label>QObject</label>
+      </node>
+      <node id="25">
+        <label>ConfigHelper</label>
+        <link refid="class_config_helper"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="28">
+        <label>QObject</label>
+      </node>
+      <node id="31">
+        <label>OcrProfile</label>
+        <link refid="struct_ocr_profile"/>
+      </node>
+      <node id="29">
+        <label>DevSpec</label>
+        <link refid="struct_dev_spec"/>
+        <childnode refid="30" relation="usage">
+          <edgelabel>camProfile</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>ocrProfile</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>imProfile</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>CamProfile</label>
+        <link refid="struct_cam_profile"/>
+      </node>
+      <node id="32">
+        <label>ImProfile</label>
+        <link refid="struct_im_profile"/>
+      </node>
+      <node id="27">
+        <label>ConfigHelper</label>
+        <link refid="class_config_helper"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>device</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/confighelper.h" line="32" column="1" bodyfile="sources/confighelper.h" bodystart="32" bodyend="64"/>
+    <listofallmembers>
+      <member refid="class_config_helper_1a270523c0cddb9412b976b4385e9b62aa" prot="private" virt="non-virtual"><scope>ConfigHelper</scope><name>configFile</name></member>
+      <member refid="class_config_helper_1a15694a18b65e7cbfb25244dc407ffad1" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>ConfigHelper</name></member>
+      <member refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>device</name></member>
+      <member refid="class_config_helper_1ac24bac033fa12f152bd047f6f95071b1" prot="private" virt="non-virtual"><scope>ConfigHelper</scope><name>effect_launchAtLogin</name></member>
+      <member refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>launchAtLogin</name></member>
+      <member refid="class_config_helper_1ad0a8c52dccf3495d3d52bf97045588a0" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>matchMaskInnerRatio</name></member>
+      <member refid="class_config_helper_1ae04fa487fbc7ee5b5e247d8330021115" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>matchMaskOuterRatio</name></member>
+      <member refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>pc2plc_portName</name></member>
+      <member refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>read</name></member>
+      <member refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>save</name></member>
+      <member refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>startAtLaunch</name></member>
+      <member refid="class_config_helper_1a46578ba25406ad3f080d1757ecb321c9" prot="private" virt="non-virtual"><scope>ConfigHelper</scope><name>takeEffect</name></member>
+      <member refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>verboseLog</name></member>
+      <member refid="class_config_helper_1a198df438b93de320f0dd46eeeaede896" prot="public" virt="non-virtual"><scope>ConfigHelper</scope><name>~ConfigHelper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="struct_dev_spec" kind="struct" language="C++" prot="public">
+    <compoundname>DevSpec</compoundname>
+    <includes refid="confighelper_8h" local="no">confighelper.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cam_profile" kindref="compound">CamProfile</ref></type>
+        <definition>CamProfile DevSpec::camProfile</definition>
+        <argsstring></argsstring>
+        <name>camProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="19" column="1" bodyfile="sources/confighelper.h" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">ConfigHelper::read</referencedby>
+        <referencedby refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">ConfigHelper::save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_im_profile" kindref="compound">ImProfile</ref></type>
+        <definition>ImProfile DevSpec::imProfile</definition>
+        <argsstring></argsstring>
+        <name>imProfile</name>
+        <initializer>{ camProfile.frameInterv }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="20" column="1" bodyfile="sources/confighelper.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_dev_spec_1aaa0fa35e85c207cec5d35065ef07cfed" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_ocr_profile" kindref="compound">OcrProfile</ref></type>
+        <definition>OcrProfile DevSpec::ocrProfile</definition>
+        <argsstring></argsstring>
+        <name>ocrProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/confighelper.h" line="21" column="1" bodyfile="sources/confighelper.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>device specific parameters include camera,image process, ocr process </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>cx3386 </para></simplesect>
+<simplesect kind="date"><para>ÈýÔÂ 2018 </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="40">
+        <label>OcrProfile</label>
+        <link refid="struct_ocr_profile"/>
+      </node>
+      <node id="38">
+        <label>DevSpec</label>
+        <link refid="struct_dev_spec"/>
+        <childnode refid="39" relation="usage">
+          <edgelabel>camProfile</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>ocrProfile</edgelabel>
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>imProfile</edgelabel>
+        </childnode>
+      </node>
+      <node id="39">
+        <label>CamProfile</label>
+        <link refid="struct_cam_profile"/>
+      </node>
+      <node id="41">
+        <label>ImProfile</label>
+        <link refid="struct_im_profile"/>
+      </node>
+    </collaborationgraph>
+    <location file="sources/confighelper.h" line="18" column="1" bodyfile="sources/confighelper.h" bodystart="18" bodyend="22"/>
+    <listofallmembers>
+      <member refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" prot="public" virt="non-virtual"><scope>DevSpec</scope><name>camProfile</name></member>
+      <member refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" prot="public" virt="non-virtual"><scope>DevSpec</scope><name>imProfile</name></member>
+      <member refid="struct_dev_spec_1aaa0fa35e85c207cec5d35065ef07cfed" prot="public" virt="non-virtual"><scope>DevSpec</scope><name>ocrProfile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

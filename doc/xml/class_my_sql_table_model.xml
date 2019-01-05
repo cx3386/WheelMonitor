@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_my_sql_table_model" kind="class" language="C++" prot="public">
+    <compoundname>MySqlTableModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSqlRelationalTableModel</basecompoundref>
+    <includes refid="mysqltablemodel_8h" local="no">mysqltablemodel.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_my_sql_table_model_1ad08ebbe732d911b5bd17f8280cbcda43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MySqlTableModel::MySqlTableModel</definition>
+        <argsstring>(QObject *parent=Q_NULLPTR, QSqlDatabase db=QSqlDatabase())</argsstring>
+        <name>MySqlTableModel</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <param>
+          <type>QSqlDatabase</type>
+          <declname>db</declname>
+          <defval>QSqlDatabase()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mysqltablemodel.h" line="9" column="1" bodyfile="sources/mysqltablemodel.h" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_sql_table_model_1a625c9567e0060469977695e2c5996730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MySqlTableModel::~MySqlTableModel</definition>
+        <argsstring>()=default</argsstring>
+        <name>~MySqlTableModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mysqltablemodel.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_my_sql_table_model_1ac6a066535d9c183b28710f8e8fc616bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant MySqlTableModel::data</definition>
+        <argsstring>(const QModelIndex &amp;item, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mysqltablemodel.h" line="16" column="1" bodyfile="sources/mysqltablemodel.cpp" bodystart="6" bodyend="29"/>
+        <references refid="database_8h_1a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33" compoundref="database_8h" startline="16">Wheel_AlarmLevel</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="76">
+        <label>QSqlRelationalTableModel</label>
+      </node>
+      <node id="75">
+        <label>MySqlTableModel</label>
+        <link refid="class_my_sql_table_model"/>
+        <childnode refid="76" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="78">
+        <label>QSqlRelationalTableModel</label>
+      </node>
+      <node id="77">
+        <label>MySqlTableModel</label>
+        <link refid="class_my_sql_table_model"/>
+        <childnode refid="78" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/mysqltablemodel.h" line="5" column="1" bodyfile="sources/mysqltablemodel.h" bodystart="5" bodyend="17"/>
+    <listofallmembers>
+      <member refid="class_my_sql_table_model_1ac6a066535d9c183b28710f8e8fc616bd" prot="public" virt="non-virtual"><scope>MySqlTableModel</scope><name>data</name></member>
+      <member refid="class_my_sql_table_model_1ad08ebbe732d911b5bd17f8280cbcda43" prot="public" virt="non-virtual"><scope>MySqlTableModel</scope><name>MySqlTableModel</name></member>
+      <member refid="class_my_sql_table_model_1a625c9567e0060469977695e2c5996730" prot="public" virt="non-virtual"><scope>MySqlTableModel</scope><name>~MySqlTableModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

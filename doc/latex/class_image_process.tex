@@ -1,0 +1,256 @@
+\hypertarget{class_image_process}{}\section{Image\+Process Class Reference}
+\label{class_image_process}\index{Image\+Process@{Image\+Process}}
+
+
+{\ttfamily \#include $<$imageprocess.\+h$>$}
+
+
+
+Inheritance diagram for Image\+Process\+:
+% FIG 0
+
+
+Collaboration diagram for Image\+Process\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_image_process_a29bf2cf675c1f087538185ac83abfc85}{handle\+Frame}} ()
+\begin{DoxyCompactList}\small\item\em 处理当前帧，每秒钟3次 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_image_process_a13e7f9c562ff092e8100dcde40beedcd}{make\+Frame4\+Show}} ()
+\item 
+void \mbox{\hyperlink{class_image_process_a2a2689d411a382a27f8fa7b84585f306}{on\+Sensor\+IN}} ()
+\begin{DoxyCompactList}\small\item\em 完全进入后（进后） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_image_process_af2285e1cf441de21ee315fd59b69fdac}{on\+Sensor\+O\+UT}} ()
+\begin{DoxyCompactList}\small\item\em 开始退出前（出前） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_image_process_ac7ec277a9341197c7bfd85be85e4ccf0}{on\+Wheel\+Timeout}} ()
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_image_process_aeb1c0f8f06db72833ae098e9cba132c0}{\+\_\+\+M\+A\+In}} ()
+\item 
+void \mbox{\hyperlink{class_image_process_ae9977a14daf947dfd75d57dcba7550ba}{\+\_\+\+M\+A\+Out}} ()
+\item 
+void \mbox{\hyperlink{class_image_process_af63d5fd9925f972d8e8cf503c4882730}{frame\+Handled}} ()
+\item 
+void \mbox{\hyperlink{class_image_process_a4b7d6c8bc1ec403a848260e9c1587cd9}{show\+Frame}} ()
+\item 
+void \mbox{\hyperlink{class_image_process_afde5339b87f2e29683b567f298bf5c89}{show\+Match}} ()
+\item 
+void \mbox{\hyperlink{class_image_process_ad0f4f919d1704ac2e6416279fbde6aa0}{wheel\+Need\+Handled}} (\mbox{\hyperlink{struct_wheel_db_info}{Wheel\+Db\+Info}} info)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_image_process_abc606c9f2c55844cc2f08e6373cdc0b6}{Image\+Process}} (const \mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$\+\_\+config\+Helper, \mbox{\hyperlink{class_hik_video_capture}{Hik\+Video\+Capture}} $\ast$\+\_\+capture, \mbox{\hyperlink{class_plc}{Plc}} $\ast$\+\_\+plc\+Serial, Q\+Object $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\item 
+\mbox{\hyperlink{class_image_process_a58756d66c3a326819df894942c0265c9}{$\sim$\+Image\+Process}} ()
+\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_process_a5613b249dea6fed2b9087c6e57fb7ca4}{get\+Frame\+To\+Show}} ()
+\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_process_a30e74ef6d1a2e4fe98075dcadd8e43f9}{get\+Match\+Result}} ()
+\item 
+void \mbox{\hyperlink{class_image_process_ae062ab8a591f9a897a8275274afbdb2a}{start}} ()
+\item 
+void \mbox{\hyperlink{class_image_process_a27683908ba42359d3c45d2cd31af0b72}{stop}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 18 of file imageprocess.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_image_process_abc606c9f2c55844cc2f08e6373cdc0b6}\label{class_image_process_abc606c9f2c55844cc2f08e6373cdc0b6}} 
+\index{Image\+Process@{Image\+Process}!Image\+Process@{Image\+Process}}
+\index{Image\+Process@{Image\+Process}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{Image\+Process()}{ImageProcess()}}
+{\footnotesize\ttfamily Image\+Process\+::\+Image\+Process (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$}]{\+\_\+config\+Helper,  }\item[{\mbox{\hyperlink{class_hik_video_capture}{Hik\+Video\+Capture}} $\ast$}]{\+\_\+capture,  }\item[{\mbox{\hyperlink{class_plc}{Plc}} $\ast$}]{\+\_\+plc\+Serial,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 17 of file imageprocess.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_image_process_a58756d66c3a326819df894942c0265c9}\label{class_image_process_a58756d66c3a326819df894942c0265c9}} 
+\index{Image\+Process@{Image\+Process}!````~Image\+Process@{$\sim$\+Image\+Process}}
+\index{````~Image\+Process@{$\sim$\+Image\+Process}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{$\sim$\+Image\+Process()}{~ImageProcess()}}
+{\footnotesize\ttfamily Image\+Process\+::$\sim$\+Image\+Process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file imageprocess.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_image_process_aeb1c0f8f06db72833ae098e9cba132c0}\label{class_image_process_aeb1c0f8f06db72833ae098e9cba132c0}} 
+\index{Image\+Process@{Image\+Process}!\+\_\+\+M\+A\+In@{\+\_\+\+M\+A\+In}}
+\index{\+\_\+\+M\+A\+In@{\+\_\+\+M\+A\+In}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{\+\_\+\+M\+A\+In}{\_MAIn}}
+{\footnotesize\ttfamily void Image\+Process\+::\+\_\+\+M\+A\+In (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_image_process_ae9977a14daf947dfd75d57dcba7550ba}\label{class_image_process_ae9977a14daf947dfd75d57dcba7550ba}} 
+\index{Image\+Process@{Image\+Process}!\+\_\+\+M\+A\+Out@{\+\_\+\+M\+A\+Out}}
+\index{\+\_\+\+M\+A\+Out@{\+\_\+\+M\+A\+Out}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{\+\_\+\+M\+A\+Out}{\_MAOut}}
+{\footnotesize\ttfamily void Image\+Process\+::\+\_\+\+M\+A\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_image_process_af63d5fd9925f972d8e8cf503c4882730}\label{class_image_process_af63d5fd9925f972d8e8cf503c4882730}} 
+\index{Image\+Process@{Image\+Process}!frame\+Handled@{frame\+Handled}}
+\index{frame\+Handled@{frame\+Handled}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{frame\+Handled}{frameHandled}}
+{\footnotesize\ttfamily void Image\+Process\+::frame\+Handled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_image_process_a5613b249dea6fed2b9087c6e57fb7ca4}\label{class_image_process_a5613b249dea6fed2b9087c6e57fb7ca4}} 
+\index{Image\+Process@{Image\+Process}!get\+Frame\+To\+Show@{get\+Frame\+To\+Show}}
+\index{get\+Frame\+To\+Show@{get\+Frame\+To\+Show}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{get\+Frame\+To\+Show()}{getFrameToShow()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Process\+::get\+Frame\+To\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 24 of file imageprocess.\+h.
+
+\mbox{\Hypertarget{class_image_process_a30e74ef6d1a2e4fe98075dcadd8e43f9}\label{class_image_process_a30e74ef6d1a2e4fe98075dcadd8e43f9}} 
+\index{Image\+Process@{Image\+Process}!get\+Match\+Result@{get\+Match\+Result}}
+\index{get\+Match\+Result@{get\+Match\+Result}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{get\+Match\+Result()}{getMatchResult()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Process\+::get\+Match\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 25 of file imageprocess.\+h.
+
+\mbox{\Hypertarget{class_image_process_a29bf2cf675c1f087538185ac83abfc85}\label{class_image_process_a29bf2cf675c1f087538185ac83abfc85}} 
+\index{Image\+Process@{Image\+Process}!handle\+Frame@{handle\+Frame}}
+\index{handle\+Frame@{handle\+Frame}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{handle\+Frame}{handleFrame}}
+{\footnotesize\ttfamily void Image\+Process\+::handle\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+处理当前帧，每秒钟3次 
+
+
+
+Definition at line 55 of file imageprocess.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_image_process_a13e7f9c562ff092e8100dcde40beedcd}\label{class_image_process_a13e7f9c562ff092e8100dcde40beedcd}} 
+\index{Image\+Process@{Image\+Process}!make\+Frame4\+Show@{make\+Frame4\+Show}}
+\index{make\+Frame4\+Show@{make\+Frame4\+Show}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{make\+Frame4\+Show}{makeFrame4Show}}
+{\footnotesize\ttfamily void Image\+Process\+::make\+Frame4\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 133 of file imageprocess.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_image_process_a2a2689d411a382a27f8fa7b84585f306}\label{class_image_process_a2a2689d411a382a27f8fa7b84585f306}} 
+\index{Image\+Process@{Image\+Process}!on\+Sensor\+IN@{on\+Sensor\+IN}}
+\index{on\+Sensor\+IN@{on\+Sensor\+IN}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{on\+Sensor\+IN}{onSensorIN}}
+{\footnotesize\ttfamily void Image\+Process\+::on\+Sensor\+IN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+完全进入后（进后） 
+
+
+
+Definition at line 328 of file imageprocess.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_image_process_af2285e1cf441de21ee315fd59b69fdac}\label{class_image_process_af2285e1cf441de21ee315fd59b69fdac}} 
+\index{Image\+Process@{Image\+Process}!on\+Sensor\+O\+UT@{on\+Sensor\+O\+UT}}
+\index{on\+Sensor\+O\+UT@{on\+Sensor\+O\+UT}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{on\+Sensor\+O\+UT}{onSensorOUT}}
+{\footnotesize\ttfamily void Image\+Process\+::on\+Sensor\+O\+UT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+开始退出前（出前） 
+
+
+
+Definition at line 336 of file imageprocess.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_image_process_ac7ec277a9341197c7bfd85be85e4ccf0}\label{class_image_process_ac7ec277a9341197c7bfd85be85e4ccf0}} 
+\index{Image\+Process@{Image\+Process}!on\+Wheel\+Timeout@{on\+Wheel\+Timeout}}
+\index{on\+Wheel\+Timeout@{on\+Wheel\+Timeout}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{on\+Wheel\+Timeout}{onWheelTimeout}}
+{\footnotesize\ttfamily void Image\+Process\+::on\+Wheel\+Timeout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 345 of file imageprocess.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{class_image_process_a4b7d6c8bc1ec403a848260e9c1587cd9}\label{class_image_process_a4b7d6c8bc1ec403a848260e9c1587cd9}} 
+\index{Image\+Process@{Image\+Process}!show\+Frame@{show\+Frame}}
+\index{show\+Frame@{show\+Frame}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{show\+Frame}{showFrame}}
+{\footnotesize\ttfamily void Image\+Process\+::show\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{class_image_process_afde5339b87f2e29683b567f298bf5c89}\label{class_image_process_afde5339b87f2e29683b567f298bf5c89}} 
+\index{Image\+Process@{Image\+Process}!show\+Match@{show\+Match}}
+\index{show\+Match@{show\+Match}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{show\+Match}{showMatch}}
+{\footnotesize\ttfamily void Image\+Process\+::show\+Match (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{class_image_process_ae062ab8a591f9a897a8275274afbdb2a}\label{class_image_process_ae062ab8a591f9a897a8275274afbdb2a}} 
+\index{Image\+Process@{Image\+Process}!start@{start}}
+\index{start@{start}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Image\+Process\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 27 of file imageprocess.\+h.
+
+\mbox{\Hypertarget{class_image_process_a27683908ba42359d3c45d2cd31af0b72}\label{class_image_process_a27683908ba42359d3c45d2cd31af0b72}} 
+\index{Image\+Process@{Image\+Process}!stop@{stop}}
+\index{stop@{stop}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Image\+Process\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 28 of file imageprocess.\+h.
+
+\mbox{\Hypertarget{class_image_process_ad0f4f919d1704ac2e6416279fbde6aa0}\label{class_image_process_ad0f4f919d1704ac2e6416279fbde6aa0}} 
+\index{Image\+Process@{Image\+Process}!wheel\+Need\+Handled@{wheel\+Need\+Handled}}
+\index{wheel\+Need\+Handled@{wheel\+Need\+Handled}!Image\+Process@{Image\+Process}}
+\subsubsection{\texorpdfstring{wheel\+Need\+Handled}{wheelNeedHandled}}
+{\footnotesize\ttfamily void Image\+Process\+::wheel\+Need\+Handled (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_wheel_db_info}{Wheel\+Db\+Info}}}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 12
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{imageprocess_8h}{imageprocess.\+h}}\item 
+sources/\mbox{\hyperlink{imageprocess_8cpp}{imageprocess.\+cpp}}\end{DoxyCompactItemize}

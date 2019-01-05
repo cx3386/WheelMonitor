@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_outlier_helper" kind="class" language="C++" prot="public">
+    <compoundname>OutlierHelper</compoundname>
+    <includes refid="outlierhelper_8h" local="no">outlierhelper.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_outlier_helper_1a9d2080a6778abe21e75259f2e360f85c" prot="private" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double OutlierHelper::grubbs95</definition>
+        <argsstring>[98]</argsstring>
+        <name>grubbs95</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="14" column="1" bodyfile="sources/outlierhelper.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_outlier_helper_1ae96c240438ee24239785bb7584cbbb38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OutlierHelper::OutlierHelper</definition>
+        <argsstring>()=default</argsstring>
+        <name>OutlierHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="7" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_outlier_helper_1abcdc45be935821173222cb6c960dfdeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OutlierHelper::~OutlierHelper</definition>
+        <argsstring>()=default</argsstring>
+        <name>~OutlierHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="8" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_outlier_helper_1ac8d720064a0c39c9178417c5077cfa43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OutlierHelper::removeOutliers</definition>
+        <argsstring>(std::vector&lt; double &gt; &amp;v) const</argsstring>
+        <name>removeOutliers</name>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="9" column="1" bodyfile="sources/outlierhelper.cpp" bodystart="109" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_outlier_helper_1a15110f2e9b10b243ba072ca08accfc32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double OutlierHelper::mean</definition>
+        <argsstring>(std::vector&lt; double &gt; v) const</argsstring>
+        <name>mean</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="10" column="1" bodyfile="sources/outlierhelper.cpp" bodystart="166" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="class_outlier_helper_1a329143b98163a03aa80a2950b3b1d8cf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double OutlierHelper::stDev</definition>
+        <argsstring>(std::vector&lt; double &gt; v) const</argsstring>
+        <name>stDev</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="11" column="1" bodyfile="sources/outlierhelper.cpp" bodystart="182" bodyend="189"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_outlier_helper_1acf7c536ea538e9709e9a5f10edb32923" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double OutlierHelper::median</definition>
+        <argsstring>(std::vector&lt; double &gt; v) const</argsstring>
+        <name>median</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="15" column="1" bodyfile="sources/outlierhelper.cpp" bodystart="172" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_outlier_helper_1a2111a5d530552b192220d5f370d0d9db" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OutlierHelper::grubbs</definition>
+        <argsstring>(std::vector&lt; double &gt; &amp;v) const</argsstring>
+        <name>grubbs</name>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="16" column="1" bodyfile="sources/outlierhelper.cpp" bodystart="119" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_outlier_helper_1a2da22c60ae0e83c51364a8c13e31d587" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OutlierHelper::pauta</definition>
+        <argsstring>(std::vector&lt; double &gt; &amp;v) const</argsstring>
+        <name>pauta</name>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/outlierhelper.h" line="17" column="1" bodyfile="sources/outlierhelper.cpp" bodystart="141" bodyend="164"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/outlierhelper.h" line="5" column="1" bodyfile="sources/outlierhelper.h" bodystart="4" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_outlier_helper_1a2111a5d530552b192220d5f370d0d9db" prot="private" virt="non-virtual"><scope>OutlierHelper</scope><name>grubbs</name></member>
+      <member refid="class_outlier_helper_1a9d2080a6778abe21e75259f2e360f85c" prot="private" virt="non-virtual"><scope>OutlierHelper</scope><name>grubbs95</name></member>
+      <member refid="class_outlier_helper_1a15110f2e9b10b243ba072ca08accfc32" prot="public" virt="non-virtual"><scope>OutlierHelper</scope><name>mean</name></member>
+      <member refid="class_outlier_helper_1acf7c536ea538e9709e9a5f10edb32923" prot="private" virt="non-virtual"><scope>OutlierHelper</scope><name>median</name></member>
+      <member refid="class_outlier_helper_1ae96c240438ee24239785bb7584cbbb38" prot="public" virt="non-virtual"><scope>OutlierHelper</scope><name>OutlierHelper</name></member>
+      <member refid="class_outlier_helper_1a2da22c60ae0e83c51364a8c13e31d587" prot="private" virt="non-virtual"><scope>OutlierHelper</scope><name>pauta</name></member>
+      <member refid="class_outlier_helper_1ac8d720064a0c39c9178417c5077cfa43" prot="public" virt="non-virtual"><scope>OutlierHelper</scope><name>removeOutliers</name></member>
+      <member refid="class_outlier_helper_1a329143b98163a03aa80a2950b3b1d8cf" prot="public" virt="non-virtual"><scope>OutlierHelper</scope><name>stDev</name></member>
+      <member refid="class_outlier_helper_1abcdc45be935821173222cb6c960dfdeb" prot="public" virt="non-virtual"><scope>OutlierHelper</scope><name>~OutlierHelper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

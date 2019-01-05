@@ -1,0 +1,204 @@
+\hypertarget{class_sensor_device}{}\section{Sensor\+Device Class Reference}
+\label{class_sensor_device}\index{Sensor\+Device@{Sensor\+Device}}
+
+
+{\ttfamily \#include $<$Sensor\+Device.\+h$>$}
+
+
+
+Inheritance diagram for Sensor\+Device\+:
+% FIG 0
+
+
+Collaboration diagram for Sensor\+Device\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_device_a31ba196824ad72ac7e0fc960deb8bfa9}{Sensor\+Device}} (int \+\_\+id, Q\+Object $\ast$parent)
+\item 
+void \mbox{\hyperlink{class_sensor_device_a3b67e95ea619719648481f76c2ae1b18}{new\+Wheel}} ()
+\item 
+void \mbox{\hyperlink{class_sensor_device_a451e1e696ef7d6a02bc5b3e418b59acc}{init}} ()
+\item 
+\mbox{\hyperlink{class_sensor_device_a86594b84858de9265f533c26af206b4a}{$\sim$\+Sensor\+Device}} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_sensor_device_a0ae6c95bcdc8d5666a8dd9900d85196d}{index\+Of}} (Q\+String \+\_\+name)
+\item 
+static Q\+List$<$ \mbox{\hyperlink{class_sensor_device}{Sensor\+Device}} $\ast$ $>$ \mbox{\hyperlink{class_sensor_device_ac71d0c34ea8d46a135299f14d56f71e8}{create\+All}} (Q\+Object $\ast$parent)
+\begin{DoxyCompactList}\small\item\em 创建所有的（内/外圈）设备，返回设备的列表 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_sensor_device_a229042a02989323d6388dd6037a35384}{id}}
+\item 
+int \mbox{\hyperlink{class_sensor_device_a413a879ab20b538cff7ec754ca8f552d}{m\+\_\+id}}
+\item 
+Q\+String \mbox{\hyperlink{class_sensor_device_add21fbc076ecbe5b4de479b426ad29bd}{name}}
+\item 
+bool \mbox{\hyperlink{class_sensor_device_a86e56e6e908524cd1c27425f74b173a4}{need\+Handled}} = false
+\item 
+Q\+List$<$ \mbox{\hyperlink{class_ck_pt}{Ck\+Pt}} $\ast$ $>$ \mbox{\hyperlink{class_sensor_device_a016f2950b9f99b0f5093fd0bd74850e7}{ckpts}}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const Q\+String\+List \mbox{\hyperlink{class_sensor_device_abb7d81bf98c82e0b9f3c46a8055a9b7a}{names}} \{ \char`\"{}outer\char`\"{}, \char`\"{}inner\char`\"{} \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 59 of file Sensor\+Device.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sensor_device_a31ba196824ad72ac7e0fc960deb8bfa9}\label{class_sensor_device_a31ba196824ad72ac7e0fc960deb8bfa9}} 
+\index{Sensor\+Device@{Sensor\+Device}!Sensor\+Device@{Sensor\+Device}}
+\index{Sensor\+Device@{Sensor\+Device}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{Sensor\+Device()}{SensorDevice()}}
+{\footnotesize\ttfamily Sensor\+Device\+::\+Sensor\+Device (\begin{DoxyParamCaption}\item[{int}]{\+\_\+id,  }\item[{Q\+Object $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Definition at line 9 of file Sensor\+Device.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_sensor_device_a86594b84858de9265f533c26af206b4a}\label{class_sensor_device_a86594b84858de9265f533c26af206b4a}} 
+\index{Sensor\+Device@{Sensor\+Device}!````~Sensor\+Device@{$\sim$\+Sensor\+Device}}
+\index{````~Sensor\+Device@{$\sim$\+Sensor\+Device}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{$\sim$\+Sensor\+Device()}{~SensorDevice()}}
+{\footnotesize\ttfamily Sensor\+Device\+::$\sim$\+Sensor\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file Sensor\+Device.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sensor_device_ac71d0c34ea8d46a135299f14d56f71e8}\label{class_sensor_device_ac71d0c34ea8d46a135299f14d56f71e8}} 
+\index{Sensor\+Device@{Sensor\+Device}!create\+All@{create\+All}}
+\index{create\+All@{create\+All}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{create\+All()}{createAll()}}
+{\footnotesize\ttfamily Q\+List$<$ \mbox{\hyperlink{class_sensor_device}{Sensor\+Device}} $\ast$ $>$ Sensor\+Device\+::create\+All (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+创建所有的（内/外圈）设备，返回设备的列表 
+
+
+
+Definition at line 19 of file Sensor\+Device.\+cpp.
+
+\mbox{\Hypertarget{class_sensor_device_a0ae6c95bcdc8d5666a8dd9900d85196d}\label{class_sensor_device_a0ae6c95bcdc8d5666a8dd9900d85196d}} 
+\index{Sensor\+Device@{Sensor\+Device}!index\+Of@{index\+Of}}
+\index{index\+Of@{index\+Of}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{index\+Of()}{indexOf()}}
+{\footnotesize\ttfamily static int Sensor\+Device\+::index\+Of (\begin{DoxyParamCaption}\item[{Q\+String}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 69 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_device_a451e1e696ef7d6a02bc5b3e418b59acc}\label{class_sensor_device_a451e1e696ef7d6a02bc5b3e418b59acc}} 
+\index{Sensor\+Device@{Sensor\+Device}!init@{init}}
+\index{init@{init}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Sensor\+Device\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 35 of file Sensor\+Device.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_sensor_device_a3b67e95ea619719648481f76c2ae1b18}\label{class_sensor_device_a3b67e95ea619719648481f76c2ae1b18}} 
+\index{Sensor\+Device@{Sensor\+Device}!new\+Wheel@{new\+Wheel}}
+\index{new\+Wheel@{new\+Wheel}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{new\+Wheel()}{newWheel()}}
+{\footnotesize\ttfamily void Sensor\+Device\+::new\+Wheel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file Sensor\+Device.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_sensor_device_a016f2950b9f99b0f5093fd0bd74850e7}\label{class_sensor_device_a016f2950b9f99b0f5093fd0bd74850e7}} 
+\index{Sensor\+Device@{Sensor\+Device}!ckpts@{ckpts}}
+\index{ckpts@{ckpts}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{ckpts}{ckpts}}
+{\footnotesize\ttfamily Q\+List$<$\mbox{\hyperlink{class_ck_pt}{Ck\+Pt}}$\ast$$>$ Sensor\+Device\+::ckpts}
+
+
+
+Definition at line 72 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_device_a229042a02989323d6388dd6037a35384}\label{class_sensor_device_a229042a02989323d6388dd6037a35384}} 
+\index{Sensor\+Device@{Sensor\+Device}!id@{id}}
+\index{id@{id}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Sensor\+Device\+::id}
+
+
+
+Definition at line 63 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_device_a413a879ab20b538cff7ec754ca8f552d}\label{class_sensor_device_a413a879ab20b538cff7ec754ca8f552d}} 
+\index{Sensor\+Device@{Sensor\+Device}!m\+\_\+id@{m\+\_\+id}}
+\index{m\+\_\+id@{m\+\_\+id}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{m\+\_\+id}{m\_id}}
+{\footnotesize\ttfamily int Sensor\+Device\+::m\+\_\+id}
+
+
+
+Definition at line 64 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_device_add21fbc076ecbe5b4de479b426ad29bd}\label{class_sensor_device_add21fbc076ecbe5b4de479b426ad29bd}} 
+\index{Sensor\+Device@{Sensor\+Device}!name@{name}}
+\index{name@{name}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily Q\+String Sensor\+Device\+::name}
+
+
+
+Definition at line 65 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_device_abb7d81bf98c82e0b9f3c46a8055a9b7a}\label{class_sensor_device_abb7d81bf98c82e0b9f3c46a8055a9b7a}} 
+\index{Sensor\+Device@{Sensor\+Device}!names@{names}}
+\index{names@{names}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{names}{names}}
+{\footnotesize\ttfamily const Q\+String\+List Sensor\+Device\+::names \{ \char`\"{}outer\char`\"{}, \char`\"{}inner\char`\"{} \}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 70 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_device_a86e56e6e908524cd1c27425f74b173a4}\label{class_sensor_device_a86e56e6e908524cd1c27425f74b173a4}} 
+\index{Sensor\+Device@{Sensor\+Device}!need\+Handled@{need\+Handled}}
+\index{need\+Handled@{need\+Handled}!Sensor\+Device@{Sensor\+Device}}
+\subsubsection{\texorpdfstring{need\+Handled}{needHandled}}
+{\footnotesize\ttfamily bool Sensor\+Device\+::need\+Handled = false}
+
+
+
+Definition at line 68 of file Sensor\+Device.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{_sensor_device_8h}{Sensor\+Device.\+h}}\item 
+sources/\mbox{\hyperlink{_sensor_device_8cpp}{Sensor\+Device.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,11 @@
+digraph "PlayBackWidget::PlayBackWidget"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="PlayBackWidget::PlayBack\lWidget",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="PlayBackWidget::clearMedia",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_play_back_widget.html#a6dd67d2767c0aeb3f1e53d02ed47c6c2",tooltip="清除媒体信息；应当在失焦时调用 "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Player::setUrl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player.html#a85dda573e6b2b5f4f7bdf930b0c496f4"];
+}

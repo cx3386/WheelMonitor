@@ -1,0 +1,32 @@
+<map id="sources/stdafx.h" name="sources/stdafx.h">
+<area shape="rect" id="node2" href="$_alarm_l_c_d_board_8cpp.html" title="sources/AlarmLCDBoard.cpp" alt="" coords="5,80,196,107"/>
+<area shape="rect" id="node3" href="$_alarm_manager_8cpp.html" title="sources/AlarmManager.cpp" alt="" coords="221,80,402,107"/>
+<area shape="rect" id="node4" href="$backuplogdialog_8cpp.html" title="sources/backuplogdialog.cpp" alt="" coords="427,80,617,107"/>
+<area shape="rect" id="node5" href="$camprofile_8cpp.html" title="sources/camprofile.cpp" alt="" coords="641,80,797,107"/>
+<area shape="rect" id="node6" href="$confighelper_8cpp.html" title="sources/confighelper.cpp" alt="" coords="821,80,988,107"/>
+<area shape="rect" id="node7" href="$customslider_8cpp.html" title="sources/customslider.cpp" alt="" coords="1013,80,1183,107"/>
+<area shape="rect" id="node8" href="$_handle_sensor_device_8cpp.html" title="sources/HandleSensorDevice.cpp" alt="" coords="1207,80,1423,107"/>
+<area shape="rect" id="node9" href="$hikvideocapture_8cpp.html" title="sources/hikvideocapture.cpp" alt="" coords="1447,80,1634,107"/>
+<area shape="rect" id="node10" href="$identification_8cpp.html" title="sources/identification.cpp" alt="" coords="1659,80,1828,107"/>
+<area shape="rect" id="node11" href="$imageprocess_8cpp.html" title="sources/imageprocess.cpp" alt="" coords="1853,80,2031,107"/>
+<area shape="rect" id="node12" href="$improfile_8cpp.html" title="sources/improfile.cpp" alt="" coords="2056,80,2201,107"/>
+<area shape="rect" id="node13" href="$_level_recorder_8cpp.html" title="sources/LevelRecorder.cpp" alt="" coords="2226,80,2405,107"/>
+<area shape="rect" id="node14" href="$logindialog_8cpp.html" title="sources/logindialog.cpp" alt="" coords="2429,80,2588,107"/>
+<area shape="rect" id="node15" href="$main_8cpp.html" title="sources/main.cpp" alt="" coords="2613,80,2738,107"/>
+<area shape="rect" id="node16" href="$mainwindow_8cpp.html" title="sources/mainwindow.cpp" alt="" coords="2763,80,2929,107"/>
+<area shape="rect" id="node17" href="$_match_viewer_8cpp.html" title="sources/MatchViewer.cpp" alt="" coords="2953,80,3125,107"/>
+<area shape="rect" id="node18" href="$mysqltablemodel_8cpp.html" title="sources/mysqltablemodel.cpp" alt="" coords="3150,80,3345,107"/>
+<area shape="rect" id="node19" href="$ocr_8cpp.html" title="sources/ocr.cpp" alt="" coords="3369,80,3483,107"/>
+<area shape="rect" id="node20" href="$ocrprofile_8cpp.html" title="sources/ocrprofile.cpp" alt="" coords="3507,80,3657,107"/>
+<area shape="rect" id="node21" href="$outlierhelper_8cpp.html" title="sources/outlierhelper.cpp" alt="" coords="3681,80,3848,107"/>
+<area shape="rect" id="node22" href="$playbackwidget_8cpp.html" title="sources/playbackwidget.cpp" alt="" coords="3873,80,4059,107"/>
+<area shape="rect" id="node23" href="$player_8cpp.html" title="sources/player.cpp" alt="" coords="4084,80,4216,107"/>
+<area shape="rect" id="node24" href="$_plc_8cpp.html" title="sources/Plc.cpp" alt="" coords="4240,80,4356,107"/>
+<area shape="rect" id="node25" href="$robustmatcher_8cpp.html" title="sources/robustmatcher.cpp" alt="" coords="4380,80,4560,107"/>
+<area shape="rect" id="node26" href="$_sensor_device_8cpp.html" title="sources/SensorDevice.cpp" alt="" coords="4585,80,4761,107"/>
+<area shape="rect" id="node27" href="$settingdialog_8cpp.html" title="sources/settingdialog.cpp" alt="" coords="4785,80,4955,107"/>
+<area shape="rect" id="node28" href="$_speed_integrator_8cpp.html" title="sources/SpeedIntegrator.cpp" alt="" coords="4980,80,5168,107"/>
+<area shape="rect" id="node29" href="$stdafx_8cpp.html" title="sources/stdafx.cpp" alt="" coords="5192,80,5324,107"/>
+<area shape="rect" id="node30" href="$videowidget_8cpp.html" title="sources/videowidget.cpp" alt="" coords="5349,80,5511,107"/>
+<area shape="rect" id="node31" href="$_view_sensor_image_8cpp.html" title="sources/ViewSensorImage.cpp" alt="" coords="5536,80,5737,107"/>
+</map>

@@ -1,0 +1,9 @@
+digraph "Plc::connectError"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node15 [label="Plc::connectError",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node15 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="Plc::connect",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_plc.html#ac5213403a3aba0c8c6f2a12c3e2d4fa5",tooltip="连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开 "];
+}

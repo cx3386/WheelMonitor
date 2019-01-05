@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_backup_log_dialog" kind="class" language="C++" prot="public">
+    <compoundname>BackupLogDialog</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QDialog</basecompoundref>
+    <includes refid="backuplogdialog_8h" local="no">backuplogdialog.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_backup_log_dialog_1aa6f82be276b1f4ec515159c198bff781" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="struct_backup_info" kindref="compound">BackupInfo</ref> &gt;</type>
+        <definition>QList&lt;BackupInfo&gt; BackupLogDialog::backupInfoList</definition>
+        <argsstring></argsstring>
+        <name>backupInfoList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="35" column="1" bodyfile="sources/backuplogdialog.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_backup_log_dialog_1a08b4a38c7b085e2ab1b0ab00e532e3fd" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString BackupLogDialog::desFilePath</definition>
+        <argsstring></argsstring>
+        <name>desFilePath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="43" column="1" bodyfile="sources/backuplogdialog.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_backup_log_dialog_1a98d637e3c350c86cebf7dbacbb9d9170" prot="private" static="no" mutable="no">
+        <type>quint64</type>
+        <definition>quint64 BackupLogDialog::lfNeedSpace</definition>
+        <argsstring></argsstring>
+        <name>lfNeedSpace</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="44" column="1" bodyfile="sources/backuplogdialog.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_backup_log_dialog_1a053373088a7a57f9927a13324ae472a4" prot="private" static="no" mutable="no">
+        <type>quint64</type>
+        <definition>quint64 BackupLogDialog::lfFreeSpace</definition>
+        <argsstring></argsstring>
+        <name>lfFreeSpace</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="45" column="1" bodyfile="sources/backuplogdialog.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_backup_log_dialog_1aa694beb20b0e321a315062e173d90f21" prot="private" static="no" mutable="no">
+        <type>QLabel *</type>
+        <definition>QLabel* BackupLogDialog::freeSpaceLabel</definition>
+        <argsstring></argsstring>
+        <name>freeSpaceLabel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="47" column="1" bodyfile="sources/backuplogdialog.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_backup_log_dialog_1a3654dd1719c77d665f2473732b06dab0" prot="private" static="no" mutable="no">
+        <type>QLineEdit *</type>
+        <definition>QLineEdit* BackupLogDialog::dirPathLineEdit</definition>
+        <argsstring></argsstring>
+        <name>dirPathLineEdit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="48" column="1" bodyfile="sources/backuplogdialog.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_backup_log_dialog_1a49e911db8358a5557a3dc0b1a67d33ad" prot="private" static="no" mutable="no">
+        <type>QPushButton *</type>
+        <definition>QPushButton* BackupLogDialog::copyBtn</definition>
+        <argsstring></argsstring>
+        <name>copyBtn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="49" column="1" bodyfile="sources/backuplogdialog.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BackupLogDialog::BackupLogDialog</definition>
+        <argsstring>(QWidget *parent=nullptr)</argsstring>
+        <name>BackupLogDialog</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>UI </para>        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="22" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="8" bodyend="162"/>
+        <references refid="common_8h_1a46ad4687cfe23f762717c8db257b0303" compoundref="main_8cpp" startline="22">logDirPath</references>
+        <references refid="common_8h_1a3c8467c4addcfd3ee40b1439311d1349" compoundref="main_8cpp" startline="18">videoDirPath</references>
+        <references refid="common_8h_1a98bb5531df73660f1a4c1f181eedd88c" compoundref="main_8cpp" startline="24">ocrDirPath</references>
+        <references refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33" compoundref="database_8h" startline="53">Checked</references>
+      </memberdef>
+      <memberdef kind="function" id="class_backup_log_dialog_1a908aa32b222e2d7fb0b5714c51dbe13c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BackupLogDialog::~BackupLogDialog</definition>
+        <argsstring>()</argsstring>
+        <name>~BackupLogDialog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="23" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="164" bodyend="166"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_backup_log_dialog_1a013163aeb369a77c1c0bdb485ceaf1cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BackupLogDialog::chooseDirPath</definition>
+        <argsstring>()</argsstring>
+        <name>chooseDirPath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="26" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="262" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_backup_log_dialog_1a03fa6b20fb80595691eaa7209af0d4ce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BackupLogDialog::startCopy</definition>
+        <argsstring>()</argsstring>
+        <name>startCopy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="28" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="168" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_backup_log_dialog_1adad19bf15dfdf951f5a471245f426778" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BackupLogDialog::zipFiles</definition>
+        <argsstring>(QString fileCompressd, QStringList files, QString srcRootPath)</argsstring>
+        <name>zipFiles</name>
+        <param>
+          <type>QString</type>
+          <declname>fileCompressd</declname>
+        </param>
+        <param>
+          <type>QStringList</type>
+          <declname>files</declname>
+        </param>
+        <param>
+          <type>QString</type>
+          <declname>srcRootPath</declname>
+        </param>
+        <briefdescription>
+<para>compress files to a zip. not recursively </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>QString</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>fileCompressd </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>QStringList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>files </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>QString</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>srcRootPath </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="30" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="197" bodyend="260"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_backup_log_dialog_1a98d99b3b7018c89f820e9f154b53568d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList BackupLogDialog::getBackupFiles</definition>
+        <argsstring>() const</argsstring>
+        <name>getBackupFiles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="36" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="283" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="class_backup_log_dialog_1a39ec3c76de0e20fc51f62d294315eda9" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList BackupLogDialog::getDayList</definition>
+        <argsstring>(QString path, bool isAll, int nDays) const</argsstring>
+        <name>getDayList</name>
+        <param>
+          <type>QString</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isAll</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nDays</declname>
+        </param>
+        <briefdescription>
+<para>get day list dirs for n days. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="38" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="306" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="class_backup_log_dialog_1a055f89e9ced7adb7c84e29dfedaa0d35" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList BackupLogDialog::getDayList</definition>
+        <argsstring>(QString path, int day) const</argsstring>
+        <name>getDayList</name>
+        <param>
+          <type>QString</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>day</declname>
+        </param>
+        <briefdescription>
+<para>for some days. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="39" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="330" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="class_backup_log_dialog_1a2e2835895063102cf1528797d730fd1b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QStringList</type>
+        <definition>QStringList BackupLogDialog::getDayList</definition>
+        <argsstring>(QString path) const</argsstring>
+        <name>getDayList</name>
+        <param>
+          <type>QString</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>for all days. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="40" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="335" bodyend="338"/>
+      </memberdef>
+      <memberdef kind="function" id="class_backup_log_dialog_1a3db50ebc196268a1f3b335671b8d961a" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>quint64</type>
+        <definition>quint64 BackupLogDialog::getDiskFreeSpace</definition>
+        <argsstring>(QString driver) const</argsstring>
+        <name>getDiskFreeSpace</name>
+        <param>
+          <type>QString</type>
+          <declname>driver</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="41" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="351" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="class_backup_log_dialog_1a5218eb45dd28dd88bb7a06be424889b8" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>quint64</type>
+        <definition>quint64 BackupLogDialog::getNeedSpace</definition>
+        <argsstring>() const</argsstring>
+        <name>getNeedSpace</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="42" column="1" bodyfile="sources/backuplogdialog.cpp" bodystart="340" bodyend="349"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="10">
+        <label>BackupLogDialog</label>
+        <link refid="class_backup_log_dialog"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>QDialog</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="12">
+        <label>BackupLogDialog</label>
+        <link refid="class_backup_log_dialog"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>QDialog</label>
+      </node>
+    </collaborationgraph>
+    <location file="sources/backuplogdialog.h" line="18" column="1" bodyfile="sources/backuplogdialog.h" bodystart="18" bodyend="50"/>
+    <listofallmembers>
+      <member refid="class_backup_log_dialog_1aa6f82be276b1f4ec515159c198bff781" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>backupInfoList</name></member>
+      <member refid="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" prot="public" virt="non-virtual"><scope>BackupLogDialog</scope><name>BackupLogDialog</name></member>
+      <member refid="class_backup_log_dialog_1a013163aeb369a77c1c0bdb485ceaf1cb" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>chooseDirPath</name></member>
+      <member refid="class_backup_log_dialog_1a49e911db8358a5557a3dc0b1a67d33ad" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>copyBtn</name></member>
+      <member refid="class_backup_log_dialog_1a08b4a38c7b085e2ab1b0ab00e532e3fd" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>desFilePath</name></member>
+      <member refid="class_backup_log_dialog_1a3654dd1719c77d665f2473732b06dab0" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>dirPathLineEdit</name></member>
+      <member refid="class_backup_log_dialog_1aa694beb20b0e321a315062e173d90f21" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>freeSpaceLabel</name></member>
+      <member refid="class_backup_log_dialog_1a98d99b3b7018c89f820e9f154b53568d" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>getBackupFiles</name></member>
+      <member refid="class_backup_log_dialog_1a39ec3c76de0e20fc51f62d294315eda9" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>getDayList</name></member>
+      <member refid="class_backup_log_dialog_1a055f89e9ced7adb7c84e29dfedaa0d35" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>getDayList</name></member>
+      <member refid="class_backup_log_dialog_1a2e2835895063102cf1528797d730fd1b" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>getDayList</name></member>
+      <member refid="class_backup_log_dialog_1a3db50ebc196268a1f3b335671b8d961a" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>getDiskFreeSpace</name></member>
+      <member refid="class_backup_log_dialog_1a5218eb45dd28dd88bb7a06be424889b8" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>getNeedSpace</name></member>
+      <member refid="class_backup_log_dialog_1a053373088a7a57f9927a13324ae472a4" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>lfFreeSpace</name></member>
+      <member refid="class_backup_log_dialog_1a98d637e3c350c86cebf7dbacbb9d9170" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>lfNeedSpace</name></member>
+      <member refid="class_backup_log_dialog_1a03fa6b20fb80595691eaa7209af0d4ce" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>startCopy</name></member>
+      <member refid="class_backup_log_dialog_1adad19bf15dfdf951f5a471245f426778" prot="private" virt="non-virtual"><scope>BackupLogDialog</scope><name>zipFiles</name></member>
+      <member refid="class_backup_log_dialog_1a908aa32b222e2d7fb0b5714c51dbe13c" prot="public" virt="non-virtual"><scope>BackupLogDialog</scope><name>~BackupLogDialog</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

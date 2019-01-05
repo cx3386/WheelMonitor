@@ -1,0 +1,238 @@
+\hypertarget{class_alarm_manager}{}\section{Alarm\+Manager Class Reference}
+\label{class_alarm_manager}\index{Alarm\+Manager@{Alarm\+Manager}}
+
+
+{\ttfamily \#include $<$Alarm\+Manager.\+h$>$}
+
+
+
+Inheritance diagram for Alarm\+Manager\+:
+% FIG 0
+
+
+Collaboration diagram for Alarm\+Manager\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_alarm_manager_ac63fabcfc799aecf81f044d41bc7f3f4}{on\+Hardware\+Alarm}} (\mbox{\hyperlink{_alarm_event_8h_a869a7fc0505bdd0dc64c62b160f583bc}{Hardware\+Alarm\+Event}} event)
+\begin{DoxyCompactList}\small\item\em 当\+P\+L\+C发出掉轮报警，更新ui界面（\+D\+O\+C\+K和警报灯），并由\+P\+L\+C向中控发出报警 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_alarm_manager_a213979463b7f205ba09f095c4e318124}{show\+Cio100\+To\+Ui}} (int)
+\begin{DoxyCompactList}\small\item\em 掉轮报警信号 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_alarm_manager_a9ae0da0b1353484b71987214c1245668}{hard\+Alarm\+To\+Plc}} (int)
+\begin{DoxyCompactList}\small\item\em 中控报警信号发送至\+P\+L\+C中进行处理 connect to P\+LC todo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_alarm_manager_a55d80e5566558f4c9146573239f904de}{show\+Alarm\+Light\+To\+Ui}} (int)
+\begin{DoxyCompactList}\small\item\em 设置\+U\+I界面的报警灯的颜色 connect to UI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_alarm_manager_aab6cc4a610ba2f389bbab701b5d377cf}{show\+Speed\+\_\+i}} (double)
+\item 
+void \mbox{\hyperlink{class_alarm_manager_ab9895e76b0b6a0c4525c38a355c805c8}{show\+Error\+\_\+i}} (double)
+\item 
+void \mbox{\hyperlink{class_alarm_manager_a3b4d8431b71a981c3deb72836f5323c1}{show\+Num\+\_\+i}} (Q\+String)
+\item 
+void \mbox{\hyperlink{class_alarm_manager_a512d4492a9c02ed1afea872e8e4fffb7}{show\+Speed\+\_\+o}} (double)
+\item 
+void \mbox{\hyperlink{class_alarm_manager_ad812d53580b9af78d53de719188ea327}{show\+Error\+\_\+o}} (double)
+\item 
+void \mbox{\hyperlink{class_alarm_manager_a5727c94eb5d81b236f0de7ab57daced1}{show\+Num\+\_\+o}} (Q\+String)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_alarm_manager_a8be4a4a110ea823811eea0c580021f55}{Alarm\+Manager}} (Q\+Object $\ast$parent)
+\item 
+\mbox{\hyperlink{class_alarm_manager_a06c4f8aa74bd546b62326708aaf15982}{$\sim$\+Alarm\+Manager}} ()
+\item 
+void \mbox{\hyperlink{class_alarm_manager_a4af37b18f9592a557393e947d033ecaf}{bind\+P\+LC}} (\mbox{\hyperlink{class_plc}{Plc}} $\ast$plc)
+\item 
+void \mbox{\hyperlink{class_alarm_manager_a20ebd74c084d24347a61aa8490f21cbf}{bind\+Im\+Proc}} (\mbox{\hyperlink{class_image_process}{Image\+Process}} $\ast$imp)
+\item 
+void \mbox{\hyperlink{class_alarm_manager_a33f3a139d24a61418677975d621ce87a}{bind\+Main\+Window}} (\mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$mainwindow)
+\item 
+void \mbox{\hyperlink{class_alarm_manager_afcb1ab3d5f8f3e4c01227ab052bc520f}{bind\+Play\+Back}} (\mbox{\hyperlink{class_play_back_widget}{Play\+Back\+Widget}} $\ast$pb)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 27 of file Alarm\+Manager.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_alarm_manager_a8be4a4a110ea823811eea0c580021f55}\label{class_alarm_manager_a8be4a4a110ea823811eea0c580021f55}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!Alarm\+Manager@{Alarm\+Manager}}
+\index{Alarm\+Manager@{Alarm\+Manager}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{Alarm\+Manager()}{AlarmManager()}}
+{\footnotesize\ttfamily Alarm\+Manager\+::\+Alarm\+Manager (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file Alarm\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_alarm_manager_a06c4f8aa74bd546b62326708aaf15982}\label{class_alarm_manager_a06c4f8aa74bd546b62326708aaf15982}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!````~Alarm\+Manager@{$\sim$\+Alarm\+Manager}}
+\index{````~Alarm\+Manager@{$\sim$\+Alarm\+Manager}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{$\sim$\+Alarm\+Manager()}{~AlarmManager()}}
+{\footnotesize\ttfamily Alarm\+Manager\+::$\sim$\+Alarm\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Alarm\+Manager.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_alarm_manager_a20ebd74c084d24347a61aa8490f21cbf}\label{class_alarm_manager_a20ebd74c084d24347a61aa8490f21cbf}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!bind\+Im\+Proc@{bind\+Im\+Proc}}
+\index{bind\+Im\+Proc@{bind\+Im\+Proc}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{bind\+Im\+Proc()}{bindImProc()}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::bind\+Im\+Proc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_image_process}{Image\+Process}} $\ast$}]{imp }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file Alarm\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_alarm_manager_a33f3a139d24a61418677975d621ce87a}\label{class_alarm_manager_a33f3a139d24a61418677975d621ce87a}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!bind\+Main\+Window@{bind\+Main\+Window}}
+\index{bind\+Main\+Window@{bind\+Main\+Window}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{bind\+Main\+Window()}{bindMainWindow()}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::bind\+Main\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_main_window}{Main\+Window}} $\ast$}]{mainwindow }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file Alarm\+Manager.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_alarm_manager_afcb1ab3d5f8f3e4c01227ab052bc520f}\label{class_alarm_manager_afcb1ab3d5f8f3e4c01227ab052bc520f}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!bind\+Play\+Back@{bind\+Play\+Back}}
+\index{bind\+Play\+Back@{bind\+Play\+Back}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{bind\+Play\+Back()}{bindPlayBack()}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::bind\+Play\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_play_back_widget}{Play\+Back\+Widget}} $\ast$}]{pb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file Alarm\+Manager.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_alarm_manager_a4af37b18f9592a557393e947d033ecaf}\label{class_alarm_manager_a4af37b18f9592a557393e947d033ecaf}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!bind\+P\+LC@{bind\+P\+LC}}
+\index{bind\+P\+LC@{bind\+P\+LC}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{bind\+P\+L\+C()}{bindPLC()}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::bind\+P\+LC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plc}{Plc}} $\ast$}]{plc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file Alarm\+Manager.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_alarm_manager_a9ae0da0b1353484b71987214c1245668}\label{class_alarm_manager_a9ae0da0b1353484b71987214c1245668}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!hard\+Alarm\+To\+Plc@{hard\+Alarm\+To\+Plc}}
+\index{hard\+Alarm\+To\+Plc@{hard\+Alarm\+To\+Plc}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{hard\+Alarm\+To\+Plc}{hardAlarmToPlc}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::hard\+Alarm\+To\+Plc (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+中控报警信号发送至\+P\+L\+C中进行处理 connect to P\+LC todo. 
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_alarm_manager_ac63fabcfc799aecf81f044d41bc7f3f4}\label{class_alarm_manager_ac63fabcfc799aecf81f044d41bc7f3f4}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!on\+Hardware\+Alarm@{on\+Hardware\+Alarm}}
+\index{on\+Hardware\+Alarm@{on\+Hardware\+Alarm}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{on\+Hardware\+Alarm}{onHardwareAlarm}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::on\+Hardware\+Alarm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_alarm_event_8h_a869a7fc0505bdd0dc64c62b160f583bc}{Hardware\+Alarm\+Event}}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+当\+P\+L\+C发出掉轮报警，更新ui界面（\+D\+O\+C\+K和警报灯），并由\+P\+L\+C向中控发出报警 
+
+
+
+Definition at line 65 of file Alarm\+Manager.\+cpp.
+
+\mbox{\Hypertarget{class_alarm_manager_a55d80e5566558f4c9146573239f904de}\label{class_alarm_manager_a55d80e5566558f4c9146573239f904de}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!show\+Alarm\+Light\+To\+Ui@{show\+Alarm\+Light\+To\+Ui}}
+\index{show\+Alarm\+Light\+To\+Ui@{show\+Alarm\+Light\+To\+Ui}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{show\+Alarm\+Light\+To\+Ui}{showAlarmLightToUi}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::show\+Alarm\+Light\+To\+Ui (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+设置\+U\+I界面的报警灯的颜色 connect to UI. 
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_alarm_manager_a213979463b7f205ba09f095c4e318124}\label{class_alarm_manager_a213979463b7f205ba09f095c4e318124}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!show\+Cio100\+To\+Ui@{show\+Cio100\+To\+Ui}}
+\index{show\+Cio100\+To\+Ui@{show\+Cio100\+To\+Ui}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{show\+Cio100\+To\+Ui}{showCio100ToUi}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::show\+Cio100\+To\+Ui (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+掉轮报警信号 
+
+中控报警信号（\+P\+LC C\+I\+O100）在\+U\+I中的显示 connect to UI todo Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_alarm_manager_ab9895e76b0b6a0c4525c38a355c805c8}\label{class_alarm_manager_ab9895e76b0b6a0c4525c38a355c805c8}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!show\+Error\+\_\+i@{show\+Error\+\_\+i}}
+\index{show\+Error\+\_\+i@{show\+Error\+\_\+i}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{show\+Error\+\_\+i}{showError\_i}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::show\+Error\+\_\+i (\begin{DoxyParamCaption}\item[{double}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_alarm_manager_ad812d53580b9af78d53de719188ea327}\label{class_alarm_manager_ad812d53580b9af78d53de719188ea327}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!show\+Error\+\_\+o@{show\+Error\+\_\+o}}
+\index{show\+Error\+\_\+o@{show\+Error\+\_\+o}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{show\+Error\+\_\+o}{showError\_o}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::show\+Error\+\_\+o (\begin{DoxyParamCaption}\item[{double}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{class_alarm_manager_a3b4d8431b71a981c3deb72836f5323c1}\label{class_alarm_manager_a3b4d8431b71a981c3deb72836f5323c1}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!show\+Num\+\_\+i@{show\+Num\+\_\+i}}
+\index{show\+Num\+\_\+i@{show\+Num\+\_\+i}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{show\+Num\+\_\+i}{showNum\_i}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::show\+Num\+\_\+i (\begin{DoxyParamCaption}\item[{Q\+String}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{class_alarm_manager_a5727c94eb5d81b236f0de7ab57daced1}\label{class_alarm_manager_a5727c94eb5d81b236f0de7ab57daced1}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!show\+Num\+\_\+o@{show\+Num\+\_\+o}}
+\index{show\+Num\+\_\+o@{show\+Num\+\_\+o}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{show\+Num\+\_\+o}{showNum\_o}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::show\+Num\+\_\+o (\begin{DoxyParamCaption}\item[{Q\+String}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{class_alarm_manager_aab6cc4a610ba2f389bbab701b5d377cf}\label{class_alarm_manager_aab6cc4a610ba2f389bbab701b5d377cf}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!show\+Speed\+\_\+i@{show\+Speed\+\_\+i}}
+\index{show\+Speed\+\_\+i@{show\+Speed\+\_\+i}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{show\+Speed\+\_\+i}{showSpeed\_i}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::show\+Speed\+\_\+i (\begin{DoxyParamCaption}\item[{double}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{class_alarm_manager_a512d4492a9c02ed1afea872e8e4fffb7}\label{class_alarm_manager_a512d4492a9c02ed1afea872e8e4fffb7}} 
+\index{Alarm\+Manager@{Alarm\+Manager}!show\+Speed\+\_\+o@{show\+Speed\+\_\+o}}
+\index{show\+Speed\+\_\+o@{show\+Speed\+\_\+o}!Alarm\+Manager@{Alarm\+Manager}}
+\subsubsection{\texorpdfstring{show\+Speed\+\_\+o}{showSpeed\_o}}
+{\footnotesize\ttfamily void Alarm\+Manager\+::show\+Speed\+\_\+o (\begin{DoxyParamCaption}\item[{double}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 13
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{_alarm_manager_8h}{Alarm\+Manager.\+h}}\item 
+sources/\mbox{\hyperlink{_alarm_manager_8cpp}{Alarm\+Manager.\+cpp}}\end{DoxyCompactItemize}

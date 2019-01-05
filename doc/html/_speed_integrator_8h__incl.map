@@ -1,0 +1,7 @@
+<map id="sources/SpeedIntegrator.h" name="sources/SpeedIntegrator.h">
+<area shape="rect" id="node3" href="$_plc_8h.html" title="Plc.h" alt="" coords="115,80,167,107"/>
+<area shape="rect" id="node4" href="$common_8h.html" title="include the common definition. " alt="" coords="133,155,215,181"/>
+<area shape="rect" id="node6" href="$_handle_sensor_device_8h.html" title="HandleSensorDevice.h" alt="" coords="239,155,391,181"/>
+<area shape="rect" id="node7" href="$_sensor_device_8h.html" title="SensorDevice.h" alt="" coords="274,229,386,256"/>
+<area shape="rect" id="node8" href="$_level_recorder_8h.html" title="用于记录电平的高低 " alt="" coords="273,304,387,331"/>
+</map>

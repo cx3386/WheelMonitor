@@ -1,0 +1,1135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="playbackwidget_8cpp" kind="file" language="C++">
+    <compoundname>playbackwidget.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="common_8h" local="yes">common.h</includes>
+    <includes refid="database_8h" local="yes">database.h</includes>
+    <includes refid="mysqltablemodel_8h" local="yes">mysqltablemodel.h</includes>
+    <includes refid="playbackwidget_8h" local="yes">playbackwidget.h</includes>
+    <includes refid="player_8h" local="yes">player.h</includes>
+    <includes local="no">QtSql</includes>
+    <incdepgraph>
+      <node id="569">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="572">
+        <label>videowidget.h</label>
+        <link refid="videowidget_8h"/>
+        <childnode refid="573" relation="include">
+        </childnode>
+      </node>
+      <node id="560">
+        <label>QObject</label>
+      </node>
+      <node id="567">
+        <label>HandleSensorDevice.h</label>
+        <link refid="_handle_sensor_device_8h"/>
+        <childnode refid="560" relation="include">
+        </childnode>
+        <childnode refid="568" relation="include">
+        </childnode>
+      </node>
+      <node id="566">
+        <label>Plc.h</label>
+        <link refid="_plc_8h"/>
+        <childnode refid="560" relation="include">
+        </childnode>
+        <childnode refid="556" relation="include">
+        </childnode>
+        <childnode refid="567" relation="include">
+        </childnode>
+      </node>
+      <node id="561">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="574">
+        <label>QMediaPlayer</label>
+      </node>
+      <node id="568">
+        <label>SensorDevice.h</label>
+        <link refid="_sensor_device_8h"/>
+        <childnode refid="569" relation="include">
+        </childnode>
+        <childnode refid="560" relation="include">
+        </childnode>
+      </node>
+      <node id="559">
+        <label>ocr.h</label>
+        <link refid="ocr_8h"/>
+        <childnode refid="560" relation="include">
+        </childnode>
+        <childnode refid="561" relation="include">
+        </childnode>
+      </node>
+      <node id="570">
+        <label>QWidget</label>
+      </node>
+      <node id="565">
+        <label>playbackwidget.h</label>
+        <link refid="playbackwidget_8h"/>
+        <childnode refid="566" relation="include">
+        </childnode>
+        <childnode refid="570" relation="include">
+        </childnode>
+      </node>
+      <node id="557">
+        <label>QString</label>
+      </node>
+      <node id="563">
+        <label>mysqltablemodel.h</label>
+        <link refid="mysqltablemodel_8h"/>
+        <childnode refid="564" relation="include">
+        </childnode>
+      </node>
+      <node id="564">
+        <label>QSqlRelationalTableModel</label>
+      </node>
+      <node id="555">
+        <label>QtWidgets</label>
+      </node>
+      <node id="553">
+        <label>sources/playbackwidget.cpp</label>
+        <link refid="playbackwidget_8cpp"/>
+        <childnode refid="554" relation="include">
+        </childnode>
+        <childnode refid="556" relation="include">
+        </childnode>
+        <childnode refid="558" relation="include">
+        </childnode>
+        <childnode refid="563" relation="include">
+        </childnode>
+        <childnode refid="565" relation="include">
+        </childnode>
+        <childnode refid="571" relation="include">
+        </childnode>
+        <childnode refid="562" relation="include">
+        </childnode>
+      </node>
+      <node id="558">
+        <label>database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="556" relation="include">
+        </childnode>
+        <childnode refid="559" relation="include">
+        </childnode>
+        <childnode refid="562" relation="include">
+        </childnode>
+      </node>
+      <node id="556">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="557" relation="include">
+        </childnode>
+      </node>
+      <node id="562">
+        <label>QtSql</label>
+      </node>
+      <node id="573">
+        <label>QVideoWidget</label>
+      </node>
+      <node id="554">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="555" relation="include">
+        </childnode>
+      </node>
+      <node id="571">
+        <label>player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="572" relation="include">
+        </childnode>
+        <childnode refid="574" relation="include">
+        </childnode>
+        <childnode refid="570" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="common_8h" kindref="compound">common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="database_8h" kindref="compound">database.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mysqltablemodel_8h" kindref="compound">mysqltablemodel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="playbackwidget_8h" kindref="compound">playbackwidget.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="player_8h" kindref="compound">player.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtSql&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_play_back_widget_1aadceb04a8dab25ebd50d16ba99d4b6fc" refkind="member"><highlight class="normal"><ref refid="class_play_back_widget_1aadceb04a8dab25ebd50d16ba99d4b6fc" kindref="member">PlayBackWidget::PlayBackWidget</ref>(QWidget*<sp/>parent)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QWidget(parent)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>initAlarmTable();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>initAllTable();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//UI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//failure<sp/>level<sp/>indication</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>labelHLayout<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QHBoxLayout;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>QLabel*<sp/>indicateLabel<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QLabel(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>indicateLabel-&gt;setText(QStringLiteral(</highlight><highlight class="stringliteral">&quot;报警等级&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>labelHLayout-&gt;addWidget(indicateLabel);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//labelHLayout-&gt;addStretch();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>levelTexts[4]<sp/>=<sp/>{<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;正常&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;轻微&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;一般 ),<sp/>QStringLiteral(&quot;严重&quot;)<sp/>};
+<sp/><sp/><sp/>QString<sp/>styleSheets[4]<sp/>=<sp/>{<sp/>&quot;background-color:rgb(0,176,80);&quot;<sp/>/*green*/
+<sp/><sp/><sp/><sp/><sp/>,
+<sp/><sp/><sp/><sp/><sp/><sp/>&quot;background-color:rgb(255,255,0);&quot;<sp/>/*yellow*/
+<sp/><sp/><sp/><sp/><sp/><sp/>,
+<sp/><sp/><sp/><sp/><sp/><sp/>&quot;background-color:rgb(255,192,0);&quot;<sp/>/*orange*/
+<sp/><sp/><sp/><sp/><sp/><sp/>,
+<sp/><sp/><sp/><sp/><sp/><sp/>&quot;background-color:rgb(255,0,0);&quot;<sp/>/*red*/<sp/>};
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>4;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>QLabel*<sp/>lvColorLabel<sp/>=<sp/>new<sp/>QLabel(this);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>lvColorLabel-&gt;setFixedSize(30,<sp/>18);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lvColorLabel-&gt;setStyleSheet(styleSheets[i]);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QLabel*<sp/>lvTextLabel<sp/>=<sp/>new<sp/>QLabel(this);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lvTextLabel-&gt;setText(levelTexts[i]);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//lvTextLabel-&gt;setStyleSheet(&quot;font-size:12pt;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>labelHLayout-&gt;addWidget(lvColorLabel,<sp/>0,<sp/>Qt::AlignCenter);
+<sp/><sp/><sp/><sp/><sp/>labelHLayout-&gt;addWidget(lvTextLabel,<sp/>0,<sp/>Qt::AlignCenter);
+<sp/><sp/>}
+
+<sp/>selectTableCb<sp/>=<sp/>new<sp/>QComboBox(this);
+<sp/><sp/><sp/>selectTableCb-&gt;setEditable(false);
+<sp/>selectTableCb-&gt;addItem(QStringLiteral(&quot;报警&quot;));
+<sp/><sp/><sp/><sp/>selectTableCb-&gt;addItem(QStringLiteral(&quot;全部&quot;));
+<sp/>checkSelBtn<sp/>=<sp/>new<sp/>QPushButton(this);
+<sp/><sp/><sp/>checkSelBtn-&gt;setText(QStringLiteral(&quot;解除"));<sp/>//delete
+<sp/><sp/><sp/>connect(checkSelBtn,<sp/>&amp;QPushButton::clicked,<sp/>this,<sp/>&amp;PlayBackWidget::setSelectedChecked);
+<sp/><sp/><sp/><sp/>checkAllBtn<sp/>=<sp/>new<sp/>QPushButton(this);
+<sp/><sp/><sp/>checkAllBtn-&gt;setText(QStringLiteral(&quot;全清&quot;));<sp/>//clear<sp/>all
+<sp/><sp/><sp/><sp/>connect(checkAllBtn,<sp/>&amp;QPushButton::clicked,<sp/>this,<sp/>&amp;PlayBackWidget::setAllChecked);
+<sp/>auto*<sp/>toolLayout<sp/>=<sp/>new<sp/>QHBoxLayout;
+<sp/><sp/><sp/><sp/>toolLayout-&gt;addWidget(selectTableCb);
+<sp/><sp/>toolLayout-&gt;addWidget(checkSelBtn);
+<sp/><sp/><sp/><sp/>toolLayout-&gt;addWidget(checkAllBtn);
+<sp/><sp/><sp/><sp/>toolLayout-&gt;addLayout(labelHLayout);
+<sp/><sp/><sp/>toolLayout-&gt;addStretch();
+
+<sp/>auto*<sp/>tableLayout<sp/>=<sp/>new<sp/>QStackedLayout;
+<sp/><sp/><sp/><sp/>tableLayout-&gt;addWidget(alarmView);
+<sp/>tableLayout-&gt;addWidget(allView);
+<sp/><sp/><sp/>//connect(viewCb,<sp/>SIGNAL(activated(int)),<sp/>tableLayout,<sp/>SLOT(setCurrentIndex(int)));
+<sp/><sp/><sp/><sp/>//connect(selectTableCb,<sp/>static_cast&lt;void<sp/>(QComboBox::*)(int)&gt;(&amp;QComboBox::activated),<sp/>this,<sp/>[=](int<sp/>index)<sp/>{});
+<sp/><sp/><sp/>connect(selectTableCb,<sp/>static_cast&lt;void<sp/>(QComboBox::*)(int)&gt;(&amp;QComboBox::currentIndexChanged),<sp/>this,<sp/>[=](int<sp/>index)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>clearMedia();
+<sp/><sp/><sp/><sp/><sp/><sp/>tableLayout-&gt;setCurrentIndex(index);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>bool<sp/>enableCheck<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(index)
+<sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:enableCheck<sp/>=<sp/>true;<sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:enableCheck<sp/>=<sp/>false;<sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:<sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>checkSelBtn-&gt;setEnabled(enableCheck);
+<sp/><sp/><sp/><sp/><sp/><sp/>checkAllBtn-&gt;setEnabled(enableCheck);
+<sp/><sp/>});
+<sp/><sp/><sp/><sp/>///player
+<sp/><sp/>player<sp/>=<sp/>new<sp/>Player(this);
+<sp/>auto*<sp/>hLayout<sp/>=<sp/>new<sp/>QHBoxLayout;
+<sp/><sp/><sp/>hLayout-&gt;addLayout(tableLayout);
+<sp/><sp/><sp/>hLayout-&gt;addWidget(player);
+<sp/><sp/><sp/><sp/>hLayout-&gt;setStretchFactor(tableLayout,<sp/>1);
+<sp/>hLayout-&gt;setStretchFactor(player,<sp/>1);
+<sp/><sp/>auto*<sp/>vLayout<sp/>=<sp/>new<sp/>QVBoxLayout;
+<sp/><sp/><sp/>vLayout-&gt;addLayout(toolLayout);
+<sp/><sp/><sp/><sp/>vLayout-&gt;addLayout(hLayout);
+<sp/><sp/><sp/>//vLayout-&gt;addWidget(tmpLabel);
+<sp/><sp/><sp/><sp/>setLayout(vLayout);
+}
+
+void<sp/>PlayBackWidget::initAlarmTable()
+{
+<sp/>alarmModel<sp/>=<sp/>new<sp/>MySqlTableModel(this);
+<sp/><sp/><sp/><sp/>alarmModel-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
+<sp/><sp/><sp/>alarmModel-&gt;setTable(&quot;wheels&quot;);
+<sp/><sp/><sp/><sp/>alarmModel-&gt;setRelation(Wheel_I_O,<sp/>QSqlRelation(&quot;devs&quot;,<sp/>&quot;devIndex&quot;,<sp/>&quot;name&quot;));<sp/>//<sp/>手动设置i_o的外键
+<sp/><sp/><sp/>alarmModel-&gt;setFilter(&quot;checkstate=1&quot;);
+<sp/>alarmModel-&gt;select();
+<sp/><sp/>while<sp/>(alarmModel-&gt;canFetchMore())<sp/>alarmModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_I_O,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;外/内圈&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Num,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;序号"));
+<sp/><sp/><sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_CalcSpeed,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;测量&quot;));
+<sp/>alarmModel-&gt;setHeaderData(Wheel_RefSpeed,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;参考&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Error,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;±%&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Time,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;报警时间"));
+
+<sp/><sp/>alarmView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/>alarmView-&gt;setModel(alarmModel);
+<sp/><sp/><sp/>//alarmView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/><sp/><sp/>//alarmView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/>alarmView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/>alarmView-&gt;setSortingEnabled(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/><sp/><sp/>alarmView-&gt;setShowGrid(true);
+<sp/><sp/>alarmView-&gt;setAlternatingRowColors(true);
+<sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::ResizeToContents);
+<sp/><sp/><sp/><sp/>alarmView-&gt;resizeColumnsToContents();
+<sp/><sp/>alarmView-&gt;hideColumn(0);
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>Wheel_AlarmLevel;<sp/>i<sp/>&lt;=<sp/>Wheel_VideoPath;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmView-&gt;hideColumn(i);
+<sp/><sp/>}
+<sp/><sp/>connect(alarmView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+void<sp/>PlayBackWidget::initAllTable()
+{
+<sp/>allModel<sp/>=<sp/>new<sp/>MySqlTableModel(this);
+<sp/><sp/>allModel-&gt;setTable(&quot;wheels&quot;);
+<sp/><sp/>allModel-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>allView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/><sp/><sp/>allView-&gt;setModel(allModel);
+<sp/><sp/><sp/>//allView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/>//allView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/><sp/><sp/>allView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/><sp/><sp/>allView-&gt;setSortingEnabled(true);
+<sp/><sp/>allView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/>allView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/>allView-&gt;setShowGrid(true);
+<sp/><sp/><sp/><sp/>allView-&gt;setAlternatingRowColors(true);
+<sp/><sp/><sp/><sp/>allView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/>allView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Interactive);
+<sp/><sp/><sp/>allView-&gt;resizeColumnsToContents();
+<sp/><sp/><sp/><sp/>connect(allView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+PlayBackWidget::~PlayBackWidget()
+=<sp/>default;
+
+bool<sp/>PlayBackWidget::hasAlarm()<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>(bool)alarmModel-&gt;rowCount();
+}
+
+void<sp/>PlayBackWidget::dbChanged()
+{
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>alarmModel-&gt;select();
+<sp/><sp/>while<sp/>(alarmModel-&gt;canFetchMore())<sp/>alarmModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>clearAlarm();
+<sp/>}
+}
+
+void<sp/>PlayBackWidget::clearMedia()
+{
+<sp/><sp/><sp/>QUrl<sp/>url;
+<sp/><sp/>player-&gt;setUrl(url);
+}
+
+void<sp/>PlayBackWidget::readVideoPath(QModelIndex<sp/>index)<sp/>const
+{
+<sp/><sp/>QString<sp/>path<sp/>=<sp/>allModel-&gt;data(allModel-&gt;index(index.row(),<sp/>Wheel_VideoPath)).toString();
+<sp/><sp/><sp/>QDir<sp/>dir(videoDirPath);
+<sp/><sp/><sp/><sp/>player-&gt;setUrl(QUrl::fromLocalFile(dir.absoluteFilePath(path)));
+}
+
+void<sp/>PlayBackWidget::setSelectedChecked()
+{
+<sp/><sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>QModelIndexList<sp/>selected<sp/>=<sp/>alarmView-&gt;selectionModel()-&gt;selectedRows();
+<sp/><sp/><sp/><sp/>if<sp/>(selected.empty())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;请选中一行记录，确认无故障后删除"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>slc<sp/>:<sp/>selected)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(slc.row(),<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}
+
+void<sp/>PlayBackWidget::setAllChecked()
+{
+<sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>auto<sp/>rows<sp/>=<sp/>alarmModel-&gt;rowCount();
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(i,<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;严重&quot;</highlight><highlight class="normal">)<sp/>};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>styleSheets[4]<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;background-color:rgb(0,176,80);&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*green*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;background-color:rgb(255,255,0);&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*yellow*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;background-color:rgb(255,192,0);&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*orange*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;background-color:rgb(255,0,0);&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*red*/</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>4;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QLabel*<sp/>lvColorLabel<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QLabel(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lvColorLabel-&gt;setFixedSize(30,<sp/>18);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lvColorLabel-&gt;setStyleSheet(styleSheets[i]);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QLabel*<sp/>lvTextLabel<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QLabel(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lvTextLabel-&gt;setText(levelTexts[i]);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//lvTextLabel-&gt;setStyleSheet(&quot;font-size:12pt;&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>labelHLayout-&gt;addWidget(lvColorLabel,<sp/>0,<sp/>Qt::AlignCenter);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>labelHLayout-&gt;addWidget(lvTextLabel,<sp/>0,<sp/>Qt::AlignCenter);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" kindref="member">selectTableCb</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QComboBox(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" kindref="member">selectTableCb</ref>-&gt;setEditable(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" kindref="member">selectTableCb</ref>-&gt;addItem(QStringLiteral(</highlight><highlight class="stringliteral">&quot;报警&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" kindref="member">selectTableCb</ref>-&gt;addItem(QStringLiteral(</highlight><highlight class="stringliteral">&quot;全部&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>checkSelBtn<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QPushButton(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>checkSelBtn-&gt;setText(QStringLiteral(</highlight><highlight class="stringliteral">&quot;解除 ));<sp/>//delete
+<sp/><sp/><sp/>connect(checkSelBtn,<sp/>&amp;QPushButton::clicked,<sp/>this,<sp/>&amp;PlayBackWidget::setSelectedChecked);
+<sp/><sp/><sp/><sp/>checkAllBtn<sp/>=<sp/>new<sp/>QPushButton(this);
+<sp/><sp/><sp/>checkAllBtn-&gt;setText(QStringLiteral(&quot;全清&quot;));<sp/>//clear<sp/>all
+<sp/><sp/><sp/><sp/>connect(checkAllBtn,<sp/>&amp;QPushButton::clicked,<sp/>this,<sp/>&amp;PlayBackWidget::setAllChecked);
+<sp/>auto*<sp/>toolLayout<sp/>=<sp/>new<sp/>QHBoxLayout;
+<sp/><sp/><sp/><sp/>toolLayout-&gt;addWidget(selectTableCb);
+<sp/><sp/>toolLayout-&gt;addWidget(checkSelBtn);
+<sp/><sp/><sp/><sp/>toolLayout-&gt;addWidget(checkAllBtn);
+<sp/><sp/><sp/><sp/>toolLayout-&gt;addLayout(labelHLayout);
+<sp/><sp/><sp/>toolLayout-&gt;addStretch();
+
+<sp/>auto*<sp/>tableLayout<sp/>=<sp/>new<sp/>QStackedLayout;
+<sp/><sp/><sp/><sp/>tableLayout-&gt;addWidget(alarmView);
+<sp/>tableLayout-&gt;addWidget(allView);
+<sp/><sp/><sp/>//connect(viewCb,<sp/>SIGNAL(activated(int)),<sp/>tableLayout,<sp/>SLOT(setCurrentIndex(int)));
+<sp/><sp/><sp/><sp/>//connect(selectTableCb,<sp/>static_cast&lt;void<sp/>(QComboBox::*)(int)&gt;(&amp;QComboBox::activated),<sp/>this,<sp/>[=](int<sp/>index)<sp/>{});
+<sp/><sp/><sp/>connect(selectTableCb,<sp/>static_cast&lt;void<sp/>(QComboBox::*)(int)&gt;(&amp;QComboBox::currentIndexChanged),<sp/>this,<sp/>[=](int<sp/>index)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>clearMedia();
+<sp/><sp/><sp/><sp/><sp/><sp/>tableLayout-&gt;setCurrentIndex(index);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>bool<sp/>enableCheck<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(index)
+<sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:enableCheck<sp/>=<sp/>true;<sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:enableCheck<sp/>=<sp/>false;<sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:<sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>checkSelBtn-&gt;setEnabled(enableCheck);
+<sp/><sp/><sp/><sp/><sp/><sp/>checkAllBtn-&gt;setEnabled(enableCheck);
+<sp/><sp/>});
+<sp/><sp/><sp/><sp/>///player
+<sp/><sp/>player<sp/>=<sp/>new<sp/>Player(this);
+<sp/>auto*<sp/>hLayout<sp/>=<sp/>new<sp/>QHBoxLayout;
+<sp/><sp/><sp/>hLayout-&gt;addLayout(tableLayout);
+<sp/><sp/><sp/>hLayout-&gt;addWidget(player);
+<sp/><sp/><sp/><sp/>hLayout-&gt;setStretchFactor(tableLayout,<sp/>1);
+<sp/>hLayout-&gt;setStretchFactor(player,<sp/>1);
+<sp/><sp/>auto*<sp/>vLayout<sp/>=<sp/>new<sp/>QVBoxLayout;
+<sp/><sp/><sp/>vLayout-&gt;addLayout(toolLayout);
+<sp/><sp/><sp/><sp/>vLayout-&gt;addLayout(hLayout);
+<sp/><sp/><sp/>//vLayout-&gt;addWidget(tmpLabel);
+<sp/><sp/><sp/><sp/>setLayout(vLayout);
+}
+
+void<sp/>PlayBackWidget::initAlarmTable()
+{
+<sp/>alarmModel<sp/>=<sp/>new<sp/>MySqlTableModel(this);
+<sp/><sp/><sp/><sp/>alarmModel-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
+<sp/><sp/><sp/>alarmModel-&gt;setTable(&quot;wheels&quot;);
+<sp/><sp/><sp/><sp/>alarmModel-&gt;setRelation(Wheel_I_O,<sp/>QSqlRelation(&quot;devs&quot;,<sp/>&quot;devIndex&quot;,<sp/>&quot;name&quot;));<sp/>//<sp/>手动设置i_o的外键
+<sp/><sp/><sp/>alarmModel-&gt;setFilter(&quot;checkstate=1&quot;);
+<sp/>alarmModel-&gt;select();
+<sp/><sp/>while<sp/>(alarmModel-&gt;canFetchMore())<sp/>alarmModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_I_O,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;外/内圈&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Num,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;序号"));
+<sp/><sp/><sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_CalcSpeed,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;测量&quot;));
+<sp/>alarmModel-&gt;setHeaderData(Wheel_RefSpeed,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;参考&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Error,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;±%&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Time,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;报警时间"));
+
+<sp/><sp/>alarmView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/>alarmView-&gt;setModel(alarmModel);
+<sp/><sp/><sp/>//alarmView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/><sp/><sp/>//alarmView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/>alarmView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/>alarmView-&gt;setSortingEnabled(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/><sp/><sp/>alarmView-&gt;setShowGrid(true);
+<sp/><sp/>alarmView-&gt;setAlternatingRowColors(true);
+<sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::ResizeToContents);
+<sp/><sp/><sp/><sp/>alarmView-&gt;resizeColumnsToContents();
+<sp/><sp/>alarmView-&gt;hideColumn(0);
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>Wheel_AlarmLevel;<sp/>i<sp/>&lt;=<sp/>Wheel_VideoPath;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmView-&gt;hideColumn(i);
+<sp/><sp/>}
+<sp/><sp/>connect(alarmView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+void<sp/>PlayBackWidget::initAllTable()
+{
+<sp/>allModel<sp/>=<sp/>new<sp/>MySqlTableModel(this);
+<sp/><sp/>allModel-&gt;setTable(&quot;wheels&quot;);
+<sp/><sp/>allModel-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>allView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/><sp/><sp/>allView-&gt;setModel(allModel);
+<sp/><sp/><sp/>//allView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/>//allView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/><sp/><sp/>allView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/><sp/><sp/>allView-&gt;setSortingEnabled(true);
+<sp/><sp/>allView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/>allView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/>allView-&gt;setShowGrid(true);
+<sp/><sp/><sp/><sp/>allView-&gt;setAlternatingRowColors(true);
+<sp/><sp/><sp/><sp/>allView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/>allView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Interactive);
+<sp/><sp/><sp/>allView-&gt;resizeColumnsToContents();
+<sp/><sp/><sp/><sp/>connect(allView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+PlayBackWidget::~PlayBackWidget()
+=<sp/>default;
+
+bool<sp/>PlayBackWidget::hasAlarm()<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>(bool)alarmModel-&gt;rowCount();
+}
+
+void<sp/>PlayBackWidget::dbChanged()
+{
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>alarmModel-&gt;select();
+<sp/><sp/>while<sp/>(alarmModel-&gt;canFetchMore())<sp/>alarmModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>clearAlarm();
+<sp/>}
+}
+
+void<sp/>PlayBackWidget::clearMedia()
+{
+<sp/><sp/><sp/>QUrl<sp/>url;
+<sp/><sp/>player-&gt;setUrl(url);
+}
+
+void<sp/>PlayBackWidget::readVideoPath(QModelIndex<sp/>index)<sp/>const
+{
+<sp/><sp/>QString<sp/>path<sp/>=<sp/>allModel-&gt;data(allModel-&gt;index(index.row(),<sp/>Wheel_VideoPath)).toString();
+<sp/><sp/><sp/>QDir<sp/>dir(videoDirPath);
+<sp/><sp/><sp/><sp/>player-&gt;setUrl(QUrl::fromLocalFile(dir.absoluteFilePath(path)));
+}
+
+void<sp/>PlayBackWidget::setSelectedChecked()
+{
+<sp/><sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>QModelIndexList<sp/>selected<sp/>=<sp/>alarmView-&gt;selectionModel()-&gt;selectedRows();
+<sp/><sp/><sp/><sp/>if<sp/>(selected.empty())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;请选中一行记录，确认无故障后删除"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>slc<sp/>:<sp/>selected)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(slc.row(),<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}
+
+void<sp/>PlayBackWidget::setAllChecked()
+{
+<sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>auto<sp/>rows<sp/>=<sp/>alarmModel-&gt;rowCount();
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(i,<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}&quot;</highlight><highlight class="normal">));<sp/></highlight><highlight class="comment">//delete</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(checkSelBtn,<sp/>&amp;QPushButton::clicked,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlayBackWidget::setSelectedChecked);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>checkAllBtn<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QPushButton(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>checkAllBtn-&gt;setText(QStringLiteral(</highlight><highlight class="stringliteral">&quot;全清&quot;</highlight><highlight class="normal">));<sp/></highlight><highlight class="comment">//clear<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(checkAllBtn,<sp/>&amp;QPushButton::clicked,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlayBackWidget::setAllChecked);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>toolLayout<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QHBoxLayout;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>toolLayout-&gt;addWidget(<ref refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" kindref="member">selectTableCb</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>toolLayout-&gt;addWidget(checkSelBtn);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>toolLayout-&gt;addWidget(checkAllBtn);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>toolLayout-&gt;addLayout(labelHLayout);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>toolLayout-&gt;addStretch();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>tableLayout<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QStackedLayout;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>tableLayout-&gt;addWidget(<ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>tableLayout-&gt;addWidget(allView);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//connect(viewCb,<sp/>SIGNAL(activated(int)),<sp/>tableLayout,<sp/>SLOT(setCurrentIndex(int)));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//connect(selectTableCb,<sp/>static_cast&lt;void<sp/>(QComboBox::*)(int)&gt;(&amp;QComboBox::activated),<sp/>this,<sp/>[=](int<sp/>index)<sp/>{});</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<ref refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" kindref="member">selectTableCb</ref>,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(QComboBox::*)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;QComboBox::currentIndexChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a6dd67d2767c0aeb3f1e53d02ed47c6c2" kindref="member">clearMedia</ref>();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tableLayout-&gt;setCurrentIndex(index);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enableCheck<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(index)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:enableCheck<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:enableCheck<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkSelBtn-&gt;setEnabled(enableCheck);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>checkAllBtn-&gt;setEnabled(enableCheck);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>player<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_player" kindref="compound">Player</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>hLayout<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QHBoxLayout;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>hLayout-&gt;addLayout(tableLayout);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>hLayout-&gt;addWidget(player);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>hLayout-&gt;setStretchFactor(tableLayout,<sp/>1);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>hLayout-&gt;setStretchFactor(player,<sp/>1);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>vLayout<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QVBoxLayout;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>vLayout-&gt;addLayout(toolLayout);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>vLayout-&gt;addLayout(hLayout);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//vLayout-&gt;addWidget(tmpLabel);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>setLayout(vLayout);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlayBackWidget::initAlarmTable()</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_my_sql_table_model" kindref="compound">MySqlTableModel</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setTable(</highlight><highlight class="stringliteral">&quot;wheels&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setRelation(<ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea" kindref="member">Wheel_I_O</ref>,<sp/>QSqlRelation(</highlight><highlight class="stringliteral">&quot;devs&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;devIndex&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal">));<sp/></highlight><highlight class="comment">//<sp/>手动设置i_o的外键 <sp/><sp/><sp/>alarmModel-&gt;setFilter(&quot;checkstate=1&quot;);
+<sp/>alarmModel-&gt;select();
+<sp/><sp/>while<sp/>(alarmModel-&gt;canFetchMore())<sp/>alarmModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_I_O,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;外/内圈&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Num,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;序号"));
+<sp/><sp/><sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_CalcSpeed,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;测量&quot;));
+<sp/>alarmModel-&gt;setHeaderData(Wheel_RefSpeed,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;参考&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Error,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;±%&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Time,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;报警时间"));
+
+<sp/><sp/>alarmView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/>alarmView-&gt;setModel(alarmModel);
+<sp/><sp/><sp/>//alarmView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/><sp/><sp/>//alarmView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/>alarmView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/>alarmView-&gt;setSortingEnabled(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/><sp/><sp/>alarmView-&gt;setShowGrid(true);
+<sp/><sp/>alarmView-&gt;setAlternatingRowColors(true);
+<sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::ResizeToContents);
+<sp/><sp/><sp/><sp/>alarmView-&gt;resizeColumnsToContents();
+<sp/><sp/>alarmView-&gt;hideColumn(0);
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>Wheel_AlarmLevel;<sp/>i<sp/>&lt;=<sp/>Wheel_VideoPath;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmView-&gt;hideColumn(i);
+<sp/><sp/>}
+<sp/><sp/>connect(alarmView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+void<sp/>PlayBackWidget::initAllTable()
+{
+<sp/>allModel<sp/>=<sp/>new<sp/>MySqlTableModel(this);
+<sp/><sp/>allModel-&gt;setTable(&quot;wheels&quot;);
+<sp/><sp/>allModel-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>allView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/><sp/><sp/>allView-&gt;setModel(allModel);
+<sp/><sp/><sp/>//allView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/>//allView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/><sp/><sp/>allView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/><sp/><sp/>allView-&gt;setSortingEnabled(true);
+<sp/><sp/>allView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/>allView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/>allView-&gt;setShowGrid(true);
+<sp/><sp/><sp/><sp/>allView-&gt;setAlternatingRowColors(true);
+<sp/><sp/><sp/><sp/>allView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/>allView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Interactive);
+<sp/><sp/><sp/>allView-&gt;resizeColumnsToContents();
+<sp/><sp/><sp/><sp/>connect(allView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+PlayBackWidget::~PlayBackWidget()
+=<sp/>default;
+
+bool<sp/>PlayBackWidget::hasAlarm()<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>(bool)alarmModel-&gt;rowCount();
+}
+
+void<sp/>PlayBackWidget::dbChanged()
+{
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>alarmModel-&gt;select();
+<sp/><sp/>while<sp/>(alarmModel-&gt;canFetchMore())<sp/>alarmModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>clearAlarm();
+<sp/>}
+}
+
+void<sp/>PlayBackWidget::clearMedia()
+{
+<sp/><sp/><sp/>QUrl<sp/>url;
+<sp/><sp/>player-&gt;setUrl(url);
+}
+
+void<sp/>PlayBackWidget::readVideoPath(QModelIndex<sp/>index)<sp/>const
+{
+<sp/><sp/>QString<sp/>path<sp/>=<sp/>allModel-&gt;data(allModel-&gt;index(index.row(),<sp/>Wheel_VideoPath)).toString();
+<sp/><sp/><sp/>QDir<sp/>dir(videoDirPath);
+<sp/><sp/><sp/><sp/>player-&gt;setUrl(QUrl::fromLocalFile(dir.absoluteFilePath(path)));
+}
+
+void<sp/>PlayBackWidget::setSelectedChecked()
+{
+<sp/><sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>QModelIndexList<sp/>selected<sp/>=<sp/>alarmView-&gt;selectionModel()-&gt;selectedRows();
+<sp/><sp/><sp/><sp/>if<sp/>(selected.empty())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;请选中一行记录，确认无故障后删除"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>slc<sp/>:<sp/>selected)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(slc.row(),<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}
+
+void<sp/>PlayBackWidget::setAllChecked()
+{
+<sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>auto<sp/>rows<sp/>=<sp/>alarmModel-&gt;rowCount();
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(i,<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setFilter(</highlight><highlight class="stringliteral">&quot;checkstate=1&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;select();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;canFetchMore())<sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;fetchMore();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setHeaderData(<ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea" kindref="member">Wheel_I_O</ref>,<sp/>Qt::Horizontal,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;外/内圈&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setHeaderData(<ref refid="database_8h_1a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537" kindref="member">Wheel_Num</ref>,<sp/>Qt::Horizontal,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;序号 ));
+<sp/><sp/><sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_CalcSpeed,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;测量&quot;));
+<sp/>alarmModel-&gt;setHeaderData(Wheel_RefSpeed,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;参考&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Error,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;±%&quot;));
+<sp/><sp/>alarmModel-&gt;setHeaderData(Wheel_Time,<sp/>Qt::Horizontal,<sp/>QStringLiteral(&quot;报警时间"));
+
+<sp/><sp/>alarmView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/>alarmView-&gt;setModel(alarmModel);
+<sp/><sp/><sp/>//alarmView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/><sp/><sp/>//alarmView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/>alarmView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/>alarmView-&gt;setSortingEnabled(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/><sp/><sp/>alarmView-&gt;setShowGrid(true);
+<sp/><sp/>alarmView-&gt;setAlternatingRowColors(true);
+<sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::ResizeToContents);
+<sp/><sp/><sp/><sp/>alarmView-&gt;resizeColumnsToContents();
+<sp/><sp/>alarmView-&gt;hideColumn(0);
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>Wheel_AlarmLevel;<sp/>i<sp/>&lt;=<sp/>Wheel_VideoPath;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmView-&gt;hideColumn(i);
+<sp/><sp/>}
+<sp/><sp/>connect(alarmView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+void<sp/>PlayBackWidget::initAllTable()
+{
+<sp/>allModel<sp/>=<sp/>new<sp/>MySqlTableModel(this);
+<sp/><sp/>allModel-&gt;setTable(&quot;wheels&quot;);
+<sp/><sp/>allModel-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>allView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/><sp/><sp/>allView-&gt;setModel(allModel);
+<sp/><sp/><sp/>//allView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/>//allView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/><sp/><sp/>allView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/><sp/><sp/>allView-&gt;setSortingEnabled(true);
+<sp/><sp/>allView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/>allView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/>allView-&gt;setShowGrid(true);
+<sp/><sp/><sp/><sp/>allView-&gt;setAlternatingRowColors(true);
+<sp/><sp/><sp/><sp/>allView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/>allView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Interactive);
+<sp/><sp/><sp/>allView-&gt;resizeColumnsToContents();
+<sp/><sp/><sp/><sp/>connect(allView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+PlayBackWidget::~PlayBackWidget()
+=<sp/>default;
+
+bool<sp/>PlayBackWidget::hasAlarm()<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>(bool)alarmModel-&gt;rowCount();
+}
+
+void<sp/>PlayBackWidget::dbChanged()
+{
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>alarmModel-&gt;select();
+<sp/><sp/>while<sp/>(alarmModel-&gt;canFetchMore())<sp/>alarmModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>clearAlarm();
+<sp/>}
+}
+
+void<sp/>PlayBackWidget::clearMedia()
+{
+<sp/><sp/><sp/>QUrl<sp/>url;
+<sp/><sp/>player-&gt;setUrl(url);
+}
+
+void<sp/>PlayBackWidget::readVideoPath(QModelIndex<sp/>index)<sp/>const
+{
+<sp/><sp/>QString<sp/>path<sp/>=<sp/>allModel-&gt;data(allModel-&gt;index(index.row(),<sp/>Wheel_VideoPath)).toString();
+<sp/><sp/><sp/>QDir<sp/>dir(videoDirPath);
+<sp/><sp/><sp/><sp/>player-&gt;setUrl(QUrl::fromLocalFile(dir.absoluteFilePath(path)));
+}
+
+void<sp/>PlayBackWidget::setSelectedChecked()
+{
+<sp/><sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>QModelIndexList<sp/>selected<sp/>=<sp/>alarmView-&gt;selectionModel()-&gt;selectedRows();
+<sp/><sp/><sp/><sp/>if<sp/>(selected.empty())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;请选中一行记录，确认无故障后删除"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>slc<sp/>:<sp/>selected)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(slc.row(),<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}
+
+void<sp/>PlayBackWidget::setAllChecked()
+{
+<sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>auto<sp/>rows<sp/>=<sp/>alarmModel-&gt;rowCount();
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(i,<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setHeaderData(<ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419" kindref="member">Wheel_CalcSpeed</ref>,<sp/>Qt::Horizontal,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;测量&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setHeaderData(<ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2" kindref="member">Wheel_RefSpeed</ref>,<sp/>Qt::Horizontal,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;参考&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setHeaderData(<ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0" kindref="member">Wheel_Error</ref>,<sp/>Qt::Horizontal,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;±%&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setHeaderData(<ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880" kindref="member">Wheel_Time</ref>,<sp/>Qt::Horizontal,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;报警时间 ));
+
+<sp/><sp/>alarmView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/>alarmView-&gt;setModel(alarmModel);
+<sp/><sp/><sp/>//alarmView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/><sp/><sp/>//alarmView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/>alarmView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/>alarmView-&gt;setSortingEnabled(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/><sp/><sp/>alarmView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/><sp/><sp/>alarmView-&gt;setShowGrid(true);
+<sp/><sp/>alarmView-&gt;setAlternatingRowColors(true);
+<sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/><sp/><sp/>alarmView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::ResizeToContents);
+<sp/><sp/><sp/><sp/>alarmView-&gt;resizeColumnsToContents();
+<sp/><sp/>alarmView-&gt;hideColumn(0);
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>Wheel_AlarmLevel;<sp/>i<sp/>&lt;=<sp/>Wheel_VideoPath;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmView-&gt;hideColumn(i);
+<sp/><sp/>}
+<sp/><sp/>connect(alarmView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+void<sp/>PlayBackWidget::initAllTable()
+{
+<sp/>allModel<sp/>=<sp/>new<sp/>MySqlTableModel(this);
+<sp/><sp/>allModel-&gt;setTable(&quot;wheels&quot;);
+<sp/><sp/>allModel-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>allView<sp/>=<sp/>new<sp/>QTableView(this);
+<sp/><sp/><sp/><sp/>allView-&gt;setModel(allModel);
+<sp/><sp/><sp/>//allView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));
+<sp/>//allView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));
+<sp/><sp/><sp/>allView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);
+<sp/><sp/><sp/>allView-&gt;setSortingEnabled(true);
+<sp/><sp/>allView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+<sp/><sp/>allView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+<sp/>allView-&gt;setShowGrid(true);
+<sp/><sp/><sp/><sp/>allView-&gt;setAlternatingRowColors(true);
+<sp/><sp/><sp/><sp/>allView-&gt;horizontalHeader()-&gt;setStretchLastSection(true);
+<sp/><sp/>allView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Interactive);
+<sp/><sp/><sp/>allView-&gt;resizeColumnsToContents();
+<sp/><sp/><sp/><sp/>connect(allView,<sp/>&amp;QTableView::activated,<sp/>this,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/>//double-click<sp/>or<sp/>enter
+}
+
+PlayBackWidget::~PlayBackWidget()
+=<sp/>default;
+
+bool<sp/>PlayBackWidget::hasAlarm()<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>(bool)alarmModel-&gt;rowCount();
+}
+
+void<sp/>PlayBackWidget::dbChanged()
+{
+<sp/>allModel-&gt;select();
+<sp/><sp/><sp/><sp/>while<sp/>(allModel-&gt;canFetchMore())<sp/>allModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>alarmModel-&gt;select();
+<sp/><sp/>while<sp/>(alarmModel-&gt;canFetchMore())<sp/>alarmModel-&gt;fetchMore();
+
+<sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>clearAlarm();
+<sp/>}
+}
+
+void<sp/>PlayBackWidget::clearMedia()
+{
+<sp/><sp/><sp/>QUrl<sp/>url;
+<sp/><sp/>player-&gt;setUrl(url);
+}
+
+void<sp/>PlayBackWidget::readVideoPath(QModelIndex<sp/>index)<sp/>const
+{
+<sp/><sp/>QString<sp/>path<sp/>=<sp/>allModel-&gt;data(allModel-&gt;index(index.row(),<sp/>Wheel_VideoPath)).toString();
+<sp/><sp/><sp/>QDir<sp/>dir(videoDirPath);
+<sp/><sp/><sp/><sp/>player-&gt;setUrl(QUrl::fromLocalFile(dir.absoluteFilePath(path)));
+}
+
+void<sp/>PlayBackWidget::setSelectedChecked()
+{
+<sp/><sp/><sp/><sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>QModelIndexList<sp/>selected<sp/>=<sp/>alarmView-&gt;selectionModel()-&gt;selectedRows();
+<sp/><sp/><sp/><sp/>if<sp/>(selected.empty())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;请选中一行记录，确认无故障后删除"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>slc<sp/>:<sp/>selected)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(slc.row(),<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}
+
+void<sp/>PlayBackWidget::setAllChecked()
+{
+<sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>auto<sp/>rows<sp/>=<sp/>alarmModel-&gt;rowCount();
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(i,<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QTableView(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;setModel(<ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//alarmView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//alarmView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;setSortingEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;setSelectionMode(QAbstractItemView::SingleSelection);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;setShowGrid(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;setAlternatingRowColors(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;horizontalHeader()-&gt;setStretchLastSection(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::ResizeToContents);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;resizeColumnsToContents();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;hideColumn(0);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33" kindref="member">Wheel_AlarmLevel</ref>;<sp/>i<sp/>&lt;=<sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde" kindref="member">Wheel_VideoPath</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;hideColumn(i);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>,<sp/>&amp;QTableView::activated,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/></highlight><highlight class="comment">//double-click<sp/>or<sp/>enter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlayBackWidget::initAllTable()</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_my_sql_table_model" kindref="compound">MySqlTableModel</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;setTable(</highlight><highlight class="stringliteral">&quot;wheels&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;setEditStrategy(QSqlTableModel::OnManualSubmit);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;select();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;canFetchMore())<sp/><ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;fetchMore();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>allView<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QTableView(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;setModel(<ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//allView-&gt;setFont(QFont(&quot;Arial<sp/>Narrow&quot;,<sp/>14));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//allView-&gt;horizontalHeader()-&gt;setFont(QFont(QStringLiteral(&quot;宋体&quot;),<sp/>14));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;setEditTriggers(QAbstractItemView::NoEditTriggers);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;setSortingEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;setSelectionMode(QAbstractItemView::SingleSelection);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;setShowGrid(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;setAlternatingRowColors(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;horizontalHeader()-&gt;setStretchLastSection(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;horizontalHeader()-&gt;setSectionResizeMode(QHeaderView::Interactive);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>allView-&gt;resizeColumnsToContents();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(allView,<sp/>&amp;QTableView::activated,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;PlayBackWidget::readVideoPath);<sp/></highlight><highlight class="comment">//double-click<sp/>or<sp/>enter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><ref refid="class_play_back_widget_1aad9ed53e29cf516c632e0984e0fd452c" kindref="member">PlayBackWidget::~PlayBackWidget</ref>()</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" kindref="member">PlayBackWidget::hasAlarm</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="156"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)<ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;rowCount();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" kindref="member">PlayBackWidget::dbChanged</ref>()</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;select();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;canFetchMore())<sp/><ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;fetchMore();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;select();</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;canFetchMore())<sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;fetchMore();</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" kindref="member">hasAlarm</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_play_back_widget_1aeb734152a79a362eeeedcfc7bdc0dbd1" kindref="member">clearAlarm</ref>();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="class_play_back_widget_1a6dd67d2767c0aeb3f1e53d02ed47c6c2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_play_back_widget_1a6dd67d2767c0aeb3f1e53d02ed47c6c2" kindref="member">PlayBackWidget::clearMedia</ref>()</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>QUrl<sp/>url;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>player-&gt;<ref refid="class_player_1a85dda573e6b2b5f4f7bdf930b0c496f4" kindref="member">setUrl</ref>(url);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlayBackWidget::readVideoPath(QModelIndex<sp/>index)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="180"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>path<sp/>=<sp/><ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;<ref refid="class_my_sql_table_model_1ac6a066535d9c183b28710f8e8fc616bd" kindref="member">data</ref>(<ref refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kindref="member">allModel</ref>-&gt;index(index.row(),<sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde" kindref="member">Wheel_VideoPath</ref>)).toString();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>QDir<sp/>dir(<ref refid="common_8h_1a3c8467c4addcfd3ee40b1439311d1349" kindref="member">videoDirPath</ref>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>player-&gt;<ref refid="class_player_1a85dda573e6b2b5f4f7bdf930b0c496f4" kindref="member">setUrl</ref>(QUrl::fromLocalFile(dir.absoluteFilePath(path)));</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlayBackWidget::setSelectedChecked()</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" kindref="member">hasAlarm</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;解除警报&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;当前无故障 ),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>QModelIndexList<sp/>selected<sp/>=<sp/>alarmView-&gt;selectionModel()-&gt;selectedRows();
+<sp/><sp/><sp/><sp/>if<sp/>(selected.empty())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;请选中一行记录，确认无故障后删除"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>slc<sp/>:<sp/>selected)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(slc.row(),<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}
+
+void<sp/>PlayBackWidget::setAllChecked()
+{
+<sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>auto<sp/>rows<sp/>=<sp/>alarmModel-&gt;rowCount();
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(i,<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;确定&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>QModelIndexList<sp/>selected<sp/>=<sp/><ref refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kindref="member">alarmView</ref>-&gt;selectionModel()-&gt;selectedRows();</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(selected.empty())<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;解除警报&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;请选中一行记录，确认无故障后删除 ),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>slc<sp/>:<sp/>selected)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(slc.row(),<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}
+
+void<sp/>PlayBackWidget::setAllChecked()
+{
+<sp/>if<sp/>(!hasAlarm())<sp/>{
+<sp/><sp/><sp/><sp/><sp/>QMessageBox::information(this,<sp/>QStringLiteral(&quot;解除警报&quot;),<sp/>QStringLiteral(&quot;当前无故障"),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>auto<sp/>rows<sp/>=<sp/>alarmModel-&gt;rowCount();
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(i,<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;确定&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>slc<sp/>:<sp/>selected)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setData(<ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;index(slc.row(),<sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8" kindref="member">Wheel_CheckState</ref>),<sp/>QVariant(<ref refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33" kindref="member">Checked</ref>));</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;submitAll();</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PlayBackWidget::setAllChecked()</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" kindref="member">hasAlarm</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::information(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;解除警报&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;当前无故障 ),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>auto<sp/>rows<sp/>=<sp/>alarmModel-&gt;rowCount();
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>alarmModel-&gt;setData(alarmModel-&gt;index(i,<sp/>Wheel_CheckState),<sp/>QVariant(Checked));
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>alarmModel-&gt;submitAll();
+<sp/><sp/><sp/>//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();
+}&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;确定&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>rows<sp/>=<sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;rowCount();</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>rows;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;setData(<ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;index(i,<sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8" kindref="member">Wheel_CheckState</ref>),<sp/>QVariant(<ref refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33" kindref="member">Checked</ref>));</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kindref="member">alarmModel</ref>-&gt;submitAll();</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//while<sp/>(alarmModel-&gt;canFetchMore())alarmModel-&gt;fetchMore();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/playbackwidget.cpp"/>
+  </compounddef>
+</doxygen>

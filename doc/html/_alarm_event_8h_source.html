@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: sources/AlarmEvent.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_08d237fc27d4ecd563f71c5d52f2fecc.html">sources</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">AlarmEvent.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_alarm_event_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">enum class</span> <a class="code" href="_alarm_event_8h.html#a698ab575a1e9514dcf911ae5a042fa9b">AlarmEvent</a> {</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;};</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bc">    6</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bc">HardwareAlarmEvent</a> {</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa532aecd3d4f27956ce0b922f8476eee">Outer_Improc</a> = 0, <span class="comment">// 警告</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa8e6fdbdd61947777a996a49bf09025e">Outer_Sensor</a>, <span class="comment">// 报警</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca20e503b44ef5c17ae825ec74fc905b0b">Innner_Improc</a>,</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcadbbf9230db7a8695bffce11d120bb5e0">Innner_Sensor</a>,</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46">Outer_Warn</a> = 0,</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf">Outer_Alarm</a>,</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02">Inner_Warn</a>,</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b">Inner_Alarm</a>,</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d">Reset</a></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834">   19</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834">AlarmColor</a> {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac">Unkown</a> = 0,</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1">Green</a>,</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47">Red</a>,</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8">Yellow</a> = 4,</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93">Gray</a> = 8,</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad15305d7a4e34e02489c74a5ef542f36">Off</a> = <a class="code" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93">Gray</a>,</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div><div class="ttc" id="_alarm_event_8h_html_a9d988e49ca7b9fee1b60ae831a255834"><div class="ttname"><a href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834">AlarmColor</a></div><div class="ttdeci">AlarmColor</div><div class="ttdoc">警报等级 </div><div class="ttdef"><b>Definition:</b> <a href="_alarm_event_8h_source.html#l00019">AlarmEvent.h:19</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46">HardwareAlarmEvent::Outer_Warn</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bcadbbf9230db7a8695bffce11d120bb5e0"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcadbbf9230db7a8695bffce11d120bb5e0">HardwareAlarmEvent::Innner_Sensor</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf">HardwareAlarmEvent::Outer_Alarm</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b">HardwareAlarmEvent::Inner_Alarm</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1"><div class="ttname"><a href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1">AlarmColor::Green</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bcaa532aecd3d4f27956ce0b922f8476eee"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa532aecd3d4f27956ce0b922f8476eee">HardwareAlarmEvent::Outer_Improc</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02">HardwareAlarmEvent::Inner_Warn</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47"><div class="ttname"><a href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47">AlarmColor::Red</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a698ab575a1e9514dcf911ae5a042fa9b"><div class="ttname"><a href="_alarm_event_8h.html#a698ab575a1e9514dcf911ae5a042fa9b">AlarmEvent</a></div><div class="ttdeci">AlarmEvent</div><div class="ttdoc">Alarm color, generally used in client-side </div><div class="ttdef"><b>Definition:</b> <a href="_alarm_event_8h_source.html#l00003">AlarmEvent.h:3</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac"><div class="ttname"><a href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac">AlarmColor::Unkown</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8"><div class="ttname"><a href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8">AlarmColor::Yellow</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d">HardwareAlarmEvent::Reset</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bca20e503b44ef5c17ae825ec74fc905b0b"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca20e503b44ef5c17ae825ec74fc905b0b">HardwareAlarmEvent::Innner_Improc</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93"><div class="ttname"><a href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93">AlarmColor::Gray</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bc"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bc">HardwareAlarmEvent</a></div><div class="ttdeci">HardwareAlarmEvent</div><div class="ttdef"><b>Definition:</b> <a href="_alarm_event_8h_source.html#l00006">AlarmEvent.h:6</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a9d988e49ca7b9fee1b60ae831a255834ad15305d7a4e34e02489c74a5ef542f36"><div class="ttname"><a href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad15305d7a4e34e02489c74a5ef542f36">AlarmColor::Off</a></div></div>
+<div class="ttc" id="_alarm_event_8h_html_a869a7fc0505bdd0dc64c62b160f583bcaa8e6fdbdd61947777a996a49bf09025e"><div class="ttname"><a href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa8e6fdbdd61947777a996a49bf09025e">HardwareAlarmEvent::Outer_Sensor</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="customslider_8h" kind="file" language="C++">
+    <compoundname>customslider.h</compoundname>
+    <includes local="no">QSlider</includes>
+    <includedby refid="customslider_8cpp" local="yes">sources/customslider.cpp</includedby>
+    <includedby refid="player_8cpp" local="yes">sources/player.cpp</includedby>
+    <incdepgraph>
+      <node id="168">
+        <label>QSlider</label>
+      </node>
+      <node id="167">
+        <label>sources/customslider.h</label>
+        <link refid="customslider_8h"/>
+        <childnode refid="168" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="171">
+        <label>sources/player.cpp</label>
+        <link refid="player_8cpp"/>
+      </node>
+      <node id="169">
+        <label>sources/customslider.h</label>
+        <link refid="customslider_8h"/>
+        <childnode refid="170" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+      </node>
+      <node id="170">
+        <label>sources/customslider.cpp</label>
+        <link refid="customslider_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_custom_slider" prot="public">CustomSlider</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CUSTOMSLIDER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CUSTOMSLIDER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSlider&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_custom_slider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_custom_slider" kindref="compound">CustomSlider</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QSlider</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="10" refid="class_custom_slider_1a339185f2fde98ed5032d5114f4cd1b41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_custom_slider_1a339185f2fde98ed5032d5114f4cd1b41" kindref="member">CustomSlider</ref>(QWidget<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>QSlider(parent)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="14" refid="class_custom_slider_1ac6fae8f3a172e2729cb32262b5b800ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_custom_slider_1ac6fae8f3a172e2729cb32262b5b800ac" kindref="member">CustomSlider</ref>(Qt::Orientation<sp/>orientation,<sp/>QWidget<sp/>*parent<sp/>=<sp/>Q_NULLPTR)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>QSlider(orientation,<sp/>parent)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_custom_slider_1a2b0d4882ae9ac4b708d88de26c9578ba" kindref="member">mousePressEvent</ref>(QMouseEvent<sp/>*ev)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_custom_slider_1a24568a4c3046d71a3a86e2c0e95faccb" kindref="member">costomSliderClicked</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>CUSTOMSLIDER_H</highlight></codeline>
+    </programlisting>
+    <location file="sources/customslider.h"/>
+  </compounddef>
+</doxygen>

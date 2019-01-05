@@ -1,0 +1,13 @@
+digraph "CkPt::isEnter"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node18 [label="CkPt::isEnter",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node18 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="Sensor::init",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_sensor.html#a84bc35cfba92eb579bc311b3c8b2980d"];
+  Node18 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node20 [label="CkPt::triTiming",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ck_pt.html#a67a101d39c9ee8d8113f82905fb018f9",tooltip="返回触发的时机，如果是进入，则下降沿触发 "];
+  Node18 -> Node21 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node21 [label="CkPt::isLeave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ck_pt.html#afd63f78fd17b55451eb039ab9d5bb49f",tooltip="返回是否由此检测点离开 "];
+}

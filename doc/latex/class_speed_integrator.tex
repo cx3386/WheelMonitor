@@ -1,0 +1,128 @@
+\hypertarget{class_speed_integrator}{}\section{Speed\+Integrator Class Reference}
+\label{class_speed_integrator}\index{Speed\+Integrator@{Speed\+Integrator}}
+
+
+{\ttfamily \#include $<$Speed\+Integrator.\+h$>$}
+
+
+
+Inheritance diagram for Speed\+Integrator\+:
+% FIG 0
+
+
+Collaboration diagram for Speed\+Integrator\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_speed_integrator_a66d764b8f94e1547100028927d224aea}{on\+Ckp\+Tri}} (int ckp\+Id)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_speed_integrator_a5a3c3fcf4cf833b11d897c9dea305c82}{expect\+Tri\+Begin}} (int ckp\+Id)
+\item 
+void \mbox{\hyperlink{class_speed_integrator_aaabda4cff9d78b288286796cd4690228}{expect\+Tri\+End}} (int ckp\+Id)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_speed_integrator_aa7f2b002b46cf36d489558b59ed90388}{Speed\+Integrator}} (\mbox{\hyperlink{class_plc}{Plc}} $\ast$plc\+Serial, Q\+Object $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\item 
+\mbox{\hyperlink{class_speed_integrator_a2831c10b9d9d554f03ae46542c29357d}{$\sim$\+Speed\+Integrator}} ()
+\item 
+void \mbox{\hyperlink{class_speed_integrator_ada2cd17f8fbcb20abe6b17ce7e0ed915}{start}} ()
+\begin{DoxyCompactList}\small\item\em 开始积分。调用时间：plc初始化后 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_speed_integrator_a6e1d4a9a0e409e7cd2e8b4f103439fe4}{stop}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file Speed\+Integrator.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_speed_integrator_aa7f2b002b46cf36d489558b59ed90388}\label{class_speed_integrator_aa7f2b002b46cf36d489558b59ed90388}} 
+\index{Speed\+Integrator@{Speed\+Integrator}!Speed\+Integrator@{Speed\+Integrator}}
+\index{Speed\+Integrator@{Speed\+Integrator}!Speed\+Integrator@{Speed\+Integrator}}
+\subsubsection{\texorpdfstring{Speed\+Integrator()}{SpeedIntegrator()}}
+{\footnotesize\ttfamily Speed\+Integrator\+::\+Speed\+Integrator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plc}{Plc}} $\ast$}]{plc\+Serial,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 8 of file Speed\+Integrator.\+cpp.
+
+\mbox{\Hypertarget{class_speed_integrator_a2831c10b9d9d554f03ae46542c29357d}\label{class_speed_integrator_a2831c10b9d9d554f03ae46542c29357d}} 
+\index{Speed\+Integrator@{Speed\+Integrator}!````~Speed\+Integrator@{$\sim$\+Speed\+Integrator}}
+\index{````~Speed\+Integrator@{$\sim$\+Speed\+Integrator}!Speed\+Integrator@{Speed\+Integrator}}
+\subsubsection{\texorpdfstring{$\sim$\+Speed\+Integrator()}{~SpeedIntegrator()}}
+{\footnotesize\ttfamily Speed\+Integrator\+::$\sim$\+Speed\+Integrator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_speed_integrator_a5a3c3fcf4cf833b11d897c9dea305c82}\label{class_speed_integrator_a5a3c3fcf4cf833b11d897c9dea305c82}} 
+\index{Speed\+Integrator@{Speed\+Integrator}!expect\+Tri\+Begin@{expect\+Tri\+Begin}}
+\index{expect\+Tri\+Begin@{expect\+Tri\+Begin}!Speed\+Integrator@{Speed\+Integrator}}
+\subsubsection{\texorpdfstring{expect\+Tri\+Begin}{expectTriBegin}}
+{\footnotesize\ttfamily void Speed\+Integrator\+::expect\+Tri\+Begin (\begin{DoxyParamCaption}\item[{int}]{ckp\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_speed_integrator_aaabda4cff9d78b288286796cd4690228}\label{class_speed_integrator_aaabda4cff9d78b288286796cd4690228}} 
+\index{Speed\+Integrator@{Speed\+Integrator}!expect\+Tri\+End@{expect\+Tri\+End}}
+\index{expect\+Tri\+End@{expect\+Tri\+End}!Speed\+Integrator@{Speed\+Integrator}}
+\subsubsection{\texorpdfstring{expect\+Tri\+End}{expectTriEnd}}
+{\footnotesize\ttfamily void Speed\+Integrator\+::expect\+Tri\+End (\begin{DoxyParamCaption}\item[{int}]{ckp\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_speed_integrator_a66d764b8f94e1547100028927d224aea}\label{class_speed_integrator_a66d764b8f94e1547100028927d224aea}} 
+\index{Speed\+Integrator@{Speed\+Integrator}!on\+Ckp\+Tri@{on\+Ckp\+Tri}}
+\index{on\+Ckp\+Tri@{on\+Ckp\+Tri}!Speed\+Integrator@{Speed\+Integrator}}
+\subsubsection{\texorpdfstring{on\+Ckp\+Tri}{onCkpTri}}
+{\footnotesize\ttfamily void Speed\+Integrator\+::on\+Ckp\+Tri (\begin{DoxyParamCaption}\item[{int}]{ckp\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 61 of file Speed\+Integrator.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_speed_integrator_ada2cd17f8fbcb20abe6b17ce7e0ed915}\label{class_speed_integrator_ada2cd17f8fbcb20abe6b17ce7e0ed915}} 
+\index{Speed\+Integrator@{Speed\+Integrator}!start@{start}}
+\index{start@{start}!Speed\+Integrator@{Speed\+Integrator}}
+\subsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Speed\+Integrator\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+开始积分。调用时间：plc初始化后 
+
+
+
+Definition at line 17 of file Speed\+Integrator.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_speed_integrator_a6e1d4a9a0e409e7cd2e8b4f103439fe4}\label{class_speed_integrator_a6e1d4a9a0e409e7cd2e8b4f103439fe4}} 
+\index{Speed\+Integrator@{Speed\+Integrator}!stop@{stop}}
+\index{stop@{stop}!Speed\+Integrator@{Speed\+Integrator}}
+\subsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Speed\+Integrator\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file Speed\+Integrator.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 6
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{_speed_integrator_8h}{Speed\+Integrator.\+h}}\item 
+sources/\mbox{\hyperlink{_speed_integrator_8cpp}{Speed\+Integrator.\+cpp}}\end{DoxyCompactItemize}

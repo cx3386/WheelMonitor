@@ -1,0 +1,12 @@
+<map id="sources/camprofile.h" name="sources/camprofile.h">
+<area shape="rect" id="node2" href="$camprofile_8cpp.html" title="sources/camprofile.cpp" alt="" coords="501,80,657,107"/>
+<area shape="rect" id="node3" href="$confighelper_8h.html" title="sources/confighelper.h" alt="" coords="682,80,834,107"/>
+<area shape="rect" id="node4" href="$confighelper_8cpp.html" title="sources/confighelper.cpp" alt="" coords="5,155,172,181"/>
+<area shape="rect" id="node5" href="$hikvideocapture_8cpp.html" title="sources/hikvideocapture.cpp" alt="" coords="197,155,383,181"/>
+<area shape="rect" id="node6" href="$imageprocess_8cpp.html" title="sources/imageprocess.cpp" alt="" coords="407,155,586,181"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="sources/main.cpp" alt="" coords="610,155,735,181"/>
+<area shape="rect" id="node8" href="$mainwindow_8cpp.html" title="sources/mainwindow.cpp" alt="" coords="760,155,927,181"/>
+<area shape="rect" id="node9" href="$ocr_8cpp.html" title="sources/ocr.cpp" alt="" coords="951,155,1066,181"/>
+<area shape="rect" id="node10" href="$_plc_8cpp.html" title="sources/Plc.cpp" alt="" coords="1091,155,1207,181"/>
+<area shape="rect" id="node11" href="$settingdialog_8cpp.html" title="sources/settingdialog.cpp" alt="" coords="1231,155,1402,181"/>
+</map>

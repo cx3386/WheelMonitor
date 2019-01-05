@@ -1,0 +1,895 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_main_window" kind="class" language="C++" prot="public">
+    <compoundname>MainWindow</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMainWindow</basecompoundref>
+    <includes refid="mainwindow_8h" local="no">mainwindow.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_main_window_1a019defdc9b04dc63499a16f849c8ff87" prot="private" static="no" mutable="no">
+        <type>Ui::MainWindowClass</type>
+        <definition>Ui::MainWindowClass MainWindow::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="28" column="1" bodyfile="sources/mainwindow.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a5dc029682b55d86e93e698be3bd9c0d7" prot="private" static="no" mutable="no">
+        <type><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+        <definition>ConfigHelper* MainWindow::configHelper</definition>
+        <argsstring></argsstring>
+        <name>configHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="29" column="1" bodyfile="sources/mainwindow.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a9ed781aae28b5e872e53e38f140b26eb" prot="private" static="no" mutable="no">
+        <type>QMutex</type>
+        <definition>QMutex MainWindow::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="30" column="1" bodyfile="sources/mainwindow.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1afe678a65ba5c15a5df52b76481ca848d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MainWindow::bIsRunning</definition>
+        <argsstring></argsstring>
+        <name>bIsRunning</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="31" column="1" bodyfile="sources/mainwindow.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a2d7cf4793d91205a27140b14180d8ccc" prot="private" static="no" mutable="no">
+        <type>QLabel *</type>
+        <definition>QLabel* MainWindow::recLabel_pre[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>recLabel_pre</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="33" column="1" bodyfile="sources/mainwindow.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a00414cece056676e598a0b08f46e6f3e" prot="private" static="no" mutable="no">
+        <type>QLabel *</type>
+        <definition>QLabel* MainWindow::recLabel_input[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>recLabel_input</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="34" column="1" bodyfile="sources/mainwindow.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1af18dafbfeb78650ff5666a66b5fb1073" prot="private" static="no" mutable="no">
+        <type><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref> *</type>
+        <definition>HikVideoCapture* MainWindow::videoCapture[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>videoCapture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="36" column="1" bodyfile="sources/mainwindow.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a97c8a4875483f432641c58fc42c60209" prot="private" static="no" mutable="no">
+        <type><ref refid="class_play_back_widget" kindref="compound">PlayBackWidget</ref> *</type>
+        <definition>PlayBackWidget* MainWindow::playBackWidget</definition>
+        <argsstring></argsstring>
+        <name>playBackWidget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="37" column="1" bodyfile="sources/mainwindow.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a314e863f704c2d268da0f66b3b9e4d82" prot="private" static="no" mutable="no">
+        <type><ref refid="class_image_process" kindref="compound">ImageProcess</ref> *</type>
+        <definition>ImageProcess* MainWindow::imageProcess[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>imageProcess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="38" column="1" bodyfile="sources/mainwindow.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1ac8a7f827cc1ed3cc13dafe295ce85980" prot="private" static="no" mutable="no">
+        <type>QThread *</type>
+        <definition>QThread* MainWindow::imageProcessThread[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>imageProcessThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="39" column="1" bodyfile="sources/mainwindow.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a42ac4b9303e79c125fdefb18696ed90d" prot="private" static="no" mutable="no">
+        <type><ref refid="class_plc" kindref="compound">Plc</ref> *</type>
+        <definition>Plc* MainWindow::plc</definition>
+        <argsstring></argsstring>
+        <name>plc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="40" column="1" bodyfile="sources/mainwindow.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a6697b409679bde584fad7498c8d6e52d" prot="private" static="no" mutable="no">
+        <type>QThread *</type>
+        <definition>QThread* MainWindow::plcThread</definition>
+        <argsstring></argsstring>
+        <name>plcThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="41" column="1" bodyfile="sources/mainwindow.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a89c700caaadb27c8fc7a9c5a7d1e6fae" prot="private" static="no" mutable="no">
+        <type>QFileSystemWatcher *</type>
+        <definition>QFileSystemWatcher* MainWindow::watcher</definition>
+        <argsstring></argsstring>
+        <name>watcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="42" column="1" bodyfile="sources/mainwindow.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a73f9dc88a00e93cf9c397688b9f48d5c" prot="private" static="no" mutable="no">
+        <type>QThread *</type>
+        <definition>QThread* MainWindow::dbWatcherThread</definition>
+        <argsstring></argsstring>
+        <name>dbWatcherThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="43" column="1" bodyfile="sources/mainwindow.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1a7ea9c53d73fb25f3d3b5f3456e6892f9" prot="private" static="no" mutable="no">
+        <type><ref refid="class_alarm_manager" kindref="compound">AlarmManager</ref> *</type>
+        <definition>AlarmManager* MainWindow::alarmManager</definition>
+        <argsstring></argsstring>
+        <name>alarmManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="44" column="1" bodyfile="sources/mainwindow.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1abf88b18ac72338bfa60a6edfdfb65d59" prot="private" static="no" mutable="no">
+        <type>QDataWidgetMapper *</type>
+        <definition>QDataWidgetMapper* MainWindow::alarmMapper</definition>
+        <argsstring></argsstring>
+        <name>alarmMapper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="50" column="1" bodyfile="sources/mainwindow.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_main_window_1abdb6770672caa61aeee76668c351d6a2" prot="private" static="no" mutable="no">
+        <type>QList&lt; QDockWidget * &gt;</type>
+        <definition>QList&lt;QDockWidget*&gt; MainWindow::m_docks</definition>
+        <argsstring></argsstring>
+        <name>m_docks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="61" column="1" bodyfile="sources/mainwindow.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_main_window_1a2e942fbbe12199474f063365a74adf78" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MainWindow::MainWindow</definition>
+        <argsstring>(ConfigHelper *_configHelper, QWidget *parent=Q_NULLPTR)</argsstring>
+        <name>MainWindow</name>
+        <param>
+          <type><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+          <declname>_configHelper</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+<para>只有该类可以改变config，因此不用const. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="24" column="1" bodyfile="sources/mainwindow.cpp" bodystart="18" bodyend="40"/>
+        <references refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" compoundref="confighelper_8h" startline="56">ConfigHelper::startAtLaunch</references>
+      </memberdef>
+      <memberdef kind="function" id="class_main_window_1ae98d00a93bc118200eeef9f9bba1dba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MainWindow::~MainWindow</definition>
+        <argsstring>()</argsstring>
+        <name>~MainWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="25" column="1" bodyfile="sources/mainwindow.cpp" bodystart="42" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_main_window_1a69e8f48f4ea359fc0b2a096aa1e45583" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::configWindow</definition>
+        <argsstring>()</argsstring>
+        <name>configWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="52" column="1" bodyfile="sources/mainwindow.cpp" bodystart="66" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_main_window_1ab034be5baa14085571f1f72d8dea17d4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::setupDatabaseWatcher</definition>
+        <argsstring>()</argsstring>
+        <name>setupDatabaseWatcher</name>
+        <briefdescription>
+<para>建立对数据库文件的监视 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="53" column="1" bodyfile="sources/mainwindow.cpp" bodystart="658" bodyend="678"/>
+      </memberdef>
+      <memberdef kind="function" id="class_main_window_1a1bab04607ebb24d6c7120a6cbb048936" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::setupDataMapper</definition>
+        <argsstring>()</argsstring>
+        <name>setupDataMapper</name>
+        <briefdescription>
+<para>建立数据库与界面的映射关系 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="54" column="1" bodyfile="sources/mainwindow.cpp" bodystart="605" bodyend="656"/>
+      </memberdef>
+      <memberdef kind="function" id="class_main_window_1a89e39d2e6e718fcae2533c5394f7abd6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MainWindow::cleanDir</definition>
+        <argsstring>(QString dir, int nDays)</argsstring>
+        <name>cleanDir</name>
+        <param>
+          <type>QString</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nDays</declname>
+        </param>
+        <briefdescription>
+<para>retain nDays save files, include video/match/log and so on, defualt retain for 0 days, which means clean all </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="55" column="1" bodyfile="sources/mainwindow.cpp" bodystart="173" bodyend="201"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_main_window_1a05fb9d72c044aa3bb7d187b994704e2f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void MainWindow::closeEvent</definition>
+        <argsstring>(QCloseEvent *event) override</argsstring>
+        <name>closeEvent</name>
+        <param>
+          <type>QCloseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="64" column="1" bodyfile="sources/mainwindow.cpp" bodystart="203" bodyend="213"/>
+        <references refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" compoundref="confighelper_8cpp" startline="92" endline="151">ConfigHelper::save</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_main_window_1a960ef266d511ed4e10820a3106d23e69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowCio100</definition>
+        <argsstring>(int cio100)</argsstring>
+        <name>uiShowCio100</name>
+        <param>
+          <type>int</type>
+          <declname>cio100</declname>
+        </param>
+        <briefdescription>
+<para>显示Cio100的灯。即中控报警灯，1为亮，0为灭 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="67" column="1" bodyfile="sources/mainwindow.cpp" bodystart="383" bodyend="406"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">AlarmManager::bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1afa3fc9e034fa98830e87246246d73e0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowAlarmLight</definition>
+        <argsstring>(AlarmColor alarmColor)</argsstring>
+        <name>uiShowAlarmLight</name>
+        <param>
+          <type><ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834" kindref="member">AlarmColor</ref></type>
+          <declname>alarmColor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="68" column="1" bodyfile="sources/mainwindow.cpp" bodystart="235" bodyend="263"/>
+        <references refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac">Unkown</references>
+        <references refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1">Green</references>
+        <references refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47">Red</references>
+        <references refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8">Yellow</references>
+        <references refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93">Gray</references>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">AlarmManager::bindMainWindow</referencedby>
+        <referencedby refid="class_alarm_manager_1afcb1ab3d5f8f3e4c01227ab052bc520f" compoundref="_alarm_manager_8cpp" startline="53" endline="62">AlarmManager::bindPlayBack</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a0b254bab7ba45e2870484474a063afb2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowSpeed_i</definition>
+        <argsstring>(double speed)</argsstring>
+        <name>uiShowSpeed_i</name>
+        <param>
+          <type>double</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="69" column="1" bodyfile="sources/mainwindow.h" bodystart="69" bodyend="69"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">AlarmManager::bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a5af6ee21b93fe8660960c6e0ed9ca989" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowError_i</definition>
+        <argsstring>(double error)</argsstring>
+        <name>uiShowError_i</name>
+        <param>
+          <type>double</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="70" column="1" bodyfile="sources/mainwindow.h" bodystart="70" bodyend="70"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">AlarmManager::bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1af5608598b812a3f37e52f9e68df10f52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowNum_i</definition>
+        <argsstring>(QString num)</argsstring>
+        <name>uiShowNum_i</name>
+        <param>
+          <type>QString</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="71" column="1" bodyfile="sources/mainwindow.h" bodystart="71" bodyend="71"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">AlarmManager::bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a56c37dd56a54c1e0e4cea19073bd2895" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowSpeed_o</definition>
+        <argsstring>(double speed)</argsstring>
+        <name>uiShowSpeed_o</name>
+        <param>
+          <type>double</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="72" column="1" bodyfile="sources/mainwindow.h" bodystart="72" bodyend="72"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">AlarmManager::bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a08c36c996ee5b67ffbb4b0c5f1d18ea6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowError_o</definition>
+        <argsstring>(double error)</argsstring>
+        <name>uiShowError_o</name>
+        <param>
+          <type>double</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="73" column="1" bodyfile="sources/mainwindow.h" bodystart="73" bodyend="73"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">AlarmManager::bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a6b59764d9fff055d3a40148b5efe393c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowNum_o</definition>
+        <argsstring>(QString num)</argsstring>
+        <name>uiShowNum_o</name>
+        <param>
+          <type>QString</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="74" column="1" bodyfile="sources/mainwindow.h" bodystart="74" bodyend="74"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">AlarmManager::bindMainWindow</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_main_window_1a9057df90f051fd6f88645b4eb2e40d42" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowRealtimeImage</definition>
+        <argsstring>(int deviceIndex)</argsstring>
+        <name>uiShowRealtimeImage</name>
+        <param>
+          <type>int</type>
+          <declname>deviceIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="77" column="1" bodyfile="sources/mainwindow.cpp" bodystart="215" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a87a3722589a231de53ddaee38b52d0bd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowTruckSpeed</definition>
+        <argsstring>()</argsstring>
+        <name>uiShowTruckSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="78" column="1" bodyfile="sources/mainwindow.cpp" bodystart="265" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1ad880b9cb1bbafe2ed80fe8d7ac9aa03d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowCio0</definition>
+        <argsstring>(int cio0)</argsstring>
+        <name>uiShowCio0</name>
+        <param>
+          <type>int</type>
+          <declname>cio0</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="79" column="1" bodyfile="sources/mainwindow.cpp" bodystart="271" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a71ac40149e533ef7da7d54cbbabe4b07" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::uiShowSensor</definition>
+        <argsstring>(int state, int devId)</argsstring>
+        <name>uiShowSensor</name>
+        <param>
+          <type>int</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>devId</declname>
+        </param>
+        <briefdescription>
+<para>更新界面的光电传感器状态 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="80" column="1" bodyfile="sources/mainwindow.cpp" bodystart="337" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a7fe16064a526425615fb1bf7715e3853" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::onRecordON</definition>
+        <argsstring>(int deviceIndex)</argsstring>
+        <name>onRecordON</name>
+        <param>
+          <type>int</type>
+          <declname>deviceIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="84" column="1" bodyfile="sources/mainwindow.cpp" bodystart="594" bodyend="598"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a8e64f926e41bd4023a53e1a72f63fd47" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::onRecordOFF</definition>
+        <argsstring>(int deviceIndex)</argsstring>
+        <name>onRecordOFF</name>
+        <param>
+          <type>int</type>
+          <declname>deviceIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="85" column="1" bodyfile="sources/mainwindow.cpp" bodystart="600" bodyend="604"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1ad5f2417af8e274b30378383ef048b32c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::execScheduledTasks</definition>
+        <argsstring>()</argsstring>
+        <name>execScheduledTasks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="88" column="1" bodyfile="sources/mainwindow.cpp" bodystart="408" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1aeed2a27d796078aa660cefd1fb422138" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::setupScheduler</definition>
+        <argsstring>(int hh, int mm, bool execnow=true, bool everyday=true)</argsstring>
+        <name>setupScheduler</name>
+        <param>
+          <type>int</type>
+          <declname>hh</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mm</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>execnow</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>everyday</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>start the daily mission at hh:mm today or tomorrow </para>        </inbodydescription>
+        <location file="sources/mainwindow.h" line="89" column="1" bodyfile="sources/mainwindow.cpp" bodystart="435" bodyend="457"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a512f8d03415a2e615842f5184cb8a8fb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_Start_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_Start_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="92" column="1" bodyfile="sources/mainwindow.cpp" bodystart="459" bodyend="503"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a151a19e04162f62313085509521fee55" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_Stop_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_Stop_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="93" column="1" bodyfile="sources/mainwindow.cpp" bodystart="505" bodyend="531"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1aaac391f4959543d84278c60c7574b8b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_Restart_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_Restart_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="94" column="1" bodyfile="sources/mainwindow.cpp" bodystart="532" bodyend="537"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a50188ce2a37ee1e1a1b4e4d15eee9671" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_Property_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_Property_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="95" column="1" bodyfile="sources/mainwindow.cpp" bodystart="538" bodyend="543"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a0b8c6952362faeeee64487be46b5ae6d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_Quit_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_Quit_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="96" column="1" bodyfile="sources/mainwindow.cpp" bodystart="544" bodyend="547"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1aa482a9e007d5e3a60f9b22082fb8f68e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_Show_Log_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_Show_Log_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="97" column="1" bodyfile="sources/mainwindow.cpp" bodystart="548" bodyend="554"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1ac2487a09e0ff70129f46da51a113412c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_Backup_Log_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_Backup_Log_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="98" column="1" bodyfile="sources/mainwindow.cpp" bodystart="556" bodyend="562"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a09de6bdff902ebcdccee3a1dd715f69b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_About_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_About_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="99" column="1" bodyfile="sources/mainwindow.cpp" bodystart="564" bodyend="575"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1a001cecd6cfd001a319585bf07fce7b37" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_action_About_Qt_triggered</definition>
+        <argsstring>()</argsstring>
+        <name>on_action_About_Qt_triggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="100" column="1" bodyfile="sources/mainwindow.cpp" bodystart="577" bodyend="580"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1af6733ed088b1e7c0843f5a005ae3ea58" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::on_alarmPushButton_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_alarmPushButton_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="101" column="1" bodyfile="sources/mainwindow.cpp" bodystart="582" bodyend="585"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_main_window_1aab6a930de99bdc7e38087fa3b4aed42a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::showViewSensorImage</definition>
+        <argsstring>()</argsstring>
+        <name>showViewSensorImage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="102" column="1" bodyfile="sources/mainwindow.cpp" bodystart="587" bodyend="592"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_main_window_1aefe9232bef454c4215f273be6d13d96a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MainWindow::alarmUi2PLC</definition>
+        <argsstring>(AlarmColor alarmcolor)</argsstring>
+        <name>alarmUi2PLC</name>
+        <param>
+          <type><ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834" kindref="member">AlarmColor</ref></type>
+          <declname>alarmcolor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/mainwindow.h" line="106" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="68">
+        <label>QMainWindow</label>
+      </node>
+      <node id="67">
+        <label>MainWindow</label>
+        <link refid="class_main_window"/>
+        <childnode refid="68" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="70">
+        <label>QMainWindow</label>
+      </node>
+      <node id="69">
+        <label>MainWindow</label>
+        <link refid="class_main_window"/>
+        <childnode refid="70" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/mainwindow.h" line="20" column="1" bodyfile="sources/mainwindow.h" bodystart="20" bodyend="107"/>
+    <listofallmembers>
+      <member refid="class_main_window_1a7ea9c53d73fb25f3d3b5f3456e6892f9" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>alarmManager</name></member>
+      <member refid="class_main_window_1abf88b18ac72338bfa60a6edfdfb65d59" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>alarmMapper</name></member>
+      <member refid="class_main_window_1aefe9232bef454c4215f273be6d13d96a" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>alarmUi2PLC</name></member>
+      <member refid="class_main_window_1afe678a65ba5c15a5df52b76481ca848d" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>bIsRunning</name></member>
+      <member refid="class_main_window_1a89e39d2e6e718fcae2533c5394f7abd6" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>cleanDir</name></member>
+      <member refid="class_main_window_1a05fb9d72c044aa3bb7d187b994704e2f" prot="protected" virt="virtual"><scope>MainWindow</scope><name>closeEvent</name></member>
+      <member refid="class_main_window_1a5dc029682b55d86e93e698be3bd9c0d7" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>configHelper</name></member>
+      <member refid="class_main_window_1a69e8f48f4ea359fc0b2a096aa1e45583" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>configWindow</name></member>
+      <member refid="class_main_window_1a73f9dc88a00e93cf9c397688b9f48d5c" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>dbWatcherThread</name></member>
+      <member refid="class_main_window_1ad5f2417af8e274b30378383ef048b32c" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>execScheduledTasks</name></member>
+      <member refid="class_main_window_1a314e863f704c2d268da0f66b3b9e4d82" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>imageProcess</name></member>
+      <member refid="class_main_window_1ac8a7f827cc1ed3cc13dafe295ce85980" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>imageProcessThread</name></member>
+      <member refid="class_main_window_1abdb6770672caa61aeee76668c351d6a2" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>m_docks</name></member>
+      <member refid="class_main_window_1a2e942fbbe12199474f063365a74adf78" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>MainWindow</name></member>
+      <member refid="class_main_window_1a9ed781aae28b5e872e53e38f140b26eb" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>mutex</name></member>
+      <member refid="class_main_window_1a001cecd6cfd001a319585bf07fce7b37" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_About_Qt_triggered</name></member>
+      <member refid="class_main_window_1a09de6bdff902ebcdccee3a1dd715f69b" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_About_triggered</name></member>
+      <member refid="class_main_window_1ac2487a09e0ff70129f46da51a113412c" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_Backup_Log_triggered</name></member>
+      <member refid="class_main_window_1a50188ce2a37ee1e1a1b4e4d15eee9671" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_Property_triggered</name></member>
+      <member refid="class_main_window_1a0b8c6952362faeeee64487be46b5ae6d" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_Quit_triggered</name></member>
+      <member refid="class_main_window_1aaac391f4959543d84278c60c7574b8b2" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_Restart_triggered</name></member>
+      <member refid="class_main_window_1aa482a9e007d5e3a60f9b22082fb8f68e" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_Show_Log_triggered</name></member>
+      <member refid="class_main_window_1a512f8d03415a2e615842f5184cb8a8fb" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_Start_triggered</name></member>
+      <member refid="class_main_window_1a151a19e04162f62313085509521fee55" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_action_Stop_triggered</name></member>
+      <member refid="class_main_window_1af6733ed088b1e7c0843f5a005ae3ea58" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>on_alarmPushButton_clicked</name></member>
+      <member refid="class_main_window_1a8e64f926e41bd4023a53e1a72f63fd47" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>onRecordOFF</name></member>
+      <member refid="class_main_window_1a7fe16064a526425615fb1bf7715e3853" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>onRecordON</name></member>
+      <member refid="class_main_window_1a97c8a4875483f432641c58fc42c60209" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>playBackWidget</name></member>
+      <member refid="class_main_window_1a42ac4b9303e79c125fdefb18696ed90d" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>plc</name></member>
+      <member refid="class_main_window_1a6697b409679bde584fad7498c8d6e52d" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>plcThread</name></member>
+      <member refid="class_main_window_1a00414cece056676e598a0b08f46e6f3e" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>recLabel_input</name></member>
+      <member refid="class_main_window_1a2d7cf4793d91205a27140b14180d8ccc" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>recLabel_pre</name></member>
+      <member refid="class_main_window_1ab034be5baa14085571f1f72d8dea17d4" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>setupDatabaseWatcher</name></member>
+      <member refid="class_main_window_1a1bab04607ebb24d6c7120a6cbb048936" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>setupDataMapper</name></member>
+      <member refid="class_main_window_1aeed2a27d796078aa660cefd1fb422138" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>setupScheduler</name></member>
+      <member refid="class_main_window_1aab6a930de99bdc7e38087fa3b4aed42a" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>showViewSensorImage</name></member>
+      <member refid="class_main_window_1a019defdc9b04dc63499a16f849c8ff87" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>ui</name></member>
+      <member refid="class_main_window_1afa3fc9e034fa98830e87246246d73e0e" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>uiShowAlarmLight</name></member>
+      <member refid="class_main_window_1ad880b9cb1bbafe2ed80fe8d7ac9aa03d" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>uiShowCio0</name></member>
+      <member refid="class_main_window_1a960ef266d511ed4e10820a3106d23e69" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>uiShowCio100</name></member>
+      <member refid="class_main_window_1a5af6ee21b93fe8660960c6e0ed9ca989" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>uiShowError_i</name></member>
+      <member refid="class_main_window_1a08c36c996ee5b67ffbb4b0c5f1d18ea6" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>uiShowError_o</name></member>
+      <member refid="class_main_window_1af5608598b812a3f37e52f9e68df10f52" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>uiShowNum_i</name></member>
+      <member refid="class_main_window_1a6b59764d9fff055d3a40148b5efe393c" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>uiShowNum_o</name></member>
+      <member refid="class_main_window_1a9057df90f051fd6f88645b4eb2e40d42" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>uiShowRealtimeImage</name></member>
+      <member refid="class_main_window_1a71ac40149e533ef7da7d54cbbabe4b07" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>uiShowSensor</name></member>
+      <member refid="class_main_window_1a0b254bab7ba45e2870484474a063afb2" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>uiShowSpeed_i</name></member>
+      <member refid="class_main_window_1a56c37dd56a54c1e0e4cea19073bd2895" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>uiShowSpeed_o</name></member>
+      <member refid="class_main_window_1a87a3722589a231de53ddaee38b52d0bd" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>uiShowTruckSpeed</name></member>
+      <member refid="class_main_window_1af18dafbfeb78650ff5666a66b5fb1073" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>videoCapture</name></member>
+      <member refid="class_main_window_1a89c700caaadb27c8fc7a9c5a7d1e6fae" prot="private" virt="non-virtual"><scope>MainWindow</scope><name>watcher</name></member>
+      <member refid="class_main_window_1ae98d00a93bc118200eeef9f9bba1dba7" prot="public" virt="non-virtual"><scope>MainWindow</scope><name>~MainWindow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

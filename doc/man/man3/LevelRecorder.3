@@ -1,0 +1,101 @@
+.TH "LevelRecorder" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LevelRecorder
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <LevelRecorder\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBState\fP { \fBHighLevel\fP = 0x1, \fBLowLevel\fP = 0x2, \fBPositiveEdge\fP = HighLevel | 0x4, \fBNegativeEdge\fP = LowLevel | 0x8, \fBOutOfRange\fP = 0x10 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLevelRecorder\fP ()"
+.br
+.ti -1c
+.RI "\fB~LevelRecorder\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP (bool b=false)"
+.br
+.ti -1c
+.RI "void \fBpush\fP (bool)"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.RI "clear all data "
+.ti -1c
+.RI "int \fBstate\fP (size_t pos)"
+.br
+.RI "输出第pos新的数据的状态，pos=0为最新的数据点 "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 20 of file LevelRecorder\&.h\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBLevelRecorder::State\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIHighLevel \fP\fP
+.TP
+\fB\fILowLevel \fP\fP
+.TP
+\fB\fIPositiveEdge \fP\fP
+即是高电平也是上升沿 
+.TP
+\fB\fINegativeEdge \fP\fP
+即使低电平也是下降沿 
+.TP
+\fB\fIOutOfRange \fP\fP
+.PP
+Definition at line 30 of file LevelRecorder\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "LevelRecorder::LevelRecorder ()"
+
+.PP
+Definition at line 4 of file LevelRecorder\&.cpp\&.
+.SS "LevelRecorder::~LevelRecorder ()"
+
+.PP
+Definition at line 9 of file LevelRecorder\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void LevelRecorder::clear ()\fC [inline]\fP"
+
+.PP
+clear all data 
+.PP
+Definition at line 28 of file LevelRecorder\&.h\&.
+.SS "void LevelRecorder::init (bool b = \fCfalse\fP)\fC [inline]\fP"
+
+.PP
+Definition at line 25 of file LevelRecorder\&.h\&.
+.SS "void LevelRecorder::push (bool lv)"
+push_back a data to levels 
+.PP
+Definition at line 13 of file LevelRecorder\&.cpp\&.
+.SS "int LevelRecorder::state (size_t pos)"
+
+.PP
+输出第pos新的数据的状态，pos=0为最新的数据点 
+.PP
+Definition at line 22 of file LevelRecorder\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

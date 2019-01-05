@@ -1,3 +1,5 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classmy_text_browser.html" title="myTextBrowser" alt="" coords="157,5,269,32"/>
+<map id="类继承关系图" name="类继承关系图">
+<area shape="rect" id="node2" href="$class_match_viewer.html" title="MatchViewer" alt="" coords="137,5,235,32"/>
+<area shape="rect" id="node3" href="$class_play_back_widget.html" title="PlayBackWidget" alt="" coords="127,56,245,83"/>
+<area shape="rect" id="node4" href="$class_player.html" title="Player" alt="" coords="157,107,215,133"/>
 </map>

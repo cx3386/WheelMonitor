@@ -1,0 +1,12 @@
+<map id="sources/database.h" name="sources/database.h">
+<area shape="rect" id="node2" href="$imageprocess_8h.html" title="sources/imageprocess.h" alt="" coords="298,80,462,107"/>
+<area shape="rect" id="node5" href="$mainwindow_8cpp.html" title="sources/mainwindow.cpp" alt="" coords="211,229,378,256"/>
+<area shape="rect" id="node6" href="$imageprocess_8cpp.html" title="sources/imageprocess.cpp" alt="" coords="491,155,669,181"/>
+<area shape="rect" id="node8" href="$logindialog_8cpp.html" title="sources/logindialog.cpp" alt="" coords="745,80,903,107"/>
+<area shape="rect" id="node9" href="$main_8cpp.html" title="sources/main.cpp" alt="" coords="928,80,1053,107"/>
+<area shape="rect" id="node10" href="$mysqltablemodel_8cpp.html" title="sources/mysqltablemodel.cpp" alt="" coords="1077,80,1272,107"/>
+<area shape="rect" id="node11" href="$playbackwidget_8cpp.html" title="sources/playbackwidget.cpp" alt="" coords="1296,80,1483,107"/>
+<area shape="rect" id="node3" href="$_alarm_manager_8h.html" title="管理所有的报警 " alt="" coords="51,155,218,181"/>
+<area shape="rect" id="node7" href="$_match_viewer_8cpp.html" title="sources/MatchViewer.cpp" alt="" coords="294,155,466,181"/>
+<area shape="rect" id="node4" href="$_alarm_manager_8cpp.html" title="sources/AlarmManager.cpp" alt="" coords="5,229,187,256"/>
+</map>

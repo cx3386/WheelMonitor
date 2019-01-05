@@ -1,0 +1,192 @@
+\hypertarget{class_play_back_widget}{}\section{Play\+Back\+Widget Class Reference}
+\label{class_play_back_widget}\index{Play\+Back\+Widget@{Play\+Back\+Widget}}
+
+
+{\ttfamily \#include $<$playbackwidget.\+h$>$}
+
+
+
+Inheritance diagram for Play\+Back\+Widget\+:
+% FIG 0
+
+
+Collaboration diagram for Play\+Back\+Widget\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_play_back_widget_a6dd67d2767c0aeb3f1e53d02ed47c6c2}{clear\+Media}} ()
+\begin{DoxyCompactList}\small\item\em 清除媒体信息；应当在失焦时调用 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_play_back_widget_a4592fd5be9f975544be77a7263d4face}{db\+Changed}} ()
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_play_back_widget_aeb734152a79a362eeeedcfc7bdc0dbd1}{clear\+Alarm}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_play_back_widget_aadceb04a8dab25ebd50d16ba99d4b6fc}{Play\+Back\+Widget}} (Q\+Widget $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\item 
+\mbox{\hyperlink{class_play_back_widget_aad9ed53e29cf516c632e0984e0fd452c}{$\sim$\+Play\+Back\+Widget}} ()
+\item 
+bool \mbox{\hyperlink{class_play_back_widget_ad372e3ed644bd1b3aca066fe6a8bc44b}{has\+Alarm}} () const
+\begin{DoxyCompactList}\small\item\em Returns true if the alarm list is not null;otherwise returns false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_my_sql_table_model}{My\+Sql\+Table\+Model}} $\ast$ \mbox{\hyperlink{class_play_back_widget_ac35e4232a7c1cce855e21def94308ad9}{all\+Model}}
+\begin{DoxyCompactList}\small\item\em table\+Model for all record \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_sql_table_model}{My\+Sql\+Table\+Model}} $\ast$ \mbox{\hyperlink{class_play_back_widget_a99c60dd024fcdfc77182747bcb2d25c5}{alarm\+Model}}
+\begin{DoxyCompactList}\small\item\em talble\+Model for unchecked record \end{DoxyCompactList}\item 
+Q\+Table\+View $\ast$ \mbox{\hyperlink{class_play_back_widget_a462ae0ce1fd694d9cc60c3f734a15cdd}{alarm\+View}}
+\begin{DoxyCompactList}\small\item\em tablseview for unchecked record \end{DoxyCompactList}\item 
+Q\+Combo\+Box $\ast$ \mbox{\hyperlink{class_play_back_widget_a7d562b7d5defc99bd6384768c8dea6d3}{select\+Table\+Cb}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file playbackwidget.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_play_back_widget_aadceb04a8dab25ebd50d16ba99d4b6fc}\label{class_play_back_widget_aadceb04a8dab25ebd50d16ba99d4b6fc}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{Play\+Back\+Widget()}{PlayBackWidget()}}
+{\footnotesize\ttfamily Play\+Back\+Widget\+::\+Play\+Back\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})}
+
+player 
+
+Definition at line 10 of file playbackwidget.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_play_back_widget_aad9ed53e29cf516c632e0984e0fd452c}\label{class_play_back_widget_aad9ed53e29cf516c632e0984e0fd452c}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!````~Play\+Back\+Widget@{$\sim$\+Play\+Back\+Widget}}
+\index{````~Play\+Back\+Widget@{$\sim$\+Play\+Back\+Widget}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{$\sim$\+Play\+Back\+Widget()}{~PlayBackWidget()}}
+{\footnotesize\ttfamily Play\+Back\+Widget\+::$\sim$\+Play\+Back\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_play_back_widget_aeb734152a79a362eeeedcfc7bdc0dbd1}\label{class_play_back_widget_aeb734152a79a362eeeedcfc7bdc0dbd1}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!clear\+Alarm@{clear\+Alarm}}
+\index{clear\+Alarm@{clear\+Alarm}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{clear\+Alarm}{clearAlarm}}
+{\footnotesize\ttfamily void Play\+Back\+Widget\+::clear\+Alarm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_play_back_widget_a6dd67d2767c0aeb3f1e53d02ed47c6c2}\label{class_play_back_widget_a6dd67d2767c0aeb3f1e53d02ed47c6c2}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!clear\+Media@{clear\+Media}}
+\index{clear\+Media@{clear\+Media}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{clear\+Media}{clearMedia}}
+{\footnotesize\ttfamily void Play\+Back\+Widget\+::clear\+Media (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+清除媒体信息；应当在失焦时调用 
+
+
+
+Definition at line 173 of file playbackwidget.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_play_back_widget_a4592fd5be9f975544be77a7263d4face}\label{class_play_back_widget_a4592fd5be9f975544be77a7263d4face}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!db\+Changed@{db\+Changed}}
+\index{db\+Changed@{db\+Changed}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{db\+Changed}{dbChanged}}
+{\footnotesize\ttfamily void Play\+Back\+Widget\+::db\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 160 of file playbackwidget.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_play_back_widget_ad372e3ed644bd1b3aca066fe6a8bc44b}\label{class_play_back_widget_ad372e3ed644bd1b3aca066fe6a8bc44b}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!has\+Alarm@{has\+Alarm}}
+\index{has\+Alarm@{has\+Alarm}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{has\+Alarm()}{hasAlarm()}}
+{\footnotesize\ttfamily bool Play\+Back\+Widget\+::has\+Alarm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns true if the alarm list is not null;otherwise returns false. 
+
+
+
+Definition at line 155 of file playbackwidget.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 7
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_play_back_widget_a99c60dd024fcdfc77182747bcb2d25c5}\label{class_play_back_widget_a99c60dd024fcdfc77182747bcb2d25c5}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!alarm\+Model@{alarm\+Model}}
+\index{alarm\+Model@{alarm\+Model}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{alarm\+Model}{alarmModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_my_sql_table_model}{My\+Sql\+Table\+Model}}$\ast$ Play\+Back\+Widget\+::alarm\+Model}
+
+
+
+talble\+Model for unchecked record 
+
+
+
+Definition at line 15 of file playbackwidget.\+h.
+
+\mbox{\Hypertarget{class_play_back_widget_a462ae0ce1fd694d9cc60c3f734a15cdd}\label{class_play_back_widget_a462ae0ce1fd694d9cc60c3f734a15cdd}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!alarm\+View@{alarm\+View}}
+\index{alarm\+View@{alarm\+View}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{alarm\+View}{alarmView}}
+{\footnotesize\ttfamily Q\+Table\+View$\ast$ Play\+Back\+Widget\+::alarm\+View}
+
+
+
+tablseview for unchecked record 
+
+
+
+Definition at line 21 of file playbackwidget.\+h.
+
+\mbox{\Hypertarget{class_play_back_widget_ac35e4232a7c1cce855e21def94308ad9}\label{class_play_back_widget_ac35e4232a7c1cce855e21def94308ad9}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!all\+Model@{all\+Model}}
+\index{all\+Model@{all\+Model}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{all\+Model}{allModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_my_sql_table_model}{My\+Sql\+Table\+Model}}$\ast$ Play\+Back\+Widget\+::all\+Model}
+
+
+
+table\+Model for all record 
+
+
+
+Definition at line 14 of file playbackwidget.\+h.
+
+\mbox{\Hypertarget{class_play_back_widget_a7d562b7d5defc99bd6384768c8dea6d3}\label{class_play_back_widget_a7d562b7d5defc99bd6384768c8dea6d3}} 
+\index{Play\+Back\+Widget@{Play\+Back\+Widget}!select\+Table\+Cb@{select\+Table\+Cb}}
+\index{select\+Table\+Cb@{select\+Table\+Cb}!Play\+Back\+Widget@{Play\+Back\+Widget}}
+\subsubsection{\texorpdfstring{select\+Table\+Cb}{selectTableCb}}
+{\footnotesize\ttfamily Q\+Combo\+Box$\ast$ Play\+Back\+Widget\+::select\+Table\+Cb}
+
+
+
+Definition at line 22 of file playbackwidget.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{playbackwidget_8h}{playbackwidget.\+h}}\item 
+sources/\mbox{\hyperlink{playbackwidget_8cpp}{playbackwidget.\+cpp}}\end{DoxyCompactItemize}

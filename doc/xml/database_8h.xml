@@ -1,0 +1,972 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="database_8h" kind="file" language="C++">
+    <compoundname>database.h</compoundname>
+    <includes refid="common_8h" local="yes">common.h</includes>
+    <includes refid="ocr_8h" local="yes">ocr.h</includes>
+    <includes local="no">QtSql</includes>
+    <includedby refid="imageprocess_8h" local="yes">sources/imageprocess.h</includedby>
+    <includedby refid="imageprocess_8cpp" local="yes">sources/imageprocess.cpp</includedby>
+    <includedby refid="logindialog_8cpp" local="yes">sources/logindialog.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">sources/main.cpp</includedby>
+    <includedby refid="mainwindow_8cpp" local="yes">sources/mainwindow.cpp</includedby>
+    <includedby refid="mysqltablemodel_8cpp" local="yes">sources/mysqltablemodel.cpp</includedby>
+    <includedby refid="playbackwidget_8cpp" local="yes">sources/playbackwidget.cpp</includedby>
+    <incdepgraph>
+      <node id="176">
+        <label>QObject</label>
+      </node>
+      <node id="177">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="175">
+        <label>ocr.h</label>
+        <link refid="ocr_8h"/>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="177" relation="include">
+        </childnode>
+      </node>
+      <node id="174">
+        <label>QString</label>
+      </node>
+      <node id="172">
+        <label>sources/database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="173" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+      </node>
+      <node id="173">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="174" relation="include">
+        </childnode>
+      </node>
+      <node id="178">
+        <label>QtSql</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="185">
+        <label>sources/MatchViewer.cpp</label>
+        <link refid="_match_viewer_8cpp"/>
+      </node>
+      <node id="188">
+        <label>sources/mysqltablemodel.cpp</label>
+        <link refid="mysqltablemodel_8cpp"/>
+      </node>
+      <node id="181">
+        <label>sources/AlarmManager.h</label>
+        <link refid="_alarm_manager_8h"/>
+        <childnode refid="182" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+      </node>
+      <node id="187">
+        <label>sources/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="183">
+        <label>sources/mainwindow.cpp</label>
+        <link refid="mainwindow_8cpp"/>
+      </node>
+      <node id="184">
+        <label>sources/imageprocess.cpp</label>
+        <link refid="imageprocess_8cpp"/>
+      </node>
+      <node id="182">
+        <label>sources/AlarmManager.cpp</label>
+        <link refid="_alarm_manager_8cpp"/>
+      </node>
+      <node id="189">
+        <label>sources/playbackwidget.cpp</label>
+        <link refid="playbackwidget_8cpp"/>
+      </node>
+      <node id="179">
+        <label>sources/database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="180" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+        <childnode refid="186" relation="include">
+        </childnode>
+        <childnode refid="187" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="189" relation="include">
+        </childnode>
+      </node>
+      <node id="186">
+        <label>sources/logindialog.cpp</label>
+        <link refid="logindialog_8cpp"/>
+      </node>
+      <node id="180">
+        <label>sources/imageprocess.h</label>
+        <link refid="imageprocess_8h"/>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_wheel_db_info" prot="public">WheelDbInfo</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="database_8h_1a9145f452b287f285038b1dae55dac39f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>WheelHeader</name>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fac93f469e5dc9266565682cff0633a5e7" prot="public">
+          <name>Wheel_ID</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea" prot="public">
+          <name>Wheel_I_O</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537" prot="public">
+          <name>Wheel_Num</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419" prot="public">
+          <name>Wheel_CalcSpeed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2" prot="public">
+          <name>Wheel_RefSpeed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0" prot="public">
+          <name>Wheel_Error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880" prot="public">
+          <name>Wheel_Time</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33" prot="public">
+          <name>Wheel_AlarmLevel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8" prot="public">
+          <name>Wheel_CheckState</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39faf813a99a0689420d89c99e45e3ab6993" prot="public">
+          <name>Wheel_OcrSize</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fadbab0ed30a0e5394445e98954aab467f" prot="public">
+          <name>Wheel_Fragment</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa1210163e5138f0b4070bf52eebb76616" prot="public">
+          <name>Wheel_TotalMatch</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fae3dca2c74420f6bac1e955c4e21e61a2" prot="public">
+          <name>Wheel_ValidMatch</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fae0605f6e0144f634da6e6e875aa009d9" prot="public">
+          <name>Wheel_Speeds</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde" prot="public">
+          <name>Wheel_VideoPath</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>field index of table &quot;wheels&quot; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="8" column="1" bodyfile="sources/database.h" bodystart="8" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="enum" id="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>CheckState</name>
+        <enumvalue id="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503" prot="public">
+          <name>NoNeedCheck</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d" prot="public">
+          <name>NeedCheck</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33" prot="public">
+          <name>Checked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>the value of field &quot;wheels_checkstate&quot;, represent whether need check. if need check, it will show in the alarm table </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="50" column="1" bodyfile="sources/database.h" bodystart="50" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="database_8h_1ae3459b0e751e0b106b401853733a24db" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool initMainDb</definition>
+        <argsstring>()</argsstring>
+        <name>initMainDb</name>
+        <briefdescription>
+<para>由主线程调用，连接名为默认 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/database.h" line="57" column="1" bodyfile="sources/database.h" bodystart="57" bodyend="163"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="common_8h" kindref="compound">common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ocr_8h" kindref="compound">ocr.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtSql&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="database_8h_1a9145f452b287f285038b1dae55dac39f" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39f" kindref="member">WheelHeader</ref><sp/>{</highlight></codeline>
+<codeline lineno="9" refid="database_8h_1a9145f452b287f285038b1dae55dac39fac93f469e5dc9266565682cff0633a5e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fac93f469e5dc9266565682cff0633a5e7" kindref="member">Wheel_ID</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="10" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea" kindref="member">Wheel_I_O</ref>,</highlight></codeline>
+<codeline lineno="11" refid="database_8h_1a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537" kindref="member">Wheel_Num</ref>,</highlight></codeline>
+<codeline lineno="12" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419" kindref="member">Wheel_CalcSpeed</ref>,</highlight></codeline>
+<codeline lineno="13" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2" kindref="member">Wheel_RefSpeed</ref>,</highlight></codeline>
+<codeline lineno="14" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0" kindref="member">Wheel_Error</ref>,</highlight></codeline>
+<codeline lineno="15" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880" kindref="member">Wheel_Time</ref>,</highlight></codeline>
+<codeline lineno="16" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33" kindref="member">Wheel_AlarmLevel</ref>,</highlight></codeline>
+<codeline lineno="17" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8" kindref="member">Wheel_CheckState</ref>,</highlight></codeline>
+<codeline lineno="18" refid="database_8h_1a9145f452b287f285038b1dae55dac39faf813a99a0689420d89c99e45e3ab6993" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39faf813a99a0689420d89c99e45e3ab6993" kindref="member">Wheel_OcrSize</ref>,</highlight></codeline>
+<codeline lineno="19" refid="database_8h_1a9145f452b287f285038b1dae55dac39fadbab0ed30a0e5394445e98954aab467f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fadbab0ed30a0e5394445e98954aab467f" kindref="member">Wheel_Fragment</ref>,</highlight></codeline>
+<codeline lineno="20" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa1210163e5138f0b4070bf52eebb76616" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa1210163e5138f0b4070bf52eebb76616" kindref="member">Wheel_TotalMatch</ref>,</highlight></codeline>
+<codeline lineno="21" refid="database_8h_1a9145f452b287f285038b1dae55dac39fae3dca2c74420f6bac1e955c4e21e61a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fae3dca2c74420f6bac1e955c4e21e61a2" kindref="member">Wheel_ValidMatch</ref>,</highlight></codeline>
+<codeline lineno="22" refid="database_8h_1a9145f452b287f285038b1dae55dac39fae0605f6e0144f634da6e6e875aa009d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fae0605f6e0144f634da6e6e875aa009d9" kindref="member">Wheel_Speeds</ref>,</highlight></codeline>
+<codeline lineno="23" refid="database_8h_1a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde" kindref="member">Wheel_VideoPath</ref>,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="struct_wheel_db_info" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_wheel_db_info" kindref="compound">WheelDbInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="28" refid="struct_wheel_db_info_1af351443371b29941a357006ef27795a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1af351443371b29941a357006ef27795a0" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="29" refid="struct_wheel_db_info_1aae1177299aa4b515dbc4e5b5b04ac071" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1aae1177299aa4b515dbc4e5b5b04ac071" kindref="member">i_o</ref>;</highlight></codeline>
+<codeline lineno="30" refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" kindref="member">num</ref>;</highlight></codeline>
+<codeline lineno="31" refid="struct_wheel_db_info_1af17e3e7fcfa366aede4f2b1dab764ea5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1af17e3e7fcfa366aede4f2b1dab764ea5" kindref="member">calcspeed</ref>;</highlight></codeline>
+<codeline lineno="32" refid="struct_wheel_db_info_1a06da43ab369c21a8f280e902ecaadd24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1a06da43ab369c21a8f280e902ecaadd24" kindref="member">refspeed</ref>;</highlight></codeline>
+<codeline lineno="33" refid="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" kindref="member">error</ref>;</highlight></codeline>
+<codeline lineno="34" refid="struct_wheel_db_info_1a62093bf6e1e60260ac3441852e3508f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="struct_wheel_db_info_1a62093bf6e1e60260ac3441852e3508f5" kindref="member">time</ref>;</highlight></codeline>
+<codeline lineno="35" refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref>;<sp/></highlight></codeline>
+<codeline lineno="36" refid="struct_wheel_db_info_1ab673ee45b8a02e9ba8aa72135ed28b6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1ab673ee45b8a02e9ba8aa72135ed28b6a" kindref="member">checkstate</ref>;</highlight></codeline>
+<codeline lineno="37" refid="struct_wheel_db_info_1ad8ea8e08cbb58f268d06186a12c44aca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1ad8ea8e08cbb58f268d06186a12c44aca" kindref="member">ocrsize</ref>;</highlight></codeline>
+<codeline lineno="38" refid="struct_wheel_db_info_1a244bfaa82dbb8eb7fb1460d252571ba1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1a244bfaa82dbb8eb7fb1460d252571ba1" kindref="member">fragment</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//int<sp/>interrupts;<sp/>//!&lt;<sp/>记录车轮回合内，检测中断了几次。0-正常<sp/>&gt;1-不连续</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="struct_wheel_db_info_1a18c5b6628f2c1c164ba3a1f424f98d23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1a18c5b6628f2c1c164ba3a1f424f98d23" kindref="member">totalmatch</ref>;</highlight></codeline>
+<codeline lineno="41" refid="struct_wheel_db_info_1a21d02e75169f0932fd742dfedd580173" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1a21d02e75169f0932fd742dfedd580173" kindref="member">validmatch</ref>;</highlight></codeline>
+<codeline lineno="42" refid="struct_wheel_db_info_1a0c02cf2107db2bc81194d0f20aa14b4e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="struct_wheel_db_info_1a0c02cf2107db2bc81194d0f20aa14b4e" kindref="member">speeds</ref>;</highlight></codeline>
+<codeline lineno="43" refid="struct_wheel_db_info_1a7c60fb37ebdb5d0e94b54a49e6eb6157" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="struct_wheel_db_info_1a7c60fb37ebdb5d0e94b54a49e6eb6157" kindref="member">videopath</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//临时增加 <sp/>double<sp/>warnRatio;
+<sp/><sp/>double<sp/>alarmRatio;
+};
+
+///<sp/>the<sp/>value<sp/>of<sp/>field<sp/>&quot;wheels_checkstate&quot;,<sp/>represent<sp/>whether<sp/>need<sp/>check.<sp/>if<sp/>need<sp/>check,<sp/>it<sp/>will<sp/>show<sp/>in<sp/>the<sp/>alarm<sp/>table
+enum<sp/>CheckState<sp/>{
+<sp/><sp/>NoNeedCheck<sp/>=<sp/>0,
+<sp/><sp/><sp/>NeedCheck,
+<sp/>Checked,
+};
+
+//!<sp/>由主线程调用，连接名为默认
+static<sp/>bool<sp/>initMainDb()
+{
+<sp/><sp/><sp/><sp/>if<sp/>(!QSqlDatabase::drivers().contains(&quot;QSQLITE&quot;))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>no<sp/>SQLITE<sp/>driver.&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>load<sp/>database&quot;,<sp/>&quot;This<sp/>app<sp/>needs<sp/>the<sp/>SQLITE<sp/>driver&quot;);
+<sp/><sp/><sp/>}
+<sp/><sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(&quot;QSQLITE&quot;);
+<sp/><sp/><sp/><sp/>db.setDatabaseName(databaseFilePath);
+<sp/><sp/>if<sp/>(!db.open())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>initMainDb<sp/>failed.<sp/>&quot;<sp/>&lt;&lt;<sp/>db.lastError().text();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;,
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Eror<sp/>initializing<sp/>database:<sp/>&quot;<sp/>+<sp/>db.lastError().text());
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>QSqlTableModel<sp/>model;
+
+<sp/>//<sp/>检查user表
+<sp/>model.setTable(&quot;user&quot;);
+<sp/><sp/><sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>if<sp/>(!model.rowCount())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;create<sp/>table<sp/>user<sp/>(id<sp/>integer<sp/>primary<sp/>key<sp/>autoincrement,<sp/>username<sp/>varchar(20)<sp/>unique,<sp/>pwd<sp/>varchar(20))&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;insert<sp/>into<sp/>user<sp/>(username,<sp/>pwd)<sp/>values(&apos;BaoSteel&apos;,<sp/>&apos;123456&apos;)&quot;);
+<sp/><sp/><sp/>}
+
+<sp/>//检查devs表
+<sp/><sp/>model.setTable(&quot;devs&quot;);
+<sp/><sp/><sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>if<sp/>(!model.rowCount())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>TABLE<sp/>devs<sp/>(&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;devIndex<sp/>INTEGER<sp/>UNIQUE,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name<sp/>TEXT&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>devs<sp/>(devIndex,name)<sp/>VALUES(:devId,:devname);&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devId&quot;,<sp/>0);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devname&quot;,<sp/>getDeviceMark(0));
+<sp/><sp/><sp/><sp/><sp/>query.exec();
+<sp/><sp/><sp/><sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>devs<sp/>(devIndex,name)<sp/>VALUES(:devId,:devname);&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devId&quot;,<sp/>1);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devname&quot;,<sp/>getDeviceMark(1));
+<sp/><sp/><sp/><sp/><sp/>query.exec();
+<sp/><sp/>}
+
+<sp/>//检查wheels表
+<sp/><sp/><sp/><sp/>model.setTable(&quot;wheels&quot;);
+<sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>auto<sp/>record<sp/>=<sp/>model.record();
+<sp/><sp/>bool<sp/>createNewTable<sp/>=<sp/>false;
+
+<sp/><sp/>//检查数据表的列名是否正确
+<sp/><sp/><sp/><sp/>QStringList<sp/>refCols,<sp/>dbCols;
+<sp/><sp/><sp/>refCols<sp/>&lt;&lt;<sp/>&quot;id&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;num&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;calcspeed&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;refspeed&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;error&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;time&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;alarmlevel&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;ocrsize&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;fragment&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;totalmatch&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;validmatch&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;speeds&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;videopath&quot;;
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>record.count();<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>dbCols<sp/>&lt;&lt;<sp/>record.fieldName(i);
+<sp/>}
+<sp/><sp/>if<sp/>(refCols<sp/>!=<sp/>dbCols)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//create<sp/>a<sp/>new<sp/>table,<sp/>this<sp/>will<sp/>drop<sp/>the<sp/>history<sp/>records
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query(db);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;DROP<sp/>TABLE<sp/>wheels;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;PRAGMA<sp/>foreign_keys<sp/>=<sp/>ON;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//更改为sqlite3专有语句-2018年11月12日陈翔
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>TABLE<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;i_o<sp/>INTEGER<sp/>REFERENCES<sp/>devs<sp/>(devIndex),&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;calcspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;refspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;error<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;time<sp/>NUMERIC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;alarmlevel<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;ocrsize<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;fragment<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;totalmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;validmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;speeds<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;videopath<sp/>TEXT&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//添加索引
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_num_id<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>ASC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>DESC&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_io<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_checkstate<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>由两个图像处理线程分别初始化
+//!<sp/>取消：全部由主线程控制
+//static<sp/>bool<sp/>initThreadDb(int<sp/>deviceIndex)
+//{
+//<sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(&quot;QSQLITE&quot;,<sp/>deviceIndex<sp/>?<sp/>THREAD1_CONNECTION_NAME<sp/>:<sp/>THREAD0_CONNECTION_NAME);
+//<sp/>db.setDatabaseName(databaseFilePath);
+//<sp/><sp/><sp/><sp/>if<sp/>(!db.open())<sp/>{
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>initThreadDb<sp/>failed.<sp/>&quot;<sp/>&lt;&lt;<sp/>db.lastError().text();
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;,
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Error<sp/>initializing<sp/>database:<sp/>&quot;<sp/>+<sp/>db.lastError().text());
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+//<sp/><sp/><sp/><sp/>}
+//<sp/><sp/><sp/><sp/>QSqlTableModel<sp/>model(nullptr,<sp/>db);
+//
+//<sp/><sp/><sp/><sp/>return<sp/>true;
+//}
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="struct_wheel_db_info_1a9115f83e0e11c2f7aef925ad723343f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1a9115f83e0e11c2f7aef925ad723343f9" kindref="member">warnRatio</ref>;</highlight></codeline>
+<codeline lineno="46" refid="struct_wheel_db_info_1a9b7285981eab28ac5748f3669a3f6ab8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_wheel_db_info_1a9b7285981eab28ac5748f3669a3f6ab8" kindref="member">alarmRatio</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7" kindref="member">CheckState</ref><sp/>{</highlight></codeline>
+<codeline lineno="51" refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503" kindref="member">NoNeedCheck</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="52" refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d" kindref="member">NeedCheck</ref>,</highlight></codeline>
+<codeline lineno="53" refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33" kindref="member">Checked</ref>,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>initMainDb()</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!QSqlDatabase::drivers().contains(</highlight><highlight class="stringliteral">&quot;QSQLITE&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;database:<sp/>no<sp/>SQLITE<sp/>driver.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/></highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>load<sp/>database&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>app<sp/>needs<sp/>the<sp/>SQLITE<sp/>driver&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(</highlight><highlight class="stringliteral">&quot;QSQLITE&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>db.setDatabaseName(<ref refid="common_8h_1a3fd98b4d92a4c1a052863672df72a575" kindref="member">databaseFilePath</ref>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!db.open())<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;database:<sp/>initMainDb<sp/>failed.<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>db.lastError().text();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/></highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Eror<sp/>initializing<sp/>database:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>db.lastError().text());</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>QSqlTableModel<sp/>model;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>检查user表 <sp/>model.setTable(&quot;user&quot;);
+<sp/><sp/><sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>if<sp/>(!model.rowCount())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;create<sp/>table<sp/>user<sp/>(id<sp/>integer<sp/>primary<sp/>key<sp/>autoincrement,<sp/>username<sp/>varchar(20)<sp/>unique,<sp/>pwd<sp/>varchar(20))&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;insert<sp/>into<sp/>user<sp/>(username,<sp/>pwd)<sp/>values(&apos;BaoSteel&apos;,<sp/>&apos;123456&apos;)&quot;);
+<sp/><sp/><sp/>}
+
+<sp/>//检查devs表
+<sp/><sp/>model.setTable(&quot;devs&quot;);
+<sp/><sp/><sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>if<sp/>(!model.rowCount())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>TABLE<sp/>devs<sp/>(&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;devIndex<sp/>INTEGER<sp/>UNIQUE,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name<sp/>TEXT&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>devs<sp/>(devIndex,name)<sp/>VALUES(:devId,:devname);&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devId&quot;,<sp/>0);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devname&quot;,<sp/>getDeviceMark(0));
+<sp/><sp/><sp/><sp/><sp/>query.exec();
+<sp/><sp/><sp/><sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>devs<sp/>(devIndex,name)<sp/>VALUES(:devId,:devname);&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devId&quot;,<sp/>1);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devname&quot;,<sp/>getDeviceMark(1));
+<sp/><sp/><sp/><sp/><sp/>query.exec();
+<sp/><sp/>}
+
+<sp/>//检查wheels表
+<sp/><sp/><sp/><sp/>model.setTable(&quot;wheels&quot;);
+<sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>auto<sp/>record<sp/>=<sp/>model.record();
+<sp/><sp/>bool<sp/>createNewTable<sp/>=<sp/>false;
+
+<sp/><sp/>//检查数据表的列名是否正确
+<sp/><sp/><sp/><sp/>QStringList<sp/>refCols,<sp/>dbCols;
+<sp/><sp/><sp/>refCols<sp/>&lt;&lt;<sp/>&quot;id&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;num&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;calcspeed&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;refspeed&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;error&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;time&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;alarmlevel&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;ocrsize&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;fragment&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;totalmatch&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;validmatch&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;speeds&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;videopath&quot;;
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>record.count();<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>dbCols<sp/>&lt;&lt;<sp/>record.fieldName(i);
+<sp/>}
+<sp/><sp/>if<sp/>(refCols<sp/>!=<sp/>dbCols)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//create<sp/>a<sp/>new<sp/>table,<sp/>this<sp/>will<sp/>drop<sp/>the<sp/>history<sp/>records
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query(db);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;DROP<sp/>TABLE<sp/>wheels;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;PRAGMA<sp/>foreign_keys<sp/>=<sp/>ON;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//更改为sqlite3专有语句-2018年11月12日陈翔
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>TABLE<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;i_o<sp/>INTEGER<sp/>REFERENCES<sp/>devs<sp/>(devIndex),&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;calcspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;refspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;error<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;time<sp/>NUMERIC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;alarmlevel<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;ocrsize<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;fragment<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;totalmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;validmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;speeds<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;videopath<sp/>TEXT&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//添加索引
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_num_id<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>ASC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>DESC&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_io<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_checkstate<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>由两个图像处理线程分别初始化
+//!<sp/>取消：全部由主线程控制
+//static<sp/>bool<sp/>initThreadDb(int<sp/>deviceIndex)
+//{
+//<sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(&quot;QSQLITE&quot;,<sp/>deviceIndex<sp/>?<sp/>THREAD1_CONNECTION_NAME<sp/>:<sp/>THREAD0_CONNECTION_NAME);
+//<sp/>db.setDatabaseName(databaseFilePath);
+//<sp/><sp/><sp/><sp/>if<sp/>(!db.open())<sp/>{
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>initThreadDb<sp/>failed.<sp/>&quot;<sp/>&lt;&lt;<sp/>db.lastError().text();
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;,
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Error<sp/>initializing<sp/>database:<sp/>&quot;<sp/>+<sp/>db.lastError().text());
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+//<sp/><sp/><sp/><sp/>}
+//<sp/><sp/><sp/><sp/>QSqlTableModel<sp/>model(nullptr,<sp/>db);
+//
+//<sp/><sp/><sp/><sp/>return<sp/>true;
+//}
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>model.setTable(</highlight><highlight class="stringliteral">&quot;user&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>model.select();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!model.rowCount())<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(</highlight><highlight class="stringliteral">&quot;create<sp/>table<sp/>user<sp/>(id<sp/>integer<sp/>primary<sp/>key<sp/>autoincrement,<sp/>username<sp/>varchar(20)<sp/>unique,<sp/>pwd<sp/>varchar(20))&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(</highlight><highlight class="stringliteral">&quot;insert<sp/>into<sp/>user<sp/>(username,<sp/>pwd)<sp/>values(&apos;BaoSteel&apos;,<sp/>&apos;123456&apos;)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//检查devs表 <sp/><sp/>model.setTable(&quot;devs&quot;);
+<sp/><sp/><sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>if<sp/>(!model.rowCount())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>TABLE<sp/>devs<sp/>(&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;devIndex<sp/>INTEGER<sp/>UNIQUE,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name<sp/>TEXT&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>devs<sp/>(devIndex,name)<sp/>VALUES(:devId,:devname);&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devId&quot;,<sp/>0);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devname&quot;,<sp/>getDeviceMark(0));
+<sp/><sp/><sp/><sp/><sp/>query.exec();
+<sp/><sp/><sp/><sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>devs<sp/>(devIndex,name)<sp/>VALUES(:devId,:devname);&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devId&quot;,<sp/>1);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(&quot;:devname&quot;,<sp/>getDeviceMark(1));
+<sp/><sp/><sp/><sp/><sp/>query.exec();
+<sp/><sp/>}
+
+<sp/>//检查wheels表
+<sp/><sp/><sp/><sp/>model.setTable(&quot;wheels&quot;);
+<sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>auto<sp/>record<sp/>=<sp/>model.record();
+<sp/><sp/>bool<sp/>createNewTable<sp/>=<sp/>false;
+
+<sp/><sp/>//检查数据表的列名是否正确
+<sp/><sp/><sp/><sp/>QStringList<sp/>refCols,<sp/>dbCols;
+<sp/><sp/><sp/>refCols<sp/>&lt;&lt;<sp/>&quot;id&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;num&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;calcspeed&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;refspeed&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;error&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;time&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;alarmlevel&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;ocrsize&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;fragment&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;totalmatch&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;validmatch&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;speeds&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;videopath&quot;;
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>record.count();<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>dbCols<sp/>&lt;&lt;<sp/>record.fieldName(i);
+<sp/>}
+<sp/><sp/>if<sp/>(refCols<sp/>!=<sp/>dbCols)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//create<sp/>a<sp/>new<sp/>table,<sp/>this<sp/>will<sp/>drop<sp/>the<sp/>history<sp/>records
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query(db);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;DROP<sp/>TABLE<sp/>wheels;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;PRAGMA<sp/>foreign_keys<sp/>=<sp/>ON;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//更改为sqlite3专有语句-2018年11月12日陈翔
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>TABLE<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;i_o<sp/>INTEGER<sp/>REFERENCES<sp/>devs<sp/>(devIndex),&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;calcspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;refspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;error<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;time<sp/>NUMERIC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;alarmlevel<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;ocrsize<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;fragment<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;totalmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;validmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;speeds<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;videopath<sp/>TEXT&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//添加索引
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_num_id<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>ASC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>DESC&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_io<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_checkstate<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>由两个图像处理线程分别初始化
+//!<sp/>取消：全部由主线程控制
+//static<sp/>bool<sp/>initThreadDb(int<sp/>deviceIndex)
+//{
+//<sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(&quot;QSQLITE&quot;,<sp/>deviceIndex<sp/>?<sp/>THREAD1_CONNECTION_NAME<sp/>:<sp/>THREAD0_CONNECTION_NAME);
+//<sp/>db.setDatabaseName(databaseFilePath);
+//<sp/><sp/><sp/><sp/>if<sp/>(!db.open())<sp/>{
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>initThreadDb<sp/>failed.<sp/>&quot;<sp/>&lt;&lt;<sp/>db.lastError().text();
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;,
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Error<sp/>initializing<sp/>database:<sp/>&quot;<sp/>+<sp/>db.lastError().text());
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+//<sp/><sp/><sp/><sp/>}
+//<sp/><sp/><sp/><sp/>QSqlTableModel<sp/>model(nullptr,<sp/>db);
+//
+//<sp/><sp/><sp/><sp/>return<sp/>true;
+//}
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>model.setTable(</highlight><highlight class="stringliteral">&quot;devs&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>model.select();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!model.rowCount())<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(</highlight><highlight class="stringliteral">&quot;CREATE<sp/>TABLE<sp/>devs<sp/>(&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;devIndex<sp/>INTEGER<sp/>UNIQUE,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;name<sp/>TEXT&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;);&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.prepare(</highlight><highlight class="stringliteral">&quot;INSERT<sp/>INTO<sp/>devs<sp/>(devIndex,name)<sp/>VALUES(:devId,:devname);&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:devId&quot;</highlight><highlight class="normal">,<sp/>0);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:devname&quot;</highlight><highlight class="normal">,<sp/>getDeviceMark(0));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.prepare(</highlight><highlight class="stringliteral">&quot;INSERT<sp/>INTO<sp/>devs<sp/>(devIndex,name)<sp/>VALUES(:devId,:devname);&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:devId&quot;</highlight><highlight class="normal">,<sp/>1);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:devname&quot;</highlight><highlight class="normal">,<sp/>getDeviceMark(1));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//检查wheels表 <sp/><sp/><sp/><sp/>model.setTable(&quot;wheels&quot;);
+<sp/><sp/>model.select();
+<sp/><sp/><sp/><sp/>auto<sp/>record<sp/>=<sp/>model.record();
+<sp/><sp/>bool<sp/>createNewTable<sp/>=<sp/>false;
+
+<sp/><sp/>//检查数据表的列名是否正确
+<sp/><sp/><sp/><sp/>QStringList<sp/>refCols,<sp/>dbCols;
+<sp/><sp/><sp/>refCols<sp/>&lt;&lt;<sp/>&quot;id&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;num&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;calcspeed&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;refspeed&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;error&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;time&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;alarmlevel&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;ocrsize&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;fragment&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;totalmatch&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;validmatch&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;speeds&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;videopath&quot;;
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>record.count();<sp/>++i)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>dbCols<sp/>&lt;&lt;<sp/>record.fieldName(i);
+<sp/>}
+<sp/><sp/>if<sp/>(refCols<sp/>!=<sp/>dbCols)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//create<sp/>a<sp/>new<sp/>table,<sp/>this<sp/>will<sp/>drop<sp/>the<sp/>history<sp/>records
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query(db);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;DROP<sp/>TABLE<sp/>wheels;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;PRAGMA<sp/>foreign_keys<sp/>=<sp/>ON;&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//更改为sqlite3专有语句-2018年11月12日陈翔
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>TABLE<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;i_o<sp/>INTEGER<sp/>REFERENCES<sp/>devs<sp/>(devIndex),&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;calcspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;refspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;error<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;time<sp/>NUMERIC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;alarmlevel<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;ocrsize<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;fragment<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;totalmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;validmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;speeds<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;videopath<sp/>TEXT&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//添加索引
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_num_id<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>ASC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>DESC&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_io<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_checkstate<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>由两个图像处理线程分别初始化
+//!<sp/>取消：全部由主线程控制
+//static<sp/>bool<sp/>initThreadDb(int<sp/>deviceIndex)
+//{
+//<sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(&quot;QSQLITE&quot;,<sp/>deviceIndex<sp/>?<sp/>THREAD1_CONNECTION_NAME<sp/>:<sp/>THREAD0_CONNECTION_NAME);
+//<sp/>db.setDatabaseName(databaseFilePath);
+//<sp/><sp/><sp/><sp/>if<sp/>(!db.open())<sp/>{
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>initThreadDb<sp/>failed.<sp/>&quot;<sp/>&lt;&lt;<sp/>db.lastError().text();
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;,
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Error<sp/>initializing<sp/>database:<sp/>&quot;<sp/>+<sp/>db.lastError().text());
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+//<sp/><sp/><sp/><sp/>}
+//<sp/><sp/><sp/><sp/>QSqlTableModel<sp/>model(nullptr,<sp/>db);
+//
+//<sp/><sp/><sp/><sp/>return<sp/>true;
+//}
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>model.setTable(</highlight><highlight class="stringliteral">&quot;wheels&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>model.select();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>record<sp/>=<sp/>model.record();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>createNewTable<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//检查数据表的列名是否正确</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>QStringList<sp/>refCols,<sp/>dbCols;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>refCols<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;i_o&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;num&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;calcspeed&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;refspeed&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;error&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;time&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;alarmlevel&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;checkstate&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ocrsize&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;fragment&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;totalmatch&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;validmatch&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;speeds&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;videopath&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>record.count();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dbCols<sp/>&lt;&lt;<sp/>record.fieldName(i);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(refCols<sp/>!=<sp/>dbCols)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//create<sp/>a<sp/>new<sp/>table,<sp/>this<sp/>will<sp/>drop<sp/>the<sp/>history<sp/>records</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query(db);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(</highlight><highlight class="stringliteral">&quot;DROP<sp/>TABLE<sp/>wheels;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(</highlight><highlight class="stringliteral">&quot;PRAGMA<sp/>foreign_keys<sp/>=<sp/>ON;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//更改为sqlite3专有语句-2018年11月12日陈翔 <sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>TABLE<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;i_o<sp/>INTEGER<sp/>REFERENCES<sp/>devs<sp/>(devIndex),&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;calcspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;refspeed<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;error<sp/>REAL,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;time<sp/>NUMERIC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;alarmlevel<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;ocrsize<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;fragment<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;totalmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;validmatch<sp/>INTEGER,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;speeds<sp/>TEXT,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;videopath<sp/>TEXT&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//添加索引
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_num_id<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>ASC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>DESC&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_io<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_checkstate<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>由两个图像处理线程分别初始化
+//!<sp/>取消：全部由主线程控制
+//static<sp/>bool<sp/>initThreadDb(int<sp/>deviceIndex)
+//{
+//<sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(&quot;QSQLITE&quot;,<sp/>deviceIndex<sp/>?<sp/>THREAD1_CONNECTION_NAME<sp/>:<sp/>THREAD0_CONNECTION_NAME);
+//<sp/>db.setDatabaseName(databaseFilePath);
+//<sp/><sp/><sp/><sp/>if<sp/>(!db.open())<sp/>{
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>initThreadDb<sp/>failed.<sp/>&quot;<sp/>&lt;&lt;<sp/>db.lastError().text();
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;,
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Error<sp/>initializing<sp/>database:<sp/>&quot;<sp/>+<sp/>db.lastError().text());
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+//<sp/><sp/><sp/><sp/>}
+//<sp/><sp/><sp/><sp/>QSqlTableModel<sp/>model(nullptr,<sp/>db);
+//
+//<sp/><sp/><sp/><sp/>return<sp/>true;
+//}
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(</highlight><highlight class="stringliteral">&quot;CREATE<sp/>TABLE<sp/>wheels<sp/>(<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;id<sp/>INTEGER<sp/>PRIMARY<sp/>KEY<sp/>AUTOINCREMENT,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;i_o<sp/>INTEGER<sp/>REFERENCES<sp/>devs<sp/>(devIndex),&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num<sp/>TEXT,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;calcspeed<sp/>REAL,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;refspeed<sp/>REAL,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;error<sp/>REAL,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;time<sp/>NUMERIC,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;alarmlevel<sp/>INTEGER,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;checkstate<sp/>INTEGER,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ocrsize<sp/>INTEGER,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;fragment<sp/>INTEGER,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;totalmatch<sp/>INTEGER,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;validmatch<sp/>INTEGER,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;speeds<sp/>TEXT,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;videopath<sp/>TEXT&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;);&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//添加索引 <sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_num_id<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;num<sp/>ASC,&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id<sp/>DESC&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>//query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_io<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;i_o&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/><sp/>&quot;);&quot;);
+<sp/><sp/><sp/><sp/><sp/>query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_checkstate<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checkstate&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);&quot;);
+<sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>由两个图像处理线程分别初始化
+//!<sp/>取消：全部由主线程控制
+//static<sp/>bool<sp/>initThreadDb(int<sp/>deviceIndex)
+//{
+//<sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(&quot;QSQLITE&quot;,<sp/>deviceIndex<sp/>?<sp/>THREAD1_CONNECTION_NAME<sp/>:<sp/>THREAD0_CONNECTION_NAME);
+//<sp/>db.setDatabaseName(databaseFilePath);
+//<sp/><sp/><sp/><sp/>if<sp/>(!db.open())<sp/>{
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>initThreadDb<sp/>failed.<sp/>&quot;<sp/>&lt;&lt;<sp/>db.lastError().text();
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;,
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Error<sp/>initializing<sp/>database:<sp/>&quot;<sp/>+<sp/>db.lastError().text());
+//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+//<sp/><sp/><sp/><sp/>}
+//<sp/><sp/><sp/><sp/>QSqlTableModel<sp/>model(nullptr,<sp/>db);
+//
+//<sp/><sp/><sp/><sp/>return<sp/>true;
+//}
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(</highlight><highlight class="stringliteral">&quot;CREATE<sp/>INDEX<sp/>idx_num_id<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;num<sp/>ASC,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;id<sp/>DESC&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;);&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//query.exec(&quot;CREATE<sp/>INDEX<sp/>idx_io<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>&quot;i_o&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>&quot;);&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>query.exec(</highlight><highlight class="stringliteral">&quot;CREATE<sp/>INDEX<sp/>idx_checkstate<sp/>ON<sp/>wheels<sp/>(<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;checkstate&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;);&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="comment">//static<sp/>bool<sp/>initThreadDb(int<sp/>deviceIndex)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>QSqlDatabase<sp/>db<sp/>=<sp/>QSqlDatabase::addDatabase(&quot;QSQLITE&quot;,<sp/>deviceIndex<sp/>?<sp/>THREAD1_CONNECTION_NAME<sp/>:<sp/>THREAD0_CONNECTION_NAME);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>db.setDatabaseName(databaseFilePath);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(!db.open())<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;database:<sp/>initThreadDb<sp/>failed.<sp/>&quot;<sp/>&lt;&lt;<sp/>db.lastError().text();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(Q_NULLPTR,<sp/>&quot;Unable<sp/>to<sp/>initialize<sp/>Database&quot;,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Error<sp/>initializing<sp/>database:<sp/>&quot;<sp/>+<sp/>db.lastError().text());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>QSqlTableModel<sp/>model(nullptr,<sp/>db);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>return<sp/>true;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="sources/database.h"/>
+  </compounddef>
+</doxygen>

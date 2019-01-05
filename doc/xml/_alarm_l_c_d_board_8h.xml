@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_alarm_l_c_d_board_8h" kind="file" language="C++">
+    <compoundname>AlarmLCDBoard.h</compoundname>
+    <includes local="yes">ui_AlarmLCDBoard.h</includes>
+    <includes local="no">QFrame</includes>
+    <includedby refid="_alarm_l_c_d_board_8cpp" local="yes">sources/AlarmLCDBoard.cpp</includedby>
+    <incdepgraph>
+      <node id="16">
+        <label>sources/AlarmLCDBoard.h</label>
+        <link refid="_alarm_l_c_d_board_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>ui_AlarmLCDBoard.h</label>
+      </node>
+      <node id="18">
+        <label>QFrame</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="19">
+        <label>sources/AlarmLCDBoard.h</label>
+        <link refid="_alarm_l_c_d_board_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>sources/AlarmLCDBoard.cpp</label>
+        <link refid="_alarm_l_c_d_board_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_alarm_l_c_d_board" prot="public">AlarmLCDBoard</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ui_AlarmLCDBoard.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFrame&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_alarm_l_c_d_board" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_alarm_l_c_d_board" kindref="compound">AlarmLCDBoard</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QFrame<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_alarm_l_c_d_board_1a4467e949850a3e0f5e1d7498e18edb1e" kindref="member">AlarmLCDBoard</ref>(QWidget*<sp/>parent<sp/>=<sp/>Q_NULLPTR);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_alarm_l_c_d_board_1abc6ecc7cb4e30f00a987d694612175af" kindref="member">~AlarmLCDBoard</ref>();</highlight></codeline>
+<codeline lineno="12" refid="class_alarm_l_c_d_board_1a7b800971fe7519e4881870d9bc4e777d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QLineEdit*<sp/><ref refid="class_alarm_l_c_d_board_1a7b800971fe7519e4881870d9bc4e777d" kindref="member">devName</ref>;<sp/></highlight></codeline>
+<codeline lineno="13" refid="class_alarm_l_c_d_board_1a836b3bdf1e363714a89277b84a1f284c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QLineEdit*<sp/><ref refid="class_alarm_l_c_d_board_1a836b3bdf1e363714a89277b84a1f284c" kindref="member">devIndex</ref>;<sp/></highlight></codeline>
+<codeline lineno="14" refid="class_alarm_l_c_d_board_1ad51b395087885354d3cb7e6395beb894" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QLineEdit*<sp/><ref refid="class_alarm_l_c_d_board_1ad51b395087885354d3cb7e6395beb894" kindref="member">alarmNum</ref>;<sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_alarm_l_c_d_board_1a664101492b2e08a81f6fd2b34bffd7c2" kindref="member">eventFilter</ref>(QObject*<sp/>watched,<sp/>QEvent*<sp/>event)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>Ui::AlarmLCDBoard<sp/>ui;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>QWidget*<sp/>masking;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_alarm_l_c_d_board_1ae08da97150f8de11edae6e70382fc516" kindref="member">clicked</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="sources/AlarmLCDBoard.h"/>
+  </compounddef>
+</doxygen>

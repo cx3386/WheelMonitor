@@ -1,0 +1,3 @@
+<map id="Plc::connectError" name="Plc::connectError">
+<area shape="rect" id="node2" href="$class_plc.html#ac5213403a3aba0c8c6f2a12c3e2d4fa5" title="连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开 " alt="" coords="176,5,271,32"/>
+</map>

@@ -1,0 +1,256 @@
+\hypertarget{class_hik_video_capture}{}\section{Hik\+Video\+Capture Class Reference}
+\label{class_hik_video_capture}\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+
+
+{\ttfamily \#include $<$hikvideocapture.\+h$>$}
+
+
+
+Inheritance diagram for Hik\+Video\+Capture\+:
+% FIG 0
+
+
+Collaboration diagram for Hik\+Video\+Capture\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_hik_video_capture_acc36761db4a20a203a6ce9675150a5bc}{start\+Record}} ()
+\item 
+void \mbox{\hyperlink{class_hik_video_capture_a4579213b58ec7d6999755e78a48d9ff8}{stop\+Record}} ()
+\begin{DoxyCompactList}\small\item\em 涉及到timeout\+Timer，可能跨线程，必须通过sg/sl机制调用 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hik_video_capture_ae437158a5aec5ad399b7880d6e226578}{frame\+Processed}} ()
+\begin{DoxyCompactList}\small\item\em 涉及到timeout\+Timer，可能跨线程，必须通过sg/sl机制调用 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_hik_video_capture_ad78643dc9b2cbd98c29e52d1edafeb0c}{frame\+Captured}} ()
+\begin{DoxyCompactList}\small\item\em a frame is captured, need to be processed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hik_video_capture_a1ed1fa642b70117ce0b6bcb06139a7e4}{record\+Timeout}} ()
+\begin{DoxyCompactList}\small\item\em record out of time, will auto stop and save video \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hik_video_capture_ace04c9f5505d7644b8aab786ff5d3f65}{record\+ON}} ()
+\begin{DoxyCompactList}\small\item\em now is recording \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hik_video_capture_ad46bb13231338d97325d74e7f1e79f00}{record\+O\+FF}} ()
+\begin{DoxyCompactList}\small\item\em now record stopped \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_hik_video_capture_ae2dd36fefbce426b3fce3025419a7f7c}{Hik\+Video\+Capture}} (const \mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$\+\_\+config\+Helper, int \+\_\+device\+Index, H\+W\+ND h, Q\+Object $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\item 
+\mbox{\hyperlink{class_hik_video_capture_a54a0ba8f296177df923cf5d8d9184a97}{$\sim$\+Hik\+Video\+Capture}} ()
+\item 
+Q\+String \mbox{\hyperlink{class_hik_video_capture_a2e4a1d780459ede0318cd935f8bf9121}{get\+Video\+Relative\+File\+Path}} () const
+\item 
+int \mbox{\hyperlink{class_hik_video_capture_ab25c7c866fe0a2789939fecff5ec6065}{get\+Device\+Index}} () const
+\item 
+cv\+::\+Mat \mbox{\hyperlink{class_hik_video_capture_a65e48b66ee3e28508e57bd6d757d5fa8}{get\+Raw\+Image}} () const
+\item 
+void \mbox{\hyperlink{class_hik_video_capture_a6d07f515f68c9c0819a14ab2afefa97d}{sync\+Camera\+Time}} ()
+\item 
+bool \mbox{\hyperlink{class_hik_video_capture_a0359300ea41ac46d327d9f5229465dd3}{start}} ()
+\item 
+bool \mbox{\hyperlink{class_hik_video_capture_a895409c64a795d7285dcee5c7d59fdd7}{stop}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 22 of file hikvideocapture.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_hik_video_capture_ae2dd36fefbce426b3fce3025419a7f7c}\label{class_hik_video_capture_ae2dd36fefbce426b3fce3025419a7f7c}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{Hik\+Video\+Capture()}{HikVideoCapture()}}
+{\footnotesize\ttfamily Hik\+Video\+Capture\+::\+Hik\+Video\+Capture (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$}]{\+\_\+config\+Helper,  }\item[{int}]{\+\_\+device\+Index,  }\item[{H\+W\+ND}]{h,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file hikvideocapture.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_hik_video_capture_a54a0ba8f296177df923cf5d8d9184a97}\label{class_hik_video_capture_a54a0ba8f296177df923cf5d8d9184a97}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!````~Hik\+Video\+Capture@{$\sim$\+Hik\+Video\+Capture}}
+\index{````~Hik\+Video\+Capture@{$\sim$\+Hik\+Video\+Capture}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{$\sim$\+Hik\+Video\+Capture()}{~HikVideoCapture()}}
+{\footnotesize\ttfamily Hik\+Video\+Capture\+::$\sim$\+Hik\+Video\+Capture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 56 of file hikvideocapture.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hik_video_capture_ad78643dc9b2cbd98c29e52d1edafeb0c}\label{class_hik_video_capture_ad78643dc9b2cbd98c29e52d1edafeb0c}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!frame\+Captured@{frame\+Captured}}
+\index{frame\+Captured@{frame\+Captured}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{frame\+Captured}{frameCaptured}}
+{\footnotesize\ttfamily void Hik\+Video\+Capture\+::frame\+Captured (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+a frame is captured, need to be processed 
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_hik_video_capture_ae437158a5aec5ad399b7880d6e226578}\label{class_hik_video_capture_ae437158a5aec5ad399b7880d6e226578}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!frame\+Processed@{frame\+Processed}}
+\index{frame\+Processed@{frame\+Processed}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{frame\+Processed}{frameProcessed}}
+{\footnotesize\ttfamily void Hik\+Video\+Capture\+::frame\+Processed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+涉及到timeout\+Timer，可能跨线程，必须通过sg/sl机制调用 
+
+
+
+Definition at line 94 of file hikvideocapture.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_hik_video_capture_ab25c7c866fe0a2789939fecff5ec6065}\label{class_hik_video_capture_ab25c7c866fe0a2789939fecff5ec6065}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!get\+Device\+Index@{get\+Device\+Index}}
+\index{get\+Device\+Index@{get\+Device\+Index}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{get\+Device\+Index()}{getDeviceIndex()}}
+{\footnotesize\ttfamily int Hik\+Video\+Capture\+::get\+Device\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 34 of file hikvideocapture.\+h.
+
+\mbox{\Hypertarget{class_hik_video_capture_a65e48b66ee3e28508e57bd6d757d5fa8}\label{class_hik_video_capture_a65e48b66ee3e28508e57bd6d757d5fa8}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!get\+Raw\+Image@{get\+Raw\+Image}}
+\index{get\+Raw\+Image@{get\+Raw\+Image}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{get\+Raw\+Image()}{getRawImage()}}
+{\footnotesize\ttfamily cv\+::\+Mat Hik\+Video\+Capture\+::get\+Raw\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 35 of file hikvideocapture.\+h.
+
+\mbox{\Hypertarget{class_hik_video_capture_a2e4a1d780459ede0318cd935f8bf9121}\label{class_hik_video_capture_a2e4a1d780459ede0318cd935f8bf9121}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!get\+Video\+Relative\+File\+Path@{get\+Video\+Relative\+File\+Path}}
+\index{get\+Video\+Relative\+File\+Path@{get\+Video\+Relative\+File\+Path}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{get\+Video\+Relative\+File\+Path()}{getVideoRelativeFilePath()}}
+{\footnotesize\ttfamily Q\+String Hik\+Video\+Capture\+::get\+Video\+Relative\+File\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 29 of file hikvideocapture.\+h.
+
+\mbox{\Hypertarget{class_hik_video_capture_ad46bb13231338d97325d74e7f1e79f00}\label{class_hik_video_capture_ad46bb13231338d97325d74e7f1e79f00}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!record\+O\+FF@{record\+O\+FF}}
+\index{record\+O\+FF@{record\+O\+FF}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{record\+O\+FF}{recordOFF}}
+{\footnotesize\ttfamily void Hik\+Video\+Capture\+::record\+O\+FF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+now record stopped 
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_hik_video_capture_ace04c9f5505d7644b8aab786ff5d3f65}\label{class_hik_video_capture_ace04c9f5505d7644b8aab786ff5d3f65}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!record\+ON@{record\+ON}}
+\index{record\+ON@{record\+ON}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{record\+ON}{recordON}}
+{\footnotesize\ttfamily void Hik\+Video\+Capture\+::record\+ON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+now is recording 
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_hik_video_capture_a1ed1fa642b70117ce0b6bcb06139a7e4}\label{class_hik_video_capture_a1ed1fa642b70117ce0b6bcb06139a7e4}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!record\+Timeout@{record\+Timeout}}
+\index{record\+Timeout@{record\+Timeout}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{record\+Timeout}{recordTimeout}}
+{\footnotesize\ttfamily void Hik\+Video\+Capture\+::record\+Timeout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+record out of time, will auto stop and save video 
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_hik_video_capture_a0359300ea41ac46d327d9f5229465dd3}\label{class_hik_video_capture_a0359300ea41ac46d327d9f5229465dd3}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!start@{start}}
+\index{start@{start}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Hik\+Video\+Capture\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 81 of file hikvideocapture.\+cpp.
+
+\mbox{\Hypertarget{class_hik_video_capture_acc36761db4a20a203a6ce9675150a5bc}\label{class_hik_video_capture_acc36761db4a20a203a6ce9675150a5bc}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!start\+Record@{start\+Record}}
+\index{start\+Record@{start\+Record}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{start\+Record}{startRecord}}
+{\footnotesize\ttfamily void Hik\+Video\+Capture\+::start\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 120 of file hikvideocapture.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{class_hik_video_capture_a895409c64a795d7285dcee5c7d59fdd7}\label{class_hik_video_capture_a895409c64a795d7285dcee5c7d59fdd7}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!stop@{stop}}
+\index{stop@{stop}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily bool Hik\+Video\+Capture\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 99 of file hikvideocapture.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{class_hik_video_capture_a4579213b58ec7d6999755e78a48d9ff8}\label{class_hik_video_capture_a4579213b58ec7d6999755e78a48d9ff8}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!stop\+Record@{stop\+Record}}
+\index{stop\+Record@{stop\+Record}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{stop\+Record}{stopRecord}}
+{\footnotesize\ttfamily void Hik\+Video\+Capture\+::stop\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+涉及到timeout\+Timer，可能跨线程，必须通过sg/sl机制调用 
+
+
+
+Definition at line 148 of file hikvideocapture.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{class_hik_video_capture_a6d07f515f68c9c0819a14ab2afefa97d}\label{class_hik_video_capture_a6d07f515f68c9c0819a14ab2afefa97d}} 
+\index{Hik\+Video\+Capture@{Hik\+Video\+Capture}!sync\+Camera\+Time@{sync\+Camera\+Time}}
+\index{sync\+Camera\+Time@{sync\+Camera\+Time}!Hik\+Video\+Capture@{Hik\+Video\+Capture}}
+\subsubsection{\texorpdfstring{sync\+Camera\+Time()}{syncCameraTime()}}
+{\footnotesize\ttfamily void Hik\+Video\+Capture\+::sync\+Camera\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file hikvideocapture.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 14
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{hikvideocapture_8h}{hikvideocapture.\+h}}\item 
+sources/\mbox{\hyperlink{hikvideocapture_8cpp}{hikvideocapture.\+cpp}}\end{DoxyCompactItemize}

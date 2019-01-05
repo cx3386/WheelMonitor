@@ -1,0 +1,13 @@
+digraph "Sensor::init"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node11 [label="Sensor::init",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="Sensor::newWheel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_sensor.html#a679f792ce4dba08c394aa4cd506fb2ae"];
+  Node11 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="CkPt::isEnter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ck_pt.html#a2792e24314be95021e461a798ec2c884",tooltip="返回是否由此检测点进入 "];
+  Node11 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="LevelRecorder::init",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_level_recorder.html#ac903a8ed1d863cf49a2ba8883196d2b4"];
+}

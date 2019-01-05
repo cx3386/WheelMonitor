@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: sources/improfile.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_08d237fc27d4ecd563f71c5d52f2fecc.html">sources</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">improfile.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="improfile_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;opencv.hpp&gt;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;QMetaType&quot;</span></div><div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="struct_im_profile.html">    4</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_im_profile.html">ImProfile</a></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">int</span> *interv;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="struct_im_profile.html#a2557df4a7094639b2e0abc12e1205d80">ImProfile</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="struct_im_profile.html#a010f3183ee92250e952eefc53de47a62">   11</a></span>&#160;    <a class="code" href="struct_im_profile.html#a010f3183ee92250e952eefc53de47a62">ImProfile</a>(<span class="keywordtype">int</span> &amp;framInterv) { interv = &amp;framInterv; }</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="struct_im_profile.html#ad0a4f628ebbb926cfa212941fae8d332">   12</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="struct_im_profile.html#ad0a4f628ebbb926cfa212941fae8d332">angle2Speed</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 60 * (0.650 / 2) / (*interv / 25.0); }</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="struct_im_profile.html#a3f88e1cfa11d6b5e9472eb71e64dc041">   13</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="struct_im_profile.html#a3f88e1cfa11d6b5e9472eb71e64dc041">warningRatio</a> = 0.05;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="struct_im_profile.html#ae22af95683de6b6f10bac5e3b8ed01b4">   14</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="struct_im_profile.html#ae22af95683de6b6f10bac5e3b8ed01b4">alarmRatio</a> = 0.10;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="struct_im_profile.html#a6697334a9fbed69e58f11dd5464ae180">   15</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_im_profile.html#a6697334a9fbed69e58f11dd5464ae180">radius_min</a> = 250;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="struct_im_profile.html#aca763d3940de1b731fb1dce4531593f5">   16</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_im_profile.html#aca763d3940de1b731fb1dce4531593f5">radius_max</a> = 200;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="struct_im_profile.html#a9fa1622579348c3d0dccebe11c205a29">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_im_profile.html#a9fa1622579348c3d0dccebe11c205a29">gs1</a> = 9;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="struct_im_profile.html#a10bffd53b4e9115dbf0fae545a426bad">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_im_profile.html#a10bffd53b4e9115dbf0fae545a426bad">gs2</a> = 9;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="struct_im_profile.html#ae9a7b67e92d0dd3a829a25edd34fbde8">   19</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="struct_im_profile.html#ae9a7b67e92d0dd3a829a25edd34fbde8">dp</a> = 2;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="struct_im_profile.html#af5e44df036b18552062e4f9d9f926310">   20</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="struct_im_profile.html#af5e44df036b18552062e4f9d9f926310">minDist</a> = 180;</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="struct_im_profile.html#a921b476664441309c914b58331ead364">   21</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="struct_im_profile.html#a921b476664441309c914b58331ead364">param1</a> = 200; </div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="struct_im_profile.html#ac84186e94a1900eaf9f2a6e1a7ab3014">   22</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="struct_im_profile.html#ac84186e94a1900eaf9f2a6e1a7ab3014">param2</a> = 100;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_im_profile.html#ada7e3e46b79d71e0edcb85cc03d38a51">   23</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="struct_im_profile.html#ada7e3e46b79d71e0edcb85cc03d38a51">sensorTriggered</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="struct_im_profile.html#ae0436a17c44ab16366c7addf288ec219">   24</a></span>&#160;    cv::Rect <a class="code" href="struct_im_profile.html#ae0436a17c44ab16366c7addf288ec219">roiRect</a> = cv::Rect(220, 0, 800, 720);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;Q_DECLARE_METATYPE(<a class="code" href="struct_im_profile.html">ImProfile</a>)</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;QDataStream &amp;<a class="code" href="improfile_8h.html#a9d1c03f99f471a4da3e904bd72b4a051">operator&lt;&lt;</a>(QDataStream &amp;out, <span class="keyword">const</span> <a class="code" href="struct_im_profile.html">ImProfile</a> &amp;p);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;QDataStream &amp;<a class="code" href="improfile_8h.html#afc0bbe35ff9a1fc747ac9da4f03cf001">operator&gt;&gt;</a>(QDataStream &amp;in, <a class="code" href="struct_im_profile.html">ImProfile</a> &amp;p);</div><div class="ttc" id="struct_im_profile_html_a3f88e1cfa11d6b5e9472eb71e64dc041"><div class="ttname"><a href="struct_im_profile.html#a3f88e1cfa11d6b5e9472eb71e64dc041">ImProfile::warningRatio</a></div><div class="ttdeci">double warningRatio</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00013">improfile.h:13</a></div></div>
+<div class="ttc" id="struct_im_profile_html_af5e44df036b18552062e4f9d9f926310"><div class="ttname"><a href="struct_im_profile.html#af5e44df036b18552062e4f9d9f926310">ImProfile::minDist</a></div><div class="ttdeci">double minDist</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00020">improfile.h:20</a></div></div>
+<div class="ttc" id="struct_im_profile_html_ae0436a17c44ab16366c7addf288ec219"><div class="ttname"><a href="struct_im_profile.html#ae0436a17c44ab16366c7addf288ec219">ImProfile::roiRect</a></div><div class="ttdeci">cv::Rect roiRect</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00024">improfile.h:24</a></div></div>
+<div class="ttc" id="improfile_8h_html_a9d1c03f99f471a4da3e904bd72b4a051"><div class="ttname"><a href="improfile_8h.html#a9d1c03f99f471a4da3e904bd72b4a051">operator&lt;&lt;</a></div><div class="ttdeci">QDataStream &amp; operator&lt;&lt;(QDataStream &amp;out, const ImProfile &amp;p)</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8cpp_source.html#l00004">improfile.cpp:4</a></div></div>
+<div class="ttc" id="struct_im_profile_html_a010f3183ee92250e952eefc53de47a62"><div class="ttname"><a href="struct_im_profile.html#a010f3183ee92250e952eefc53de47a62">ImProfile::ImProfile</a></div><div class="ttdeci">ImProfile(int &amp;framInterv)</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00011">improfile.h:11</a></div></div>
+<div class="ttc" id="struct_im_profile_html_ada7e3e46b79d71e0edcb85cc03d38a51"><div class="ttname"><a href="struct_im_profile.html#ada7e3e46b79d71e0edcb85cc03d38a51">ImProfile::sensorTriggered</a></div><div class="ttdeci">bool sensorTriggered</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00023">improfile.h:23</a></div></div>
+<div class="ttc" id="struct_im_profile_html_a921b476664441309c914b58331ead364"><div class="ttname"><a href="struct_im_profile.html#a921b476664441309c914b58331ead364">ImProfile::param1</a></div><div class="ttdeci">double param1</div><div class="ttdoc">maxVal of Canny </div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00021">improfile.h:21</a></div></div>
+<div class="ttc" id="struct_im_profile_html_aca763d3940de1b731fb1dce4531593f5"><div class="ttname"><a href="struct_im_profile.html#aca763d3940de1b731fb1dce4531593f5">ImProfile::radius_max</a></div><div class="ttdeci">int radius_max</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00016">improfile.h:16</a></div></div>
+<div class="ttc" id="struct_im_profile_html_ad0a4f628ebbb926cfa212941fae8d332"><div class="ttname"><a href="struct_im_profile.html#ad0a4f628ebbb926cfa212941fae8d332">ImProfile::angle2Speed</a></div><div class="ttdeci">double angle2Speed() const</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00012">improfile.h:12</a></div></div>
+<div class="ttc" id="struct_im_profile_html_a6697334a9fbed69e58f11dd5464ae180"><div class="ttname"><a href="struct_im_profile.html#a6697334a9fbed69e58f11dd5464ae180">ImProfile::radius_min</a></div><div class="ttdeci">int radius_min</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00015">improfile.h:15</a></div></div>
+<div class="ttc" id="struct_im_profile_html_a10bffd53b4e9115dbf0fae545a426bad"><div class="ttname"><a href="struct_im_profile.html#a10bffd53b4e9115dbf0fae545a426bad">ImProfile::gs2</a></div><div class="ttdeci">int gs2</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00018">improfile.h:18</a></div></div>
+<div class="ttc" id="struct_im_profile_html_a9fa1622579348c3d0dccebe11c205a29"><div class="ttname"><a href="struct_im_profile.html#a9fa1622579348c3d0dccebe11c205a29">ImProfile::gs1</a></div><div class="ttdeci">int gs1</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00017">improfile.h:17</a></div></div>
+<div class="ttc" id="struct_im_profile_html"><div class="ttname"><a href="struct_im_profile.html">ImProfile</a></div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00004">improfile.h:4</a></div></div>
+<div class="ttc" id="struct_im_profile_html_ae22af95683de6b6f10bac5e3b8ed01b4"><div class="ttname"><a href="struct_im_profile.html#ae22af95683de6b6f10bac5e3b8ed01b4">ImProfile::alarmRatio</a></div><div class="ttdeci">double alarmRatio</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00014">improfile.h:14</a></div></div>
+<div class="ttc" id="struct_im_profile_html_ae9a7b67e92d0dd3a829a25edd34fbde8"><div class="ttname"><a href="struct_im_profile.html#ae9a7b67e92d0dd3a829a25edd34fbde8">ImProfile::dp</a></div><div class="ttdeci">double dp</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00019">improfile.h:19</a></div></div>
+<div class="ttc" id="struct_im_profile_html_ac84186e94a1900eaf9f2a6e1a7ab3014"><div class="ttname"><a href="struct_im_profile.html#ac84186e94a1900eaf9f2a6e1a7ab3014">ImProfile::param2</a></div><div class="ttdeci">double param2</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8h_source.html#l00022">improfile.h:22</a></div></div>
+<div class="ttc" id="struct_im_profile_html_a2557df4a7094639b2e0abc12e1205d80"><div class="ttname"><a href="struct_im_profile.html#a2557df4a7094639b2e0abc12e1205d80">ImProfile::ImProfile</a></div><div class="ttdeci">ImProfile()=default</div></div>
+<div class="ttc" id="improfile_8h_html_afc0bbe35ff9a1fc747ac9da4f03cf001"><div class="ttname"><a href="improfile_8h.html#afc0bbe35ff9a1fc747ac9da4f03cf001">operator&gt;&gt;</a></div><div class="ttdeci">QDataStream &amp; operator&gt;&gt;(QDataStream &amp;in, ImProfile &amp;p)</div><div class="ttdef"><b>Definition:</b> <a href="improfile_8cpp_source.html#l00010">improfile.cpp:10</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

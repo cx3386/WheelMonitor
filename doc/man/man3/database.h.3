@@ -1,0 +1,94 @@
+.TH "sources/database.h" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/database.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'common\&.h'\fP
+.br
+\fC#include 'ocr\&.h'\fP
+.br
+\fC#include <QtSql>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBWheelDbInfo\fP"
+.br
+.RI "记录该车轮结算后的相关参数，以写入数据库 "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBWheelHeader\fP { \fBWheel_ID\fP = 0, \fBWheel_I_O\fP, \fBWheel_Num\fP, \fBWheel_CalcSpeed\fP, \fBWheel_RefSpeed\fP, \fBWheel_Error\fP, \fBWheel_Time\fP, \fBWheel_AlarmLevel\fP, \fBWheel_CheckState\fP, \fBWheel_OcrSize\fP, \fBWheel_Fragment\fP, \fBWheel_TotalMatch\fP, \fBWheel_ValidMatch\fP, \fBWheel_Speeds\fP, \fBWheel_VideoPath\fP }"
+.br
+.RI "field index of table 'wheels' "
+.ti -1c
+.RI "enum \fBCheckState\fP { \fBNoNeedCheck\fP = 0, \fBNeedCheck\fP, \fBChecked\fP }"
+.br
+.RI "the value of field 'wheels_checkstate', represent whether need check\&. if need check, it will show in the alarm table "
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBCheckState\fP"
+
+.PP
+the value of field 'wheels_checkstate', represent whether need check\&. if need check, it will show in the alarm table 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fINoNeedCheck \fP\fP
+.TP
+\fB\fINeedCheck \fP\fP
+.TP
+\fB\fIChecked \fP\fP
+.PP
+Definition at line 50 of file database\&.h\&.
+.SS "enum \fBWheelHeader\fP"
+
+.PP
+field index of table 'wheels' 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWheel_ID \fP\fP
+.TP
+\fB\fIWheel_I_O \fP\fP
+.TP
+\fB\fIWheel_Num \fP\fP
+.TP
+\fB\fIWheel_CalcSpeed \fP\fP
+.TP
+\fB\fIWheel_RefSpeed \fP\fP
+.TP
+\fB\fIWheel_Error \fP\fP
+.TP
+\fB\fIWheel_Time \fP\fP
+.TP
+\fB\fIWheel_AlarmLevel \fP\fP
+.TP
+\fB\fIWheel_CheckState \fP\fP
+.TP
+\fB\fIWheel_OcrSize \fP\fP
+.TP
+\fB\fIWheel_Fragment \fP\fP
+.TP
+\fB\fIWheel_TotalMatch \fP\fP
+.TP
+\fB\fIWheel_ValidMatch \fP\fP
+.TP
+\fB\fIWheel_Speeds \fP\fP
+.TP
+\fB\fIWheel_VideoPath \fP\fP
+.PP
+Definition at line 8 of file database\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

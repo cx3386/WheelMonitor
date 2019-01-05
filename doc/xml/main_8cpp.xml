@@ -1,0 +1,903 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes local="yes">singleapplication.h</includes>
+    <includes refid="common_8h" local="yes">common.h</includes>
+    <includes refid="confighelper_8h" local="yes">confighelper.h</includes>
+    <includes refid="database_8h" local="yes">database.h</includes>
+    <includes refid="identification_8h" local="yes">identification.h</includes>
+    <includes refid="logindialog_8h" local="yes">logindialog.h</includes>
+    <includes refid="mainwindow_8h" local="yes">mainwindow.h</includes>
+    <includes local="no">DbgHelp.h</includes>
+    <includes local="no">QtWidgets/QApplication</includes>
+    <includes local="no">Windows.h</includes>
+    <incdepgraph>
+      <node id="378">
+        <label>QSettings</label>
+      </node>
+      <node id="368">
+        <label>singleapplication.h</label>
+      </node>
+      <node id="377">
+        <label>QObject</label>
+      </node>
+      <node id="391">
+        <label>Windows.h</label>
+      </node>
+      <node id="383">
+        <label>logindialog.h</label>
+        <link refid="logindialog_8h"/>
+        <childnode refid="384" relation="include">
+        </childnode>
+        <childnode refid="385" relation="include">
+        </childnode>
+      </node>
+      <node id="373">
+        <label>QMetaType</label>
+      </node>
+      <node id="374">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="375">
+        <label>improfile.h</label>
+        <link refid="improfile_8h"/>
+        <childnode refid="374" relation="include">
+        </childnode>
+        <childnode refid="373" relation="include">
+        </childnode>
+      </node>
+      <node id="386">
+        <label>mainwindow.h</label>
+        <link refid="mainwindow_8h"/>
+        <childnode refid="369" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+        <childnode refid="388" relation="include">
+        </childnode>
+      </node>
+      <node id="365">
+        <label>sources/main.cpp</label>
+        <link refid="main_8cpp"/>
+        <childnode refid="366" relation="include">
+        </childnode>
+        <childnode refid="368" relation="include">
+        </childnode>
+        <childnode refid="369" relation="include">
+        </childnode>
+        <childnode refid="371" relation="include">
+        </childnode>
+        <childnode refid="379" relation="include">
+        </childnode>
+        <childnode refid="382" relation="include">
+        </childnode>
+        <childnode refid="383" relation="include">
+        </childnode>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+        <childnode refid="390" relation="include">
+        </childnode>
+        <childnode refid="391" relation="include">
+        </childnode>
+      </node>
+      <node id="387">
+        <label>ui_mainwindow.h</label>
+      </node>
+      <node id="384">
+        <label>QDialog</label>
+      </node>
+      <node id="380">
+        <label>ocr.h</label>
+        <link refid="ocr_8h"/>
+        <childnode refid="377" relation="include">
+        </childnode>
+        <childnode refid="374" relation="include">
+        </childnode>
+      </node>
+      <node id="370">
+        <label>QString</label>
+      </node>
+      <node id="389">
+        <label>DbgHelp.h</label>
+      </node>
+      <node id="388">
+        <label>QtWidgets/QMainWindow</label>
+      </node>
+      <node id="367">
+        <label>QtWidgets</label>
+      </node>
+      <node id="382">
+        <label>identification.h</label>
+        <link refid="identification_8h"/>
+        <childnode refid="377" relation="include">
+        </childnode>
+      </node>
+      <node id="390">
+        <label>QtWidgets/QApplication</label>
+      </node>
+      <node id="372">
+        <label>camprofile.h</label>
+        <link refid="camprofile_8h"/>
+        <childnode refid="373" relation="include">
+        </childnode>
+        <childnode refid="374" relation="include">
+        </childnode>
+      </node>
+      <node id="379">
+        <label>database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="369" relation="include">
+        </childnode>
+        <childnode refid="380" relation="include">
+        </childnode>
+        <childnode refid="381" relation="include">
+        </childnode>
+      </node>
+      <node id="369">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="370" relation="include">
+        </childnode>
+      </node>
+      <node id="381">
+        <label>QtSql</label>
+      </node>
+      <node id="385">
+        <label>ui_logindialog.h</label>
+      </node>
+      <node id="371">
+        <label>confighelper.h</label>
+        <link refid="confighelper_8h"/>
+        <childnode refid="372" relation="include">
+        </childnode>
+        <childnode refid="375" relation="include">
+        </childnode>
+        <childnode refid="376" relation="include">
+        </childnode>
+        <childnode refid="377" relation="include">
+        </childnode>
+        <childnode refid="378" relation="include">
+        </childnode>
+      </node>
+      <node id="366">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="367" relation="include">
+        </childnode>
+      </node>
+      <node id="376">
+        <label>ocrprofile.h</label>
+        <link refid="ocrprofile_8h"/>
+        <childnode refid="374" relation="include">
+        </childnode>
+        <childnode refid="373" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString appDirPath</definition>
+        <argsstring></argsstring>
+        <name>appDirPath</name>
+        <briefdescription>
+<para>the directory contains the app.exe, &apos;/&apos;e.g. C:/QQ </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="14" column="1" bodyfile="sources/main.cpp" bodystart="14" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+        <referencedby refid="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" compoundref="main_8cpp" startline="178" endline="211">ApplicationCrashHandler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1a2fc2859d7238a2e9fcda661d321348c5" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString appFilePath</definition>
+        <argsstring></argsstring>
+        <name>appFilePath</name>
+        <briefdescription>
+<para>the file path of app.exe, &apos;/&apos;e.g. C:/QQ/qq.exe </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="15" column="1" bodyfile="sources/main.cpp" bodystart="15" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1a554bb7f4dd593b2971ec5e5e38718ea5" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString captureDirPath</definition>
+        <argsstring></argsstring>
+        <name>captureDirPath</name>
+        <briefdescription>
+<para>capture dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="16" column="1" bodyfile="sources/main.cpp" bodystart="16" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1a5f3034a99a21133bca2ee422b7c5b48d" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString configDirPath</definition>
+        <argsstring></argsstring>
+        <name>configDirPath</name>
+        <briefdescription>
+<para>config dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="17" column="1" bodyfile="sources/main.cpp" bodystart="17" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1a3c8467c4addcfd3ee40b1439311d1349" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString videoDirPath</definition>
+        <argsstring></argsstring>
+        <name>videoDirPath</name>
+        <briefdescription>
+<para>video dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="18" column="1" bodyfile="sources/main.cpp" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" compoundref="backuplogdialog_8cpp" startline="8" endline="162">BackupLogDialog::BackupLogDialog</referencedby>
+        <referencedby refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" compoundref="hikvideocapture_8cpp" startline="120" endline="146">HikVideoCapture::startRecord</referencedby>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1ab3865372dec24e6f7a39286147c1d390" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString cacheDirPath</definition>
+        <argsstring></argsstring>
+        <name>cacheDirPath</name>
+        <briefdescription>
+<para>cache dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="19" column="1" bodyfile="sources/main.cpp" bodystart="19" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1a301764495aed786632cff7abe68880a9" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString matchDirPath</definition>
+        <argsstring></argsstring>
+        <name>matchDirPath</name>
+        <briefdescription>
+<para>match dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="20" column="1" bodyfile="sources/main.cpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1a46ad4687cfe23f762717c8db257b0303" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString logDirPath</definition>
+        <argsstring></argsstring>
+        <name>logDirPath</name>
+        <briefdescription>
+<para>log dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="22" column="1" bodyfile="sources/main.cpp" bodystart="22" bodyend="-1"/>
+        <referencedby refid="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" compoundref="backuplogdialog_8cpp" startline="8" endline="162">BackupLogDialog::BackupLogDialog</referencedby>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+        <referencedby refid="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" compoundref="main_8cpp" startline="141" endline="175">myMessageOutput</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1acddaec1bc9466dc471df6f1479137704" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ocrPatternDirPath</definition>
+        <argsstring></argsstring>
+        <name>ocrPatternDirPath</name>
+        <briefdescription>
+<para>ocr sample dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="23" column="1" bodyfile="sources/main.cpp" bodystart="23" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+        <referencedby refid="class_o_c_r_1a5005daddcad6568306b0e49b3cdae8c3" compoundref="ocr_8cpp" startline="9" endline="24">OCR::OCR</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1a98bb5531df73660f1a4c1f181eedd88c" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ocrDirPath</definition>
+        <argsstring></argsstring>
+        <name>ocrDirPath</name>
+        <briefdescription>
+<para>ocr dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="24" column="1" bodyfile="sources/main.cpp" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" compoundref="backuplogdialog_8cpp" startline="8" endline="162">BackupLogDialog::BackupLogDialog</referencedby>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="main_8cpp_1a3fd98b4d92a4c1a052863672df72a575" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString databaseFilePath</definition>
+        <argsstring></argsstring>
+        <name>databaseFilePath</name>
+        <briefdescription>
+<para>database file path </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="25" column="1" bodyfile="sources/main.cpp" bodystart="25" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void myMessageOutput</definition>
+        <argsstring>(QtMsgType type, const QMessageLogContext &amp;context, const QString &amp;msg)</argsstring>
+        <name>myMessageOutput</name>
+        <param>
+          <type>QtMsgType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QMessageLogContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="27" column="1" bodyfile="sources/main.cpp" bodystart="141" bodyend="175"/>
+        <references refid="main_8cpp_1a46ad4687cfe23f762717c8db257b0303" compoundref="main_8cpp" startline="22">logDirPath</references>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>LONG</type>
+        <definition>LONG ApplicationCrashHandler</definition>
+        <argsstring>(EXCEPTION_POINTERS *pException)</argsstring>
+        <name>ApplicationCrashHandler</name>
+        <param>
+          <type>EXCEPTION_POINTERS *</type>
+          <declname>pException</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="28" column="1" bodyfile="sources/main.cpp" bodystart="178" bodyend="211"/>
+        <references refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" compoundref="main_8cpp" startline="14">appDirPath</references>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/main.cpp" line="30" column="1" bodyfile="sources/main.cpp" bodystart="30" bodyend="140"/>
+        <references refid="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" compoundref="main_8cpp" startline="141" endline="175">myMessageOutput</references>
+        <references refid="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" compoundref="main_8cpp" startline="178" endline="211">ApplicationCrashHandler</references>
+        <references refid="common_8h_1abe3b37a218cfb145f889377e5508e5ee" compoundref="common_8h" startline="22">PRODUCT_NAME</references>
+        <references refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" compoundref="main_8cpp" startline="14">appDirPath</references>
+        <references refid="main_8cpp_1a2fc2859d7238a2e9fcda661d321348c5" compoundref="main_8cpp" startline="15">appFilePath</references>
+        <references refid="main_8cpp_1a554bb7f4dd593b2971ec5e5e38718ea5" compoundref="main_8cpp" startline="16">captureDirPath</references>
+        <references refid="main_8cpp_1a5f3034a99a21133bca2ee422b7c5b48d" compoundref="main_8cpp" startline="17">configDirPath</references>
+        <references refid="main_8cpp_1a3c8467c4addcfd3ee40b1439311d1349" compoundref="main_8cpp" startline="18">videoDirPath</references>
+        <references refid="main_8cpp_1ab3865372dec24e6f7a39286147c1d390" compoundref="main_8cpp" startline="19">cacheDirPath</references>
+        <references refid="main_8cpp_1a301764495aed786632cff7abe68880a9" compoundref="main_8cpp" startline="20">matchDirPath</references>
+        <references refid="main_8cpp_1a98bb5531df73660f1a4c1f181eedd88c" compoundref="main_8cpp" startline="24">ocrDirPath</references>
+        <references refid="main_8cpp_1a46ad4687cfe23f762717c8db257b0303" compoundref="main_8cpp" startline="22">logDirPath</references>
+        <references refid="main_8cpp_1acddaec1bc9466dc471df6f1479137704" compoundref="main_8cpp" startline="23">ocrPatternDirPath</references>
+        <references refid="main_8cpp_1a3fd98b4d92a4c1a052863672df72a575" compoundref="main_8cpp" startline="25">databaseFilePath</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;singleapplication.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="common_8h" kindref="compound">common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="confighelper_8h" kindref="compound">confighelper.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="database_8h" kindref="compound">database.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="identification_8h" kindref="compound">identification.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="logindialog_8h" kindref="compound">logindialog.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mainwindow_8h" kindref="compound">mainwindow.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;DbgHelp.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtWidgets/QApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Windows.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref>;</highlight></codeline>
+<codeline lineno="15" refid="main_8cpp_1a2fc2859d7238a2e9fcda661d321348c5" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1a2fc2859d7238a2e9fcda661d321348c5" kindref="member">appFilePath</ref>;</highlight></codeline>
+<codeline lineno="16" refid="main_8cpp_1a554bb7f4dd593b2971ec5e5e38718ea5" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1a554bb7f4dd593b2971ec5e5e38718ea5" kindref="member">captureDirPath</ref>;<sp/></highlight><highlight class="comment">//cap<sp/>dir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="main_8cpp_1a5f3034a99a21133bca2ee422b7c5b48d" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1a5f3034a99a21133bca2ee422b7c5b48d" kindref="member">configDirPath</ref>;<sp/></highlight><highlight class="comment">//cap<sp/>dir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="main_8cpp_1a3c8467c4addcfd3ee40b1439311d1349" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1a3c8467c4addcfd3ee40b1439311d1349" kindref="member">videoDirPath</ref>;<sp/></highlight><highlight class="comment">//video<sp/>dir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="main_8cpp_1ab3865372dec24e6f7a39286147c1d390" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1ab3865372dec24e6f7a39286147c1d390" kindref="member">cacheDirPath</ref>;<sp/></highlight><highlight class="comment">//<sp/>cache<sp/>dir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="main_8cpp_1a301764495aed786632cff7abe68880a9" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1a301764495aed786632cff7abe68880a9" kindref="member">matchDirPath</ref>;<sp/></highlight><highlight class="comment">//match<sp/>dir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//QString<sp/>imageDirPath;<sp/>//imageDirPath</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="main_8cpp_1a46ad4687cfe23f762717c8db257b0303" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1a46ad4687cfe23f762717c8db257b0303" kindref="member">logDirPath</ref>;</highlight></codeline>
+<codeline lineno="23" refid="main_8cpp_1acddaec1bc9466dc471df6f1479137704" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1acddaec1bc9466dc471df6f1479137704" kindref="member">ocrPatternDirPath</ref>;</highlight></codeline>
+<codeline lineno="24" refid="main_8cpp_1a98bb5531df73660f1a4c1f181eedd88c" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1a98bb5531df73660f1a4c1f181eedd88c" kindref="member">ocrDirPath</ref>;</highlight></codeline>
+<codeline lineno="25" refid="main_8cpp_1a3fd98b4d92a4c1a052863672df72a575" refkind="member"><highlight class="normal">QString<sp/><ref refid="main_8cpp_1a3fd98b4d92a4c1a052863672df72a575" kindref="member">databaseFilePath</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" kindref="member">myMessageOutput</ref>(QtMsgType<sp/>type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QMessageLogContext&amp;<sp/>context,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>msg);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">LONG<sp/><ref refid="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" kindref="member">ApplicationCrashHandler</ref>(EXCEPTION_POINTERS*<sp/>pException);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>argv[])</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaType&lt;HWND&gt;(</highlight><highlight class="stringliteral">&quot;HWND&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qRegisterMetaType&lt;WORD&gt;(&quot;WORD&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaType&lt;QVector&lt;int&gt;&gt;(</highlight><highlight class="stringliteral">&quot;QVector&lt;int&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaType&lt;WheelDbInfo&gt;(</highlight><highlight class="stringliteral">&quot;WheelDbInfo&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaType&lt;ImProfile&gt;(</highlight><highlight class="stringliteral">&quot;ImProfile&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaTypeStreamOperators&lt;ImProfile&gt;(</highlight><highlight class="stringliteral">&quot;ImProfile&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaType&lt;OcrProfile&gt;(</highlight><highlight class="stringliteral">&quot;OcrProfile&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaTypeStreamOperators&lt;OcrProfile&gt;(</highlight><highlight class="stringliteral">&quot;OcrProfile&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaType&lt;CamProfile&gt;(</highlight><highlight class="stringliteral">&quot;CamProfile&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>qRegisterMetaTypeStreamOperators&lt;CamProfile&gt;(</highlight><highlight class="stringliteral">&quot;CamProfile&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>qInstallMessageHandler(<ref refid="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" kindref="member">myMessageOutput</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>actually<sp/>works<sp/>for<sp/>the<sp/>&quot;restart&quot;<sp/>command<sp/>--<sp/>this<sp/>command<sp/>must<sp/>handle<sp/>by<sp/>1s<sp/>after<sp/>the<sp/>previous<sp/>instance<sp/>killed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(argc<sp/>&gt;<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/>argc;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>str(argv[1]);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(str<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;--restart&quot;</highlight><highlight class="normal"><sp/>||<sp/>str<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;-r&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Sleep(1000);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>SingleApplication<sp/>a(argc,<sp/>argv);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>Q_OS_WIN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)<ref refid="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" kindref="member">ApplicationCrashHandler</ref>);<sp/></highlight><highlight class="comment">//注冊异常捕获函数</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qApp-&gt;setApplicationName(FILE_SPEC);<sp/>//默认为exe文件名,影响到QSetting(appName,orzName)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>qApp-&gt;setApplicationDisplayName(<ref refid="common_8h_1abe3b37a218cfb145f889377e5508e5ee" kindref="member">PRODUCT_NAME</ref>);<sp/></highlight><highlight class="comment">//窗口标题，默认为appName</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qApp-&gt;setApplicationVersion(PRODUCT_VER);<sp/>//默认为.rc中的版本号 <sp/>//use<sp/>cleanPath()<sp/>or<sp/>absolutePath()<sp/>or<sp/>canonicalPath()<sp/>to<sp/>remove<sp/>the<sp/>redudant<sp/>.<sp/>or<sp/>..
+<sp/><sp/>appDirPath<sp/>=<sp/>QDir::cleanPath(qApp-&gt;applicationDirPath());<sp/>//the<sp/>directory<sp/>contains<sp/>the<sp/>app.exe,<sp/>&apos;/&apos;e.g.<sp/>C:/QQ
+<sp/><sp/>appFilePath<sp/>=<sp/>QDir::cleanPath(qApp-&gt;applicationFilePath());<sp/>//the<sp/>file<sp/>path<sp/>of<sp/>app.exe,<sp/>&apos;/&apos;e.g.<sp/>C:/QQ/qq.exe
+<sp/><sp/><sp/>captureDirPath<sp/>=<sp/>QString(&quot;%1/Capture&quot;).arg(appDirPath);<sp/>//capture<sp/>dir
+<sp/><sp/>configDirPath<sp/>=<sp/>appDirPath;
+<sp/><sp/><sp/><sp/>videoDirPath<sp/>=<sp/>QString(&quot;%1/Video&quot;).arg(captureDirPath);
+<sp/><sp/><sp/><sp/>cacheDirPath<sp/>=<sp/>QString(&quot;%1/Cache&quot;).arg(captureDirPath);
+<sp/><sp/><sp/><sp/>matchDirPath<sp/>=<sp/>QString(&quot;%1/Match&quot;).arg(cacheDirPath);
+<sp/><sp/>ocrDirPath<sp/>=<sp/>QString(&quot;%1/Ocr&quot;).arg(cacheDirPath);
+<sp/><sp/>logDirPath<sp/>=<sp/>QString(&quot;%1/Log&quot;).arg(appDirPath);
+<sp/><sp/><sp/><sp/>ocrPatternDirPath<sp/>=<sp/>QString(&quot;%1/OcrPattern&quot;).arg(appDirPath);
+<sp/><sp/>databaseFilePath<sp/>=<sp/>QString(&quot;%1/WheelMonitor.db3&quot;).arg(appDirPath);
+
+<sp/><sp/><sp/><sp/>//command<sp/>line<sp/>parser
+<sp/><sp/>QCommandLineParser<sp/>parser;
+<sp/>parser.setApplicationDescription(PRODUCT_NAME);
+<sp/><sp/><sp/><sp/>parser.addHelpOption();
+<sp/><sp/><sp/><sp/>parser.addVersionOption();
+<sp/>//-a<sp/>--auto
+<sp/><sp/><sp/><sp/>QCommandLineOption<sp/>autoOption(QStringList()<sp/>&lt;&lt;<sp/>&quot;a&quot;
+<sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;auto&quot;,
+<sp/><sp/><sp/><sp/><sp/>&quot;auto<sp/>start.&quot;);
+<sp/><sp/><sp/><sp/>parser.addOption(autoOption);
+<sp/><sp/>//-r<sp/>--restart
+<sp/>QCommandLineOption<sp/>restartOption(QStringList()<sp/>&lt;&lt;<sp/>&quot;r&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;restart&quot;,
+<sp/><sp/><sp/><sp/><sp/><sp/>&quot;restart<sp/>app.&quot;);
+<sp/><sp/><sp/>parser.addOption(restartOption);
+<sp/><sp/><sp/>//-c
+<sp/><sp/><sp/>QCommandLineOption<sp/>configFileOption(&quot;c&quot;,<sp/>&quot;specify<sp/>configuration<sp/>file.&quot;,<sp/>&quot;config.ini&quot;);
+<sp/>parser.addOption(configFileOption);
+<sp/><sp/><sp/><sp/>//--no-identity
+<sp/><sp/><sp/><sp/>QCommandLineOption<sp/>identityOption(&quot;no-identity&quot;,<sp/>&quot;skip<sp/>identity.&quot;);
+<sp/><sp/><sp/><sp/>parser.addOption(identityOption);
+<sp/><sp/>parser.process(a);
+<sp/>bool<sp/>bAuto<sp/>=<sp/>parser.isSet(autoOption);
+<sp/>bool<sp/>bRestart<sp/>=<sp/>parser.isSet(restartOption);
+<sp/><sp/><sp/>bool<sp/>bNoIdentity<sp/>=<sp/>parser.isSet(identityOption);
+<sp/><sp/><sp/>QString<sp/>configFile<sp/>=<sp/>parser.value(configFileOption);
+<sp/><sp/><sp/>if<sp/>(configFile.isEmpty())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configFile<sp/>=<sp/>configDirPath<sp/>+<sp/>&quot;/config.ini&quot;;
+<sp/><sp/><sp/><sp/>}
+
+<sp/>//if<sp/>the<sp/>app<sp/>is<sp/>auto<sp/>run<sp/>when<sp/>powerboot,<sp/>should<sp/>sleep<sp/>for<sp/>1s
+<sp/><sp/><sp/>//no<sp/>longer<sp/>use
+
+<sp/><sp/><sp/>//if<sp/>(!bNoIdentity)<sp/>{
+<sp/><sp/>//<sp/><sp/>if<sp/>(!Identification::check())<sp/>{
+<sp/><sp/><sp/><sp/>//<sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(nullptr,<sp/>QStringLiteral(&quot;未授权&quot;),<sp/>QStringLiteral(&quot;本软件禁止在未经授权的平台上使用，请联系你的软件管理员！&quot;),<sp/>QStringLiteral(&quot;确定&quot;));
+<sp/>//<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>//<sp/><sp/>}
+<sp/><sp/>//}
+<sp/><sp/><sp/><sp/>//connect<sp/>to<sp/>database
+<sp/><sp/>if<sp/>(!initMainDb())<sp/>return<sp/>0;
+<sp/><sp/><sp/>ConfigHelper<sp/>conf(configFile);
+<sp/>MainWindow<sp/>w(&amp;conf);
+<sp/><sp/><sp/>w.showMinimized();//这种方式可以被手动点击任务栏打开主界面
+<sp/><sp/><sp/>if<sp/>(!bRestart)<sp/>{<sp/>//restart<sp/>won&apos;t<sp/>show<sp/>the<sp/>login<sp/>interface
+<sp/><sp/><sp/><sp/><sp/><sp/>LoginDialog<sp/>dlg(&amp;w);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dlg.exec()<sp/>!=<sp/>QDialog::Accepted)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>}
+<sp/><sp/>bool<sp/>login_success<sp/>=<sp/>true;
+<sp/>w.showMaximized();
+<sp/>//w.setWindowFlags(w.windowFlags()&amp;<sp/>~Qt::WindowMaximizeButtonHint);
+<sp/><sp/><sp/><sp/>QObject::connect(&amp;a,<sp/>&amp;SingleApplication::instanceStarted,<sp/>[login_success,<sp/>&amp;w]()<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(login_success)
+<sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.raise();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.activateWindow();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(w.windowState()<sp/>==<sp/>Qt::WindowMinimized)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.setWindowState(Qt::WindowMaximized);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.show();<sp/>//if<sp/>the<sp/>window<sp/>is<sp/>minimized,<sp/>show<sp/>max
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>});
+
+<sp/><sp/><sp/>return<sp/>a.exec();
+}
+void<sp/>myMessageOutput(QtMsgType<sp/>type,<sp/>const<sp/>QMessageLogContext&amp;<sp/>context,<sp/>const<sp/>QString&amp;<sp/>msg)
+{
+<sp/><sp/><sp/>QString<sp/>currentDateTime<sp/>=<sp/>QDateTime::currentDateTime().toString(&quot;yyyy/MM/dd<sp/>hh:mm:ss.zzz&quot;);
+<sp/><sp/><sp/><sp/>QString<sp/>typeStr;
+<sp/><sp/><sp/>switch<sp/>(type)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>QtDebugMsg:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Debug&quot;;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>QtInfoMsg:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Info&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>QtWarningMsg:
+<sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Warning&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>QtCriticalMsg:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Critical&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>QtFatalMsg:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Fatal&quot;;
+<sp/><sp/><sp/><sp/><sp/>abort();
+<sp/><sp/><sp/>}
+#if<sp/>defined(QT_MESSAGELOGCONTEXT)
+<sp/><sp/><sp/><sp/>QString<sp/>msgStr<sp/>=<sp/>QStringLiteral(&quot;[%1][%2]%3<sp/>(%4:%5,<sp/>%6)&quot;).arg(currentDateTime).arg(typeStr).arg(msg).arg(context.file).arg(context.line).arg(context.function);
+#else
+<sp/><sp/>QString<sp/>msgStr<sp/>=<sp/>QStringLiteral(&quot;[%1][%2]%3&quot;).arg(currentDateTime).arg(typeStr).arg(msg);
+#endif
+<sp/><sp/><sp/>QString<sp/>today<sp/>=<sp/>QDate::currentDate().toString(&quot;yyyyMMdd&quot;);
+<sp/>QString<sp/>logFilePath<sp/>=<sp/>QStringLiteral(&quot;%1/%2.log&quot;).arg(logDirPath).arg(today);
+<sp/><sp/>QFile<sp/>outfile(logFilePath);
+<sp/><sp/><sp/><sp/>outfile.open(QIODevice::WriteOnly<sp/>|<sp/>QIODevice::Append<sp/>|<sp/>QIODevice::Text);<sp/>//On<sp/>Windows,<sp/>all<sp/>&apos;\n&apos;<sp/>characters<sp/>are<sp/>written<sp/>as<sp/>&apos;\r\n&apos;<sp/>if<sp/>QTextStream&apos;s<sp/>device<sp/>or<sp/>string<sp/>is<sp/>opened<sp/>using<sp/>the<sp/>QIODevice::Text<sp/>flag.
+<sp/><sp/>QTextStream<sp/>text_stream(&amp;outfile);
+<sp/>text_stream<sp/>&lt;&lt;<sp/>msgStr<sp/>&lt;&lt;<sp/>endl;<sp/>//endl<sp/>doesn&apos;t<sp/>work<sp/>without<sp/>flag<sp/>QIODevice::Text
+<sp/><sp/><sp/><sp/>//outfile.flush();<sp/>endl<sp/>will<sp/>flush<sp/>to<sp/>the<sp/>device
+<sp/><sp/><sp/>outfile.close();
+<sp/><sp/><sp/>}
+
+#pragma<sp/>comment(lib,<sp/>&quot;Dbghelp.lib&quot;)
+LONG<sp/>ApplicationCrashHandler(EXCEPTION_POINTERS*<sp/>pException)
+{
+<sp/><sp/>//创建<sp/>Dump<sp/>文件
+<sp/><sp/><sp/><sp/>auto<sp/>dumpFilePath<sp/>=<sp/>QString(&quot;%1/CRASH.DMP&quot;).arg(appDirPath);
+
+<sp/><sp/>HANDLE<sp/>hDumpFile<sp/>=<sp/>CreateFileW((LPCWSTR)dumpFilePath.utf16(),<sp/>GENERIC_WRITE,<sp/>0,<sp/>NULL,<sp/>CREATE_ALWAYS,<sp/>FILE_ATTRIBUTE_NORMAL,<sp/>NULL);
+<sp/>if<sp/>(hDumpFile<sp/>!=<sp/>INVALID_HANDLE_VALUE)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>MINIDUMP_EXCEPTION_INFORMATION<sp/>dumpInfo;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ExceptionPointers<sp/>=<sp/>pException;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ThreadId<sp/>=<sp/>GetCurrentThreadId();
+<sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ClientPointers<sp/>=<sp/>TRUE;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MiniDumpWriteDump(GetCurrentProcess(),<sp/>GetCurrentProcessId(),<sp/>hDumpFile,<sp/>MiniDumpNormal,<sp/>&amp;dumpInfo,<sp/>NULL,<sp/>NULL);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>CloseHandle(hDumpFile);
+<sp/><sp/><sp/><sp/>}
+
+<sp/>//这里弹出一个错误对话框并退出程序
+<sp/>EXCEPTION_RECORD*<sp/>record<sp/>=<sp/>pException-&gt;ExceptionRecord;
+<sp/><sp/><sp/><sp/>QString<sp/>errCode(QString::number(record-&gt;ExceptionCode,<sp/>16));
+<sp/><sp/><sp/>QString<sp/>errAddr(QString::number((uint)record-&gt;ExceptionAddress,<sp/>16));
+<sp/><sp/>QString<sp/>errFlag(QString::number(record-&gt;ExceptionFlags,<sp/>16));
+<sp/><sp/>QString<sp/>errPara(QString::number(record-&gt;NumberParameters,<sp/>16));
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errCode:<sp/>&quot;<sp/>&lt;&lt;<sp/>errCode;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errAddr:<sp/>&quot;<sp/>&lt;&lt;<sp/>errAddr;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errFlag:<sp/>&quot;<sp/>&lt;&lt;<sp/>errFlag;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errPara:<sp/>&quot;<sp/>&lt;&lt;<sp/>errPara;
+<sp/><sp/><sp/><sp/>QMessageBox::critical(nullptr,<sp/>QStringLiteral(&quot;程式崩溃&quot;),<sp/>QStringLiteral(&quot;&lt;h3&gt;程序异常终止&lt;/h3&gt;&quot;
+<sp/><sp/><sp/><sp/><sp/>&quot;&lt;p&gt;错误代码：%1&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&quot;&lt;p&gt;错误地址：%2&quot;)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.arg(errCode)
+<sp/><sp/><sp/><sp/><sp/><sp/>.arg(errAddr),
+<sp/><sp/><sp/><sp/><sp/>QStringLiteral(&quot;确定&quot;));
+
+<sp/><sp/><sp/>return<sp/>EXCEPTION_EXECUTE_HANDLER;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//use<sp/>cleanPath()<sp/>or<sp/>absolutePath()<sp/>or<sp/>canonicalPath()<sp/>to<sp/>remove<sp/>the<sp/>redudant<sp/>.<sp/>or<sp/>..</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref><sp/>=<sp/>QDir::cleanPath(qApp-&gt;applicationDirPath());<sp/></highlight><highlight class="comment">//the<sp/>directory<sp/>contains<sp/>the<sp/>app.exe,<sp/>&apos;/&apos;e.g.<sp/>C:/QQ</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1a2fc2859d7238a2e9fcda661d321348c5" kindref="member">appFilePath</ref><sp/>=<sp/>QDir::cleanPath(qApp-&gt;applicationFilePath());<sp/></highlight><highlight class="comment">//the<sp/>file<sp/>path<sp/>of<sp/>app.exe,<sp/>&apos;/&apos;e.g.<sp/>C:/QQ/qq.exe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1a554bb7f4dd593b2971ec5e5e38718ea5" kindref="member">captureDirPath</ref><sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/Capture&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref>);<sp/></highlight><highlight class="comment">//capture<sp/>dir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1a5f3034a99a21133bca2ee422b7c5b48d" kindref="member">configDirPath</ref><sp/>=<sp/><ref refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1a3c8467c4addcfd3ee40b1439311d1349" kindref="member">videoDirPath</ref><sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/Video&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1a554bb7f4dd593b2971ec5e5e38718ea5" kindref="member">captureDirPath</ref>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1ab3865372dec24e6f7a39286147c1d390" kindref="member">cacheDirPath</ref><sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/Cache&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1a554bb7f4dd593b2971ec5e5e38718ea5" kindref="member">captureDirPath</ref>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1a301764495aed786632cff7abe68880a9" kindref="member">matchDirPath</ref><sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/Match&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1ab3865372dec24e6f7a39286147c1d390" kindref="member">cacheDirPath</ref>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1a98bb5531df73660f1a4c1f181eedd88c" kindref="member">ocrDirPath</ref><sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/Ocr&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1ab3865372dec24e6f7a39286147c1d390" kindref="member">cacheDirPath</ref>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1a46ad4687cfe23f762717c8db257b0303" kindref="member">logDirPath</ref><sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/Log&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1acddaec1bc9466dc471df6f1479137704" kindref="member">ocrPatternDirPath</ref><sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/OcrPattern&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="main_8cpp_1a3fd98b4d92a4c1a052863672df72a575" kindref="member">databaseFilePath</ref><sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/WheelMonitor.db3&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//command<sp/>line<sp/>parser</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>QCommandLineParser<sp/>parser;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>parser.setApplicationDescription(<ref refid="common_8h_1abe3b37a218cfb145f889377e5508e5ee" kindref="member">PRODUCT_NAME</ref>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>parser.addHelpOption();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>parser.addVersionOption();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//-a<sp/>--auto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>QCommandLineOption<sp/>autoOption(QStringList()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;auto&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;auto<sp/>start.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>parser.addOption(autoOption);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//-r<sp/>--restart</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>QCommandLineOption<sp/>restartOption(QStringList()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;restart&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;restart<sp/>app.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>parser.addOption(restartOption);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//-c</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>QCommandLineOption<sp/>configFileOption(</highlight><highlight class="stringliteral">&quot;c&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;specify<sp/>configuration<sp/>file.&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;config.ini&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>parser.addOption(configFileOption);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//--no-identity</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>QCommandLineOption<sp/>identityOption(</highlight><highlight class="stringliteral">&quot;no-identity&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;skip<sp/>identity.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>parser.addOption(identityOption);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>parser.process(a);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bAuto<sp/>=<sp/>parser.isSet(autoOption);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bRestart<sp/>=<sp/>parser.isSet(restartOption);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bNoIdentity<sp/>=<sp/>parser.isSet(identityOption);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>configFile<sp/>=<sp/>parser.value(configFileOption);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(configFile.isEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>configFile<sp/>=<sp/><ref refid="main_8cpp_1a5f3034a99a21133bca2ee422b7c5b48d" kindref="member">configDirPath</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/config.ini&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>the<sp/>app<sp/>is<sp/>auto<sp/>run<sp/>when<sp/>powerboot,<sp/>should<sp/>sleep<sp/>for<sp/>1s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//no<sp/>longer<sp/>use</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(!bNoIdentity)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(!Identification::check())<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>QMessageBox::critical(nullptr,<sp/>QStringLiteral(&quot;未授权&quot;),<sp/>QStringLiteral(&quot;本软件禁止在未经授权的平台上使用，请联系你的软件管理员！&quot;),<sp/>QStringLiteral(&quot;确定&quot;));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//connect<sp/>to<sp/>database</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initMainDb())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref><sp/>conf(configFile);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_main_window" kindref="compound">MainWindow</ref><sp/>w(&amp;conf);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>w.showMinimized();</highlight><highlight class="comment">//这种方式可以被手动点击任务栏打开主界面 <sp/><sp/><sp/>if<sp/>(!bRestart)<sp/>{<sp/>//restart<sp/>won&apos;t<sp/>show<sp/>the<sp/>login<sp/>interface
+<sp/><sp/><sp/><sp/><sp/><sp/>LoginDialog<sp/>dlg(&amp;w);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dlg.exec()<sp/>!=<sp/>QDialog::Accepted)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>}
+<sp/><sp/>bool<sp/>login_success<sp/>=<sp/>true;
+<sp/>w.showMaximized();
+<sp/>//w.setWindowFlags(w.windowFlags()&amp;<sp/>~Qt::WindowMaximizeButtonHint);
+<sp/><sp/><sp/><sp/>QObject::connect(&amp;a,<sp/>&amp;SingleApplication::instanceStarted,<sp/>[login_success,<sp/>&amp;w]()<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(login_success)
+<sp/><sp/><sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.raise();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.activateWindow();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(w.windowState()<sp/>==<sp/>Qt::WindowMinimized)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.setWindowState(Qt::WindowMaximized);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.show();<sp/>//if<sp/>the<sp/>window<sp/>is<sp/>minimized,<sp/>show<sp/>max
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>});
+
+<sp/><sp/><sp/>return<sp/>a.exec();
+}
+void<sp/>myMessageOutput(QtMsgType<sp/>type,<sp/>const<sp/>QMessageLogContext&amp;<sp/>context,<sp/>const<sp/>QString&amp;<sp/>msg)
+{
+<sp/><sp/><sp/>QString<sp/>currentDateTime<sp/>=<sp/>QDateTime::currentDateTime().toString(&quot;yyyy/MM/dd<sp/>hh:mm:ss.zzz&quot;);
+<sp/><sp/><sp/><sp/>QString<sp/>typeStr;
+<sp/><sp/><sp/>switch<sp/>(type)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>QtDebugMsg:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Debug&quot;;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>QtInfoMsg:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Info&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>QtWarningMsg:
+<sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Warning&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>QtCriticalMsg:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Critical&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>QtFatalMsg:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/>&quot;Fatal&quot;;
+<sp/><sp/><sp/><sp/><sp/>abort();
+<sp/><sp/><sp/>}
+#if<sp/>defined(QT_MESSAGELOGCONTEXT)
+<sp/><sp/><sp/><sp/>QString<sp/>msgStr<sp/>=<sp/>QStringLiteral(&quot;[%1][%2]%3<sp/>(%4:%5,<sp/>%6)&quot;).arg(currentDateTime).arg(typeStr).arg(msg).arg(context.file).arg(context.line).arg(context.function);
+#else
+<sp/><sp/>QString<sp/>msgStr<sp/>=<sp/>QStringLiteral(&quot;[%1][%2]%3&quot;).arg(currentDateTime).arg(typeStr).arg(msg);
+#endif
+<sp/><sp/><sp/>QString<sp/>today<sp/>=<sp/>QDate::currentDate().toString(&quot;yyyyMMdd&quot;);
+<sp/>QString<sp/>logFilePath<sp/>=<sp/>QStringLiteral(&quot;%1/%2.log&quot;).arg(logDirPath).arg(today);
+<sp/><sp/>QFile<sp/>outfile(logFilePath);
+<sp/><sp/><sp/><sp/>outfile.open(QIODevice::WriteOnly<sp/>|<sp/>QIODevice::Append<sp/>|<sp/>QIODevice::Text);<sp/>//On<sp/>Windows,<sp/>all<sp/>&apos;\n&apos;<sp/>characters<sp/>are<sp/>written<sp/>as<sp/>&apos;\r\n&apos;<sp/>if<sp/>QTextStream&apos;s<sp/>device<sp/>or<sp/>string<sp/>is<sp/>opened<sp/>using<sp/>the<sp/>QIODevice::Text<sp/>flag.
+<sp/><sp/>QTextStream<sp/>text_stream(&amp;outfile);
+<sp/>text_stream<sp/>&lt;&lt;<sp/>msgStr<sp/>&lt;&lt;<sp/>endl;<sp/>//endl<sp/>doesn&apos;t<sp/>work<sp/>without<sp/>flag<sp/>QIODevice::Text
+<sp/><sp/><sp/><sp/>//outfile.flush();<sp/>endl<sp/>will<sp/>flush<sp/>to<sp/>the<sp/>device
+<sp/><sp/><sp/>outfile.close();
+<sp/><sp/><sp/>}
+
+#pragma<sp/>comment(lib,<sp/>&quot;Dbghelp.lib&quot;)
+LONG<sp/>ApplicationCrashHandler(EXCEPTION_POINTERS*<sp/>pException)
+{
+<sp/><sp/>//创建<sp/>Dump<sp/>文件
+<sp/><sp/><sp/><sp/>auto<sp/>dumpFilePath<sp/>=<sp/>QString(&quot;%1/CRASH.DMP&quot;).arg(appDirPath);
+
+<sp/><sp/>HANDLE<sp/>hDumpFile<sp/>=<sp/>CreateFileW((LPCWSTR)dumpFilePath.utf16(),<sp/>GENERIC_WRITE,<sp/>0,<sp/>NULL,<sp/>CREATE_ALWAYS,<sp/>FILE_ATTRIBUTE_NORMAL,<sp/>NULL);
+<sp/>if<sp/>(hDumpFile<sp/>!=<sp/>INVALID_HANDLE_VALUE)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>MINIDUMP_EXCEPTION_INFORMATION<sp/>dumpInfo;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ExceptionPointers<sp/>=<sp/>pException;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ThreadId<sp/>=<sp/>GetCurrentThreadId();
+<sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ClientPointers<sp/>=<sp/>TRUE;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MiniDumpWriteDump(GetCurrentProcess(),<sp/>GetCurrentProcessId(),<sp/>hDumpFile,<sp/>MiniDumpNormal,<sp/>&amp;dumpInfo,<sp/>NULL,<sp/>NULL);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>CloseHandle(hDumpFile);
+<sp/><sp/><sp/><sp/>}
+
+<sp/>//这里弹出一个错误对话框并退出程序
+<sp/>EXCEPTION_RECORD*<sp/>record<sp/>=<sp/>pException-&gt;ExceptionRecord;
+<sp/><sp/><sp/><sp/>QString<sp/>errCode(QString::number(record-&gt;ExceptionCode,<sp/>16));
+<sp/><sp/><sp/>QString<sp/>errAddr(QString::number((uint)record-&gt;ExceptionAddress,<sp/>16));
+<sp/><sp/>QString<sp/>errFlag(QString::number(record-&gt;ExceptionFlags,<sp/>16));
+<sp/><sp/>QString<sp/>errPara(QString::number(record-&gt;NumberParameters,<sp/>16));
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errCode:<sp/>&quot;<sp/>&lt;&lt;<sp/>errCode;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errAddr:<sp/>&quot;<sp/>&lt;&lt;<sp/>errAddr;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errFlag:<sp/>&quot;<sp/>&lt;&lt;<sp/>errFlag;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errPara:<sp/>&quot;<sp/>&lt;&lt;<sp/>errPara;
+<sp/><sp/><sp/><sp/>QMessageBox::critical(nullptr,<sp/>QStringLiteral(&quot;程式崩溃&quot;),<sp/>QStringLiteral(&quot;&lt;h3&gt;程序异常终止&lt;/h3&gt;&quot;
+<sp/><sp/><sp/><sp/><sp/>&quot;&lt;p&gt;错误代码：%1&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&quot;&lt;p&gt;错误地址：%2&quot;)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.arg(errCode)
+<sp/><sp/><sp/><sp/><sp/><sp/>.arg(errAddr),
+<sp/><sp/><sp/><sp/><sp/>QStringLiteral(&quot;确定&quot;));
+
+<sp/><sp/><sp/>return<sp/>EXCEPTION_EXECUTE_HANDLER;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bRestart)<sp/>{<sp/></highlight><highlight class="comment">//restart<sp/>won&apos;t<sp/>show<sp/>the<sp/>login<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_login_dialog" kindref="compound">LoginDialog</ref><sp/>dlg(&amp;w);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dlg.exec()<sp/>!=<sp/>QDialog::Accepted)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>login_success<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>w.showMaximized();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//w.setWindowFlags(w.windowFlags()&amp;<sp/>~Qt::WindowMaximizeButtonHint);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject::connect(&amp;a,<sp/>&amp;SingleApplication::instanceStarted,<sp/>[login_success,<sp/>&amp;w]()<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(login_success)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.raise();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.activateWindow();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(w.windowState()<sp/>==<sp/>Qt::WindowMinimized)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.setWindowState(Qt::WindowMaximized);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>w.show();<sp/></highlight><highlight class="comment">//if<sp/>the<sp/>window<sp/>is<sp/>minimized,<sp/>show<sp/>max</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a.exec();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="141" refid="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" kindref="member">myMessageOutput</ref>(QtMsgType<sp/>type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QMessageLogContext&amp;<sp/>context,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>msg)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>currentDateTime<sp/>=<sp/>QDateTime::currentDateTime().toString(</highlight><highlight class="stringliteral">&quot;yyyy/MM/dd<sp/>hh:mm:ss.zzz&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>typeStr;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(type)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>QtDebugMsg:</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Debug&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>QtInfoMsg:</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Info&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>QtWarningMsg:</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Warning&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>QtCriticalMsg:</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Critical&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>QtFatalMsg:</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>typeStr<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Fatal&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>abort();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(QT_MESSAGELOGCONTEXT)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>msgStr<sp/>=<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;[%1][%2]%3<sp/>(%4:%5,<sp/>%6)&quot;</highlight><highlight class="normal">).arg(currentDateTime).arg(typeStr).arg(msg).arg(context.file).arg(context.line).arg(context.function);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>msgStr<sp/>=<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;[%1][%2]%3&quot;</highlight><highlight class="normal">).arg(currentDateTime).arg(typeStr).arg(msg);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>today<sp/>=<sp/>QDate::currentDate().toString(</highlight><highlight class="stringliteral">&quot;yyyyMMdd&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>logFilePath<sp/>=<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;%1/%2.log&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1a46ad4687cfe23f762717c8db257b0303" kindref="member">logDirPath</ref>).arg(today);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>QFile<sp/>outfile(logFilePath);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>outfile.open(QIODevice::WriteOnly<sp/>|<sp/>QIODevice::Append<sp/>|<sp/>QIODevice::Text);<sp/></highlight><highlight class="comment">//On<sp/>Windows,<sp/>all<sp/>&apos;\n&apos;<sp/>characters<sp/>are<sp/>written<sp/>as<sp/>&apos;\r\n&apos;<sp/>if<sp/>QTextStream&apos;s<sp/>device<sp/>or<sp/>string<sp/>is<sp/>opened<sp/>using<sp/>the<sp/>QIODevice::Text<sp/>flag.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>QTextStream<sp/>text_stream(&amp;outfile);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>text_stream<sp/>&lt;&lt;<sp/>msgStr<sp/>&lt;&lt;<sp/>endl;<sp/></highlight><highlight class="comment">//endl<sp/>doesn&apos;t<sp/>work<sp/>without<sp/>flag<sp/>QIODevice::Text</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//outfile.flush();<sp/>endl<sp/>will<sp/>flush<sp/>to<sp/>the<sp/>device</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>outfile.close();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>comment(lib,<sp/>&quot;Dbghelp.lib&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" refkind="member"><highlight class="normal">LONG<sp/><ref refid="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" kindref="member">ApplicationCrashHandler</ref>(EXCEPTION_POINTERS*<sp/>pException)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//创建<sp/>Dump<sp/>文件</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dumpFilePath<sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/CRASH.DMP&quot;</highlight><highlight class="normal">).arg(<ref refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref>);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>HANDLE<sp/>hDumpFile<sp/>=<sp/>CreateFileW((LPCWSTR)dumpFilePath.utf16(),<sp/>GENERIC_WRITE,<sp/>0,<sp/>NULL,<sp/>CREATE_ALWAYS,<sp/>FILE_ATTRIBUTE_NORMAL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hDumpFile<sp/>!=<sp/>INVALID_HANDLE_VALUE)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MINIDUMP_EXCEPTION_INFORMATION<sp/>dumpInfo;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ExceptionPointers<sp/>=<sp/>pException;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ThreadId<sp/>=<sp/>GetCurrentThreadId();</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dumpInfo.ClientPointers<sp/>=<sp/>TRUE;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MiniDumpWriteDump(GetCurrentProcess(),<sp/>GetCurrentProcessId(),<sp/>hDumpFile,<sp/>MiniDumpNormal,<sp/>&amp;dumpInfo,<sp/>NULL,<sp/>NULL);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CloseHandle(hDumpFile);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//这里弹出一个错误对话框并退出程序 <sp/>EXCEPTION_RECORD*<sp/>record<sp/>=<sp/>pException-&gt;ExceptionRecord;
+<sp/><sp/><sp/><sp/>QString<sp/>errCode(QString::number(record-&gt;ExceptionCode,<sp/>16));
+<sp/><sp/><sp/>QString<sp/>errAddr(QString::number((uint)record-&gt;ExceptionAddress,<sp/>16));
+<sp/><sp/>QString<sp/>errFlag(QString::number(record-&gt;ExceptionFlags,<sp/>16));
+<sp/><sp/>QString<sp/>errPara(QString::number(record-&gt;NumberParameters,<sp/>16));
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errCode:<sp/>&quot;<sp/>&lt;&lt;<sp/>errCode;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errAddr:<sp/>&quot;<sp/>&lt;&lt;<sp/>errAddr;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errFlag:<sp/>&quot;<sp/>&lt;&lt;<sp/>errFlag;
+<sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;errPara:<sp/>&quot;<sp/>&lt;&lt;<sp/>errPara;
+<sp/><sp/><sp/><sp/>QMessageBox::critical(nullptr,<sp/>QStringLiteral(&quot;程式崩溃&quot;),<sp/>QStringLiteral(&quot;&lt;h3&gt;程序异常终止&lt;/h3&gt;&quot;
+<sp/><sp/><sp/><sp/><sp/>&quot;&lt;p&gt;错误代码：%1&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/>&quot;&lt;p&gt;错误地址：%2&quot;)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.arg(errCode)
+<sp/><sp/><sp/><sp/><sp/><sp/>.arg(errAddr),
+<sp/><sp/><sp/><sp/><sp/>QStringLiteral(&quot;确定&quot;));
+
+<sp/><sp/><sp/>return<sp/>EXCEPTION_EXECUTE_HANDLER;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>EXCEPTION_RECORD*<sp/>record<sp/>=<sp/>pException-&gt;ExceptionRecord;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>errCode(QString::number(record-&gt;ExceptionCode,<sp/>16));</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>errAddr(QString::number((uint)record-&gt;ExceptionAddress,<sp/>16));</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>errFlag(QString::number(record-&gt;ExceptionFlags,<sp/>16));</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>errPara(QString::number(record-&gt;NumberParameters,<sp/>16));</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;errCode:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>errCode;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;errAddr:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>errAddr;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;errFlag:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>errFlag;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;errPara:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>errPara;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>QMessageBox::critical(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;程式崩溃&quot;</highlight><highlight class="normal">),<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;&lt;h3&gt;程序异常终止&lt;/h3&gt;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;错误代码：%1&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;错误地址：%2&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.arg(errCode)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.arg(errAddr),</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;确定&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EXCEPTION_EXECUTE_HANDLER;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/main.cpp"/>
+  </compounddef>
+</doxygen>

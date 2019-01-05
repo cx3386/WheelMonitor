@@ -1,0 +1,148 @@
+.TH "WheelDbInfo" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WheelDbInfo \- 记录该车轮结算后的相关参数，以写入数据库  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <database\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.ti -1c
+.RI "int \fBi_o\fP"
+.br
+.ti -1c
+.RI "QString \fBnum\fP"
+.br
+.ti -1c
+.RI "double \fBcalcspeed\fP"
+.br
+.ti -1c
+.RI "double \fBrefspeed\fP"
+.br
+.ti -1c
+.RI "double \fBerror\fP"
+.br
+.ti -1c
+.RI "QString \fBtime\fP"
+.br
+.ti -1c
+.RI "int \fBalarmlevel\fP"
+.br
+.RI "-2：连续两次结果不可信；-1：本次结果不可信；0：正常；1：预警；2：报警 "
+.ti -1c
+.RI "int \fBcheckstate\fP"
+.br
+.ti -1c
+.RI "int \fBocrsize\fP"
+.br
+.ti -1c
+.RI "int \fBfragment\fP"
+.br
+.ti -1c
+.RI "int \fBtotalmatch\fP"
+.br
+.ti -1c
+.RI "int \fBvalidmatch\fP"
+.br
+.ti -1c
+.RI "QString \fBspeeds\fP"
+.br
+.ti -1c
+.RI "QString \fBvideopath\fP"
+.br
+.ti -1c
+.RI "double \fBwarnRatio\fP"
+.br
+.ti -1c
+.RI "double \fBalarmRatio\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+记录该车轮结算后的相关参数，以写入数据库 
+.PP
+Definition at line 27 of file database\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "int WheelDbInfo::alarmlevel"
+
+.PP
+-2：连续两次结果不可信；-1：本次结果不可信；0：正常；1：预警；2：报警 
+.PP
+Definition at line 35 of file database\&.h\&.
+.SS "double WheelDbInfo::alarmRatio"
+
+.PP
+Definition at line 46 of file database\&.h\&.
+.SS "double WheelDbInfo::calcspeed"
+
+.PP
+Definition at line 31 of file database\&.h\&.
+.SS "int WheelDbInfo::checkstate"
+
+.PP
+Definition at line 36 of file database\&.h\&.
+.SS "double WheelDbInfo::error"
+
+.PP
+Definition at line 33 of file database\&.h\&.
+.SS "int WheelDbInfo::fragment"
+
+.PP
+Definition at line 38 of file database\&.h\&.
+.SS "int WheelDbInfo::i_o"
+
+.PP
+Definition at line 29 of file database\&.h\&.
+.SS "int WheelDbInfo::id"
+
+.PP
+Definition at line 28 of file database\&.h\&.
+.SS "QString WheelDbInfo::num"
+
+.PP
+Definition at line 30 of file database\&.h\&.
+.SS "int WheelDbInfo::ocrsize"
+
+.PP
+Definition at line 37 of file database\&.h\&.
+.SS "double WheelDbInfo::refspeed"
+
+.PP
+Definition at line 32 of file database\&.h\&.
+.SS "QString WheelDbInfo::speeds"
+
+.PP
+Definition at line 42 of file database\&.h\&.
+.SS "QString WheelDbInfo::time"
+
+.PP
+Definition at line 34 of file database\&.h\&.
+.SS "int WheelDbInfo::totalmatch"
+
+.PP
+Definition at line 40 of file database\&.h\&.
+.SS "int WheelDbInfo::validmatch"
+
+.PP
+Definition at line 41 of file database\&.h\&.
+.SS "QString WheelDbInfo::videopath"
+
+.PP
+Definition at line 43 of file database\&.h\&.
+.SS "double WheelDbInfo::warnRatio"
+
+.PP
+Definition at line 45 of file database\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

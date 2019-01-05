@@ -1,0 +1,104 @@
+\hypertarget{class_o_c_r}{}\section{O\+CR Class Reference}
+\label{class_o_c_r}\index{O\+CR@{O\+CR}}
+
+
+{\ttfamily \#include $<$ocr.\+h$>$}
+
+
+
+Inheritance diagram for O\+CR\+:
+% FIG 0
+
+
+Collaboration diagram for O\+CR\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_o_c_r_a5005daddcad6568306b0e49b3cdae8c3}{O\+CR}} (const \mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$\+\_\+config\+Helper, int \+\_\+device\+Index, Q\+Object $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\item 
+void \mbox{\hyperlink{class_o_c_r_a5d1bb59b769007938a8274ab9500fe48}{core\+\_\+ocr}} (Mat src)
+\item 
+string \mbox{\hyperlink{class_o_c_r_ab6db0189309d6dee811e7918e45a4c97}{get\+\_\+final\+\_\+result}} ()
+\item 
+int \mbox{\hyperlink{class_o_c_r_a83780a02419e348bfeb8d12973b3642b}{size}} () const
+\begin{DoxyCompactList}\small\item\em return ocr total match size, should be called after \mbox{\hyperlink{class_o_c_r_ab6db0189309d6dee811e7918e45a4c97}{get\+\_\+final\+\_\+result()}}; \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_o_c_r_a79cfabc25c245f8f7df49dca4801f219}{reset\+Ocr}} ()
+\begin{DoxyCompactList}\small\item\em 重置ocr的连续miss计数器 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 24 of file ocr.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_o_c_r_a5005daddcad6568306b0e49b3cdae8c3}\label{class_o_c_r_a5005daddcad6568306b0e49b3cdae8c3}} 
+\index{O\+CR@{O\+CR}!O\+CR@{O\+CR}}
+\index{O\+CR@{O\+CR}!O\+CR@{O\+CR}}
+\subsubsection{\texorpdfstring{O\+C\+R()}{OCR()}}
+{\footnotesize\ttfamily O\+C\+R\+::\+O\+CR (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$}]{\+\_\+config\+Helper,  }\item[{int}]{\+\_\+device\+Index,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 9 of file ocr.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_o_c_r_a5d1bb59b769007938a8274ab9500fe48}\label{class_o_c_r_a5d1bb59b769007938a8274ab9500fe48}} 
+\index{O\+CR@{O\+CR}!core\+\_\+ocr@{core\+\_\+ocr}}
+\index{core\+\_\+ocr@{core\+\_\+ocr}!O\+CR@{O\+CR}}
+\subsubsection{\texorpdfstring{core\+\_\+ocr()}{core\_ocr()}}
+{\footnotesize\ttfamily void O\+C\+R\+::core\+\_\+ocr (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+
+
+Definition at line 26 of file ocr.\+cpp.
+
+\mbox{\Hypertarget{class_o_c_r_ab6db0189309d6dee811e7918e45a4c97}\label{class_o_c_r_ab6db0189309d6dee811e7918e45a4c97}} 
+\index{O\+CR@{O\+CR}!get\+\_\+final\+\_\+result@{get\+\_\+final\+\_\+result}}
+\index{get\+\_\+final\+\_\+result@{get\+\_\+final\+\_\+result}!O\+CR@{O\+CR}}
+\subsubsection{\texorpdfstring{get\+\_\+final\+\_\+result()}{get\_final\_result()}}
+{\footnotesize\ttfamily std\+::string O\+C\+R\+::get\+\_\+final\+\_\+result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 181 of file ocr.\+cpp.
+
+\mbox{\Hypertarget{class_o_c_r_a79cfabc25c245f8f7df49dca4801f219}\label{class_o_c_r_a79cfabc25c245f8f7df49dca4801f219}} 
+\index{O\+CR@{O\+CR}!reset\+Ocr@{reset\+Ocr}}
+\index{reset\+Ocr@{reset\+Ocr}!O\+CR@{O\+CR}}
+\subsubsection{\texorpdfstring{reset\+Ocr()}{resetOcr()}}
+{\footnotesize\ttfamily void O\+C\+R\+::reset\+Ocr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+重置ocr的连续miss计数器 
+
+
+
+Definition at line 33 of file ocr.\+h.
+
+\mbox{\Hypertarget{class_o_c_r_a83780a02419e348bfeb8d12973b3642b}\label{class_o_c_r_a83780a02419e348bfeb8d12973b3642b}} 
+\index{O\+CR@{O\+CR}!size@{size}}
+\index{size@{size}!O\+CR@{O\+CR}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int O\+C\+R\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return ocr total match size, should be called after \mbox{\hyperlink{class_o_c_r_ab6db0189309d6dee811e7918e45a4c97}{get\+\_\+final\+\_\+result()}}; 
+
+
+
+Definition at line 31 of file ocr.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{ocr_8h}{ocr.\+h}}\item 
+sources/\mbox{\hyperlink{ocr_8cpp}{ocr.\+cpp}}\end{DoxyCompactItemize}

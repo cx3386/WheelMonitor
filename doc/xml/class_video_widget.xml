@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_video_widget" kind="class" language="C++" prot="public">
+    <compoundname>VideoWidget</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QVideoWidget</basecompoundref>
+    <includes refid="videowidget_8h" local="no">videowidget.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_video_widget_1a31e7897e4abd9733d45753e4a2e25882" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VideoWidget::VideoWidget</definition>
+        <argsstring>(QWidget *parent=0)</argsstring>
+        <name>VideoWidget</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/videowidget.h" line="50" column="1" bodyfile="sources/videowidget.cpp" bodystart="44" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_video_widget_1a3efa34386c146603fd2785409eab9d0f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VideoWidget::keyPressEvent</definition>
+        <argsstring>(QKeyEvent *event) override</argsstring>
+        <name>keyPressEvent</name>
+        <param>
+          <type>QKeyEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/videowidget.h" line="53" column="1" bodyfile="sources/videowidget.cpp" bodystart="56" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_video_widget_1aff7ceebcce6eacc04cfbed16cb417158" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VideoWidget::mouseDoubleClickEvent</definition>
+        <argsstring>(QMouseEvent *event) override</argsstring>
+        <name>mouseDoubleClickEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/videowidget.h" line="54" column="1" bodyfile="sources/videowidget.cpp" bodystart="71" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_video_widget_1a2ad2fa38f5cf82938f50eaba9ddc6173" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VideoWidget::mousePressEvent</definition>
+        <argsstring>(QMouseEvent *event) override</argsstring>
+        <name>mousePressEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/videowidget.h" line="55" column="1" bodyfile="sources/videowidget.cpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="125">
+        <label>QVideoWidget</label>
+      </node>
+      <node id="124">
+        <label>VideoWidget</label>
+        <link refid="class_video_widget"/>
+        <childnode refid="125" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="127">
+        <label>QVideoWidget</label>
+      </node>
+      <node id="126">
+        <label>VideoWidget</label>
+        <link refid="class_video_widget"/>
+        <childnode refid="127" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/videowidget.h" line="46" column="1" bodyfile="sources/videowidget.h" bodystart="46" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_video_widget_1a3efa34386c146603fd2785409eab9d0f" prot="protected" virt="non-virtual"><scope>VideoWidget</scope><name>keyPressEvent</name></member>
+      <member refid="class_video_widget_1aff7ceebcce6eacc04cfbed16cb417158" prot="protected" virt="non-virtual"><scope>VideoWidget</scope><name>mouseDoubleClickEvent</name></member>
+      <member refid="class_video_widget_1a2ad2fa38f5cf82938f50eaba9ddc6173" prot="protected" virt="non-virtual"><scope>VideoWidget</scope><name>mousePressEvent</name></member>
+      <member refid="class_video_widget_1a31e7897e4abd9733d45753e4a2e25882" prot="public" virt="non-virtual"><scope>VideoWidget</scope><name>VideoWidget</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

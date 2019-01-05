@@ -1,0 +1,33 @@
+digraph "sources/HandleSensorDevice.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node4 [label="sources/HandleSensorDevice.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="sources/Plc.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_plc_8h.html"];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="sources/AlarmManager.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_alarm_manager_8h.html",tooltip="管理所有的报警 "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="sources/AlarmManager.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_alarm_manager_8cpp.html"];
+  Node6 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="sources/mainwindow.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mainwindow_8cpp.html"];
+  Node5 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="sources/playbackwidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$playbackwidget_8h.html"];
+  Node9 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="sources/playbackwidget.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$playbackwidget_8cpp.html"];
+  Node5 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="sources/imageprocess.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$imageprocess_8cpp.html"];
+  Node5 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="sources/Plc.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_plc_8cpp.html"];
+  Node5 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="sources/SpeedIntegrator.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_speed_integrator_8h.html"];
+  Node13 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="sources/SpeedIntegrator.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_speed_integrator_8cpp.html"];
+  Node5 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="sources/HandleSensorDevice.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_handle_sensor_device_8cpp.html"];
+}

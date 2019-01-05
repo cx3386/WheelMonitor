@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="confighelper_8h" kind="file" language="C++">
+    <compoundname>confighelper.h</compoundname>
+    <includes refid="camprofile_8h" local="yes">camprofile.h</includes>
+    <includes refid="improfile_8h" local="yes">improfile.h</includes>
+    <includes refid="ocrprofile_8h" local="yes">ocrprofile.h</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">QSettings</includes>
+    <includedby refid="confighelper_8cpp" local="yes">sources/confighelper.cpp</includedby>
+    <includedby refid="hikvideocapture_8cpp" local="yes">sources/hikvideocapture.cpp</includedby>
+    <includedby refid="imageprocess_8cpp" local="yes">sources/imageprocess.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">sources/main.cpp</includedby>
+    <includedby refid="mainwindow_8cpp" local="yes">sources/mainwindow.cpp</includedby>
+    <includedby refid="ocr_8cpp" local="yes">sources/ocr.cpp</includedby>
+    <includedby refid="_plc_8cpp" local="yes">sources/Plc.cpp</includedby>
+    <includedby refid="settingdialog_8cpp" local="yes">sources/settingdialog.cpp</includedby>
+    <incdepgraph>
+      <node id="151">
+        <label>QSettings</label>
+      </node>
+      <node id="150">
+        <label>QObject</label>
+      </node>
+      <node id="146">
+        <label>QMetaType</label>
+      </node>
+      <node id="147">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="148">
+        <label>improfile.h</label>
+        <link refid="improfile_8h"/>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+      </node>
+      <node id="145">
+        <label>camprofile.h</label>
+        <link refid="camprofile_8h"/>
+        <childnode refid="146" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+      </node>
+      <node id="144">
+        <label>sources/confighelper.h</label>
+        <link refid="confighelper_8h"/>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+      </node>
+      <node id="149">
+        <label>ocrprofile.h</label>
+        <link refid="ocrprofile_8h"/>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="160">
+        <label>sources/settingdialog.cpp</label>
+        <link refid="settingdialog_8cpp"/>
+      </node>
+      <node id="154">
+        <label>sources/hikvideocapture.cpp</label>
+        <link refid="hikvideocapture_8cpp"/>
+      </node>
+      <node id="159">
+        <label>sources/Plc.cpp</label>
+        <link refid="_plc_8cpp"/>
+      </node>
+      <node id="156">
+        <label>sources/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="157">
+        <label>sources/mainwindow.cpp</label>
+        <link refid="mainwindow_8cpp"/>
+      </node>
+      <node id="155">
+        <label>sources/imageprocess.cpp</label>
+        <link refid="imageprocess_8cpp"/>
+      </node>
+      <node id="153">
+        <label>sources/confighelper.cpp</label>
+        <link refid="confighelper_8cpp"/>
+      </node>
+      <node id="158">
+        <label>sources/ocr.cpp</label>
+        <link refid="ocr_8cpp"/>
+      </node>
+      <node id="152">
+        <label>sources/confighelper.h</label>
+        <link refid="confighelper_8h"/>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+        <childnode refid="158" relation="include">
+        </childnode>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_dev_spec" prot="public">DevSpec</innerclass>
+    <innerclass refid="class_config_helper" prot="public">ConfigHelper</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="camprofile_8h" kindref="compound">camprofile.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="improfile_8h" kindref="compound">improfile.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ocrprofile_8h" kindref="compound">ocrprofile.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSettings&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="struct_dev_spec" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_dev_spec" kindref="compound">DevSpec</ref><sp/>{</highlight></codeline>
+<codeline lineno="19" refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_cam_profile" kindref="compound">CamProfile</ref><sp/><ref refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kindref="member">camProfile</ref>;</highlight></codeline>
+<codeline lineno="20" refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_im_profile" kindref="compound">ImProfile</ref><sp/><ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>{<sp/><ref refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kindref="member">camProfile</ref>.<ref refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" kindref="member">frameInterv</ref><sp/>};</highlight></codeline>
+<codeline lineno="21" refid="struct_dev_spec_1aaa0fa35e85c207cec5d35065ef07cfed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_ocr_profile" kindref="compound">OcrProfile</ref><sp/><ref refid="struct_dev_spec_1aaa0fa35e85c207cec5d35065ef07cfed" kindref="member">ocrProfile</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="class_config_helper" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1a15694a18b65e7cbfb25244dc407ffad1" kindref="member">ConfigHelper</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>configuration,<sp/>QObject*<sp/>parent<sp/>=<sp/>Q_NULLPTR);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_config_helper_1a198df438b93de320f0dd46eeeaede896" kindref="member">~ConfigHelper</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" kindref="member">read</ref>();<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" kindref="member">save</ref>();<sp/></highlight><highlight class="comment">//！&lt;<sp/>save<sp/>to<sp/>ini.程序关闭时会调用一次 
+private:
+<sp/><sp/>QString<sp/>configFile;
+<sp/><sp/><sp/><sp/>void<sp/>takeEffect()<sp/>const;<sp/>//!&lt;<sp/>take<sp/>the<sp/>indirect<sp/>change<sp/>into<sp/>effect,<sp/>including<sp/>common/launchAtLogin,<sp/>etc.<sp/>perhaps<sp/>use<sp/>signal,<sp/>or<sp/>implement<sp/>by<sp/>self.在保存时，向外主动输出（一次性），而不是供其他类（在调用时）查询
+
+<sp/><sp/><sp/>void<sp/>effect_launchAtLogin()<sp/>const;
+
+public:
+<sp/><sp/><sp/><sp/>//properties
+<sp/><sp/><sp/>/*<sp/>common<sp/>*/
+<sp/><sp/><sp/>bool<sp/>launchAtLogin;<sp/>//！&lt;<sp/>run<sp/>this<sp/>app<sp/>on<sp/>start<sp/>up<sp/>开机自启的开关，保存时会立即生效
+<sp/>bool<sp/>startAtLaunch;<sp/>///&lt;<sp/>alias<sp/>click<sp/>&quot;start&quot;<sp/>after<sp/>launch<sp/>this<sp/>app
+<sp/>bool<sp/>verboseLog;<sp/>///&lt;<sp/>record<sp/>verbose<sp/>log
+
+<sp/><sp/>DevSpec<sp/>device[2];<sp/>//!&lt;<sp/>所有的属性值都储存在这里，每次使用时都调用helper类，才能保证设置的生效的实时性。
+<sp/>/*<sp/>blow<sp/>will<sp/>not<sp/>show<sp/>in<sp/>the<sp/>dialog,<sp/>but<sp/>can<sp/>be<sp/>set<sp/>by<sp/>.ini<sp/>file.<sp/>plz<sp/>restart<sp/>app<sp/>for<sp/>applying*/
+<sp/><sp/><sp/>QString<sp/>pc2plc_portName;<sp/>//<sp/>PC上的串口号(e.g.COM3)
+<sp/>double<sp/>matchMaskInnerRatio;<sp/>//!&lt;<sp/>匹配时，抠出的内圆半径占车轮的比例
+<sp/>double<sp/>matchMaskOuterRatio;<sp/>//!&lt;<sp/>匹配时，抠出的外圆半径占车轮的比例
+};
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>configFile;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>takeEffect()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>effect_launchAtLogin()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//properties</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>common<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" kindref="member">launchAtLogin</ref>;<sp/></highlight><highlight class="comment">//！&lt;<sp/>run<sp/>this<sp/>app<sp/>on<sp/>start<sp/>up<sp/>开机自启的开关，保存时会立即生效</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" kindref="member">startAtLaunch</ref>;<sp/></highlight></codeline>
+<codeline lineno="57" refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" kindref="member">verboseLog</ref>;<sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_dev_spec" kindref="compound">DevSpec</ref><sp/><ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[2];<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>blow<sp/>will<sp/>not<sp/>show<sp/>in<sp/>the<sp/>dialog,<sp/>but<sp/>can<sp/>be<sp/>set<sp/>by<sp/>.ini<sp/>file.<sp/>plz<sp/>restart<sp/>app<sp/>for<sp/>applying*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" kindref="member">pc2plc_portName</ref>;<sp/></highlight><highlight class="comment">//<sp/>PC上的串口号(e.g.COM3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="class_config_helper_1ad0a8c52dccf3495d3d52bf97045588a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1ad0a8c52dccf3495d3d52bf97045588a0" kindref="member">matchMaskInnerRatio</ref>;<sp/></highlight></codeline>
+<codeline lineno="63" refid="class_config_helper_1ae04fa487fbc7ee5b5e247d8330021115" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_config_helper_1ae04fa487fbc7ee5b5e247d8330021115" kindref="member">matchMaskOuterRatio</ref>;<sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="sources/confighelper.h"/>
+  </compounddef>
+</doxygen>

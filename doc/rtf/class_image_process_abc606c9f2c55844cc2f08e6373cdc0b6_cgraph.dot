@@ -1,0 +1,26 @@
+digraph "ImageProcess::ImageProcess"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="ImageProcess::ImageProcess",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="ImageProcess::onWheelTimeout",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image_process.html#ac7ec277a9341197c7bfd85be85e4ccf0"];
+  Node0 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Plc::getTruckSpeed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_plc.html#a2432a7c4b2bee31da9b2a933d2747ba4",tooltip="获取台车速度(m/min)，线程安全的 "];
+  Node0 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ImageProcess::onSensorIN",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image_process.html#a2a2689d411a382a27f8fa7b84585f306",tooltip="完全进入后（进后） "];
+  Node0 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ImageProcess::onSensorOUT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image_process.html#af2285e1cf441de21ee315fd59b69fdac",tooltip="开始退出前（出前） "];
+  Node0 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="HikVideoCapture::frameProcessed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hik_video_capture.html#ae437158a5aec5ad399b7880d6e226578",tooltip="涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 "];
+  Node0 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ImageProcess::handleFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image_process.html#a29bf2cf675c1f087538185ac83abfc85",tooltip="处理当前帧，每秒钟3次 "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ImageProcess::makeFrame4Show",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image_process.html#a13e7f9c562ff092e8100dcde40beedcd"];
+  Node0 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="HikVideoCapture::startRecord",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hik_video_capture.html#acc36761db4a20a203a6ce9675150a5bc"];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="HikVideoCapture::stopRecord",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hik_video_capture.html#a4579213b58ec7d6999755e78a48d9ff8",tooltip="涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 "];
+  Node0 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

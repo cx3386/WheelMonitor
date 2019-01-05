@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="dir_08d237fc27d4ecd563f71c5d52f2fecc" kind="dir">
+    <compoundname>sources</compoundname>
+    <innerfile refid="_alarm_event_8h">AlarmEvent.h</innerfile>
+    <innerfile refid="_alarm_l_c_d_board_8cpp">AlarmLCDBoard.cpp</innerfile>
+    <innerfile refid="_alarm_l_c_d_board_8h">AlarmLCDBoard.h</innerfile>
+    <innerfile refid="_alarm_manager_8cpp">AlarmManager.cpp</innerfile>
+    <innerfile refid="_alarm_manager_8h">AlarmManager.h</innerfile>
+    <innerfile refid="backuplogdialog_8cpp">backuplogdialog.cpp</innerfile>
+    <innerfile refid="backuplogdialog_8h">backuplogdialog.h</innerfile>
+    <innerfile refid="camprofile_8cpp">camprofile.cpp</innerfile>
+    <innerfile refid="camprofile_8h">camprofile.h</innerfile>
+    <innerfile refid="common_8h">common.h</innerfile>
+    <innerfile refid="confighelper_8cpp">confighelper.cpp</innerfile>
+    <innerfile refid="confighelper_8h">confighelper.h</innerfile>
+    <innerfile refid="customslider_8cpp">customslider.cpp</innerfile>
+    <innerfile refid="customslider_8h">customslider.h</innerfile>
+    <innerfile refid="database_8h">database.h</innerfile>
+    <innerfile refid="_handle_sensor_device_8cpp">HandleSensorDevice.cpp</innerfile>
+    <innerfile refid="_handle_sensor_device_8h">HandleSensorDevice.h</innerfile>
+    <innerfile refid="hikvideocapture_8cpp">hikvideocapture.cpp</innerfile>
+    <innerfile refid="hikvideocapture_8h">hikvideocapture.h</innerfile>
+    <innerfile refid="identification_8cpp">identification.cpp</innerfile>
+    <innerfile refid="identification_8h">identification.h</innerfile>
+    <innerfile refid="imageprocess_8cpp">imageprocess.cpp</innerfile>
+    <innerfile refid="imageprocess_8h">imageprocess.h</innerfile>
+    <innerfile refid="improfile_8cpp">improfile.cpp</innerfile>
+    <innerfile refid="improfile_8h">improfile.h</innerfile>
+    <innerfile refid="_level_recorder_8cpp">LevelRecorder.cpp</innerfile>
+    <innerfile refid="_level_recorder_8h">LevelRecorder.h</innerfile>
+    <innerfile refid="logindialog_8cpp">logindialog.cpp</innerfile>
+    <innerfile refid="logindialog_8h">logindialog.h</innerfile>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="mainwindow_8cpp">mainwindow.cpp</innerfile>
+    <innerfile refid="mainwindow_8h">mainwindow.h</innerfile>
+    <innerfile refid="_match_viewer_8cpp">MatchViewer.cpp</innerfile>
+    <innerfile refid="_match_viewer_8h">MatchViewer.h</innerfile>
+    <innerfile refid="mysqltablemodel_8cpp">mysqltablemodel.cpp</innerfile>
+    <innerfile refid="mysqltablemodel_8h">mysqltablemodel.h</innerfile>
+    <innerfile refid="ocr_8cpp">ocr.cpp</innerfile>
+    <innerfile refid="ocr_8h">ocr.h</innerfile>
+    <innerfile refid="ocrprofile_8cpp">ocrprofile.cpp</innerfile>
+    <innerfile refid="ocrprofile_8h">ocrprofile.h</innerfile>
+    <innerfile refid="outlierhelper_8cpp">outlierhelper.cpp</innerfile>
+    <innerfile refid="outlierhelper_8h">outlierhelper.h</innerfile>
+    <innerfile refid="playbackwidget_8cpp">playbackwidget.cpp</innerfile>
+    <innerfile refid="playbackwidget_8h">playbackwidget.h</innerfile>
+    <innerfile refid="player_8cpp">player.cpp</innerfile>
+    <innerfile refid="player_8h">player.h</innerfile>
+    <innerfile refid="_plc_8cpp">Plc.cpp</innerfile>
+    <innerfile refid="_plc_8h">Plc.h</innerfile>
+    <innerfile refid="resource_8h">resource.h</innerfile>
+    <innerfile refid="robustmatcher_8cpp">robustmatcher.cpp</innerfile>
+    <innerfile refid="robustmatcher_8h">robustmatcher.h</innerfile>
+    <innerfile refid="_sensor_device_8cpp">SensorDevice.cpp</innerfile>
+    <innerfile refid="_sensor_device_8h">SensorDevice.h</innerfile>
+    <innerfile refid="settingdialog_8cpp">settingdialog.cpp</innerfile>
+    <innerfile refid="settingdialog_8h">settingdialog.h</innerfile>
+    <innerfile refid="_speed_integrator_8cpp">SpeedIntegrator.cpp</innerfile>
+    <innerfile refid="_speed_integrator_8h">SpeedIntegrator.h</innerfile>
+    <innerfile refid="stdafx_8cpp">stdafx.cpp</innerfile>
+    <innerfile refid="stdafx_8h">stdafx.h</innerfile>
+    <innerfile refid="videowidget_8cpp">videowidget.cpp</innerfile>
+    <innerfile refid="videowidget_8h">videowidget.h</innerfile>
+    <innerfile refid="_view_sensor_image_8cpp">ViewSensorImage.cpp</innerfile>
+    <innerfile refid="_view_sensor_image_8h">ViewSensorImage.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/"/>
+  </compounddef>
+</doxygen>

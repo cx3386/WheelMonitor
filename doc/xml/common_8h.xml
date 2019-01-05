@@ -1,0 +1,506 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="common_8h" kind="file" language="C++">
+    <compoundname>common.h</compoundname>
+    <includes local="no">QString</includes>
+    <includedby refid="_alarm_l_c_d_board_8cpp" local="yes">sources/AlarmLCDBoard.cpp</includedby>
+    <includedby refid="_plc_8h" local="yes">sources/Plc.h</includedby>
+    <includedby refid="database_8h" local="yes">sources/database.h</includedby>
+    <includedby refid="mainwindow_8h" local="yes">sources/mainwindow.h</includedby>
+    <includedby refid="backuplogdialog_8cpp" local="yes">sources/backuplogdialog.cpp</includedby>
+    <includedby refid="confighelper_8cpp" local="yes">sources/confighelper.cpp</includedby>
+    <includedby refid="hikvideocapture_8cpp" local="yes">sources/hikvideocapture.cpp</includedby>
+    <includedby refid="imageprocess_8cpp" local="yes">sources/imageprocess.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">sources/main.cpp</includedby>
+    <includedby refid="mainwindow_8cpp" local="yes">sources/mainwindow.cpp</includedby>
+    <includedby refid="ocr_8cpp" local="yes">sources/ocr.cpp</includedby>
+    <includedby refid="playbackwidget_8cpp" local="yes">sources/playbackwidget.cpp</includedby>
+    <includedby refid="_plc_8cpp" local="yes">sources/Plc.cpp</includedby>
+    <incdepgraph>
+      <node id="106">
+        <label>QString</label>
+      </node>
+      <node id="105">
+        <label>sources/common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="117">
+        <label>sources/SpeedIntegrator.h</label>
+        <link refid="_speed_integrator_8h"/>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>sources/MatchViewer.cpp</label>
+        <link refid="_match_viewer_8cpp"/>
+      </node>
+      <node id="124">
+        <label>sources/mysqltablemodel.cpp</label>
+        <link refid="mysqltablemodel_8cpp"/>
+      </node>
+      <node id="128">
+        <label>sources/hikvideocapture.cpp</label>
+        <link refid="hikvideocapture_8cpp"/>
+      </node>
+      <node id="118">
+        <label>sources/SpeedIntegrator.cpp</label>
+        <link refid="_speed_integrator_8cpp"/>
+      </node>
+      <node id="116">
+        <label>sources/Plc.cpp</label>
+        <link refid="_plc_8cpp"/>
+      </node>
+      <node id="109">
+        <label>sources/Plc.h</label>
+        <link refid="_plc_8h"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>sources/backuplogdialog.cpp</label>
+        <link refid="backuplogdialog_8cpp"/>
+      </node>
+      <node id="108">
+        <label>sources/AlarmLCDBoard.cpp</label>
+        <link refid="_alarm_l_c_d_board_8cpp"/>
+      </node>
+      <node id="110">
+        <label>sources/AlarmManager.h</label>
+        <link refid="_alarm_manager_8h"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>sources/mainwindow.h</label>
+        <link refid="mainwindow_8h"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>sources/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="112">
+        <label>sources/mainwindow.cpp</label>
+        <link refid="mainwindow_8cpp"/>
+      </node>
+      <node id="115">
+        <label>sources/imageprocess.cpp</label>
+        <link refid="imageprocess_8cpp"/>
+      </node>
+      <node id="113">
+        <label>sources/playbackwidget.h</label>
+        <link refid="playbackwidget_8h"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>sources/AlarmManager.cpp</label>
+        <link refid="_alarm_manager_8cpp"/>
+      </node>
+      <node id="114">
+        <label>sources/playbackwidget.cpp</label>
+        <link refid="playbackwidget_8cpp"/>
+      </node>
+      <node id="127">
+        <label>sources/confighelper.cpp</label>
+        <link refid="confighelper_8cpp"/>
+      </node>
+      <node id="119">
+        <label>sources/database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>sources/logindialog.cpp</label>
+        <link refid="logindialog_8cpp"/>
+      </node>
+      <node id="107">
+        <label>sources/common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>sources/imageprocess.h</label>
+        <link refid="imageprocess_8h"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="129">
+        <label>sources/ocr.cpp</label>
+        <link refid="ocr_8cpp"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="common_8h_1abe3b37a218cfb145f889377e5508e5ee" prot="public" static="no" mutable="no">
+        <type>const QString</type>
+        <definition>const QString PRODUCT_NAME</definition>
+        <argsstring></argsstring>
+        <name>PRODUCT_NAME</name>
+        <initializer>= QStringLiteral(&quot;宝钢环冷机台车车轮状态监测系统&quot;)</initializer>
+        <briefdescription>
+<para>displayname </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="22" column="1" bodyfile="sources/common.h" bodystart="22" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a721b8341801510c2bec1a5b08c15621d" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char COPYRIGHT[]</definition>
+        <argsstring>[]</argsstring>
+        <name>COPYRIGHT</name>
+        <initializer>= &quot;Copyright(C) 2018 ZJU. All Rights Reserved&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="24" column="1" bodyfile="sources/common.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1af26a6b1228e01dd18d83a5d7e11ce5d8" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char AUTHOR[]</definition>
+        <argsstring>[]</argsstring>
+        <name>AUTHOR</name>
+        <initializer>= &quot;cx3386@163.com&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="25" column="1" bodyfile="sources/common.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1aa853fe8cf98b42d3b2e44e2b1a4c1673" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString appDirPath</definition>
+        <argsstring></argsstring>
+        <name>appDirPath</name>
+        <briefdescription>
+<para>the directory contains the app.exe, &apos;/&apos;e.g. C:/QQ </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="29" column="1" bodyfile="sources/main.cpp" bodystart="14" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+        <referencedby refid="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" compoundref="main_8cpp" startline="178" endline="211">ApplicationCrashHandler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a2fc2859d7238a2e9fcda661d321348c5" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString appFilePath</definition>
+        <argsstring></argsstring>
+        <name>appFilePath</name>
+        <briefdescription>
+<para>the file path of app.exe, &apos;/&apos;e.g. C:/QQ/qq.exe </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="30" column="1" bodyfile="sources/main.cpp" bodystart="15" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a554bb7f4dd593b2971ec5e5e38718ea5" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString captureDirPath</definition>
+        <argsstring></argsstring>
+        <name>captureDirPath</name>
+        <briefdescription>
+<para>capture dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="31" column="1" bodyfile="sources/main.cpp" bodystart="16" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a5f3034a99a21133bca2ee422b7c5b48d" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString configDirPath</definition>
+        <argsstring></argsstring>
+        <name>configDirPath</name>
+        <briefdescription>
+<para>config dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="32" column="1" bodyfile="sources/main.cpp" bodystart="17" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a3c8467c4addcfd3ee40b1439311d1349" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString videoDirPath</definition>
+        <argsstring></argsstring>
+        <name>videoDirPath</name>
+        <briefdescription>
+<para>video dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="33" column="1" bodyfile="sources/main.cpp" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" compoundref="backuplogdialog_8cpp" startline="8" endline="162">BackupLogDialog::BackupLogDialog</referencedby>
+        <referencedby refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" compoundref="hikvideocapture_8cpp" startline="120" endline="146">HikVideoCapture::startRecord</referencedby>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1ab3865372dec24e6f7a39286147c1d390" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString cacheDirPath</definition>
+        <argsstring></argsstring>
+        <name>cacheDirPath</name>
+        <briefdescription>
+<para>cache dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="34" column="1" bodyfile="sources/main.cpp" bodystart="19" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a301764495aed786632cff7abe68880a9" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString matchDirPath</definition>
+        <argsstring></argsstring>
+        <name>matchDirPath</name>
+        <briefdescription>
+<para>match dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="35" column="1" bodyfile="sources/main.cpp" bodystart="20" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a46ad4687cfe23f762717c8db257b0303" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString logDirPath</definition>
+        <argsstring></argsstring>
+        <name>logDirPath</name>
+        <briefdescription>
+<para>log dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="37" column="1" bodyfile="sources/main.cpp" bodystart="22" bodyend="-1"/>
+        <referencedby refid="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" compoundref="backuplogdialog_8cpp" startline="8" endline="162">BackupLogDialog::BackupLogDialog</referencedby>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+        <referencedby refid="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" compoundref="main_8cpp" startline="141" endline="175">myMessageOutput</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1acddaec1bc9466dc471df6f1479137704" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ocrPatternDirPath</definition>
+        <argsstring></argsstring>
+        <name>ocrPatternDirPath</name>
+        <briefdescription>
+<para>ocr sample dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="38" column="1" bodyfile="sources/main.cpp" bodystart="23" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+        <referencedby refid="class_o_c_r_1a5005daddcad6568306b0e49b3cdae8c3" compoundref="ocr_8cpp" startline="9" endline="24">OCR::OCR</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a98bb5531df73660f1a4c1f181eedd88c" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString ocrDirPath</definition>
+        <argsstring></argsstring>
+        <name>ocrDirPath</name>
+        <briefdescription>
+<para>ocr dir </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="39" column="1" bodyfile="sources/main.cpp" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" compoundref="backuplogdialog_8cpp" startline="8" endline="162">BackupLogDialog::BackupLogDialog</referencedby>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a3fd98b4d92a4c1a052863672df72a575" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString databaseFilePath</definition>
+        <argsstring></argsstring>
+        <name>databaseFilePath</name>
+        <briefdescription>
+<para>database file path </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="40" column="1" bodyfile="sources/main.cpp" bodystart="25" bodyend="-1"/>
+        <referencedby refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="main_8cpp" startline="30" endline="140">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="common_8h_1a86a9d54c55f58c6ade33f36d7b7388a2" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char BACKUP_ZIP_NAME[]</definition>
+        <argsstring>[]</argsstring>
+        <name>BACKUP_ZIP_NAME</name>
+        <initializer>= &quot;WheelMonitor Bak.zip&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/common.h" line="45" column="1" bodyfile="sources/common.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>include the common definition. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>cx3386 </para></simplesect>
+<simplesect kind="date"><para>2018/01/24</para></simplesect>
+<itemizedlist>
+<listitem><para>detailed information about this application, used in windows property dialog.</para></listitem><listitem><para>global application, file or folder path, or name.</para></listitem><listitem><para>global database connection name(threads should NOT share connections to database).</para></listitem><listitem><para>global enums.</para></listitem><listitem><para>other sundry. </para></listitem></itemizedlist>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QString&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>注意：C中宏，C++中constexpr，应定义在头文件中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>detailed<sp/>information<sp/>about<sp/>this<sp/>application.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/></highlight><highlight class="comment">//const<sp/>QString<sp/>FILE_SPEC<sp/>=<sp/>QStringLiteral(&quot;宝钢环冷机台车轮子速度检测软件&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/></highlight><highlight class="comment">//const<sp/>char<sp/>FILE_VER[]<sp/>=<sp/>&quot;1.1.1&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="common_8h_1abe3b37a218cfb145f889377e5508e5ee" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1abe3b37a218cfb145f889377e5508e5ee" kindref="member">PRODUCT_NAME</ref><sp/>=<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;宝钢环冷机台车车轮状态监测系统&quot;</highlight><highlight class="normal">);<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>PRODUCT_VER[]<sp/>=<sp/>&quot;1.1.1&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="common_8h_1a721b8341801510c2bec1a5b08c15621d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="common_8h_1a721b8341801510c2bec1a5b08c15621d" kindref="member">COPYRIGHT</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Copyright(C)<sp/>2018<sp/>ZJU.<sp/>All<sp/>Rights<sp/>Reserved&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25" refid="common_8h_1af26a6b1228e01dd18d83a5d7e11ce5d8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="common_8h_1af26a6b1228e01dd18d83a5d7e11ce5d8" kindref="member">AUTHOR</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;cx3386@163.com&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>LANGUAGE[]<sp/>=<sp/>&quot;zh_cn&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>App<sp/>Dir<sp/>defined<sp/>in<sp/>main.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kindref="member">appDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1a2fc2859d7238a2e9fcda661d321348c5" kindref="member">appFilePath</ref>;<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1a554bb7f4dd593b2971ec5e5e38718ea5" kindref="member">captureDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1a5f3034a99a21133bca2ee422b7c5b48d" kindref="member">configDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1a3c8467c4addcfd3ee40b1439311d1349" kindref="member">videoDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1ab3865372dec24e6f7a39286147c1d390" kindref="member">cacheDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1a301764495aed786632cff7abe68880a9" kindref="member">matchDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//extern<sp/>QString<sp/>imageDirPath;<sp/>//!&lt;<sp/>imageDirPath</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1a46ad4687cfe23f762717c8db257b0303" kindref="member">logDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1acddaec1bc9466dc471df6f1479137704" kindref="member">ocrPatternDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1a98bb5531df73660f1a4c1f181eedd88c" kindref="member">ocrDirPath</ref>;<sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="common_8h_1a3fd98b4d92a4c1a052863672df72a575" kindref="member">databaseFilePath</ref>;<sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//char<sp/>dbDir<sp/>=<sp/>char(&quot;%1&quot;).arg(appDirPath);<sp/><sp/>//!&lt;<sp/>db<sp/>dir<sp/>-same<sp/>as<sp/>appdir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//char<sp/>iniDir<sp/>=<sp/>char(&quot;%1&quot;).arg(appDirPath);<sp/>//!&lt;<sp/>ini<sp/>dir<sp/><sp/><sp/><sp/>-same<sp/>as<sp/>appdir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="common_8h_1a86a9d54c55f58c6ade33f36d7b7388a2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="common_8h_1a86a9d54c55f58c6ade33f36d7b7388a2" kindref="member">BACKUP_ZIP_NAME</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;WheelMonitor<sp/>Bak.zip&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//need<sp/>identity<sp/>of<sp/>cpu<sp/>and<sp/>mac</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//bool<sp/>bNeedIdentity;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>database<sp/>connection<sp/>name*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>MAIN_CONNECTION_NAME[]<sp/>=<sp/>&quot;main&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>THREAD0_CONNECTION_NAME[]<sp/>=<sp/>&quot;thread0&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>THREAD1_CONNECTION_NAME[]<sp/>=<sp/>&quot;thread1&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//匿名命名空间，LOCAL，与static相同，C++11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>QString<sp/>getDeviceMark(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>mark;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mark<sp/>=<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;外&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mark<sp/>=<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;内&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mark;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getDeviceIndex(QString<sp/>qstr)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qstr<sp/>==<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;外&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qstr<sp/>==<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;内&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/common.h"/>
+  </compounddef>
+</doxygen>

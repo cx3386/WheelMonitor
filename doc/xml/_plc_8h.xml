@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_plc_8h" kind="file" language="C++">
+    <compoundname>Plc.h</compoundname>
+    <includes local="no">QObject</includes>
+    <includes refid="common_8h" local="yes">common.h</includes>
+    <includes refid="_handle_sensor_device_8h" local="yes">HandleSensorDevice.h</includes>
+    <includedby refid="_alarm_manager_8h" local="yes">sources/AlarmManager.h</includedby>
+    <includedby refid="playbackwidget_8h" local="yes">sources/playbackwidget.h</includedby>
+    <includedby refid="imageprocess_8cpp" local="yes">sources/imageprocess.cpp</includedby>
+    <includedby refid="mainwindow_8cpp" local="yes">sources/mainwindow.cpp</includedby>
+    <includedby refid="_plc_8cpp" local="yes">sources/Plc.cpp</includedby>
+    <includedby refid="_speed_integrator_8h" local="yes">sources/SpeedIntegrator.h</includedby>
+    <includedby refid="_speed_integrator_8cpp" local="yes">sources/SpeedIntegrator.cpp</includedby>
+    <incdepgraph>
+      <node id="637">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="632">
+        <label>QObject</label>
+      </node>
+      <node id="635">
+        <label>HandleSensorDevice.h</label>
+        <link refid="_handle_sensor_device_8h"/>
+        <childnode refid="632" relation="include">
+        </childnode>
+        <childnode refid="636" relation="include">
+        </childnode>
+      </node>
+      <node id="631">
+        <label>sources/Plc.h</label>
+        <link refid="_plc_8h"/>
+        <childnode refid="632" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+      </node>
+      <node id="636">
+        <label>SensorDevice.h</label>
+        <link refid="_sensor_device_8h"/>
+        <childnode refid="637" relation="include">
+        </childnode>
+        <childnode refid="632" relation="include">
+        </childnode>
+      </node>
+      <node id="634">
+        <label>QString</label>
+      </node>
+      <node id="633">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="634" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="646">
+        <label>sources/SpeedIntegrator.h</label>
+        <link refid="_speed_integrator_8h"/>
+        <childnode refid="645" relation="include">
+        </childnode>
+        <childnode refid="647" relation="include">
+        </childnode>
+      </node>
+      <node id="647">
+        <label>sources/SpeedIntegrator.cpp</label>
+        <link refid="_speed_integrator_8cpp"/>
+      </node>
+      <node id="645">
+        <label>sources/Plc.cpp</label>
+        <link refid="_plc_8cpp"/>
+      </node>
+      <node id="638">
+        <label>sources/Plc.h</label>
+        <link refid="_plc_8h"/>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="644" relation="include">
+        </childnode>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="645" relation="include">
+        </childnode>
+        <childnode refid="646" relation="include">
+        </childnode>
+        <childnode refid="647" relation="include">
+        </childnode>
+      </node>
+      <node id="639">
+        <label>sources/AlarmManager.h</label>
+        <link refid="_alarm_manager_8h"/>
+        <childnode refid="640" relation="include">
+        </childnode>
+        <childnode refid="641" relation="include">
+        </childnode>
+      </node>
+      <node id="641">
+        <label>sources/mainwindow.cpp</label>
+        <link refid="mainwindow_8cpp"/>
+      </node>
+      <node id="644">
+        <label>sources/imageprocess.cpp</label>
+        <link refid="imageprocess_8cpp"/>
+      </node>
+      <node id="642">
+        <label>sources/playbackwidget.h</label>
+        <link refid="playbackwidget_8h"/>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="643" relation="include">
+        </childnode>
+      </node>
+      <node id="640">
+        <label>sources/AlarmManager.cpp</label>
+        <link refid="_alarm_manager_8cpp"/>
+      </node>
+      <node id="643">
+        <label>sources/playbackwidget.cpp</label>
+        <link refid="playbackwidget_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_plc" prot="public">Plc</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="common_8h" kindref="compound">common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_handle_sensor_device_8h" kindref="compound">HandleSensorDevice.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QSerialPort;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_speed_integrator" kindref="compound">SpeedIntegrator</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bc" kindref="member">HardwareAlarmEvent</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_plc" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_plc" kindref="compound">Plc</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_plc_1a230190ee27d360a02576184d3450e8d6" kindref="member">Plc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>_configHelper,<sp/>QObject*<sp/>parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plc_1a25b79d6b196b888dc2d80c5e98b9e733" kindref="member">~Plc</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>用于mainwindow跨线程控制。通过信号槽机制，onXxx将在plcThread中执行</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1a53d31f51484e39fc320b02be053de157" kindref="member">start</ref>();<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1abf9c8532cb72ba8c88437f50f2631d13" kindref="member">stop</ref>();<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1ac5213403a3aba0c8c6f2a12c3e2d4fa5" kindref="member">connect</ref>();<sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_plc_1a2432a7c4b2bee31da9b2a933d2747ba4" kindref="member">getTruckSpeed</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>devId<sp/>=<sp/>0)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="24"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMutexLocker<sp/>locker(&amp;mutex);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>truckSpeed<sp/>*<sp/>speedCompensationCoeff[devId];</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28" refid="class_plc_1a7a0bfa84c4d0b4610cda92102d8d54a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_plc_1a7a0bfa84c4d0b4610cda92102d8d54a0" kindref="member">adInterval</ref><sp/>=<sp/>1000;<sp/></highlight></codeline>
+<codeline lineno="29" refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_handle_sensor_device" kindref="compound">HandleSensorDevice</ref>*<sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[2];</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>configHelper;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_speed_integrator" kindref="compound">SpeedIntegrator</ref>*<sp/>speedIntegrator;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>QMutex<sp/>mutex;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>QSerialPort*<sp/>plcSerialPort;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>QThread*<sp/>refThread;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>truckSpeed;<sp/></highlight><highlight class="comment">//linear<sp/>Velocity<sp/>read<sp/>from<sp/>AD,<sp/>unit:m/min</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>rate<sp/>between<sp/>inner<sp/>calc<sp/>speed<sp/>and<sp/>measured<sp/>speed,<sp/>of<sp/>which<sp/>value<sp/>is<sp/>optimized<sp/>by<sp/>LS<sp/>method<sp/>(minimize<sp/>the<sp/>error)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>speedCompensationCoeff[2]<sp/>=<sp/>{<sp/>0.954,<sp/>0.802<sp/>};<sp/></highlight><highlight class="comment">//<sp/>[out,<sp/>in]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bUsrCtrl<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bConnected<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>注意：单次读写的耗时大概在~300ms<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cio0Interval<sp/>=<sp/>1000;<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>serialport_timeout<sp/>=<sp/>800;</highlight><highlight class="comment">//响应超时时间ms，应小于读取间隔 <sp/><sp/><sp/><sp/>void<sp/>writePLC(QByteArray<sp/>plcData);
+<sp/>QByteArray<sp/>readPLC(QByteArray<sp/>plcData);
+<sp/><sp/><sp/><sp/>//PC与PLC的通信，采用HOSTLINK协议的C-MODE指令
+<sp/><sp/><sp/><sp/>//e.g.,<sp/>cmd<sp/>=<sp/>&apos;@00RR00020001&apos;,<sp/>fcs<sp/>code<sp/>=<sp/>&apos;0x43&apos;,<sp/>the<sp/>full<sp/>code<sp/>=<sp/>&quot;@00RR0002000143*\r&quot;
+<sp/>QByteArray<sp/>getFCSCode(QByteArray<sp/>cmd)<sp/>const;<sp/>//!&lt;<sp/>根据命令码获取FCS码，通常情况下不需要直接调用
+<sp/>QByteArray<sp/>getFullCode(QByteArray<sp/>cmd)<sp/>const;//!&lt;<sp/>根据命令码获取完整指令码
+<sp/><sp/><sp/><sp/>QByteArray<sp/>genRRCode(int<sp/>addr,<sp/>int<sp/>num)<sp/>const;<sp/>//!&lt;<sp/>返回读取cio所需要的完整指令码
+<sp/><sp/><sp/><sp/>QByteArray<sp/>genWRCode(int<sp/>addr,<sp/>QByteArray<sp/>data)<sp/>const;<sp/>//!&lt;<sp/>返回写入cio所需要的完整指令码
+<sp/><sp/><sp/><sp/>bool<sp/>checkAnsCode(QByteArray<sp/>ansCode)<sp/>const;<sp/>//!&lt;<sp/>检查应答是否正确
+<sp/><sp/><sp/>QByteArrayList<sp/>getRRData(QByteArray<sp/>ansCode)<sp/>const;<sp/>//!&lt;<sp/>从应答中提取n个字的数据(hex)
+
+private<sp/>slots:
+<sp/><sp/><sp/>void<sp/>readSensorPeriodically();
+<sp/>//!<sp/>read<sp/>truck<sp/>reference<sp/>speed<sp/>from<sp/>AD<sp/>module.<sp/>a<sp/>cycle<sp/>includes<sp/>sending<sp/>cmd<sp/>and<sp/>recv<sp/>response,<sp/>costs<sp/>~300ms
+<sp/><sp/><sp/><sp/>void<sp/>readSpeedPeriodically();
+
+signals:
+<sp/><sp/><sp/><sp/>//to<sp/>UI
+<sp/><sp/><sp/><sp/>void<sp/>cio0Update(int<sp/>cio);
+<sp/><sp/>void<sp/>connectError(int<sp/>errorId);
+
+<sp/><sp/><sp/>void<sp/>truckSpeedReady();
+
+<sp/><sp/><sp/>//<sp/>to<sp/>alarmManager
+<sp/>/**
+<sp/><sp/><sp/><sp/><sp/>*<sp/>\brief<sp/>台车(中轴)速度信号读取错误
+<sp/><sp/>*<sp/>errcode<sp/>1:<sp/>disconnect
+<sp/><sp/><sp/><sp/>*<sp/>errcode<sp/>2:<sp/>out<sp/>of<sp/>range(4~20ma)
+<sp/><sp/>*<sp/>\param<sp/>int<sp/>errorCode
+<sp/><sp/><sp/><sp/><sp/>*/
+<sp/><sp/><sp/><sp/>void<sp/>truckSpeedError(int);
+
+public<sp/>slots:
+<sp/><sp/>void<sp/>sendAlarmToControlCenter(int<sp/>cio);<sp/>//!&lt;<sp/>向中控发出报警
+};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>writePLC(QByteArray<sp/>plcData);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>readPLC(QByteArray<sp/>plcData);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//PC与PLC的通信，采用HOSTLINK协议的C-MODE指令</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//e.g.,<sp/>cmd<sp/>=<sp/>&apos;@00RR00020001&apos;,<sp/>fcs<sp/>code<sp/>=<sp/>&apos;0x43&apos;,<sp/>the<sp/>full<sp/>code<sp/>=<sp/>&quot;@00RR0002000143*\r&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>getFCSCode(QByteArray<sp/>cmd)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>getFullCode(QByteArray<sp/>cmd)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>genRRCode(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>genWRCode(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addr,<sp/>QByteArray<sp/>data)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>checkAnsCode(QByteArray<sp/>ansCode)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArrayList<sp/>getRRData(QByteArray<sp/>ansCode)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>readSensorPeriodically();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>readSpeedPeriodically();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//to<sp/>UI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1a6f99f1f3a90a49531f372d0e182872c6" kindref="member">cio0Update</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cio);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1a14ee604a83d89ea5f96288db01d60a84" kindref="member">connectError</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>errorId);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1adeaecb0eaf8a1d72f01348ca4e7918d1" kindref="member">truckSpeedReady</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>alarmManager</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1acf7098f35958347aeea9abbc7371375f" kindref="member">truckSpeedError</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1abf51268db3f1eca2b9bb139bf75b83d9" kindref="member">sendAlarmToControlCenter</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cio);<sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="sources/Plc.h"/>
+  </compounddef>
+</doxygen>

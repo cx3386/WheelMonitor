@@ -1,0 +1,97 @@
+.TH "AlarmLCDBoard" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AlarmLCDBoard
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <AlarmLCDBoard\&.h>\fP
+.PP
+Inherits QFrame\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBclicked\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAlarmLCDBoard\fP (QWidget *parent=Q_NULLPTR)"
+.br
+.ti -1c
+.RI "\fB~AlarmLCDBoard\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "QLineEdit * \fBdevName\fP"
+.br
+.RI "显示内/外圈字段 "
+.ti -1c
+.RI "QLineEdit * \fBdevIndex\fP"
+.br
+.RI "用作代理用途 "
+.ti -1c
+.RI "QLineEdit * \fBalarmNum\fP"
+.br
+.RI "显示报警号码字段 "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBeventFilter\fP (QObject *watched, QEvent *event) override"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 6 of file AlarmLCDBoard\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AlarmLCDBoard::AlarmLCDBoard (QWidget * parent = \fCQ_NULLPTR\fP)"
+
+.PP
+Definition at line 6 of file AlarmLCDBoard\&.cpp\&.
+.SS "AlarmLCDBoard::~AlarmLCDBoard ()"
+
+.PP
+Definition at line 57 of file AlarmLCDBoard\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void AlarmLCDBoard::clicked ()\fC [signal]\fP"
+
+.SS "bool AlarmLCDBoard::eventFilter (QObject * watched, QEvent * event)\fC [override]\fP, \fC [protected]\fP, \fC [virtual]\fP"
+
+.PP
+Definition at line 61 of file AlarmLCDBoard\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "QLineEdit* AlarmLCDBoard::alarmNum"
+
+.PP
+显示报警号码字段 
+.PP
+Definition at line 14 of file AlarmLCDBoard\&.h\&.
+.SS "QLineEdit* AlarmLCDBoard::devIndex"
+
+.PP
+用作代理用途 
+.PP
+Definition at line 13 of file AlarmLCDBoard\&.h\&.
+.SS "QLineEdit* AlarmLCDBoard::devName"
+
+.PP
+显示内/外圈字段 
+.PP
+Definition at line 12 of file AlarmLCDBoard\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

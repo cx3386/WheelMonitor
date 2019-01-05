@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="struct_speed_integrator_1_1_ckpt" kind="struct" language="C++" prot="private">
+    <compoundname>SpeedIntegrator::Ckpt</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_speed_integrator_1_1_ckpt_1ac6a63bd78e5c8ea80acbb6451c9b7d0b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SpeedIntegrator::Ckpt::bFirstStart</definition>
+        <argsstring></argsstring>
+        <name>bFirstStart</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>由第一个经过检测点的tri信号开始计数，一旦usrstop,重新等待第一个tri. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="35" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_speed_integrator_1_1_ckpt_1a983df3d209762ae566b5c2d43517e61d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SpeedIntegrator::Ckpt::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>本周期已经走过的行程 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="36" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_speed_integrator_1_1_ckpt_1a634728915e0f0e4bcab73e63449b41df" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SpeedIntegrator::Ckpt::anchor</definition>
+        <argsstring></argsstring>
+        <name>anchor</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>tri的地点距离s起点的位置 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="37" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_speed_integrator_1_1_ckpt_1a93a613457558c9ade1b80dfb5523a321" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SpeedIntegrator::Ckpt::hasTri</definition>
+        <argsstring></argsstring>
+        <name>hasTri</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>本个轮子是否已经收到tri信号 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="38" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_speed_integrator_1_1_ckpt_1a18410ae8d6feba4d9f000a2b53c42cd3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SpeedIntegrator::Ckpt::triBeginReady</definition>
+        <argsstring></argsstring>
+        <name>triBeginReady</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>已发出exptectbegin信号 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="39" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_speed_integrator_1_1_ckpt_1a8638768c9e5ba5a1847725860c272cf1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SpeedIntegrator::Ckpt::triEndReady</definition>
+        <argsstring></argsstring>
+        <name>triEndReady</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>已发出expectend信号 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="40" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_speed_integrator_1_1_ckpt_1a84f7c544ea8cd820bef3bfee93d31274" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpeedIntegrator::Ckpt::newWheel</definition>
+        <argsstring>()</argsstring>
+        <name>newWheel</name>
+        <briefdescription>
+<para>到达max时，开始一个新的积分周期 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SpeedIntegrator.h" line="42" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/SpeedIntegrator.h" line="34" column="1" bodyfile="sources/SpeedIntegrator.h" bodystart="34" bodyend="56"/>
+    <listofallmembers>
+      <member refid="struct_speed_integrator_1_1_ckpt_1a634728915e0f0e4bcab73e63449b41df" prot="public" virt="non-virtual"><scope>SpeedIntegrator::Ckpt</scope><name>anchor</name></member>
+      <member refid="struct_speed_integrator_1_1_ckpt_1ac6a63bd78e5c8ea80acbb6451c9b7d0b" prot="public" virt="non-virtual"><scope>SpeedIntegrator::Ckpt</scope><name>bFirstStart</name></member>
+      <member refid="struct_speed_integrator_1_1_ckpt_1a983df3d209762ae566b5c2d43517e61d" prot="public" virt="non-virtual"><scope>SpeedIntegrator::Ckpt</scope><name>distance</name></member>
+      <member refid="struct_speed_integrator_1_1_ckpt_1a93a613457558c9ade1b80dfb5523a321" prot="public" virt="non-virtual"><scope>SpeedIntegrator::Ckpt</scope><name>hasTri</name></member>
+      <member refid="struct_speed_integrator_1_1_ckpt_1a84f7c544ea8cd820bef3bfee93d31274" prot="public" virt="non-virtual"><scope>SpeedIntegrator::Ckpt</scope><name>newWheel</name></member>
+      <member refid="struct_speed_integrator_1_1_ckpt_1a18410ae8d6feba4d9f000a2b53c42cd3" prot="public" virt="non-virtual"><scope>SpeedIntegrator::Ckpt</scope><name>triBeginReady</name></member>
+      <member refid="struct_speed_integrator_1_1_ckpt_1a8638768c9e5ba5a1847725860c272cf1" prot="public" virt="non-virtual"><scope>SpeedIntegrator::Ckpt</scope><name>triEndReady</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

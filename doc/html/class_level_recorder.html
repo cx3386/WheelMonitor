@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: LevelRecorder类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Public 类型</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="class_level_recorder-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">LevelRecorder类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_level_recorder_8h_source.html">LevelRecorder.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:acefed96903d1193e4653a9427edaa445"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445">State</a> { <br />
+&#160;&#160;<a class="el" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4">HighLevel</a> = 0x1, 
+<a class="el" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110">LowLevel</a> = 0x2, 
+<a class="el" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74">PositiveEdge</a> = HighLevel | 0x4, 
+<a class="el" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348">NegativeEdge</a> = LowLevel | 0x8, 
+<br />
+&#160;&#160;<a class="el" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411">OutOfRange</a> = 0x10
+<br />
+ }</td></tr>
+<tr class="separator:acefed96903d1193e4653a9427edaa445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a2fee4f14e008dabf44206e0dc9a23a83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_recorder.html#a2fee4f14e008dabf44206e0dc9a23a83">LevelRecorder</a> ()</td></tr>
+<tr class="separator:a2fee4f14e008dabf44206e0dc9a23a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae868e1bec42b2adab2e4b6ad59a3f259"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_recorder.html#ae868e1bec42b2adab2e4b6ad59a3f259">~LevelRecorder</a> ()</td></tr>
+<tr class="separator:ae868e1bec42b2adab2e4b6ad59a3f259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac903a8ed1d863cf49a2ba8883196d2b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_recorder.html#ac903a8ed1d863cf49a2ba8883196d2b4">init</a> (bool b=false)</td></tr>
+<tr class="separator:ac903a8ed1d863cf49a2ba8883196d2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a918eef12048f9de233aef9a16a1e9883"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_recorder.html#a918eef12048f9de233aef9a16a1e9883">push</a> (bool)</td></tr>
+<tr class="separator:a918eef12048f9de233aef9a16a1e9883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56bc86fca07cb3d6e69b089efa9846dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_recorder.html#a56bc86fca07cb3d6e69b089efa9846dc">clear</a> ()</td></tr>
+<tr class="memdesc:a56bc86fca07cb3d6e69b089efa9846dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear all data  <a href="#a56bc86fca07cb3d6e69b089efa9846dc">更多...</a><br /></td></tr>
+<tr class="separator:a56bc86fca07cb3d6e69b089efa9846dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9e7d005f90132d6e7e093653a3ae513"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_recorder.html#aa9e7d005f90132d6e7e093653a3ae513">state</a> (size_t pos)</td></tr>
+<tr class="memdesc:aa9e7d005f90132d6e7e093653a3ae513"><td class="mdescLeft">&#160;</td><td class="mdescRight">输出第pos新的数据的状态，pos=0为最新的数据点  <a href="#aa9e7d005f90132d6e7e093653a3ae513">更多...</a><br /></td></tr>
+<tr class="separator:aa9e7d005f90132d6e7e093653a3ae513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="_level_recorder_8h_source.html">LevelRecorder.h</a> 第 <a class="el" href="_level_recorder_8h_source.html#l00020">20</a> 行定义.</p>
+</div><h2 class="groupheader">成员枚举类型说明</h2>
+<a id="acefed96903d1193e4653a9427edaa445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acefed96903d1193e4653a9427edaa445">&#9670;&nbsp;</a></span>State</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445">LevelRecorder::State</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4"></a>HighLevel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110"></a>LowLevel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74"></a>PositiveEdge&#160;</td><td class="fielddoc"><p>即是高电平也是上升沿 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348"></a>NegativeEdge&#160;</td><td class="fielddoc"><p>即使低电平也是下降沿 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411"></a>OutOfRange&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="_level_recorder_8h_source.html">LevelRecorder.h</a> 第 <a class="el" href="_level_recorder_8h_source.html#l00030">30</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a2fee4f14e008dabf44206e0dc9a23a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fee4f14e008dabf44206e0dc9a23a83">&#9670;&nbsp;</a></span>LevelRecorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LevelRecorder::LevelRecorder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_level_recorder_8cpp_source.html">LevelRecorder.cpp</a> 第 <a class="el" href="_level_recorder_8cpp_source.html#l00004">4</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae868e1bec42b2adab2e4b6ad59a3f259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae868e1bec42b2adab2e4b6ad59a3f259">&#9670;&nbsp;</a></span>~LevelRecorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LevelRecorder::~LevelRecorder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_level_recorder_8cpp_source.html">LevelRecorder.cpp</a> 第 <a class="el" href="_level_recorder_8cpp_source.html#l00009">9</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a56bc86fca07cb3d6e69b089efa9846dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56bc86fca07cb3d6e69b089efa9846dc">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LevelRecorder::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>clear all data </p>
+
+<p class="definition">在文件 <a class="el" href="_level_recorder_8h_source.html">LevelRecorder.h</a> 第 <a class="el" href="_level_recorder_8h_source.html#l00028">28</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac903a8ed1d863cf49a2ba8883196d2b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac903a8ed1d863cf49a2ba8883196d2b4">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LevelRecorder::init </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_level_recorder_8h_source.html">LevelRecorder.h</a> 第 <a class="el" href="_level_recorder_8h_source.html#l00025">25</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_level_recorder_ac903a8ed1d863cf49a2ba8883196d2b4_icgraph.png" border="0" usemap="#class_level_recorder_ac903a8ed1d863cf49a2ba8883196d2b4_icgraph" alt=""/></div>
+<map name="class_level_recorder_ac903a8ed1d863cf49a2ba8883196d2b4_icgraph" id="class_level_recorder_ac903a8ed1d863cf49a2ba8883196d2b4_icgraph">
+<area shape="rect" id="node2" href="class_sensor.html#a84bc35cfba92eb579bc311b3c8b2980d" title="Sensor::init" alt="" coords="181,5,269,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a918eef12048f9de233aef9a16a1e9883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a918eef12048f9de233aef9a16a1e9883">&#9670;&nbsp;</a></span>push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LevelRecorder::push </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>lv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>push_back a data to levels </p>
+
+<p class="definition">在文件 <a class="el" href="_level_recorder_8cpp_source.html">LevelRecorder.cpp</a> 第 <a class="el" href="_level_recorder_8cpp_source.html#l00013">13</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa9e7d005f90132d6e7e093653a3ae513"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9e7d005f90132d6e7e093653a3ae513">&#9670;&nbsp;</a></span>state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LevelRecorder::state </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>输出第pos新的数据的状态，pos=0为最新的数据点 </p>
+
+<p class="definition">在文件 <a class="el" href="_level_recorder_8cpp_source.html">LevelRecorder.cpp</a> 第 <a class="el" href="_level_recorder_8cpp_source.html#l00022">22</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>sources/<a class="el" href="_level_recorder_8h_source.html">LevelRecorder.h</a></li>
+<li>sources/<a class="el" href="_level_recorder_8cpp_source.html">LevelRecorder.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: Plc类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-slots">Public 槽</a> &#124;
+<a href="#signals">信号</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
+<a href="class_plc-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">Plc类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>plc其他硬件设备相关类，包括传感器、plc io、plc ad  
+ <a href="class_plc.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_plc_8h_source.html">Plc.h</a>&gt;</code></p>
+<div class="dynheader">
+类 Plc 继承关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc__inherit__graph.png" border="0" usemap="#_plc_inherit__map" alt="Inheritance graph"/></div>
+<map name="_plc_inherit__map" id="_plc_inherit__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<div class="dynheader">
+Plc 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc__coll__graph.png" border="0" usemap="#_plc_coll__map" alt="Collaboration graph"/></div>
+<map name="_plc_coll__map" id="_plc_coll__map">
+<area shape="rect" id="node3" href="class_handle_sensor_device.html" title="HandleSensorDevice" alt="" coords="27,171,169,197"/>
+<area shape="rect" id="node4" href="class_sensor_device.html" title="SensorDevice" alt="" coords="78,81,179,108"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Public 槽</h2></td></tr>
+<tr class="memitem:abf51268db3f1eca2b9bb139bf75b83d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#abf51268db3f1eca2b9bb139bf75b83d9">sendAlarmToControlCenter</a> (int cio)</td></tr>
+<tr class="memdesc:abf51268db3f1eca2b9bb139bf75b83d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">向中控发出报警  <a href="#abf51268db3f1eca2b9bb139bf75b83d9">更多...</a><br /></td></tr>
+<tr class="separator:abf51268db3f1eca2b9bb139bf75b83d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+信号</h2></td></tr>
+<tr class="memitem:a6f99f1f3a90a49531f372d0e182872c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#a6f99f1f3a90a49531f372d0e182872c6">cio0Update</a> (int cio)</td></tr>
+<tr class="separator:a6f99f1f3a90a49531f372d0e182872c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14ee604a83d89ea5f96288db01d60a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#a14ee604a83d89ea5f96288db01d60a84">connectError</a> (int errorId)</td></tr>
+<tr class="separator:a14ee604a83d89ea5f96288db01d60a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeaecb0eaf8a1d72f01348ca4e7918d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#adeaecb0eaf8a1d72f01348ca4e7918d1">truckSpeedReady</a> ()</td></tr>
+<tr class="separator:adeaecb0eaf8a1d72f01348ca4e7918d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf7098f35958347aeea9abbc7371375f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#acf7098f35958347aeea9abbc7371375f">truckSpeedError</a> (int)</td></tr>
+<tr class="memdesc:acf7098f35958347aeea9abbc7371375f"><td class="mdescLeft">&#160;</td><td class="mdescRight">台车(中轴)速度信号读取错误 errcode 1: disconnect errcode 2: out of range(4~20ma)  <a href="#acf7098f35958347aeea9abbc7371375f">更多...</a><br /></td></tr>
+<tr class="separator:acf7098f35958347aeea9abbc7371375f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a230190ee27d360a02576184d3450e8d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#a230190ee27d360a02576184d3450e8d6">Plc</a> (const <a class="el" href="class_config_helper.html">ConfigHelper</a> *_configHelper, QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:a230190ee27d360a02576184d3450e8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">必须传入configure, const成员变量在初始化列表中初始化  <a href="#a230190ee27d360a02576184d3450e8d6">更多...</a><br /></td></tr>
+<tr class="separator:a230190ee27d360a02576184d3450e8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25b79d6b196b888dc2d80c5e98b9e733"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#a25b79d6b196b888dc2d80c5e98b9e733">~Plc</a> ()</td></tr>
+<tr class="separator:a25b79d6b196b888dc2d80c5e98b9e733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d31f51484e39fc320b02be053de157"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#a53d31f51484e39fc320b02be053de157">start</a> ()</td></tr>
+<tr class="memdesc:a53d31f51484e39fc320b02be053de157"><td class="mdescLeft">&#160;</td><td class="mdescRight">usrctrl  <a href="#a53d31f51484e39fc320b02be053de157">更多...</a><br /></td></tr>
+<tr class="separator:a53d31f51484e39fc320b02be053de157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9c8532cb72ba8c88437f50f2631d13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#abf9c8532cb72ba8c88437f50f2631d13">stop</a> ()</td></tr>
+<tr class="memdesc:abf9c8532cb72ba8c88437f50f2631d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">usrctrl  <a href="#abf9c8532cb72ba8c88437f50f2631d13">更多...</a><br /></td></tr>
+<tr class="separator:abf9c8532cb72ba8c88437f50f2631d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5213403a3aba0c8c6f2a12c3e2d4fa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#ac5213403a3aba0c8c6f2a12c3e2d4fa5">connect</a> ()</td></tr>
+<tr class="memdesc:ac5213403a3aba0c8c6f2a12c3e2d4fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开  <a href="#ac5213403a3aba0c8c6f2a12c3e2d4fa5">更多...</a><br /></td></tr>
+<tr class="separator:ac5213403a3aba0c8c6f2a12c3e2d4fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2432a7c4b2bee31da9b2a933d2747ba4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#a2432a7c4b2bee31da9b2a933d2747ba4">getTruckSpeed</a> (int devId=0) const</td></tr>
+<tr class="memdesc:a2432a7c4b2bee31da9b2a933d2747ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取台车速度(m/min)，线程安全的  <a href="#a2432a7c4b2bee31da9b2a933d2747ba4">更多...</a><br /></td></tr>
+<tr class="separator:a2432a7c4b2bee31da9b2a933d2747ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a35269fbd5ff006347fc3d29e0a8ebcdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_handle_sensor_device.html">HandleSensorDevice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#a35269fbd5ff006347fc3d29e0a8ebcdf">handleSensorDevice</a> [2]</td></tr>
+<tr class="separator:a35269fbd5ff006347fc3d29e0a8ebcdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:a7a0bfa84c4d0b4610cda92102d8d54a0"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plc.html#a7a0bfa84c4d0b4610cda92102d8d54a0">adInterval</a> = 1000</td></tr>
+<tr class="memdesc:a7a0bfa84c4d0b4610cda92102d8d54a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取ad（车速）的间隔，ms // 不应太频繁，应大于图像处理的时间7/25s，否则无意义  <a href="#a7a0bfa84c4d0b4610cda92102d8d54a0">更多...</a><br /></td></tr>
+<tr class="separator:a7a0bfa84c4d0b4610cda92102d8d54a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>plc其他硬件设备相关类，包括传感器、plc io、plc ad </p>
+
+<p class="definition">在文件 <a class="el" href="_plc_8h_source.html">Plc.h</a> 第 <a class="el" href="_plc_8h_source.html#l00012">12</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a230190ee27d360a02576184d3450e8d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230190ee27d360a02576184d3450e8d6">&#9670;&nbsp;</a></span>Plc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Plc::Plc </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_config_helper.html">ConfigHelper</a> *&#160;</td>
+          <td class="paramname"><em>_configHelper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>必须传入configure, const成员变量在初始化列表中初始化 </p>
+
+<p class="definition">在文件 <a class="el" href="_plc_8cpp_source.html">Plc.cpp</a> 第 <a class="el" href="_plc_8cpp_source.html#l00055">55</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc_a230190ee27d360a02576184d3450e8d6_cgraph.png" border="0" usemap="#class_plc_a230190ee27d360a02576184d3450e8d6_cgraph" alt=""/></div>
+<map name="class_plc_a230190ee27d360a02576184d3450e8d6_cgraph" id="class_plc_a230190ee27d360a02576184d3450e8d6_cgraph">
+<area shape="rect" id="node2" href="class_speed_integrator.html#a66d764b8f94e1547100028927d224aea" title="SpeedIntegrator::onCkpTri" alt="" coords="121,5,293,32"/>
+<area shape="rect" id="node3" href="class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea" title="expect begin时，开始一个新的ckp " alt="" coords="137,57,278,98"/>
+<area shape="rect" id="node5" href="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531" title="在expect end时，结算ckp。注意：此ckpId为global id " alt="" coords="137,122,278,163"/>
+<area shape="rect" id="node6" href="class_speed_integrator.html#ada2cd17f8fbcb20abe6b17ce7e0ed915" title="开始积分。调用时间：plc初始化后 " alt="" coords="134,188,281,215"/>
+<area shape="rect" id="node4" href="class_ck_pt.html#ad3259779575bb558490559404afb1903" title="由global id获得局部id " alt="" coords="341,97,445,124"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a25b79d6b196b888dc2d80c5e98b9e733"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25b79d6b196b888dc2d80c5e98b9e733">&#9670;&nbsp;</a></span>~Plc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Plc::~Plc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_plc_8cpp_source.html">Plc.cpp</a> 第 <a class="el" href="_plc_8cpp_source.html#l00075">75</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a6f99f1f3a90a49531f372d0e182872c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f99f1f3a90a49531f372d0e182872c6">&#9670;&nbsp;</a></span>cio0Update</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plc::cio0Update </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cio</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc_a6f99f1f3a90a49531f372d0e182872c6_icgraph.png" border="0" usemap="#class_plc_a6f99f1f3a90a49531f372d0e182872c6_icgraph" alt=""/></div>
+<map name="class_plc_a6f99f1f3a90a49531f372d0e182872c6_icgraph" id="class_plc_a6f99f1f3a90a49531f372d0e182872c6_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#abf9c8532cb72ba8c88437f50f2631d13" title="usrctrl " alt="" coords="168,5,243,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac5213403a3aba0c8c6f2a12c3e2d4fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5213403a3aba0c8c6f2a12c3e2d4fa5">&#9670;&nbsp;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plc::connect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开 </p>
+<p>通过串口连接到plc </p>
+
+<p class="definition">在文件 <a class="el" href="_plc_8cpp_source.html">Plc.cpp</a> 第 <a class="el" href="_plc_8cpp_source.html#l00107">107</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a14ee604a83d89ea5f96288db01d60a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14ee604a83d89ea5f96288db01d60a84">&#9670;&nbsp;</a></span>connectError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plc::connectError </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>errorId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc_a14ee604a83d89ea5f96288db01d60a84_icgraph.png" border="0" usemap="#class_plc_a14ee604a83d89ea5f96288db01d60a84_icgraph" alt=""/></div>
+<map name="class_plc_a14ee604a83d89ea5f96288db01d60a84_icgraph" id="class_plc_a14ee604a83d89ea5f96288db01d60a84_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#ac5213403a3aba0c8c6f2a12c3e2d4fa5" title="连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开 " alt="" coords="176,5,271,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2432a7c4b2bee31da9b2a933d2747ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2432a7c4b2bee31da9b2a933d2747ba4">&#9670;&nbsp;</a></span>getTruckSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Plc::getTruckSpeed </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>devId</em> = <code>0</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取台车速度(m/min)，线程安全的 </p>
+
+<p class="definition">在文件 <a class="el" href="_plc_8h_source.html">Plc.h</a> 第 <a class="el" href="_plc_8h_source.html#l00023">23</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc_a2432a7c4b2bee31da9b2a933d2747ba4_icgraph.png" border="0" usemap="#class_plc_a2432a7c4b2bee31da9b2a933d2747ba4_icgraph" alt=""/></div>
+<map name="class_plc_a2432a7c4b2bee31da9b2a933d2747ba4_icgraph" id="class_plc_a2432a7c4b2bee31da9b2a933d2747ba4_icgraph">
+<area shape="rect" id="node2" href="class_image_process.html#abc606c9f2c55844cc2f08e6373cdc0b6" title="ImageProcess::ImageProcess" alt="" coords="189,5,385,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abf51268db3f1eca2b9bb139bf75b83d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf51268db3f1eca2b9bb139bf75b83d9">&#9670;&nbsp;</a></span>sendAlarmToControlCenter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plc::sendAlarmToControlCenter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cio</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>向中控发出报警 </p>
+<p>注意：不会覆盖原有状态 </p>
+
+<p class="definition">在文件 <a class="el" href="_plc_8cpp_source.html">Plc.cpp</a> 第 <a class="el" href="_plc_8cpp_source.html#l00363">363</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc_abf51268db3f1eca2b9bb139bf75b83d9_icgraph.png" border="0" usemap="#class_plc_abf51268db3f1eca2b9bb139bf75b83d9_icgraph" alt=""/></div>
+<map name="class_plc_abf51268db3f1eca2b9bb139bf75b83d9_icgraph" id="class_plc_abf51268db3f1eca2b9bb139bf75b83d9_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a4af37b18f9592a557393e947d033ecaf" title="AlarmManager::bindPLC" alt="" coords="257,5,420,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a53d31f51484e39fc320b02be053de157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53d31f51484e39fc320b02be053de157">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plc::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>usrctrl </p>
+
+<p class="definition">在文件 <a class="el" href="_plc_8cpp_source.html">Plc.cpp</a> 第 <a class="el" href="_plc_8cpp_source.html#l00082">82</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc_a53d31f51484e39fc320b02be053de157_cgraph.png" border="0" usemap="#class_plc_a53d31f51484e39fc320b02be053de157_cgraph" alt=""/></div>
+<map name="class_plc_a53d31f51484e39fc320b02be053de157_cgraph" id="class_plc_a53d31f51484e39fc320b02be053de157_cgraph">
+<area shape="rect" id="node2" href="class_sensor_device.html#a451e1e696ef7d6a02bc5b3e418b59acc" title="SensorDevice::init" alt="" coords="138,5,265,32"/>
+<area shape="rect" id="node4" href="class_speed_integrator.html#ada2cd17f8fbcb20abe6b17ce7e0ed915" title="开始积分。调用时间：plc初始化后 " alt="" coords="128,56,275,83"/>
+<area shape="rect" id="node3" href="class_sensor_device.html#a3b67e95ea619719648481f76c2ae1b18" title="SensorDevice::newWheel" alt="" coords="323,5,492,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abf9c8532cb72ba8c88437f50f2631d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf9c8532cb72ba8c88437f50f2631d13">&#9670;&nbsp;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plc::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>usrctrl </p>
+
+<p class="definition">在文件 <a class="el" href="_plc_8cpp_source.html">Plc.cpp</a> 第 <a class="el" href="_plc_8cpp_source.html#l00097">97</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc_abf9c8532cb72ba8c88437f50f2631d13_cgraph.png" border="0" usemap="#class_plc_abf9c8532cb72ba8c88437f50f2631d13_cgraph" alt=""/></div>
+<map name="class_plc_abf9c8532cb72ba8c88437f50f2631d13_cgraph" id="class_plc_abf9c8532cb72ba8c88437f50f2631d13_cgraph">
+<area shape="rect" id="node2" href="class_speed_integrator.html#a6e1d4a9a0e409e7cd2e8b4f103439fe4" title="SpeedIntegrator::stop" alt="" coords="128,5,275,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acf7098f35958347aeea9abbc7371375f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf7098f35958347aeea9abbc7371375f">&#9670;&nbsp;</a></span>truckSpeedError</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plc::truckSpeedError </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>台车(中轴)速度信号读取错误 errcode 1: disconnect errcode 2: out of range(4~20ma) </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>errorCode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adeaecb0eaf8a1d72f01348ca4e7918d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeaecb0eaf8a1d72f01348ca4e7918d1">&#9670;&nbsp;</a></span>truckSpeedReady</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Plc::truckSpeedReady </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_plc_adeaecb0eaf8a1d72f01348ca4e7918d1_icgraph.png" border="0" usemap="#class_plc_adeaecb0eaf8a1d72f01348ca4e7918d1_icgraph" alt=""/></div>
+<map name="class_plc_adeaecb0eaf8a1d72f01348ca4e7918d1_icgraph" id="class_plc_adeaecb0eaf8a1d72f01348ca4e7918d1_icgraph">
+<area shape="rect" id="node2" href="class_image_process.html#abc606c9f2c55844cc2f08e6373cdc0b6" title="ImageProcess::ImageProcess" alt="" coords="205,5,401,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a7a0bfa84c4d0b4610cda92102d8d54a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a0bfa84c4d0b4610cda92102d8d54a0">&#9670;&nbsp;</a></span>adInterval</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int Plc::adInterval = 1000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>读取ad（车速）的间隔，ms // 不应太频繁，应大于图像处理的时间7/25s，否则无意义 </p>
+
+<p class="definition">在文件 <a class="el" href="_plc_8h_source.html">Plc.h</a> 第 <a class="el" href="_plc_8h_source.html#l00028">28</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a35269fbd5ff006347fc3d29e0a8ebcdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35269fbd5ff006347fc3d29e0a8ebcdf">&#9670;&nbsp;</a></span>handleSensorDevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_handle_sensor_device.html">HandleSensorDevice</a>* Plc::handleSensorDevice[2]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_plc_8h_source.html">Plc.h</a> 第 <a class="el" href="_plc_8h_source.html#l00029">29</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>sources/<a class="el" href="_plc_8h_source.html">Plc.h</a></li>
+<li>sources/<a class="el" href="_plc_8cpp_source.html">Plc.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

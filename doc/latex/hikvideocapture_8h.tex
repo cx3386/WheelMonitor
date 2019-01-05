@@ -1,0 +1,32 @@
+\hypertarget{hikvideocapture_8h}{}\section{sources/hikvideocapture.h File Reference}
+\label{hikvideocapture_8h}\index{sources/hikvideocapture.\+h@{sources/hikvideocapture.\+h}}
+
+
+采集录像  
+
+
+{\ttfamily \#include \char`\"{}H\+C\+Net\+S\+D\+K.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plaympeg4.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Q\+Object$>$}\newline
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+Include dependency graph for hikvideocapture.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_hik_video_capture}{Hik\+Video\+Capture}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+采集录像 
+
+\begin{DoxyAuthor}{Author}
+cx3386 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+九月 2018
+\end{DoxyDate}
+在构造函数时初始化与摄像机的连接，如果连接失败，需要排查连接问题后重启\+A\+P\+P。偶尔中断，有自动重连 start()和stop()只用于控制视频流的读取/停止读取，并不中断连接。 大坑：调用的海康\+S\+D\+K是静态函数，需要根据对象的device\+Index分别调用\+Decfunc0,Decfunc1 

@@ -1,0 +1,80 @@
+.TH "sources/AlarmEvent.h" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/AlarmEvent.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBAlarmEvent\fP "
+.br
+.RI "Alarm color, generally used in client-side\&. "
+.ti -1c
+.RI "enum \fBHardwareAlarmEvent\fP { \fBHardwareAlarmEvent::Outer_Improc\fP = 0, \fBHardwareAlarmEvent::Outer_Sensor\fP, \fBHardwareAlarmEvent::Innner_Improc\fP, \fBHardwareAlarmEvent::Innner_Sensor\fP, \fBHardwareAlarmEvent::Outer_Warn\fP = 0, \fBHardwareAlarmEvent::Outer_Alarm\fP, \fBHardwareAlarmEvent::Inner_Warn\fP, \fBHardwareAlarmEvent::Inner_Alarm\fP, \fBHardwareAlarmEvent::Reset\fP }"
+.br
+.ti -1c
+.RI "enum \fBAlarmColor\fP { \fBAlarmColor::Unkown\fP = 0, \fBAlarmColor::Green\fP, \fBAlarmColor::Red\fP, \fBAlarmColor::Yellow\fP = 4, \fBAlarmColor::Gray\fP = 8, \fBAlarmColor::Off\fP = Gray }"
+.br
+.RI "警报等级 "
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBAlarmColor\fP\fC [strong]\fP"
+
+.PP
+警报等级 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUnkown \fP\fP
+.TP
+\fB\fIGreen \fP\fP
+.TP
+\fB\fIRed \fP\fP
+.TP
+\fB\fIYellow \fP\fP
+.TP
+\fB\fIGray \fP\fP
+.TP
+\fB\fIOff \fP\fP
+.PP
+Definition at line 19 of file AlarmEvent\&.h\&.
+.SS "enum \fBAlarmEvent\fP\fC [strong]\fP"
+
+.PP
+Alarm color, generally used in client-side\&. 
+.PP
+Definition at line 3 of file AlarmEvent\&.h\&.
+.SS "enum \fBHardwareAlarmEvent\fP\fC [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIOuter_Improc \fP\fP
+.TP
+\fB\fIOuter_Sensor \fP\fP
+.TP
+\fB\fIInnner_Improc \fP\fP
+.TP
+\fB\fIInnner_Sensor \fP\fP
+.TP
+\fB\fIOuter_Warn \fP\fP
+.TP
+\fB\fIOuter_Alarm \fP\fP
+.TP
+\fB\fIInner_Warn \fP\fP
+.TP
+\fB\fIInner_Alarm \fP\fP
+.TP
+\fB\fIReset \fP\fP
+.PP
+Definition at line 6 of file AlarmEvent\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

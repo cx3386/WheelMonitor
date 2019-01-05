@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_play_back_widget" kind="class" language="C++" prot="public">
+    <compoundname>PlayBackWidget</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QWidget</basecompoundref>
+    <includes refid="playbackwidget_8h" local="no">playbackwidget.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" prot="public" static="no" mutable="no">
+        <type><ref refid="class_my_sql_table_model" kindref="compound">MySqlTableModel</ref> *</type>
+        <definition>MySqlTableModel* PlayBackWidget::allModel</definition>
+        <argsstring></argsstring>
+        <name>allModel</name>
+        <briefdescription>
+<para>tableModel for all record </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="14" column="1" bodyfile="sources/playbackwidget.h" bodystart="14" bodyend="-1"/>
+        <referencedby refid="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" compoundref="playbackwidget_8cpp" startline="160" endline="171">dbChanged</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" prot="public" static="no" mutable="no">
+        <type><ref refid="class_my_sql_table_model" kindref="compound">MySqlTableModel</ref> *</type>
+        <definition>MySqlTableModel* PlayBackWidget::alarmModel</definition>
+        <argsstring></argsstring>
+        <name>alarmModel</name>
+        <briefdescription>
+<para>talbleModel for unchecked record </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="15" column="1" bodyfile="sources/playbackwidget.h" bodystart="15" bodyend="-1"/>
+        <referencedby refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" compoundref="playbackwidget_8cpp" startline="155" endline="158">hasAlarm</referencedby>
+        <referencedby refid="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" compoundref="playbackwidget_8cpp" startline="160" endline="171">dbChanged</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" prot="public" static="no" mutable="no">
+        <type>QTableView *</type>
+        <definition>QTableView* PlayBackWidget::alarmView</definition>
+        <argsstring></argsstring>
+        <name>alarmView</name>
+        <briefdescription>
+<para>tablseview for unchecked record </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="21" column="1" bodyfile="sources/playbackwidget.h" bodystart="21" bodyend="-1"/>
+        <referencedby refid="class_play_back_widget_1aadceb04a8dab25ebd50d16ba99d4b6fc" compoundref="playbackwidget_8cpp" startline="10" endline="89">PlayBackWidget</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" prot="public" static="no" mutable="no">
+        <type>QComboBox *</type>
+        <definition>QComboBox* PlayBackWidget::selectTableCb</definition>
+        <argsstring></argsstring>
+        <name>selectTableCb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="22" column="1" bodyfile="sources/playbackwidget.h" bodystart="22" bodyend="-1"/>
+        <referencedby refid="class_play_back_widget_1aadceb04a8dab25ebd50d16ba99d4b6fc" compoundref="playbackwidget_8cpp" startline="10" endline="89">PlayBackWidget</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_play_back_widget_1a304eb8747fdc074c99f183f310ef1cb3" prot="private" static="no" mutable="no">
+        <type>QTableView *</type>
+        <definition>QTableView* PlayBackWidget::allView</definition>
+        <argsstring></argsstring>
+        <name>allView</name>
+        <briefdescription>
+<para>tableview for all record </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="25" column="1" bodyfile="sources/playbackwidget.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_back_widget_1aae10acfa108f5cd92858cfc5664cdc69" prot="private" static="no" mutable="no">
+        <type><ref refid="class_player" kindref="compound">Player</ref> *</type>
+        <definition>Player* PlayBackWidget::player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="26" column="1" bodyfile="sources/playbackwidget.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_back_widget_1adc4c99b5cf9d1ece305290e83de7bf59" prot="private" static="no" mutable="no">
+        <type>QPushButton *</type>
+        <definition>QPushButton* PlayBackWidget::checkSelBtn</definition>
+        <argsstring></argsstring>
+        <name>checkSelBtn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="38" column="1" bodyfile="sources/playbackwidget.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_play_back_widget_1ac502b19b497f03e5784a0b9623bd5c3d" prot="private" static="no" mutable="no">
+        <type>QPushButton *</type>
+        <definition>QPushButton* PlayBackWidget::checkAllBtn</definition>
+        <argsstring></argsstring>
+        <name>checkAllBtn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="39" column="1" bodyfile="sources/playbackwidget.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_play_back_widget_1aadceb04a8dab25ebd50d16ba99d4b6fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PlayBackWidget::PlayBackWidget</definition>
+        <argsstring>(QWidget *parent=Q_NULLPTR)</argsstring>
+        <name>PlayBackWidget</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>player </para>        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="12" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="10" bodyend="89"/>
+        <references refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" compoundref="playbackwidget_8h" startline="22">selectTableCb</references>
+        <references refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" compoundref="playbackwidget_8h" startline="21">alarmView</references>
+        <references refid="class_play_back_widget_1a6dd67d2767c0aeb3f1e53d02ed47c6c2" compoundref="playbackwidget_8cpp" startline="173" endline="177">clearMedia</references>
+      </memberdef>
+      <memberdef kind="function" id="class_play_back_widget_1aad9ed53e29cf516c632e0984e0fd452c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PlayBackWidget::~PlayBackWidget</definition>
+        <argsstring>()</argsstring>
+        <name>~PlayBackWidget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="13" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PlayBackWidget::hasAlarm</definition>
+        <argsstring>() const</argsstring>
+        <name>hasAlarm</name>
+        <briefdescription>
+<para>Returns true if the alarm list is not null;otherwise returns false. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="20" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="155" bodyend="158"/>
+        <references refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" compoundref="playbackwidget_8h" startline="15">alarmModel</references>
+        <referencedby refid="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" compoundref="playbackwidget_8cpp" startline="160" endline="171">dbChanged</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_play_back_widget_1ace846b5cf47e0bf17f646677a43b796f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayBackWidget::initAlarmTable</definition>
+        <argsstring>()</argsstring>
+        <name>initAlarmTable</name>
+        <briefdescription>
+<para>initialize the alarm(unchecked) table view </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="32" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="91" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_play_back_widget_1a99eed8e3258cbb45feaca3d9c4b0da89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayBackWidget::initAllTable</definition>
+        <argsstring>()</argsstring>
+        <name>initAllTable</name>
+        <briefdescription>
+<para>initialize the all-record table view </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="37" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="128" bodyend="150"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_play_back_widget_1aeb734152a79a362eeeedcfc7bdc0dbd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayBackWidget::clearAlarm</definition>
+        <argsstring>()</argsstring>
+        <name>clearAlarm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="41" column="1"/>
+        <referencedby refid="class_alarm_manager_1afcb1ab3d5f8f3e4c01227ab052bc520f" compoundref="_alarm_manager_8cpp" startline="53" endline="62">AlarmManager::bindPlayBack</referencedby>
+        <referencedby refid="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" compoundref="playbackwidget_8cpp" startline="160" endline="171">dbChanged</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_play_back_widget_1a6dd67d2767c0aeb3f1e53d02ed47c6c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayBackWidget::clearMedia</definition>
+        <argsstring>()</argsstring>
+        <name>clearMedia</name>
+        <briefdescription>
+<para>清除媒体信息；应当在失焦时调用 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="44" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="173" bodyend="177"/>
+        <references refid="class_player_1a85dda573e6b2b5f4f7bdf930b0c496f4" compoundref="player_8cpp" startline="130" endline="135">Player::setUrl</references>
+        <referencedby refid="class_play_back_widget_1aadceb04a8dab25ebd50d16ba99d4b6fc" compoundref="playbackwidget_8cpp" startline="10" endline="89">PlayBackWidget</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayBackWidget::dbChanged</definition>
+        <argsstring>()</argsstring>
+        <name>dbChanged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="45" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="160" bodyend="171"/>
+        <references refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" compoundref="playbackwidget_8h" startline="14">allModel</references>
+        <references refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" compoundref="playbackwidget_8h" startline="15">alarmModel</references>
+        <references refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" compoundref="playbackwidget_8cpp" startline="155" endline="158">hasAlarm</references>
+        <references refid="class_play_back_widget_1aeb734152a79a362eeeedcfc7bdc0dbd1">clearAlarm</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_play_back_widget_1ad50bf4bb29fc029ec68ca2af91d55e1e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayBackWidget::readVideoPath</definition>
+        <argsstring>(QModelIndex) const</argsstring>
+        <name>readVideoPath</name>
+        <param>
+          <type>QModelIndex</type>
+          <defname>index</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="48" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="179" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_play_back_widget_1ae8f36bcd4cb6e1ef86d95c64a6631e82" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayBackWidget::setSelectedChecked</definition>
+        <argsstring>()</argsstring>
+        <name>setSelectedChecked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="49" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="186" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_play_back_widget_1ad9bdd500fa2212a6b740047f75834b77" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PlayBackWidget::setAllChecked</definition>
+        <argsstring>()</argsstring>
+        <name>setAllChecked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/playbackwidget.h" line="50" column="1" bodyfile="sources/playbackwidget.cpp" bodystart="204" bodyend="216"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="87">
+        <label>PlayBackWidget</label>
+        <link refid="class_play_back_widget"/>
+        <childnode refid="88" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>QWidget</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="89">
+        <label>PlayBackWidget</label>
+        <link refid="class_play_back_widget"/>
+        <childnode refid="90" relation="public-inheritance">
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>alarmModel</edgelabel>
+          <edgelabel>allModel</edgelabel>
+        </childnode>
+      </node>
+      <node id="90">
+        <label>QWidget</label>
+      </node>
+      <node id="92">
+        <label>QSqlRelationalTableModel</label>
+      </node>
+      <node id="91">
+        <label>MySqlTableModel</label>
+        <link refid="class_my_sql_table_model"/>
+        <childnode refid="92" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/playbackwidget.h" line="9" column="1" bodyfile="sources/playbackwidget.h" bodystart="9" bodyend="51"/>
+    <listofallmembers>
+      <member refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>alarmModel</name></member>
+      <member refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>alarmView</name></member>
+      <member refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>allModel</name></member>
+      <member refid="class_play_back_widget_1a304eb8747fdc074c99f183f310ef1cb3" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>allView</name></member>
+      <member refid="class_play_back_widget_1ac502b19b497f03e5784a0b9623bd5c3d" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>checkAllBtn</name></member>
+      <member refid="class_play_back_widget_1adc4c99b5cf9d1ece305290e83de7bf59" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>checkSelBtn</name></member>
+      <member refid="class_play_back_widget_1aeb734152a79a362eeeedcfc7bdc0dbd1" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>clearAlarm</name></member>
+      <member refid="class_play_back_widget_1a6dd67d2767c0aeb3f1e53d02ed47c6c2" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>clearMedia</name></member>
+      <member refid="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>dbChanged</name></member>
+      <member refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>hasAlarm</name></member>
+      <member refid="class_play_back_widget_1ace846b5cf47e0bf17f646677a43b796f" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>initAlarmTable</name></member>
+      <member refid="class_play_back_widget_1a99eed8e3258cbb45feaca3d9c4b0da89" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>initAllTable</name></member>
+      <member refid="class_play_back_widget_1aadceb04a8dab25ebd50d16ba99d4b6fc" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>PlayBackWidget</name></member>
+      <member refid="class_play_back_widget_1aae10acfa108f5cd92858cfc5664cdc69" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>player</name></member>
+      <member refid="class_play_back_widget_1ad50bf4bb29fc029ec68ca2af91d55e1e" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>readVideoPath</name></member>
+      <member refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>selectTableCb</name></member>
+      <member refid="class_play_back_widget_1ad9bdd500fa2212a6b740047f75834b77" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>setAllChecked</name></member>
+      <member refid="class_play_back_widget_1ae8f36bcd4cb6e1ef86d95c64a6631e82" prot="private" virt="non-virtual"><scope>PlayBackWidget</scope><name>setSelectedChecked</name></member>
+      <member refid="class_play_back_widget_1aad9ed53e29cf516c632e0984e0fd452c" prot="public" virt="non-virtual"><scope>PlayBackWidget</scope><name>~PlayBackWidget</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

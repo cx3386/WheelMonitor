@@ -1,0 +1,11 @@
+<map id="sources/Plc.h" name="sources/Plc.h">
+<area shape="rect" id="node2" href="$_alarm_manager_8h.html" title="管理所有的报警 " alt="" coords="65,155,231,181"/>
+<area shape="rect" id="node4" href="$mainwindow_8cpp.html" title="sources/mainwindow.cpp" alt="" coords="211,229,378,256"/>
+<area shape="rect" id="node5" href="$playbackwidget_8h.html" title="sources/playbackwidget.h" alt="" coords="307,80,479,107"/>
+<area shape="rect" id="node7" href="$imageprocess_8cpp.html" title="sources/imageprocess.cpp" alt="" coords="504,80,683,107"/>
+<area shape="rect" id="node8" href="$_plc_8cpp.html" title="sources/Plc.cpp" alt="" coords="681,155,797,181"/>
+<area shape="rect" id="node9" href="$_speed_integrator_8h.html" title="sources/SpeedIntegrator.h" alt="" coords="758,80,933,107"/>
+<area shape="rect" id="node10" href="$_speed_integrator_8cpp.html" title="sources/SpeedIntegrator.cpp" alt="" coords="858,155,1046,181"/>
+<area shape="rect" id="node3" href="$_alarm_manager_8cpp.html" title="sources/AlarmManager.cpp" alt="" coords="5,229,187,256"/>
+<area shape="rect" id="node6" href="$playbackwidget_8cpp.html" title="sources/playbackwidget.cpp" alt="" coords="357,155,544,181"/>
+</map>

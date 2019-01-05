@@ -1,0 +1,223 @@
+\hypertarget{class_config_helper}{}\section{Config\+Helper Class Reference}
+\label{class_config_helper}\index{Config\+Helper@{Config\+Helper}}
+
+
+用于设置文件ini的相关操作，包括读取和保存  
+
+
+
+
+{\ttfamily \#include $<$confighelper.\+h$>$}
+
+
+
+Inheritance diagram for Config\+Helper\+:
+% FIG 0
+
+
+Collaboration diagram for Config\+Helper\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_config_helper_a15694a18b65e7cbfb25244dc407ffad1}{Config\+Helper}} (const Q\+String \&configuration, Q\+Object $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\begin{DoxyCompactList}\small\item\em construct a confighelper object using specified file \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_config_helper_a198df438b93de320f0dd46eeeaede896}{$\sim$\+Config\+Helper}} ()
+\item 
+void \mbox{\hyperlink{class_config_helper_a64fce4fd6e2a9df32950c6bac6891f66}{read}} ()
+\begin{DoxyCompactList}\small\item\em read from ini \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_config_helper_a04045b5b36ae2dd26465ab6ad5949018}{save}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_config_helper_a9421d72089dd1d661f26c19af219e859}{launch\+At\+Login}}
+\item 
+bool \mbox{\hyperlink{class_config_helper_a959b2ee878bc13961b7b75de2c7954cf}{start\+At\+Launch}}
+\begin{DoxyCompactList}\small\item\em alias click \char`\"{}start\char`\"{} after launch this app \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_config_helper_a76b3bf0b3940128f7dfd2e5fb84983fc}{verbose\+Log}}
+\begin{DoxyCompactList}\small\item\em record verbose log \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_dev_spec}{Dev\+Spec}} \mbox{\hyperlink{class_config_helper_ab4b04b47f67df886272873832961ebbe}{device}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em 所有的属性值都储存在这里，每次使用时都调用helper类，才能保证设置的生效的实时性。 \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_config_helper_abe47a6249acafc7dfd993df31946b1b1}{pc2plc\+\_\+port\+Name}}
+\item 
+double \mbox{\hyperlink{class_config_helper_ad0a8c52dccf3495d3d52bf97045588a0}{match\+Mask\+Inner\+Ratio}}
+\begin{DoxyCompactList}\small\item\em 匹配时，抠出的内圆半径占车轮的比例 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_config_helper_ae04fa487fbc7ee5b5e247d8330021115}{match\+Mask\+Outer\+Ratio}}
+\begin{DoxyCompactList}\small\item\em 匹配时，抠出的外圆半径占车轮的比例 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+用于设置文件ini的相关操作，包括读取和保存 
+
+\begin{DoxyAuthor}{Author}
+cx3386 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+九月 2018 
+\end{DoxyDate}
+
+
+Definition at line 32 of file confighelper.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_config_helper_a15694a18b65e7cbfb25244dc407ffad1}\label{class_config_helper_a15694a18b65e7cbfb25244dc407ffad1}} 
+\index{Config\+Helper@{Config\+Helper}!Config\+Helper@{Config\+Helper}}
+\index{Config\+Helper@{Config\+Helper}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{Config\+Helper()}{ConfigHelper()}}
+{\footnotesize\ttfamily Config\+Helper\+::\+Config\+Helper (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{configuration,  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})}
+
+
+
+construct a confighelper object using specified file 
+
+this constructor will auto \mbox{\hyperlink{class_config_helper_a64fce4fd6e2a9df32950c6bac6891f66}{read()}} config.\+ini. 
+
+Definition at line 13 of file confighelper.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_config_helper_a198df438b93de320f0dd46eeeaede896}\label{class_config_helper_a198df438b93de320f0dd46eeeaede896}} 
+\index{Config\+Helper@{Config\+Helper}!````~Config\+Helper@{$\sim$\+Config\+Helper}}
+\index{````~Config\+Helper@{$\sim$\+Config\+Helper}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{$\sim$\+Config\+Helper()}{~ConfigHelper()}}
+{\footnotesize\ttfamily Config\+Helper\+::$\sim$\+Config\+Helper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file confighelper.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_config_helper_a64fce4fd6e2a9df32950c6bac6891f66}\label{class_config_helper_a64fce4fd6e2a9df32950c6bac6891f66}} 
+\index{Config\+Helper@{Config\+Helper}!read@{read}}
+\index{read@{read}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily void Config\+Helper\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+read from ini 
+
+
+
+Definition at line 26 of file confighelper.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_config_helper_a04045b5b36ae2dd26465ab6ad5949018}\label{class_config_helper_a04045b5b36ae2dd26465ab6ad5949018}} 
+\index{Config\+Helper@{Config\+Helper}!save@{save}}
+\index{save@{save}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Config\+Helper\+::save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file confighelper.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_config_helper_ab4b04b47f67df886272873832961ebbe}\label{class_config_helper_ab4b04b47f67df886272873832961ebbe}} 
+\index{Config\+Helper@{Config\+Helper}!device@{device}}
+\index{device@{device}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{device}{device}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_dev_spec}{Dev\+Spec}} Config\+Helper\+::device\mbox{[}2\mbox{]}}
+
+
+
+所有的属性值都储存在这里，每次使用时都调用helper类，才能保证设置的生效的实时性。 
+
+
+
+Definition at line 59 of file confighelper.\+h.
+
+\mbox{\Hypertarget{class_config_helper_a9421d72089dd1d661f26c19af219e859}\label{class_config_helper_a9421d72089dd1d661f26c19af219e859}} 
+\index{Config\+Helper@{Config\+Helper}!launch\+At\+Login@{launch\+At\+Login}}
+\index{launch\+At\+Login@{launch\+At\+Login}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{launch\+At\+Login}{launchAtLogin}}
+{\footnotesize\ttfamily bool Config\+Helper\+::launch\+At\+Login}
+
+
+
+Definition at line 55 of file confighelper.\+h.
+
+\mbox{\Hypertarget{class_config_helper_ad0a8c52dccf3495d3d52bf97045588a0}\label{class_config_helper_ad0a8c52dccf3495d3d52bf97045588a0}} 
+\index{Config\+Helper@{Config\+Helper}!match\+Mask\+Inner\+Ratio@{match\+Mask\+Inner\+Ratio}}
+\index{match\+Mask\+Inner\+Ratio@{match\+Mask\+Inner\+Ratio}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{match\+Mask\+Inner\+Ratio}{matchMaskInnerRatio}}
+{\footnotesize\ttfamily double Config\+Helper\+::match\+Mask\+Inner\+Ratio}
+
+
+
+匹配时，抠出的内圆半径占车轮的比例 
+
+
+
+Definition at line 62 of file confighelper.\+h.
+
+\mbox{\Hypertarget{class_config_helper_ae04fa487fbc7ee5b5e247d8330021115}\label{class_config_helper_ae04fa487fbc7ee5b5e247d8330021115}} 
+\index{Config\+Helper@{Config\+Helper}!match\+Mask\+Outer\+Ratio@{match\+Mask\+Outer\+Ratio}}
+\index{match\+Mask\+Outer\+Ratio@{match\+Mask\+Outer\+Ratio}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{match\+Mask\+Outer\+Ratio}{matchMaskOuterRatio}}
+{\footnotesize\ttfamily double Config\+Helper\+::match\+Mask\+Outer\+Ratio}
+
+
+
+匹配时，抠出的外圆半径占车轮的比例 
+
+
+
+Definition at line 63 of file confighelper.\+h.
+
+\mbox{\Hypertarget{class_config_helper_abe47a6249acafc7dfd993df31946b1b1}\label{class_config_helper_abe47a6249acafc7dfd993df31946b1b1}} 
+\index{Config\+Helper@{Config\+Helper}!pc2plc\+\_\+port\+Name@{pc2plc\+\_\+port\+Name}}
+\index{pc2plc\+\_\+port\+Name@{pc2plc\+\_\+port\+Name}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{pc2plc\+\_\+port\+Name}{pc2plc\_portName}}
+{\footnotesize\ttfamily Q\+String Config\+Helper\+::pc2plc\+\_\+port\+Name}
+
+
+
+Definition at line 61 of file confighelper.\+h.
+
+\mbox{\Hypertarget{class_config_helper_a959b2ee878bc13961b7b75de2c7954cf}\label{class_config_helper_a959b2ee878bc13961b7b75de2c7954cf}} 
+\index{Config\+Helper@{Config\+Helper}!start\+At\+Launch@{start\+At\+Launch}}
+\index{start\+At\+Launch@{start\+At\+Launch}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{start\+At\+Launch}{startAtLaunch}}
+{\footnotesize\ttfamily bool Config\+Helper\+::start\+At\+Launch}
+
+
+
+alias click \char`\"{}start\char`\"{} after launch this app 
+
+
+
+Definition at line 56 of file confighelper.\+h.
+
+\mbox{\Hypertarget{class_config_helper_a76b3bf0b3940128f7dfd2e5fb84983fc}\label{class_config_helper_a76b3bf0b3940128f7dfd2e5fb84983fc}} 
+\index{Config\+Helper@{Config\+Helper}!verbose\+Log@{verbose\+Log}}
+\index{verbose\+Log@{verbose\+Log}!Config\+Helper@{Config\+Helper}}
+\subsubsection{\texorpdfstring{verbose\+Log}{verboseLog}}
+{\footnotesize\ttfamily bool Config\+Helper\+::verbose\+Log}
+
+
+
+record verbose log 
+
+
+
+Definition at line 57 of file confighelper.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{confighelper_8h}{confighelper.\+h}}\item 
+sources/\mbox{\hyperlink{confighelper_8cpp}{confighelper.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_sensor_device" kind="class" language="C++" prot="public">
+    <compoundname>SensorDevice</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="_sensor_device_8h" local="no">SensorDevice.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_sensor_device_1a229042a02989323d6388dd6037a35384" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SensorDevice::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="63" column="1" bodyfile="sources/SensorDevice.h" bodystart="63" bodyend="-1"/>
+        <referencedby refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" compoundref="_sensor_device_8cpp" startline="104" endline="112">CkPt::CkPt</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_sensor_device_1a413a879ab20b538cff7ec754ca8f552d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SensorDevice::m_id</definition>
+        <argsstring></argsstring>
+        <name>m_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="64" column="1" bodyfile="sources/SensorDevice.h" bodystart="64" bodyend="-1"/>
+        <referencedby refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" compoundref="_sensor_device_8cpp" startline="9" endline="16">SensorDevice</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_sensor_device_1add21fbc076ecbe5b4de479b426ad29bd" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString SensorDevice::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="65" column="1" bodyfile="sources/SensorDevice.h" bodystart="65" bodyend="-1"/>
+        <referencedby refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" compoundref="_sensor_device_8cpp" startline="9" endline="16">SensorDevice</referencedby>
+        <referencedby refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" compoundref="_sensor_device_8cpp" startline="140" endline="149">CkPt::isEnter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_sensor_device_1a86e56e6e908524cd1c27425f74b173a4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SensorDevice::needHandled</definition>
+        <argsstring></argsstring>
+        <name>needHandled</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="68" column="1" bodyfile="sources/SensorDevice.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" prot="public" static="no" mutable="no">
+        <type>QList&lt; <ref refid="class_ck_pt" kindref="compound">CkPt</ref> * &gt;</type>
+        <definition>QList&lt;CkPt*&gt; SensorDevice::ckpts</definition>
+        <argsstring></argsstring>
+        <name>ckpts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="72" column="1" bodyfile="sources/SensorDevice.h" bodystart="72" bodyend="-1"/>
+        <referencedby refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" compoundref="_handle_sensor_device_8cpp" startline="22" endline="57">HandleSensorDevice::io2dev</referencedby>
+        <referencedby refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" compoundref="_handle_sensor_device_8cpp" startline="59" endline="74">HandleSensorDevice::checkTri</referencedby>
+        <referencedby refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" compoundref="_handle_sensor_device_8cpp" startline="114" endline="120">HandleSensorDevice::newCkp</referencedby>
+        <referencedby refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" compoundref="_handle_sensor_device_8cpp" startline="122" endline="150">HandleSensorDevice::checkoutCkp</referencedby>
+        <referencedby refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" compoundref="_sensor_device_8cpp" startline="9" endline="16">SensorDevice</referencedby>
+        <referencedby refid="class_sensor_device_1a3b67e95ea619719648481f76c2ae1b18" compoundref="_sensor_device_8cpp" startline="28" endline="33">newWheel</referencedby>
+        <referencedby refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" compoundref="_sensor_device_8cpp" startline="35" endline="41">init</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" prot="public" static="yes" mutable="no">
+        <type>const QStringList</type>
+        <definition>const QStringList SensorDevice::names</definition>
+        <argsstring></argsstring>
+        <name>names</name>
+        <initializer>{ &quot;outer&quot;, &quot;inner&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="70" column="1" bodyfile="sources/SensorDevice.h" bodystart="70" bodyend="-1"/>
+        <referencedby refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" compoundref="_sensor_device_8cpp" startline="9" endline="16">SensorDevice</referencedby>
+        <referencedby refid="class_sensor_device_1ac71d0c34ea8d46a135299f14d56f71e8" compoundref="_sensor_device_8cpp" startline="19" endline="26">createAll</referencedby>
+        <referencedby refid="class_sensor_device_1a0ae6c95bcdc8d5666a8dd9900d85196d" compoundref="_sensor_device_8h" startline="69" endline="69">indexOf</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SensorDevice::SensorDevice</definition>
+        <argsstring>(int _id, QObject *parent)</argsstring>
+        <name>SensorDevice</name>
+        <param>
+          <type>int</type>
+          <declname>_id</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="62" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="9" bodyend="16"/>
+        <references refid="class_sensor_device_1add21fbc076ecbe5b4de479b426ad29bd" compoundref="_sensor_device_8h" startline="65">name</references>
+        <references refid="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" compoundref="_sensor_device_8h" startline="70">names</references>
+        <references refid="class_sensor_device_1a413a879ab20b538cff7ec754ca8f552d" compoundref="_sensor_device_8h" startline="64">m_id</references>
+        <references refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" compoundref="_sensor_device_8h" startline="72">ckpts</references>
+        <references refid="class_ck_pt_1a3b438c401be7fd57da84a6c09220592f" compoundref="_sensor_device_8cpp" startline="114" endline="121">CkPt::creatAll</references>
+      </memberdef>
+      <memberdef kind="function" id="class_sensor_device_1a3b67e95ea619719648481f76c2ae1b18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SensorDevice::newWheel</definition>
+        <argsstring>()</argsstring>
+        <name>newWheel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="74" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="28" bodyend="33"/>
+        <references refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" compoundref="_sensor_device_8h" startline="72">ckpts</references>
+        <referencedby refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" compoundref="_sensor_device_8cpp" startline="35" endline="41">init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SensorDevice::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="75" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="35" bodyend="41"/>
+        <references refid="class_sensor_device_1a3b67e95ea619719648481f76c2ae1b18" compoundref="_sensor_device_8cpp" startline="28" endline="33">newWheel</references>
+        <references refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" compoundref="_sensor_device_8h" startline="72">ckpts</references>
+        <referencedby refid="class_plc_1a53d31f51484e39fc320b02be053de157" compoundref="_plc_8cpp" startline="82" endline="95">Plc::start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_sensor_device_1a86594b84858de9265f533c26af206b4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SensorDevice::~SensorDevice</definition>
+        <argsstring>()</argsstring>
+        <name>~SensorDevice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="76" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="43" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_sensor_device_1a0ae6c95bcdc8d5666a8dd9900d85196d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int SensorDevice::indexOf</definition>
+        <argsstring>(QString _name)</argsstring>
+        <name>indexOf</name>
+        <param>
+          <type>QString</type>
+          <declname>_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="69" column="1" bodyfile="sources/SensorDevice.h" bodystart="69" bodyend="69"/>
+        <references refid="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" compoundref="_sensor_device_8h" startline="70">names</references>
+      </memberdef>
+      <memberdef kind="function" id="class_sensor_device_1ac71d0c34ea8d46a135299f14d56f71e8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="class_sensor_device" kindref="compound">SensorDevice</ref> * &gt;</type>
+        <definition>QList&lt; SensorDevice * &gt; SensorDevice::createAll</definition>
+        <argsstring>(QObject *parent)</argsstring>
+        <name>createAll</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+<para>创建所有的（内/外圈）设备，返回设备的列表 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="71" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="19" bodyend="26"/>
+        <references refid="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" compoundref="_sensor_device_8h" startline="70">names</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="113">
+        <label>QObject</label>
+      </node>
+      <node id="112">
+        <label>SensorDevice</label>
+        <link refid="class_sensor_device"/>
+        <childnode refid="113" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="115">
+        <label>QObject</label>
+      </node>
+      <node id="114">
+        <label>SensorDevice</label>
+        <link refid="class_sensor_device"/>
+        <childnode refid="115" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/SensorDevice.h" line="59" column="1" bodyfile="sources/SensorDevice.h" bodystart="59" bodyend="77"/>
+    <listofallmembers>
+      <member refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>ckpts</name></member>
+      <member refid="class_sensor_device_1ac71d0c34ea8d46a135299f14d56f71e8" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>createAll</name></member>
+      <member refid="class_sensor_device_1a229042a02989323d6388dd6037a35384" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>id</name></member>
+      <member refid="class_sensor_device_1a0ae6c95bcdc8d5666a8dd9900d85196d" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>indexOf</name></member>
+      <member refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>init</name></member>
+      <member refid="class_sensor_device_1a413a879ab20b538cff7ec754ca8f552d" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>m_id</name></member>
+      <member refid="class_sensor_device_1add21fbc076ecbe5b4de479b426ad29bd" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>name</name></member>
+      <member refid="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>names</name></member>
+      <member refid="class_sensor_device_1a86e56e6e908524cd1c27425f74b173a4" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>needHandled</name></member>
+      <member refid="class_sensor_device_1a3b67e95ea619719648481f76c2ae1b18" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>newWheel</name></member>
+      <member refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>SensorDevice</name></member>
+      <member refid="class_sensor_device_1a86594b84858de9265f533c26af206b4a" prot="public" virt="non-virtual"><scope>SensorDevice</scope><name>~SensorDevice</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

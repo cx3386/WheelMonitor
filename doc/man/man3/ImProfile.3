@@ -1,0 +1,137 @@
+.TH "ImProfile" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ImProfile
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <improfile\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBImProfile\fP ()=default"
+.br
+.ti -1c
+.RI "\fBImProfile\fP (int &framInterv)"
+.br
+.ti -1c
+.RI "double \fBangle2Speed\fP () const"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBwarningRatio\fP = 0\&.05"
+.br
+.ti -1c
+.RI "double \fBalarmRatio\fP = 0\&.10"
+.br
+.ti -1c
+.RI "int \fBradius_min\fP = 250"
+.br
+.ti -1c
+.RI "int \fBradius_max\fP = 200"
+.br
+.ti -1c
+.RI "int \fBgs1\fP = 9"
+.br
+.ti -1c
+.RI "int \fBgs2\fP = 9"
+.br
+.ti -1c
+.RI "double \fBdp\fP = 2"
+.br
+.ti -1c
+.RI "double \fBminDist\fP = 180"
+.br
+.ti -1c
+.RI "double \fBparam1\fP = 200"
+.br
+.RI "maxVal of Canny "
+.ti -1c
+.RI "double \fBparam2\fP = 100"
+.br
+.ti -1c
+.RI "bool \fBsensorTriggered\fP = false"
+.br
+.ti -1c
+.RI "cv::Rect \fBroiRect\fP = cv::Rect(220, 0, 800, 720)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 4 of file improfile\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ImProfile::ImProfile ()\fC [default]\fP"
+
+.SS "ImProfile::ImProfile (int & framInterv)\fC [inline]\fP"
+
+.PP
+Definition at line 11 of file improfile\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "double ImProfile::angle2Speed () const\fC [inline]\fP"
+
+.PP
+Definition at line 12 of file improfile\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "double ImProfile::alarmRatio = 0\&.10"
+
+.PP
+Definition at line 14 of file improfile\&.h\&.
+.SS "double ImProfile::dp = 2"
+
+.PP
+Definition at line 19 of file improfile\&.h\&.
+.SS "int ImProfile::gs1 = 9"
+
+.PP
+Definition at line 17 of file improfile\&.h\&.
+.SS "int ImProfile::gs2 = 9"
+
+.PP
+Definition at line 18 of file improfile\&.h\&.
+.SS "double ImProfile::minDist = 180"
+
+.PP
+Definition at line 20 of file improfile\&.h\&.
+.SS "double ImProfile::param1 = 200"
+
+.PP
+maxVal of Canny 
+.PP
+Definition at line 21 of file improfile\&.h\&.
+.SS "double ImProfile::param2 = 100"
+
+.PP
+Definition at line 22 of file improfile\&.h\&.
+.SS "int ImProfile::radius_max = 200"
+
+.PP
+Definition at line 16 of file improfile\&.h\&.
+.SS "int ImProfile::radius_min = 250"
+
+.PP
+Definition at line 15 of file improfile\&.h\&.
+.SS "cv::Rect ImProfile::roiRect = cv::Rect(220, 0, 800, 720)"
+
+.PP
+Definition at line 24 of file improfile\&.h\&.
+.SS "bool ImProfile::sensorTriggered = false"
+
+.PP
+Definition at line 23 of file improfile\&.h\&.
+.SS "double ImProfile::warningRatio = 0\&.05"
+
+.PP
+Definition at line 13 of file improfile\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

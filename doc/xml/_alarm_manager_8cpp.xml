@@ -1,0 +1,1447 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_alarm_manager_8cpp" kind="file" language="C++">
+    <compoundname>AlarmManager.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="_alarm_manager_8h" local="yes">AlarmManager.h</includes>
+    <includes local="no">QDebug</includes>
+    <incdepgraph>
+      <node id="32">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="27">
+        <label>QObject</label>
+      </node>
+      <node id="25">
+        <label>AlarmEvent.h</label>
+        <link refid="_alarm_event_8h"/>
+      </node>
+      <node id="38">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+      <node id="30">
+        <label>HandleSensorDevice.h</label>
+        <link refid="_handle_sensor_device_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Plc.h</label>
+        <link refid="_plc_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="24">
+        <label>AlarmManager.h</label>
+        <link refid="_alarm_manager_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>mainwindow.h</label>
+        <link refid="mainwindow_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>ui_mainwindow.h</label>
+      </node>
+      <node id="44">
+        <label>QDebug</label>
+      </node>
+      <node id="31">
+        <label>SensorDevice.h</label>
+        <link refid="_sensor_device_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>ocr.h</label>
+        <link refid="ocr_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>QWidget</label>
+      </node>
+      <node id="42">
+        <label>playbackwidget.h</label>
+        <link refid="playbackwidget_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>QString</label>
+      </node>
+      <node id="41">
+        <label>QtWidgets/QMainWindow</label>
+      </node>
+      <node id="21">
+        <label>sources/AlarmManager.cpp</label>
+        <link refid="_alarm_manager_8cpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>QtWidgets</label>
+      </node>
+      <node id="34">
+        <label>database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>imageprocess.h</label>
+        <link refid="imageprocess_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>QtSql</label>
+      </node>
+      <node id="22">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_alarm_manager_8h" kindref="compound">AlarmManager.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDebug&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//using<sp/>namespace<sp/>std;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_alarm_manager_1a8be4a4a110ea823811eea0c580021f55" refkind="member"><highlight class="normal"><ref refid="class_alarm_manager_1a8be4a4a110ea823811eea0c580021f55" kindref="member">AlarmManager::AlarmManager</ref>(QObject*<sp/>parent)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_alarm_manager_1a06c4f8aa74bd546b62326708aaf15982" refkind="member"><highlight class="normal"><ref refid="class_alarm_manager_1a06c4f8aa74bd546b62326708aaf15982" kindref="member">AlarmManager::~AlarmManager</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" kindref="member">AlarmManager::bindPLC</ref>(<ref refid="class_plc" kindref="compound">Plc</ref>*<sp/>plc)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>m_plc<sp/>=<sp/>plc;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//由PLC的CIO100发出中控报警</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1a9ae0da0b1353484b71987214c1245668" kindref="member">AlarmManager::hardAlarmToPlc</ref>,<sp/>plc,<sp/>&amp;<ref refid="class_plc_1abf51268db3f1eca2b9bb139bf75b83d9" kindref="member">Plc::sendAlarmToControlCenter</ref>);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//接受PLC的设备故障（断线、传感器故障）信号 <sp/><sp/>//<sp/>修改：断线、传感器故障直接LOG，传感器故障还显示在UI的PLC<sp/>DOCK中
+<sp/><sp/><sp/>//接收PLC的掉轮报警信号
+<sp/><sp/><sp/>connect(plc-&gt;handleSensorDevice[0],<sp/>&amp;HandleSensorDevice::wheelFallOff,<sp/>this,<sp/>[=](int<sp/>pos)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>onHardwareAlarm(HardwareAlarmEvent::Outer_Alarm);
+<sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>&quot;wheel<sp/>fall<sp/>off!<sp/>num:&quot;<sp/>&lt;&lt;<sp/>pos;<sp/>});
+<sp/><sp/>connect(plc-&gt;handleSensorDevice[1],<sp/>&amp;HandleSensorDevice::wheelFallOff,<sp/>this,<sp/>[=](int<sp/>pos)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>onHardwareAlarm(HardwareAlarmEvent::Inner_Alarm);
+<sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>&quot;wheel<sp/>fall<sp/>off!<sp/>num&quot;<sp/>&lt;&lt;<sp/>pos;<sp/>});
+}
+
+void<sp/>AlarmManager::bindImProc(ImageProcess*<sp/>imp)
+{
+<sp/>//<sp/>接受插入数据库信号
+<sp/><sp/><sp/>connect(imp,<sp/>&amp;ImageProcess::wheelNeedHandled,<sp/>this,<sp/>&amp;AlarmManager::checkoutWheelToDb);
+}
+
+void<sp/>AlarmManager::bindMainWindow(MainWindow*<sp/>mainwindow)
+{
+<sp/><sp/>m_mainWindow<sp/>=<sp/>mainwindow;
+<sp/>connect(this,<sp/>&amp;AlarmManager::showSpeed_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowSpeed_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showNum_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowNum_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showError_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowError_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showSpeed_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowSpeed_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showNum_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowNum_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showError_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowError_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showCio100ToUi,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowCio100);
+<sp/><sp/><sp/>connect(this,<sp/>&amp;AlarmManager::showAlarmLightToUi,<sp/>mainwindow,<sp/>[=](int<sp/>cl)<sp/>{<sp/>mainwindow-&gt;uiShowAlarmLight((AlarmColor)cl);<sp/>});<sp/>//<sp/>将状态灯显示到UI
+<sp/><sp/><sp/>//<sp/>关闭软件时将报警清除-修改：除非手工重置，否则不清除报警
+<sp/><sp/>//connect(mainwindow,<sp/>MainWindow::closeWindow，this,<sp/>AlarmManager::clearAllAlarm<sp/>);
+}
+
+void<sp/>AlarmManager::bindPlayBack(PlayBackWidget*<sp/>pb)
+{
+<sp/><sp/><sp/>//<sp/>只通过故障处理界面清除报警
+<sp/><sp/><sp/><sp/>if<sp/>(m_mainWindow<sp/>!=<sp/>nullptr)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>connect(pb,<sp/>&amp;PlayBackWidget::clearAlarm,<sp/>this,<sp/>[=]()<sp/>{<sp/>m_mainWindow-&gt;uiShowAlarmLight(AlarmColor::Green);<sp/>});
+<sp/><sp/>}
+<sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>qFatal(&quot;no<sp/>create<sp/>playbackWidget.&quot;);
+<sp/><sp/><sp/>}
+}
+
+//!<sp/>当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警
+void<sp/>AlarmManager::onHardwareAlarm(HardwareAlarmEvent<sp/>ev)
+{
+<sp/><sp/><sp/><sp/>switch<sp/>(ev)<sp/>{
+<sp/><sp/>case<sp/>HardwareAlarmEvent::Reset:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Outer_Warn:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>4;<sp/>//CIO<sp/>100.04<sp/>out<sp/>warn
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Outer_Alarm:
+<sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>5;<sp/>//CIO<sp/>100.05<sp/>out<sp/>alarm
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Inner_Warn:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>6;<sp/>//CIO<sp/>100.06<sp/>in<sp/>warn
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Inner_Alarm:
+<sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>7;<sp/>//CIO<sp/>100.07<sp/>in<sp/>alarm
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:<sp/>//<sp/>not<sp/>do<sp/>anything
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;overflow&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>emit<sp/>showCio100ToUi(currentCio100);
+<sp/><sp/><sp/><sp/>emit<sp/>hardAlarmToPlc(currentCio100);
+<sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+}
+
+//!<sp/>根据车轮的警报等级向报警处理类发出信号
+void<sp/>AlarmManager::checkoutWheelToDb(WheelDbInfo<sp/>info)
+{
+<sp/>//检测数据无效
+<sp/><sp/>if<sp/>(info.validmatch<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>该车轮上一次检测中无检测结果
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中无有效结果，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//该车轮上一次检测中有检测结果
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//检测数据有效，对结果进行报警判断
+<sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>double<sp/>error<sp/>=<sp/>fabs(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//在预警范围内
+<sp/><sp/><sp/><sp/><sp/>if<sp/>(error<sp/>&lt;=<sp/>info.warnRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//预警范围到报警范围之间
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(error<sp/>&lt;=<sp/>info.alarmRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果正常，或者没有有效数据，则预警
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出预警值，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果是预警或报警，则连续两次超出预警值，报警！
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中超出预警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//超出报警值
+<sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出报警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>/*<sp/>checkstate<sp/>*/
+<sp/><sp/><sp/>switch<sp/>(info.alarmlevel)<sp/>{
+<sp/>case<sp/>-2:
+<sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NeedCheck;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>-1:
+<sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NoNeedCheck;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>//界面显示
+<sp/><sp/><sp/><sp/>switch<sp/>(info.i_o)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_o(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_o(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_o(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_i(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_i(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_i(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>if<sp/>(!insertRecord(info))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;insert<sp/>record<sp/>failed&quot;;
+}
+
+bool<sp/>AlarmManager::insertRecord(WheelDbInfo<sp/>info)
+{
+<sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>wheels<sp/>(i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath)<sp/>VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);&quot;);
+<sp/><sp/>query.bindValue(&quot;:i_o&quot;,<sp/>QVariant(info.i_o));
+<sp/><sp/><sp/>query.bindValue(&quot;:num&quot;,<sp/>QVariant(info.num));
+<sp/><sp/><sp/>query.bindValue(&quot;:calcspeed&quot;,<sp/>QVariant(info.calcspeed));
+<sp/><sp/><sp/>query.bindValue(&quot;:refspeed&quot;,<sp/>QVariant(info.refspeed));
+<sp/>query.bindValue(&quot;:error&quot;,<sp/>QVariant(info.error));
+<sp/><sp/><sp/>query.bindValue(&quot;:time&quot;,<sp/>QVariant(info.time));
+<sp/>query.bindValue(&quot;:alarmlevel&quot;,<sp/>QVariant(info.alarmlevel));
+<sp/>query.bindValue(&quot;:checkstate&quot;,<sp/>QVariant(info.checkstate));
+<sp/>query.bindValue(&quot;:ocrsize&quot;,<sp/>QVariant(info.ocrsize));
+<sp/><sp/><sp/>query.bindValue(&quot;:fragment&quot;,<sp/>QVariant(info.fragment));
+<sp/>query.bindValue(&quot;:totalmatch&quot;,<sp/>QVariant(info.totalmatch));
+<sp/>query.bindValue(&quot;:validmatch&quot;,<sp/>QVariant(info.validmatch));
+<sp/>query.bindValue(&quot;:speeds&quot;,<sp/>QVariant(info.speeds));
+<sp/>query.bindValue(&quot;:videopath&quot;,<sp/>QVariant(info.videopath));
+<sp/><sp/><sp/>if<sp/>(!query.exec())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>text<sp/>=<sp/>query.lastError().text();
+<sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>text;
+<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>获取当前序号的车轮前一次检测的结果，如果无，返回正确
+int<sp/>AlarmManager::getPreCheckstate(QString<sp/>num)
+{
+<sp/><sp/><sp/><sp/>if<sp/>(num<sp/>==<sp/>OCR_MISS)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;SELECT<sp/>alarmlevel<sp/>FROM<sp/>wheels<sp/>WHERE<sp/>num=?<sp/>ORDER<sp/>BY<sp/>id<sp/>DESC&quot;);
+<sp/><sp/><sp/>query.bindValue(0,<sp/>QVariant(num));
+<sp/>query.exec();
+<sp/><sp/>int<sp/>idx<sp/>=<sp/>query.record().indexOf(&quot;alarmlevel&quot;);
+<sp/><sp/><sp/><sp/>if<sp/>(query.first())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>alarmlevel<sp/>=<sp/>query.value(idx).toInt();
+<sp/><sp/><sp/><sp/><sp/>return<sp/>alarmlevel;
+<sp/>}
+<sp/><sp/>return<sp/>0;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>修改：断线、传感器故障直接LOG，传感器故障还显示在UI的PLC<sp/>DOCK中</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//接收PLC的掉轮报警信号 <sp/><sp/><sp/>connect(plc-&gt;handleSensorDevice[0],<sp/>&amp;HandleSensorDevice::wheelFallOff,<sp/>this,<sp/>[=](int<sp/>pos)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>onHardwareAlarm(HardwareAlarmEvent::Outer_Alarm);
+<sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>&quot;wheel<sp/>fall<sp/>off!<sp/>num:&quot;<sp/>&lt;&lt;<sp/>pos;<sp/>});
+<sp/><sp/>connect(plc-&gt;handleSensorDevice[1],<sp/>&amp;HandleSensorDevice::wheelFallOff,<sp/>this,<sp/>[=](int<sp/>pos)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>onHardwareAlarm(HardwareAlarmEvent::Inner_Alarm);
+<sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>&quot;wheel<sp/>fall<sp/>off!<sp/>num&quot;<sp/>&lt;&lt;<sp/>pos;<sp/>});
+}
+
+void<sp/>AlarmManager::bindImProc(ImageProcess*<sp/>imp)
+{
+<sp/>//<sp/>接受插入数据库信号
+<sp/><sp/><sp/>connect(imp,<sp/>&amp;ImageProcess::wheelNeedHandled,<sp/>this,<sp/>&amp;AlarmManager::checkoutWheelToDb);
+}
+
+void<sp/>AlarmManager::bindMainWindow(MainWindow*<sp/>mainwindow)
+{
+<sp/><sp/>m_mainWindow<sp/>=<sp/>mainwindow;
+<sp/>connect(this,<sp/>&amp;AlarmManager::showSpeed_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowSpeed_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showNum_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowNum_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showError_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowError_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showSpeed_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowSpeed_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showNum_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowNum_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showError_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowError_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showCio100ToUi,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowCio100);
+<sp/><sp/><sp/>connect(this,<sp/>&amp;AlarmManager::showAlarmLightToUi,<sp/>mainwindow,<sp/>[=](int<sp/>cl)<sp/>{<sp/>mainwindow-&gt;uiShowAlarmLight((AlarmColor)cl);<sp/>});<sp/>//<sp/>将状态灯显示到UI
+<sp/><sp/><sp/>//<sp/>关闭软件时将报警清除-修改：除非手工重置，否则不清除报警
+<sp/><sp/>//connect(mainwindow,<sp/>MainWindow::closeWindow，this,<sp/>AlarmManager::clearAllAlarm<sp/>);
+}
+
+void<sp/>AlarmManager::bindPlayBack(PlayBackWidget*<sp/>pb)
+{
+<sp/><sp/><sp/>//<sp/>只通过故障处理界面清除报警
+<sp/><sp/><sp/><sp/>if<sp/>(m_mainWindow<sp/>!=<sp/>nullptr)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>connect(pb,<sp/>&amp;PlayBackWidget::clearAlarm,<sp/>this,<sp/>[=]()<sp/>{<sp/>m_mainWindow-&gt;uiShowAlarmLight(AlarmColor::Green);<sp/>});
+<sp/><sp/>}
+<sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>qFatal(&quot;no<sp/>create<sp/>playbackWidget.&quot;);
+<sp/><sp/><sp/>}
+}
+
+//!<sp/>当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警
+void<sp/>AlarmManager::onHardwareAlarm(HardwareAlarmEvent<sp/>ev)
+{
+<sp/><sp/><sp/><sp/>switch<sp/>(ev)<sp/>{
+<sp/><sp/>case<sp/>HardwareAlarmEvent::Reset:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Outer_Warn:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>4;<sp/>//CIO<sp/>100.04<sp/>out<sp/>warn
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Outer_Alarm:
+<sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>5;<sp/>//CIO<sp/>100.05<sp/>out<sp/>alarm
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Inner_Warn:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>6;<sp/>//CIO<sp/>100.06<sp/>in<sp/>warn
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Inner_Alarm:
+<sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>7;<sp/>//CIO<sp/>100.07<sp/>in<sp/>alarm
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:<sp/>//<sp/>not<sp/>do<sp/>anything
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;overflow&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>emit<sp/>showCio100ToUi(currentCio100);
+<sp/><sp/><sp/><sp/>emit<sp/>hardAlarmToPlc(currentCio100);
+<sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+}
+
+//!<sp/>根据车轮的警报等级向报警处理类发出信号
+void<sp/>AlarmManager::checkoutWheelToDb(WheelDbInfo<sp/>info)
+{
+<sp/>//检测数据无效
+<sp/><sp/>if<sp/>(info.validmatch<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>该车轮上一次检测中无检测结果
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中无有效结果，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//该车轮上一次检测中有检测结果
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//检测数据有效，对结果进行报警判断
+<sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>double<sp/>error<sp/>=<sp/>fabs(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//在预警范围内
+<sp/><sp/><sp/><sp/><sp/>if<sp/>(error<sp/>&lt;=<sp/>info.warnRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//预警范围到报警范围之间
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(error<sp/>&lt;=<sp/>info.alarmRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果正常，或者没有有效数据，则预警
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出预警值，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果是预警或报警，则连续两次超出预警值，报警！
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中超出预警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//超出报警值
+<sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出报警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>/*<sp/>checkstate<sp/>*/
+<sp/><sp/><sp/>switch<sp/>(info.alarmlevel)<sp/>{
+<sp/>case<sp/>-2:
+<sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NeedCheck;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>-1:
+<sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NoNeedCheck;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>//界面显示
+<sp/><sp/><sp/><sp/>switch<sp/>(info.i_o)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_o(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_o(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_o(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_i(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_i(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_i(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>if<sp/>(!insertRecord(info))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;insert<sp/>record<sp/>failed&quot;;
+}
+
+bool<sp/>AlarmManager::insertRecord(WheelDbInfo<sp/>info)
+{
+<sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>wheels<sp/>(i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath)<sp/>VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);&quot;);
+<sp/><sp/>query.bindValue(&quot;:i_o&quot;,<sp/>QVariant(info.i_o));
+<sp/><sp/><sp/>query.bindValue(&quot;:num&quot;,<sp/>QVariant(info.num));
+<sp/><sp/><sp/>query.bindValue(&quot;:calcspeed&quot;,<sp/>QVariant(info.calcspeed));
+<sp/><sp/><sp/>query.bindValue(&quot;:refspeed&quot;,<sp/>QVariant(info.refspeed));
+<sp/>query.bindValue(&quot;:error&quot;,<sp/>QVariant(info.error));
+<sp/><sp/><sp/>query.bindValue(&quot;:time&quot;,<sp/>QVariant(info.time));
+<sp/>query.bindValue(&quot;:alarmlevel&quot;,<sp/>QVariant(info.alarmlevel));
+<sp/>query.bindValue(&quot;:checkstate&quot;,<sp/>QVariant(info.checkstate));
+<sp/>query.bindValue(&quot;:ocrsize&quot;,<sp/>QVariant(info.ocrsize));
+<sp/><sp/><sp/>query.bindValue(&quot;:fragment&quot;,<sp/>QVariant(info.fragment));
+<sp/>query.bindValue(&quot;:totalmatch&quot;,<sp/>QVariant(info.totalmatch));
+<sp/>query.bindValue(&quot;:validmatch&quot;,<sp/>QVariant(info.validmatch));
+<sp/>query.bindValue(&quot;:speeds&quot;,<sp/>QVariant(info.speeds));
+<sp/>query.bindValue(&quot;:videopath&quot;,<sp/>QVariant(info.videopath));
+<sp/><sp/><sp/>if<sp/>(!query.exec())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>text<sp/>=<sp/>query.lastError().text();
+<sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>text;
+<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>获取当前序号的车轮前一次检测的结果，如果无，返回正确
+int<sp/>AlarmManager::getPreCheckstate(QString<sp/>num)
+{
+<sp/><sp/><sp/><sp/>if<sp/>(num<sp/>==<sp/>OCR_MISS)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;SELECT<sp/>alarmlevel<sp/>FROM<sp/>wheels<sp/>WHERE<sp/>num=?<sp/>ORDER<sp/>BY<sp/>id<sp/>DESC&quot;);
+<sp/><sp/><sp/>query.bindValue(0,<sp/>QVariant(num));
+<sp/>query.exec();
+<sp/><sp/>int<sp/>idx<sp/>=<sp/>query.record().indexOf(&quot;alarmlevel&quot;);
+<sp/><sp/><sp/><sp/>if<sp/>(query.first())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>alarmlevel<sp/>=<sp/>query.value(idx).toInt();
+<sp/><sp/><sp/><sp/><sp/>return<sp/>alarmlevel;
+<sp/>}
+<sp/><sp/>return<sp/>0;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(plc-&gt;<ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[0],<sp/>&amp;<ref refid="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d" kindref="member">HandleSensorDevice::wheelFallOff</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pos)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>onHardwareAlarm(HardwareAlarmEvent::Outer_Alarm);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;wheel<sp/>fall<sp/>off!<sp/>num:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>pos;<sp/>});</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(plc-&gt;<ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[1],<sp/>&amp;<ref refid="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d" kindref="member">HandleSensorDevice::wheelFallOff</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pos)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>onHardwareAlarm(HardwareAlarmEvent::Inner_Alarm);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;wheel<sp/>fall<sp/>off!<sp/>num&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>pos;<sp/>});</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="class_alarm_manager_1a20ebd74c084d24347a61aa8490f21cbf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_alarm_manager_1a20ebd74c084d24347a61aa8490f21cbf" kindref="member">AlarmManager::bindImProc</ref>(<ref refid="class_image_process" kindref="compound">ImageProcess</ref>*<sp/>imp)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>接受插入数据库信号 <sp/><sp/><sp/>connect(imp,<sp/>&amp;ImageProcess::wheelNeedHandled,<sp/>this,<sp/>&amp;AlarmManager::checkoutWheelToDb);
+}
+
+void<sp/>AlarmManager::bindMainWindow(MainWindow*<sp/>mainwindow)
+{
+<sp/><sp/>m_mainWindow<sp/>=<sp/>mainwindow;
+<sp/>connect(this,<sp/>&amp;AlarmManager::showSpeed_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowSpeed_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showNum_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowNum_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showError_o,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowError_o);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showSpeed_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowSpeed_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showNum_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowNum_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showError_i,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowError_i);
+<sp/>connect(this,<sp/>&amp;AlarmManager::showCio100ToUi,<sp/>mainwindow,<sp/>&amp;MainWindow::uiShowCio100);
+<sp/><sp/><sp/>connect(this,<sp/>&amp;AlarmManager::showAlarmLightToUi,<sp/>mainwindow,<sp/>[=](int<sp/>cl)<sp/>{<sp/>mainwindow-&gt;uiShowAlarmLight((AlarmColor)cl);<sp/>});<sp/>//<sp/>将状态灯显示到UI
+<sp/><sp/><sp/>//<sp/>关闭软件时将报警清除-修改：除非手工重置，否则不清除报警
+<sp/><sp/>//connect(mainwindow,<sp/>MainWindow::closeWindow，this,<sp/>AlarmManager::clearAllAlarm<sp/>);
+}
+
+void<sp/>AlarmManager::bindPlayBack(PlayBackWidget*<sp/>pb)
+{
+<sp/><sp/><sp/>//<sp/>只通过故障处理界面清除报警
+<sp/><sp/><sp/><sp/>if<sp/>(m_mainWindow<sp/>!=<sp/>nullptr)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>connect(pb,<sp/>&amp;PlayBackWidget::clearAlarm,<sp/>this,<sp/>[=]()<sp/>{<sp/>m_mainWindow-&gt;uiShowAlarmLight(AlarmColor::Green);<sp/>});
+<sp/><sp/>}
+<sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>qFatal(&quot;no<sp/>create<sp/>playbackWidget.&quot;);
+<sp/><sp/><sp/>}
+}
+
+//!<sp/>当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警
+void<sp/>AlarmManager::onHardwareAlarm(HardwareAlarmEvent<sp/>ev)
+{
+<sp/><sp/><sp/><sp/>switch<sp/>(ev)<sp/>{
+<sp/><sp/>case<sp/>HardwareAlarmEvent::Reset:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Outer_Warn:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>4;<sp/>//CIO<sp/>100.04<sp/>out<sp/>warn
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Outer_Alarm:
+<sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>5;<sp/>//CIO<sp/>100.05<sp/>out<sp/>alarm
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Inner_Warn:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>6;<sp/>//CIO<sp/>100.06<sp/>in<sp/>warn
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>HardwareAlarmEvent::Inner_Alarm:
+<sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>7;<sp/>//CIO<sp/>100.07<sp/>in<sp/>alarm
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:<sp/>//<sp/>not<sp/>do<sp/>anything
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;overflow&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>emit<sp/>showCio100ToUi(currentCio100);
+<sp/><sp/><sp/><sp/>emit<sp/>hardAlarmToPlc(currentCio100);
+<sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+}
+
+//!<sp/>根据车轮的警报等级向报警处理类发出信号
+void<sp/>AlarmManager::checkoutWheelToDb(WheelDbInfo<sp/>info)
+{
+<sp/>//检测数据无效
+<sp/><sp/>if<sp/>(info.validmatch<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>该车轮上一次检测中无检测结果
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中无有效结果，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//该车轮上一次检测中有检测结果
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//检测数据有效，对结果进行报警判断
+<sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>double<sp/>error<sp/>=<sp/>fabs(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//在预警范围内
+<sp/><sp/><sp/><sp/><sp/>if<sp/>(error<sp/>&lt;=<sp/>info.warnRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//预警范围到报警范围之间
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(error<sp/>&lt;=<sp/>info.alarmRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果正常，或者没有有效数据，则预警
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出预警值，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果是预警或报警，则连续两次超出预警值，报警！
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中超出预警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//超出报警值
+<sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出报警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>/*<sp/>checkstate<sp/>*/
+<sp/><sp/><sp/>switch<sp/>(info.alarmlevel)<sp/>{
+<sp/>case<sp/>-2:
+<sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NeedCheck;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>-1:
+<sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NoNeedCheck;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>//界面显示
+<sp/><sp/><sp/><sp/>switch<sp/>(info.i_o)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_o(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_o(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_o(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_i(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_i(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_i(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>if<sp/>(!insertRecord(info))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;insert<sp/>record<sp/>failed&quot;;
+}
+
+bool<sp/>AlarmManager::insertRecord(WheelDbInfo<sp/>info)
+{
+<sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>wheels<sp/>(i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath)<sp/>VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);&quot;);
+<sp/><sp/>query.bindValue(&quot;:i_o&quot;,<sp/>QVariant(info.i_o));
+<sp/><sp/><sp/>query.bindValue(&quot;:num&quot;,<sp/>QVariant(info.num));
+<sp/><sp/><sp/>query.bindValue(&quot;:calcspeed&quot;,<sp/>QVariant(info.calcspeed));
+<sp/><sp/><sp/>query.bindValue(&quot;:refspeed&quot;,<sp/>QVariant(info.refspeed));
+<sp/>query.bindValue(&quot;:error&quot;,<sp/>QVariant(info.error));
+<sp/><sp/><sp/>query.bindValue(&quot;:time&quot;,<sp/>QVariant(info.time));
+<sp/>query.bindValue(&quot;:alarmlevel&quot;,<sp/>QVariant(info.alarmlevel));
+<sp/>query.bindValue(&quot;:checkstate&quot;,<sp/>QVariant(info.checkstate));
+<sp/>query.bindValue(&quot;:ocrsize&quot;,<sp/>QVariant(info.ocrsize));
+<sp/><sp/><sp/>query.bindValue(&quot;:fragment&quot;,<sp/>QVariant(info.fragment));
+<sp/>query.bindValue(&quot;:totalmatch&quot;,<sp/>QVariant(info.totalmatch));
+<sp/>query.bindValue(&quot;:validmatch&quot;,<sp/>QVariant(info.validmatch));
+<sp/>query.bindValue(&quot;:speeds&quot;,<sp/>QVariant(info.speeds));
+<sp/>query.bindValue(&quot;:videopath&quot;,<sp/>QVariant(info.videopath));
+<sp/><sp/><sp/>if<sp/>(!query.exec())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>text<sp/>=<sp/>query.lastError().text();
+<sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>text;
+<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>获取当前序号的车轮前一次检测的结果，如果无，返回正确
+int<sp/>AlarmManager::getPreCheckstate(QString<sp/>num)
+{
+<sp/><sp/><sp/><sp/>if<sp/>(num<sp/>==<sp/>OCR_MISS)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;SELECT<sp/>alarmlevel<sp/>FROM<sp/>wheels<sp/>WHERE<sp/>num=?<sp/>ORDER<sp/>BY<sp/>id<sp/>DESC&quot;);
+<sp/><sp/><sp/>query.bindValue(0,<sp/>QVariant(num));
+<sp/>query.exec();
+<sp/><sp/>int<sp/>idx<sp/>=<sp/>query.record().indexOf(&quot;alarmlevel&quot;);
+<sp/><sp/><sp/><sp/>if<sp/>(query.first())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>alarmlevel<sp/>=<sp/>query.value(idx).toInt();
+<sp/><sp/><sp/><sp/><sp/>return<sp/>alarmlevel;
+<sp/>}
+<sp/><sp/>return<sp/>0;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(imp,<sp/>&amp;<ref refid="class_image_process_1ad0f4f919d1704ac2e6416279fbde6aa0" kindref="member">ImageProcess::wheelNeedHandled</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;AlarmManager::checkoutWheelToDb);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" kindref="member">AlarmManager::bindMainWindow</ref>(<ref refid="class_main_window" kindref="compound">MainWindow</ref>*<sp/>mainwindow)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mainWindow<sp/>=<sp/>mainwindow;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1a512d4492a9c02ed1afea872e8e4fffb7" kindref="member">AlarmManager::showSpeed_o</ref>,<sp/>mainwindow,<sp/>&amp;<ref refid="class_main_window_1a56c37dd56a54c1e0e4cea19073bd2895" kindref="member">MainWindow::uiShowSpeed_o</ref>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1a5727c94eb5d81b236f0de7ab57daced1" kindref="member">AlarmManager::showNum_o</ref>,<sp/>mainwindow,<sp/>&amp;<ref refid="class_main_window_1a6b59764d9fff055d3a40148b5efe393c" kindref="member">MainWindow::uiShowNum_o</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1ad812d53580b9af78d53de719188ea327" kindref="member">AlarmManager::showError_o</ref>,<sp/>mainwindow,<sp/>&amp;<ref refid="class_main_window_1a08c36c996ee5b67ffbb4b0c5f1d18ea6" kindref="member">MainWindow::uiShowError_o</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1aab6cc4a610ba2f389bbab701b5d377cf" kindref="member">AlarmManager::showSpeed_i</ref>,<sp/>mainwindow,<sp/>&amp;<ref refid="class_main_window_1a0b254bab7ba45e2870484474a063afb2" kindref="member">MainWindow::uiShowSpeed_i</ref>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1a3b4d8431b71a981c3deb72836f5323c1" kindref="member">AlarmManager::showNum_i</ref>,<sp/>mainwindow,<sp/>&amp;<ref refid="class_main_window_1af5608598b812a3f37e52f9e68df10f52" kindref="member">MainWindow::uiShowNum_i</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1ab9895e76b0b6a0c4525c38a355c805c8" kindref="member">AlarmManager::showError_i</ref>,<sp/>mainwindow,<sp/>&amp;<ref refid="class_main_window_1a5af6ee21b93fe8660960c6e0ed9ca989" kindref="member">MainWindow::uiShowError_i</ref>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1a213979463b7f205ba09f095c4e318124" kindref="member">AlarmManager::showCio100ToUi</ref>,<sp/>mainwindow,<sp/>&amp;<ref refid="class_main_window_1a960ef266d511ed4e10820a3106d23e69" kindref="member">MainWindow::uiShowCio100</ref>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;<ref refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" kindref="member">AlarmManager::showAlarmLightToUi</ref>,<sp/>mainwindow,<sp/>[=](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cl)<sp/>{<sp/>mainwindow-&gt;<ref refid="class_main_window_1afa3fc9e034fa98830e87246246d73e0e" kindref="member">uiShowAlarmLight</ref>((<ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834" kindref="member">AlarmColor</ref>)cl);<sp/>});<sp/></highlight><highlight class="comment">//<sp/>将状态灯显示到UI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>关闭软件时将报警清除-修改：除非手工重置，否则不清除报警</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//connect(mainwindow,<sp/>MainWindow::closeWindow，this,<sp/>AlarmManager::clearAllAlarm<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="class_alarm_manager_1afcb1ab3d5f8f3e4c01227ab052bc520f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_alarm_manager_1afcb1ab3d5f8f3e4c01227ab052bc520f" kindref="member">AlarmManager::bindPlayBack</ref>(<ref refid="class_play_back_widget" kindref="compound">PlayBackWidget</ref>*<sp/>pb)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>只通过故障处理界面清除报警</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_mainWindow<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect(pb,<sp/>&amp;<ref refid="class_play_back_widget_1aeb734152a79a362eeeedcfc7bdc0dbd1" kindref="member">PlayBackWidget::clearAlarm</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{<sp/>m_mainWindow-&gt;<ref refid="class_main_window_1afa3fc9e034fa98830e87246246d73e0e" kindref="member">uiShowAlarmLight</ref>(<ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1" kindref="member">AlarmColor::Green</ref>);<sp/>});</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qFatal(</highlight><highlight class="stringliteral">&quot;no<sp/>create<sp/>playbackWidget.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="class_alarm_manager_1ac63fabcfc799aecf81f044d41bc7f3f4" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_alarm_manager_1ac63fabcfc799aecf81f044d41bc7f3f4" kindref="member">AlarmManager::onHardwareAlarm</ref>(<ref refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bc" kindref="member">HardwareAlarmEvent</ref><sp/>ev)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(ev)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d" kindref="member">HardwareAlarmEvent::Reset</ref>:</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46" kindref="member">HardwareAlarmEvent::Outer_Warn</ref>:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>4;<sp/></highlight><highlight class="comment">//CIO<sp/>100.04<sp/>out<sp/>warn</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf" kindref="member">HardwareAlarmEvent::Outer_Alarm</ref>:</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>5;<sp/></highlight><highlight class="comment">//CIO<sp/>100.05<sp/>out<sp/>alarm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02" kindref="member">HardwareAlarmEvent::Inner_Warn</ref>:</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>6;<sp/></highlight><highlight class="comment">//CIO<sp/>100.06<sp/>in<sp/>warn</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b" kindref="member">HardwareAlarmEvent::Inner_Alarm</ref>:</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentCio100<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>7;<sp/></highlight><highlight class="comment">//CIO<sp/>100.07<sp/>in<sp/>alarm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/></highlight><highlight class="comment">//<sp/>not<sp/>do<sp/>anything</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;overflow&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a213979463b7f205ba09f095c4e318124" kindref="member">showCio100ToUi</ref>(currentCio100);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a9ae0da0b1353484b71987214c1245668" kindref="member">hardAlarmToPlc</ref>(currentCio100);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" kindref="member">showAlarmLightToUi</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47" kindref="member">AlarmColor::Red</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AlarmManager::checkoutWheelToDb(<ref refid="struct_wheel_db_info" kindref="compound">WheelDbInfo</ref><sp/>info)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//检测数据无效</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info.<ref refid="struct_wheel_db_info_1a21d02e75169f0932fd742dfedd580173" kindref="member">validmatch</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.<ref refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" kindref="member">num</ref>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(lastAlarmLevel)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>-2:</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>-1:</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>该车轮上一次检测中无检测结果 <sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中无有效结果，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//该车轮上一次检测中有检测结果
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//检测数据有效，对结果进行报警判断
+<sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>double<sp/>error<sp/>=<sp/>fabs(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//在预警范围内
+<sp/><sp/><sp/><sp/><sp/>if<sp/>(error<sp/>&lt;=<sp/>info.warnRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//预警范围到报警范围之间
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(error<sp/>&lt;=<sp/>info.alarmRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果正常，或者没有有效数据，则预警
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出预警值，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果是预警或报警，则连续两次超出预警值，报警！
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中超出预警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//超出报警值
+<sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出报警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>/*<sp/>checkstate<sp/>*/
+<sp/><sp/><sp/>switch<sp/>(info.alarmlevel)<sp/>{
+<sp/>case<sp/>-2:
+<sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NeedCheck;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>-1:
+<sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NoNeedCheck;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>//界面显示
+<sp/><sp/><sp/><sp/>switch<sp/>(info.i_o)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_o(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_o(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_o(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_i(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_i(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_i(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>if<sp/>(!insertRecord(info))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;insert<sp/>record<sp/>failed&quot;;
+}
+
+bool<sp/>AlarmManager::insertRecord(WheelDbInfo<sp/>info)
+{
+<sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>wheels<sp/>(i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath)<sp/>VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);&quot;);
+<sp/><sp/>query.bindValue(&quot;:i_o&quot;,<sp/>QVariant(info.i_o));
+<sp/><sp/><sp/>query.bindValue(&quot;:num&quot;,<sp/>QVariant(info.num));
+<sp/><sp/><sp/>query.bindValue(&quot;:calcspeed&quot;,<sp/>QVariant(info.calcspeed));
+<sp/><sp/><sp/>query.bindValue(&quot;:refspeed&quot;,<sp/>QVariant(info.refspeed));
+<sp/>query.bindValue(&quot;:error&quot;,<sp/>QVariant(info.error));
+<sp/><sp/><sp/>query.bindValue(&quot;:time&quot;,<sp/>QVariant(info.time));
+<sp/>query.bindValue(&quot;:alarmlevel&quot;,<sp/>QVariant(info.alarmlevel));
+<sp/>query.bindValue(&quot;:checkstate&quot;,<sp/>QVariant(info.checkstate));
+<sp/>query.bindValue(&quot;:ocrsize&quot;,<sp/>QVariant(info.ocrsize));
+<sp/><sp/><sp/>query.bindValue(&quot;:fragment&quot;,<sp/>QVariant(info.fragment));
+<sp/>query.bindValue(&quot;:totalmatch&quot;,<sp/>QVariant(info.totalmatch));
+<sp/>query.bindValue(&quot;:validmatch&quot;,<sp/>QVariant(info.validmatch));
+<sp/>query.bindValue(&quot;:speeds&quot;,<sp/>QVariant(info.speeds));
+<sp/>query.bindValue(&quot;:videopath&quot;,<sp/>QVariant(info.videopath));
+<sp/><sp/><sp/>if<sp/>(!query.exec())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>text<sp/>=<sp/>query.lastError().text();
+<sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>text;
+<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>获取当前序号的车轮前一次检测的结果，如果无，返回正确
+int<sp/>AlarmManager::getPreCheckstate(QString<sp/>num)
+{
+<sp/><sp/><sp/><sp/>if<sp/>(num<sp/>==<sp/>OCR_MISS)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;SELECT<sp/>alarmlevel<sp/>FROM<sp/>wheels<sp/>WHERE<sp/>num=?<sp/>ORDER<sp/>BY<sp/>id<sp/>DESC&quot;);
+<sp/><sp/><sp/>query.bindValue(0,<sp/>QVariant(num));
+<sp/>query.exec();
+<sp/><sp/>int<sp/>idx<sp/>=<sp/>query.record().indexOf(&quot;alarmlevel&quot;);
+<sp/><sp/><sp/><sp/>if<sp/>(query.first())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>alarmlevel<sp/>=<sp/>query.value(idx).toInt();
+<sp/><sp/><sp/><sp/><sp/>return<sp/>alarmlevel;
+<sp/>}
+<sp/><sp/>return<sp/>0;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref><sp/>=<sp/>-2;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" kindref="member">showAlarmLightToUi</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8" kindref="member">AlarmColor::Yellow</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;本车轮连续两次检测中无有效结果，预警&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//该车轮上一次检测中有检测结果 <sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>-1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>//检测数据有效，对结果进行报警判断
+<sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>double<sp/>error<sp/>=<sp/>fabs(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//在预警范围内
+<sp/><sp/><sp/><sp/><sp/>if<sp/>(error<sp/>&lt;=<sp/>info.warnRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//预警范围到报警范围之间
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(error<sp/>&lt;=<sp/>info.alarmRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果正常，或者没有有效数据，则预警
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出预警值，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果是预警或报警，则连续两次超出预警值，报警！
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中超出预警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//超出报警值
+<sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出报警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>/*<sp/>checkstate<sp/>*/
+<sp/><sp/><sp/>switch<sp/>(info.alarmlevel)<sp/>{
+<sp/>case<sp/>-2:
+<sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NeedCheck;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>-1:
+<sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NoNeedCheck;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>//界面显示
+<sp/><sp/><sp/><sp/>switch<sp/>(info.i_o)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_o(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_o(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_o(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_i(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_i(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_i(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>if<sp/>(!insertRecord(info))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;insert<sp/>record<sp/>failed&quot;;
+}
+
+bool<sp/>AlarmManager::insertRecord(WheelDbInfo<sp/>info)
+{
+<sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>wheels<sp/>(i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath)<sp/>VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);&quot;);
+<sp/><sp/>query.bindValue(&quot;:i_o&quot;,<sp/>QVariant(info.i_o));
+<sp/><sp/><sp/>query.bindValue(&quot;:num&quot;,<sp/>QVariant(info.num));
+<sp/><sp/><sp/>query.bindValue(&quot;:calcspeed&quot;,<sp/>QVariant(info.calcspeed));
+<sp/><sp/><sp/>query.bindValue(&quot;:refspeed&quot;,<sp/>QVariant(info.refspeed));
+<sp/>query.bindValue(&quot;:error&quot;,<sp/>QVariant(info.error));
+<sp/><sp/><sp/>query.bindValue(&quot;:time&quot;,<sp/>QVariant(info.time));
+<sp/>query.bindValue(&quot;:alarmlevel&quot;,<sp/>QVariant(info.alarmlevel));
+<sp/>query.bindValue(&quot;:checkstate&quot;,<sp/>QVariant(info.checkstate));
+<sp/>query.bindValue(&quot;:ocrsize&quot;,<sp/>QVariant(info.ocrsize));
+<sp/><sp/><sp/>query.bindValue(&quot;:fragment&quot;,<sp/>QVariant(info.fragment));
+<sp/>query.bindValue(&quot;:totalmatch&quot;,<sp/>QVariant(info.totalmatch));
+<sp/>query.bindValue(&quot;:validmatch&quot;,<sp/>QVariant(info.validmatch));
+<sp/>query.bindValue(&quot;:speeds&quot;,<sp/>QVariant(info.speeds));
+<sp/>query.bindValue(&quot;:videopath&quot;,<sp/>QVariant(info.videopath));
+<sp/><sp/><sp/>if<sp/>(!query.exec())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>text<sp/>=<sp/>query.lastError().text();
+<sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>text;
+<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>获取当前序号的车轮前一次检测的结果，如果无，返回正确
+int<sp/>AlarmManager::getPreCheckstate(QString<sp/>num)
+{
+<sp/><sp/><sp/><sp/>if<sp/>(num<sp/>==<sp/>OCR_MISS)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;SELECT<sp/>alarmlevel<sp/>FROM<sp/>wheels<sp/>WHERE<sp/>num=?<sp/>ORDER<sp/>BY<sp/>id<sp/>DESC&quot;);
+<sp/><sp/><sp/>query.bindValue(0,<sp/>QVariant(num));
+<sp/>query.exec();
+<sp/><sp/>int<sp/>idx<sp/>=<sp/>query.record().indexOf(&quot;alarmlevel&quot;);
+<sp/><sp/><sp/><sp/>if<sp/>(query.first())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>alarmlevel<sp/>=<sp/>query.value(idx).toInt();
+<sp/><sp/><sp/><sp/><sp/>return<sp/>alarmlevel;
+<sp/>}
+<sp/><sp/>return<sp/>0;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//检测数据有效，对结果进行报警判断 <sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>double<sp/>error<sp/>=<sp/>fabs(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//在预警范围内
+<sp/><sp/><sp/><sp/><sp/>if<sp/>(error<sp/>&lt;=<sp/>info.warnRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//预警范围到报警范围之间
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(error<sp/>&lt;=<sp/>info.alarmRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果正常，或者没有有效数据，则预警
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出预警值，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果是预警或报警，则连续两次超出预警值，报警！
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中超出预警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//超出报警值
+<sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出报警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>/*<sp/>checkstate<sp/>*/
+<sp/><sp/><sp/>switch<sp/>(info.alarmlevel)<sp/>{
+<sp/>case<sp/>-2:
+<sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NeedCheck;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>-1:
+<sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NoNeedCheck;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>//界面显示
+<sp/><sp/><sp/><sp/>switch<sp/>(info.i_o)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_o(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_o(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_o(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_i(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_i(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_i(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>if<sp/>(!insertRecord(info))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;insert<sp/>record<sp/>failed&quot;;
+}
+
+bool<sp/>AlarmManager::insertRecord(WheelDbInfo<sp/>info)
+{
+<sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>wheels<sp/>(i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath)<sp/>VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);&quot;);
+<sp/><sp/>query.bindValue(&quot;:i_o&quot;,<sp/>QVariant(info.i_o));
+<sp/><sp/><sp/>query.bindValue(&quot;:num&quot;,<sp/>QVariant(info.num));
+<sp/><sp/><sp/>query.bindValue(&quot;:calcspeed&quot;,<sp/>QVariant(info.calcspeed));
+<sp/><sp/><sp/>query.bindValue(&quot;:refspeed&quot;,<sp/>QVariant(info.refspeed));
+<sp/>query.bindValue(&quot;:error&quot;,<sp/>QVariant(info.error));
+<sp/><sp/><sp/>query.bindValue(&quot;:time&quot;,<sp/>QVariant(info.time));
+<sp/>query.bindValue(&quot;:alarmlevel&quot;,<sp/>QVariant(info.alarmlevel));
+<sp/>query.bindValue(&quot;:checkstate&quot;,<sp/>QVariant(info.checkstate));
+<sp/>query.bindValue(&quot;:ocrsize&quot;,<sp/>QVariant(info.ocrsize));
+<sp/><sp/><sp/>query.bindValue(&quot;:fragment&quot;,<sp/>QVariant(info.fragment));
+<sp/>query.bindValue(&quot;:totalmatch&quot;,<sp/>QVariant(info.totalmatch));
+<sp/>query.bindValue(&quot;:validmatch&quot;,<sp/>QVariant(info.validmatch));
+<sp/>query.bindValue(&quot;:speeds&quot;,<sp/>QVariant(info.speeds));
+<sp/>query.bindValue(&quot;:videopath&quot;,<sp/>QVariant(info.videopath));
+<sp/><sp/><sp/>if<sp/>(!query.exec())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>text<sp/>=<sp/>query.lastError().text();
+<sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>text;
+<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>获取当前序号的车轮前一次检测的结果，如果无，返回正确
+int<sp/>AlarmManager::getPreCheckstate(QString<sp/>num)
+{
+<sp/><sp/><sp/><sp/>if<sp/>(num<sp/>==<sp/>OCR_MISS)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;SELECT<sp/>alarmlevel<sp/>FROM<sp/>wheels<sp/>WHERE<sp/>num=?<sp/>ORDER<sp/>BY<sp/>id<sp/>DESC&quot;);
+<sp/><sp/><sp/>query.bindValue(0,<sp/>QVariant(num));
+<sp/>query.exec();
+<sp/><sp/>int<sp/>idx<sp/>=<sp/>query.record().indexOf(&quot;alarmlevel&quot;);
+<sp/><sp/><sp/><sp/>if<sp/>(query.first())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>alarmlevel<sp/>=<sp/>query.value(idx).toInt();
+<sp/><sp/><sp/><sp/><sp/>return<sp/>alarmlevel;
+<sp/>}
+<sp/><sp/>return<sp/>0;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>error<sp/>=<sp/>fabs(info.<ref refid="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" kindref="member">error</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//在预警范围内</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(error<sp/>&lt;=<sp/>info.<ref refid="struct_wheel_db_info_1a9115f83e0e11c2f7aef925ad723343f9" kindref="member">warnRatio</ref><sp/>*<sp/>100)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//预警范围到报警范围之间 <sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(error<sp/>&lt;=<sp/>info.alarmRatio<sp/>*<sp/>100)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>switch<sp/>(lastAlarmLevel)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>-1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果正常，或者没有有效数据，则预警
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>1;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Yellow);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出预警值，预警&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//上一次结果是预警或报警，则连续两次超出预警值，报警！
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮连续两次检测中超出预警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>//超出报警值
+<sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.alarmlevel<sp/>=<sp/>2;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showAlarmLightToUi((int)AlarmColor::Red);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;本车轮超出报警值，报警！&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>/*<sp/>checkstate<sp/>*/
+<sp/><sp/><sp/>switch<sp/>(info.alarmlevel)<sp/>{
+<sp/>case<sp/>-2:
+<sp/><sp/><sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/>case<sp/>2:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NeedCheck;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>-1:
+<sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.checkstate<sp/>=<sp/>NoNeedCheck;
+<sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>//界面显示
+<sp/><sp/><sp/><sp/>switch<sp/>(info.i_o)<sp/>{
+<sp/><sp/><sp/><sp/>case<sp/>0:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_o(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_o(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_o(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>case<sp/>1:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showSpeed_i(info.calcspeed);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showNum_i(info.num);
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>showError_i(info.error);
+<sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>default:
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;
+<sp/>}
+<sp/><sp/>if<sp/>(!insertRecord(info))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>&quot;insert<sp/>record<sp/>failed&quot;;
+}
+
+bool<sp/>AlarmManager::insertRecord(WheelDbInfo<sp/>info)
+{
+<sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;INSERT<sp/>INTO<sp/>wheels<sp/>(i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath)<sp/>VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);&quot;);
+<sp/><sp/>query.bindValue(&quot;:i_o&quot;,<sp/>QVariant(info.i_o));
+<sp/><sp/><sp/>query.bindValue(&quot;:num&quot;,<sp/>QVariant(info.num));
+<sp/><sp/><sp/>query.bindValue(&quot;:calcspeed&quot;,<sp/>QVariant(info.calcspeed));
+<sp/><sp/><sp/>query.bindValue(&quot;:refspeed&quot;,<sp/>QVariant(info.refspeed));
+<sp/>query.bindValue(&quot;:error&quot;,<sp/>QVariant(info.error));
+<sp/><sp/><sp/>query.bindValue(&quot;:time&quot;,<sp/>QVariant(info.time));
+<sp/>query.bindValue(&quot;:alarmlevel&quot;,<sp/>QVariant(info.alarmlevel));
+<sp/>query.bindValue(&quot;:checkstate&quot;,<sp/>QVariant(info.checkstate));
+<sp/>query.bindValue(&quot;:ocrsize&quot;,<sp/>QVariant(info.ocrsize));
+<sp/><sp/><sp/>query.bindValue(&quot;:fragment&quot;,<sp/>QVariant(info.fragment));
+<sp/>query.bindValue(&quot;:totalmatch&quot;,<sp/>QVariant(info.totalmatch));
+<sp/>query.bindValue(&quot;:validmatch&quot;,<sp/>QVariant(info.validmatch));
+<sp/>query.bindValue(&quot;:speeds&quot;,<sp/>QVariant(info.speeds));
+<sp/>query.bindValue(&quot;:videopath&quot;,<sp/>QVariant(info.videopath));
+<sp/><sp/><sp/>if<sp/>(!query.exec())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>text<sp/>=<sp/>query.lastError().text();
+<sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>text;
+<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>return<sp/>true;
+}
+
+//!<sp/>获取当前序号的车轮前一次检测的结果，如果无，返回正确
+int<sp/>AlarmManager::getPreCheckstate(QString<sp/>num)
+{
+<sp/><sp/><sp/><sp/>if<sp/>(num<sp/>==<sp/>OCR_MISS)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>0;
+<sp/><sp/>QSqlQuery<sp/>query;
+<sp/><sp/><sp/>query.prepare(&quot;SELECT<sp/>alarmlevel<sp/>FROM<sp/>wheels<sp/>WHERE<sp/>num=?<sp/>ORDER<sp/>BY<sp/>id<sp/>DESC&quot;);
+<sp/><sp/><sp/>query.bindValue(0,<sp/>QVariant(num));
+<sp/>query.exec();
+<sp/><sp/>int<sp/>idx<sp/>=<sp/>query.record().indexOf(&quot;alarmlevel&quot;);
+<sp/><sp/><sp/><sp/>if<sp/>(query.first())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>alarmlevel<sp/>=<sp/>query.value(idx).toInt();
+<sp/><sp/><sp/><sp/><sp/>return<sp/>alarmlevel;
+<sp/>}
+<sp/><sp/>return<sp/>0;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(error<sp/>&lt;=<sp/>info.<ref refid="struct_wheel_db_info_1a9b7285981eab28ac5748f3669a3f6ab8" kindref="member">alarmRatio</ref><sp/>*<sp/>100)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lastAlarmLevel<sp/>=<sp/>getPreCheckstate(info.<ref refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" kindref="member">num</ref>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(lastAlarmLevel)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>-2:</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>-1:</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//上一次结果正常，或者没有有效数据，则预警</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" kindref="member">showAlarmLightToUi</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8" kindref="member">AlarmColor::Yellow</ref>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;本车轮超出预警值，预警&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//上一次结果是预警或报警，则连续两次超出预警值，报警！</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" kindref="member">showAlarmLightToUi</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47" kindref="member">AlarmColor::Red</ref>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;本车轮连续两次检测中超出预警值，报警！&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//超出报警值</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" kindref="member">showAlarmLightToUi</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47" kindref="member">AlarmColor::Red</ref>);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qCritical()<sp/>&lt;&lt;<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;本车轮超出报警值，报警！&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>checkstate<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(info.<ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>-2:</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="struct_wheel_db_info_1ab673ee45b8a02e9ba8aa72135ed28b6a" kindref="member">checkstate</ref><sp/>=<sp/><ref refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d" kindref="member">NeedCheck</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>-1:</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>info.<ref refid="struct_wheel_db_info_1ab673ee45b8a02e9ba8aa72135ed28b6a" kindref="member">checkstate</ref><sp/>=<sp/><ref refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503" kindref="member">NoNeedCheck</ref>;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//界面显示</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(info.<ref refid="struct_wheel_db_info_1aae1177299aa4b515dbc4e5b5b04ac071" kindref="member">i_o</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a512d4492a9c02ed1afea872e8e4fffb7" kindref="member">showSpeed_o</ref>(info.<ref refid="struct_wheel_db_info_1af17e3e7fcfa366aede4f2b1dab764ea5" kindref="member">calcspeed</ref>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a5727c94eb5d81b236f0de7ab57daced1" kindref="member">showNum_o</ref>(info.<ref refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" kindref="member">num</ref>);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1ad812d53580b9af78d53de719188ea327" kindref="member">showError_o</ref>(info.<ref refid="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" kindref="member">error</ref>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1aab6cc4a610ba2f389bbab701b5d377cf" kindref="member">showSpeed_i</ref>(info.<ref refid="struct_wheel_db_info_1af17e3e7fcfa366aede4f2b1dab764ea5" kindref="member">calcspeed</ref>);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1a3b4d8431b71a981c3deb72836f5323c1" kindref="member">showNum_i</ref>(info.<ref refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" kindref="member">num</ref>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_alarm_manager_1ab9895e76b0b6a0c4525c38a355c805c8" kindref="member">showError_i</ref>(info.<ref refid="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" kindref="member">error</ref>);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!insertRecord(info))</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;insert<sp/>record<sp/>failed&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>AlarmManager::insertRecord(<ref refid="struct_wheel_db_info" kindref="compound">WheelDbInfo</ref><sp/>info)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>query.prepare(</highlight><highlight class="stringliteral">&quot;INSERT<sp/>INTO<sp/>wheels<sp/>(i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath)<sp/>VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:i_o&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1aae1177299aa4b515dbc4e5b5b04ac071" kindref="member">i_o</ref>));</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:num&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" kindref="member">num</ref>));</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:calcspeed&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1af17e3e7fcfa366aede4f2b1dab764ea5" kindref="member">calcspeed</ref>));</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:refspeed&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a06da43ab369c21a8f280e902ecaadd24" kindref="member">refspeed</ref>));</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:error&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" kindref="member">error</ref>));</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:time&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a62093bf6e1e60260ac3441852e3508f5" kindref="member">time</ref>));</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:alarmlevel&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kindref="member">alarmlevel</ref>));</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:checkstate&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1ab673ee45b8a02e9ba8aa72135ed28b6a" kindref="member">checkstate</ref>));</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:ocrsize&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1ad8ea8e08cbb58f268d06186a12c44aca" kindref="member">ocrsize</ref>));</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:fragment&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a244bfaa82dbb8eb7fb1460d252571ba1" kindref="member">fragment</ref>));</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:totalmatch&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a18c5b6628f2c1c164ba3a1f424f98d23" kindref="member">totalmatch</ref>));</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:validmatch&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a21d02e75169f0932fd742dfedd580173" kindref="member">validmatch</ref>));</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:speeds&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a0c02cf2107db2bc81194d0f20aa14b4e" kindref="member">speeds</ref>));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(</highlight><highlight class="stringliteral">&quot;:videopath&quot;</highlight><highlight class="normal">,<sp/>QVariant(info.<ref refid="struct_wheel_db_info_1a7c60fb37ebdb5d0e94b54a49e6eb6157" kindref="member">videopath</ref>));</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!query.exec())<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>text<sp/>=<sp/>query.lastError().text();</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/>text;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>AlarmManager::getPreCheckstate(QString<sp/>num)</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(num<sp/>==<sp/><ref refid="ocr_8h_1ad63eb931690b7175233c28ac56c3c6dd" kindref="member">OCR_MISS</ref>)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>QSqlQuery<sp/>query;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>query.prepare(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>alarmlevel<sp/>FROM<sp/>wheels<sp/>WHERE<sp/>num=?<sp/>ORDER<sp/>BY<sp/>id<sp/>DESC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>query.bindValue(0,<sp/>QVariant(num));</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>query.exec();</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idx<sp/>=<sp/>query.record().indexOf(</highlight><highlight class="stringliteral">&quot;alarmlevel&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(query.first())<sp/>{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>alarmlevel<sp/>=<sp/>query.value(idx).toInt();</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>alarmlevel;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/AlarmManager.cpp"/>
+  </compounddef>
+</doxygen>

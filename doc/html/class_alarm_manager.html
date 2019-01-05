@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: AlarmManager类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-slots">Public 槽</a> &#124;
+<a href="#signals">信号</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="class_alarm_manager-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">AlarmManager类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_alarm_manager_8h_source.html">AlarmManager.h</a>&gt;</code></p>
+<div class="dynheader">
+类 AlarmManager 继承关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager__inherit__graph.png" border="0" usemap="#_alarm_manager_inherit__map" alt="Inheritance graph"/></div>
+<map name="_alarm_manager_inherit__map" id="_alarm_manager_inherit__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<div class="dynheader">
+AlarmManager 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager__coll__graph.png" border="0" usemap="#_alarm_manager_coll__map" alt="Collaboration graph"/></div>
+<map name="_alarm_manager_coll__map" id="_alarm_manager_coll__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Public 槽</h2></td></tr>
+<tr class="memitem:ac63fabcfc799aecf81f044d41bc7f3f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#ac63fabcfc799aecf81f044d41bc7f3f4">onHardwareAlarm</a> (<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bc">HardwareAlarmEvent</a> event)</td></tr>
+<tr class="memdesc:ac63fabcfc799aecf81f044d41bc7f3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警  <a href="#ac63fabcfc799aecf81f044d41bc7f3f4">更多...</a><br /></td></tr>
+<tr class="separator:ac63fabcfc799aecf81f044d41bc7f3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+信号</h2></td></tr>
+<tr class="memitem:a213979463b7f205ba09f095c4e318124"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a213979463b7f205ba09f095c4e318124">showCio100ToUi</a> (int)</td></tr>
+<tr class="memdesc:a213979463b7f205ba09f095c4e318124"><td class="mdescLeft">&#160;</td><td class="mdescRight">掉轮报警信号  <a href="#a213979463b7f205ba09f095c4e318124">更多...</a><br /></td></tr>
+<tr class="separator:a213979463b7f205ba09f095c4e318124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ae0da0b1353484b71987214c1245668"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a9ae0da0b1353484b71987214c1245668">hardAlarmToPlc</a> (int)</td></tr>
+<tr class="memdesc:a9ae0da0b1353484b71987214c1245668"><td class="mdescLeft">&#160;</td><td class="mdescRight">中控报警信号发送至PLC中进行处理 connect to PLC todo  <a href="#a9ae0da0b1353484b71987214c1245668">更多...</a><br /></td></tr>
+<tr class="separator:a9ae0da0b1353484b71987214c1245668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55d80e5566558f4c9146573239f904de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a55d80e5566558f4c9146573239f904de">showAlarmLightToUi</a> (int)</td></tr>
+<tr class="memdesc:a55d80e5566558f4c9146573239f904de"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置UI界面的报警灯的颜色 connect to UI  <a href="#a55d80e5566558f4c9146573239f904de">更多...</a><br /></td></tr>
+<tr class="separator:a55d80e5566558f4c9146573239f904de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab6cc4a610ba2f389bbab701b5d377cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#aab6cc4a610ba2f389bbab701b5d377cf">showSpeed_i</a> (double)</td></tr>
+<tr class="separator:aab6cc4a610ba2f389bbab701b5d377cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9895e76b0b6a0c4525c38a355c805c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#ab9895e76b0b6a0c4525c38a355c805c8">showError_i</a> (double)</td></tr>
+<tr class="separator:ab9895e76b0b6a0c4525c38a355c805c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4d8431b71a981c3deb72836f5323c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a3b4d8431b71a981c3deb72836f5323c1">showNum_i</a> (QString)</td></tr>
+<tr class="separator:a3b4d8431b71a981c3deb72836f5323c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a512d4492a9c02ed1afea872e8e4fffb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a512d4492a9c02ed1afea872e8e4fffb7">showSpeed_o</a> (double)</td></tr>
+<tr class="separator:a512d4492a9c02ed1afea872e8e4fffb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad812d53580b9af78d53de719188ea327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#ad812d53580b9af78d53de719188ea327">showError_o</a> (double)</td></tr>
+<tr class="separator:ad812d53580b9af78d53de719188ea327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5727c94eb5d81b236f0de7ab57daced1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a5727c94eb5d81b236f0de7ab57daced1">showNum_o</a> (QString)</td></tr>
+<tr class="separator:a5727c94eb5d81b236f0de7ab57daced1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a8be4a4a110ea823811eea0c580021f55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a8be4a4a110ea823811eea0c580021f55">AlarmManager</a> (QObject *parent)</td></tr>
+<tr class="separator:a8be4a4a110ea823811eea0c580021f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c4f8aa74bd546b62326708aaf15982"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a06c4f8aa74bd546b62326708aaf15982">~AlarmManager</a> ()</td></tr>
+<tr class="separator:a06c4f8aa74bd546b62326708aaf15982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4af37b18f9592a557393e947d033ecaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a4af37b18f9592a557393e947d033ecaf">bindPLC</a> (<a class="el" href="class_plc.html">Plc</a> *plc)</td></tr>
+<tr class="separator:a4af37b18f9592a557393e947d033ecaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20ebd74c084d24347a61aa8490f21cbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a20ebd74c084d24347a61aa8490f21cbf">bindImProc</a> (<a class="el" href="class_image_process.html">ImageProcess</a> *imp)</td></tr>
+<tr class="separator:a20ebd74c084d24347a61aa8490f21cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f3a139d24a61418677975d621ce87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a">bindMainWindow</a> (<a class="el" href="class_main_window.html">MainWindow</a> *mainwindow)</td></tr>
+<tr class="separator:a33f3a139d24a61418677975d621ce87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcb1ab3d5f8f3e4c01227ab052bc520f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_alarm_manager.html#afcb1ab3d5f8f3e4c01227ab052bc520f">bindPlayBack</a> (<a class="el" href="class_play_back_widget.html">PlayBackWidget</a> *pb)</td></tr>
+<tr class="separator:afcb1ab3d5f8f3e4c01227ab052bc520f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="_alarm_manager_8h_source.html">AlarmManager.h</a> 第 <a class="el" href="_alarm_manager_8h_source.html#l00027">27</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a8be4a4a110ea823811eea0c580021f55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be4a4a110ea823811eea0c580021f55">&#9670;&nbsp;</a></span>AlarmManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AlarmManager::AlarmManager </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_alarm_manager_8cpp_source.html">AlarmManager.cpp</a> 第 <a class="el" href="_alarm_manager_8cpp_source.html#l00007">7</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a06c4f8aa74bd546b62326708aaf15982"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06c4f8aa74bd546b62326708aaf15982">&#9670;&nbsp;</a></span>~AlarmManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AlarmManager::~AlarmManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_alarm_manager_8cpp_source.html">AlarmManager.cpp</a> 第 <a class="el" href="_alarm_manager_8cpp_source.html#l00012">12</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a20ebd74c084d24347a61aa8490f21cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ebd74c084d24347a61aa8490f21cbf">&#9670;&nbsp;</a></span>bindImProc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::bindImProc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_image_process.html">ImageProcess</a> *&#160;</td>
+          <td class="paramname"><em>imp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_alarm_manager_8cpp_source.html">AlarmManager.cpp</a> 第 <a class="el" href="_alarm_manager_8cpp_source.html#l00032">32</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a33f3a139d24a61418677975d621ce87a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f3a139d24a61418677975d621ce87a">&#9670;&nbsp;</a></span>bindMainWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::bindMainWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_main_window.html">MainWindow</a> *&#160;</td>
+          <td class="paramname"><em>mainwindow</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_alarm_manager_8cpp_source.html">AlarmManager.cpp</a> 第 <a class="el" href="_alarm_manager_8cpp_source.html#l00038">38</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_a33f3a139d24a61418677975d621ce87a_cgraph.png" border="0" usemap="#class_alarm_manager_a33f3a139d24a61418677975d621ce87a_cgraph" alt=""/></div>
+<map name="class_alarm_manager_a33f3a139d24a61418677975d621ce87a_cgraph" id="class_alarm_manager_a33f3a139d24a61418677975d621ce87a_cgraph">
+<area shape="rect" id="node2" href="class_main_window.html#a56c37dd56a54c1e0e4cea19073bd2895" title="MainWindow::uiShowSpeed_o" alt="" coords="271,5,468,32"/>
+<area shape="rect" id="node3" href="class_main_window.html#a6b59764d9fff055d3a40148b5efe393c" title="MainWindow::uiShowNum_o" alt="" coords="276,56,463,83"/>
+<area shape="rect" id="node4" href="class_main_window.html#a08c36c996ee5b67ffbb4b0c5f1d18ea6" title="MainWindow::uiShowError_o" alt="" coords="275,107,463,133"/>
+<area shape="rect" id="node5" href="class_main_window.html#a0b254bab7ba45e2870484474a063afb2" title="MainWindow::uiShowSpeed_i" alt="" coords="273,157,466,184"/>
+<area shape="rect" id="node6" href="class_main_window.html#af5608598b812a3f37e52f9e68df10f52" title="MainWindow::uiShowNum_i" alt="" coords="278,208,461,235"/>
+<area shape="rect" id="node7" href="class_main_window.html#a5af6ee21b93fe8660960c6e0ed9ca989" title="MainWindow::uiShowError_i" alt="" coords="277,259,461,285"/>
+<area shape="rect" id="node8" href="class_main_window.html#a960ef266d511ed4e10820a3106d23e69" title="显示Cio100的灯。即中控报警灯，1为亮，0为灭 " alt="" coords="276,309,463,336"/>
+<area shape="rect" id="node9" href="class_main_window.html#afa3fc9e034fa98830e87246246d73e0e" title="MainWindow::uiShowAlarmLight" alt="" coords="265,360,473,387"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afcb1ab3d5f8f3e4c01227ab052bc520f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcb1ab3d5f8f3e4c01227ab052bc520f">&#9670;&nbsp;</a></span>bindPlayBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::bindPlayBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_play_back_widget.html">PlayBackWidget</a> *&#160;</td>
+          <td class="paramname"><em>pb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_alarm_manager_8cpp_source.html">AlarmManager.cpp</a> 第 <a class="el" href="_alarm_manager_8cpp_source.html#l00053">53</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_afcb1ab3d5f8f3e4c01227ab052bc520f_cgraph.png" border="0" usemap="#class_alarm_manager_afcb1ab3d5f8f3e4c01227ab052bc520f_cgraph" alt=""/></div>
+<map name="class_alarm_manager_afcb1ab3d5f8f3e4c01227ab052bc520f_cgraph" id="class_alarm_manager_afcb1ab3d5f8f3e4c01227ab052bc520f_cgraph">
+<area shape="rect" id="node2" href="class_main_window.html#afa3fc9e034fa98830e87246246d73e0e" title="MainWindow::uiShowAlarmLight" alt="" coords="248,5,456,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4af37b18f9592a557393e947d033ecaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4af37b18f9592a557393e947d033ecaf">&#9670;&nbsp;</a></span>bindPLC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::bindPLC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plc.html">Plc</a> *&#160;</td>
+          <td class="paramname"><em>plc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_alarm_manager_8cpp_source.html">AlarmManager.cpp</a> 第 <a class="el" href="_alarm_manager_8cpp_source.html#l00016">16</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_a4af37b18f9592a557393e947d033ecaf_cgraph.png" border="0" usemap="#class_alarm_manager_a4af37b18f9592a557393e947d033ecaf_cgraph" alt=""/></div>
+<map name="class_alarm_manager_a4af37b18f9592a557393e947d033ecaf_cgraph" id="class_alarm_manager_a4af37b18f9592a557393e947d033ecaf_cgraph">
+<area shape="rect" id="node2" href="class_plc.html#abf51268db3f1eca2b9bb139bf75b83d9" title="向中控发出报警 " alt="" coords="216,5,420,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9ae0da0b1353484b71987214c1245668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ae0da0b1353484b71987214c1245668">&#9670;&nbsp;</a></span>hardAlarmToPlc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::hardAlarmToPlc </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>中控报警信号发送至PLC中进行处理 connect to PLC todo </p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_a9ae0da0b1353484b71987214c1245668_icgraph.png" border="0" usemap="#class_alarm_manager_a9ae0da0b1353484b71987214c1245668_icgraph" alt=""/></div>
+<map name="class_alarm_manager_a9ae0da0b1353484b71987214c1245668_icgraph" id="class_alarm_manager_a9ae0da0b1353484b71987214c1245668_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a4af37b18f9592a557393e947d033ecaf" title="AlarmManager::bindPLC" alt="" coords="270,5,433,32"/>
+<area shape="rect" id="node3" href="class_alarm_manager.html#ac63fabcfc799aecf81f044d41bc7f3f4" title="当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警 " alt="" coords="260,57,443,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac63fabcfc799aecf81f044d41bc7f3f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac63fabcfc799aecf81f044d41bc7f3f4">&#9670;&nbsp;</a></span>onHardwareAlarm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::onHardwareAlarm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bc">HardwareAlarmEvent</a>&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警 </p>
+
+<p class="definition">在文件 <a class="el" href="_alarm_manager_8cpp_source.html">AlarmManager.cpp</a> 第 <a class="el" href="_alarm_manager_8cpp_source.html#l00065">65</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a55d80e5566558f4c9146573239f904de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55d80e5566558f4c9146573239f904de">&#9670;&nbsp;</a></span>showAlarmLightToUi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::showAlarmLightToUi </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置UI界面的报警灯的颜色 connect to UI </p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_a55d80e5566558f4c9146573239f904de_icgraph.png" border="0" usemap="#class_alarm_manager_a55d80e5566558f4c9146573239f904de_icgraph" alt=""/></div>
+<map name="class_alarm_manager_a55d80e5566558f4c9146573239f904de_icgraph" id="class_alarm_manager_a55d80e5566558f4c9146573239f904de_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="285,5,497,32"/>
+<area shape="rect" id="node3" href="class_alarm_manager.html#ac63fabcfc799aecf81f044d41bc7f3f4" title="当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警 " alt="" coords="300,57,483,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a213979463b7f205ba09f095c4e318124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a213979463b7f205ba09f095c4e318124">&#9670;&nbsp;</a></span>showCio100ToUi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::showCio100ToUi </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>掉轮报警信号 </p>
+<p>中控报警信号（PLC CIO100）在UI中的显示 connect to UI todo </p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_a213979463b7f205ba09f095c4e318124_icgraph.png" border="0" usemap="#class_alarm_manager_a213979463b7f205ba09f095c4e318124_icgraph" alt=""/></div>
+<map name="class_alarm_manager_a213979463b7f205ba09f095c4e318124_icgraph" id="class_alarm_manager_a213979463b7f205ba09f095c4e318124_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="264,5,476,32"/>
+<area shape="rect" id="node3" href="class_alarm_manager.html#ac63fabcfc799aecf81f044d41bc7f3f4" title="当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警 " alt="" coords="279,57,461,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab9895e76b0b6a0c4525c38a355c805c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9895e76b0b6a0c4525c38a355c805c8">&#9670;&nbsp;</a></span>showError_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::showError_i </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_ab9895e76b0b6a0c4525c38a355c805c8_icgraph.png" border="0" usemap="#class_alarm_manager_ab9895e76b0b6a0c4525c38a355c805c8_icgraph" alt=""/></div>
+<map name="class_alarm_manager_ab9895e76b0b6a0c4525c38a355c805c8_icgraph" id="class_alarm_manager_ab9895e76b0b6a0c4525c38a355c805c8_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="236,5,448,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad812d53580b9af78d53de719188ea327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad812d53580b9af78d53de719188ea327">&#9670;&nbsp;</a></span>showError_o</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::showError_o </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_ad812d53580b9af78d53de719188ea327_icgraph.png" border="0" usemap="#class_alarm_manager_ad812d53580b9af78d53de719188ea327_icgraph" alt=""/></div>
+<map name="class_alarm_manager_ad812d53580b9af78d53de719188ea327_icgraph" id="class_alarm_manager_ad812d53580b9af78d53de719188ea327_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="240,5,452,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3b4d8431b71a981c3deb72836f5323c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4d8431b71a981c3deb72836f5323c1">&#9670;&nbsp;</a></span>showNum_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::showNum_i </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_a3b4d8431b71a981c3deb72836f5323c1_icgraph.png" border="0" usemap="#class_alarm_manager_a3b4d8431b71a981c3deb72836f5323c1_icgraph" alt=""/></div>
+<map name="class_alarm_manager_a3b4d8431b71a981c3deb72836f5323c1_icgraph" id="class_alarm_manager_a3b4d8431b71a981c3deb72836f5323c1_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="235,5,447,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5727c94eb5d81b236f0de7ab57daced1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5727c94eb5d81b236f0de7ab57daced1">&#9670;&nbsp;</a></span>showNum_o</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::showNum_o </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_a5727c94eb5d81b236f0de7ab57daced1_icgraph.png" border="0" usemap="#class_alarm_manager_a5727c94eb5d81b236f0de7ab57daced1_icgraph" alt=""/></div>
+<map name="class_alarm_manager_a5727c94eb5d81b236f0de7ab57daced1_icgraph" id="class_alarm_manager_a5727c94eb5d81b236f0de7ab57daced1_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="239,5,451,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aab6cc4a610ba2f389bbab701b5d377cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab6cc4a610ba2f389bbab701b5d377cf">&#9670;&nbsp;</a></span>showSpeed_i</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::showSpeed_i </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_aab6cc4a610ba2f389bbab701b5d377cf_icgraph.png" border="0" usemap="#class_alarm_manager_aab6cc4a610ba2f389bbab701b5d377cf_icgraph" alt=""/></div>
+<map name="class_alarm_manager_aab6cc4a610ba2f389bbab701b5d377cf_icgraph" id="class_alarm_manager_aab6cc4a610ba2f389bbab701b5d377cf_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="244,5,456,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a512d4492a9c02ed1afea872e8e4fffb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a512d4492a9c02ed1afea872e8e4fffb7">&#9670;&nbsp;</a></span>showSpeed_o</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AlarmManager::showSpeed_o </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_alarm_manager_a512d4492a9c02ed1afea872e8e4fffb7_icgraph.png" border="0" usemap="#class_alarm_manager_a512d4492a9c02ed1afea872e8e4fffb7_icgraph" alt=""/></div>
+<map name="class_alarm_manager_a512d4492a9c02ed1afea872e8e4fffb7_icgraph" id="class_alarm_manager_a512d4492a9c02ed1afea872e8e4fffb7_icgraph">
+<area shape="rect" id="node2" href="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a" title="AlarmManager::bindMainWindow" alt="" coords="248,5,460,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>sources/<a class="el" href="_alarm_manager_8h_source.html">AlarmManager.h</a></li>
+<li>sources/<a class="el" href="_alarm_manager_8cpp_source.html">AlarmManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

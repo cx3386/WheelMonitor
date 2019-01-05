@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_level_recorder" kind="class" language="C++" prot="public">
+    <compoundname>LevelRecorder</compoundname>
+    <includes refid="_level_recorder_8h" local="no">LevelRecorder.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_level_recorder_1acefed96903d1193e4653a9427edaa445" prot="public" static="no" strong="no">
+        <type></type>
+        <name>State</name>
+        <enumvalue id="class_level_recorder_1acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4" prot="public">
+          <name>HighLevel</name>
+          <initializer>= 0x1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_level_recorder_1acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110" prot="public">
+          <name>LowLevel</name>
+          <initializer>= 0x2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_level_recorder_1acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74" prot="public">
+          <name>PositiveEdge</name>
+          <initializer>= HighLevel | 0x4</initializer>
+          <briefdescription>
+<para>即是高电平也是上升沿 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_level_recorder_1acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348" prot="public">
+          <name>NegativeEdge</name>
+          <initializer>= LowLevel | 0x8</initializer>
+          <briefdescription>
+<para>即使低电平也是下降沿 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_level_recorder_1acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411" prot="public">
+          <name>OutOfRange</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="31" column="1" bodyfile="sources/LevelRecorder.h" bodystart="30" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_level_recorder_1a8fb0e7927b3b09822a89861901f790c8" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t LevelRecorder::max_size</definition>
+        <argsstring></argsstring>
+        <name>max_size</name>
+        <initializer>= 1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="39" column="1" bodyfile="sources/LevelRecorder.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_recorder_1abcfc67149649e2542d90be4daa9bd816" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; bool &gt;</type>
+        <definition>std::vector&lt;bool&gt; LevelRecorder::levels</definition>
+        <argsstring></argsstring>
+        <name>levels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="40" column="1" bodyfile="sources/LevelRecorder.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_level_recorder_1a2fee4f14e008dabf44206e0dc9a23a83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LevelRecorder::LevelRecorder</definition>
+        <argsstring>()</argsstring>
+        <name>LevelRecorder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="23" column="1" bodyfile="sources/LevelRecorder.cpp" bodystart="4" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_recorder_1ae868e1bec42b2adab2e4b6ad59a3f259" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LevelRecorder::~LevelRecorder</definition>
+        <argsstring>()</argsstring>
+        <name>~LevelRecorder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="24" column="1" bodyfile="sources/LevelRecorder.cpp" bodystart="9" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_recorder_1ac903a8ed1d863cf49a2ba8883196d2b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelRecorder::init</definition>
+        <argsstring>(bool b=false)</argsstring>
+        <name>init</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="25" column="1" bodyfile="sources/LevelRecorder.h" bodystart="25" bodyend="25"/>
+        <referencedby refid="class_sensor_1a84bc35cfba92eb579bc311b3c8b2980d" compoundref="_sensor_device_8cpp" startline="95" endline="102">Sensor::init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_level_recorder_1a918eef12048f9de233aef9a16a1e9883" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelRecorder::push</definition>
+        <argsstring>(bool)</argsstring>
+        <name>push</name>
+        <param>
+          <type>bool</type>
+          <defname>lv</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>push_back a data to levels </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="26" column="1" bodyfile="sources/LevelRecorder.cpp" bodystart="13" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_recorder_1a56bc86fca07cb3d6e69b089efa9846dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelRecorder::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>clear all data </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="28" column="1" bodyfile="sources/LevelRecorder.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_recorder_1aa9e7d005f90132d6e7e093653a3ae513" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int LevelRecorder::state</definition>
+        <argsstring>(size_t pos)</argsstring>
+        <name>state</name>
+        <param>
+          <type>size_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>输出第pos新的数据的状态，pos=0为最新的数据点 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/LevelRecorder.h" line="29" column="1" bodyfile="sources/LevelRecorder.cpp" bodystart="22" bodyend="42"/>
+        <references refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411" compoundref="_level_recorder_8h" startline="36">OutOfRange</references>
+        <references refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4" compoundref="_level_recorder_8h" startline="32">HighLevel</references>
+        <references refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110" compoundref="_level_recorder_8h" startline="33">LowLevel</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/LevelRecorder.h" line="21" column="1" bodyfile="sources/LevelRecorder.h" bodystart="20" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_level_recorder_1a56bc86fca07cb3d6e69b089efa9846dc" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>clear</name></member>
+      <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>HighLevel</name></member>
+      <member refid="class_level_recorder_1ac903a8ed1d863cf49a2ba8883196d2b4" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>init</name></member>
+      <member refid="class_level_recorder_1a2fee4f14e008dabf44206e0dc9a23a83" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>LevelRecorder</name></member>
+      <member refid="class_level_recorder_1abcfc67149649e2542d90be4daa9bd816" prot="private" virt="non-virtual"><scope>LevelRecorder</scope><name>levels</name></member>
+      <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>LowLevel</name></member>
+      <member refid="class_level_recorder_1a8fb0e7927b3b09822a89861901f790c8" prot="private" virt="non-virtual"><scope>LevelRecorder</scope><name>max_size</name></member>
+      <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>NegativeEdge</name></member>
+      <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>OutOfRange</name></member>
+      <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>PositiveEdge</name></member>
+      <member refid="class_level_recorder_1a918eef12048f9de233aef9a16a1e9883" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>push</name></member>
+      <member refid="class_level_recorder_1aa9e7d005f90132d6e7e093653a3ae513" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>state</name></member>
+      <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>State</name></member>
+      <member refid="class_level_recorder_1ae868e1bec42b2adab2e4b6ad59a3f259" prot="public" virt="non-virtual"><scope>LevelRecorder</scope><name>~LevelRecorder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

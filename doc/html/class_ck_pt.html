@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: CkPt类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
+<a href="class_ck_pt-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">CkPt类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a>&gt;</code></p>
+<div class="dynheader">
+类 CkPt 继承关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt__inherit__graph.png" border="0" usemap="#_ck_pt_inherit__map" alt="Inheritance graph"/></div>
+<map name="_ck_pt_inherit__map" id="_ck_pt_inherit__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<div class="dynheader">
+CkPt 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt__coll__graph.png" border="0" usemap="#_ck_pt_coll__map" alt="Collaboration graph"/></div>
+<map name="_ck_pt_coll__map" id="_ck_pt_coll__map">
+<area shape="rect" id="node3" href="class_sensor_device.html" title="SensorDevice" alt="" coords="49,81,150,108"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a414daa67aca3918ad13febdf5df36072"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a414daa67aca3918ad13febdf5df36072">CkPt</a> (int _id, <a class="el" href="class_sensor_device.html">SensorDevice</a> *parent)</td></tr>
+<tr class="separator:a414daa67aca3918ad13febdf5df36072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bbbad154caab9065e9a6aebf696a11b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a1bbbad154caab9065e9a6aebf696a11b">newWheel</a> ()</td></tr>
+<tr class="separator:a1bbbad154caab9065e9a6aebf696a11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad65e83ec3ef258516bbee5ba4c6d120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#aad65e83ec3ef258516bbee5ba4c6d120">init</a> ()</td></tr>
+<tr class="separator:aad65e83ec3ef258516bbee5ba4c6d120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67a101d39c9ee8d8113f82905fb018f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a67a101d39c9ee8d8113f82905fb018f9">triTiming</a> ()</td></tr>
+<tr class="memdesc:a67a101d39c9ee8d8113f82905fb018f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">返回触发的时机，如果是进入，则下降沿触发  <a href="#a67a101d39c9ee8d8113f82905fb018f9">更多...</a><br /></td></tr>
+<tr class="separator:a67a101d39c9ee8d8113f82905fb018f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2792e24314be95021e461a798ec2c884"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a2792e24314be95021e461a798ec2c884">isEnter</a> ()</td></tr>
+<tr class="memdesc:a2792e24314be95021e461a798ec2c884"><td class="mdescLeft">&#160;</td><td class="mdescRight">返回是否由此检测点进入  <a href="#a2792e24314be95021e461a798ec2c884">更多...</a><br /></td></tr>
+<tr class="separator:a2792e24314be95021e461a798ec2c884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd63f78fd17b55451eb039ab9d5bb49f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#afd63f78fd17b55451eb039ab9d5bb49f">isLeave</a> ()</td></tr>
+<tr class="memdesc:afd63f78fd17b55451eb039ab9d5bb49f"><td class="mdescLeft">&#160;</td><td class="mdescRight">返回是否由此检测点离开  <a href="#afd63f78fd17b55451eb039ab9d5bb49f">更多...</a><br /></td></tr>
+<tr class="separator:afd63f78fd17b55451eb039ab9d5bb49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:ad3259779575bb558490559404afb1903"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#ad3259779575bb558490559404afb1903">gid2mid</a> (int gid)</td></tr>
+<tr class="memdesc:ad3259779575bb558490559404afb1903"><td class="mdescLeft">&#160;</td><td class="mdescRight">由global id获得局部id  <a href="#ad3259779575bb558490559404afb1903">更多...</a><br /></td></tr>
+<tr class="separator:ad3259779575bb558490559404afb1903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae408d0f5cf84a8f4ac7d6281829c1f6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#aae408d0f5cf84a8f4ac7d6281829c1f6">indexOf</a> (QString _name)</td></tr>
+<tr class="separator:aae408d0f5cf84a8f4ac7d6281829c1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b438c401be7fd57da84a6c09220592f"><td class="memItemLeft" align="right" valign="top">static QList&lt; <a class="el" href="class_ck_pt.html">CkPt</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a3b438c401be7fd57da84a6c09220592f">creatAll</a> (<a class="el" href="class_sensor_device.html">SensorDevice</a> *parent)</td></tr>
+<tr class="memdesc:a3b438c401be7fd57da84a6c09220592f"><td class="mdescLeft">&#160;</td><td class="mdescRight">一次性创建所有的检测点  <a href="#a3b438c401be7fd57da84a6c09220592f">更多...</a><br /></td></tr>
+<tr class="separator:a3b438c401be7fd57da84a6c09220592f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a750ae2ab960e05b0685667c558980bb8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a750ae2ab960e05b0685667c558980bb8">id</a></td></tr>
+<tr class="separator:a750ae2ab960e05b0685667c558980bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b0fb213cdb889034ebdf1a793e358c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a5b0fb213cdb889034ebdf1a793e358c0">m_id</a></td></tr>
+<tr class="separator:a5b0fb213cdb889034ebdf1a793e358c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19532657da6670b50a16f7d0a601e9bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sensor_device.html">SensorDevice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a19532657da6670b50a16f7d0a601e9bb">parentDev</a></td></tr>
+<tr class="separator:a19532657da6670b50a16f7d0a601e9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a903058e94ace524942fa08f2d9304bc4"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a903058e94ace524942fa08f2d9304bc4">name</a></td></tr>
+<tr class="separator:a903058e94ace524942fa08f2d9304bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1906be43650dbb487d078b32c055d9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#ad1906be43650dbb487d078b32c055d9e">hasTri</a> = false</td></tr>
+<tr class="separator:ad1906be43650dbb487d078b32c055d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fff98cebcd0d02f8cad10310a2d3ed2"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_sensor.html">Sensor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#a1fff98cebcd0d02f8cad10310a2d3ed2">sensors</a></td></tr>
+<tr class="separator:a1fff98cebcd0d02f8cad10310a2d3ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:ae941eb0aa4d8f2ac4638fa846d8321a2"><td class="memItemLeft" align="right" valign="top">static const QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ck_pt.html#ae941eb0aa4d8f2ac4638fa846d8321a2">names</a> { &quot;left&quot;, &quot;right&quot; }</td></tr>
+<tr class="memdesc:ae941eb0aa4d8f2ac4638fa846d8321a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">每个检测点的传感器  <a href="#ae941eb0aa4d8f2ac4638fa846d8321a2">更多...</a><br /></td></tr>
+<tr class="separator:ae941eb0aa4d8f2ac4638fa846d8321a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00033">33</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a414daa67aca3918ad13febdf5df36072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a414daa67aca3918ad13febdf5df36072">&#9670;&nbsp;</a></span>CkPt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CkPt::CkPt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sensor_device.html">SensorDevice</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8cpp_source.html">SensorDevice.cpp</a> 第 <a class="el" href="_sensor_device_8cpp_source.html#l00104">104</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt_a414daa67aca3918ad13febdf5df36072_cgraph.png" border="0" usemap="#class_ck_pt_a414daa67aca3918ad13febdf5df36072_cgraph" alt=""/></div>
+<map name="class_ck_pt_a414daa67aca3918ad13febdf5df36072_cgraph" id="class_ck_pt_a414daa67aca3918ad13febdf5df36072_cgraph">
+<area shape="rect" id="node2" href="class_sensor.html#a03b33db349b28448615318739bc9101f" title="Sensor::createAll" alt="" coords="141,5,264,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a3b438c401be7fd57da84a6c09220592f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b438c401be7fd57da84a6c09220592f">&#9670;&nbsp;</a></span>creatAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; <a class="el" href="class_ck_pt.html">CkPt</a> * &gt; CkPt::creatAll </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sensor_device.html">SensorDevice</a> *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>一次性创建所有的检测点 </p>
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8cpp_source.html">SensorDevice.cpp</a> 第 <a class="el" href="_sensor_device_8cpp_source.html#l00114">114</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt_a3b438c401be7fd57da84a6c09220592f_icgraph.png" border="0" usemap="#class_ck_pt_a3b438c401be7fd57da84a6c09220592f_icgraph" alt=""/></div>
+<map name="class_ck_pt_a3b438c401be7fd57da84a6c09220592f_icgraph" id="class_ck_pt_a3b438c401be7fd57da84a6c09220592f_icgraph">
+<area shape="rect" id="node2" href="class_sensor_device.html#a31ba196824ad72ac7e0fc960deb8bfa9" title="SensorDevice::SensorDevice" alt="" coords="156,5,344,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad3259779575bb558490559404afb1903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3259779575bb558490559404afb1903">&#9670;&nbsp;</a></span>gid2mid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int CkPt::gid2mid </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>gid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>由global id获得局部id </p>
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00042">42</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt_ad3259779575bb558490559404afb1903_icgraph.png" border="0" usemap="#class_ck_pt_ad3259779575bb558490559404afb1903_icgraph" alt=""/></div>
+<map name="class_ck_pt_ad3259779575bb558490559404afb1903_icgraph" id="class_ck_pt_ad3259779575bb558490559404afb1903_icgraph">
+<area shape="rect" id="node2" href="class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea" title="expect begin时，开始一个新的ckp " alt="" coords="157,5,299,47"/>
+<area shape="rect" id="node4" href="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531" title="在expect end时，结算ckp。注意：此ckpId为global id " alt="" coords="157,71,299,112"/>
+<area shape="rect" id="node3" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="347,46,415,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aae408d0f5cf84a8f4ac7d6281829c1f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae408d0f5cf84a8f4ac7d6281829c1f6">&#9670;&nbsp;</a></span>indexOf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int CkPt::indexOf </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00043">43</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt_aae408d0f5cf84a8f4ac7d6281829c1f6_icgraph.png" border="0" usemap="#class_ck_pt_aae408d0f5cf84a8f4ac7d6281829c1f6_icgraph" alt=""/></div>
+<map name="class_ck_pt_aae408d0f5cf84a8f4ac7d6281829c1f6_icgraph" id="class_ck_pt_aae408d0f5cf84a8f4ac7d6281829c1f6_icgraph">
+<area shape="rect" id="node2" href="class_handle_sensor_device.html#a406c0b871807c5b546390360a2a81efc" title="将输入的io信号压入devs中 " alt="" coords="156,5,297,47"/>
+<area shape="rect" id="node3" href="class_handle_sensor_device.html#aa66351734f4ee220bb13d37297061c58" title="输入一个新的io信号 " alt="" coords="345,5,487,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aad65e83ec3ef258516bbee5ba4c6d120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad65e83ec3ef258516bbee5ba4c6d120">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CkPt::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8cpp_source.html">SensorDevice.cpp</a> 第 <a class="el" href="_sensor_device_8cpp_source.html#l00131">131</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a2792e24314be95021e461a798ec2c884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2792e24314be95021e461a798ec2c884">&#9670;&nbsp;</a></span>isEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CkPt::isEnter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>返回是否由此检测点进入 </p>
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8cpp_source.html">SensorDevice.cpp</a> 第 <a class="el" href="_sensor_device_8cpp_source.html#l00140">140</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt_a2792e24314be95021e461a798ec2c884_icgraph.png" border="0" usemap="#class_ck_pt_a2792e24314be95021e461a798ec2c884_icgraph" alt=""/></div>
+<map name="class_ck_pt_a2792e24314be95021e461a798ec2c884_icgraph" id="class_ck_pt_a2792e24314be95021e461a798ec2c884_icgraph">
+<area shape="rect" id="node2" href="class_sensor.html#a84bc35cfba92eb579bc311b3c8b2980d" title="Sensor::init" alt="" coords="163,5,251,32"/>
+<area shape="rect" id="node3" href="class_ck_pt.html#a67a101d39c9ee8d8113f82905fb018f9" title="返回触发的时机，如果是进入，则下降沿触发 " alt="" coords="153,56,261,83"/>
+<area shape="rect" id="node4" href="class_ck_pt.html#afd63f78fd17b55451eb039ab9d5bb49f" title="返回是否由此检测点离开 " alt="" coords="156,107,259,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afd63f78fd17b55451eb039ab9d5bb49f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd63f78fd17b55451eb039ab9d5bb49f">&#9670;&nbsp;</a></span>isLeave()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CkPt::isLeave </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>返回是否由此检测点离开 </p>
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00054">54</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt_afd63f78fd17b55451eb039ab9d5bb49f_cgraph.png" border="0" usemap="#class_ck_pt_afd63f78fd17b55451eb039ab9d5bb49f_cgraph" alt=""/></div>
+<map name="class_ck_pt_afd63f78fd17b55451eb039ab9d5bb49f_cgraph" id="class_ck_pt_afd63f78fd17b55451eb039ab9d5bb49f_cgraph">
+<area shape="rect" id="node2" href="class_ck_pt.html#a2792e24314be95021e461a798ec2c884" title="返回是否由此检测点进入 " alt="" coords="156,5,256,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1bbbad154caab9065e9a6aebf696a11b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bbbad154caab9065e9a6aebf696a11b">&#9670;&nbsp;</a></span>newWheel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CkPt::newWheel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8cpp_source.html">SensorDevice.cpp</a> 第 <a class="el" href="_sensor_device_8cpp_source.html#l00123">123</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a67a101d39c9ee8d8113f82905fb018f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67a101d39c9ee8d8113f82905fb018f9">&#9670;&nbsp;</a></span>triTiming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CkPt::triTiming </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>返回触发的时机，如果是进入，则下降沿触发 </p>
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00050">50</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_ck_pt_a67a101d39c9ee8d8113f82905fb018f9_cgraph.png" border="0" usemap="#class_ck_pt_a67a101d39c9ee8d8113f82905fb018f9_cgraph" alt=""/></div>
+<map name="class_ck_pt_a67a101d39c9ee8d8113f82905fb018f9_cgraph" id="class_ck_pt_a67a101d39c9ee8d8113f82905fb018f9_cgraph">
+<area shape="rect" id="node2" href="class_ck_pt.html#a2792e24314be95021e461a798ec2c884" title="返回是否由此检测点进入 " alt="" coords="161,5,261,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="ad1906be43650dbb487d078b32c055d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1906be43650dbb487d078b32c055d9e">&#9670;&nbsp;</a></span>hasTri</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CkPt::hasTri = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00041">41</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a750ae2ab960e05b0685667c558980bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a750ae2ab960e05b0685667c558980bb8">&#9670;&nbsp;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CkPt::id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00037">37</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5b0fb213cdb889034ebdf1a793e358c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b0fb213cdb889034ebdf1a793e358c0">&#9670;&nbsp;</a></span>m_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CkPt::m_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00038">38</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a903058e94ace524942fa08f2d9304bc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a903058e94ace524942fa08f2d9304bc4">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString CkPt::name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00040">40</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae941eb0aa4d8f2ac4638fa846d8321a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae941eb0aa4d8f2ac4638fa846d8321a2">&#9670;&nbsp;</a></span>names</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QStringList CkPt::names { &quot;left&quot;, &quot;right&quot; }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>每个检测点的传感器 </p>
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00044">44</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a19532657da6670b50a16f7d0a601e9bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19532657da6670b50a16f7d0a601e9bb">&#9670;&nbsp;</a></span>parentDev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sensor_device.html">SensorDevice</a>* CkPt::parentDev</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00039">39</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a1fff98cebcd0d02f8cad10310a2d3ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fff98cebcd0d02f8cad10310a2d3ed2">&#9670;&nbsp;</a></span>sensors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="class_sensor.html">Sensor</a>*&gt; CkPt::sensors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a> 第 <a class="el" href="_sensor_device_8h_source.html#l00046">46</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>sources/<a class="el" href="_sensor_device_8h_source.html">SensorDevice.h</a></li>
+<li>sources/<a class="el" href="_sensor_device_8cpp_source.html">SensorDevice.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

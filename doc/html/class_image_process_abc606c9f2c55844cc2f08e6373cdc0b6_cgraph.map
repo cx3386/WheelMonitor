@@ -1,0 +1,11 @@
+<map id="ImageProcess::ImageProcess" name="ImageProcess::ImageProcess">
+<area shape="rect" id="node2" href="$class_image_process.html#ac7ec277a9341197c7bfd85be85e4ccf0" title="ImageProcess::onWheelTimeout" alt="" coords="255,5,465,32"/>
+<area shape="rect" id="node3" href="$class_plc.html#a2432a7c4b2bee31da9b2a933d2747ba4" title="获取台车速度(m/min)，线程安全的 " alt="" coords="292,56,428,83"/>
+<area shape="rect" id="node4" href="$class_image_process.html#a2a2689d411a382a27f8fa7b84585f306" title="完全进入后（进后） " alt="" coords="270,107,450,133"/>
+<area shape="rect" id="node5" href="$class_image_process.html#af2285e1cf441de21ee315fd59b69fdac" title="开始退出前（出前） " alt="" coords="263,157,457,184"/>
+<area shape="rect" id="node6" href="$class_hik_video_capture.html#ae437158a5aec5ad399b7880d6e226578" title="涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 " alt="" coords="249,208,471,235"/>
+<area shape="rect" id="node7" href="$class_image_process.html#a29bf2cf675c1f087538185ac83abfc85" title="处理当前帧，每秒钟3次 " alt="" coords="266,259,454,285"/>
+<area shape="rect" id="node9" href="$class_hik_video_capture.html#acc36761db4a20a203a6ce9675150a5bc" title="HikVideoCapture::startRecord" alt="" coords="263,309,457,336"/>
+<area shape="rect" id="node10" href="$class_hik_video_capture.html#a4579213b58ec7d6999755e78a48d9ff8" title="涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 " alt="" coords="533,335,726,361"/>
+<area shape="rect" id="node8" href="$class_image_process.html#a13e7f9c562ff092e8100dcde40beedcd" title="ImageProcess::makeFrame4Show" alt="" coords="519,259,740,285"/>
+</map>

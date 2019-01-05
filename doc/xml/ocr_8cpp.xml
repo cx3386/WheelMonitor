@@ -1,0 +1,506 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="ocr_8cpp" kind="file" language="C++">
+    <compoundname>ocr.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="common_8h" local="yes">common.h</includes>
+    <includes refid="confighelper_8h" local="yes">confighelper.h</includes>
+    <includes refid="ocr_8h" local="yes">ocr.h</includes>
+    <incdepgraph>
+      <node id="499">
+        <label>QSettings</label>
+      </node>
+      <node id="498">
+        <label>QObject</label>
+      </node>
+      <node id="494">
+        <label>QMetaType</label>
+      </node>
+      <node id="495">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="496">
+        <label>improfile.h</label>
+        <link refid="improfile_8h"/>
+        <childnode refid="495" relation="include">
+        </childnode>
+        <childnode refid="494" relation="include">
+        </childnode>
+      </node>
+      <node id="500">
+        <label>ocr.h</label>
+        <link refid="ocr_8h"/>
+        <childnode refid="498" relation="include">
+        </childnode>
+        <childnode refid="495" relation="include">
+        </childnode>
+      </node>
+      <node id="491">
+        <label>QString</label>
+      </node>
+      <node id="489">
+        <label>QtWidgets</label>
+      </node>
+      <node id="493">
+        <label>camprofile.h</label>
+        <link refid="camprofile_8h"/>
+        <childnode refid="494" relation="include">
+        </childnode>
+        <childnode refid="495" relation="include">
+        </childnode>
+      </node>
+      <node id="490">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="491" relation="include">
+        </childnode>
+      </node>
+      <node id="487">
+        <label>sources/ocr.cpp</label>
+        <link refid="ocr_8cpp"/>
+        <childnode refid="488" relation="include">
+        </childnode>
+        <childnode refid="490" relation="include">
+        </childnode>
+        <childnode refid="492" relation="include">
+        </childnode>
+        <childnode refid="500" relation="include">
+        </childnode>
+      </node>
+      <node id="492">
+        <label>confighelper.h</label>
+        <link refid="confighelper_8h"/>
+        <childnode refid="493" relation="include">
+        </childnode>
+        <childnode refid="496" relation="include">
+        </childnode>
+        <childnode refid="497" relation="include">
+        </childnode>
+        <childnode refid="498" relation="include">
+        </childnode>
+        <childnode refid="499" relation="include">
+        </childnode>
+      </node>
+      <node id="488">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="489" relation="include">
+        </childnode>
+      </node>
+      <node id="497">
+        <label>ocrprofile.h</label>
+        <link refid="ocrprofile_8h"/>
+        <childnode refid="495" relation="include">
+        </childnode>
+        <childnode refid="494" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="common_8h" kindref="compound">common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="confighelper_8h" kindref="compound">confighelper.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ocr_8h" kindref="compound">ocr.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//ocr_parameters<sp/>OCR::p;<sp/>//init<sp/>static<sp/>member<sp/>of<sp/>OCR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_o_c_r_1a5005daddcad6568306b0e49b3cdae8c3" refkind="member"><highlight class="normal"><ref refid="class_o_c_r_1a5005daddcad6568306b0e49b3cdae8c3" kindref="member">OCR::OCR</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>_configHelper,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_deviceIndex,<sp/>QObject*<sp/>parent<sp/></highlight><highlight class="comment">/*=<sp/>Q_NULLPTR*/</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>configHelper(_configHelper)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>deviceIndex(_deviceIndex)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>ocrProfile(&amp;(configHelper-&gt;device[deviceIndex].ocrProfile))</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//加载样本</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>10;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>patternName<sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1/%2.jpg&quot;</highlight><highlight class="normal">).arg(<ref refid="common_8h_1acddaec1bc9466dc471df6f1479137704" kindref="member">ocrPatternDirPath</ref>).arg(i);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pattern[i]<sp/>=<sp/>imread(patternName.toStdString(),<sp/>-1);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pattern[i].empty())<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;OCR:<sp/>Could<sp/>not<sp/>open<sp/>or<sp/>find<sp/>pattern[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="class_o_c_r_1a5d1bb59b769007938a8274ab9500fe48" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_o_c_r_1a5d1bb59b769007938a8274ab9500fe48" kindref="member">OCR::core_ocr</ref>(Mat<sp/>src)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;Mat&gt;<sp/>plates<sp/>=<sp/>detect_plate(src);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isDbg)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;find<sp/>plates<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>plates.size();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>pl<sp/>:<sp/>plates)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>recognize(pl);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">vector&lt;Mat&gt;<sp/>OCR::detect_plate(Mat<sp/>frame)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>fullscreen;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>resize(frame,<sp/>fullscreen,<sp/>Size(1920,<sp/>1080),<sp/>0,<sp/>0,<sp/>CV_INTER_LINEAR);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Rect<sp/>re(1100,<sp/>100,<sp/>450,<sp/>380);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>window(fullscreen,<sp/>re);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Mat<sp/>win_gray;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//cvtColor(window,<sp/>win_gray,<sp/>CV_BGR2GRAY);//如果输入是bgr则需要这两行</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isDbg)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imshow(</highlight><highlight class="stringliteral">&quot;window&quot;</highlight><highlight class="normal">,<sp/>window);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//方法1<sp/><sp/>canny的两个阈值都比较低 <sp/>Mat<sp/>gauss;
+<sp/>GaussianBlur(window,<sp/>gauss,<sp/>Size(5,<sp/>5),<sp/>0,<sp/>0);
+<sp/>Mat<sp/>img_canny;
+<sp/>Canny(gauss,<sp/>img_canny,<sp/>40,<sp/>100,<sp/>3,<sp/>true);
+
+<sp/><sp/><sp/><sp/>////方法2<sp/><sp/>canny的两个阈值都比较高
+<sp/><sp/><sp/>//Mat<sp/>img_canny;
+<sp/><sp/><sp/>//Canny(win_gray,<sp/>img_canny,<sp/>125,<sp/>350);
+<sp/><sp/><sp/><sp/>//threshold(img_canny,<sp/>img_canny,<sp/>128,<sp/>255,<sp/>THRESH_BINARY_INV);
+<sp/><sp/><sp/><sp/>if<sp/>(isDbg)
+<sp/><sp/><sp/><sp/><sp/>imshow(&quot;img_canny&quot;,<sp/>img_canny);
+
+<sp/><sp/><sp/>vector&lt;vector&lt;Point&gt;&gt;<sp/>contours;
+<sp/><sp/><sp/><sp/>findContours(img_canny,
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contours,<sp/>//<sp/>a<sp/>vector<sp/>of<sp/>contours
+<sp/><sp/><sp/><sp/><sp/><sp/>CV_RETR_EXTERNAL,<sp/>//<sp/>retrieve<sp/>the<sp/>external<sp/>contours
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CV_CHAIN_APPROX_NONE);<sp/>//<sp/>all<sp/>pixels<sp/>of<sp/>each<sp/>contours
+
+<sp/>//vector&lt;RotatedRect&gt;<sp/>rects;
+
+<sp/><sp/>//Start<sp/>to<sp/>iterate<sp/>to<sp/>each<sp/>contour<sp/>founded
+<sp/>vector&lt;Mat&gt;<sp/>output;
+<sp/><sp/><sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>ct<sp/>:<sp/>contours)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//Create<sp/>bounding<sp/>rect<sp/>of<sp/>object
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//RotatedRect<sp/>mr<sp/>=<sp/>minAreaRect(Mat(*itc));
+<sp/><sp/><sp/><sp/><sp/>Rect<sp/>re<sp/>=<sp/>boundingRect(Mat(ct));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//rectangle(result,<sp/>re,<sp/>Scalar(0,<sp/>255,<sp/>0));
+
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(<sp/>//re.x<sp/>&gt;<sp/>p.plate_x_min<sp/>&amp;&amp;<sp/>re.x<sp/>&lt;<sp/>p.plate_x_max<sp/>&amp;&amp;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>re.y<sp/>&gt;<sp/>ocrProfile-&gt;plate_y_min<sp/>&amp;&amp;<sp/>re.y<sp/>&lt;<sp/>ocrProfile-&gt;plate_y_max<sp/>&amp;&amp;<sp/>re.width<sp/>&gt;<sp/>ocrProfile-&gt;plate_width_min<sp/>&amp;&amp;<sp/>re.width<sp/>&lt;<sp/>ocrProfile-&gt;plate_width_max<sp/>&amp;&amp;<sp/>re.height<sp/>&gt;<sp/>ocrProfile-&gt;plate_height_min<sp/>&amp;&amp;<sp/>re.height<sp/>&lt;<sp/>ocrProfile-&gt;plate_height_max)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mat<sp/>hmp(window,<sp/>re);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output.push_back(hmp);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//save<sp/>hmp
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//patch:不再保存hmp<sp/><sp/>[1/2/2019<sp/>cx3386]
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//QString<sp/>date<sp/>=<sp/>QDate::currentDate().toString(&quot;yyyyMMdd&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//QString<sp/>dateTime<sp/>=<sp/>QDateTime::currentDateTime().toString(&quot;yyyyMMddhhmmsszzz&quot;);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//QString<sp/>fullFilePath<sp/>=<sp/>QStringLiteral(&quot;%1/%2/%3_%4hmp.jpg&quot;).arg(ocrDirPath).arg(date).arg(deviceIndex).arg(dateTime);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//imwrite(fullFilePath.toStdString(),<sp/>hmp);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>output;
+}
+
+void<sp/>OCR::recognize(Mat<sp/>in)
+{
+<sp/><sp/><sp/><sp/>auto<sp/>unit_chars<sp/>=<sp/>find_ch(binaryProcess(in));
+
+<sp/>int<sp/>count<sp/>=<sp/>0;
+<sp/>QString<sp/>nums;
+<sp/><sp/>int<sp/>i<sp/>=<sp/>0;
+<sp/>QString<sp/>date<sp/>=<sp/>QDate::currentDate().toString(&quot;yyyyMMdd&quot;);
+<sp/><sp/>QString<sp/>dateTime<sp/>=<sp/>QDateTime::currentDateTime().toString(&quot;yyyyMMddhhmmsszzz&quot;);
+<sp/>for<sp/>(auto&amp;&amp;<sp/>unit_char<sp/>:<sp/>as_const(unit_chars))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mat<sp/>stdChar;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>resize(unit_char.img,<sp/>stdChar,<sp/>Size(20,<sp/>20));
+<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>save<sp/>pattern
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>fullFilePath<sp/>=<sp/>QStringLiteral(&quot;%1/%2/%3_%4_%5.jpg&quot;).arg(ocrDirPath).arg(date).arg(deviceIndex).arg(dateTime).arg(++i);
+<sp/><sp/><sp/><sp/><sp/>imwrite(fullFilePath.toStdString(),<sp/>stdChar);
+
+<sp/><sp/><sp/><sp/><sp/>int<sp/>num<sp/>=<sp/>sampleComparison(stdChar);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(num<sp/>!=<sp/>-1)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nums<sp/>+=<sp/>QString(&quot;%1&quot;).arg(num);
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>if<sp/>(nums.size()<sp/>!=<sp/>3)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>result.push_back(nums.toStdString());
+}
+
+cv::Mat<sp/>OCR::binaryProcess(const<sp/>Mat&amp;<sp/>in)
+{
+<sp/><sp/><sp/>Mat<sp/>binary;
+<sp/><sp/><sp/><sp/>threshold(in,<sp/>binary,<sp/>180,<sp/>255,<sp/>cv::THRESH_BINARY);
+<sp/><sp/><sp/><sp/>return<sp/>binary;
+}
+
+vector&lt;CharSegment&gt;<sp/>OCR::find_ch(Mat<sp/>binaryImg)
+{
+<sp/><sp/><sp/><sp/>//Find<sp/>contours<sp/>of<sp/>possibles<sp/>characters
+<sp/><sp/><sp/><sp/>vector&lt;vector&lt;Point&gt;&gt;<sp/>contours;
+<sp/><sp/><sp/><sp/>findContours(binaryImg,
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contours,<sp/>//<sp/>a<sp/>vector<sp/>of<sp/>contours
+<sp/><sp/><sp/><sp/><sp/><sp/>CV_RETR_EXTERNAL,<sp/>//<sp/>retrieve<sp/>the<sp/>external<sp/>contours
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CV_CHAIN_APPROX_NONE);<sp/>//<sp/>all<sp/>pixels<sp/>of<sp/>each<sp/>contours
+
+<sp/>vector&lt;CharSegment&gt;<sp/>unit_chars;
+<sp/><sp/><sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>ct<sp/>:<sp/>contours)<sp/>{<sp/>//Create<sp/>bounding<sp/>rect<sp/>of<sp/>object
+<sp/><sp/><sp/><sp/><sp/><sp/>Rect<sp/>mr<sp/>=<sp/>boundingRect(Mat(ct));
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(mr.width<sp/>&gt;=<sp/>ocrProfile-&gt;num_width_min<sp/>&amp;&amp;<sp/>mr.width<sp/>&lt;=<sp/>ocrProfile-&gt;num_width_max<sp/>&amp;&amp;<sp/>mr.height<sp/>&gt;=<sp/>ocrProfile-&gt;num_height_min<sp/>&amp;&amp;<sp/>mr.height<sp/>&lt;=<sp/>ocrProfile-&gt;num_height_max)<sp/>{<sp/>//筛选有效的框***<sp/><sp/><sp/>mr.width<sp/>&gt;=<sp/>20<sp/>&amp;&amp;<sp/>mr.width<sp/>&lt;=<sp/>35<sp/>&amp;&amp;<sp/>mr.height<sp/>&gt;=<sp/>20<sp/>&amp;&amp;<sp/>mr.height<sp/>&lt;=<sp/>50
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mat<sp/>num_cut(binaryImg,<sp/>mr);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>unit_chars.emplace_back(num_cut,<sp/>mr);
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>//<sp/>从左往右对char排序
+<sp/>sort(unit_chars.begin(),<sp/>unit_chars.end(),<sp/>[](auto<sp/>X,<sp/>auto<sp/>Y)<sp/>{<sp/>return<sp/>X.pos.x<sp/>&lt;<sp/>Y.pos.x;<sp/>});
+<sp/><sp/>if<sp/>(isDbg)
+<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;find<sp/>num<sp/>&quot;<sp/>&lt;&lt;<sp/>unit_chars.size();
+<sp/><sp/>return<sp/>unit_chars;
+}
+
+int<sp/>OCR::sampleComparison(Mat<sp/>charImg)
+{
+<sp/>int<sp/>minIndex<sp/>=<sp/>-1;
+<sp/>//<sp/>如果所有匹配的相似度都未达到最低要求，则返回-1
+<sp/><sp/>double<sp/>minDis<sp/>=<sp/>2400;
+<sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>10;<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>double<sp/>dis<sp/>=<sp/>oudistance(pattern[i],<sp/>charImg);
+<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>如果相似度超过阈值，直接接受该匹配
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dis<sp/>&lt;<sp/>1000)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>i;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(dis<sp/>&lt;<sp/>minDis)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minDis<sp/>=<sp/>dis;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minIndex<sp/>=<sp/>i;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>minIndex;
+}
+
+float<sp/>OCR::oudistance(Mat<sp/>a,<sp/>Mat<sp/>b)<sp/>const
+{
+<sp/><sp/><sp/><sp/>float<sp/>distance<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>a.cols;<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>for<sp/>(int<sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>a.rows;<sp/>j++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distance<sp/>+=<sp/>(a.at&lt;uchar&gt;(i,<sp/>j)<sp/>-<sp/>b.at&lt;uchar&gt;(i,<sp/>j))<sp/>*<sp/>(a.at&lt;uchar&gt;(i,<sp/>j)<sp/>-<sp/>b.at&lt;uchar&gt;(i,<sp/>j));
+<sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>sqrt(distance);
+}
+
+std::string<sp/>OCR::get_final_result()
+{
+<sp/><sp/><sp/><sp/>map&lt;string,<sp/>int&gt;<sp/>keyMap;<sp/>//take<sp/>result<sp/>value<sp/>as<sp/>key<sp/>and<sp/>the<sp/>count<sp/>as<sp/>value
+<sp/>for<sp/>(auto&amp;&amp;<sp/>str<sp/>:<sp/>result)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyMap[str]++;
+<sp/>}
+<sp/><sp/>string<sp/>num<sp/>=<sp/>&quot;&quot;;
+<sp/><sp/><sp/>int<sp/>maxCount<sp/>=<sp/>0;<sp/>//遍历keyMap,<sp/>找到出现次数最多的num
+<sp/><sp/><sp/><sp/>for<sp/>(auto&amp;&amp;<sp/>pair<sp/>:<sp/>keyMap)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(pair.second<sp/>&gt;<sp/>maxCount)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxCount<sp/>=<sp/>pair.second;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/>pair.first;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+
+<sp/>if<sp/>(num.empty())<sp/>{<sp/>//<sp/>no<sp/>key<sp/>is<sp/>detected.
+<sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/>predictAnNum();<sp/>//<sp/>might<sp/>return<sp/>a<sp/>miss
+<sp/><sp/><sp/>}
+<sp/><sp/>else<sp/>{<sp/>//<sp/>a<sp/>num<sp/>is<sp/>detected.
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>nContinuousMissCount<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/><sp/><sp/>lastNum<sp/>=<sp/>QString::fromStdString(num).toUInt();<sp/>//<sp/>record<sp/>the<sp/>num
+<sp/><sp/>}
+<sp/><sp/>ocrDetectCount<sp/>=<sp/>result.size();
+<sp/><sp/><sp/><sp/>result.clear();
+<sp/><sp/><sp/><sp/>return<sp/>num;
+}
+
+std::string<sp/>OCR::predictAnNum()
+{
+<sp/><sp/><sp/>string<sp/>num;
+<sp/><sp/><sp/><sp/>//<sp/>loop
+<sp/><sp/><sp/><sp/>if<sp/>(lastNum<sp/>==<sp/>82)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/>&quot;001&quot;;
+<sp/><sp/><sp/>}
+<sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/>QString(&quot;%1&quot;).arg(lastNum<sp/>+<sp/>1,<sp/>3,<sp/>10,<sp/>QChar(&apos;0&apos;)).toStdString();
+<sp/>}
+<sp/><sp/>lastNum<sp/>=<sp/>QString::fromStdString(num).toUInt();
+
+<sp/><sp/><sp/>//if<sp/>miss<sp/>for<sp/>5<sp/>times,<sp/>not<sp/>predict
+<sp/>if<sp/>(++nContinuousMissCount<sp/>&gt;<sp/>5)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/>OCR_MISS;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>return<sp/>num;
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>gauss;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>GaussianBlur(window,<sp/>gauss,<sp/>Size(5,<sp/>5),<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>img_canny;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>Canny(gauss,<sp/>img_canny,<sp/>40,<sp/>100,<sp/>3,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Mat<sp/>img_canny;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Canny(win_gray,<sp/>img_canny,<sp/>125,<sp/>350);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//threshold(img_canny,<sp/>img_canny,<sp/>128,<sp/>255,<sp/>THRESH_BINARY_INV);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isDbg)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imshow(</highlight><highlight class="stringliteral">&quot;img_canny&quot;</highlight><highlight class="normal">,<sp/>img_canny);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;vector&lt;Point&gt;&gt;<sp/>contours;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>findContours(img_canny,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contours,<sp/></highlight><highlight class="comment">//<sp/>a<sp/>vector<sp/>of<sp/>contours</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CV_RETR_EXTERNAL,<sp/></highlight><highlight class="comment">//<sp/>retrieve<sp/>the<sp/>external<sp/>contours</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CV_CHAIN_APPROX_NONE);<sp/></highlight><highlight class="comment">//<sp/>all<sp/>pixels<sp/>of<sp/>each<sp/>contours</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//vector&lt;RotatedRect&gt;<sp/>rects;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Start<sp/>to<sp/>iterate<sp/>to<sp/>each<sp/>contour<sp/>founded</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;Mat&gt;<sp/>output;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>ct<sp/>:<sp/>contours)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Create<sp/>bounding<sp/>rect<sp/>of<sp/>object</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//RotatedRect<sp/>mr<sp/>=<sp/>minAreaRect(Mat(*itc));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Rect<sp/>re<sp/>=<sp/>boundingRect(Mat(ct));</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//rectangle(result,<sp/>re,<sp/>Scalar(0,<sp/>255,<sp/>0));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="comment">//re.x<sp/>&gt;<sp/>p.plate_x_min<sp/>&amp;&amp;<sp/>re.x<sp/>&lt;<sp/>p.plate_x_max<sp/>&amp;&amp;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>re.y<sp/>&gt;<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1a484eb61bf662829fab9a5a01da3c6fad" kindref="member">plate_y_min</ref><sp/>&amp;&amp;<sp/>re.y<sp/>&lt;<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1a1dc6c83e22df80a43c4f29d142e6d3a0" kindref="member">plate_y_max</ref><sp/>&amp;&amp;<sp/>re.width<sp/>&gt;<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1ace4677abf62d4daede0747c1d45857aa" kindref="member">plate_width_min</ref><sp/>&amp;&amp;<sp/>re.width<sp/>&lt;<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1a6844f3386fc26c447df47533b2d1b653" kindref="member">plate_width_max</ref><sp/>&amp;&amp;<sp/>re.height<sp/>&gt;<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1a1d7c5806410d1716cf55be31e3625288" kindref="member">plate_height_min</ref><sp/>&amp;&amp;<sp/>re.height<sp/>&lt;<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1a188e7754051660595e868a5d24165f24" kindref="member">plate_height_max</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mat<sp/>hmp(window,<sp/>re);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output.push_back(hmp);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//save<sp/>hmp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//patch:不再保存hmp<sp/><sp/>[1/2/2019<sp/>cx3386]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//QString<sp/>date<sp/>=<sp/>QDate::currentDate().toString(&quot;yyyyMMdd&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//QString<sp/>dateTime<sp/>=<sp/>QDateTime::currentDateTime().toString(&quot;yyyyMMddhhmmsszzz&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//QString<sp/>fullFilePath<sp/>=<sp/>QStringLiteral(&quot;%1/%2/%3_%4hmp.jpg&quot;).arg(ocrDirPath).arg(date).arg(deviceIndex).arg(dateTime);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//imwrite(fullFilePath.toStdString(),<sp/>hmp);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OCR::recognize(Mat<sp/>in)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>unit_chars<sp/>=<sp/>find_ch(binaryProcess(in));</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>nums;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>date<sp/>=<sp/>QDate::currentDate().toString(</highlight><highlight class="stringliteral">&quot;yyyyMMdd&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>dateTime<sp/>=<sp/>QDateTime::currentDateTime().toString(</highlight><highlight class="stringliteral">&quot;yyyyMMddhhmmsszzz&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>unit_char<sp/>:<sp/>as_const(unit_chars))<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mat<sp/>stdChar;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resize(unit_char.img,<sp/>stdChar,<sp/>Size(20,<sp/>20));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>save<sp/>pattern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/>fullFilePath<sp/>=<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;%1/%2/%3_%4_%5.jpg&quot;</highlight><highlight class="normal">).arg(<ref refid="common_8h_1a98bb5531df73660f1a4c1f181eedd88c" kindref="member">ocrDirPath</ref>).arg(date).arg(deviceIndex).arg(dateTime).arg(++i);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>imwrite(fullFilePath.toStdString(),<sp/>stdChar);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num<sp/>=<sp/>sampleComparison(stdChar);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(num<sp/>!=<sp/>-1)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nums<sp/>+=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1&quot;</highlight><highlight class="normal">).arg(num);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nums.size()<sp/>!=<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>result.push_back(nums.toStdString());</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">cv::Mat<sp/>OCR::binaryProcess(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Mat&amp;<sp/>in)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>binary;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>threshold(in,<sp/>binary,<sp/>180,<sp/>255,<sp/>cv::THRESH_BINARY);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>binary;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">vector&lt;CharSegment&gt;<sp/>OCR::find_ch(Mat<sp/>binaryImg)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Find<sp/>contours<sp/>of<sp/>possibles<sp/>characters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;vector&lt;Point&gt;&gt;<sp/>contours;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>findContours(binaryImg,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contours,<sp/></highlight><highlight class="comment">//<sp/>a<sp/>vector<sp/>of<sp/>contours</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CV_RETR_EXTERNAL,<sp/></highlight><highlight class="comment">//<sp/>retrieve<sp/>the<sp/>external<sp/>contours</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CV_CHAIN_APPROX_NONE);<sp/></highlight><highlight class="comment">//<sp/>all<sp/>pixels<sp/>of<sp/>each<sp/>contours</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;CharSegment&gt;<sp/>unit_chars;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>ct<sp/>:<sp/>contours)<sp/>{<sp/></highlight><highlight class="comment">//Create<sp/>bounding<sp/>rect<sp/>of<sp/>object</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Rect<sp/>mr<sp/>=<sp/>boundingRect(Mat(ct));</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mr.width<sp/>&gt;=<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1adff4d0e700c65ec5aa18bb30832eee9e" kindref="member">num_width_min</ref><sp/>&amp;&amp;<sp/>mr.width<sp/>&lt;=<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1ad15d282d7d634083cab46f56d96dbf39" kindref="member">num_width_max</ref><sp/>&amp;&amp;<sp/>mr.height<sp/>&gt;=<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1afcdcef83971364114b707fbce6ab0ac6" kindref="member">num_height_min</ref><sp/>&amp;&amp;<sp/>mr.height<sp/>&lt;=<sp/>ocrProfile-&gt;<ref refid="struct_ocr_profile_1a3d45a883fb8b19ed1ca2cd836c72da1c" kindref="member">num_height_max</ref>)<sp/>{<sp/></highlight><highlight class="comment">//筛选有效的框***<sp/><sp/><sp/>mr.width<sp/>&gt;=<sp/>20<sp/>&amp;&amp;<sp/>mr.width<sp/>&lt;=<sp/>35<sp/>&amp;&amp;<sp/>mr.height<sp/>&gt;=<sp/>20<sp/>&amp;&amp;<sp/>mr.height<sp/>&lt;=<sp/>50</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mat<sp/>num_cut(binaryImg,<sp/>mr);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>unit_chars.emplace_back(num_cut,<sp/>mr);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>从左往右对char排序</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>sort(unit_chars.begin(),<sp/>unit_chars.end(),<sp/>[](</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>X,<sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>Y)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>X.pos.x<sp/>&lt;<sp/>Y.pos.x;<sp/>});</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isDbg)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;find<sp/>num<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>unit_chars.size();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>unit_chars;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>OCR::sampleComparison(Mat<sp/>charImg)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minIndex<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>如果所有匹配的相似度都未达到最低要求，则返回-1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minDis<sp/>=<sp/>2400;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>10;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dis<sp/>=<sp/>oudistance(pattern[i],<sp/>charImg);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>如果相似度超过阈值，直接接受该匹配</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dis<sp/>&lt;<sp/>1000)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dis<sp/>&lt;<sp/>minDis)<sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minDis<sp/>=<sp/>dis;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minIndex<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>minIndex;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>OCR::oudistance(Mat<sp/>a,<sp/>Mat<sp/>b)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="171"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>distance<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>a.cols;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>a.rows;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distance<sp/>+=<sp/>(a.at&lt;uchar&gt;(i,<sp/>j)<sp/>-<sp/>b.at&lt;uchar&gt;(i,<sp/>j))<sp/>*<sp/>(a.at&lt;uchar&gt;(i,<sp/>j)<sp/>-<sp/>b.at&lt;uchar&gt;(i,<sp/>j));</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sqrt(distance);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="class_o_c_r_1ab6db0189309d6dee811e7918e45a4c97" refkind="member"><highlight class="normal">std::string<sp/><ref refid="class_o_c_r_1ab6db0189309d6dee811e7918e45a4c97" kindref="member">OCR::get_final_result</ref>()</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;string,<sp/>int&gt;<sp/>keyMap;<sp/></highlight><highlight class="comment">//take<sp/>result<sp/>value<sp/>as<sp/>key<sp/>and<sp/>the<sp/>count<sp/>as<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>str<sp/>:<sp/>result)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyMap[str]++;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>num<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxCount<sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//遍历keyMap,<sp/>找到出现次数最多的num</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;&amp;<sp/>pair<sp/>:<sp/>keyMap)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pair.second<sp/>&gt;<sp/>maxCount)<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxCount<sp/>=<sp/>pair.second;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/>pair.first;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(num.empty())<sp/>{<sp/></highlight><highlight class="comment">//<sp/>no<sp/>key<sp/>is<sp/>detected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/>predictAnNum();<sp/></highlight><highlight class="comment">//<sp/>might<sp/>return<sp/>a<sp/>miss</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="comment">//<sp/>a<sp/>num<sp/>is<sp/>detected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nContinuousMissCount<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastNum<sp/>=<sp/>QString::fromStdString(num).toUInt();<sp/></highlight><highlight class="comment">//<sp/>record<sp/>the<sp/>num</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>ocrDetectCount<sp/>=<sp/>result.size();</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>result.clear();</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>num;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal">std::string<sp/>OCR::predictAnNum()</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>num;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>loop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lastNum<sp/>==<sp/>82)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;001&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1&quot;</highlight><highlight class="normal">).arg(lastNum<sp/>+<sp/>1,<sp/>3,<sp/>10,<sp/>QChar(</highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)).toStdString();</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>lastNum<sp/>=<sp/>QString::fromStdString(num).toUInt();</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>miss<sp/>for<sp/>5<sp/>times,<sp/>not<sp/>predict</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(++nContinuousMissCount<sp/>&gt;<sp/>5)<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num<sp/>=<sp/><ref refid="ocr_8h_1ad63eb931690b7175233c28ac56c3c6dd" kindref="member">OCR_MISS</ref>;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>num;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/ocr.cpp"/>
+  </compounddef>
+</doxygen>

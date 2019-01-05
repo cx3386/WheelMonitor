@@ -1,0 +1,833 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="class_alarm_l_c_d_board" kind="class"><name>AlarmLCDBoard</name>
+    <member refid="class_alarm_l_c_d_board_1a7b800971fe7519e4881870d9bc4e777d" kind="variable"><name>devName</name></member>
+    <member refid="class_alarm_l_c_d_board_1a836b3bdf1e363714a89277b84a1f284c" kind="variable"><name>devIndex</name></member>
+    <member refid="class_alarm_l_c_d_board_1ad51b395087885354d3cb7e6395beb894" kind="variable"><name>alarmNum</name></member>
+    <member refid="class_alarm_l_c_d_board_1ad32f1ca6547efd53218c4b891958bde8" kind="variable"><name>ui</name></member>
+    <member refid="class_alarm_l_c_d_board_1aff7f50af435b2b9142c894d5f1eb1739" kind="variable"><name>masking</name></member>
+    <member refid="class_alarm_l_c_d_board_1a4467e949850a3e0f5e1d7498e18edb1e" kind="function"><name>AlarmLCDBoard</name></member>
+    <member refid="class_alarm_l_c_d_board_1abc6ecc7cb4e30f00a987d694612175af" kind="function"><name>~AlarmLCDBoard</name></member>
+    <member refid="class_alarm_l_c_d_board_1a664101492b2e08a81f6fd2b34bffd7c2" kind="function"><name>eventFilter</name></member>
+    <member refid="class_alarm_l_c_d_board_1ae08da97150f8de11edae6e70382fc516" kind="signal"><name>clicked</name></member>
+  </compound>
+  <compound refid="class_alarm_manager" kind="class"><name>AlarmManager</name>
+    <member refid="class_alarm_manager_1a2d0301bdddf54663c1a8590db0e212a8" kind="variable"><name>m_plc</name></member>
+    <member refid="class_alarm_manager_1a6982b4875376761d43443793c18c2c8b" kind="variable"><name>m_mainWindow</name></member>
+    <member refid="class_alarm_manager_1a1ba3fbfd703cafc65bbc22259b488cd6" kind="variable"><name>currentCio100</name></member>
+    <member refid="class_alarm_manager_1a8be4a4a110ea823811eea0c580021f55" kind="function"><name>AlarmManager</name></member>
+    <member refid="class_alarm_manager_1a06c4f8aa74bd546b62326708aaf15982" kind="function"><name>~AlarmManager</name></member>
+    <member refid="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" kind="function"><name>bindPLC</name></member>
+    <member refid="class_alarm_manager_1a20ebd74c084d24347a61aa8490f21cbf" kind="function"><name>bindImProc</name></member>
+    <member refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" kind="function"><name>bindMainWindow</name></member>
+    <member refid="class_alarm_manager_1afcb1ab3d5f8f3e4c01227ab052bc520f" kind="function"><name>bindPlayBack</name></member>
+    <member refid="class_alarm_manager_1ac63fabcfc799aecf81f044d41bc7f3f4" kind="slot"><name>onHardwareAlarm</name></member>
+    <member refid="class_alarm_manager_1a213979463b7f205ba09f095c4e318124" kind="signal"><name>showCio100ToUi</name></member>
+    <member refid="class_alarm_manager_1a9ae0da0b1353484b71987214c1245668" kind="signal"><name>hardAlarmToPlc</name></member>
+    <member refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" kind="signal"><name>showAlarmLightToUi</name></member>
+    <member refid="class_alarm_manager_1aab6cc4a610ba2f389bbab701b5d377cf" kind="signal"><name>showSpeed_i</name></member>
+    <member refid="class_alarm_manager_1ab9895e76b0b6a0c4525c38a355c805c8" kind="signal"><name>showError_i</name></member>
+    <member refid="class_alarm_manager_1a3b4d8431b71a981c3deb72836f5323c1" kind="signal"><name>showNum_i</name></member>
+    <member refid="class_alarm_manager_1a512d4492a9c02ed1afea872e8e4fffb7" kind="signal"><name>showSpeed_o</name></member>
+    <member refid="class_alarm_manager_1ad812d53580b9af78d53de719188ea327" kind="signal"><name>showError_o</name></member>
+    <member refid="class_alarm_manager_1a5727c94eb5d81b236f0de7ab57daced1" kind="signal"><name>showNum_o</name></member>
+    <member refid="class_alarm_manager_1a0fab516e0381a964c09a0ef830ba104d" kind="function"><name>insertRecord</name></member>
+    <member refid="class_alarm_manager_1af48f20b842723f6883b5bf8bcbe57810" kind="function"><name>getPreCheckstate</name></member>
+    <member refid="class_alarm_manager_1aa0a6e8cb60b92217a4ed6ec162a03d24" kind="slot"><name>checkoutWheelToDb</name></member>
+  </compound>
+  <compound refid="struct_backup_info" kind="struct"><name>BackupInfo</name>
+    <member refid="struct_backup_info_1a0c821a66542387252d525ef6ca367dc0" kind="variable"><name>path</name></member>
+    <member refid="struct_backup_info_1a44bd4711889aec5b8863e688b85d926b" kind="variable"><name>isSelected</name></member>
+    <member refid="struct_backup_info_1a6ab70d40085ca41f65a2b6260b48b0a2" kind="variable"><name>isAll</name></member>
+    <member refid="struct_backup_info_1a9d631c53f98aec6e6c0b0106bc9525f6" kind="variable"><name>day</name></member>
+    <member refid="struct_backup_info_1a57ebfab4744a979666451e9c94a24ac7" kind="variable"><name>max_day</name></member>
+  </compound>
+  <compound refid="class_backup_log_dialog" kind="class"><name>BackupLogDialog</name>
+    <member refid="class_backup_log_dialog_1aa6f82be276b1f4ec515159c198bff781" kind="variable"><name>backupInfoList</name></member>
+    <member refid="class_backup_log_dialog_1a08b4a38c7b085e2ab1b0ab00e532e3fd" kind="variable"><name>desFilePath</name></member>
+    <member refid="class_backup_log_dialog_1a98d637e3c350c86cebf7dbacbb9d9170" kind="variable"><name>lfNeedSpace</name></member>
+    <member refid="class_backup_log_dialog_1a053373088a7a57f9927a13324ae472a4" kind="variable"><name>lfFreeSpace</name></member>
+    <member refid="class_backup_log_dialog_1aa694beb20b0e321a315062e173d90f21" kind="variable"><name>freeSpaceLabel</name></member>
+    <member refid="class_backup_log_dialog_1a3654dd1719c77d665f2473732b06dab0" kind="variable"><name>dirPathLineEdit</name></member>
+    <member refid="class_backup_log_dialog_1a49e911db8358a5557a3dc0b1a67d33ad" kind="variable"><name>copyBtn</name></member>
+    <member refid="class_backup_log_dialog_1a88d8ab7cc6ff2a2c1820d0ccc578b5c0" kind="function"><name>BackupLogDialog</name></member>
+    <member refid="class_backup_log_dialog_1a908aa32b222e2d7fb0b5714c51dbe13c" kind="function"><name>~BackupLogDialog</name></member>
+    <member refid="class_backup_log_dialog_1a013163aeb369a77c1c0bdb485ceaf1cb" kind="slot"><name>chooseDirPath</name></member>
+    <member refid="class_backup_log_dialog_1a03fa6b20fb80595691eaa7209af0d4ce" kind="slot"><name>startCopy</name></member>
+    <member refid="class_backup_log_dialog_1adad19bf15dfdf951f5a471245f426778" kind="slot"><name>zipFiles</name></member>
+    <member refid="class_backup_log_dialog_1a98d99b3b7018c89f820e9f154b53568d" kind="function"><name>getBackupFiles</name></member>
+    <member refid="class_backup_log_dialog_1a39ec3c76de0e20fc51f62d294315eda9" kind="function"><name>getDayList</name></member>
+    <member refid="class_backup_log_dialog_1a055f89e9ced7adb7c84e29dfedaa0d35" kind="function"><name>getDayList</name></member>
+    <member refid="class_backup_log_dialog_1a2e2835895063102cf1528797d730fd1b" kind="function"><name>getDayList</name></member>
+    <member refid="class_backup_log_dialog_1a3db50ebc196268a1f3b335671b8d961a" kind="function"><name>getDiskFreeSpace</name></member>
+    <member refid="class_backup_log_dialog_1a5218eb45dd28dd88bb7a06be424889b8" kind="function"><name>getNeedSpace</name></member>
+  </compound>
+  <compound refid="struct_cam_profile" kind="struct"><name>CamProfile</name>
+    <member refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" kind="variable"><name>camIP</name></member>
+    <member refid="struct_cam_profile_1aa0b5ff29518521fa54e3d10b13176cea" kind="variable"><name>camPort</name></member>
+    <member refid="struct_cam_profile_1a0ea16ae25e305f80425bd43aaebd5e03" kind="variable"><name>camUserName</name></member>
+    <member refid="struct_cam_profile_1a858a51162bbd2a1b3cee2efddf16c65f" kind="variable"><name>camPassword</name></member>
+    <member refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" kind="variable"><name>frameInterv</name></member>
+  </compound>
+  <compound refid="struct_char_segment" kind="struct"><name>CharSegment</name>
+    <member refid="struct_char_segment_1a9a25b272291af7bdf3f46d3fe50430bb" kind="variable"><name>img</name></member>
+    <member refid="struct_char_segment_1a1ed00d0e9995381fd74e646cedff2516" kind="variable"><name>pos</name></member>
+    <member refid="struct_char_segment_1a0a2d7c449d5b885a095f7dd66f3b32f8" kind="function"><name>CharSegment</name></member>
+  </compound>
+  <compound refid="struct_speed_integrator_1_1_ckpt" kind="struct"><name>SpeedIntegrator::Ckpt</name>
+    <member refid="struct_speed_integrator_1_1_ckpt_1ac6a63bd78e5c8ea80acbb6451c9b7d0b" kind="variable"><name>bFirstStart</name></member>
+    <member refid="struct_speed_integrator_1_1_ckpt_1a983df3d209762ae566b5c2d43517e61d" kind="variable"><name>distance</name></member>
+    <member refid="struct_speed_integrator_1_1_ckpt_1a634728915e0f0e4bcab73e63449b41df" kind="variable"><name>anchor</name></member>
+    <member refid="struct_speed_integrator_1_1_ckpt_1a93a613457558c9ade1b80dfb5523a321" kind="variable"><name>hasTri</name></member>
+    <member refid="struct_speed_integrator_1_1_ckpt_1a18410ae8d6feba4d9f000a2b53c42cd3" kind="variable"><name>triBeginReady</name></member>
+    <member refid="struct_speed_integrator_1_1_ckpt_1a8638768c9e5ba5a1847725860c272cf1" kind="variable"><name>triEndReady</name></member>
+    <member refid="struct_speed_integrator_1_1_ckpt_1a84f7c544ea8cd820bef3bfee93d31274" kind="function"><name>newWheel</name></member>
+  </compound>
+  <compound refid="class_ck_pt" kind="class"><name>CkPt</name>
+    <member refid="class_ck_pt_1a750ae2ab960e05b0685667c558980bb8" kind="variable"><name>id</name></member>
+    <member refid="class_ck_pt_1a5b0fb213cdb889034ebdf1a793e358c0" kind="variable"><name>m_id</name></member>
+    <member refid="class_ck_pt_1a19532657da6670b50a16f7d0a601e9bb" kind="variable"><name>parentDev</name></member>
+    <member refid="class_ck_pt_1a903058e94ace524942fa08f2d9304bc4" kind="variable"><name>name</name></member>
+    <member refid="class_ck_pt_1ad1906be43650dbb487d078b32c055d9e" kind="variable"><name>hasTri</name></member>
+    <member refid="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" kind="variable"><name>sensors</name></member>
+    <member refid="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" kind="variable"><name>names</name></member>
+    <member refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" kind="function"><name>CkPt</name></member>
+    <member refid="class_ck_pt_1a1bbbad154caab9065e9a6aebf696a11b" kind="function"><name>newWheel</name></member>
+    <member refid="class_ck_pt_1aad65e83ec3ef258516bbee5ba4c6d120" kind="function"><name>init</name></member>
+    <member refid="class_ck_pt_1a67a101d39c9ee8d8113f82905fb018f9" kind="function"><name>triTiming</name></member>
+    <member refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" kind="function"><name>isEnter</name></member>
+    <member refid="class_ck_pt_1afd63f78fd17b55451eb039ab9d5bb49f" kind="function"><name>isLeave</name></member>
+    <member refid="class_ck_pt_1ad3259779575bb558490559404afb1903" kind="function"><name>gid2mid</name></member>
+    <member refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" kind="function"><name>indexOf</name></member>
+    <member refid="class_ck_pt_1a3b438c401be7fd57da84a6c09220592f" kind="function"><name>creatAll</name></member>
+  </compound>
+  <compound refid="class_config_helper" kind="class"><name>ConfigHelper</name>
+    <member refid="class_config_helper_1a270523c0cddb9412b976b4385e9b62aa" kind="variable"><name>configFile</name></member>
+    <member refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" kind="variable"><name>launchAtLogin</name></member>
+    <member refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" kind="variable"><name>startAtLaunch</name></member>
+    <member refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" kind="variable"><name>verboseLog</name></member>
+    <member refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kind="variable"><name>device</name></member>
+    <member refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" kind="variable"><name>pc2plc_portName</name></member>
+    <member refid="class_config_helper_1ad0a8c52dccf3495d3d52bf97045588a0" kind="variable"><name>matchMaskInnerRatio</name></member>
+    <member refid="class_config_helper_1ae04fa487fbc7ee5b5e247d8330021115" kind="variable"><name>matchMaskOuterRatio</name></member>
+    <member refid="class_config_helper_1a15694a18b65e7cbfb25244dc407ffad1" kind="function"><name>ConfigHelper</name></member>
+    <member refid="class_config_helper_1a198df438b93de320f0dd46eeeaede896" kind="function"><name>~ConfigHelper</name></member>
+    <member refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" kind="function"><name>read</name></member>
+    <member refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" kind="function"><name>save</name></member>
+    <member refid="class_config_helper_1a46578ba25406ad3f080d1757ecb321c9" kind="function"><name>takeEffect</name></member>
+    <member refid="class_config_helper_1ac24bac033fa12f152bd047f6f95071b1" kind="function"><name>effect_launchAtLogin</name></member>
+  </compound>
+  <compound refid="class_custom_slider" kind="class"><name>CustomSlider</name>
+    <member refid="class_custom_slider_1a339185f2fde98ed5032d5114f4cd1b41" kind="function"><name>CustomSlider</name></member>
+    <member refid="class_custom_slider_1ac6fae8f3a172e2729cb32262b5b800ac" kind="function"><name>CustomSlider</name></member>
+    <member refid="class_custom_slider_1a2b0d4882ae9ac4b708d88de26c9578ba" kind="function"><name>mousePressEvent</name></member>
+    <member refid="class_custom_slider_1a24568a4c3046d71a3a86e2c0e95faccb" kind="signal"><name>costomSliderClicked</name></member>
+  </compound>
+  <compound refid="struct_dev_spec" kind="struct"><name>DevSpec</name>
+    <member refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kind="variable"><name>camProfile</name></member>
+    <member refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kind="variable"><name>imProfile</name></member>
+    <member refid="struct_dev_spec_1aaa0fa35e85c207cec5d35065ef07cfed" kind="variable"><name>ocrProfile</name></member>
+  </compound>
+  <compound refid="class_handle_sensor_device" kind="class"><name>HandleSensorDevice</name>
+    <member refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kind="variable"><name>dev</name></member>
+    <member refid="class_handle_sensor_device_1a71337c011b7773bdf6f18e4307c980b3" kind="variable"><name>devId</name></member>
+    <member refid="class_handle_sensor_device_1a5023b1b9da70eeb729bc6326a67bb8a1" kind="function"><name>HandleSensorDevice</name></member>
+    <member refid="class_handle_sensor_device_1a42c9040fa7c8f0ee178f018632be04d8" kind="function"><name>~HandleSensorDevice</name></member>
+    <member refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" kind="function"><name>input</name></member>
+    <member refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" kind="function"><name>io2dev</name></member>
+    <member refid="class_handle_sensor_device_1ac3ea03c7ab1379f1f5f4b9750ff40683" kind="function"><name>checkTri</name></member>
+    <member refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" kind="function"><name>newCkp</name></member>
+    <member refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" kind="function"><name>checkoutCkp</name></member>
+    <member refid="class_handle_sensor_device_1ab7e6c4861c7af5768ba6bf2109549422" kind="function"><name>checkoutDev</name></member>
+    <member refid="class_handle_sensor_device_1ac722d51b208984bec501e447fa4497db" kind="function"><name>emitDzSignal</name></member>
+    <member refid="class_handle_sensor_device_1a60354bb7d1affe176409b34ae34d3f13" kind="function"><name>updateBrokenSensor</name></member>
+    <member refid="class_handle_sensor_device_1ad7e69771083aaee43c8da0e66fc075a8" kind="function"><name>updateGoodSensor</name></member>
+    <member refid="class_handle_sensor_device_1a6a44de6efbc02bdd63ba569c8d7a646d" kind="function"><name>getBreaks</name></member>
+    <member refid="class_handle_sensor_device_1a029e6f1215954236fd9ff4b0c074cd3e" kind="function"><name>getBrokens</name></member>
+    <member refid="class_handle_sensor_device_1ad20ee97a8a61bacc0499c0e75c9131c0" kind="function"><name>getExpects</name></member>
+    <member refid="class_handle_sensor_device_1a88a3409da13d8e304a6c39605974e58f" kind="function"><name>updateSensorToUi</name></member>
+    <member refid="class_handle_sensor_device_1aeef6cec4d94210ddbff3095dd246230c" kind="signal"><name>dzIn</name></member>
+    <member refid="class_handle_sensor_device_1a91627de0f3ebec10cb3329f226eb7c7e" kind="signal"><name>dzOut</name></member>
+    <member refid="class_handle_sensor_device_1a4eb776d5c0371a091fbac629f64e55cc" kind="signal"><name>triInt</name></member>
+    <member refid="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d" kind="signal"><name>wheelFallOff</name></member>
+    <member refid="class_handle_sensor_device_1a4b16afcd6b6fea22d29862cbd7a64554" kind="signal"><name>sensorUpdate</name></member>
+  </compound>
+  <compound refid="class_hik_video_capture" kind="class"><name>HikVideoCapture</name>
+    <member refid="class_hik_video_capture_1a638a9ef7bcdaef94e46c6003480302f2" kind="variable"><name>configHelper</name></member>
+    <member refid="class_hik_video_capture_1a26d0a8027158d5b152c901a12def4413" kind="variable"><name>deviceIndex</name></member>
+    <member refid="class_hik_video_capture_1a743989b5aa309fa397a8b18a90a7e5a4" kind="variable"><name>hPlayWnd</name></member>
+    <member refid="class_hik_video_capture_1a7cfc9caf5f923908d38348035ed9b943" kind="variable"><name>camProfile</name></member>
+    <member refid="class_hik_video_capture_1a95f84f0f59a30433642a4b4b907c1e53" kind="variable"><name>mutex</name></member>
+    <member refid="class_hik_video_capture_1a142081b2d023300df7298cbfb3b069cc" kind="variable"><name>bIsRecording</name></member>
+    <member refid="class_hik_video_capture_1a29f434c8ec982f772b50b6029288fb5a" kind="variable"><name>videoRelativeFilePath</name></member>
+    <member refid="class_hik_video_capture_1a4851df3dcde12141267616311889046d" kind="variable"><name>timeoutTimer</name></member>
+    <member refid="class_hik_video_capture_1a243bfae41d4c5739473c1c91344967b9" kind="variable"><name>MAX_RECORD_MSEC</name></member>
+    <member refid="class_hik_video_capture_1a51bf75ad21dd803e76cffb466f6677dc" kind="variable"><name>rawImage</name></member>
+    <member refid="class_hik_video_capture_1a39d669a5bc22690e34e5eea1d3f2d736" kind="variable"><name>nHandling_Start</name></member>
+    <member refid="class_hik_video_capture_1a8b2b8dcc979bbdc624774846e3d6d65d" kind="variable"><name>nHandling</name></member>
+    <member refid="class_hik_video_capture_1af372132e324453b0e2826bf9d0320b15" kind="variable"><name>nPendingFrame</name></member>
+    <member refid="class_hik_video_capture_1a26426ef2884fe849b495157ed4507495" kind="variable"><name>lUserID</name></member>
+    <member refid="class_hik_video_capture_1a8782013b0c60bb06366cce17167fa671" kind="variable"><name>nPort</name></member>
+    <member refid="class_hik_video_capture_1ab7995700696d36585aef9ba0280ca9ad" kind="variable"><name>lRealPlayHandle_SD</name></member>
+    <member refid="class_hik_video_capture_1ae9bcd4cee8c2d07c13ca763121a69bcd" kind="variable"><name>lRealPlayHandle_HD</name></member>
+    <member refid="class_hik_video_capture_1ae306f0a3c04a7eaaf4bcf9858e9aa4b0" kind="variable"><name>struPlayInfo_HD</name></member>
+    <member refid="class_hik_video_capture_1ab91f944b3aafe337f4fb1dea2afc9b63" kind="variable"><name>struPlayInfo_SD</name></member>
+    <member refid="class_hik_video_capture_1aa89b7061d927186d85e967460bd9adbc" kind="variable"><name>pCap0</name></member>
+    <member refid="class_hik_video_capture_1a88904f2f8f1a1b726468b37bc547f35b" kind="variable"><name>pCap1</name></member>
+    <member refid="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" kind="function"><name>HikVideoCapture</name></member>
+    <member refid="class_hik_video_capture_1a54a0ba8f296177df923cf5d8d9184a97" kind="function"><name>~HikVideoCapture</name></member>
+    <member refid="class_hik_video_capture_1a2e4a1d780459ede0318cd935f8bf9121" kind="function"><name>getVideoRelativeFilePath</name></member>
+    <member refid="class_hik_video_capture_1ab25c7c866fe0a2789939fecff5ec6065" kind="function"><name>getDeviceIndex</name></member>
+    <member refid="class_hik_video_capture_1a65e48b66ee3e28508e57bd6d757d5fa8" kind="function"><name>getRawImage</name></member>
+    <member refid="class_hik_video_capture_1a6d07f515f68c9c0819a14ab2afefa97d" kind="function"><name>syncCameraTime</name></member>
+    <member refid="class_hik_video_capture_1a0359300ea41ac46d327d9f5229465dd3" kind="function"><name>start</name></member>
+    <member refid="class_hik_video_capture_1a895409c64a795d7285dcee5c7d59fdd7" kind="function"><name>stop</name></member>
+    <member refid="class_hik_video_capture_1a546c43f4460f028af78c1f8129b8470d" kind="function"><name>DecCBFun</name></member>
+    <member refid="class_hik_video_capture_1a33a845451c815e6558181fe358ffe797" kind="function"><name>DecCBFun0</name></member>
+    <member refid="class_hik_video_capture_1af0ab6a9270255dad814ecb495798922b" kind="function"><name>DecCBFun1</name></member>
+    <member refid="class_hik_video_capture_1a35ad1e0070bb2077513dec8e13072601" kind="function"><name>fRealDataCallBack</name></member>
+    <member refid="class_hik_video_capture_1a168b0222cdba97ded5c77c4ad745c14e" kind="function"><name>ExceptionCallBack</name></member>
+    <member refid="class_hik_video_capture_1ad78643dc9b2cbd98c29e52d1edafeb0c" kind="signal"><name>frameCaptured</name></member>
+    <member refid="class_hik_video_capture_1a1ed1fa642b70117ce0b6bcb06139a7e4" kind="signal"><name>recordTimeout</name></member>
+    <member refid="class_hik_video_capture_1ace04c9f5505d7644b8aab786ff5d3f65" kind="signal"><name>recordON</name></member>
+    <member refid="class_hik_video_capture_1ad46bb13231338d97325d74e7f1e79f00" kind="signal"><name>recordOFF</name></member>
+    <member refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" kind="slot"><name>startRecord</name></member>
+    <member refid="class_hik_video_capture_1a4579213b58ec7d6999755e78a48d9ff8" kind="slot"><name>stopRecord</name></member>
+    <member refid="class_hik_video_capture_1ae437158a5aec5ad399b7880d6e226578" kind="slot"><name>frameProcessed</name></member>
+  </compound>
+  <compound refid="class_identification" kind="class"><name>Identification</name>
+    <member refid="class_identification_1a5634a37b031a23098a7cb0c707424bba" kind="function"><name>Identification</name></member>
+    <member refid="class_identification_1adfc0f9b4ad6867c277a65b6bcba8206e" kind="function"><name>~Identification</name></member>
+    <member refid="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" kind="function"><name>check</name></member>
+    <member refid="class_identification_1a2c6a597de6b24679e755aafba5657fef" kind="function"><name>getCPUID</name></member>
+    <member refid="class_identification_1ad6429aef1faa0a8bb9bd423998bb8889" kind="function"><name>getCPUIDEX</name></member>
+    <member refid="class_identification_1aecfba4e5f0c1640f52a6e2b8e01e457e" kind="function"><name>getLocalMAC</name></member>
+  </compound>
+  <compound refid="class_image_process" kind="class"><name>ImageProcess</name>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2b" kind="enum"><name>CoreState</name></member>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba44cd675a6cd69c6c4e42f69e45ebbb76" kind="enumvalue"><name>LocateFail</name></member>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba7b0305146df99fda6aa803c08bcd8d19" kind="enumvalue"><name>OutMA</name></member>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba439dc06615b7a2ce42bfce5cf3f42179" kind="enumvalue"><name>LMA</name></member>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2baee3aebbacb6ac1b85db8af5d37a877a9" kind="enumvalue"><name>RMA</name></member>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba9b287c945986946d7810bd8199138966" kind="enumvalue"><name>NoPre</name></member>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2bafa0eeb4f58a1e54ddabe2d7359abd687" kind="enumvalue"><name>MatchFail</name></member>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba76355d8ae5f9c94cee16f0191a5924bc" kind="enumvalue"><name>TruckSpZero</name></member>
+    <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba438c395896f24b92801bb6346511b044" kind="enumvalue"><name>Success</name></member>
+    <member refid="class_image_process_1ac67ed31e3126345d3151ff16e43688d6" kind="variable"><name>configHelper</name></member>
+    <member refid="class_image_process_1a82a2187512785fb64c51bfb1709ca2a9" kind="variable"><name>videoCapture</name></member>
+    <member refid="class_image_process_1ad798c56d010f8d85e4771645685e26d7" kind="variable"><name>plcSerial</name></member>
+    <member refid="class_image_process_1a3882df82c236452ad5cbc8b0c9c48597" kind="variable"><name>deviceIndex</name></member>
+    <member refid="class_image_process_1af47e63ee3b995be5a68818cc37fb9318" kind="variable"><name>imProfile</name></member>
+    <member refid="class_image_process_1a333d2e2c65adb732f0afd5cc04fc0365" kind="variable"><name>ocr</name></member>
+    <member refid="class_image_process_1ad0a5db356cc124068844ad61480b336c" kind="variable"><name>rMatcher</name></member>
+    <member refid="class_image_process_1a9e3daf8f2e059f641213ec8009f86765" kind="variable"><name>srcImg</name></member>
+    <member refid="class_image_process_1a1176bebc6d538f1fd70a9ec39e714e7f" kind="variable"><name>undistortedFrame</name></member>
+    <member refid="class_image_process_1abbe011bde337a7d3fef578d68053414d" kind="variable"><name>frameToShow</name></member>
+    <member refid="class_image_process_1a44baa468903df0d8e07bce7a2f4913b3" kind="variable"><name>matchResult</name></member>
+    <member refid="class_image_process_1a0390102ee266e652a782393e28063aca" kind="variable"><name>mutex</name></member>
+    <member refid="class_image_process_1a24dc7c931a62b4809ea3fa1cedc82de5" kind="variable"><name>rtSpeeds</name></member>
+    <member refid="class_image_process_1aec74d0c15a59b093010427586dad8470" kind="variable"><name>refSpeeds</name></member>
+    <member refid="class_image_process_1a4ab347be385da6002b33d0bd7e02965d" kind="variable"><name>wheelFrame_pre</name></member>
+    <member refid="class_image_process_1a2b8d8102515401f1cb68ec891bf88642" kind="variable"><name>bInDz</name></member>
+    <member refid="class_image_process_1a966935bccde130c0677b4cce32c025d1" kind="variable"><name>checkoutAlready</name></member>
+    <member refid="class_image_process_1a58eabfdb737165eaddc1f42740b77f6b" kind="variable"><name>_MAState</name></member>
+    <member refid="class_image_process_1a540bf609bc8d3512a405c73eb715b09d" kind="variable"><name>interrupts</name></member>
+    <member refid="class_image_process_1a3a5f0002db08cbb652752f8c1818bda6" kind="variable"><name>bUsrCtrl</name></member>
+    <member refid="class_image_process_1a18a2079b0512126768a509a9bf834dbc" kind="variable"><name>bIsTruckStopped</name></member>
+    <member refid="class_image_process_1aef0a02095f1a475ce3aea07c2dedbc6f" kind="variable"><name>nCore_pre</name></member>
+    <member refid="class_image_process_1a5012eee887433efb809f6afc958b1d09" kind="variable"><name>rtRefSpeed</name></member>
+    <member refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" kind="function"><name>ImageProcess</name></member>
+    <member refid="class_image_process_1a58756d66c3a326819df894942c0265c9" kind="function"><name>~ImageProcess</name></member>
+    <member refid="class_image_process_1a5613b249dea6fed2b9087c6e57fb7ca4" kind="function"><name>getFrameToShow</name></member>
+    <member refid="class_image_process_1a30e74ef6d1a2e4fe98075dcadd8e43f9" kind="function"><name>getMatchResult</name></member>
+    <member refid="class_image_process_1ae062ab8a591f9a897a8275274afbdb2a" kind="function"><name>start</name></member>
+    <member refid="class_image_process_1a27683908ba42359d3c45d2cd31af0b72" kind="function"><name>stop</name></member>
+    <member refid="class_image_process_1ad35f2ce96c8d1ef8516a0636493bb3b8" kind="function"><name>cameraUndistort</name></member>
+    <member refid="class_image_process_1a033d665b779af13f43128c5857fed995" kind="function"><name>checkoutWheel</name></member>
+    <member refid="class_image_process_1a6bc93399fd0a40b78bd55a59c604cc87" kind="function"><name>genSpeeds</name></member>
+    <member refid="class_image_process_1a139c565c261133bebd954e28d2ccff29" kind="function"><name>clearWheel</name></member>
+    <member refid="class_image_process_1a8c29baea56e5f5cfff48c5ceab2458dc" kind="function"><name>coreImageProcess</name></member>
+    <member refid="class_image_process_1ab0e6af1a83e0d35efbe800460b264f09" kind="function"><name>preprocess</name></member>
+    <member refid="class_image_process_1af172e2163764b4690368d6c39b53fa25" kind="function"><name>isInside</name></member>
+    <member refid="class_image_process_1aeb1c0f8f06db72833ae098e9cba132c0" kind="signal"><name>_MAIn</name></member>
+    <member refid="class_image_process_1ae9977a14daf947dfd75d57dcba7550ba" kind="signal"><name>_MAOut</name></member>
+    <member refid="class_image_process_1af63d5fd9925f972d8e8cf503c4882730" kind="signal"><name>frameHandled</name></member>
+    <member refid="class_image_process_1a4b7d6c8bc1ec403a848260e9c1587cd9" kind="signal"><name>showFrame</name></member>
+    <member refid="class_image_process_1afde5339b87f2e29683b567f298bf5c89" kind="signal"><name>showMatch</name></member>
+    <member refid="class_image_process_1ad0f4f919d1704ac2e6416279fbde6aa0" kind="signal"><name>wheelNeedHandled</name></member>
+    <member refid="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" kind="slot"><name>handleFrame</name></member>
+    <member refid="class_image_process_1a13e7f9c562ff092e8100dcde40beedcd" kind="slot"><name>makeFrame4Show</name></member>
+    <member refid="class_image_process_1a2a2689d411a382a27f8fa7b84585f306" kind="slot"><name>onSensorIN</name></member>
+    <member refid="class_image_process_1af2285e1cf441de21ee315fd59b69fdac" kind="slot"><name>onSensorOUT</name></member>
+    <member refid="class_image_process_1ac7ec277a9341197c7bfd85be85e4ccf0" kind="slot"><name>onWheelTimeout</name></member>
+    <member refid="class_image_process_1abc74a745697b290dd299de5a4ba295cd" kind="slot"><name>onStart</name></member>
+    <member refid="class_image_process_1a1be6881bb799cc51164bee051d6e2b0c" kind="slot"><name>onStop</name></member>
+  </compound>
+  <compound refid="struct_im_profile" kind="struct"><name>ImProfile</name>
+    <member refid="struct_im_profile_1a366306018336697fd36c0a16cb66cf9d" kind="variable"><name>interv</name></member>
+    <member refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" kind="variable"><name>warningRatio</name></member>
+    <member refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" kind="variable"><name>alarmRatio</name></member>
+    <member refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" kind="variable"><name>radius_min</name></member>
+    <member refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" kind="variable"><name>radius_max</name></member>
+    <member refid="struct_im_profile_1a9fa1622579348c3d0dccebe11c205a29" kind="variable"><name>gs1</name></member>
+    <member refid="struct_im_profile_1a10bffd53b4e9115dbf0fae545a426bad" kind="variable"><name>gs2</name></member>
+    <member refid="struct_im_profile_1ae9a7b67e92d0dd3a829a25edd34fbde8" kind="variable"><name>dp</name></member>
+    <member refid="struct_im_profile_1af5e44df036b18552062e4f9d9f926310" kind="variable"><name>minDist</name></member>
+    <member refid="struct_im_profile_1a921b476664441309c914b58331ead364" kind="variable"><name>param1</name></member>
+    <member refid="struct_im_profile_1ac84186e94a1900eaf9f2a6e1a7ab3014" kind="variable"><name>param2</name></member>
+    <member refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" kind="variable"><name>sensorTriggered</name></member>
+    <member refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kind="variable"><name>roiRect</name></member>
+    <member refid="struct_im_profile_1a2557df4a7094639b2e0abc12e1205d80" kind="function"><name>ImProfile</name></member>
+    <member refid="struct_im_profile_1a010f3183ee92250e952eefc53de47a62" kind="function"><name>ImProfile</name></member>
+    <member refid="struct_im_profile_1ad0a4f628ebbb926cfa212941fae8d332" kind="function"><name>angle2Speed</name></member>
+  </compound>
+  <compound refid="class_level_recorder" kind="class"><name>LevelRecorder</name>
+    <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445" kind="enum"><name>State</name></member>
+    <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4" kind="enumvalue"><name>HighLevel</name></member>
+    <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110" kind="enumvalue"><name>LowLevel</name></member>
+    <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74" kind="enumvalue"><name>PositiveEdge</name></member>
+    <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348" kind="enumvalue"><name>NegativeEdge</name></member>
+    <member refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411" kind="enumvalue"><name>OutOfRange</name></member>
+    <member refid="class_level_recorder_1a8fb0e7927b3b09822a89861901f790c8" kind="variable"><name>max_size</name></member>
+    <member refid="class_level_recorder_1abcfc67149649e2542d90be4daa9bd816" kind="variable"><name>levels</name></member>
+    <member refid="class_level_recorder_1a2fee4f14e008dabf44206e0dc9a23a83" kind="function"><name>LevelRecorder</name></member>
+    <member refid="class_level_recorder_1ae868e1bec42b2adab2e4b6ad59a3f259" kind="function"><name>~LevelRecorder</name></member>
+    <member refid="class_level_recorder_1ac903a8ed1d863cf49a2ba8883196d2b4" kind="function"><name>init</name></member>
+    <member refid="class_level_recorder_1a918eef12048f9de233aef9a16a1e9883" kind="function"><name>push</name></member>
+    <member refid="class_level_recorder_1a56bc86fca07cb3d6e69b089efa9846dc" kind="function"><name>clear</name></member>
+    <member refid="class_level_recorder_1aa9e7d005f90132d6e7e093653a3ae513" kind="function"><name>state</name></member>
+  </compound>
+  <compound refid="class_login_dialog" kind="class"><name>LoginDialog</name>
+    <member refid="class_login_dialog_1a41d3e533d639c2d47190a0466e602039" kind="variable"><name>ui</name></member>
+    <member refid="class_login_dialog_1ab3e48f38918b4fba5523ad4bb9b0d1f6" kind="function"><name>LoginDialog</name></member>
+    <member refid="class_login_dialog_1aa5d012ebc424713ca0cbd82be1f81133" kind="function"><name>~LoginDialog</name></member>
+    <member refid="class_login_dialog_1a95b6f43916cdf432607c124d63591f76" kind="slot"><name>on_loginBtn_clicked</name></member>
+    <member refid="class_login_dialog_1ac1a7dbe19d505165d93ba2d9808c6b42" kind="slot"><name>on_quitBtn_clicked</name></member>
+  </compound>
+  <compound refid="class_main_window" kind="class"><name>MainWindow</name>
+    <member refid="class_main_window_1a019defdc9b04dc63499a16f849c8ff87" kind="variable"><name>ui</name></member>
+    <member refid="class_main_window_1a5dc029682b55d86e93e698be3bd9c0d7" kind="variable"><name>configHelper</name></member>
+    <member refid="class_main_window_1a9ed781aae28b5e872e53e38f140b26eb" kind="variable"><name>mutex</name></member>
+    <member refid="class_main_window_1afe678a65ba5c15a5df52b76481ca848d" kind="variable"><name>bIsRunning</name></member>
+    <member refid="class_main_window_1a2d7cf4793d91205a27140b14180d8ccc" kind="variable"><name>recLabel_pre</name></member>
+    <member refid="class_main_window_1a00414cece056676e598a0b08f46e6f3e" kind="variable"><name>recLabel_input</name></member>
+    <member refid="class_main_window_1af18dafbfeb78650ff5666a66b5fb1073" kind="variable"><name>videoCapture</name></member>
+    <member refid="class_main_window_1a97c8a4875483f432641c58fc42c60209" kind="variable"><name>playBackWidget</name></member>
+    <member refid="class_main_window_1a314e863f704c2d268da0f66b3b9e4d82" kind="variable"><name>imageProcess</name></member>
+    <member refid="class_main_window_1ac8a7f827cc1ed3cc13dafe295ce85980" kind="variable"><name>imageProcessThread</name></member>
+    <member refid="class_main_window_1a42ac4b9303e79c125fdefb18696ed90d" kind="variable"><name>plc</name></member>
+    <member refid="class_main_window_1a6697b409679bde584fad7498c8d6e52d" kind="variable"><name>plcThread</name></member>
+    <member refid="class_main_window_1a89c700caaadb27c8fc7a9c5a7d1e6fae" kind="variable"><name>watcher</name></member>
+    <member refid="class_main_window_1a73f9dc88a00e93cf9c397688b9f48d5c" kind="variable"><name>dbWatcherThread</name></member>
+    <member refid="class_main_window_1a7ea9c53d73fb25f3d3b5f3456e6892f9" kind="variable"><name>alarmManager</name></member>
+    <member refid="class_main_window_1abf88b18ac72338bfa60a6edfdfb65d59" kind="variable"><name>alarmMapper</name></member>
+    <member refid="class_main_window_1abdb6770672caa61aeee76668c351d6a2" kind="variable"><name>m_docks</name></member>
+    <member refid="class_main_window_1a2e942fbbe12199474f063365a74adf78" kind="function"><name>MainWindow</name></member>
+    <member refid="class_main_window_1ae98d00a93bc118200eeef9f9bba1dba7" kind="function"><name>~MainWindow</name></member>
+    <member refid="class_main_window_1a69e8f48f4ea359fc0b2a096aa1e45583" kind="function"><name>configWindow</name></member>
+    <member refid="class_main_window_1ab034be5baa14085571f1f72d8dea17d4" kind="function"><name>setupDatabaseWatcher</name></member>
+    <member refid="class_main_window_1a1bab04607ebb24d6c7120a6cbb048936" kind="function"><name>setupDataMapper</name></member>
+    <member refid="class_main_window_1a89e39d2e6e718fcae2533c5394f7abd6" kind="function"><name>cleanDir</name></member>
+    <member refid="class_main_window_1a05fb9d72c044aa3bb7d187b994704e2f" kind="function"><name>closeEvent</name></member>
+    <member refid="class_main_window_1a960ef266d511ed4e10820a3106d23e69" kind="slot"><name>uiShowCio100</name></member>
+    <member refid="class_main_window_1afa3fc9e034fa98830e87246246d73e0e" kind="slot"><name>uiShowAlarmLight</name></member>
+    <member refid="class_main_window_1a0b254bab7ba45e2870484474a063afb2" kind="slot"><name>uiShowSpeed_i</name></member>
+    <member refid="class_main_window_1a5af6ee21b93fe8660960c6e0ed9ca989" kind="slot"><name>uiShowError_i</name></member>
+    <member refid="class_main_window_1af5608598b812a3f37e52f9e68df10f52" kind="slot"><name>uiShowNum_i</name></member>
+    <member refid="class_main_window_1a56c37dd56a54c1e0e4cea19073bd2895" kind="slot"><name>uiShowSpeed_o</name></member>
+    <member refid="class_main_window_1a08c36c996ee5b67ffbb4b0c5f1d18ea6" kind="slot"><name>uiShowError_o</name></member>
+    <member refid="class_main_window_1a6b59764d9fff055d3a40148b5efe393c" kind="slot"><name>uiShowNum_o</name></member>
+    <member refid="class_main_window_1a9057df90f051fd6f88645b4eb2e40d42" kind="slot"><name>uiShowRealtimeImage</name></member>
+    <member refid="class_main_window_1a87a3722589a231de53ddaee38b52d0bd" kind="slot"><name>uiShowTruckSpeed</name></member>
+    <member refid="class_main_window_1ad880b9cb1bbafe2ed80fe8d7ac9aa03d" kind="slot"><name>uiShowCio0</name></member>
+    <member refid="class_main_window_1a71ac40149e533ef7da7d54cbbabe4b07" kind="slot"><name>uiShowSensor</name></member>
+    <member refid="class_main_window_1a7fe16064a526425615fb1bf7715e3853" kind="slot"><name>onRecordON</name></member>
+    <member refid="class_main_window_1a8e64f926e41bd4023a53e1a72f63fd47" kind="slot"><name>onRecordOFF</name></member>
+    <member refid="class_main_window_1ad5f2417af8e274b30378383ef048b32c" kind="slot"><name>execScheduledTasks</name></member>
+    <member refid="class_main_window_1aeed2a27d796078aa660cefd1fb422138" kind="slot"><name>setupScheduler</name></member>
+    <member refid="class_main_window_1a512f8d03415a2e615842f5184cb8a8fb" kind="slot"><name>on_action_Start_triggered</name></member>
+    <member refid="class_main_window_1a151a19e04162f62313085509521fee55" kind="slot"><name>on_action_Stop_triggered</name></member>
+    <member refid="class_main_window_1aaac391f4959543d84278c60c7574b8b2" kind="slot"><name>on_action_Restart_triggered</name></member>
+    <member refid="class_main_window_1a50188ce2a37ee1e1a1b4e4d15eee9671" kind="slot"><name>on_action_Property_triggered</name></member>
+    <member refid="class_main_window_1a0b8c6952362faeeee64487be46b5ae6d" kind="slot"><name>on_action_Quit_triggered</name></member>
+    <member refid="class_main_window_1aa482a9e007d5e3a60f9b22082fb8f68e" kind="slot"><name>on_action_Show_Log_triggered</name></member>
+    <member refid="class_main_window_1ac2487a09e0ff70129f46da51a113412c" kind="slot"><name>on_action_Backup_Log_triggered</name></member>
+    <member refid="class_main_window_1a09de6bdff902ebcdccee3a1dd715f69b" kind="slot"><name>on_action_About_triggered</name></member>
+    <member refid="class_main_window_1a001cecd6cfd001a319585bf07fce7b37" kind="slot"><name>on_action_About_Qt_triggered</name></member>
+    <member refid="class_main_window_1af6733ed088b1e7c0843f5a005ae3ea58" kind="slot"><name>on_alarmPushButton_clicked</name></member>
+    <member refid="class_main_window_1aab6a930de99bdc7e38087fa3b4aed42a" kind="slot"><name>showViewSensorImage</name></member>
+    <member refid="class_main_window_1aefe9232bef454c4215f273be6d13d96a" kind="signal"><name>alarmUi2PLC</name></member>
+  </compound>
+  <compound refid="class_match_viewer" kind="class"><name>MatchViewer</name>
+    <member refid="class_match_viewer_1ab86821d43417a2ceb5b472bb758cfb75" kind="variable"><name>ui</name></member>
+    <member refid="class_match_viewer_1ac071d519d07f5a1b1ed5faaa09c24bc3" kind="variable"><name>m_imageProcess</name></member>
+    <member refid="class_match_viewer_1a4acd052dbca2987e15ed15801e88ba91" kind="function"><name>MatchViewer</name></member>
+    <member refid="class_match_viewer_1aa073473c302a0af0a9433e20af513b23" kind="function"><name>~MatchViewer</name></member>
+    <member refid="class_match_viewer_1abdabdcff52f99428a2cec3f8422a529f" kind="function"><name>bindDev</name></member>
+    <member refid="class_match_viewer_1abb87feca31dc2d263a436eeb76c78946" kind="slot"><name>showMatch</name></member>
+  </compound>
+  <compound refid="class_my_sql_table_model" kind="class"><name>MySqlTableModel</name>
+    <member refid="class_my_sql_table_model_1ad08ebbe732d911b5bd17f8280cbcda43" kind="function"><name>MySqlTableModel</name></member>
+    <member refid="class_my_sql_table_model_1a625c9567e0060469977695e2c5996730" kind="function"><name>~MySqlTableModel</name></member>
+    <member refid="class_my_sql_table_model_1ac6a066535d9c183b28710f8e8fc616bd" kind="function"><name>data</name></member>
+  </compound>
+  <compound refid="class_o_c_r" kind="class"><name>OCR</name>
+    <member refid="class_o_c_r_1ae07385e0bc6dd2d586138e282a3ef45e" kind="variable"><name>configHelper</name></member>
+    <member refid="class_o_c_r_1a1f1cea6b126a691ee4fc8b1233c553ca" kind="variable"><name>deviceIndex</name></member>
+    <member refid="class_o_c_r_1ad2c4d6a67903dac956b64111d5c4316a" kind="variable"><name>ocrProfile</name></member>
+    <member refid="class_o_c_r_1a5b85103c4e89acc7aca9291f925e9927" kind="variable"><name>isDbg</name></member>
+    <member refid="class_o_c_r_1ad7292c1e55612464513970115eff25fa" kind="variable"><name>pattern</name></member>
+    <member refid="class_o_c_r_1a9aab2e18762bcd0a98fb5d02dccc2ad6" kind="variable"><name>lastNum</name></member>
+    <member refid="class_o_c_r_1a12b977bab6cd39b2141726add7469819" kind="variable"><name>nContinuousMissCount</name></member>
+    <member refid="class_o_c_r_1a8c9152a0a10792f913b65578359f80fe" kind="variable"><name>result</name></member>
+    <member refid="class_o_c_r_1ae53be2a54628ad64c7f4012d01bad0ec" kind="variable"><name>ocrDetectCount</name></member>
+    <member refid="class_o_c_r_1a5005daddcad6568306b0e49b3cdae8c3" kind="function"><name>OCR</name></member>
+    <member refid="class_o_c_r_1a5d1bb59b769007938a8274ab9500fe48" kind="function"><name>core_ocr</name></member>
+    <member refid="class_o_c_r_1ab6db0189309d6dee811e7918e45a4c97" kind="function"><name>get_final_result</name></member>
+    <member refid="class_o_c_r_1a83780a02419e348bfeb8d12973b3642b" kind="function"><name>size</name></member>
+    <member refid="class_o_c_r_1a79cfabc25c245f8f7df49dca4801f219" kind="function"><name>resetOcr</name></member>
+    <member refid="class_o_c_r_1a78cb89fbc9e25cfc4cd58eb09540394e" kind="function"><name>predictAnNum</name></member>
+    <member refid="class_o_c_r_1a9ffb3ba4e63d13db34e23c4afadfe379" kind="function"><name>detect_plate</name></member>
+    <member refid="class_o_c_r_1abfe0c1073aa25afa8f2008e1fede0dc3" kind="function"><name>recognize</name></member>
+    <member refid="class_o_c_r_1ac4ddb5dfc6559960d71c8dee2481f74d" kind="function"><name>find_ch</name></member>
+    <member refid="class_o_c_r_1aeb8e2f39ec5a3aeea57569b869810e36" kind="function"><name>binaryProcess</name></member>
+    <member refid="class_o_c_r_1a63b06a3ef75400378ecbd0e68dae740d" kind="function"><name>sampleComparison</name></member>
+    <member refid="class_o_c_r_1a2acabb6240a25ce9ddec409c9823de87" kind="function"><name>oudistance</name></member>
+  </compound>
+  <compound refid="struct_ocr_profile" kind="struct"><name>OcrProfile</name>
+    <member refid="struct_ocr_profile_1ae56e709bcaceff2f934d044d604d88b5" kind="variable"><name>plate_x_min</name></member>
+    <member refid="struct_ocr_profile_1a9dbeae2c4d98e35544e27fddbee1c87f" kind="variable"><name>plate_x_max</name></member>
+    <member refid="struct_ocr_profile_1a484eb61bf662829fab9a5a01da3c6fad" kind="variable"><name>plate_y_min</name></member>
+    <member refid="struct_ocr_profile_1a1dc6c83e22df80a43c4f29d142e6d3a0" kind="variable"><name>plate_y_max</name></member>
+    <member refid="struct_ocr_profile_1ace4677abf62d4daede0747c1d45857aa" kind="variable"><name>plate_width_min</name></member>
+    <member refid="struct_ocr_profile_1a6844f3386fc26c447df47533b2d1b653" kind="variable"><name>plate_width_max</name></member>
+    <member refid="struct_ocr_profile_1a1d7c5806410d1716cf55be31e3625288" kind="variable"><name>plate_height_min</name></member>
+    <member refid="struct_ocr_profile_1a188e7754051660595e868a5d24165f24" kind="variable"><name>plate_height_max</name></member>
+    <member refid="struct_ocr_profile_1adff4d0e700c65ec5aa18bb30832eee9e" kind="variable"><name>num_width_min</name></member>
+    <member refid="struct_ocr_profile_1ad15d282d7d634083cab46f56d96dbf39" kind="variable"><name>num_width_max</name></member>
+    <member refid="struct_ocr_profile_1afcdcef83971364114b707fbce6ab0ac6" kind="variable"><name>num_height_min</name></member>
+    <member refid="struct_ocr_profile_1a3d45a883fb8b19ed1ca2cd836c72da1c" kind="variable"><name>num_height_max</name></member>
+  </compound>
+  <compound refid="class_outlier_helper" kind="class"><name>OutlierHelper</name>
+    <member refid="class_outlier_helper_1a9d2080a6778abe21e75259f2e360f85c" kind="variable"><name>grubbs95</name></member>
+    <member refid="class_outlier_helper_1ae96c240438ee24239785bb7584cbbb38" kind="function"><name>OutlierHelper</name></member>
+    <member refid="class_outlier_helper_1abcdc45be935821173222cb6c960dfdeb" kind="function"><name>~OutlierHelper</name></member>
+    <member refid="class_outlier_helper_1ac8d720064a0c39c9178417c5077cfa43" kind="function"><name>removeOutliers</name></member>
+    <member refid="class_outlier_helper_1a15110f2e9b10b243ba072ca08accfc32" kind="function"><name>mean</name></member>
+    <member refid="class_outlier_helper_1a329143b98163a03aa80a2950b3b1d8cf" kind="function"><name>stDev</name></member>
+    <member refid="class_outlier_helper_1acf7c536ea538e9709e9a5f10edb32923" kind="function"><name>median</name></member>
+    <member refid="class_outlier_helper_1a2111a5d530552b192220d5f370d0d9db" kind="function"><name>grubbs</name></member>
+    <member refid="class_outlier_helper_1a2da22c60ae0e83c51364a8c13e31d587" kind="function"><name>pauta</name></member>
+  </compound>
+  <compound refid="class_play_back_widget" kind="class"><name>PlayBackWidget</name>
+    <member refid="class_play_back_widget_1ac35e4232a7c1cce855e21def94308ad9" kind="variable"><name>allModel</name></member>
+    <member refid="class_play_back_widget_1a99c60dd024fcdfc77182747bcb2d25c5" kind="variable"><name>alarmModel</name></member>
+    <member refid="class_play_back_widget_1a462ae0ce1fd694d9cc60c3f734a15cdd" kind="variable"><name>alarmView</name></member>
+    <member refid="class_play_back_widget_1a7d562b7d5defc99bd6384768c8dea6d3" kind="variable"><name>selectTableCb</name></member>
+    <member refid="class_play_back_widget_1a304eb8747fdc074c99f183f310ef1cb3" kind="variable"><name>allView</name></member>
+    <member refid="class_play_back_widget_1aae10acfa108f5cd92858cfc5664cdc69" kind="variable"><name>player</name></member>
+    <member refid="class_play_back_widget_1adc4c99b5cf9d1ece305290e83de7bf59" kind="variable"><name>checkSelBtn</name></member>
+    <member refid="class_play_back_widget_1ac502b19b497f03e5784a0b9623bd5c3d" kind="variable"><name>checkAllBtn</name></member>
+    <member refid="class_play_back_widget_1aadceb04a8dab25ebd50d16ba99d4b6fc" kind="function"><name>PlayBackWidget</name></member>
+    <member refid="class_play_back_widget_1aad9ed53e29cf516c632e0984e0fd452c" kind="function"><name>~PlayBackWidget</name></member>
+    <member refid="class_play_back_widget_1ad372e3ed644bd1b3aca066fe6a8bc44b" kind="function"><name>hasAlarm</name></member>
+    <member refid="class_play_back_widget_1ace846b5cf47e0bf17f646677a43b796f" kind="function"><name>initAlarmTable</name></member>
+    <member refid="class_play_back_widget_1a99eed8e3258cbb45feaca3d9c4b0da89" kind="function"><name>initAllTable</name></member>
+    <member refid="class_play_back_widget_1aeb734152a79a362eeeedcfc7bdc0dbd1" kind="signal"><name>clearAlarm</name></member>
+    <member refid="class_play_back_widget_1a6dd67d2767c0aeb3f1e53d02ed47c6c2" kind="slot"><name>clearMedia</name></member>
+    <member refid="class_play_back_widget_1a4592fd5be9f975544be77a7263d4face" kind="slot"><name>dbChanged</name></member>
+    <member refid="class_play_back_widget_1ad50bf4bb29fc029ec68ca2af91d55e1e" kind="slot"><name>readVideoPath</name></member>
+    <member refid="class_play_back_widget_1ae8f36bcd4cb6e1ef86d95c64a6631e82" kind="slot"><name>setSelectedChecked</name></member>
+    <member refid="class_play_back_widget_1ad9bdd500fa2212a6b740047f75834b77" kind="slot"><name>setAllChecked</name></member>
+  </compound>
+  <compound refid="class_player" kind="class"><name>Player</name>
+    <member refid="class_player_1ab03423387255509ab75911ad5ea1a327" kind="variable"><name>playerState</name></member>
+    <member refid="class_player_1a3b46037ad6a2eda6c6f05d12cc88d825" kind="variable"><name>player</name></member>
+    <member refid="class_player_1af3b9a2ae04ef28b308d7d25a6594fec9" kind="variable"><name>videoWidget</name></member>
+    <member refid="class_player_1a5713f974b01533980567e2a7c29a283e" kind="variable"><name>slider</name></member>
+    <member refid="class_player_1ae0936acb79c73288115fdeebd62bf707" kind="variable"><name>playButton</name></member>
+    <member refid="class_player_1a41c15244e2a71128755031e7532f7622" kind="variable"><name>fullScreenButton</name></member>
+    <member refid="class_player_1a3e6637896866a4a02c574609f79ab7a8" kind="variable"><name>openFilePathBtn</name></member>
+    <member refid="class_player_1a9e7d0e45b035f774f43b75ec9255ad75" kind="variable"><name>labelDuration</name></member>
+    <member refid="class_player_1a297fd940e480adec9605def074b7e9c9" kind="variable"><name>statusInfo</name></member>
+    <member refid="class_player_1ad0d6c54f161a6e67a8e125effc0d8e6b" kind="variable"><name>duration</name></member>
+    <member refid="class_player_1ab956388f313bf5765ff73d2835d06545" kind="variable"><name>currentFileName</name></member>
+    <member refid="class_player_1a9254d78bab5919f1ce71366b498791a5" kind="function"><name>Player</name></member>
+    <member refid="class_player_1a749d2c00e1fe0f5c2746f7505a58c062" kind="function"><name>~Player</name></member>
+    <member refid="class_player_1a85dda573e6b2b5f4f7bdf930b0c496f4" kind="slot"><name>setUrl</name></member>
+    <member refid="class_player_1a347d0b06b378c3022dc224f3799243f4" kind="signal"><name>fullScreenChanged</name></member>
+    <member refid="class_player_1a8cd819ec3812c26e038e74426bc2b90f" kind="signal"><name>play</name></member>
+    <member refid="class_player_1aa7749254cf909d029127d4622670c522" kind="signal"><name>pause</name></member>
+    <member refid="class_player_1a14a4ab6beb7cd9bc6b70488cff102923" kind="slot"><name>durationChanged</name></member>
+    <member refid="class_player_1a145c6732deb0c4cf5fe34e07e8c716e8" kind="slot"><name>positionChanged</name></member>
+    <member refid="class_player_1aa47e30cd2c9a6ef3873bb8e685d37b04" kind="slot"><name>seek</name></member>
+    <member refid="class_player_1acfe5450a32a6b723420d3f29f289a816" kind="slot"><name>statusChanged</name></member>
+    <member refid="class_player_1a204e708248062f4e71e70cc8d7c830ab" kind="slot"><name>videoAvailableChanged</name></member>
+    <member refid="class_player_1a05e2b14636f56805e56960753f0db5c8" kind="slot"><name>setState</name></member>
+    <member refid="class_player_1aed3af5280b5f00032543e9c19e21e3c7" kind="slot"><name>playClicked</name></member>
+    <member refid="class_player_1afebb049d6cdcb3fff6272b40277c7e1b" kind="slot"><name>openFilePath</name></member>
+    <member refid="class_player_1a9470d41533f374ba05fbf573a4f13584" kind="function"><name>handleCursor</name></member>
+    <member refid="class_player_1a78603fbaa08830e9db512bbe0857919b" kind="function"><name>updateDurationInfo</name></member>
+    <member refid="class_player_1a38a6234700f9bc63bf281e23121f7648" kind="function"><name>state</name></member>
+  </compound>
+  <compound refid="class_plc" kind="class"><name>Plc</name>
+    <member refid="class_plc_1a7a0bfa84c4d0b4610cda92102d8d54a0" kind="variable"><name>adInterval</name></member>
+    <member refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kind="variable"><name>handleSensorDevice</name></member>
+    <member refid="class_plc_1a5060865d738a5606f37b095702356b36" kind="variable"><name>configHelper</name></member>
+    <member refid="class_plc_1abfcb7c50909776d91fffd959b11320d0" kind="variable"><name>speedIntegrator</name></member>
+    <member refid="class_plc_1a763d4caeda0cc176ad37ec7a9b900ef4" kind="variable"><name>mutex</name></member>
+    <member refid="class_plc_1a751b455190c6321f79560b7b664b8d12" kind="variable"><name>plcSerialPort</name></member>
+    <member refid="class_plc_1a06a6d33840dbce1dcf80c355fa922bcc" kind="variable"><name>refThread</name></member>
+    <member refid="class_plc_1a2d202af2393c328dcf8ba7f50d471f32" kind="variable"><name>truckSpeed</name></member>
+    <member refid="class_plc_1ae6c3edca2e33eed8bc1a63b10552b9c8" kind="variable"><name>speedCompensationCoeff</name></member>
+    <member refid="class_plc_1af4f1c0b510b4ca04ae6d183f9fad04fc" kind="variable"><name>bUsrCtrl</name></member>
+    <member refid="class_plc_1a6ccb3e0462fe61fd68062e1e8fe45e13" kind="variable"><name>bConnected</name></member>
+    <member refid="class_plc_1af5fd2361f00310a4d44ee8241c59ad6c" kind="variable"><name>cio0Interval</name></member>
+    <member refid="class_plc_1ac49b44b7336764f1db21536b11eb76a0" kind="variable"><name>serialport_timeout</name></member>
+    <member refid="class_plc_1a230190ee27d360a02576184d3450e8d6" kind="function"><name>Plc</name></member>
+    <member refid="class_plc_1a25b79d6b196b888dc2d80c5e98b9e733" kind="function"><name>~Plc</name></member>
+    <member refid="class_plc_1a53d31f51484e39fc320b02be053de157" kind="function"><name>start</name></member>
+    <member refid="class_plc_1abf9c8532cb72ba8c88437f50f2631d13" kind="function"><name>stop</name></member>
+    <member refid="class_plc_1ac5213403a3aba0c8c6f2a12c3e2d4fa5" kind="function"><name>connect</name></member>
+    <member refid="class_plc_1a2432a7c4b2bee31da9b2a933d2747ba4" kind="function"><name>getTruckSpeed</name></member>
+    <member refid="class_plc_1ad3ad163783f83f0b29d1b901b9fb2915" kind="function"><name>writePLC</name></member>
+    <member refid="class_plc_1ae9850c50fae380f8e3d26039d6c795d2" kind="function"><name>readPLC</name></member>
+    <member refid="class_plc_1acce55922595f23d9c68c2aa9befceb19" kind="function"><name>getFCSCode</name></member>
+    <member refid="class_plc_1a9e3efa200be49154bc26c4d302697986" kind="function"><name>getFullCode</name></member>
+    <member refid="class_plc_1a3945dd28af378d022a01d3e0998a5f8b" kind="function"><name>genRRCode</name></member>
+    <member refid="class_plc_1a72db3d922a962ba1b087b0b3ed344021" kind="function"><name>genWRCode</name></member>
+    <member refid="class_plc_1aabf5c2e1002abac1ba9f73a87d89eba2" kind="function"><name>checkAnsCode</name></member>
+    <member refid="class_plc_1a7d0990b9e9dea4703a1bc0493e2c46ae" kind="function"><name>getRRData</name></member>
+    <member refid="class_plc_1a16275eb784a682d01953de3f0b4ade70" kind="slot"><name>readSensorPeriodically</name></member>
+    <member refid="class_plc_1af51263605bd3434d80ab93ebd351a913" kind="slot"><name>readSpeedPeriodically</name></member>
+    <member refid="class_plc_1a6f99f1f3a90a49531f372d0e182872c6" kind="signal"><name>cio0Update</name></member>
+    <member refid="class_plc_1a14ee604a83d89ea5f96288db01d60a84" kind="signal"><name>connectError</name></member>
+    <member refid="class_plc_1adeaecb0eaf8a1d72f01348ca4e7918d1" kind="signal"><name>truckSpeedReady</name></member>
+    <member refid="class_plc_1acf7098f35958347aeea9abbc7371375f" kind="signal"><name>truckSpeedError</name></member>
+    <member refid="class_plc_1abf51268db3f1eca2b9bb139bf75b83d9" kind="slot"><name>sendAlarmToControlCenter</name></member>
+  </compound>
+  <compound refid="class_robust_matcher" kind="class"><name>RobustMatcher</name>
+    <member refid="class_robust_matcher_1a78641d08f99564cdf67a7a3f8d544f71" kind="function"><name>RobustMatcher</name></member>
+    <member refid="class_robust_matcher_1ae8831ade1c296513fcad9764a05d3328" kind="function"><name>~RobustMatcher</name></member>
+    <member refid="class_robust_matcher_1a00bcb865bcc240ec0df38cecf5243f5e" kind="function"><name>match</name></member>
+    <member refid="class_robust_matcher_1a51793d2b51f6d0b1ac3da4341f6574df" kind="function"><name>symmetryTest</name></member>
+    <member refid="class_robust_matcher_1a9b80201f33c186c403ebccda2c1fcb55" kind="function"><name>ratioTest</name></member>
+    <member refid="class_robust_matcher_1ad6f1d74c797656055784a1bdec455989" kind="function"><name>getMask</name></member>
+  </compound>
+  <compound refid="class_sensor" kind="class"><name>Sensor</name>
+    <member refid="class_sensor_1a234572fa1d52f50a2a3fe349022bd9bd" kind="variable"><name>id</name></member>
+    <member refid="class_sensor_1af890760e92f0526cc6d1de67837bbee3" kind="variable"><name>show_id</name></member>
+    <member refid="class_sensor_1a3d1ebe0e05e5d75604330a70d3acf9e5" kind="variable"><name>m_id</name></member>
+    <member refid="class_sensor_1a56a0ffda1ceedd2bc85548c77cebd7fc" kind="variable"><name>parentCkPt</name></member>
+    <member refid="class_sensor_1af962d8dc933caf0a9c7742bc44b29548" kind="variable"><name>name</name></member>
+    <member refid="class_sensor_1a4667ebebacc6cfce173c41066d20f2eb" kind="variable"><name>nTri</name></member>
+    <member refid="class_sensor_1a1a614aaa89d6b4077cf0b7265649339b" kind="variable"><name>expected</name></member>
+    <member refid="class_sensor_1a162de5c0d5d4b8235aa25a474002f594" kind="variable"><name>broken</name></member>
+    <member refid="class_sensor_1a12be80cf7102fa5a1f6488c29733cf88" kind="variable"><name>sample</name></member>
+    <member refid="class_sensor_1a062401268f20ec88117c0a08c867670d" kind="variable"><name>names</name></member>
+    <member refid="class_sensor_1a297b58d8d5cfecb5a4c569a55129ce9e" kind="function"><name>Sensor</name></member>
+    <member refid="class_sensor_1a679f792ce4dba08c394aa4cd506fb2ae" kind="function"><name>newWheel</name></member>
+    <member refid="class_sensor_1a84bc35cfba92eb579bc311b3c8b2980d" kind="function"><name>init</name></member>
+    <member refid="class_sensor_1a3ed288f1dbf4b0fbe66038e969804843" kind="function"><name>id_gb2mem</name></member>
+    <member refid="class_sensor_1a2d3ac12a2a7c609be7fd7ce3bd5d4c9b" kind="function"><name>indexOf</name></member>
+    <member refid="class_sensor_1a03b33db349b28448615318739bc9101f" kind="function"><name>createAll</name></member>
+  </compound>
+  <compound refid="class_sensor_device" kind="class"><name>SensorDevice</name>
+    <member refid="class_sensor_device_1a229042a02989323d6388dd6037a35384" kind="variable"><name>id</name></member>
+    <member refid="class_sensor_device_1a413a879ab20b538cff7ec754ca8f552d" kind="variable"><name>m_id</name></member>
+    <member refid="class_sensor_device_1add21fbc076ecbe5b4de479b426ad29bd" kind="variable"><name>name</name></member>
+    <member refid="class_sensor_device_1a86e56e6e908524cd1c27425f74b173a4" kind="variable"><name>needHandled</name></member>
+    <member refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kind="variable"><name>ckpts</name></member>
+    <member refid="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" kind="variable"><name>names</name></member>
+    <member refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" kind="function"><name>SensorDevice</name></member>
+    <member refid="class_sensor_device_1a3b67e95ea619719648481f76c2ae1b18" kind="function"><name>newWheel</name></member>
+    <member refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" kind="function"><name>init</name></member>
+    <member refid="class_sensor_device_1a86594b84858de9265f533c26af206b4a" kind="function"><name>~SensorDevice</name></member>
+    <member refid="class_sensor_device_1a0ae6c95bcdc8d5666a8dd9900d85196d" kind="function"><name>indexOf</name></member>
+    <member refid="class_sensor_device_1ac71d0c34ea8d46a135299f14d56f71e8" kind="function"><name>createAll</name></member>
+  </compound>
+  <compound refid="class_setting_dialog" kind="class"><name>SettingDialog</name>
+    <member refid="class_setting_dialog_1a045496fc706bfce0a2405220fc6bfef3" kind="variable"><name>ui</name></member>
+    <member refid="class_setting_dialog_1ac497920d25b6d4084fb276b785544186" kind="variable"><name>helper</name></member>
+    <member refid="class_setting_dialog_1af322e721867c2b24feb25cd2c2ba3ff5" kind="function"><name>SettingDialog</name></member>
+    <member refid="class_setting_dialog_1a9bfa278550d23df3f5e944989b0b0f54" kind="function"><name>~SettingDialog</name></member>
+    <member refid="class_setting_dialog_1af408f3587a506c87773d42cc0db4b25c" kind="function"><name>ui2ini</name></member>
+    <member refid="class_setting_dialog_1ae4025b2ff5d8e50b95224cd227b195c6" kind="slot"><name>roiSlot</name></member>
+    <member refid="class_setting_dialog_1aefda0960582dfd8a2d2d4fa7bd4e997f" kind="slot"><name>ini2ui</name></member>
+  </compound>
+  <compound refid="class_speed_integrator" kind="class"><name>SpeedIntegrator</name>
+    <member refid="class_speed_integrator_1a868df6038c261ebca114045ee95fed64" kind="variable"><name>plc</name></member>
+    <member refid="class_speed_integrator_1ab391230f373298df4eb6a50468927f6c" kind="variable"><name>bUsrCtrl</name></member>
+    <member refid="class_speed_integrator_1a00bd065503d61bca90aa5253026c0c69" kind="variable"><name>ckps</name></member>
+    <member refid="class_speed_integrator_1a25b8f368a15888e81de8fd1c6dc3e32c" kind="variable"><name>readSpeedInterval</name></member>
+    <member refid="class_speed_integrator_1ad5ba7a7ad064d2f97ae634f789ad360b" kind="variable"><name>std_L</name></member>
+    <member refid="class_speed_integrator_1a6878b4a67bdc2701e7451a6078000d45" kind="variable"><name>dist_min</name></member>
+    <member refid="class_speed_integrator_1afc12a41e77961400229d52825d686a37" kind="variable"><name>dist_max</name></member>
+    <member refid="class_speed_integrator_1aa7f2b002b46cf36d489558b59ed90388" kind="function"><name>SpeedIntegrator</name></member>
+    <member refid="class_speed_integrator_1a2831c10b9d9d554f03ae46542c29357d" kind="function"><name>~SpeedIntegrator</name></member>
+    <member refid="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" kind="function"><name>start</name></member>
+    <member refid="class_speed_integrator_1a6e1d4a9a0e409e7cd2e8b4f103439fe4" kind="function"><name>stop</name></member>
+    <member refid="class_speed_integrator_1a0de390a8cf985556838f4557e53d8525" kind="function"><name>speedIntegrator</name></member>
+    <member refid="class_speed_integrator_1a66d764b8f94e1547100028927d224aea" kind="slot"><name>onCkpTri</name></member>
+    <member refid="class_speed_integrator_1a5a3c3fcf4cf833b11d897c9dea305c82" kind="signal"><name>expectTriBegin</name></member>
+    <member refid="class_speed_integrator_1aaabda4cff9d78b288286796cd4690228" kind="signal"><name>expectTriEnd</name></member>
+  </compound>
+  <compound refid="class_video_widget" kind="class"><name>VideoWidget</name>
+    <member refid="class_video_widget_1a31e7897e4abd9733d45753e4a2e25882" kind="function"><name>VideoWidget</name></member>
+    <member refid="class_video_widget_1a3efa34386c146603fd2785409eab9d0f" kind="function"><name>keyPressEvent</name></member>
+    <member refid="class_video_widget_1aff7ceebcce6eacc04cfbed16cb417158" kind="function"><name>mouseDoubleClickEvent</name></member>
+    <member refid="class_video_widget_1a2ad2fa38f5cf82938f50eaba9ddc6173" kind="function"><name>mousePressEvent</name></member>
+  </compound>
+  <compound refid="class_view_sensor_image" kind="class"><name>ViewSensorImage</name>
+    <member refid="class_view_sensor_image_1a1931ef5ee425d401c79d3c08e7701f87" kind="variable"><name>ui</name></member>
+    <member refid="class_view_sensor_image_1ac172e27b9524a707aa390cd6cdd63f43" kind="function"><name>ViewSensorImage</name></member>
+    <member refid="class_view_sensor_image_1a38a6cf9420306239e6d91e3a960bc131" kind="function"><name>~ViewSensorImage</name></member>
+  </compound>
+  <compound refid="struct_wheel_db_info" kind="struct"><name>WheelDbInfo</name>
+    <member refid="struct_wheel_db_info_1af351443371b29941a357006ef27795a0" kind="variable"><name>id</name></member>
+    <member refid="struct_wheel_db_info_1aae1177299aa4b515dbc4e5b5b04ac071" kind="variable"><name>i_o</name></member>
+    <member refid="struct_wheel_db_info_1a8916452b2bb9ddda8088fe6f63cc5043" kind="variable"><name>num</name></member>
+    <member refid="struct_wheel_db_info_1af17e3e7fcfa366aede4f2b1dab764ea5" kind="variable"><name>calcspeed</name></member>
+    <member refid="struct_wheel_db_info_1a06da43ab369c21a8f280e902ecaadd24" kind="variable"><name>refspeed</name></member>
+    <member refid="struct_wheel_db_info_1aa409c886cb5505bbfed02bd7dc243c30" kind="variable"><name>error</name></member>
+    <member refid="struct_wheel_db_info_1a62093bf6e1e60260ac3441852e3508f5" kind="variable"><name>time</name></member>
+    <member refid="struct_wheel_db_info_1a303f95131278b2bb9d0b81c16e6d38b8" kind="variable"><name>alarmlevel</name></member>
+    <member refid="struct_wheel_db_info_1ab673ee45b8a02e9ba8aa72135ed28b6a" kind="variable"><name>checkstate</name></member>
+    <member refid="struct_wheel_db_info_1ad8ea8e08cbb58f268d06186a12c44aca" kind="variable"><name>ocrsize</name></member>
+    <member refid="struct_wheel_db_info_1a244bfaa82dbb8eb7fb1460d252571ba1" kind="variable"><name>fragment</name></member>
+    <member refid="struct_wheel_db_info_1a18c5b6628f2c1c164ba3a1f424f98d23" kind="variable"><name>totalmatch</name></member>
+    <member refid="struct_wheel_db_info_1a21d02e75169f0932fd742dfedd580173" kind="variable"><name>validmatch</name></member>
+    <member refid="struct_wheel_db_info_1a0c02cf2107db2bc81194d0f20aa14b4e" kind="variable"><name>speeds</name></member>
+    <member refid="struct_wheel_db_info_1a7c60fb37ebdb5d0e94b54a49e6eb6157" kind="variable"><name>videopath</name></member>
+    <member refid="struct_wheel_db_info_1a9115f83e0e11c2f7aef925ad723343f9" kind="variable"><name>warnRatio</name></member>
+    <member refid="struct_wheel_db_info_1a9b7285981eab28ac5748f3669a3f6ab8" kind="variable"><name>alarmRatio</name></member>
+  </compound>
+  <compound refid="namespace_0D9" kind="namespace"><name>@9</name>
+  </compound>
+  <compound refid="namespacecv" kind="namespace"><name>cv</name>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="namespacestd_1_1placeholders" kind="namespace"><name>std::placeholders</name>
+  </compound>
+  <compound refid="_alarm_event_8h" kind="file"><name>AlarmEvent.h</name>
+    <member refid="_alarm_event_8h_1a698ab575a1e9514dcf911ae5a042fa9b" kind="enum"><name>AlarmEvent</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bc" kind="enum"><name>HardwareAlarmEvent</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bcaa532aecd3d4f27956ce0b922f8476eee" kind="enumvalue"><name>Outer_Improc</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bcaa8e6fdbdd61947777a996a49bf09025e" kind="enumvalue"><name>Outer_Sensor</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca20e503b44ef5c17ae825ec74fc905b0b" kind="enumvalue"><name>Innner_Improc</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bcadbbf9230db7a8695bffce11d120bb5e0" kind="enumvalue"><name>Innner_Sensor</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46" kind="enumvalue"><name>Outer_Warn</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf" kind="enumvalue"><name>Outer_Alarm</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02" kind="enumvalue"><name>Inner_Warn</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b" kind="enumvalue"><name>Inner_Alarm</name></member>
+    <member refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d" kind="enumvalue"><name>Reset</name></member>
+    <member refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834" kind="enum"><name>AlarmColor</name></member>
+    <member refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac" kind="enumvalue"><name>Unkown</name></member>
+    <member refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1" kind="enumvalue"><name>Green</name></member>
+    <member refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47" kind="enumvalue"><name>Red</name></member>
+    <member refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8" kind="enumvalue"><name>Yellow</name></member>
+    <member refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93" kind="enumvalue"><name>Gray</name></member>
+    <member refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834ad15305d7a4e34e02489c74a5ef542f36" kind="enumvalue"><name>Off</name></member>
+  </compound>
+  <compound refid="_alarm_l_c_d_board_8cpp" kind="file"><name>AlarmLCDBoard.cpp</name>
+  </compound>
+  <compound refid="_alarm_l_c_d_board_8h" kind="file"><name>AlarmLCDBoard.h</name>
+  </compound>
+  <compound refid="_alarm_manager_8cpp" kind="file"><name>AlarmManager.cpp</name>
+  </compound>
+  <compound refid="_alarm_manager_8h" kind="file"><name>AlarmManager.h</name>
+  </compound>
+  <compound refid="backuplogdialog_8cpp" kind="file"><name>backuplogdialog.cpp</name>
+  </compound>
+  <compound refid="backuplogdialog_8h" kind="file"><name>backuplogdialog.h</name>
+  </compound>
+  <compound refid="camprofile_8cpp" kind="file"><name>camprofile.cpp</name>
+    <member refid="camprofile_8cpp_1ae28f9d10402fb4c5f2606289f7ccf0bc" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="camprofile_8cpp_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" kind="function"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="camprofile_8h" kind="file"><name>camprofile.h</name>
+    <member refid="camprofile_8h_1ae28f9d10402fb4c5f2606289f7ccf0bc" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="camprofile_8h_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" kind="function"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="common_8h" kind="file"><name>common.h</name>
+    <member refid="common_8h_1abe3b37a218cfb145f889377e5508e5ee" kind="variable"><name>PRODUCT_NAME</name></member>
+    <member refid="common_8h_1a721b8341801510c2bec1a5b08c15621d" kind="variable"><name>COPYRIGHT</name></member>
+    <member refid="common_8h_1af26a6b1228e01dd18d83a5d7e11ce5d8" kind="variable"><name>AUTHOR</name></member>
+    <member refid="common_8h_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kind="variable"><name>appDirPath</name></member>
+    <member refid="common_8h_1a2fc2859d7238a2e9fcda661d321348c5" kind="variable"><name>appFilePath</name></member>
+    <member refid="common_8h_1a554bb7f4dd593b2971ec5e5e38718ea5" kind="variable"><name>captureDirPath</name></member>
+    <member refid="common_8h_1a5f3034a99a21133bca2ee422b7c5b48d" kind="variable"><name>configDirPath</name></member>
+    <member refid="common_8h_1a3c8467c4addcfd3ee40b1439311d1349" kind="variable"><name>videoDirPath</name></member>
+    <member refid="common_8h_1ab3865372dec24e6f7a39286147c1d390" kind="variable"><name>cacheDirPath</name></member>
+    <member refid="common_8h_1a301764495aed786632cff7abe68880a9" kind="variable"><name>matchDirPath</name></member>
+    <member refid="common_8h_1a46ad4687cfe23f762717c8db257b0303" kind="variable"><name>logDirPath</name></member>
+    <member refid="common_8h_1acddaec1bc9466dc471df6f1479137704" kind="variable"><name>ocrPatternDirPath</name></member>
+    <member refid="common_8h_1a98bb5531df73660f1a4c1f181eedd88c" kind="variable"><name>ocrDirPath</name></member>
+    <member refid="common_8h_1a3fd98b4d92a4c1a052863672df72a575" kind="variable"><name>databaseFilePath</name></member>
+    <member refid="common_8h_1a86a9d54c55f58c6ade33f36d7b7388a2" kind="variable"><name>BACKUP_ZIP_NAME</name></member>
+  </compound>
+  <compound refid="confighelper_8cpp" kind="file"><name>confighelper.cpp</name>
+    <member refid="confighelper_8cpp_1ac448247a1cec8bcbf0b4cd6338bf9a47" kind="variable"><name>GP_CAM</name></member>
+    <member refid="confighelper_8cpp_1a409643d7322bbc65e743ca21d294c628" kind="variable"><name>GP_IM</name></member>
+    <member refid="confighelper_8cpp_1aa7d89e990d1b56d9a5fe7abf3c016d33" kind="variable"><name>GP_OCR</name></member>
+    <member refid="confighelper_8cpp_1ab170c7de5f01a238d1ac3ada931c14bf" kind="variable"><name>GP_COMMON</name></member>
+    <member refid="confighelper_8cpp_1afe1f8c39c4e1be1155570b94d7ef2488" kind="variable"><name>GP_DEV</name></member>
+  </compound>
+  <compound refid="confighelper_8h" kind="file"><name>confighelper.h</name>
+  </compound>
+  <compound refid="customslider_8cpp" kind="file"><name>customslider.cpp</name>
+  </compound>
+  <compound refid="customslider_8h" kind="file"><name>customslider.h</name>
+  </compound>
+  <compound refid="database_8h" kind="file"><name>database.h</name>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39f" kind="enum"><name>WheelHeader</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fac93f469e5dc9266565682cff0633a5e7" kind="enumvalue"><name>Wheel_ID</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea" kind="enumvalue"><name>Wheel_I_O</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537" kind="enumvalue"><name>Wheel_Num</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419" kind="enumvalue"><name>Wheel_CalcSpeed</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2" kind="enumvalue"><name>Wheel_RefSpeed</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0" kind="enumvalue"><name>Wheel_Error</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880" kind="enumvalue"><name>Wheel_Time</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33" kind="enumvalue"><name>Wheel_AlarmLevel</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8" kind="enumvalue"><name>Wheel_CheckState</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39faf813a99a0689420d89c99e45e3ab6993" kind="enumvalue"><name>Wheel_OcrSize</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fadbab0ed30a0e5394445e98954aab467f" kind="enumvalue"><name>Wheel_Fragment</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa1210163e5138f0b4070bf52eebb76616" kind="enumvalue"><name>Wheel_TotalMatch</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fae3dca2c74420f6bac1e955c4e21e61a2" kind="enumvalue"><name>Wheel_ValidMatch</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fae0605f6e0144f634da6e6e875aa009d9" kind="enumvalue"><name>Wheel_Speeds</name></member>
+    <member refid="database_8h_1a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde" kind="enumvalue"><name>Wheel_VideoPath</name></member>
+    <member refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7" kind="enum"><name>CheckState</name></member>
+    <member refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503" kind="enumvalue"><name>NoNeedCheck</name></member>
+    <member refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d" kind="enumvalue"><name>NeedCheck</name></member>
+    <member refid="database_8h_1a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33" kind="enumvalue"><name>Checked</name></member>
+    <member refid="database_8h_1ae3459b0e751e0b106b401853733a24db" kind="function"><name>initMainDb</name></member>
+  </compound>
+  <compound refid="_handle_sensor_device_8cpp" kind="file"><name>HandleSensorDevice.cpp</name>
+  </compound>
+  <compound refid="_handle_sensor_device_8h" kind="file"><name>HandleSensorDevice.h</name>
+  </compound>
+  <compound refid="hikvideocapture_8cpp" kind="file"><name>hikvideocapture.cpp</name>
+  </compound>
+  <compound refid="hikvideocapture_8h" kind="file"><name>hikvideocapture.h</name>
+  </compound>
+  <compound refid="identification_8cpp" kind="file"><name>identification.cpp</name>
+    <member refid="identification_8cpp_1a73dd8abf5290fb6ad8dc3c9f75f52639" kind="variable"><name>CPU_ID</name></member>
+    <member refid="identification_8cpp_1afae23d92b98b25305f4a96802efc11f3" kind="variable"><name>LOCAL_MAC</name></member>
+  </compound>
+  <compound refid="identification_8h" kind="file"><name>identification.h</name>
+  </compound>
+  <compound refid="imageprocess_8cpp" kind="file"><name>imageprocess.cpp</name>
+  </compound>
+  <compound refid="imageprocess_8h" kind="file"><name>imageprocess.h</name>
+    <member refid="imageprocess_8h_1ab6f3a17dfc009d5911a539706139a1d0" kind="variable"><name>IM_PROC_VALID_MIN_COUNT</name></member>
+    <member refid="imageprocess_8h_1afd9e1271a6641a305ec2a1d1ecd80553" kind="variable"><name>IM_PROC_INVALID_SPEED</name></member>
+  </compound>
+  <compound refid="improfile_8cpp" kind="file"><name>improfile.cpp</name>
+    <member refid="improfile_8cpp_1a9d1c03f99f471a4da3e904bd72b4a051" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="improfile_8cpp_1afc0bbe35ff9a1fc747ac9da4f03cf001" kind="function"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="improfile_8h" kind="file"><name>improfile.h</name>
+    <member refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" kind="function"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="_level_recorder_8cpp" kind="file"><name>LevelRecorder.cpp</name>
+  </compound>
+  <compound refid="_level_recorder_8h" kind="file"><name>LevelRecorder.h</name>
+  </compound>
+  <compound refid="logindialog_8cpp" kind="file"><name>logindialog.cpp</name>
+  </compound>
+  <compound refid="logindialog_8h" kind="file"><name>logindialog.h</name>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1aa853fe8cf98b42d3b2e44e2b1a4c1673" kind="variable"><name>appDirPath</name></member>
+    <member refid="main_8cpp_1a2fc2859d7238a2e9fcda661d321348c5" kind="variable"><name>appFilePath</name></member>
+    <member refid="main_8cpp_1a554bb7f4dd593b2971ec5e5e38718ea5" kind="variable"><name>captureDirPath</name></member>
+    <member refid="main_8cpp_1a5f3034a99a21133bca2ee422b7c5b48d" kind="variable"><name>configDirPath</name></member>
+    <member refid="main_8cpp_1a3c8467c4addcfd3ee40b1439311d1349" kind="variable"><name>videoDirPath</name></member>
+    <member refid="main_8cpp_1ab3865372dec24e6f7a39286147c1d390" kind="variable"><name>cacheDirPath</name></member>
+    <member refid="main_8cpp_1a301764495aed786632cff7abe68880a9" kind="variable"><name>matchDirPath</name></member>
+    <member refid="main_8cpp_1a46ad4687cfe23f762717c8db257b0303" kind="variable"><name>logDirPath</name></member>
+    <member refid="main_8cpp_1acddaec1bc9466dc471df6f1479137704" kind="variable"><name>ocrPatternDirPath</name></member>
+    <member refid="main_8cpp_1a98bb5531df73660f1a4c1f181eedd88c" kind="variable"><name>ocrDirPath</name></member>
+    <member refid="main_8cpp_1a3fd98b4d92a4c1a052863672df72a575" kind="variable"><name>databaseFilePath</name></member>
+    <member refid="main_8cpp_1a0c89947a98e84f4423c0b19b443f5d46" kind="function"><name>myMessageOutput</name></member>
+    <member refid="main_8cpp_1a8e6d384caf9c01d383b63efc6f5eddbc" kind="function"><name>ApplicationCrashHandler</name></member>
+    <member refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="mainwindow_8cpp" kind="file"><name>mainwindow.cpp</name>
+  </compound>
+  <compound refid="mainwindow_8h" kind="file"><name>mainwindow.h</name>
+  </compound>
+  <compound refid="_match_viewer_8cpp" kind="file"><name>MatchViewer.cpp</name>
+  </compound>
+  <compound refid="_match_viewer_8h" kind="file"><name>MatchViewer.h</name>
+  </compound>
+  <compound refid="mysqltablemodel_8cpp" kind="file"><name>mysqltablemodel.cpp</name>
+  </compound>
+  <compound refid="mysqltablemodel_8h" kind="file"><name>mysqltablemodel.h</name>
+  </compound>
+  <compound refid="ocr_8cpp" kind="file"><name>ocr.cpp</name>
+  </compound>
+  <compound refid="ocr_8h" kind="file"><name>ocr.h</name>
+    <member refid="ocr_8h_1ad63eb931690b7175233c28ac56c3c6dd" kind="variable"><name>OCR_MISS</name></member>
+  </compound>
+  <compound refid="ocrprofile_8cpp" kind="file"><name>ocrprofile.cpp</name>
+    <member refid="ocrprofile_8cpp_1a203acb6e8f18c2c368731d2714722388" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="ocrprofile_8cpp_1abc33781766f67258d6b3cda229edac5e" kind="function"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="ocrprofile_8h" kind="file"><name>ocrprofile.h</name>
+    <member refid="ocrprofile_8h_1a203acb6e8f18c2c368731d2714722388" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="ocrprofile_8h_1abc33781766f67258d6b3cda229edac5e" kind="function"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="outlierhelper_8cpp" kind="file"><name>outlierhelper.cpp</name>
+  </compound>
+  <compound refid="outlierhelper_8h" kind="file"><name>outlierhelper.h</name>
+  </compound>
+  <compound refid="playbackwidget_8cpp" kind="file"><name>playbackwidget.cpp</name>
+  </compound>
+  <compound refid="playbackwidget_8h" kind="file"><name>playbackwidget.h</name>
+  </compound>
+  <compound refid="player_8cpp" kind="file"><name>player.cpp</name>
+  </compound>
+  <compound refid="player_8h" kind="file"><name>player.h</name>
+  </compound>
+  <compound refid="_plc_8cpp" kind="file"><name>Plc.cpp</name>
+  </compound>
+  <compound refid="_plc_8h" kind="file"><name>Plc.h</name>
+  </compound>
+  <compound refid="resource_8h" kind="file"><name>resource.h</name>
+    <member refid="resource_8h_1a455fef2a9349aae3af8ef8f24f6fc9d8" kind="define"><name>IDI_ICON1</name></member>
+  </compound>
+  <compound refid="robustmatcher_8cpp" kind="file"><name>robustmatcher.cpp</name>
+    <member refid="robustmatcher_8cpp_1ae71449b1cc6e6250b91f539153a7a0d3" kind="define"><name>M_PI</name></member>
+  </compound>
+  <compound refid="robustmatcher_8h" kind="file"><name>robustmatcher.h</name>
+  </compound>
+  <compound refid="_sensor_device_8cpp" kind="file"><name>SensorDevice.cpp</name>
+  </compound>
+  <compound refid="_sensor_device_8h" kind="file"><name>SensorDevice.h</name>
+  </compound>
+  <compound refid="settingdialog_8cpp" kind="file"><name>settingdialog.cpp</name>
+  </compound>
+  <compound refid="settingdialog_8h" kind="file"><name>settingdialog.h</name>
+  </compound>
+  <compound refid="_speed_integrator_8cpp" kind="file"><name>SpeedIntegrator.cpp</name>
+  </compound>
+  <compound refid="_speed_integrator_8h" kind="file"><name>SpeedIntegrator.h</name>
+  </compound>
+  <compound refid="stdafx_8cpp" kind="file"><name>stdafx.cpp</name>
+  </compound>
+  <compound refid="stdafx_8h" kind="file"><name>stdafx.h</name>
+  </compound>
+  <compound refid="videowidget_8cpp" kind="file"><name>videowidget.cpp</name>
+  </compound>
+  <compound refid="videowidget_8h" kind="file"><name>videowidget.h</name>
+  </compound>
+  <compound refid="_view_sensor_image_8cpp" kind="file"><name>ViewSensorImage.cpp</name>
+  </compound>
+  <compound refid="_view_sensor_image_8h" kind="file"><name>ViewSensorImage.h</name>
+  </compound>
+  <compound refid="dir_08d237fc27d4ecd563f71c5d52f2fecc" kind="dir"><name>sources</name>
+  </compound>
+</doxygenindex>

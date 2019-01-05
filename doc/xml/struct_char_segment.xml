@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="struct_char_segment" kind="struct" language="C++" prot="public">
+    <compoundname>CharSegment</compoundname>
+    <includes refid="ocr_8h" local="no">ocr.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_char_segment_1a9a25b272291af7bdf3f46d3fe50430bb" prot="public" static="no" mutable="no">
+        <type>Mat</type>
+        <definition>Mat CharSegment::img</definition>
+        <argsstring></argsstring>
+        <name>img</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="13" column="1" bodyfile="sources/ocr.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_char_segment_1a1ed00d0e9995381fd74e646cedff2516" prot="public" static="no" mutable="no">
+        <type>Rect</type>
+        <definition>Rect CharSegment::pos</definition>
+        <argsstring></argsstring>
+        <name>pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="14" column="1" bodyfile="sources/ocr.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_char_segment_1a0a2d7c449d5b885a095f7dd66f3b32f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CharSegment::CharSegment</definition>
+        <argsstring>(Mat i, Rect p)</argsstring>
+        <name>CharSegment</name>
+        <param>
+          <type>Mat</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>Rect</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="15" column="1" bodyfile="sources/ocr.h" bodystart="15" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/ocr.h" line="12" column="1" bodyfile="sources/ocr.h" bodystart="12" bodyend="20"/>
+    <listofallmembers>
+      <member refid="struct_char_segment_1a0a2d7c449d5b885a095f7dd66f3b32f8" prot="public" virt="non-virtual"><scope>CharSegment</scope><name>CharSegment</name></member>
+      <member refid="struct_char_segment_1a9a25b272291af7bdf3f46d3fe50430bb" prot="public" virt="non-virtual"><scope>CharSegment</scope><name>img</name></member>
+      <member refid="struct_char_segment_1a1ed00d0e9995381fd74e646cedff2516" prot="public" virt="non-virtual"><scope>CharSegment</scope><name>pos</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

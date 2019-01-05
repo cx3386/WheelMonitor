@@ -1,0 +1,4 @@
+<map id="PlayBackWidget::clearAlarm" name="PlayBackWidget::clearAlarm">
+<area shape="rect" id="node2" href="$class_alarm_manager.html#afcb1ab3d5f8f3e4c01227ab052bc520f" title="AlarmManager::bindPlayBack" alt="" coords="243,5,437,32"/>
+<area shape="rect" id="node3" href="$class_play_back_widget.html#a4592fd5be9f975544be77a7263d4face" title="PlayBackWidget::dbChanged" alt="" coords="244,56,436,83"/>
+</map>

@@ -1,0 +1,177 @@
+.TH "sources/main.cpp" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/main.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stdafx\&.h'\fP
+.br
+\fC#include 'singleapplication\&.h'\fP
+.br
+\fC#include 'common\&.h'\fP
+.br
+\fC#include 'confighelper\&.h'\fP
+.br
+\fC#include 'database\&.h'\fP
+.br
+\fC#include 'identification\&.h'\fP
+.br
+\fC#include 'logindialog\&.h'\fP
+.br
+\fC#include 'mainwindow\&.h'\fP
+.br
+\fC#include <DbgHelp\&.h>\fP
+.br
+\fC#include <QtWidgets/QApplication>\fP
+.br
+\fC#include <Windows\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmyMessageOutput\fP (QtMsgType type, const QMessageLogContext &context, const QString &msg)"
+.br
+.ti -1c
+.RI "LONG \fBApplicationCrashHandler\fP (EXCEPTION_POINTERS *pException)"
+.br
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "QString \fBappDirPath\fP"
+.br
+.RI "the directory contains the app\&.exe, '/'e\&.g\&. C:/QQ "
+.ti -1c
+.RI "QString \fBappFilePath\fP"
+.br
+.RI "the file path of app\&.exe, '/'e\&.g\&. C:/QQ/qq\&.exe "
+.ti -1c
+.RI "QString \fBcaptureDirPath\fP"
+.br
+.RI "capture dir "
+.ti -1c
+.RI "QString \fBconfigDirPath\fP"
+.br
+.RI "config dir "
+.ti -1c
+.RI "QString \fBvideoDirPath\fP"
+.br
+.RI "video dir "
+.ti -1c
+.RI "QString \fBcacheDirPath\fP"
+.br
+.RI "cache dir "
+.ti -1c
+.RI "QString \fBmatchDirPath\fP"
+.br
+.RI "match dir "
+.ti -1c
+.RI "QString \fBlogDirPath\fP"
+.br
+.RI "log dir "
+.ti -1c
+.RI "QString \fBocrPatternDirPath\fP"
+.br
+.RI "ocr sample dir "
+.ti -1c
+.RI "QString \fBocrDirPath\fP"
+.br
+.RI "ocr dir "
+.ti -1c
+.RI "QString \fBdatabaseFilePath\fP"
+.br
+.RI "database file path "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "LONG ApplicationCrashHandler (EXCEPTION_POINTERS * pException)"
+
+.PP
+Definition at line 178 of file main\&.cpp\&.
+.SS "int main (int argc, char * argv[])"
+
+.PP
+Definition at line 30 of file main\&.cpp\&.
+.SS "void myMessageOutput (QtMsgType type, const QMessageLogContext & context, const QString & msg)"
+
+.PP
+Definition at line 141 of file main\&.cpp\&.
+.SH "Variable Documentation"
+.PP 
+.SS "QString appDirPath"
+
+.PP
+the directory contains the app\&.exe, '/'e\&.g\&. C:/QQ 
+.PP
+Definition at line 14 of file main\&.cpp\&.
+.SS "QString appFilePath"
+
+.PP
+the file path of app\&.exe, '/'e\&.g\&. C:/QQ/qq\&.exe 
+.PP
+Definition at line 15 of file main\&.cpp\&.
+.SS "QString cacheDirPath"
+
+.PP
+cache dir 
+.PP
+Definition at line 19 of file main\&.cpp\&.
+.SS "QString captureDirPath"
+
+.PP
+capture dir 
+.PP
+Definition at line 16 of file main\&.cpp\&.
+.SS "QString configDirPath"
+
+.PP
+config dir 
+.PP
+Definition at line 17 of file main\&.cpp\&.
+.SS "QString databaseFilePath"
+
+.PP
+database file path 
+.PP
+Definition at line 25 of file main\&.cpp\&.
+.SS "QString logDirPath"
+
+.PP
+log dir 
+.PP
+Definition at line 22 of file main\&.cpp\&.
+.SS "QString matchDirPath"
+
+.PP
+match dir 
+.PP
+Definition at line 20 of file main\&.cpp\&.
+.SS "QString ocrDirPath"
+
+.PP
+ocr dir 
+.PP
+Definition at line 24 of file main\&.cpp\&.
+.SS "QString ocrPatternDirPath"
+
+.PP
+ocr sample dir 
+.PP
+Definition at line 23 of file main\&.cpp\&.
+.SS "QString videoDirPath"
+
+.PP
+video dir 
+.PP
+Definition at line 18 of file main\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_o_c_r" kind="class" language="C++" prot="public">
+    <compoundname>OCR</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="ocr_8h" local="no">ocr.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_o_c_r_1ae07385e0bc6dd2d586138e282a3ef45e" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+        <definition>const ConfigHelper* OCR::configHelper</definition>
+        <argsstring></argsstring>
+        <name>configHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="36" column="1" bodyfile="sources/ocr.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_c_r_1a1f1cea6b126a691ee4fc8b1233c553ca" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int OCR::deviceIndex</definition>
+        <argsstring></argsstring>
+        <name>deviceIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="37" column="1" bodyfile="sources/ocr.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_c_r_1ad2c4d6a67903dac956b64111d5c4316a" prot="private" static="no" mutable="no">
+        <type>const <ref refid="struct_ocr_profile" kindref="compound">OcrProfile</ref> *</type>
+        <definition>const OcrProfile* OCR::ocrProfile</definition>
+        <argsstring></argsstring>
+        <name>ocrProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="38" column="1" bodyfile="sources/ocr.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_c_r_1a5b85103c4e89acc7aca9291f925e9927" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool OCR::isDbg</definition>
+        <argsstring></argsstring>
+        <name>isDbg</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>调试标志位，显示过程图像 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="40" column="1" bodyfile="sources/ocr.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_c_r_1ad7292c1e55612464513970115eff25fa" prot="private" static="no" mutable="no">
+        <type>Mat</type>
+        <definition>Mat OCR::pattern[10]</definition>
+        <argsstring>[10]</argsstring>
+        <name>pattern</name>
+        <briefdescription>
+<para>number character image samples, 0~9 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="41" column="1" bodyfile="sources/ocr.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_c_r_1a9aab2e18762bcd0a98fb5d02dccc2ad6" prot="private" static="no" mutable="no">
+        <type>uint</type>
+        <definition>uint OCR::lastNum</definition>
+        <argsstring></argsstring>
+        <name>lastNum</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="44" column="1" bodyfile="sources/ocr.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_c_r_1a12b977bab6cd39b2141726add7469819" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int OCR::nContinuousMissCount</definition>
+        <argsstring></argsstring>
+        <name>nContinuousMissCount</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="45" column="1" bodyfile="sources/ocr.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_c_r_1a8c9152a0a10792f913b65578359f80fe" prot="private" static="no" mutable="no">
+        <type>vector&lt; string &gt;</type>
+        <definition>vector&lt;string&gt; OCR::result</definition>
+        <argsstring></argsstring>
+        <name>result</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="47" column="1" bodyfile="sources/ocr.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_c_r_1ae53be2a54628ad64c7f4012d01bad0ec" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int OCR::ocrDetectCount</definition>
+        <argsstring></argsstring>
+        <name>ocrDetectCount</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="48" column="1" bodyfile="sources/ocr.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_o_c_r_1a5005daddcad6568306b0e49b3cdae8c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OCR::OCR</definition>
+        <argsstring>(const ConfigHelper *_configHelper, int _deviceIndex, QObject *parent=Q_NULLPTR)</argsstring>
+        <name>OCR</name>
+        <param>
+          <type>const <ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+          <declname>_configHelper</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_deviceIndex</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="27" column="1" bodyfile="sources/ocr.cpp" bodystart="9" bodyend="24"/>
+        <references refid="common_8h_1acddaec1bc9466dc471df6f1479137704" compoundref="main_8cpp" startline="23">ocrPatternDirPath</references>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1a5d1bb59b769007938a8274ab9500fe48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OCR::core_ocr</definition>
+        <argsstring>(Mat src)</argsstring>
+        <name>core_ocr</name>
+        <param>
+          <type>Mat</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="28" column="1" bodyfile="sources/ocr.cpp" bodystart="26" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1ab6db0189309d6dee811e7918e45a4c97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>std::string OCR::get_final_result</definition>
+        <argsstring>()</argsstring>
+        <name>get_final_result</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="29" column="1" bodyfile="sources/ocr.cpp" bodystart="181" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1a83780a02419e348bfeb8d12973b3642b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int OCR::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>return ocr total match size, should be called after <ref refid="class_o_c_r_1ab6db0189309d6dee811e7918e45a4c97" kindref="member">get_final_result()</ref>; </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="31" column="1" bodyfile="sources/ocr.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1a79cfabc25c245f8f7df49dca4801f219" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void OCR::resetOcr</definition>
+        <argsstring>()</argsstring>
+        <name>resetOcr</name>
+        <briefdescription>
+<para>重置ocr的连续miss计数器 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="33" column="1" bodyfile="sources/ocr.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_o_c_r_1a78cb89fbc9e25cfc4cd58eb09540394e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>std::string OCR::predictAnNum</definition>
+        <argsstring>()</argsstring>
+        <name>predictAnNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="43" column="1" bodyfile="sources/ocr.cpp" bodystart="208" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1a9ffb3ba4e63d13db34e23c4afadfe379" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; Mat &gt;</type>
+        <definition>vector&lt; Mat &gt; OCR::detect_plate</definition>
+        <argsstring>(Mat frame)</argsstring>
+        <name>detect_plate</name>
+        <param>
+          <type>Mat</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>输入RGB/GRAY格式的帧，输出GRAY格式的号码牌 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="50" column="1" bodyfile="sources/ocr.cpp" bodystart="36" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1abfe0c1073aa25afa8f2008e1fede0dc3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OCR::recognize</definition>
+        <argsstring>(Mat plate)</argsstring>
+        <name>recognize</name>
+        <param>
+          <type>Mat</type>
+          <declname>plate</declname>
+        </param>
+        <briefdescription>
+<para>输入GRAY格式的号码牌，得到num放入容器result. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="52" column="1" bodyfile="sources/ocr.cpp" bodystart="93" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1ac4ddb5dfc6559960d71c8dee2481f74d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="struct_char_segment" kindref="compound">CharSegment</ref> &gt;</type>
+        <definition>vector&lt; CharSegment &gt; OCR::find_ch</definition>
+        <argsstring>(Mat binaryImg)</argsstring>
+        <name>find_ch</name>
+        <param>
+          <type>Mat</type>
+          <declname>binaryImg</declname>
+        </param>
+        <briefdescription>
+<para>字符分割，输入二值化的号码牌，输出单个字符的位置与图像 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="54" column="1" bodyfile="sources/ocr.cpp" bodystart="126" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1aeb8e2f39ec5a3aeea57569b869810e36" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Mat</type>
+        <definition>cv::Mat OCR::binaryProcess</definition>
+        <argsstring>(const Mat &amp;in)</argsstring>
+        <name>binaryProcess</name>
+        <param>
+          <type>const Mat &amp;</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>用于将号码牌二值化 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="56" column="1" bodyfile="sources/ocr.cpp" bodystart="119" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1a63b06a3ef75400378ecbd0e68dae740d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int OCR::sampleComparison</definition>
+        <argsstring>(Mat charImg)</argsstring>
+        <name>sampleComparison</name>
+        <param>
+          <type>Mat</type>
+          <declname>charImg</declname>
+        </param>
+        <briefdescription>
+<para>return the num character 0~9, comparing with pattern. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>charImg the unit char image </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="63" column="1" bodyfile="sources/ocr.cpp" bodystart="151" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_c_r_1a2acabb6240a25ce9ddec409c9823de87" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float OCR::oudistance</definition>
+        <argsstring>(Mat a, Mat b) const</argsstring>
+        <name>oudistance</name>
+        <param>
+          <type>Mat</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>Mat</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocr.h" line="64" column="1" bodyfile="sources/ocr.cpp" bodystart="170" bodyend="179"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="80">
+        <label>QObject</label>
+      </node>
+      <node id="79">
+        <label>OCR</label>
+        <link refid="class_o_c_r"/>
+        <childnode refid="80" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="82">
+        <label>QObject</label>
+      </node>
+      <node id="81">
+        <label>OCR</label>
+        <link refid="class_o_c_r"/>
+        <childnode refid="82" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/ocr.h" line="24" column="1" bodyfile="sources/ocr.h" bodystart="24" bodyend="65"/>
+    <listofallmembers>
+      <member refid="class_o_c_r_1aeb8e2f39ec5a3aeea57569b869810e36" prot="private" virt="non-virtual"><scope>OCR</scope><name>binaryProcess</name></member>
+      <member refid="class_o_c_r_1ae07385e0bc6dd2d586138e282a3ef45e" prot="private" virt="non-virtual"><scope>OCR</scope><name>configHelper</name></member>
+      <member refid="class_o_c_r_1a5d1bb59b769007938a8274ab9500fe48" prot="public" virt="non-virtual"><scope>OCR</scope><name>core_ocr</name></member>
+      <member refid="class_o_c_r_1a9ffb3ba4e63d13db34e23c4afadfe379" prot="private" virt="non-virtual"><scope>OCR</scope><name>detect_plate</name></member>
+      <member refid="class_o_c_r_1a1f1cea6b126a691ee4fc8b1233c553ca" prot="private" virt="non-virtual"><scope>OCR</scope><name>deviceIndex</name></member>
+      <member refid="class_o_c_r_1ac4ddb5dfc6559960d71c8dee2481f74d" prot="private" virt="non-virtual"><scope>OCR</scope><name>find_ch</name></member>
+      <member refid="class_o_c_r_1ab6db0189309d6dee811e7918e45a4c97" prot="public" virt="non-virtual"><scope>OCR</scope><name>get_final_result</name></member>
+      <member refid="class_o_c_r_1a5b85103c4e89acc7aca9291f925e9927" prot="private" virt="non-virtual"><scope>OCR</scope><name>isDbg</name></member>
+      <member refid="class_o_c_r_1a9aab2e18762bcd0a98fb5d02dccc2ad6" prot="private" virt="non-virtual"><scope>OCR</scope><name>lastNum</name></member>
+      <member refid="class_o_c_r_1a12b977bab6cd39b2141726add7469819" prot="private" virt="non-virtual"><scope>OCR</scope><name>nContinuousMissCount</name></member>
+      <member refid="class_o_c_r_1a5005daddcad6568306b0e49b3cdae8c3" prot="public" virt="non-virtual"><scope>OCR</scope><name>OCR</name></member>
+      <member refid="class_o_c_r_1ae53be2a54628ad64c7f4012d01bad0ec" prot="private" virt="non-virtual"><scope>OCR</scope><name>ocrDetectCount</name></member>
+      <member refid="class_o_c_r_1ad2c4d6a67903dac956b64111d5c4316a" prot="private" virt="non-virtual"><scope>OCR</scope><name>ocrProfile</name></member>
+      <member refid="class_o_c_r_1a2acabb6240a25ce9ddec409c9823de87" prot="private" virt="non-virtual"><scope>OCR</scope><name>oudistance</name></member>
+      <member refid="class_o_c_r_1ad7292c1e55612464513970115eff25fa" prot="private" virt="non-virtual"><scope>OCR</scope><name>pattern</name></member>
+      <member refid="class_o_c_r_1a78cb89fbc9e25cfc4cd58eb09540394e" prot="private" virt="non-virtual"><scope>OCR</scope><name>predictAnNum</name></member>
+      <member refid="class_o_c_r_1abfe0c1073aa25afa8f2008e1fede0dc3" prot="private" virt="non-virtual"><scope>OCR</scope><name>recognize</name></member>
+      <member refid="class_o_c_r_1a79cfabc25c245f8f7df49dca4801f219" prot="public" virt="non-virtual"><scope>OCR</scope><name>resetOcr</name></member>
+      <member refid="class_o_c_r_1a8c9152a0a10792f913b65578359f80fe" prot="private" virt="non-virtual"><scope>OCR</scope><name>result</name></member>
+      <member refid="class_o_c_r_1a63b06a3ef75400378ecbd0e68dae740d" prot="private" virt="non-virtual"><scope>OCR</scope><name>sampleComparison</name></member>
+      <member refid="class_o_c_r_1a83780a02419e348bfeb8d12973b3642b" prot="public" virt="non-virtual"><scope>OCR</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

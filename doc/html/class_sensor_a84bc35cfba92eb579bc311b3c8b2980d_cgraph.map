@@ -1,0 +1,5 @@
+<map id="Sensor::init" name="Sensor::init">
+<area shape="rect" id="node2" href="$class_sensor.html#a679f792ce4dba08c394aa4cd506fb2ae" title="Sensor::newWheel" alt="" coords="141,5,272,32"/>
+<area shape="rect" id="node3" href="$class_ck_pt.html#a2792e24314be95021e461a798ec2c884" title="返回是否由此检测点进入 " alt="" coords="157,56,257,83"/>
+<area shape="rect" id="node4" href="$class_level_recorder.html#ac903a8ed1d863cf49a2ba8883196d2b4" title="LevelRecorder::init" alt="" coords="143,107,271,133"/>
+</map>

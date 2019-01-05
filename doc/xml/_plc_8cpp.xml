@@ -1,0 +1,1940 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_plc_8cpp" kind="file" language="C++">
+    <compoundname>Plc.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="_alarm_event_8h" local="yes">AlarmEvent.h</includes>
+    <includes refid="_plc_8h" local="yes">Plc.h</includes>
+    <includes refid="_speed_integrator_8h" local="yes">SpeedIntegrator.h</includes>
+    <includes refid="common_8h" local="yes">common.h</includes>
+    <includes refid="confighelper_8h" local="yes">confighelper.h</includes>
+    <includes local="no">QSerialPort</includes>
+    <incdepgraph>
+      <node id="621">
+        <label>SpeedIntegrator.h</label>
+        <link refid="_speed_integrator_8h"/>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="614" relation="include">
+        </childnode>
+      </node>
+      <node id="628">
+        <label>QSettings</label>
+      </node>
+      <node id="620">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="615">
+        <label>QObject</label>
+      </node>
+      <node id="613">
+        <label>AlarmEvent.h</label>
+        <link refid="_alarm_event_8h"/>
+      </node>
+      <node id="610">
+        <label>sources/Plc.cpp</label>
+        <link refid="_plc_8cpp"/>
+        <childnode refid="611" relation="include">
+        </childnode>
+        <childnode refid="613" relation="include">
+        </childnode>
+        <childnode refid="614" relation="include">
+        </childnode>
+        <childnode refid="621" relation="include">
+        </childnode>
+        <childnode refid="616" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+        <childnode refid="629" relation="include">
+        </childnode>
+      </node>
+      <node id="624">
+        <label>QMetaType</label>
+      </node>
+      <node id="618">
+        <label>HandleSensorDevice.h</label>
+        <link refid="_handle_sensor_device_8h"/>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="619" relation="include">
+        </childnode>
+      </node>
+      <node id="614">
+        <label>Plc.h</label>
+        <link refid="_plc_8h"/>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="616" relation="include">
+        </childnode>
+        <childnode refid="618" relation="include">
+        </childnode>
+      </node>
+      <node id="625">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="626">
+        <label>improfile.h</label>
+        <link refid="improfile_8h"/>
+        <childnode refid="625" relation="include">
+        </childnode>
+        <childnode refid="624" relation="include">
+        </childnode>
+      </node>
+      <node id="629">
+        <label>QSerialPort</label>
+      </node>
+      <node id="619">
+        <label>SensorDevice.h</label>
+        <link refid="_sensor_device_8h"/>
+        <childnode refid="620" relation="include">
+        </childnode>
+        <childnode refid="615" relation="include">
+        </childnode>
+      </node>
+      <node id="617">
+        <label>QString</label>
+      </node>
+      <node id="612">
+        <label>QtWidgets</label>
+      </node>
+      <node id="623">
+        <label>camprofile.h</label>
+        <link refid="camprofile_8h"/>
+        <childnode refid="624" relation="include">
+        </childnode>
+        <childnode refid="625" relation="include">
+        </childnode>
+      </node>
+      <node id="616">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="617" relation="include">
+        </childnode>
+      </node>
+      <node id="622">
+        <label>confighelper.h</label>
+        <link refid="confighelper_8h"/>
+        <childnode refid="623" relation="include">
+        </childnode>
+        <childnode refid="626" relation="include">
+        </childnode>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="628" relation="include">
+        </childnode>
+      </node>
+      <node id="611">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="612" relation="include">
+        </childnode>
+      </node>
+      <node id="627">
+        <label>ocrprofile.h</label>
+        <link refid="ocrprofile_8h"/>
+        <childnode refid="625" relation="include">
+        </childnode>
+        <childnode refid="624" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_alarm_event_8h" kindref="compound">AlarmEvent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_plc_8h" kindref="compound">Plc.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_speed_integrator_8h" kindref="compound">SpeedIntegrator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="common_8h" kindref="compound">common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="confighelper_8h" kindref="compound">confighelper.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSerialPort&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>CPU:<sp/>CP1E<sp/>-<sp/>N30S1DR<sp/>-<sp/>A*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>I/O<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>INPUT:<sp/><sp/>2WORD<sp/>in<sp/>total.<sp/>CIO0.0~0.11<sp/><sp/><sp/><sp/><sp/>CIO1.0~1.05<sp/><sp/><sp/><sp/><sp/>m=1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OUTPUT:<sp/>2WORD<sp/>in<sp/>total.<sp/>CIO100.0~100.07<sp/>CIO101.0~101.03<sp/>n=101</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*Read<sp/>sensor<sp/>state<sp/>command*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>&quot;@00RRADDRdataFCS*\r&quot;,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ADDR<sp/>is<sp/>register<sp/>address<sp/>to<sp/>read(10based),<sp/>e.g.<sp/>0101,<sp/>0001.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>data=FFFF(2B.hex?10based?)<sp/>is<sp/>how<sp/>many<sp/>word<sp/>to<sp/>read,<sp/>e.g.<sp/>0001<sp/>means<sp/>read<sp/>1<sp/>WORD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>FCS<sp/>see<sp/>getFCSCode()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>READ_SENSOR_STATE[]<sp/>=<sp/>&quot;@00RR0000000141*\r&quot;;<sp/><sp/>///&lt;<sp/>read<sp/>CIO0<sp/>for<sp/>1<sp/>WORD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*Read<sp/>sensor<sp/>state<sp/>response*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>&quot;@00RR00dataFCS*\r&quot;,<sp/>data=FFFF(2B)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>SENSOR_L_OFF_R_OFF[]<sp/>=<sp/>&quot;@00RR00000040*\r&quot;;<sp/>//00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>SENSOR_L_OFF_R_ON[]<sp/>=<sp/>&quot;@00RR00000242*\r&quot;;<sp/><sp/>//01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>SENSOR_L_ON_R_OFF[]<sp/>=<sp/>&quot;@00RR00000848*\r&quot;;<sp/><sp/>//10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>SENSOR_L_ON_R_ON[]<sp/>=<sp/>&quot;@00RR00000A31*\r&quot;;<sp/><sp/><sp/>//11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*(deprecated)Write<sp/>alarm<sp/>light<sp/>command*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*the<sp/>center<sp/>control<sp/>alarm<sp/>is<sp/>0001,<sp/>which<sp/>is<sp/>real<sp/>useful*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>ALARM_LIGHT_ON[]<sp/>=<sp/>&quot;@00WR010000F032*\r&quot;;<sp/><sp/><sp/><sp/><sp/><sp/><sp/>///&lt;<sp/>all<sp/>on</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>ALARM_LIGHT_OFF[]<sp/>=<sp/>&quot;@00WR0100000044*\r&quot;;<sp/><sp/>///&lt;<sp/>all<sp/>off</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>ALARM_LIGHT_RED[]<sp/>=<sp/>&quot;@00WR0100001144*\r&quot;;<sp/><sp/>///&lt;<sp/>red<sp/>and<sp/>alarm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>ALARM_LIGHT_GREEN[]<sp/>=<sp/>&quot;@00WR0100002046*\r&quot;;<sp/><sp/>///&lt;<sp/>green</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>ALARM_LIGHT_YELLOW[]<sp/>=<sp/>&quot;@00WR0100004040*\r&quot;;<sp/>///&lt;<sp/>yellow</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>AD041<sp/>module<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>INPUT:<sp/><sp/>4WORD<sp/>in<sp/>total.<sp/>CIO2~CIO5<sp/>m+1~m+4,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>OUTPUT:<sp/>2WORD<sp/>in<sp/>total.<sp/>CIO102~CIO103)<sp/>n+1,n+2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>STEPS:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>1.<sp/>write<sp/>setup<sp/>data<sp/>to<sp/>output<sp/>word</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>use<sp/>the<sp/>port</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>average<sp/>calculate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>select<sp/>analog<sp/>input<sp/>range(00:-10~10v;01:0~10v;10:1~5v/4~20ma;11:0~5v/0~20ma)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>recv<sp/>WR_CORRECT<sp/>response</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>2.<sp/>read<sp/>A/D<sp/>result<sp/>from<sp/>input<sp/>word</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>sent<sp/>&quot;read<sp/>CIO2~5&quot;<sp/>command<sp/>to<sp/>PLC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>recv<sp/>data(1WORD)<sp/>of<sp/>port01~04<sp/>from<sp/>PLC<sp/>in<sp/>&quot;@00RR00dataFCS*\r&quot;<sp/>data=FFFF(2B)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NOTE:<sp/>must<sp/>init<sp/>before<sp/>it<sp/>can<sp/>start<sp/>AD<sp/>transverse<sp/>and<sp/>can<sp/>read<sp/>data<sp/>from<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>once<sp/>init<sp/>complete,<sp/>cannot<sp/>change<sp/>until<sp/>restart<sp/>CPU</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>const<sp/>char<sp/>INIT_AD[]<sp/>=<sp/>&quot;@00WR0102800A800037*\r&quot;;<sp/>///&lt;<sp/>ADO41<sp/>setup<sp/>data.<sp/>800A<sp/>8000.<sp/>use<sp/>ad<sp/>analog<sp/>input<sp/>port01,<sp/>no<sp/>average,<sp/>4-20ma</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>const<sp/>char<sp/>READ_AD[]<sp/>=<sp/>&quot;@00RR0002000143*\r&quot;;<sp/>///&lt;<sp/>AD041.<sp/>read<sp/>CIO2<sp/>for<sp/>1<sp/>word</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//const<sp/>char<sp/>WR_CORRECT_RESPONSE[]<sp/>=<sp/>&quot;@00WR0045*\r&quot;;<sp/>///&lt;<sp/>write<sp/>response:<sp/>cio<sp/>correct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="class_plc_1a230190ee27d360a02576184d3450e8d6" refkind="member"><highlight class="normal"><ref refid="class_plc_1a230190ee27d360a02576184d3450e8d6" kindref="member">Plc::Plc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>_configHelper,<sp/>QObject*<sp/>parent)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>configHelper(_configHelper)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>speedIntegrator(new<sp/><ref refid="class_speed_integrator" kindref="compound">SpeedIntegrator</ref>(this))</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[0]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device" kindref="compound">HandleSensorDevice</ref>(0,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[1]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_handle_sensor_device" kindref="compound">HandleSensorDevice</ref>(1,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject::connect(<ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[0],<sp/>&amp;<ref refid="class_handle_sensor_device_1a4eb776d5c0371a091fbac629f64e55cc" kindref="member">HandleSensorDevice::triInt</ref>,<sp/>speedIntegrator,<sp/>&amp;<ref refid="class_speed_integrator_1a66d764b8f94e1547100028927d224aea" kindref="member">SpeedIntegrator::onCkpTri</ref>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject::connect(<ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[1],<sp/>&amp;<ref refid="class_handle_sensor_device_1a4eb776d5c0371a091fbac629f64e55cc" kindref="member">HandleSensorDevice::triInt</ref>,<sp/>speedIntegrator,<sp/>&amp;<ref refid="class_speed_integrator_1a66d764b8f94e1547100028927d224aea" kindref="member">SpeedIntegrator::onCkpTri</ref>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject::connect(speedIntegrator,<sp/>&amp;<ref refid="class_speed_integrator_1a5a3c3fcf4cf833b11d897c9dea305c82" kindref="member">SpeedIntegrator::expectTriBegin</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[ckpId<sp/>&gt;&gt;<sp/>1]-&gt;<ref refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" kindref="member">newCkp</ref>(ckpId);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject::connect(speedIntegrator,<sp/>&amp;<ref refid="class_speed_integrator_1aaabda4cff9d78b288286796cd4690228" kindref="member">SpeedIntegrator::expectTriEnd</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ckpId)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[ckpId<sp/>&gt;&gt;<sp/>1]-&gt;<ref refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" kindref="member">checkoutCkp</ref>(ckpId);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>refThread<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QThread(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>speedIntegrator-&gt;moveToThread(refThread);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>refThread-&gt;<ref refid="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" kindref="member">start</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="class_plc_1a25b79d6b196b888dc2d80c5e98b9e733" refkind="member"><highlight class="normal"><ref refid="class_plc_1a25b79d6b196b888dc2d80c5e98b9e733" kindref="member">Plc::~Plc</ref>()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>plcSerialPort-&gt;close();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>refThread-&gt;quit();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>refThread-&gt;wait();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="class_plc_1a53d31f51484e39fc320b02be053de157" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1a53d31f51484e39fc320b02be053de157" kindref="member">Plc::start</ref>()</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer::singleShot(0,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bConnected)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bUsrCtrl<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>readSensorPeriodically();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>readSpeedPeriodically();<sp/></highlight><highlight class="comment">//<sp/>sensor置为空,使能第一次.state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[0]-&gt;<ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" kindref="member">init</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[1]-&gt;<ref refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" kindref="member">dev</ref>-&gt;<ref refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" kindref="member">init</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>开始truckref的计数 <sp/><sp/><sp/><sp/><sp/><sp/>speedIntegrator-&gt;start();
+<sp/><sp/>});
+}
+
+void<sp/>Plc::stop()
+{
+<sp/><sp/>QTimer::singleShot(0,<sp/>this,<sp/>[=]()<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bUsrCtrl<sp/>=<sp/>false;
+<sp/><sp/><sp/><sp/><sp/><sp/>speedIntegrator-&gt;stop();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>cio0Update(0);
+<sp/><sp/><sp/><sp/>});<sp/>//用timeevent，避免跨线程操作带来的锁的管理。但是需要get的value，必须通过锁管理
+}
+
+//!<sp/>连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开
+void<sp/>Plc::connect()
+{
+<sp/><sp/><sp/><sp/>QTimer::singleShot(0,<sp/>this,<sp/>[=]()<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/*setup<sp/>serialport<sp/>parameters*/
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort<sp/>=<sp/>new<sp/>QSerialPort(this);
+<sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setPortName(configHelper-&gt;pc2plc_portName);<sp/>//<sp/>default<sp/>&quot;COM3&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setBaudRate(QSerialPort::Baud115200);<sp/>//<sp/>2018.9.17
+<sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setParity(QSerialPort::EvenParity);
+<sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setDataBits(QSerialPort::Data7);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setStopBits(QSerialPort::TwoStop);
+<sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;close();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!plcSerialPort-&gt;open(QIODevice::ReadWrite))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;PLC:<sp/>Can&apos;t<sp/>open<sp/>serial,<sp/>error<sp/>code<sp/>%1&quot;).arg(plcSerialPort-&gt;error());
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>connectError(1);
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bConnected<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>connectError(0);
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+
+<sp/><sp/><sp/><sp/><sp/>/*init<sp/>the<sp/>AD<sp/>input<sp/>module*/
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>w1<sp/>=<sp/>1<sp/>&lt;&lt;<sp/>15<sp/>|<sp/>QString(&quot;1010&quot;).toInt(&amp;ok,<sp/>2);<sp/>//note:<sp/>int(32)<sp/>max<sp/>~=<sp/>10^10
+<sp/><sp/><sp/><sp/><sp/>int<sp/>w2<sp/>=<sp/>1<sp/>&lt;&lt;<sp/>15;
+<sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>word102<sp/>=<sp/>QByteArray::number(w1,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>word103<sp/>=<sp/>QByteArray::number(w2,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePLC(genWRCode(102,<sp/>word102<sp/>+<sp/>word103));
+<sp/><sp/><sp/>});
+}
+
+void<sp/>Plc::readSensorPeriodically()
+{
+<sp/><sp/><sp/><sp/>if<sp/>(!bUsrCtrl)
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>QTimer::singleShot(cio0Interval,<sp/>this,<sp/>[=]()<sp/>{<sp/>readSensorPeriodically();<sp/>});
+<sp/><sp/><sp/>auto<sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(0,<sp/>1));
+<sp/><sp/><sp/>auto<sp/>dataList<sp/>=<sp/>getRRData(ansCode);
+<sp/><sp/><sp/><sp/>if<sp/>(dataList.size()<sp/>!=<sp/>1)<sp/>//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word
+<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;read<sp/>cio0<sp/>error.<sp/>anscode<sp/>&quot;<sp/>&lt;&lt;<sp/>ansCode;
+<sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>cio0<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/>//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)<sp/>//0x000~0x1ff,<sp/>in<sp/>fact<sp/>cio0~11(16)<sp/>ranges<sp/>to<sp/>0xffff.
+<sp/><sp/><sp/>//<sp/>PATCH:<sp/>cioO.02换成cio0.10<sp/>//<sp/><sp/>[12/5/2018<sp/>cx3386]
+<sp/>//<sp/>获取第i位的数据
+<sp/><sp/><sp/>auto<sp/>getBit<sp/>=<sp/>[](int<sp/>cio,<sp/>int<sp/>loc)<sp/>-&gt;<sp/>bool<sp/>{<sp/>return<sp/>cio<sp/>&gt;&gt;<sp/>loc<sp/>&amp;<sp/>1;<sp/>};
+<sp/>//<sp/>将第i位设置为b
+<sp/><sp/><sp/>auto<sp/>setBit<sp/>=<sp/>[](int&amp;<sp/>cio,<sp/>int<sp/>loc,<sp/>bool<sp/>bit)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(bit)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cio<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>loc;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cio<sp/>&amp;=<sp/>~(1<sp/>&lt;&lt;<sp/>loc);
+<sp/><sp/><sp/><sp/>};
+<sp/>auto<sp/>patch_swicth<sp/>=<sp/>[getBit,<sp/>setBit](int&amp;<sp/>cio,<sp/>int<sp/>bit1,<sp/>int<sp/>bit2)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>bit_tmp<sp/>=<sp/>getBit(cio,<sp/>bit1);
+<sp/><sp/><sp/><sp/><sp/><sp/>setBit(cio,<sp/>bit1,<sp/>getBit(cio,<sp/>bit2));
+<sp/><sp/><sp/><sp/><sp/><sp/>setBit(cio,<sp/>bit2,<sp/>bit_tmp);
+<sp/><sp/><sp/><sp/>};
+<sp/>patch_swicth(cio0,<sp/>2,<sp/>10);
+<sp/>emit<sp/>cio0Update(cio0);
+<sp/>handleSensorDevice[0]-&gt;input(cio0);
+<sp/><sp/><sp/><sp/>handleSensorDevice[1]-&gt;input(cio0);
+}
+
+void<sp/>Plc::readSpeedPeriodically()
+{
+<sp/>if<sp/>(!bUsrCtrl)
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>QTimer::singleShot(adInterval,<sp/>this,<sp/>[=]()<sp/>{<sp/>readSpeedPeriodically();<sp/>});
+<sp/><sp/>/*<sp/><sp/>AD分辨率为<sp/>1/6000，精度为0.8%满量程（0~55°C），即48单位。
+<sp/><sp/>4~20mA电流范围对应<sp/>0000~1770hex(0~6000)。对应的台车（中轴）速度为0~3.59m/min
+<sp/>可转换的数据范围为FED4~189Chex(-300~6300)。3.2~4mA范围内的电流用二进制补码表示。
+<sp/><sp/><sp/>当输入低于指定范围（如低于3.2mA）时，将启动断线检测功能，数据将变为8000hex。
+<sp/>注意：这个返回的数据是2byte的有符号数，在**64位编译器**中的short（16bit）符合条件<sp/>*/
+<sp/><sp/><sp/>const<sp/>short<sp/>AD_min<sp/>=<sp/>0xFED4,<sp/>AD_max<sp/>=<sp/>0x189c,<sp/>AD_4ma<sp/>=<sp/>0,<sp/>AD_20ma<sp/>=<sp/>0x1770,<sp/>AD_err<sp/>=<sp/>0x8000,<sp/>AD_res<sp/>=<sp/>48;
+<sp/><sp/>const<sp/>double<sp/>scale<sp/>=<sp/>3.59<sp/>/<sp/>6000;<sp/>//<sp/>1个刻度对应的速度
+
+<sp/><sp/><sp/>auto<sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(2,<sp/>1));<sp/>//read<sp/>cio2<sp/>(m+1,<sp/>AD01)<sp/>for<sp/>1<sp/>word
+<sp/><sp/><sp/><sp/>auto<sp/>dataList<sp/>=<sp/>getRRData(ansCode);
+<sp/><sp/><sp/><sp/>if<sp/>(dataList.size()<sp/>!=<sp/>1)<sp/>//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word
+<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;read<sp/>ad<sp/>error.<sp/>anscode<sp/>&quot;<sp/>&lt;&lt;<sp/>ansCode;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/>const<sp/>short<sp/>dec<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/>//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)
+<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/>//<sp/>protect<sp/>truckSpeed
+<sp/>truckSpeed<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/>//断线检测
+<sp/>if<sp/>(AD_err<sp/>==<sp/>dec)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(1);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//<sp/>out<sp/>of<sp/>range(4~20ma),<sp/>consider<sp/>the<sp/>accuracy/resolution
+<sp/><sp/>if<sp/>(dec<sp/>&lt;<sp/>AD_4ma<sp/>-<sp/>AD_res<sp/>||<sp/>dec<sp/>&gt;<sp/>AD_20ma<sp/>+<sp/>AD_res)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//正常数据
+<sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>dec<sp/>*<sp/>scale;
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedReady();
+<sp/><sp/><sp/><sp/>}
+}
+
+QByteArray<sp/>Plc::readPLC(QByteArray<sp/>plcData)
+{
+<sp/>QByteArray<sp/>responseData;
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(responseData.isNull())
+<sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;response<sp/>data<sp/>is<sp/>null&quot;;
+<sp/>return<sp/>responseData;
+}
+
+void<sp/>Plc::writePLC(QByteArray<sp/>plcData)
+{
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!checkAnsCode(responseData))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLC:<sp/>Wrong<sp/>response!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+QByteArray<sp/>Plc::getFCSCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/>int<sp/>res<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>c<sp/>:<sp/>cmd)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>^=<sp/>c;<sp/>//<sp/>char<sp/>is<sp/>auto<sp/>convert<sp/>to<sp/>ASCII
+<sp/>}
+<sp/><sp/>return<sp/>QByteArray::number(res,<sp/>16).toUpper();
+}
+
+QByteArray<sp/>Plc::getFullCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>cmd<sp/>+<sp/>getFCSCode(cmd)<sp/>+<sp/>&quot;*\r&quot;;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>generate<sp/>a<sp/>RR<sp/>command<sp/>code
+<sp/>*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+<sp/>*<sp/>&quot;@00RR0001(ADDR)0001(No.<sp/>of<sp/>words)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>read
+<sp/>*<sp/>\param<sp/>int<sp/>num<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read
+<sp/>*/
+QByteArray<sp/>Plc::genRRCode(int<sp/>addr,<sp/>int<sp/>num)<sp/>const
+{
+<sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>num<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>num<sp/>&lt;=<sp/>6144)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00RR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(num,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).toUtf8());
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+*<sp/>\brief<sp/>generate<sp/>a<sp/>WR<sp/>command<sp/>code
+*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+*<sp/>&quot;@00WR0100(ADDR)data(words,hex)FCS*\r&quot;
+*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+*
+*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>write
+*<sp/>\param<sp/>QByteArray<sp/>data<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read<sp/>or<sp/>the<sp/>data<sp/>to<sp/>write
+*/
+QByteArray<sp/>Plc::genWRCode(int<sp/>addr,<sp/>QByteArray<sp/>data)<sp/>const
+{
+<sp/><sp/><sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>data.size()<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00WR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(QString(data)).toUtf8());
+<sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>check<sp/>answer<sp/>code<sp/>if<sp/>it&apos;s<sp/>right.
+<sp/>*<sp/>PLC<sp/>to<sp/>PC<sp/>answer(response)<sp/>code:
+<sp/>*<sp/>&quot;@00RR00(endcode,hex)data(words,hex)FCS*\r&quot;
+<sp/>*<sp/>&quot;@00WR00(endcode,hex)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArray
+<sp/>*/
+bool<sp/>Plc::checkAnsCode(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/><sp/><sp/>//<sp/>null<sp/>response
+<sp/><sp/><sp/>if<sp/>(ansCode.isNull())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>//check<sp/>the<sp/>format
+<sp/>if<sp/>(ansCode.startsWith(&quot;@00&quot;)<sp/>&amp;&amp;<sp/>ansCode.endsWith(&quot;*\r&quot;))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>terminator
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_recv<sp/>=<sp/>ansCode.right(2);
+<sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>fcs
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_clc<sp/>=<sp/>getFCSCode(ansCode);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(fcs_clc<sp/>==<sp/>fcs_recv)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>headerCode<sp/>=<sp/>ansCode.mid(3,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>endCode<sp/>=<sp/>ansCode.mid(5,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(endCode<sp/>==<sp/>&quot;00&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(headerCode<sp/>==<sp/>&quot;WR&quot;<sp/>||<sp/>headerCode<sp/>==<sp/>&quot;RR&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>false;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>get<sp/>RR<sp/>data<sp/>from<sp/>response<sp/>code
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArrayList<sp/>hex<sp/>data<sp/>list
+<sp/>*/
+QByteArrayList<sp/>Plc::getRRData(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/>QByteArrayList<sp/>words;
+<sp/><sp/>if<sp/>(!checkAnsCode(ansCode))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ansCode.at(3)<sp/>!=<sp/>&apos;R&apos;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>try<sp/>to<sp/>read<sp/>data<sp/>from<sp/>write<sp/>cmd!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>auto<sp/>data<sp/>=<sp/>ansCode.mid(7,<sp/>ansCode.size()<sp/>-<sp/>7<sp/>-<sp/>4);
+<sp/><sp/><sp/><sp/>//<sp/>读取的数据以字（FFFF）为单位
+<sp/><sp/><sp/><sp/>if<sp/>(data.size()<sp/>%<sp/>4<sp/>!=<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>QByteArray<sp/>word;
+<sp/><sp/><sp/>for<sp/>(size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>data.size();<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>word<sp/>+=<sp/>data.at(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((i<sp/>+<sp/>1)<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>words<sp/>&lt;&lt;<sp/>word;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word.clear();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>words;
+}
+/**
+<sp/>*<sp/>\brief<sp/>向中控发出报警
+<sp/>*
+<sp/>*<sp/>注意：不会覆盖原有状态
+<sp/>*/
+void<sp/>Plc::sendAlarmToControlCenter(int<sp/>cio)
+{
+<sp/><sp/><sp/>QByteArray<sp/>plcData;
+<sp/><sp/><sp/><sp/>plcData<sp/>=<sp/>genWRCode(100,<sp/>QByteArray::number(cio,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper());
+<sp/><sp/><sp/><sp/>writePLC(plcData);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>speedIntegrator-&gt;<ref refid="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" kindref="member">start</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="class_plc_1abf9c8532cb72ba8c88437f50f2631d13" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1abf9c8532cb72ba8c88437f50f2631d13" kindref="member">Plc::stop</ref>()</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer::singleShot(0,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bUsrCtrl<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>speedIntegrator-&gt;<ref refid="class_speed_integrator_1a6e1d4a9a0e409e7cd2e8b4f103439fe4" kindref="member">stop</ref>();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_plc_1a6f99f1f3a90a49531f372d0e182872c6" kindref="member">cio0Update</ref>(0);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>});<sp/></highlight><highlight class="comment">//用timeevent，避免跨线程操作带来的锁的管理。但是需要get的value，必须通过锁管理 }
+
+//!<sp/>连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开
+void<sp/>Plc::connect()
+{
+<sp/><sp/><sp/><sp/>QTimer::singleShot(0,<sp/>this,<sp/>[=]()<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/*setup<sp/>serialport<sp/>parameters*/
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort<sp/>=<sp/>new<sp/>QSerialPort(this);
+<sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setPortName(configHelper-&gt;pc2plc_portName);<sp/>//<sp/>default<sp/>&quot;COM3&quot;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setBaudRate(QSerialPort::Baud115200);<sp/>//<sp/>2018.9.17
+<sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setParity(QSerialPort::EvenParity);
+<sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setDataBits(QSerialPort::Data7);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setStopBits(QSerialPort::TwoStop);
+<sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;close();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!plcSerialPort-&gt;open(QIODevice::ReadWrite))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>QStringLiteral(&quot;PLC:<sp/>Can&apos;t<sp/>open<sp/>serial,<sp/>error<sp/>code<sp/>%1&quot;).arg(plcSerialPort-&gt;error());
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>connectError(1);
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bConnected<sp/>=<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>connectError(0);
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+
+<sp/><sp/><sp/><sp/><sp/>/*init<sp/>the<sp/>AD<sp/>input<sp/>module*/
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>w1<sp/>=<sp/>1<sp/>&lt;&lt;<sp/>15<sp/>|<sp/>QString(&quot;1010&quot;).toInt(&amp;ok,<sp/>2);<sp/>//note:<sp/>int(32)<sp/>max<sp/>~=<sp/>10^10
+<sp/><sp/><sp/><sp/><sp/>int<sp/>w2<sp/>=<sp/>1<sp/>&lt;&lt;<sp/>15;
+<sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>word102<sp/>=<sp/>QByteArray::number(w1,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>word103<sp/>=<sp/>QByteArray::number(w2,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePLC(genWRCode(102,<sp/>word102<sp/>+<sp/>word103));
+<sp/><sp/><sp/>});
+}
+
+void<sp/>Plc::readSensorPeriodically()
+{
+<sp/><sp/><sp/><sp/>if<sp/>(!bUsrCtrl)
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>QTimer::singleShot(cio0Interval,<sp/>this,<sp/>[=]()<sp/>{<sp/>readSensorPeriodically();<sp/>});
+<sp/><sp/><sp/>auto<sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(0,<sp/>1));
+<sp/><sp/><sp/>auto<sp/>dataList<sp/>=<sp/>getRRData(ansCode);
+<sp/><sp/><sp/><sp/>if<sp/>(dataList.size()<sp/>!=<sp/>1)<sp/>//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word
+<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;read<sp/>cio0<sp/>error.<sp/>anscode<sp/>&quot;<sp/>&lt;&lt;<sp/>ansCode;
+<sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/>int<sp/>cio0<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/>//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)<sp/>//0x000~0x1ff,<sp/>in<sp/>fact<sp/>cio0~11(16)<sp/>ranges<sp/>to<sp/>0xffff.
+<sp/><sp/><sp/>//<sp/>PATCH:<sp/>cioO.02换成cio0.10<sp/>//<sp/><sp/>[12/5/2018<sp/>cx3386]
+<sp/>//<sp/>获取第i位的数据
+<sp/><sp/><sp/>auto<sp/>getBit<sp/>=<sp/>[](int<sp/>cio,<sp/>int<sp/>loc)<sp/>-&gt;<sp/>bool<sp/>{<sp/>return<sp/>cio<sp/>&gt;&gt;<sp/>loc<sp/>&amp;<sp/>1;<sp/>};
+<sp/>//<sp/>将第i位设置为b
+<sp/><sp/><sp/>auto<sp/>setBit<sp/>=<sp/>[](int&amp;<sp/>cio,<sp/>int<sp/>loc,<sp/>bool<sp/>bit)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(bit)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cio<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>loc;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cio<sp/>&amp;=<sp/>~(1<sp/>&lt;&lt;<sp/>loc);
+<sp/><sp/><sp/><sp/>};
+<sp/>auto<sp/>patch_swicth<sp/>=<sp/>[getBit,<sp/>setBit](int&amp;<sp/>cio,<sp/>int<sp/>bit1,<sp/>int<sp/>bit2)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>bit_tmp<sp/>=<sp/>getBit(cio,<sp/>bit1);
+<sp/><sp/><sp/><sp/><sp/><sp/>setBit(cio,<sp/>bit1,<sp/>getBit(cio,<sp/>bit2));
+<sp/><sp/><sp/><sp/><sp/><sp/>setBit(cio,<sp/>bit2,<sp/>bit_tmp);
+<sp/><sp/><sp/><sp/>};
+<sp/>patch_swicth(cio0,<sp/>2,<sp/>10);
+<sp/>emit<sp/>cio0Update(cio0);
+<sp/>handleSensorDevice[0]-&gt;input(cio0);
+<sp/><sp/><sp/><sp/>handleSensorDevice[1]-&gt;input(cio0);
+}
+
+void<sp/>Plc::readSpeedPeriodically()
+{
+<sp/>if<sp/>(!bUsrCtrl)
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>QTimer::singleShot(adInterval,<sp/>this,<sp/>[=]()<sp/>{<sp/>readSpeedPeriodically();<sp/>});
+<sp/><sp/>/*<sp/><sp/>AD分辨率为<sp/>1/6000，精度为0.8%满量程（0~55°C），即48单位。
+<sp/><sp/>4~20mA电流范围对应<sp/>0000~1770hex(0~6000)。对应的台车（中轴）速度为0~3.59m/min
+<sp/>可转换的数据范围为FED4~189Chex(-300~6300)。3.2~4mA范围内的电流用二进制补码表示。
+<sp/><sp/><sp/>当输入低于指定范围（如低于3.2mA）时，将启动断线检测功能，数据将变为8000hex。
+<sp/>注意：这个返回的数据是2byte的有符号数，在**64位编译器**中的short（16bit）符合条件<sp/>*/
+<sp/><sp/><sp/>const<sp/>short<sp/>AD_min<sp/>=<sp/>0xFED4,<sp/>AD_max<sp/>=<sp/>0x189c,<sp/>AD_4ma<sp/>=<sp/>0,<sp/>AD_20ma<sp/>=<sp/>0x1770,<sp/>AD_err<sp/>=<sp/>0x8000,<sp/>AD_res<sp/>=<sp/>48;
+<sp/><sp/>const<sp/>double<sp/>scale<sp/>=<sp/>3.59<sp/>/<sp/>6000;<sp/>//<sp/>1个刻度对应的速度
+
+<sp/><sp/><sp/>auto<sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(2,<sp/>1));<sp/>//read<sp/>cio2<sp/>(m+1,<sp/>AD01)<sp/>for<sp/>1<sp/>word
+<sp/><sp/><sp/><sp/>auto<sp/>dataList<sp/>=<sp/>getRRData(ansCode);
+<sp/><sp/><sp/><sp/>if<sp/>(dataList.size()<sp/>!=<sp/>1)<sp/>//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word
+<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;read<sp/>ad<sp/>error.<sp/>anscode<sp/>&quot;<sp/>&lt;&lt;<sp/>ansCode;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/>const<sp/>short<sp/>dec<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/>//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)
+<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/>//<sp/>protect<sp/>truckSpeed
+<sp/>truckSpeed<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/>//断线检测
+<sp/>if<sp/>(AD_err<sp/>==<sp/>dec)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(1);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//<sp/>out<sp/>of<sp/>range(4~20ma),<sp/>consider<sp/>the<sp/>accuracy/resolution
+<sp/><sp/>if<sp/>(dec<sp/>&lt;<sp/>AD_4ma<sp/>-<sp/>AD_res<sp/>||<sp/>dec<sp/>&gt;<sp/>AD_20ma<sp/>+<sp/>AD_res)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//正常数据
+<sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>dec<sp/>*<sp/>scale;
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedReady();
+<sp/><sp/><sp/><sp/>}
+}
+
+QByteArray<sp/>Plc::readPLC(QByteArray<sp/>plcData)
+{
+<sp/>QByteArray<sp/>responseData;
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(responseData.isNull())
+<sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;response<sp/>data<sp/>is<sp/>null&quot;;
+<sp/>return<sp/>responseData;
+}
+
+void<sp/>Plc::writePLC(QByteArray<sp/>plcData)
+{
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!checkAnsCode(responseData))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLC:<sp/>Wrong<sp/>response!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+QByteArray<sp/>Plc::getFCSCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/>int<sp/>res<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>c<sp/>:<sp/>cmd)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>^=<sp/>c;<sp/>//<sp/>char<sp/>is<sp/>auto<sp/>convert<sp/>to<sp/>ASCII
+<sp/>}
+<sp/><sp/>return<sp/>QByteArray::number(res,<sp/>16).toUpper();
+}
+
+QByteArray<sp/>Plc::getFullCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>cmd<sp/>+<sp/>getFCSCode(cmd)<sp/>+<sp/>&quot;*\r&quot;;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>generate<sp/>a<sp/>RR<sp/>command<sp/>code
+<sp/>*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+<sp/>*<sp/>&quot;@00RR0001(ADDR)0001(No.<sp/>of<sp/>words)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>read
+<sp/>*<sp/>\param<sp/>int<sp/>num<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read
+<sp/>*/
+QByteArray<sp/>Plc::genRRCode(int<sp/>addr,<sp/>int<sp/>num)<sp/>const
+{
+<sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>num<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>num<sp/>&lt;=<sp/>6144)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00RR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(num,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).toUtf8());
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+*<sp/>\brief<sp/>generate<sp/>a<sp/>WR<sp/>command<sp/>code
+*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+*<sp/>&quot;@00WR0100(ADDR)data(words,hex)FCS*\r&quot;
+*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+*
+*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>write
+*<sp/>\param<sp/>QByteArray<sp/>data<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read<sp/>or<sp/>the<sp/>data<sp/>to<sp/>write
+*/
+QByteArray<sp/>Plc::genWRCode(int<sp/>addr,<sp/>QByteArray<sp/>data)<sp/>const
+{
+<sp/><sp/><sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>data.size()<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00WR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(QString(data)).toUtf8());
+<sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>check<sp/>answer<sp/>code<sp/>if<sp/>it&apos;s<sp/>right.
+<sp/>*<sp/>PLC<sp/>to<sp/>PC<sp/>answer(response)<sp/>code:
+<sp/>*<sp/>&quot;@00RR00(endcode,hex)data(words,hex)FCS*\r&quot;
+<sp/>*<sp/>&quot;@00WR00(endcode,hex)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArray
+<sp/>*/
+bool<sp/>Plc::checkAnsCode(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/><sp/><sp/>//<sp/>null<sp/>response
+<sp/><sp/><sp/>if<sp/>(ansCode.isNull())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>//check<sp/>the<sp/>format
+<sp/>if<sp/>(ansCode.startsWith(&quot;@00&quot;)<sp/>&amp;&amp;<sp/>ansCode.endsWith(&quot;*\r&quot;))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>terminator
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_recv<sp/>=<sp/>ansCode.right(2);
+<sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>fcs
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_clc<sp/>=<sp/>getFCSCode(ansCode);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(fcs_clc<sp/>==<sp/>fcs_recv)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>headerCode<sp/>=<sp/>ansCode.mid(3,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>endCode<sp/>=<sp/>ansCode.mid(5,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(endCode<sp/>==<sp/>&quot;00&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(headerCode<sp/>==<sp/>&quot;WR&quot;<sp/>||<sp/>headerCode<sp/>==<sp/>&quot;RR&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>false;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>get<sp/>RR<sp/>data<sp/>from<sp/>response<sp/>code
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArrayList<sp/>hex<sp/>data<sp/>list
+<sp/>*/
+QByteArrayList<sp/>Plc::getRRData(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/>QByteArrayList<sp/>words;
+<sp/><sp/>if<sp/>(!checkAnsCode(ansCode))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ansCode.at(3)<sp/>!=<sp/>&apos;R&apos;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>try<sp/>to<sp/>read<sp/>data<sp/>from<sp/>write<sp/>cmd!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>auto<sp/>data<sp/>=<sp/>ansCode.mid(7,<sp/>ansCode.size()<sp/>-<sp/>7<sp/>-<sp/>4);
+<sp/><sp/><sp/><sp/>//<sp/>读取的数据以字（FFFF）为单位
+<sp/><sp/><sp/><sp/>if<sp/>(data.size()<sp/>%<sp/>4<sp/>!=<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>QByteArray<sp/>word;
+<sp/><sp/><sp/>for<sp/>(size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>data.size();<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>word<sp/>+=<sp/>data.at(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((i<sp/>+<sp/>1)<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>words<sp/>&lt;&lt;<sp/>word;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word.clear();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>words;
+}
+/**
+<sp/>*<sp/>\brief<sp/>向中控发出报警
+<sp/>*
+<sp/>*<sp/>注意：不会覆盖原有状态
+<sp/>*/
+void<sp/>Plc::sendAlarmToControlCenter(int<sp/>cio)
+{
+<sp/><sp/><sp/>QByteArray<sp/>plcData;
+<sp/><sp/><sp/><sp/>plcData<sp/>=<sp/>genWRCode(100,<sp/>QByteArray::number(cio,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper());
+<sp/><sp/><sp/><sp/>writePLC(plcData);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="class_plc_1ac5213403a3aba0c8c6f2a12c3e2d4fa5" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1ac5213403a3aba0c8c6f2a12c3e2d4fa5" kindref="member">Plc::connect</ref>()</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer::singleShot(0,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*setup<sp/>serialport<sp/>parameters*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>QSerialPort(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setPortName(configHelper-&gt;<ref refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" kindref="member">pc2plc_portName</ref>);<sp/></highlight><highlight class="comment">//<sp/>default<sp/>&quot;COM3&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setBaudRate(QSerialPort::Baud115200);<sp/></highlight><highlight class="comment">//<sp/>2018.9.17</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setParity(QSerialPort::EvenParity);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setDataBits(QSerialPort::Data7);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;setStopBits(QSerialPort::TwoStop);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plcSerialPort-&gt;close();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!plcSerialPort-&gt;open(QIODevice::ReadWrite))<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;PLC:<sp/>Can&apos;t<sp/>open<sp/>serial,<sp/>error<sp/>code<sp/>%1&quot;</highlight><highlight class="normal">).arg(plcSerialPort-&gt;error());</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_plc_1a14ee604a83d89ea5f96288db01d60a84" kindref="member">connectError</ref>(1);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bConnected<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_plc_1a14ee604a83d89ea5f96288db01d60a84" kindref="member">connectError</ref>(0);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*init<sp/>the<sp/>AD<sp/>input<sp/>module*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ok;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w1<sp/>=<sp/>1<sp/>&lt;&lt;<sp/>15<sp/>|<sp/>QString(</highlight><highlight class="stringliteral">&quot;1010&quot;</highlight><highlight class="normal">).toInt(&amp;ok,<sp/>2);<sp/></highlight><highlight class="comment">//note:<sp/>int(32)<sp/>max<sp/>~=<sp/>10^10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w2<sp/>=<sp/>1<sp/>&lt;&lt;<sp/>15;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>word102<sp/>=<sp/>QByteArray::number(w1,<sp/>16).rightJustified(4,<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">).toUpper();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>word103<sp/>=<sp/>QByteArray::number(w2,<sp/>16).rightJustified(4,<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">).toUpper();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>writePLC(genWRCode(102,<sp/>word102<sp/>+<sp/>word103));</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Plc::readSensorPeriodically()</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bUsrCtrl)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer::singleShot(cio0Interval,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{<sp/>readSensorPeriodically();<sp/>});</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(0,<sp/>1));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dataList<sp/>=<sp/>getRRData(ansCode);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dataList.size()<sp/>!=<sp/>1)<sp/></highlight><highlight class="comment">//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;read<sp/>cio0<sp/>error.<sp/>anscode<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ansCode;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ok;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cio0<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/></highlight><highlight class="comment">//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)<sp/>//0x000~0x1ff,<sp/>in<sp/>fact<sp/>cio0~11(16)<sp/>ranges<sp/>to<sp/>0xffff.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>PATCH:<sp/>cioO.02换成cio0.10<sp/>//<sp/><sp/>[12/5/2018<sp/>cx3386]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>获取第i位的数据 <sp/><sp/><sp/>auto<sp/>getBit<sp/>=<sp/>[](int<sp/>cio,<sp/>int<sp/>loc)<sp/>-&gt;<sp/>bool<sp/>{<sp/>return<sp/>cio<sp/>&gt;&gt;<sp/>loc<sp/>&amp;<sp/>1;<sp/>};
+<sp/>//<sp/>将第i位设置为b
+<sp/><sp/><sp/>auto<sp/>setBit<sp/>=<sp/>[](int&amp;<sp/>cio,<sp/>int<sp/>loc,<sp/>bool<sp/>bit)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(bit)
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cio<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>loc;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>else
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cio<sp/>&amp;=<sp/>~(1<sp/>&lt;&lt;<sp/>loc);
+<sp/><sp/><sp/><sp/>};
+<sp/>auto<sp/>patch_swicth<sp/>=<sp/>[getBit,<sp/>setBit](int&amp;<sp/>cio,<sp/>int<sp/>bit1,<sp/>int<sp/>bit2)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>bit_tmp<sp/>=<sp/>getBit(cio,<sp/>bit1);
+<sp/><sp/><sp/><sp/><sp/><sp/>setBit(cio,<sp/>bit1,<sp/>getBit(cio,<sp/>bit2));
+<sp/><sp/><sp/><sp/><sp/><sp/>setBit(cio,<sp/>bit2,<sp/>bit_tmp);
+<sp/><sp/><sp/><sp/>};
+<sp/>patch_swicth(cio0,<sp/>2,<sp/>10);
+<sp/>emit<sp/>cio0Update(cio0);
+<sp/>handleSensorDevice[0]-&gt;input(cio0);
+<sp/><sp/><sp/><sp/>handleSensorDevice[1]-&gt;input(cio0);
+}
+
+void<sp/>Plc::readSpeedPeriodically()
+{
+<sp/>if<sp/>(!bUsrCtrl)
+<sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>QTimer::singleShot(adInterval,<sp/>this,<sp/>[=]()<sp/>{<sp/>readSpeedPeriodically();<sp/>});
+<sp/><sp/>/*<sp/><sp/>AD分辨率为<sp/>1/6000，精度为0.8%满量程（0~55°C），即48单位。
+<sp/><sp/>4~20mA电流范围对应<sp/>0000~1770hex(0~6000)。对应的台车（中轴）速度为0~3.59m/min
+<sp/>可转换的数据范围为FED4~189Chex(-300~6300)。3.2~4mA范围内的电流用二进制补码表示。
+<sp/><sp/><sp/>当输入低于指定范围（如低于3.2mA）时，将启动断线检测功能，数据将变为8000hex。
+<sp/>注意：这个返回的数据是2byte的有符号数，在**64位编译器**中的short（16bit）符合条件<sp/>*/
+<sp/><sp/><sp/>const<sp/>short<sp/>AD_min<sp/>=<sp/>0xFED4,<sp/>AD_max<sp/>=<sp/>0x189c,<sp/>AD_4ma<sp/>=<sp/>0,<sp/>AD_20ma<sp/>=<sp/>0x1770,<sp/>AD_err<sp/>=<sp/>0x8000,<sp/>AD_res<sp/>=<sp/>48;
+<sp/><sp/>const<sp/>double<sp/>scale<sp/>=<sp/>3.59<sp/>/<sp/>6000;<sp/>//<sp/>1个刻度对应的速度
+
+<sp/><sp/><sp/>auto<sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(2,<sp/>1));<sp/>//read<sp/>cio2<sp/>(m+1,<sp/>AD01)<sp/>for<sp/>1<sp/>word
+<sp/><sp/><sp/><sp/>auto<sp/>dataList<sp/>=<sp/>getRRData(ansCode);
+<sp/><sp/><sp/><sp/>if<sp/>(dataList.size()<sp/>!=<sp/>1)<sp/>//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word
+<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;read<sp/>ad<sp/>error.<sp/>anscode<sp/>&quot;<sp/>&lt;&lt;<sp/>ansCode;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/>const<sp/>short<sp/>dec<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/>//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)
+<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/>//<sp/>protect<sp/>truckSpeed
+<sp/>truckSpeed<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/>//断线检测
+<sp/>if<sp/>(AD_err<sp/>==<sp/>dec)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(1);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//<sp/>out<sp/>of<sp/>range(4~20ma),<sp/>consider<sp/>the<sp/>accuracy/resolution
+<sp/><sp/>if<sp/>(dec<sp/>&lt;<sp/>AD_4ma<sp/>-<sp/>AD_res<sp/>||<sp/>dec<sp/>&gt;<sp/>AD_20ma<sp/>+<sp/>AD_res)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//正常数据
+<sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>dec<sp/>*<sp/>scale;
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedReady();
+<sp/><sp/><sp/><sp/>}
+}
+
+QByteArray<sp/>Plc::readPLC(QByteArray<sp/>plcData)
+{
+<sp/>QByteArray<sp/>responseData;
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(responseData.isNull())
+<sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;response<sp/>data<sp/>is<sp/>null&quot;;
+<sp/>return<sp/>responseData;
+}
+
+void<sp/>Plc::writePLC(QByteArray<sp/>plcData)
+{
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!checkAnsCode(responseData))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLC:<sp/>Wrong<sp/>response!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+QByteArray<sp/>Plc::getFCSCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/>int<sp/>res<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>c<sp/>:<sp/>cmd)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>^=<sp/>c;<sp/>//<sp/>char<sp/>is<sp/>auto<sp/>convert<sp/>to<sp/>ASCII
+<sp/>}
+<sp/><sp/>return<sp/>QByteArray::number(res,<sp/>16).toUpper();
+}
+
+QByteArray<sp/>Plc::getFullCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>cmd<sp/>+<sp/>getFCSCode(cmd)<sp/>+<sp/>&quot;*\r&quot;;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>generate<sp/>a<sp/>RR<sp/>command<sp/>code
+<sp/>*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+<sp/>*<sp/>&quot;@00RR0001(ADDR)0001(No.<sp/>of<sp/>words)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>read
+<sp/>*<sp/>\param<sp/>int<sp/>num<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read
+<sp/>*/
+QByteArray<sp/>Plc::genRRCode(int<sp/>addr,<sp/>int<sp/>num)<sp/>const
+{
+<sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>num<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>num<sp/>&lt;=<sp/>6144)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00RR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(num,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).toUtf8());
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+*<sp/>\brief<sp/>generate<sp/>a<sp/>WR<sp/>command<sp/>code
+*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+*<sp/>&quot;@00WR0100(ADDR)data(words,hex)FCS*\r&quot;
+*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+*
+*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>write
+*<sp/>\param<sp/>QByteArray<sp/>data<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read<sp/>or<sp/>the<sp/>data<sp/>to<sp/>write
+*/
+QByteArray<sp/>Plc::genWRCode(int<sp/>addr,<sp/>QByteArray<sp/>data)<sp/>const
+{
+<sp/><sp/><sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>data.size()<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00WR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(QString(data)).toUtf8());
+<sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>check<sp/>answer<sp/>code<sp/>if<sp/>it&apos;s<sp/>right.
+<sp/>*<sp/>PLC<sp/>to<sp/>PC<sp/>answer(response)<sp/>code:
+<sp/>*<sp/>&quot;@00RR00(endcode,hex)data(words,hex)FCS*\r&quot;
+<sp/>*<sp/>&quot;@00WR00(endcode,hex)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArray
+<sp/>*/
+bool<sp/>Plc::checkAnsCode(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/><sp/><sp/>//<sp/>null<sp/>response
+<sp/><sp/><sp/>if<sp/>(ansCode.isNull())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>//check<sp/>the<sp/>format
+<sp/>if<sp/>(ansCode.startsWith(&quot;@00&quot;)<sp/>&amp;&amp;<sp/>ansCode.endsWith(&quot;*\r&quot;))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>terminator
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_recv<sp/>=<sp/>ansCode.right(2);
+<sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>fcs
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_clc<sp/>=<sp/>getFCSCode(ansCode);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(fcs_clc<sp/>==<sp/>fcs_recv)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>headerCode<sp/>=<sp/>ansCode.mid(3,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>endCode<sp/>=<sp/>ansCode.mid(5,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(endCode<sp/>==<sp/>&quot;00&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(headerCode<sp/>==<sp/>&quot;WR&quot;<sp/>||<sp/>headerCode<sp/>==<sp/>&quot;RR&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>false;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>get<sp/>RR<sp/>data<sp/>from<sp/>response<sp/>code
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArrayList<sp/>hex<sp/>data<sp/>list
+<sp/>*/
+QByteArrayList<sp/>Plc::getRRData(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/>QByteArrayList<sp/>words;
+<sp/><sp/>if<sp/>(!checkAnsCode(ansCode))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ansCode.at(3)<sp/>!=<sp/>&apos;R&apos;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>try<sp/>to<sp/>read<sp/>data<sp/>from<sp/>write<sp/>cmd!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>auto<sp/>data<sp/>=<sp/>ansCode.mid(7,<sp/>ansCode.size()<sp/>-<sp/>7<sp/>-<sp/>4);
+<sp/><sp/><sp/><sp/>//<sp/>读取的数据以字（FFFF）为单位
+<sp/><sp/><sp/><sp/>if<sp/>(data.size()<sp/>%<sp/>4<sp/>!=<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>QByteArray<sp/>word;
+<sp/><sp/><sp/>for<sp/>(size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>data.size();<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>word<sp/>+=<sp/>data.at(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((i<sp/>+<sp/>1)<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>words<sp/>&lt;&lt;<sp/>word;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word.clear();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>words;
+}
+/**
+<sp/>*<sp/>\brief<sp/>向中控发出报警
+<sp/>*
+<sp/>*<sp/>注意：不会覆盖原有状态
+<sp/>*/
+void<sp/>Plc::sendAlarmToControlCenter(int<sp/>cio)
+{
+<sp/><sp/><sp/>QByteArray<sp/>plcData;
+<sp/><sp/><sp/><sp/>plcData<sp/>=<sp/>genWRCode(100,<sp/>QByteArray::number(cio,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper());
+<sp/><sp/><sp/><sp/>writePLC(plcData);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>getBit<sp/>=<sp/>[](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cio,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loc)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cio<sp/>&gt;&gt;<sp/>loc<sp/>&amp;<sp/>1;<sp/>};</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>将第i位设置为b</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>setBit<sp/>=<sp/>[](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&amp;<sp/>cio,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loc,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bit)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bit)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cio<sp/>|=<sp/>1<sp/>&lt;&lt;<sp/>loc;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cio<sp/>&amp;=<sp/>~(1<sp/>&lt;&lt;<sp/>loc);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>patch_swicth<sp/>=<sp/>[getBit,<sp/>setBit](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&amp;<sp/>cio,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bit1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bit2)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>bit_tmp<sp/>=<sp/>getBit(cio,<sp/>bit1);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setBit(cio,<sp/>bit1,<sp/>getBit(cio,<sp/>bit2));</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setBit(cio,<sp/>bit2,<sp/>bit_tmp);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>patch_swicth(cio0,<sp/>2,<sp/>10);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_plc_1a6f99f1f3a90a49531f372d0e182872c6" kindref="member">cio0Update</ref>(cio0);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[0]-&gt;<ref refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" kindref="member">input</ref>(cio0);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" kindref="member">handleSensorDevice</ref>[1]-&gt;<ref refid="class_handle_sensor_device_1aa66351734f4ee220bb13d37297061c58" kindref="member">input</ref>(cio0);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Plc::readSpeedPeriodically()</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bUsrCtrl)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer::singleShot(<ref refid="class_plc_1a7a0bfa84c4d0b4610cda92102d8d54a0" kindref="member">adInterval</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[=]()<sp/>{<sp/>readSpeedPeriodically();<sp/>});</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/><sp/>AD分辨率为<sp/>1/6000，精度为0.8%满量程（0~55°C），即48单位。</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/><sp/><sp/><sp/>4~20mA电流范围对应<sp/>0000~1770hex(0~6000)。对应的台车（中轴）速度为0~3.59m/min</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/><sp/><sp/><sp/>可转换的数据范围为FED4~189Chex(-300~6300)。3.2~4mA范围内的电流用二进制补码表示。</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/><sp/><sp/><sp/>当输入低于指定范围（如低于3.2mA）时，将启动断线检测功能，数据将变为8000hex。</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/><sp/><sp/><sp/>注意：这个返回的数据是2byte的有符号数，在**64位编译器 *中的short（16bit）符合条件<sp/>*/
+<sp/><sp/><sp/>const<sp/>short<sp/>AD_min<sp/>=<sp/>0xFED4,<sp/>AD_max<sp/>=<sp/>0x189c,<sp/>AD_4ma<sp/>=<sp/>0,<sp/>AD_20ma<sp/>=<sp/>0x1770,<sp/>AD_err<sp/>=<sp/>0x8000,<sp/>AD_res<sp/>=<sp/>48;
+<sp/><sp/>const<sp/>double<sp/>scale<sp/>=<sp/>3.59<sp/>/<sp/>6000;<sp/>//<sp/>1个刻度对应的速度
+
+<sp/><sp/><sp/>auto<sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(2,<sp/>1));<sp/>//read<sp/>cio2<sp/>(m+1,<sp/>AD01)<sp/>for<sp/>1<sp/>word
+<sp/><sp/><sp/><sp/>auto<sp/>dataList<sp/>=<sp/>getRRData(ansCode);
+<sp/><sp/><sp/><sp/>if<sp/>(dataList.size()<sp/>!=<sp/>1)<sp/>//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word
+<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;read<sp/>ad<sp/>error.<sp/>anscode<sp/>&quot;<sp/>&lt;&lt;<sp/>ansCode;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/>const<sp/>short<sp/>dec<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/>//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)
+<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/>//<sp/>protect<sp/>truckSpeed
+<sp/>truckSpeed<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/>//断线检测
+<sp/>if<sp/>(AD_err<sp/>==<sp/>dec)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(1);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//<sp/>out<sp/>of<sp/>range(4~20ma),<sp/>consider<sp/>the<sp/>accuracy/resolution
+<sp/><sp/>if<sp/>(dec<sp/>&lt;<sp/>AD_4ma<sp/>-<sp/>AD_res<sp/>||<sp/>dec<sp/>&gt;<sp/>AD_20ma<sp/>+<sp/>AD_res)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//正常数据
+<sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>dec<sp/>*<sp/>scale;
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedReady();
+<sp/><sp/><sp/><sp/>}
+}
+
+QByteArray<sp/>Plc::readPLC(QByteArray<sp/>plcData)
+{
+<sp/>QByteArray<sp/>responseData;
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(responseData.isNull())
+<sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;response<sp/>data<sp/>is<sp/>null&quot;;
+<sp/>return<sp/>responseData;
+}
+
+void<sp/>Plc::writePLC(QByteArray<sp/>plcData)
+{
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!checkAnsCode(responseData))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLC:<sp/>Wrong<sp/>response!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+QByteArray<sp/>Plc::getFCSCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/>int<sp/>res<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>c<sp/>:<sp/>cmd)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>^=<sp/>c;<sp/>//<sp/>char<sp/>is<sp/>auto<sp/>convert<sp/>to<sp/>ASCII
+<sp/>}
+<sp/><sp/>return<sp/>QByteArray::number(res,<sp/>16).toUpper();
+}
+
+QByteArray<sp/>Plc::getFullCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>cmd<sp/>+<sp/>getFCSCode(cmd)<sp/>+<sp/>&quot;*\r&quot;;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>generate<sp/>a<sp/>RR<sp/>command<sp/>code
+<sp/>*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+<sp/>*<sp/>&quot;@00RR0001(ADDR)0001(No.<sp/>of<sp/>words)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>read
+<sp/>*<sp/>\param<sp/>int<sp/>num<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read
+<sp/>*/
+QByteArray<sp/>Plc::genRRCode(int<sp/>addr,<sp/>int<sp/>num)<sp/>const
+{
+<sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>num<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>num<sp/>&lt;=<sp/>6144)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00RR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(num,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).toUtf8());
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+*<sp/>\brief<sp/>generate<sp/>a<sp/>WR<sp/>command<sp/>code
+*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+*<sp/>&quot;@00WR0100(ADDR)data(words,hex)FCS*\r&quot;
+*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+*
+*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>write
+*<sp/>\param<sp/>QByteArray<sp/>data<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read<sp/>or<sp/>the<sp/>data<sp/>to<sp/>write
+*/
+QByteArray<sp/>Plc::genWRCode(int<sp/>addr,<sp/>QByteArray<sp/>data)<sp/>const
+{
+<sp/><sp/><sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>data.size()<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00WR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(QString(data)).toUtf8());
+<sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>check<sp/>answer<sp/>code<sp/>if<sp/>it&apos;s<sp/>right.
+<sp/>*<sp/>PLC<sp/>to<sp/>PC<sp/>answer(response)<sp/>code:
+<sp/>*<sp/>&quot;@00RR00(endcode,hex)data(words,hex)FCS*\r&quot;
+<sp/>*<sp/>&quot;@00WR00(endcode,hex)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArray
+<sp/>*/
+bool<sp/>Plc::checkAnsCode(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/><sp/><sp/>//<sp/>null<sp/>response
+<sp/><sp/><sp/>if<sp/>(ansCode.isNull())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>//check<sp/>the<sp/>format
+<sp/>if<sp/>(ansCode.startsWith(&quot;@00&quot;)<sp/>&amp;&amp;<sp/>ansCode.endsWith(&quot;*\r&quot;))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>terminator
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_recv<sp/>=<sp/>ansCode.right(2);
+<sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>fcs
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_clc<sp/>=<sp/>getFCSCode(ansCode);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(fcs_clc<sp/>==<sp/>fcs_recv)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>headerCode<sp/>=<sp/>ansCode.mid(3,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>endCode<sp/>=<sp/>ansCode.mid(5,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(endCode<sp/>==<sp/>&quot;00&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(headerCode<sp/>==<sp/>&quot;WR&quot;<sp/>||<sp/>headerCode<sp/>==<sp/>&quot;RR&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>false;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>get<sp/>RR<sp/>data<sp/>from<sp/>response<sp/>code
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArrayList<sp/>hex<sp/>data<sp/>list
+<sp/>*/
+QByteArrayList<sp/>Plc::getRRData(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/>QByteArrayList<sp/>words;
+<sp/><sp/>if<sp/>(!checkAnsCode(ansCode))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ansCode.at(3)<sp/>!=<sp/>&apos;R&apos;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>try<sp/>to<sp/>read<sp/>data<sp/>from<sp/>write<sp/>cmd!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>auto<sp/>data<sp/>=<sp/>ansCode.mid(7,<sp/>ansCode.size()<sp/>-<sp/>7<sp/>-<sp/>4);
+<sp/><sp/><sp/><sp/>//<sp/>读取的数据以字（FFFF）为单位
+<sp/><sp/><sp/><sp/>if<sp/>(data.size()<sp/>%<sp/>4<sp/>!=<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>QByteArray<sp/>word;
+<sp/><sp/><sp/>for<sp/>(size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>data.size();<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>word<sp/>+=<sp/>data.at(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((i<sp/>+<sp/>1)<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>words<sp/>&lt;&lt;<sp/>word;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word.clear();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>words;
+}
+/**
+<sp/>*<sp/>\brief<sp/>向中控发出报警
+<sp/>*
+<sp/>*<sp/>注意：不会覆盖原有状态
+<sp/>*/
+void<sp/>Plc::sendAlarmToControlCenter(int<sp/>cio)
+{
+<sp/><sp/><sp/>QByteArray<sp/>plcData;
+<sp/><sp/><sp/><sp/>plcData<sp/>=<sp/>genWRCode(100,<sp/>QByteArray::number(cio,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper());
+<sp/><sp/><sp/><sp/>writePLC(plcData);
+}**中的short（16bit）符合条件<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>AD_min<sp/>=<sp/>0xFED4,<sp/>AD_max<sp/>=<sp/>0x189c,<sp/>AD_4ma<sp/>=<sp/>0,<sp/>AD_20ma<sp/>=<sp/>0x1770,<sp/>AD_err<sp/>=<sp/>0x8000,<sp/>AD_res<sp/>=<sp/>48;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale<sp/>=<sp/>3.59<sp/>/<sp/>6000;<sp/></highlight><highlight class="comment">//<sp/>1个刻度对应的速度 
+<sp/><sp/><sp/>auto<sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(2,<sp/>1));<sp/>//read<sp/>cio2<sp/>(m+1,<sp/>AD01)<sp/>for<sp/>1<sp/>word
+<sp/><sp/><sp/><sp/>auto<sp/>dataList<sp/>=<sp/>getRRData(ansCode);
+<sp/><sp/><sp/><sp/>if<sp/>(dataList.size()<sp/>!=<sp/>1)<sp/>//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word
+<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;read<sp/>ad<sp/>error.<sp/>anscode<sp/>&quot;<sp/>&lt;&lt;<sp/>ansCode;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>bool<sp/>ok;
+<sp/><sp/><sp/>const<sp/>short<sp/>dec<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/>//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)
+<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/>//<sp/>protect<sp/>truckSpeed
+<sp/>truckSpeed<sp/>=<sp/>0;
+<sp/><sp/><sp/><sp/>//断线检测
+<sp/>if<sp/>(AD_err<sp/>==<sp/>dec)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(1);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//<sp/>out<sp/>of<sp/>range(4~20ma),<sp/>consider<sp/>the<sp/>accuracy/resolution
+<sp/><sp/>if<sp/>(dec<sp/>&lt;<sp/>AD_4ma<sp/>-<sp/>AD_res<sp/>||<sp/>dec<sp/>&gt;<sp/>AD_20ma<sp/>+<sp/>AD_res)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//正常数据
+<sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>dec<sp/>*<sp/>scale;
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedReady();
+<sp/><sp/><sp/><sp/>}
+}
+
+QByteArray<sp/>Plc::readPLC(QByteArray<sp/>plcData)
+{
+<sp/>QByteArray<sp/>responseData;
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(responseData.isNull())
+<sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;response<sp/>data<sp/>is<sp/>null&quot;;
+<sp/>return<sp/>responseData;
+}
+
+void<sp/>Plc::writePLC(QByteArray<sp/>plcData)
+{
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!checkAnsCode(responseData))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLC:<sp/>Wrong<sp/>response!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+QByteArray<sp/>Plc::getFCSCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/>int<sp/>res<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>c<sp/>:<sp/>cmd)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>^=<sp/>c;<sp/>//<sp/>char<sp/>is<sp/>auto<sp/>convert<sp/>to<sp/>ASCII
+<sp/>}
+<sp/><sp/>return<sp/>QByteArray::number(res,<sp/>16).toUpper();
+}
+
+QByteArray<sp/>Plc::getFullCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>cmd<sp/>+<sp/>getFCSCode(cmd)<sp/>+<sp/>&quot;*\r&quot;;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>generate<sp/>a<sp/>RR<sp/>command<sp/>code
+<sp/>*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+<sp/>*<sp/>&quot;@00RR0001(ADDR)0001(No.<sp/>of<sp/>words)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>read
+<sp/>*<sp/>\param<sp/>int<sp/>num<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read
+<sp/>*/
+QByteArray<sp/>Plc::genRRCode(int<sp/>addr,<sp/>int<sp/>num)<sp/>const
+{
+<sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>num<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>num<sp/>&lt;=<sp/>6144)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00RR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(num,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).toUtf8());
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+*<sp/>\brief<sp/>generate<sp/>a<sp/>WR<sp/>command<sp/>code
+*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+*<sp/>&quot;@00WR0100(ADDR)data(words,hex)FCS*\r&quot;
+*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+*
+*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>write
+*<sp/>\param<sp/>QByteArray<sp/>data<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read<sp/>or<sp/>the<sp/>data<sp/>to<sp/>write
+*/
+QByteArray<sp/>Plc::genWRCode(int<sp/>addr,<sp/>QByteArray<sp/>data)<sp/>const
+{
+<sp/><sp/><sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>data.size()<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00WR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(QString(data)).toUtf8());
+<sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>check<sp/>answer<sp/>code<sp/>if<sp/>it&apos;s<sp/>right.
+<sp/>*<sp/>PLC<sp/>to<sp/>PC<sp/>answer(response)<sp/>code:
+<sp/>*<sp/>&quot;@00RR00(endcode,hex)data(words,hex)FCS*\r&quot;
+<sp/>*<sp/>&quot;@00WR00(endcode,hex)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArray
+<sp/>*/
+bool<sp/>Plc::checkAnsCode(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/><sp/><sp/>//<sp/>null<sp/>response
+<sp/><sp/><sp/>if<sp/>(ansCode.isNull())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>//check<sp/>the<sp/>format
+<sp/>if<sp/>(ansCode.startsWith(&quot;@00&quot;)<sp/>&amp;&amp;<sp/>ansCode.endsWith(&quot;*\r&quot;))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>terminator
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_recv<sp/>=<sp/>ansCode.right(2);
+<sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>fcs
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_clc<sp/>=<sp/>getFCSCode(ansCode);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(fcs_clc<sp/>==<sp/>fcs_recv)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>headerCode<sp/>=<sp/>ansCode.mid(3,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>endCode<sp/>=<sp/>ansCode.mid(5,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(endCode<sp/>==<sp/>&quot;00&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(headerCode<sp/>==<sp/>&quot;WR&quot;<sp/>||<sp/>headerCode<sp/>==<sp/>&quot;RR&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>false;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>get<sp/>RR<sp/>data<sp/>from<sp/>response<sp/>code
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArrayList<sp/>hex<sp/>data<sp/>list
+<sp/>*/
+QByteArrayList<sp/>Plc::getRRData(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/>QByteArrayList<sp/>words;
+<sp/><sp/>if<sp/>(!checkAnsCode(ansCode))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ansCode.at(3)<sp/>!=<sp/>&apos;R&apos;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>try<sp/>to<sp/>read<sp/>data<sp/>from<sp/>write<sp/>cmd!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>auto<sp/>data<sp/>=<sp/>ansCode.mid(7,<sp/>ansCode.size()<sp/>-<sp/>7<sp/>-<sp/>4);
+<sp/><sp/><sp/><sp/>//<sp/>读取的数据以字（FFFF）为单位
+<sp/><sp/><sp/><sp/>if<sp/>(data.size()<sp/>%<sp/>4<sp/>!=<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>QByteArray<sp/>word;
+<sp/><sp/><sp/>for<sp/>(size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>data.size();<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>word<sp/>+=<sp/>data.at(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((i<sp/>+<sp/>1)<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>words<sp/>&lt;&lt;<sp/>word;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word.clear();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>words;
+}
+/**
+<sp/>*<sp/>\brief<sp/>向中控发出报警
+<sp/>*
+<sp/>*<sp/>注意：不会覆盖原有状态
+<sp/>*/
+void<sp/>Plc::sendAlarmToControlCenter(int<sp/>cio)
+{
+<sp/><sp/><sp/>QByteArray<sp/>plcData;
+<sp/><sp/><sp/><sp/>plcData<sp/>=<sp/>genWRCode(100,<sp/>QByteArray::number(cio,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper());
+<sp/><sp/><sp/><sp/>writePLC(plcData);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ansCode<sp/>=<sp/>readPLC(genRRCode(2,<sp/>1));<sp/></highlight><highlight class="comment">//read<sp/>cio2<sp/>(m+1,<sp/>AD01)<sp/>for<sp/>1<sp/>word</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dataList<sp/>=<sp/>getRRData(ansCode);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dataList.size()<sp/>!=<sp/>1)<sp/></highlight><highlight class="comment">//<sp/>the<sp/>data<sp/>should<sp/>be<sp/>1<sp/>word</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;read<sp/>ad<sp/>error.<sp/>anscode<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ansCode;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ok;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>dec<sp/>=<sp/>QString(dataList.at(0)).toInt(&amp;ok,<sp/>16);<sp/></highlight><highlight class="comment">//<sp/>convert<sp/>&apos;FFFF&apos;<sp/>to<sp/>int(10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/></highlight><highlight class="comment">//<sp/>protect<sp/>truckSpeed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//断线检测 <sp/>if<sp/>(AD_err<sp/>==<sp/>dec)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(1);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//<sp/>out<sp/>of<sp/>range(4~20ma),<sp/>consider<sp/>the<sp/>accuracy/resolution
+<sp/><sp/>if<sp/>(dec<sp/>&lt;<sp/>AD_4ma<sp/>-<sp/>AD_res<sp/>||<sp/>dec<sp/>&gt;<sp/>AD_20ma<sp/>+<sp/>AD_res)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedError(2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return;
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>//正常数据
+<sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>dec<sp/>*<sp/>scale;
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedReady();
+<sp/><sp/><sp/><sp/>}
+}
+
+QByteArray<sp/>Plc::readPLC(QByteArray<sp/>plcData)
+{
+<sp/>QByteArray<sp/>responseData;
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(responseData.isNull())
+<sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;response<sp/>data<sp/>is<sp/>null&quot;;
+<sp/>return<sp/>responseData;
+}
+
+void<sp/>Plc::writePLC(QByteArray<sp/>plcData)
+{
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!checkAnsCode(responseData))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLC:<sp/>Wrong<sp/>response!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+QByteArray<sp/>Plc::getFCSCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/>int<sp/>res<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>c<sp/>:<sp/>cmd)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>^=<sp/>c;<sp/>//<sp/>char<sp/>is<sp/>auto<sp/>convert<sp/>to<sp/>ASCII
+<sp/>}
+<sp/><sp/>return<sp/>QByteArray::number(res,<sp/>16).toUpper();
+}
+
+QByteArray<sp/>Plc::getFullCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>cmd<sp/>+<sp/>getFCSCode(cmd)<sp/>+<sp/>&quot;*\r&quot;;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>generate<sp/>a<sp/>RR<sp/>command<sp/>code
+<sp/>*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+<sp/>*<sp/>&quot;@00RR0001(ADDR)0001(No.<sp/>of<sp/>words)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>read
+<sp/>*<sp/>\param<sp/>int<sp/>num<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read
+<sp/>*/
+QByteArray<sp/>Plc::genRRCode(int<sp/>addr,<sp/>int<sp/>num)<sp/>const
+{
+<sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>num<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>num<sp/>&lt;=<sp/>6144)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00RR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(num,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).toUtf8());
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+*<sp/>\brief<sp/>generate<sp/>a<sp/>WR<sp/>command<sp/>code
+*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+*<sp/>&quot;@00WR0100(ADDR)data(words,hex)FCS*\r&quot;
+*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+*
+*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>write
+*<sp/>\param<sp/>QByteArray<sp/>data<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read<sp/>or<sp/>the<sp/>data<sp/>to<sp/>write
+*/
+QByteArray<sp/>Plc::genWRCode(int<sp/>addr,<sp/>QByteArray<sp/>data)<sp/>const
+{
+<sp/><sp/><sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>data.size()<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00WR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(QString(data)).toUtf8());
+<sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>check<sp/>answer<sp/>code<sp/>if<sp/>it&apos;s<sp/>right.
+<sp/>*<sp/>PLC<sp/>to<sp/>PC<sp/>answer(response)<sp/>code:
+<sp/>*<sp/>&quot;@00RR00(endcode,hex)data(words,hex)FCS*\r&quot;
+<sp/>*<sp/>&quot;@00WR00(endcode,hex)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArray
+<sp/>*/
+bool<sp/>Plc::checkAnsCode(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/><sp/><sp/>//<sp/>null<sp/>response
+<sp/><sp/><sp/>if<sp/>(ansCode.isNull())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>//check<sp/>the<sp/>format
+<sp/>if<sp/>(ansCode.startsWith(&quot;@00&quot;)<sp/>&amp;&amp;<sp/>ansCode.endsWith(&quot;*\r&quot;))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>terminator
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_recv<sp/>=<sp/>ansCode.right(2);
+<sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>fcs
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_clc<sp/>=<sp/>getFCSCode(ansCode);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(fcs_clc<sp/>==<sp/>fcs_recv)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>headerCode<sp/>=<sp/>ansCode.mid(3,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>endCode<sp/>=<sp/>ansCode.mid(5,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(endCode<sp/>==<sp/>&quot;00&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(headerCode<sp/>==<sp/>&quot;WR&quot;<sp/>||<sp/>headerCode<sp/>==<sp/>&quot;RR&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>false;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>get<sp/>RR<sp/>data<sp/>from<sp/>response<sp/>code
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArrayList<sp/>hex<sp/>data<sp/>list
+<sp/>*/
+QByteArrayList<sp/>Plc::getRRData(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/>QByteArrayList<sp/>words;
+<sp/><sp/>if<sp/>(!checkAnsCode(ansCode))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ansCode.at(3)<sp/>!=<sp/>&apos;R&apos;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>try<sp/>to<sp/>read<sp/>data<sp/>from<sp/>write<sp/>cmd!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>auto<sp/>data<sp/>=<sp/>ansCode.mid(7,<sp/>ansCode.size()<sp/>-<sp/>7<sp/>-<sp/>4);
+<sp/><sp/><sp/><sp/>//<sp/>读取的数据以字（FFFF）为单位
+<sp/><sp/><sp/><sp/>if<sp/>(data.size()<sp/>%<sp/>4<sp/>!=<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>QByteArray<sp/>word;
+<sp/><sp/><sp/>for<sp/>(size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>data.size();<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>word<sp/>+=<sp/>data.at(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((i<sp/>+<sp/>1)<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>words<sp/>&lt;&lt;<sp/>word;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word.clear();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>words;
+}
+/**
+<sp/>*<sp/>\brief<sp/>向中控发出报警
+<sp/>*
+<sp/>*<sp/>注意：不会覆盖原有状态
+<sp/>*/
+void<sp/>Plc::sendAlarmToControlCenter(int<sp/>cio)
+{
+<sp/><sp/><sp/>QByteArray<sp/>plcData;
+<sp/><sp/><sp/><sp/>plcData<sp/>=<sp/>genWRCode(100,<sp/>QByteArray::number(cio,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper());
+<sp/><sp/><sp/><sp/>writePLC(plcData);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(AD_err<sp/>==<sp/>dec)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_plc_1acf7098f35958347aeea9abbc7371375f" kindref="member">truckSpeedError</ref>(1);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>out<sp/>of<sp/>range(4~20ma),<sp/>consider<sp/>the<sp/>accuracy/resolution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dec<sp/>&lt;<sp/>AD_4ma<sp/>-<sp/>AD_res<sp/>||<sp/>dec<sp/>&gt;<sp/>AD_20ma<sp/>+<sp/>AD_res)<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_plc_1acf7098f35958347aeea9abbc7371375f" kindref="member">truckSpeedError</ref>(2);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//正常数据 <sp/><sp/><sp/><sp/>else<sp/>{
+<sp/><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>dec<sp/>*<sp/>scale;
+<sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>truckSpeedReady();
+<sp/><sp/><sp/><sp/>}
+}
+
+QByteArray<sp/>Plc::readPLC(QByteArray<sp/>plcData)
+{
+<sp/>QByteArray<sp/>responseData;
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(responseData.isNull())
+<sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;response<sp/>data<sp/>is<sp/>null&quot;;
+<sp/>return<sp/>responseData;
+}
+
+void<sp/>Plc::writePLC(QByteArray<sp/>plcData)
+{
+<sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);
+<sp/>if<sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(plcSerialPort-&gt;waitForReadyRead(100))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!checkAnsCode(responseData))
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLC:<sp/>Wrong<sp/>response!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+}
+QByteArray<sp/>Plc::getFCSCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/>int<sp/>res<sp/>=<sp/>0;
+<sp/><sp/><sp/>for<sp/>(auto<sp/>c<sp/>:<sp/>cmd)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>^=<sp/>c;<sp/>//<sp/>char<sp/>is<sp/>auto<sp/>convert<sp/>to<sp/>ASCII
+<sp/>}
+<sp/><sp/>return<sp/>QByteArray::number(res,<sp/>16).toUpper();
+}
+
+QByteArray<sp/>Plc::getFullCode(QByteArray<sp/>cmd)<sp/>const
+{
+<sp/><sp/><sp/>return<sp/>cmd<sp/>+<sp/>getFCSCode(cmd)<sp/>+<sp/>&quot;*\r&quot;;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>generate<sp/>a<sp/>RR<sp/>command<sp/>code
+<sp/>*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+<sp/>*<sp/>&quot;@00RR0001(ADDR)0001(No.<sp/>of<sp/>words)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>read
+<sp/>*<sp/>\param<sp/>int<sp/>num<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read
+<sp/>*/
+QByteArray<sp/>Plc::genRRCode(int<sp/>addr,<sp/>int<sp/>num)<sp/>const
+{
+<sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>num<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>num<sp/>&lt;=<sp/>6144)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00RR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(num,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).toUtf8());
+<sp/><sp/><sp/><sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+*<sp/>\brief<sp/>generate<sp/>a<sp/>WR<sp/>command<sp/>code
+*<sp/>PC<sp/>to<sp/>PLC<sp/>ask(command)<sp/>code
+*<sp/>&quot;@00WR0100(ADDR)data(words,hex)FCS*\r&quot;
+*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+*
+*<sp/>\param<sp/>int<sp/>addr<sp/>(cio)<sp/>register<sp/>address<sp/>of<sp/>beginning<sp/>word<sp/>to<sp/>write
+*<sp/>\param<sp/>QByteArray<sp/>data<sp/>how<sp/>many<sp/>words<sp/>to<sp/>read<sp/>or<sp/>the<sp/>data<sp/>to<sp/>write
+*/
+QByteArray<sp/>Plc::genWRCode(int<sp/>addr,<sp/>QByteArray<sp/>data)<sp/>const
+{
+<sp/><sp/><sp/><sp/>if<sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>data.size()<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>getFullCode(QString(&quot;@00WR%1%2&quot;).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(&apos;0&apos;)).arg(QString(data)).toUtf8());
+<sp/>}
+<sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;;
+<sp/><sp/>return<sp/>QByteArray();
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>check<sp/>answer<sp/>code<sp/>if<sp/>it&apos;s<sp/>right.
+<sp/>*<sp/>PLC<sp/>to<sp/>PC<sp/>answer(response)<sp/>code:
+<sp/>*<sp/>&quot;@00RR00(endcode,hex)data(words,hex)FCS*\r&quot;
+<sp/>*<sp/>&quot;@00WR00(endcode,hex)FCS*\r&quot;
+<sp/>*<sp/>except<sp/>data<sp/>and<sp/>end<sp/>code<sp/>is<sp/>hex,<sp/>the<sp/>others<sp/>is<sp/>BCD.
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArray
+<sp/>*/
+bool<sp/>Plc::checkAnsCode(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/><sp/><sp/>//<sp/>null<sp/>response
+<sp/><sp/><sp/>if<sp/>(ansCode.isNull())<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;
+<sp/><sp/>}
+<sp/><sp/>//check<sp/>the<sp/>format
+<sp/>if<sp/>(ansCode.startsWith(&quot;@00&quot;)<sp/>&amp;&amp;<sp/>ansCode.endsWith(&quot;*\r&quot;))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>terminator
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_recv<sp/>=<sp/>ansCode.right(2);
+<sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/>//<sp/>chop<sp/>the<sp/>fcs
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>fcs_clc<sp/>=<sp/>getFCSCode(ansCode);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(fcs_clc<sp/>==<sp/>fcs_recv)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>headerCode<sp/>=<sp/>ansCode.mid(3,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>endCode<sp/>=<sp/>ansCode.mid(5,<sp/>2);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(endCode<sp/>==<sp/>&quot;00&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(headerCode<sp/>==<sp/>&quot;WR&quot;<sp/>||<sp/>headerCode<sp/>==<sp/>&quot;RR&quot;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>true;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>false;
+}
+
+/**
+<sp/>*<sp/>\brief<sp/>get<sp/>RR<sp/>data<sp/>from<sp/>response<sp/>code
+<sp/>*
+<sp/>*<sp/>\param<sp/>QByteArrayList<sp/>hex<sp/>data<sp/>list
+<sp/>*/
+QByteArrayList<sp/>Plc::getRRData(QByteArray<sp/>ansCode)<sp/>const
+{
+<sp/><sp/>QByteArrayList<sp/>words;
+<sp/><sp/>if<sp/>(!checkAnsCode(ansCode))<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>if<sp/>(ansCode.at(3)<sp/>!=<sp/>&apos;R&apos;)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>try<sp/>to<sp/>read<sp/>data<sp/>from<sp/>write<sp/>cmd!&quot;;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>auto<sp/>data<sp/>=<sp/>ansCode.mid(7,<sp/>ansCode.size()<sp/>-<sp/>7<sp/>-<sp/>4);
+<sp/><sp/><sp/><sp/>//<sp/>读取的数据以字（FFFF）为单位
+<sp/><sp/><sp/><sp/>if<sp/>(data.size()<sp/>%<sp/>4<sp/>!=<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/>&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;;
+<sp/><sp/><sp/><sp/><sp/>return<sp/>words;
+<sp/><sp/>}
+<sp/><sp/>QByteArray<sp/>word;
+<sp/><sp/><sp/>for<sp/>(size_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>data.size();<sp/>i++)<sp/>{
+<sp/><sp/><sp/><sp/><sp/>word<sp/>+=<sp/>data.at(i);
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((i<sp/>+<sp/>1)<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>words<sp/>&lt;&lt;<sp/>word;
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word.clear();
+<sp/><sp/><sp/><sp/><sp/><sp/>}
+<sp/><sp/>}
+<sp/><sp/>return<sp/>words;
+}
+/**
+<sp/>*<sp/>\brief<sp/>向中控发出报警
+<sp/>*
+<sp/>*<sp/>注意：不会覆盖原有状态
+<sp/>*/
+void<sp/>Plc::sendAlarmToControlCenter(int<sp/>cio)
+{
+<sp/><sp/><sp/>QByteArray<sp/>plcData;
+<sp/><sp/><sp/><sp/>plcData<sp/>=<sp/>genWRCode(100,<sp/>QByteArray::number(cio,<sp/>16).rightJustified(4,<sp/>&apos;0&apos;).toUpper());
+<sp/><sp/><sp/><sp/>writePLC(plcData);
+}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>truckSpeed<sp/>=<sp/>dec<sp/>*<sp/>scale;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="class_plc_1adeaecb0eaf8a1d72f01348ca4e7918d1" kindref="member">truckSpeedReady</ref>();</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal">QByteArray<sp/>Plc::readPLC(QByteArray<sp/>plcData)</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(plcSerialPort-&gt;waitForReadyRead(100))</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(responseData.isNull())</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;response<sp/>data<sp/>is<sp/>null&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>responseData;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Plc::writePLC(QByteArray<sp/>plcData)</highlight></codeline>
+<codeline lineno="230"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>plcSerialPort-&gt;write(plcData);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(plcSerialPort-&gt;waitForBytesWritten(serialport_timeout))<sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(plcSerialPort-&gt;waitForReadyRead(serialport_timeout))<sp/>{</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QByteArray<sp/>responseData<sp/>=<sp/>plcSerialPort-&gt;readAll();</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(plcSerialPort-&gt;waitForReadyRead(100))</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>responseData<sp/>+=<sp/>plcSerialPort-&gt;readAll();</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!checkAnsCode(responseData))</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PLC:<sp/>Wrong<sp/>response!&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">QByteArray<sp/>Plc::getFCSCode(QByteArray<sp/>cmd)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="243"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>res<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>c<sp/>:<sp/>cmd)<sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res<sp/>^=<sp/>c;<sp/></highlight><highlight class="comment">//<sp/>char<sp/>is<sp/>auto<sp/>convert<sp/>to<sp/>ASCII</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QByteArray::number(res,<sp/>16).toUpper();</highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal">QByteArray<sp/>Plc::getFullCode(QByteArray<sp/>cmd)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="252"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cmd<sp/>+<sp/>getFCSCode(cmd)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;*\r&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal">QByteArray<sp/>Plc::genRRCode(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="266"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>num<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>num<sp/>&lt;=<sp/>6144)<sp/>{</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getFullCode(QString(</highlight><highlight class="stringliteral">&quot;@00RR%1%2&quot;</highlight><highlight class="normal">).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(</highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)).arg(num,<sp/>4,<sp/>10,<sp/>QChar(</highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)).toUtf8());</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QByteArray();</highlight></codeline>
+<codeline lineno="272"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal">QByteArray<sp/>Plc::genWRCode(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addr,<sp/>QByteArray<sp/>data)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="284"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(addr<sp/>&lt;=<sp/>6143<sp/>&amp;&amp;<sp/>addr<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>data.size()<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getFullCode(QString(</highlight><highlight class="stringliteral">&quot;@00WR%1%2&quot;</highlight><highlight class="normal">).arg(addr,<sp/>4,<sp/>10,<sp/>QChar(</highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">)).arg(QString(data)).toUtf8());</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PLCSerial:<sp/>addr<sp/>or<sp/>No.<sp/>of<sp/>words<sp/>is<sp/>error&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QByteArray();</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Plc::checkAnsCode(QByteArray<sp/>ansCode)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="302"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>null<sp/>response</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansCode.isNull())<sp/>{</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//check<sp/>the<sp/>format</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansCode.startsWith(</highlight><highlight class="stringliteral">&quot;@00&quot;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/>ansCode.endsWith(</highlight><highlight class="stringliteral">&quot;*\r&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/></highlight><highlight class="comment">//<sp/>chop<sp/>the<sp/>terminator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fcs_recv<sp/>=<sp/>ansCode.right(2);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ansCode.chop(2);<sp/></highlight><highlight class="comment">//<sp/>chop<sp/>the<sp/>fcs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fcs_clc<sp/>=<sp/>getFCSCode(ansCode);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fcs_clc<sp/>==<sp/>fcs_recv)<sp/>{</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>headerCode<sp/>=<sp/>ansCode.mid(3,<sp/>2);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>endCode<sp/>=<sp/>ansCode.mid(5,<sp/>2);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(endCode<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;00&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(headerCode<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;WR&quot;</highlight><highlight class="normal"><sp/>||<sp/>headerCode<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;RR&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal">QByteArrayList<sp/>Plc::getRRData(QByteArray<sp/>ansCode)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="332"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArrayList<sp/>words;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!checkAnsCode(ansCode))<sp/>{</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>words;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ansCode.at(3)<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;R&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PLCSerial:<sp/>try<sp/>to<sp/>read<sp/>data<sp/>from<sp/>write<sp/>cmd!&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>words;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>data<sp/>=<sp/>ansCode.mid(7,<sp/>ansCode.size()<sp/>-<sp/>7<sp/>-<sp/>4);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>读取的数据以字（FFFF）为单位</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.size()<sp/>%<sp/>4<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PLCSerial:<sp/>plc<sp/>response<sp/>data<sp/>err!&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>words;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>word;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>data.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word<sp/>+=<sp/>data.at(i);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((i<sp/>+<sp/>1)<sp/>%<sp/>4<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>words<sp/>&lt;&lt;<sp/>word;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>word.clear();</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>words;</highlight></codeline>
+<codeline lineno="357"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="363" refid="class_plc_1abf51268db3f1eca2b9bb139bf75b83d9" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_plc_1abf51268db3f1eca2b9bb139bf75b83d9" kindref="member">Plc::sendAlarmToControlCenter</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cio)</highlight></codeline>
+<codeline lineno="364"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>plcData;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/>plcData<sp/>=<sp/>genWRCode(100,<sp/>QByteArray::number(cio,<sp/>16).rightJustified(4,<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">).toUpper());</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/>writePLC(plcData);</highlight></codeline>
+<codeline lineno="368"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/Plc.cpp"/>
+  </compounddef>
+</doxygen>

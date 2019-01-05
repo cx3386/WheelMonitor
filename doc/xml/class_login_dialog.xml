@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_login_dialog" kind="class" language="C++" prot="public">
+    <compoundname>LoginDialog</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QDialog</basecompoundref>
+    <includes refid="logindialog_8h" local="no">logindialog.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_login_dialog_1a41d3e533d639c2d47190a0466e602039" prot="private" static="no" mutable="no">
+        <type>Ui::LoginDialog</type>
+        <definition>Ui::LoginDialog LoginDialog::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/logindialog.h" line="31" column="1" bodyfile="sources/logindialog.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_login_dialog_1ab3e48f38918b4fba5523ad4bb9b0d1f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LoginDialog::LoginDialog</definition>
+        <argsstring>(QWidget *parent=Q_NULLPTR)</argsstring>
+        <name>LoginDialog</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/logindialog.h" line="11" column="1" bodyfile="sources/logindialog.cpp" bodystart="13" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_login_dialog_1aa5d012ebc424713ca0cbd82be1f81133" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LoginDialog::~LoginDialog</definition>
+        <argsstring>()</argsstring>
+        <name>~LoginDialog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/logindialog.h" line="12" column="1" bodyfile="sources/logindialog.cpp" bodystart="27" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_login_dialog_1a95b6f43916cdf432607c124d63591f76" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoginDialog::on_loginBtn_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_loginBtn_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/logindialog.h" line="25" column="1" bodyfile="sources/logindialog.cpp" bodystart="31" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_login_dialog_1ac1a7dbe19d505165d93ba2d9808c6b42" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoginDialog::on_quitBtn_clicked</definition>
+        <argsstring>()</argsstring>
+        <name>on_quitBtn_clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/logindialog.h" line="26" column="1" bodyfile="sources/logindialog.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="63">
+        <label>LoginDialog</label>
+        <link refid="class_login_dialog"/>
+        <childnode refid="64" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>QDialog</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="65">
+        <label>LoginDialog</label>
+        <link refid="class_login_dialog"/>
+        <childnode refid="66" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>QDialog</label>
+      </node>
+    </collaborationgraph>
+    <location file="sources/logindialog.h" line="7" column="1" bodyfile="sources/logindialog.h" bodystart="6" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_login_dialog_1ab3e48f38918b4fba5523ad4bb9b0d1f6" prot="public" virt="non-virtual"><scope>LoginDialog</scope><name>LoginDialog</name></member>
+      <member refid="class_login_dialog_1a95b6f43916cdf432607c124d63591f76" prot="private" virt="non-virtual"><scope>LoginDialog</scope><name>on_loginBtn_clicked</name></member>
+      <member refid="class_login_dialog_1ac1a7dbe19d505165d93ba2d9808c6b42" prot="private" virt="non-virtual"><scope>LoginDialog</scope><name>on_quitBtn_clicked</name></member>
+      <member refid="class_login_dialog_1a41d3e533d639c2d47190a0466e602039" prot="private" virt="non-virtual"><scope>LoginDialog</scope><name>ui</name></member>
+      <member refid="class_login_dialog_1aa5d012ebc424713ca0cbd82be1f81133" prot="public" virt="non-virtual"><scope>LoginDialog</scope><name>~LoginDialog</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

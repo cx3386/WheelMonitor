@@ -1,0 +1,6 @@
+<map id="HikVideoCapture::stopRecord" name="HikVideoCapture::stopRecord">
+<area shape="rect" id="node2" href="$class_hik_video_capture.html#a895409c64a795d7285dcee5c7d59fdd7" title="HikVideoCapture::stop" alt="" coords="268,13,420,39"/>
+<area shape="rect" id="node4" href="$class_hik_video_capture.html#acc36761db4a20a203a6ce9675150a5bc" title="HikVideoCapture::startRecord" alt="" coords="247,63,441,90"/>
+<area shape="rect" id="node5" href="$class_image_process.html#abc606c9f2c55844cc2f08e6373cdc0b6" title="ImageProcess::ImageProcess" alt="" coords="489,93,685,119"/>
+<area shape="rect" id="node3" href="$class_hik_video_capture.html#a54a0ba8f296177df923cf5d8d9184a97" title="HikVideoCapture::~HikVideo\lCapture" alt="" coords="494,5,681,47"/>
+</map>

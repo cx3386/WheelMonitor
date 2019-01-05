@@ -1,0 +1,6 @@
+<map id="ConfigHelper" name="ConfigHelper">
+<area shape="rect" id="node3" href="$struct_dev_spec.html" title="device specific parameters include camera,image process, ocr process " alt="" coords="118,95,191,121"/>
+<area shape="rect" id="node4" href="$struct_cam_profile.html" title="CamProfile" alt="" coords="5,5,91,32"/>
+<area shape="rect" id="node5" href="$struct_ocr_profile.html" title="OcrProfile" alt="" coords="115,5,194,32"/>
+<area shape="rect" id="node6" href="$struct_im_profile.html" title="ImProfile" alt="" coords="219,5,291,32"/>
+</map>

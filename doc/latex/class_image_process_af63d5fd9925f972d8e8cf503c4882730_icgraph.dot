@@ -1,0 +1,12 @@
+digraph "ImageProcess::frameHandled"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node18 [label="ImageProcess::frameHandled",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node18 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="ImageProcess::ImageProcess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image_process.html#abc606c9f2c55844cc2f08e6373cdc0b6"];
+  Node18 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node20 [label="ImageProcess::handleFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image_process.html#a29bf2cf675c1f087538185ac83abfc85",tooltip="处理当前帧，每秒钟3次 "];
+  Node20 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

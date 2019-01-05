@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_view_sensor_image_8cpp" kind="file" language="C++">
+    <compoundname>ViewSensorImage.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="_view_sensor_image_8h" local="yes">ViewSensorImage.h</includes>
+    <incdepgraph>
+      <node id="781">
+        <label>sources/ViewSensorImage.cpp</label>
+        <link refid="_view_sensor_image_8cpp"/>
+        <childnode refid="782" relation="include">
+        </childnode>
+        <childnode refid="784" relation="include">
+        </childnode>
+      </node>
+      <node id="786">
+        <label>ui_ViewSensorImage.h</label>
+      </node>
+      <node id="785">
+        <label>QDialog</label>
+      </node>
+      <node id="784">
+        <label>ViewSensorImage.h</label>
+        <link refid="_view_sensor_image_8h"/>
+        <childnode refid="785" relation="include">
+        </childnode>
+        <childnode refid="786" relation="include">
+        </childnode>
+      </node>
+      <node id="783">
+        <label>QtWidgets</label>
+      </node>
+      <node id="782">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="783" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_view_sensor_image_8h" kindref="compound">ViewSensorImage.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="class_view_sensor_image_1ac172e27b9524a707aa390cd6cdd63f43" refkind="member"><highlight class="normal"><ref refid="class_view_sensor_image_1ac172e27b9524a707aa390cd6cdd63f43" kindref="member">ViewSensorImage::ViewSensorImage</ref>(QWidget<sp/>*parent)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QDialog(parent)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_view_sensor_image_1a38a6cf9420306239e6d91e3a960bc131" refkind="member"><highlight class="normal"><ref refid="class_view_sensor_image_1a38a6cf9420306239e6d91e3a960bc131" kindref="member">ViewSensorImage::~ViewSensorImage</ref>()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/ViewSensorImage.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="camprofile_8cpp" kind="file" language="C++">
+    <compoundname>camprofile.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="camprofile_8h" local="yes">camprofile.h</includes>
+    <incdepgraph>
+      <node id="88">
+        <label>QMetaType</label>
+      </node>
+      <node id="89">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="86">
+        <label>QtWidgets</label>
+      </node>
+      <node id="87">
+        <label>camprofile.h</label>
+        <link refid="camprofile_8h"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="84">
+        <label>sources/camprofile.cpp</label>
+        <link refid="camprofile_8cpp"/>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+      </node>
+      <node id="85">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="camprofile_8cpp_1ae28f9d10402fb4c5f2606289f7ccf0bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream&amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;out, const CamProfile &amp;p)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_cam_profile" kindref="compound">CamProfile</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/camprofile.cpp" line="4" column="1" bodyfile="sources/camprofile.cpp" bodystart="4" bodyend="8"/>
+        <references refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" compoundref="camprofile_8h" startline="7">CamProfile::camIP</references>
+        <references refid="struct_cam_profile_1aa0b5ff29518521fa54e3d10b13176cea" compoundref="camprofile_8h" startline="8">CamProfile::camPort</references>
+        <references refid="struct_cam_profile_1a0ea16ae25e305f80425bd43aaebd5e03" compoundref="camprofile_8h" startline="9">CamProfile::camUserName</references>
+        <references refid="struct_cam_profile_1a858a51162bbd2a1b3cee2efddf16c65f" compoundref="camprofile_8h" startline="10">CamProfile::camPassword</references>
+        <references refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" compoundref="camprofile_8h" startline="11">CamProfile::frameInterv</references>
+      </memberdef>
+      <memberdef kind="function" id="camprofile_8cpp_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream&amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;in, CamProfile &amp;p)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_cam_profile" kindref="compound">CamProfile</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/camprofile.cpp" line="10" column="1" bodyfile="sources/camprofile.cpp" bodystart="10" bodyend="14"/>
+        <references refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" compoundref="camprofile_8h" startline="7">CamProfile::camIP</references>
+        <references refid="struct_cam_profile_1aa0b5ff29518521fa54e3d10b13176cea" compoundref="camprofile_8h" startline="8">CamProfile::camPort</references>
+        <references refid="struct_cam_profile_1a0ea16ae25e305f80425bd43aaebd5e03" compoundref="camprofile_8h" startline="9">CamProfile::camUserName</references>
+        <references refid="struct_cam_profile_1a858a51162bbd2a1b3cee2efddf16c65f" compoundref="camprofile_8h" startline="10">CamProfile::camPassword</references>
+        <references refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" compoundref="camprofile_8h" startline="11">CamProfile::frameInterv</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="camprofile_8h" kindref="compound">camprofile.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="camprofile_8h_1ae28f9d10402fb4c5f2606289f7ccf0bc" refkind="member"><highlight class="normal">QDataStream&amp;<sp/><ref refid="camprofile_8cpp_1ae28f9d10402fb4c5f2606289f7ccf0bc" kindref="member">operator&lt;&lt;</ref>(QDataStream<sp/>&amp;out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_cam_profile" kindref="compound">CamProfile</ref><sp/>&amp;p)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>p.<ref refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" kindref="member">camIP</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_cam_profile_1aa0b5ff29518521fa54e3d10b13176cea" kindref="member">camPort</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_cam_profile_1a0ea16ae25e305f80425bd43aaebd5e03" kindref="member">camUserName</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_cam_profile_1a858a51162bbd2a1b3cee2efddf16c65f" kindref="member">camPassword</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" kindref="member">frameInterv</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="camprofile_8h_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" refkind="member"><highlight class="normal">QDataStream&amp;<sp/><ref refid="camprofile_8cpp_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" kindref="member">operator&gt;&gt;</ref>(QDataStream<sp/>&amp;in,<sp/><ref refid="struct_cam_profile" kindref="compound">CamProfile</ref><sp/>&amp;p)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>in<sp/>&gt;&gt;<sp/>p.<ref refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" kindref="member">camIP</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_cam_profile_1aa0b5ff29518521fa54e3d10b13176cea" kindref="member">camPort</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_cam_profile_1a0ea16ae25e305f80425bd43aaebd5e03" kindref="member">camUserName</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_cam_profile_1a858a51162bbd2a1b3cee2efddf16c65f" kindref="member">camPassword</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" kindref="member">frameInterv</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>in;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/camprofile.cpp"/>
+  </compounddef>
+</doxygen>

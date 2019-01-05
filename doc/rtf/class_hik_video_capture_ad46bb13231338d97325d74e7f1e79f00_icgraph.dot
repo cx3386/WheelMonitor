@@ -1,0 +1,18 @@
+digraph "HikVideoCapture::recordOFF"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node20 [label="HikVideoCapture::recordOFF",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node20 -> Node21 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node21 [label="HikVideoCapture::stopRecord",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hik_video_capture.html#a4579213b58ec7d6999755e78a48d9ff8",tooltip="涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用 "];
+  Node21 -> Node22 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node22 [label="HikVideoCapture::stop",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hik_video_capture.html#a895409c64a795d7285dcee5c7d59fdd7"];
+  Node22 -> Node23 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node23 [label="HikVideoCapture::~HikVideo\lCapture",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hik_video_capture.html#a54a0ba8f296177df923cf5d8d9184a97"];
+  Node21 -> Node24 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node24 [label="HikVideoCapture::startRecord",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hik_video_capture.html#acc36761db4a20a203a6ce9675150a5bc"];
+  Node24 -> Node25 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 [label="ImageProcess::ImageProcess",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image_process.html#abc606c9f2c55844cc2f08e6373cdc0b6"];
+  Node21 -> Node25 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

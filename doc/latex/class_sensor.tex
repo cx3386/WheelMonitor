@@ -1,0 +1,276 @@
+\hypertarget{class_sensor}{}\section{Sensor Class Reference}
+\label{class_sensor}\index{Sensor@{Sensor}}
+
+
+{\ttfamily \#include $<$Sensor\+Device.\+h$>$}
+
+
+
+Inheritance diagram for Sensor\+:
+% FIG 0
+
+
+Collaboration diagram for Sensor\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_a297b58d8d5cfecb5a4c569a55129ce9e}{Sensor}} (int \+\_\+id, \mbox{\hyperlink{class_ck_pt}{Ck\+Pt}} $\ast$parent)
+\item 
+void \mbox{\hyperlink{class_sensor_a679f792ce4dba08c394aa4cd506fb2ae}{new\+Wheel}} ()
+\item 
+void \mbox{\hyperlink{class_sensor_a84bc35cfba92eb579bc311b3c8b2980d}{init}} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_sensor_a3ed288f1dbf4b0fbe66038e969804843}{id\+\_\+gb2mem}} (int gid)
+\begin{DoxyCompactList}\small\item\em 由global id获得局部id. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{class_sensor_a2d3ac12a2a7c609be7fd7ce3bd5d4c9b}{index\+Of}} (Q\+String \+\_\+name)
+\item 
+static Q\+List$<$ \mbox{\hyperlink{class_sensor}{Sensor}} $\ast$ $>$ \mbox{\hyperlink{class_sensor_a03b33db349b28448615318739bc9101f}{create\+All}} (\mbox{\hyperlink{class_ck_pt}{Ck\+Pt}} $\ast$parent)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_sensor_a234572fa1d52f50a2a3fe349022bd9bd}{id}}
+\begin{DoxyCompactList}\small\item\em 000$\sim$111 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_sensor_af890760e92f0526cc6d1de67837bbee3}{show\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em 标记的位置，1$\sim$8 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_sensor_a3d1ebe0e05e5d75604330a70d3acf9e5}{m\+\_\+id}}
+\item 
+\mbox{\hyperlink{class_ck_pt}{Ck\+Pt}} $\ast$ \mbox{\hyperlink{class_sensor_a56a0ffda1ceedd2bc85548c77cebd7fc}{parent\+Ck\+Pt}}
+\item 
+Q\+String \mbox{\hyperlink{class_sensor_af962d8dc933caf0a9c7742bc44b29548}{name}}
+\item 
+int \mbox{\hyperlink{class_sensor_a4667ebebacc6cfce173c41066d20f2eb}{n\+Tri}}
+\item 
+bool \mbox{\hyperlink{class_sensor_a1a614aaa89d6b4077cf0b7265649339b}{expected}} = false
+\begin{DoxyCompactList}\small\item\em 记录传感器是否坏掉 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sensor_a162de5c0d5d4b8235aa25a474002f594}{broken}} = true
+\begin{DoxyCompactList}\small\item\em 记录传感器是否坏掉（周期结束时更新） \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_level_recorder}{Level\+Recorder}} \mbox{\hyperlink{class_sensor_a12be80cf7102fa5a1f6488c29733cf88}{sample}}
+\begin{DoxyCompactList}\small\item\em 记录传感器的采样信息 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const Q\+String\+List \mbox{\hyperlink{class_sensor_a062401268f20ec88117c0a08c867670d}{names}} \{ \char`\"{}left\char`\"{}, \char`\"{}right\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em 每个检测点的传感器 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Sensor\+Device.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sensor_a297b58d8d5cfecb5a4c569a55129ce9e}\label{class_sensor_a297b58d8d5cfecb5a4c569a55129ce9e}} 
+\index{Sensor@{Sensor}!Sensor@{Sensor}}
+\index{Sensor@{Sensor}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{Sensor()}{Sensor()}}
+{\footnotesize\ttfamily Sensor\+::\+Sensor (\begin{DoxyParamCaption}\item[{int}]{\+\_\+id,  }\item[{\mbox{\hyperlink{class_ck_pt}{Ck\+Pt}} $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file Sensor\+Device.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sensor_a03b33db349b28448615318739bc9101f}\label{class_sensor_a03b33db349b28448615318739bc9101f}} 
+\index{Sensor@{Sensor}!create\+All@{create\+All}}
+\index{create\+All@{create\+All}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{create\+All()}{createAll()}}
+{\footnotesize\ttfamily Q\+List$<$ \mbox{\hyperlink{class_sensor}{Sensor}} $\ast$ $>$ Sensor\+::create\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ck_pt}{Ck\+Pt}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 80 of file Sensor\+Device.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_sensor_a3ed288f1dbf4b0fbe66038e969804843}\label{class_sensor_a3ed288f1dbf4b0fbe66038e969804843}} 
+\index{Sensor@{Sensor}!id\+\_\+gb2mem@{id\+\_\+gb2mem}}
+\index{id\+\_\+gb2mem@{id\+\_\+gb2mem}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{id\+\_\+gb2mem()}{id\_gb2mem()}}
+{\footnotesize\ttfamily static int Sensor\+::id\+\_\+gb2mem (\begin{DoxyParamCaption}\item[{int}]{gid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+由global id获得局部id. 
+
+
+
+Definition at line 17 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_a2d3ac12a2a7c609be7fd7ce3bd5d4c9b}\label{class_sensor_a2d3ac12a2a7c609be7fd7ce3bd5d4c9b}} 
+\index{Sensor@{Sensor}!index\+Of@{index\+Of}}
+\index{index\+Of@{index\+Of}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{index\+Of()}{indexOf()}}
+{\footnotesize\ttfamily static int Sensor\+::index\+Of (\begin{DoxyParamCaption}\item[{Q\+String}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 18 of file Sensor\+Device.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_sensor_a84bc35cfba92eb579bc311b3c8b2980d}\label{class_sensor_a84bc35cfba92eb579bc311b3c8b2980d}} 
+\index{Sensor@{Sensor}!init@{init}}
+\index{init@{init}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Sensor\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 95 of file Sensor\+Device.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_sensor_a679f792ce4dba08c394aa4cd506fb2ae}\label{class_sensor_a679f792ce4dba08c394aa4cd506fb2ae}} 
+\index{Sensor@{Sensor}!new\+Wheel@{new\+Wheel}}
+\index{new\+Wheel@{new\+Wheel}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{new\+Wheel()}{newWheel()}}
+{\footnotesize\ttfamily void Sensor\+::new\+Wheel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 89 of file Sensor\+Device.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_sensor_a162de5c0d5d4b8235aa25a474002f594}\label{class_sensor_a162de5c0d5d4b8235aa25a474002f594}} 
+\index{Sensor@{Sensor}!broken@{broken}}
+\index{broken@{broken}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{broken}{broken}}
+{\footnotesize\ttfamily bool Sensor\+::broken = true}
+
+
+
+记录传感器是否坏掉（周期结束时更新） 
+
+
+
+Definition at line 27 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_a1a614aaa89d6b4077cf0b7265649339b}\label{class_sensor_a1a614aaa89d6b4077cf0b7265649339b}} 
+\index{Sensor@{Sensor}!expected@{expected}}
+\index{expected@{expected}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{expected}{expected}}
+{\footnotesize\ttfamily bool Sensor\+::expected = false}
+
+
+
+记录传感器是否坏掉 
+
+
+
+Definition at line 26 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_a234572fa1d52f50a2a3fe349022bd9bd}\label{class_sensor_a234572fa1d52f50a2a3fe349022bd9bd}} 
+\index{Sensor@{Sensor}!id@{id}}
+\index{id@{id}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Sensor\+::id}
+
+
+
+000$\sim$111 
+
+
+
+Definition at line 14 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_a3d1ebe0e05e5d75604330a70d3acf9e5}\label{class_sensor_a3d1ebe0e05e5d75604330a70d3acf9e5}} 
+\index{Sensor@{Sensor}!m\+\_\+id@{m\+\_\+id}}
+\index{m\+\_\+id@{m\+\_\+id}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{m\+\_\+id}{m\_id}}
+{\footnotesize\ttfamily int Sensor\+::m\+\_\+id}
+
+
+
+Definition at line 16 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_af962d8dc933caf0a9c7742bc44b29548}\label{class_sensor_af962d8dc933caf0a9c7742bc44b29548}} 
+\index{Sensor@{Sensor}!name@{name}}
+\index{name@{name}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily Q\+String Sensor\+::name}
+
+
+
+Definition at line 24 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_a062401268f20ec88117c0a08c867670d}\label{class_sensor_a062401268f20ec88117c0a08c867670d}} 
+\index{Sensor@{Sensor}!names@{names}}
+\index{names@{names}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{names}{names}}
+{\footnotesize\ttfamily const Q\+String\+List Sensor\+::names \{ \char`\"{}left\char`\"{}, \char`\"{}right\char`\"{} \}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+每个检测点的传感器 
+
+
+
+Definition at line 19 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_a4667ebebacc6cfce173c41066d20f2eb}\label{class_sensor_a4667ebebacc6cfce173c41066d20f2eb}} 
+\index{Sensor@{Sensor}!n\+Tri@{n\+Tri}}
+\index{n\+Tri@{n\+Tri}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{n\+Tri}{nTri}}
+{\footnotesize\ttfamily int Sensor\+::n\+Tri}
+
+
+
+Definition at line 25 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_a56a0ffda1ceedd2bc85548c77cebd7fc}\label{class_sensor_a56a0ffda1ceedd2bc85548c77cebd7fc}} 
+\index{Sensor@{Sensor}!parent\+Ck\+Pt@{parent\+Ck\+Pt}}
+\index{parent\+Ck\+Pt@{parent\+Ck\+Pt}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{parent\+Ck\+Pt}{parentCkPt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ck_pt}{Ck\+Pt}}$\ast$ Sensor\+::parent\+Ck\+Pt}
+
+
+
+Definition at line 23 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_a12be80cf7102fa5a1f6488c29733cf88}\label{class_sensor_a12be80cf7102fa5a1f6488c29733cf88}} 
+\index{Sensor@{Sensor}!sample@{sample}}
+\index{sample@{sample}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{sample}{sample}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_level_recorder}{Level\+Recorder}} Sensor\+::sample}
+
+
+
+记录传感器的采样信息 
+
+
+
+Definition at line 28 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_sensor_af890760e92f0526cc6d1de67837bbee3}\label{class_sensor_af890760e92f0526cc6d1de67837bbee3}} 
+\index{Sensor@{Sensor}!show\+\_\+id@{show\+\_\+id}}
+\index{show\+\_\+id@{show\+\_\+id}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{show\+\_\+id}{show\_id}}
+{\footnotesize\ttfamily int Sensor\+::show\+\_\+id}
+
+
+
+标记的位置，1$\sim$8 
+
+
+
+Definition at line 15 of file Sensor\+Device.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{_sensor_device_8h}{Sensor\+Device.\+h}}\item 
+sources/\mbox{\hyperlink{_sensor_device_8cpp}{Sensor\+Device.\+cpp}}\end{DoxyCompactItemize}

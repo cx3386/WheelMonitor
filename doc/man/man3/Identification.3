@@ -1,0 +1,71 @@
+.TH "Identification" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Identification
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <identification\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIdentification\fP (QObject *parent=Q_NULLPTR)"
+.br
+.ti -1c
+.RI "\fB~Identification\fP ()=default"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static bool \fBcheck\fP ()"
+.br
+.ti -1c
+.RI "static void \fBgetCPUID\fP (unsigned int CPUInfo[4], unsigned int InfoType)"
+.br
+.ti -1c
+.RI "static void \fBgetCPUIDEX\fP (unsigned int CPUInfo[4], unsigned int InfoType, unsigned int ECXValue)"
+.br
+.ti -1c
+.RI "static QString \fBgetLocalMAC\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file identification\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Identification::Identification (QObject * parent = \fCQ_NULLPTR\fP)\fC [inline]\fP"
+
+.PP
+Definition at line 11 of file identification\&.h\&.
+.SS "Identification::~Identification ()\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Identification::check ()\fC [static]\fP"
+
+.PP
+Definition at line 10 of file identification\&.cpp\&.
+.SS "void Identification::getCPUID (unsigned int CPUInfo[4], unsigned int InfoType)\fC [static]\fP"
+
+.PP
+Definition at line 20 of file identification\&.cpp\&.
+.SS "void Identification::getCPUIDEX (unsigned int CPUInfo[4], unsigned int InfoType, unsigned int ECXValue)\fC [static]\fP"
+
+.PP
+Definition at line 33 of file identification\&.cpp\&.
+.SS "QString Identification::getLocalMAC ()\fC [static]\fP"
+
+.PP
+Definition at line 58 of file identification\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

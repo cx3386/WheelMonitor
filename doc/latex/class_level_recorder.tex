@@ -1,0 +1,157 @@
+\hypertarget{class_level_recorder}{}\section{Level\+Recorder Class Reference}
+\label{class_level_recorder}\index{Level\+Recorder@{Level\+Recorder}}
+
+
+{\ttfamily \#include $<$Level\+Recorder.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_level_recorder_acefed96903d1193e4653a9427edaa445}{State}} \{ \newline
+\mbox{\hyperlink{class_level_recorder_acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4}{High\+Level}} = 0x1, 
+\mbox{\hyperlink{class_level_recorder_acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110}{Low\+Level}} = 0x2, 
+\mbox{\hyperlink{class_level_recorder_acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74}{Positive\+Edge}} = High\+Level $\vert$ 0x4, 
+\mbox{\hyperlink{class_level_recorder_acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348}{Negative\+Edge}} = Low\+Level $\vert$ 0x8, 
+\newline
+\mbox{\hyperlink{class_level_recorder_acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411}{Out\+Of\+Range}} = 0x10
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_level_recorder_a2fee4f14e008dabf44206e0dc9a23a83}{Level\+Recorder}} ()
+\item 
+\mbox{\hyperlink{class_level_recorder_ae868e1bec42b2adab2e4b6ad59a3f259}{$\sim$\+Level\+Recorder}} ()
+\item 
+void \mbox{\hyperlink{class_level_recorder_ac903a8ed1d863cf49a2ba8883196d2b4}{init}} (bool b=false)
+\item 
+void \mbox{\hyperlink{class_level_recorder_a918eef12048f9de233aef9a16a1e9883}{push}} (bool)
+\item 
+void \mbox{\hyperlink{class_level_recorder_a56bc86fca07cb3d6e69b089efa9846dc}{clear}} ()
+\begin{DoxyCompactList}\small\item\em clear all data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_level_recorder_aa9e7d005f90132d6e7e093653a3ae513}{state}} (size\+\_\+t pos)
+\begin{DoxyCompactList}\small\item\em 输出第pos新的数据的状态，pos=0为最新的数据点 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 20 of file Level\+Recorder.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_level_recorder_acefed96903d1193e4653a9427edaa445}\label{class_level_recorder_acefed96903d1193e4653a9427edaa445}} 
+\index{Level\+Recorder@{Level\+Recorder}!State@{State}}
+\index{State@{State}!Level\+Recorder@{Level\+Recorder}}
+\subsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_level_recorder_acefed96903d1193e4653a9427edaa445}{Level\+Recorder\+::\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{High\+Level@{High\+Level}!Level\+Recorder@{Level\+Recorder}}\index{Level\+Recorder@{Level\+Recorder}!High\+Level@{High\+Level}}}\mbox{\Hypertarget{class_level_recorder_acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4}\label{class_level_recorder_acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4}} 
+High\+Level&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Low\+Level@{Low\+Level}!Level\+Recorder@{Level\+Recorder}}\index{Level\+Recorder@{Level\+Recorder}!Low\+Level@{Low\+Level}}}\mbox{\Hypertarget{class_level_recorder_acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110}\label{class_level_recorder_acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110}} 
+Low\+Level&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Positive\+Edge@{Positive\+Edge}!Level\+Recorder@{Level\+Recorder}}\index{Level\+Recorder@{Level\+Recorder}!Positive\+Edge@{Positive\+Edge}}}\mbox{\Hypertarget{class_level_recorder_acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74}\label{class_level_recorder_acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74}} 
+Positive\+Edge&即是高电平也是上升沿 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Negative\+Edge@{Negative\+Edge}!Level\+Recorder@{Level\+Recorder}}\index{Level\+Recorder@{Level\+Recorder}!Negative\+Edge@{Negative\+Edge}}}\mbox{\Hypertarget{class_level_recorder_acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348}\label{class_level_recorder_acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348}} 
+Negative\+Edge&即使低电平也是下降沿 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Out\+Of\+Range@{Out\+Of\+Range}!Level\+Recorder@{Level\+Recorder}}\index{Level\+Recorder@{Level\+Recorder}!Out\+Of\+Range@{Out\+Of\+Range}}}\mbox{\Hypertarget{class_level_recorder_acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411}\label{class_level_recorder_acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411}} 
+Out\+Of\+Range&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 30 of file Level\+Recorder.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_level_recorder_a2fee4f14e008dabf44206e0dc9a23a83}\label{class_level_recorder_a2fee4f14e008dabf44206e0dc9a23a83}} 
+\index{Level\+Recorder@{Level\+Recorder}!Level\+Recorder@{Level\+Recorder}}
+\index{Level\+Recorder@{Level\+Recorder}!Level\+Recorder@{Level\+Recorder}}
+\subsubsection{\texorpdfstring{Level\+Recorder()}{LevelRecorder()}}
+{\footnotesize\ttfamily Level\+Recorder\+::\+Level\+Recorder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 4 of file Level\+Recorder.\+cpp.
+
+\mbox{\Hypertarget{class_level_recorder_ae868e1bec42b2adab2e4b6ad59a3f259}\label{class_level_recorder_ae868e1bec42b2adab2e4b6ad59a3f259}} 
+\index{Level\+Recorder@{Level\+Recorder}!````~Level\+Recorder@{$\sim$\+Level\+Recorder}}
+\index{````~Level\+Recorder@{$\sim$\+Level\+Recorder}!Level\+Recorder@{Level\+Recorder}}
+\subsubsection{\texorpdfstring{$\sim$\+Level\+Recorder()}{~LevelRecorder()}}
+{\footnotesize\ttfamily Level\+Recorder\+::$\sim$\+Level\+Recorder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 9 of file Level\+Recorder.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_level_recorder_a56bc86fca07cb3d6e69b089efa9846dc}\label{class_level_recorder_a56bc86fca07cb3d6e69b089efa9846dc}} 
+\index{Level\+Recorder@{Level\+Recorder}!clear@{clear}}
+\index{clear@{clear}!Level\+Recorder@{Level\+Recorder}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Level\+Recorder\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+clear all data 
+
+
+
+Definition at line 28 of file Level\+Recorder.\+h.
+
+\mbox{\Hypertarget{class_level_recorder_ac903a8ed1d863cf49a2ba8883196d2b4}\label{class_level_recorder_ac903a8ed1d863cf49a2ba8883196d2b4}} 
+\index{Level\+Recorder@{Level\+Recorder}!init@{init}}
+\index{init@{init}!Level\+Recorder@{Level\+Recorder}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Level\+Recorder\+::init (\begin{DoxyParamCaption}\item[{bool}]{b = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 25 of file Level\+Recorder.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{class_level_recorder_a918eef12048f9de233aef9a16a1e9883}\label{class_level_recorder_a918eef12048f9de233aef9a16a1e9883}} 
+\index{Level\+Recorder@{Level\+Recorder}!push@{push}}
+\index{push@{push}!Level\+Recorder@{Level\+Recorder}}
+\subsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void Level\+Recorder\+::push (\begin{DoxyParamCaption}\item[{bool}]{lv }\end{DoxyParamCaption})}
+
+push\+\_\+back a data to levels 
+
+Definition at line 13 of file Level\+Recorder.\+cpp.
+
+\mbox{\Hypertarget{class_level_recorder_aa9e7d005f90132d6e7e093653a3ae513}\label{class_level_recorder_aa9e7d005f90132d6e7e093653a3ae513}} 
+\index{Level\+Recorder@{Level\+Recorder}!state@{state}}
+\index{state@{state}!Level\+Recorder@{Level\+Recorder}}
+\subsubsection{\texorpdfstring{state()}{state()}}
+{\footnotesize\ttfamily int Level\+Recorder\+::state (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+
+
+输出第pos新的数据的状态，pos=0为最新的数据点 
+
+
+
+Definition at line 22 of file Level\+Recorder.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{_level_recorder_8h}{Level\+Recorder.\+h}}\item 
+sources/\mbox{\hyperlink{_level_recorder_8cpp}{Level\+Recorder.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+digraph "HikVideoCapture::syncCameraTime"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node51 [label="HikVideoCapture::syncCameraTime",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node51 -> Node52 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node52 [label="HikVideoCapture::HikVideo\lCapture",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_hik_video_capture.html#ae2dd36fefbce426b3fce3025419a7f7c"];
+}

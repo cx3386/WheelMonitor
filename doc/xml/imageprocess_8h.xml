@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="imageprocess_8h" kind="file" language="C++">
+    <compoundname>imageprocess.h</compoundname>
+    <includes refid="_level_recorder_8h" local="yes">LevelRecorder.h</includes>
+    <includes refid="database_8h" local="yes">database.h</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">opencv2/opencv.hpp</includes>
+    <includedby refid="_alarm_manager_8h" local="yes">sources/AlarmManager.h</includedby>
+    <includedby refid="imageprocess_8cpp" local="yes">sources/imageprocess.cpp</includedby>
+    <includedby refid="mainwindow_8cpp" local="yes">sources/mainwindow.cpp</includedby>
+    <includedby refid="_match_viewer_8cpp" local="yes">sources/MatchViewer.cpp</includedby>
+    <incdepgraph>
+      <node id="285">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="290">
+        <label>QObject</label>
+      </node>
+      <node id="293">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+      <node id="291">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="289">
+        <label>ocr.h</label>
+        <link refid="ocr_8h"/>
+        <childnode refid="290" relation="include">
+        </childnode>
+        <childnode refid="291" relation="include">
+        </childnode>
+      </node>
+      <node id="288">
+        <label>QString</label>
+      </node>
+      <node id="286">
+        <label>database.h</label>
+        <link refid="database_8h"/>
+        <childnode refid="287" relation="include">
+        </childnode>
+        <childnode refid="289" relation="include">
+        </childnode>
+        <childnode refid="292" relation="include">
+        </childnode>
+      </node>
+      <node id="287">
+        <label>common.h</label>
+        <link refid="common_8h"/>
+        <childnode refid="288" relation="include">
+        </childnode>
+      </node>
+      <node id="284">
+        <label>sources/imageprocess.h</label>
+        <link refid="imageprocess_8h"/>
+        <childnode refid="285" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+        <childnode refid="290" relation="include">
+        </childnode>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="292">
+        <label>QtSql</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="299">
+        <label>sources/MatchViewer.cpp</label>
+        <link refid="_match_viewer_8cpp"/>
+      </node>
+      <node id="295">
+        <label>sources/AlarmManager.h</label>
+        <link refid="_alarm_manager_8h"/>
+        <childnode refid="296" relation="include">
+        </childnode>
+        <childnode refid="297" relation="include">
+        </childnode>
+      </node>
+      <node id="297">
+        <label>sources/mainwindow.cpp</label>
+        <link refid="mainwindow_8cpp"/>
+      </node>
+      <node id="298">
+        <label>sources/imageprocess.cpp</label>
+        <link refid="imageprocess_8cpp"/>
+      </node>
+      <node id="296">
+        <label>sources/AlarmManager.cpp</label>
+        <link refid="_alarm_manager_8cpp"/>
+      </node>
+      <node id="294">
+        <label>sources/imageprocess.h</label>
+        <link refid="imageprocess_8h"/>
+        <childnode refid="295" relation="include">
+        </childnode>
+        <childnode refid="298" relation="include">
+        </childnode>
+        <childnode refid="297" relation="include">
+        </childnode>
+        <childnode refid="299" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_image_process" prot="public">ImageProcess</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="imageprocess_8h_1ab6f3a17dfc009d5911a539706139a1d0" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int IM_PROC_VALID_MIN_COUNT</definition>
+        <argsstring></argsstring>
+        <name>IM_PROC_VALID_MIN_COUNT</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="7" column="1" bodyfile="sources/imageprocess.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="imageprocess_8h_1afd9e1271a6641a305ec2a1d1ecd80553" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int IM_PROC_INVALID_SPEED</definition>
+        <argsstring></argsstring>
+        <name>IM_PROC_INVALID_SPEED</name>
+        <initializer>= 888</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="8" column="1" bodyfile="sources/imageprocess.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_level_recorder_8h" kindref="compound">LevelRecorder.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="database_8h" kindref="compound">database.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/opencv.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="imageprocess_8h_1ab6f3a17dfc009d5911a539706139a1d0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="imageprocess_8h_1ab6f3a17dfc009d5911a539706139a1d0" kindref="member">IM_PROC_VALID_MIN_COUNT</ref><sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="8" refid="imageprocess_8h_1afd9e1271a6641a305ec2a1d1ecd80553" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="imageprocess_8h_1afd9e1271a6641a305ec2a1d1ecd80553" kindref="member">IM_PROC_INVALID_SPEED</ref><sp/>=<sp/>888;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_plc" kindref="compound">Plc</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_robust_matcher" kindref="compound">RobustMatcher</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_o_c_r" kindref="compound">OCR</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_im_profile" kindref="compound">ImProfile</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834" kindref="member">AlarmColor</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="class_image_process" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_image_process" kindref="compound">ImageProcess</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" kindref="member">ImageProcess</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>_configHelper,<sp/><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref>*<sp/>_capture,<sp/><ref refid="class_plc" kindref="compound">Plc</ref>*<sp/>_plcSerial,<sp/>QObject*<sp/>parent<sp/>=<sp/>Q_NULLPTR);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_image_process_1a58756d66c3a326819df894942c0265c9" kindref="member">~ImageProcess</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="class_image_process_1a5613b249dea6fed2b9087c6e57fb7ca4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/><ref refid="class_image_process_1a5613b249dea6fed2b9087c6e57fb7ca4" kindref="member">getFrameToShow</ref>()<sp/>{<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frameToShow;<sp/>}</highlight></codeline>
+<codeline lineno="25" refid="class_image_process_1a30e74ef6d1a2e4fe98075dcadd8e43f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/><ref refid="class_image_process_1a30e74ef6d1a2e4fe98075dcadd8e43f9" kindref="member">getMatchResult</ref>()<sp/>{<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>matchResult;<sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>用于mainwindow跨线程控制 <sp/><sp/><sp/>void<sp/>start()<sp/>{<sp/>QTimer::singleShot(0,<sp/>this,<sp/>&amp;ImageProcess::onStart);<sp/>}
+<sp/><sp/>void<sp/>stop()<sp/>{<sp/>QTimer::singleShot(0,<sp/>this,<sp/>&amp;ImageProcess::onStop);<sp/>}
+<sp/><sp/><sp/><sp/>//void<sp/>init()<sp/>{<sp/>QTimer::singleShot(0,<sp/>this,<sp/>&amp;ImageProcess::setupModel);<sp/>}
+<sp/><sp/>//int<sp/>getDevId()<sp/>{<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/>return<sp/>deviceIndex;<sp/>}
+
+private:
+<sp/><sp/><sp/><sp/>const<sp/>ConfigHelper*<sp/>configHelper;
+<sp/><sp/>HikVideoCapture*<sp/>videoCapture;
+<sp/>Plc*<sp/>plcSerial;
+<sp/><sp/><sp/><sp/>int<sp/>deviceIndex;
+<sp/><sp/><sp/>const<sp/>ImProfile*<sp/>imProfile;
+<sp/><sp/><sp/><sp/>OCR*<sp/>ocr;<sp/>//!&lt;<sp/>ocr识别的类，只通过start/stop来控制，常开
+<sp/>RobustMatcher*<sp/>rMatcher;
+
+<sp/><sp/>cv::Mat<sp/>srcImg;
+<sp/><sp/><sp/><sp/>cv::Mat<sp/>undistortedFrame;
+<sp/><sp/>cv::Mat<sp/>frameToShow;
+<sp/><sp/><sp/>cv::Mat<sp/>matchResult;
+<sp/><sp/><sp/>QMutex<sp/>mutex;
+
+<sp/>cv::Mat<sp/>cameraUndistort(cv::Mat<sp/>src);
+<sp/><sp/>void<sp/>checkoutWheel();<sp/>//!&lt;<sp/>结算该车轮
+
+<sp/>QString<sp/>genSpeeds(std::vector&lt;double&gt;<sp/>rt,<sp/>std::vector&lt;double&gt;<sp/>ref);
+
+<sp/><sp/><sp/>void<sp/>clearWheel();<sp/>//!&lt;<sp/>清除当前车轮的相关信息
+
+<sp/><sp/><sp/><sp/>//int<sp/>previousAlarmLevel(const<sp/>QString&amp;<sp/>num);
+<sp/><sp/>//QSqlTableModel<sp/>*previousModel;
+<sp/><sp/><sp/>//bool<sp/>insertRecord(const<sp/>WheelDbInfo&amp;<sp/>info);
+<sp/><sp/>//QSqlTableModel<sp/>*insertModel;
+<sp/>//void<sp/>handleAlarmLevel(WheelDbInfo&amp;<sp/>wheelDbInfo);
+<sp/>//!<sp/>判断rect1是否在rect2
+<sp/><sp/><sp/><sp/>static<sp/>bool<sp/>isInside(cv::Rect<sp/>rect1,<sp/>cv::Rect<sp/>rect2)
+<sp/><sp/><sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>(rect1<sp/>==<sp/>(rect1<sp/>&amp;<sp/>rect2));
+<sp/>}
+<sp/><sp/>enum<sp/>CoreState<sp/>{
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocateFail<sp/>=<sp/>0x1,<sp/>//!&lt;<sp/>车轮定位丢失
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/>OutMA<sp/>=<sp/>0x2,<sp/>//!&lt;<sp/>车轮在MA外
+<sp/><sp/><sp/><sp/><sp/><sp/>LMA<sp/>=<sp/>OutMA<sp/>|<sp/>0x4,<sp/>//!&lt;<sp/>车轮在MA左
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RMA<sp/>=<sp/>OutMA<sp/>|<sp/>0x8,<sp/>//!&lt;<sp/>车轮在MA右
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NoPre<sp/>=<sp/>0x10,<sp/>//!&lt;<sp/>无前帧
+<sp/><sp/><sp/><sp/><sp/>MatchFail<sp/>=<sp/>0x20,<sp/>//!&lt;<sp/>匹配失败
+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TruckSpZero<sp/>=<sp/>0x40,<sp/>//!&lt;<sp/>车轮速度为0
+<sp/><sp/><sp/><sp/><sp/><sp/>Success<sp/>=<sp/>0x80,<sp/>//!&lt;<sp/>匹配完成，正常退出
+<sp/><sp/><sp/>};
+
+<sp/><sp/><sp/><sp/>int<sp/>coreImageProcess();<sp/>//!&lt;<sp/>图像处理核心代码，返回CoreStates，输入为scrImg和undistortedFrame
+<sp/><sp/>void<sp/>preprocess();
+
+<sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>rtSpeeds;<sp/>//!&lt;<sp/>当前车轮的计算速度表
+<sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>refSpeeds;<sp/>//!&lt;<sp/>当前车轮的参考速度表，与rtSpeeds大小相同
+<sp/><sp/>//int<sp/>nImgCount<sp/>=<sp/>0;<sp/>//<sp/>has<sp/>0/1/2<sp/>src<sp/>imgs<sp/>to<sp/>match.<sp/>when<sp/>2,<sp/>begin<sp/>to<sp/>match
+<sp/><sp/><sp/><sp/>//<sp/>process;<sp/>when<sp/>0,1,<sp/>wait<sp/>the<sp/>next<sp/>src<sp/>img
+
+<sp/><sp/><sp/>cv::Mat<sp/>wheelFrame_pre;<sp/>//!&lt;<sp/>上一帧<sp/>车轮外切矩形图像
+<sp/><sp/><sp/><sp/>bool<sp/>bInDz<sp/>=<sp/>false;<sp/>//!&lt;<sp/>车轮处于detect<sp/>zone里
+<sp/><sp/><sp/><sp/>bool<sp/>checkoutAlready<sp/>=<sp/>true;<sp/>//!&lt;<sp/>是否需要checkout，防止重复
+<sp/><sp/><sp/><sp/>//LevelRecorder<sp/>_DZRecorder;<sp/>//!&lt;<sp/>记录车轮是否进入光电开关的检测范围DZ(detect<sp/>zone)<sp/>用于硬件检测 start初始化posh<sp/>0,在stop重置,ss-tri切换后也应重置（因为可能MA已经结算过1此，将导致重结算）
+<sp/><sp/><sp/><sp/>int<sp/>_MAState;<sp/>//!&lt;<sp/>0-进 1-出 2中断 start初始化为1，ss-tri状态切换后重置1（TODO）
+<sp/><sp/><sp/>//LevelRecorder<sp/>_MARecorder;<sp/>//!&lt;<sp/>记录车轮是否进入红框的监控区域MA(monitor<sp/>area)<sp/>用于软件检测
+<sp/><sp/><sp/><sp/>int<sp/>interrupts<sp/>=<sp/>0;<sp/>//!&lt;<sp/>本车轮MA内连续匹配过程中，中断的次数,stop重置为0
+<sp/><sp/><sp/>bool<sp/>bUsrCtrl<sp/>=<sp/>false;<sp/>///&lt;<sp/>ctrl<sp/>the<sp/>imageprocecss<sp/>running<sp/>state<sp/>1<sp/>is<sp/>ON,<sp/>0<sp/>is<sp/>OFF
+<sp/>bool<sp/>bIsTruckStopped<sp/>=<sp/>false;
+<sp/><sp/>int<sp/>nCore_pre<sp/>=<sp/>LocateFail;<sp/>//!&lt;<sp/>存本车轮上一次core的返回值，初始化为findfail
+<sp/><sp/><sp/>double<sp/>rtRefSpeed;
+signals:
+<sp/><sp/><sp/><sp/>void<sp/>_MAIn();
+<sp/><sp/>void<sp/>_MAOut();
+<sp/>void<sp/>frameHandled();
+<sp/><sp/><sp/>void<sp/>showFrame();
+<sp/><sp/>//void<sp/>setAlarmLight(int<sp/>alarmcolor);
+<sp/><sp/>void<sp/>showMatch();
+<sp/><sp/>void<sp/>wheelNeedHandled(WheelDbInfo<sp/>info);
+<sp/><sp/><sp/>//void<sp/>insertRecord();
+
+public<sp/>slots:
+<sp/><sp/>void<sp/>handleFrame();<sp/>//!&lt;<sp/>处理当前帧，每秒钟3次
+
+<sp/><sp/><sp/>void<sp/>makeFrame4Show();
+
+<sp/><sp/><sp/><sp/>void<sp/>onSensorIN();<sp/>//!&lt;<sp/>完全进入后（进后）
+<sp/><sp/><sp/><sp/>void<sp/>onSensorOUT();<sp/>//!&lt;<sp/>开始退出前（出前）
+<sp/><sp/><sp/><sp/>void<sp/>onWheelTimeout();
+private<sp/>slots:
+<sp/><sp/>//!<sp/>开始处理
+<sp/>void<sp/>onStart();
+<sp/><sp/><sp/><sp/>//!<sp/>停止处理，仍保留每帧显示的功能
+<sp/><sp/><sp/><sp/>void<sp/>onStop();
+<sp/>//void<sp/>setupModel();
+};
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="class_image_process_1ae062ab8a591f9a897a8275274afbdb2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1ae062ab8a591f9a897a8275274afbdb2a" kindref="member">start</ref>()<sp/>{<sp/>QTimer::singleShot(0,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ImageProcess::onStart);<sp/>}</highlight></codeline>
+<codeline lineno="28" refid="class_image_process_1a27683908ba42359d3c45d2cd31af0b72" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1a27683908ba42359d3c45d2cd31af0b72" kindref="member">stop</ref>()<sp/>{<sp/>QTimer::singleShot(0,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;ImageProcess::onStop);<sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/>init()<sp/>{<sp/>QTimer::singleShot(0,<sp/>this,<sp/>&amp;ImageProcess::setupModel);<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//int<sp/>getDevId()<sp/>{<sp/>QMutexLocker<sp/>locker(&amp;mutex);<sp/>return<sp/>deviceIndex;<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>configHelper;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref>*<sp/>videoCapture;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_plc" kindref="compound">Plc</ref>*<sp/>plcSerial;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>deviceIndex;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_im_profile" kindref="compound">ImProfile</ref>*<sp/>imProfile;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_o_c_r" kindref="compound">OCR</ref>*<sp/>ocr;<sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_robust_matcher" kindref="compound">RobustMatcher</ref>*<sp/>rMatcher;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/>srcImg;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/>undistortedFrame;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/>frameToShow;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/>matchResult;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>QMutex<sp/>mutex;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/>cameraUndistort(cv::Mat<sp/>src);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>checkoutWheel();<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>genSpeeds(std::vector&lt;double&gt;<sp/>rt,<sp/>std::vector&lt;double&gt;<sp/>ref);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clearWheel();<sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//int<sp/>previousAlarmLevel(const<sp/>QString&amp;<sp/>num);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//QSqlTableModel<sp/>*previousModel;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//bool<sp/>insertRecord(const<sp/>WheelDbInfo&amp;<sp/>info);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//QSqlTableModel<sp/>*insertModel;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/>handleAlarmLevel(WheelDbInfo&amp;<sp/>wheelDbInfo);</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isInside(cv::Rect<sp/>rect1,<sp/>cv::Rect<sp/>rect2)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(rect1<sp/>==<sp/>(rect1<sp/>&amp;<sp/>rect2));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>CoreState<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LocateFail<sp/>=<sp/>0x1,<sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OutMA<sp/>=<sp/>0x2,<sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LMA<sp/>=<sp/>OutMA<sp/>|<sp/>0x4,<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RMA<sp/>=<sp/>OutMA<sp/>|<sp/>0x8,<sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NoPre<sp/>=<sp/>0x10,<sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MatchFail<sp/>=<sp/>0x20,<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TruckSpZero<sp/>=<sp/>0x40,<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Success<sp/>=<sp/>0x80,<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>coreImageProcess();<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>preprocess();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>rtSpeeds;<sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>refSpeeds;<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//int<sp/>nImgCount<sp/>=<sp/>0;<sp/>//<sp/>has<sp/>0/1/2<sp/>src<sp/>imgs<sp/>to<sp/>match.<sp/>when<sp/>2,<sp/>begin<sp/>to<sp/>match</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>process;<sp/>when<sp/>0,1,<sp/>wait<sp/>the<sp/>next<sp/>src<sp/>img</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/>wheelFrame_pre;<sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bInDz<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>checkoutAlready<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//LevelRecorder<sp/>_DZRecorder;<sp/>//!&lt;<sp/>记录车轮是否进入光电开关的检测范围DZ(detect<sp/>zone)<sp/>用于硬件检测 start初始化posh<sp/>0,在stop重置,ss-tri切换后也应重置（因为可能MA已经结算过1此，将导致重结算）</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_MAState;<sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//LevelRecorder<sp/>_MARecorder;<sp/>//!&lt;<sp/>记录车轮是否进入红框的监控区域MA(monitor<sp/>area)<sp/>用于软件检测 <sp/><sp/><sp/><sp/>int<sp/>interrupts<sp/>=<sp/>0;<sp/>//!&lt;<sp/>本车轮MA内连续匹配过程中，中断的次数,stop重置为0
+<sp/><sp/><sp/>bool<sp/>bUsrCtrl<sp/>=<sp/>false;<sp/>///&lt;<sp/>ctrl<sp/>the<sp/>imageprocecss<sp/>running<sp/>state<sp/>1<sp/>is<sp/>ON,<sp/>0<sp/>is<sp/>OFF
+<sp/>bool<sp/>bIsTruckStopped<sp/>=<sp/>false;
+<sp/><sp/>int<sp/>nCore_pre<sp/>=<sp/>LocateFail;<sp/>//!&lt;<sp/>存本车轮上一次core的返回值，初始化为findfail
+<sp/><sp/><sp/>double<sp/>rtRefSpeed;
+signals:
+<sp/><sp/><sp/><sp/>void<sp/>_MAIn();
+<sp/><sp/>void<sp/>_MAOut();
+<sp/>void<sp/>frameHandled();
+<sp/><sp/><sp/>void<sp/>showFrame();
+<sp/><sp/>//void<sp/>setAlarmLight(int<sp/>alarmcolor);
+<sp/><sp/>void<sp/>showMatch();
+<sp/><sp/>void<sp/>wheelNeedHandled(WheelDbInfo<sp/>info);
+<sp/><sp/><sp/>//void<sp/>insertRecord();
+
+public<sp/>slots:
+<sp/><sp/>void<sp/>handleFrame();<sp/>//!&lt;<sp/>处理当前帧，每秒钟3次
+
+<sp/><sp/><sp/>void<sp/>makeFrame4Show();
+
+<sp/><sp/><sp/><sp/>void<sp/>onSensorIN();<sp/>//!&lt;<sp/>完全进入后（进后）
+<sp/><sp/><sp/><sp/>void<sp/>onSensorOUT();<sp/>//!&lt;<sp/>开始退出前（出前）
+<sp/><sp/><sp/><sp/>void<sp/>onWheelTimeout();
+private<sp/>slots:
+<sp/><sp/>//!<sp/>开始处理
+<sp/>void<sp/>onStart();
+<sp/><sp/><sp/><sp/>//!<sp/>停止处理，仍保留每帧显示的功能
+<sp/><sp/><sp/><sp/>void<sp/>onStop();
+<sp/>//void<sp/>setupModel();
+};
+</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interrupts<sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bUsrCtrl<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bIsTruckStopped<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nCore_pre<sp/>=<sp/>LocateFail;<sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rtRefSpeed;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1aeb1c0f8f06db72833ae098e9cba132c0" kindref="member">_MAIn</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1ae9977a14daf947dfd75d57dcba7550ba" kindref="member">_MAOut</ref>();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1af63d5fd9925f972d8e8cf503c4882730" kindref="member">frameHandled</ref>();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1a4b7d6c8bc1ec403a848260e9c1587cd9" kindref="member">showFrame</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/>setAlarmLight(int<sp/>alarmcolor);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1afde5339b87f2e29683b567f298bf5c89" kindref="member">showMatch</ref>();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1ad0f4f919d1704ac2e6416279fbde6aa0" kindref="member">wheelNeedHandled</ref>(<ref refid="struct_wheel_db_info" kindref="compound">WheelDbInfo</ref><sp/>info);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/>insertRecord();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" kindref="member">handleFrame</ref>();<sp/></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1a13e7f9c562ff092e8100dcde40beedcd" kindref="member">makeFrame4Show</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1a2a2689d411a382a27f8fa7b84585f306" kindref="member">onSensorIN</ref>();<sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1af2285e1cf441de21ee315fd59b69fdac" kindref="member">onSensorOUT</ref>();<sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_image_process_1ac7ec277a9341197c7bfd85be85e4ccf0" kindref="member">onWheelTimeout</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onStart();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onStop();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/>setupModel();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="sources/imageprocess.h"/>
+  </compounddef>
+</doxygen>

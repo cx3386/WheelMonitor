@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: SpeedIntegrator类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#pub-slots">Public 槽</a> &#124;
+<a href="#signals">信号</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="class_speed_integrator-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">SpeedIntegrator类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_speed_integrator_8h_source.html">SpeedIntegrator.h</a>&gt;</code></p>
+<div class="dynheader">
+类 SpeedIntegrator 继承关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_speed_integrator__inherit__graph.png" border="0" usemap="#_speed_integrator_inherit__map" alt="Inheritance graph"/></div>
+<map name="_speed_integrator_inherit__map" id="_speed_integrator_inherit__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<div class="dynheader">
+SpeedIntegrator 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_speed_integrator__coll__graph.png" border="0" usemap="#_speed_integrator_coll__map" alt="Collaboration graph"/></div>
+<map name="_speed_integrator_coll__map" id="_speed_integrator_coll__map">
+</map>
+<center><span class="legend">[<a href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
+Public 槽</h2></td></tr>
+<tr class="memitem:a66d764b8f94e1547100028927d224aea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_speed_integrator.html#a66d764b8f94e1547100028927d224aea">onCkpTri</a> (int ckpId)</td></tr>
+<tr class="separator:a66d764b8f94e1547100028927d224aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+信号</h2></td></tr>
+<tr class="memitem:a5a3c3fcf4cf833b11d897c9dea305c82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_speed_integrator.html#a5a3c3fcf4cf833b11d897c9dea305c82">expectTriBegin</a> (int ckpId)</td></tr>
+<tr class="separator:a5a3c3fcf4cf833b11d897c9dea305c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabda4cff9d78b288286796cd4690228"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_speed_integrator.html#aaabda4cff9d78b288286796cd4690228">expectTriEnd</a> (int ckpId)</td></tr>
+<tr class="separator:aaabda4cff9d78b288286796cd4690228"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aa7f2b002b46cf36d489558b59ed90388"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_speed_integrator.html#aa7f2b002b46cf36d489558b59ed90388">SpeedIntegrator</a> (<a class="el" href="class_plc.html">Plc</a> *plcSerial, QObject *parent=Q_NULLPTR)</td></tr>
+<tr class="separator:aa7f2b002b46cf36d489558b59ed90388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2831c10b9d9d554f03ae46542c29357d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_speed_integrator.html#a2831c10b9d9d554f03ae46542c29357d">~SpeedIntegrator</a> ()</td></tr>
+<tr class="separator:a2831c10b9d9d554f03ae46542c29357d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada2cd17f8fbcb20abe6b17ce7e0ed915"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_speed_integrator.html#ada2cd17f8fbcb20abe6b17ce7e0ed915">start</a> ()</td></tr>
+<tr class="memdesc:ada2cd17f8fbcb20abe6b17ce7e0ed915"><td class="mdescLeft">&#160;</td><td class="mdescRight">开始积分。调用时间：plc初始化后  <a href="#ada2cd17f8fbcb20abe6b17ce7e0ed915">更多...</a><br /></td></tr>
+<tr class="separator:ada2cd17f8fbcb20abe6b17ce7e0ed915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e1d4a9a0e409e7cd2e8b4f103439fe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_speed_integrator.html#a6e1d4a9a0e409e7cd2e8b4f103439fe4">stop</a> ()</td></tr>
+<tr class="separator:a6e1d4a9a0e409e7cd2e8b4f103439fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="_speed_integrator_8h_source.html">SpeedIntegrator.h</a> 第 <a class="el" href="_speed_integrator_8h_source.html#l00016">16</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="aa7f2b002b46cf36d489558b59ed90388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f2b002b46cf36d489558b59ed90388">&#9670;&nbsp;</a></span>SpeedIntegrator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SpeedIntegrator::SpeedIntegrator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_plc.html">Plc</a> *&#160;</td>
+          <td class="paramname"><em>plcSerial</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>Q_NULLPTR</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_speed_integrator_8cpp_source.html">SpeedIntegrator.cpp</a> 第 <a class="el" href="_speed_integrator_8cpp_source.html#l00008">8</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a2831c10b9d9d554f03ae46542c29357d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2831c10b9d9d554f03ae46542c29357d">&#9670;&nbsp;</a></span>~SpeedIntegrator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SpeedIntegrator::~SpeedIntegrator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a5a3c3fcf4cf833b11d897c9dea305c82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a3c3fcf4cf833b11d897c9dea305c82">&#9670;&nbsp;</a></span>expectTriBegin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpeedIntegrator::expectTriBegin </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ckpId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_speed_integrator_a5a3c3fcf4cf833b11d897c9dea305c82_icgraph.png" border="0" usemap="#class_speed_integrator_a5a3c3fcf4cf833b11d897c9dea305c82_icgraph" alt=""/></div>
+<map name="class_speed_integrator_a5a3c3fcf4cf833b11d897c9dea305c82_icgraph" id="class_speed_integrator_a5a3c3fcf4cf833b11d897c9dea305c82_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="228,13,296,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aaabda4cff9d78b288286796cd4690228"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaabda4cff9d78b288286796cd4690228">&#9670;&nbsp;</a></span>expectTriEnd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpeedIntegrator::expectTriEnd </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ckpId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_speed_integrator_aaabda4cff9d78b288286796cd4690228_icgraph.png" border="0" usemap="#class_speed_integrator_aaabda4cff9d78b288286796cd4690228_icgraph" alt=""/></div>
+<map name="class_speed_integrator_aaabda4cff9d78b288286796cd4690228_icgraph" id="class_speed_integrator_aaabda4cff9d78b288286796cd4690228_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="251,5,319,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a66d764b8f94e1547100028927d224aea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66d764b8f94e1547100028927d224aea">&#9670;&nbsp;</a></span>onCkpTri</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpeedIntegrator::onCkpTri </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ckpId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_speed_integrator_8cpp_source.html">SpeedIntegrator.cpp</a> 第 <a class="el" href="_speed_integrator_8cpp_source.html#l00061">61</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_speed_integrator_a66d764b8f94e1547100028927d224aea_icgraph.png" border="0" usemap="#class_speed_integrator_a66d764b8f94e1547100028927d224aea_icgraph" alt=""/></div>
+<map name="class_speed_integrator_a66d764b8f94e1547100028927d224aea_icgraph" id="class_speed_integrator_a66d764b8f94e1547100028927d224aea_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="225,5,293,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ada2cd17f8fbcb20abe6b17ce7e0ed915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada2cd17f8fbcb20abe6b17ce7e0ed915">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpeedIntegrator::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>开始积分。调用时间：plc初始化后 </p>
+
+<p class="definition">在文件 <a class="el" href="_speed_integrator_8cpp_source.html">SpeedIntegrator.cpp</a> 第 <a class="el" href="_speed_integrator_8cpp_source.html#l00017">17</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_speed_integrator_ada2cd17f8fbcb20abe6b17ce7e0ed915_icgraph.png" border="0" usemap="#class_speed_integrator_ada2cd17f8fbcb20abe6b17ce7e0ed915_icgraph" alt=""/></div>
+<map name="class_speed_integrator_ada2cd17f8fbcb20abe6b17ce7e0ed915_icgraph" id="class_speed_integrator_ada2cd17f8fbcb20abe6b17ce7e0ed915_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="203,5,271,32"/>
+<area shape="rect" id="node3" href="class_plc.html#a53d31f51484e39fc320b02be053de157" title="usrctrl " alt="" coords="200,56,275,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6e1d4a9a0e409e7cd2e8b4f103439fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1d4a9a0e409e7cd2e8b4f103439fe4">&#9670;&nbsp;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpeedIntegrator::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="_speed_integrator_8cpp_source.html">SpeedIntegrator.cpp</a> 第 <a class="el" href="_speed_integrator_8cpp_source.html#l00029">29</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_speed_integrator_a6e1d4a9a0e409e7cd2e8b4f103439fe4_icgraph.png" border="0" usemap="#class_speed_integrator_a6e1d4a9a0e409e7cd2e8b4f103439fe4_icgraph" alt=""/></div>
+<map name="class_speed_integrator_a6e1d4a9a0e409e7cd2e8b4f103439fe4_icgraph" id="class_speed_integrator_a6e1d4a9a0e409e7cd2e8b4f103439fe4_icgraph">
+<area shape="rect" id="node2" href="class_plc.html#abf9c8532cb72ba8c88437f50f2631d13" title="usrctrl " alt="" coords="200,5,275,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>sources/<a class="el" href="_speed_integrator_8h_source.html">SpeedIntegrator.h</a></li>
+<li>sources/<a class="el" href="_speed_integrator_8cpp_source.html">SpeedIntegrator.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

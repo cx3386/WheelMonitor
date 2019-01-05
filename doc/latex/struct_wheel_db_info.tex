@@ -1,0 +1,237 @@
+\hypertarget{struct_wheel_db_info}{}\section{Wheel\+Db\+Info Struct Reference}
+\label{struct_wheel_db_info}\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+
+
+记录该车轮结算后的相关参数，以写入数据库  
+
+
+
+
+{\ttfamily \#include $<$database.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_wheel_db_info_af351443371b29941a357006ef27795a0}{id}}
+\item 
+int \mbox{\hyperlink{struct_wheel_db_info_aae1177299aa4b515dbc4e5b5b04ac071}{i\+\_\+o}}
+\item 
+Q\+String \mbox{\hyperlink{struct_wheel_db_info_a8916452b2bb9ddda8088fe6f63cc5043}{num}}
+\item 
+double \mbox{\hyperlink{struct_wheel_db_info_af17e3e7fcfa366aede4f2b1dab764ea5}{calcspeed}}
+\item 
+double \mbox{\hyperlink{struct_wheel_db_info_a06da43ab369c21a8f280e902ecaadd24}{refspeed}}
+\item 
+double \mbox{\hyperlink{struct_wheel_db_info_aa409c886cb5505bbfed02bd7dc243c30}{error}}
+\item 
+Q\+String \mbox{\hyperlink{struct_wheel_db_info_a62093bf6e1e60260ac3441852e3508f5}{time}}
+\item 
+int \mbox{\hyperlink{struct_wheel_db_info_a303f95131278b2bb9d0b81c16e6d38b8}{alarmlevel}}
+\begin{DoxyCompactList}\small\item\em -\/2：连续两次结果不可信；-\/1：本次结果不可信；0：正常；1：预警；2：报警 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_wheel_db_info_ab673ee45b8a02e9ba8aa72135ed28b6a}{checkstate}}
+\item 
+int \mbox{\hyperlink{struct_wheel_db_info_ad8ea8e08cbb58f268d06186a12c44aca}{ocrsize}}
+\item 
+int \mbox{\hyperlink{struct_wheel_db_info_a244bfaa82dbb8eb7fb1460d252571ba1}{fragment}}
+\item 
+int \mbox{\hyperlink{struct_wheel_db_info_a18c5b6628f2c1c164ba3a1f424f98d23}{totalmatch}}
+\item 
+int \mbox{\hyperlink{struct_wheel_db_info_a21d02e75169f0932fd742dfedd580173}{validmatch}}
+\item 
+Q\+String \mbox{\hyperlink{struct_wheel_db_info_a0c02cf2107db2bc81194d0f20aa14b4e}{speeds}}
+\item 
+Q\+String \mbox{\hyperlink{struct_wheel_db_info_a7c60fb37ebdb5d0e94b54a49e6eb6157}{videopath}}
+\item 
+double \mbox{\hyperlink{struct_wheel_db_info_a9115f83e0e11c2f7aef925ad723343f9}{warn\+Ratio}}
+\item 
+double \mbox{\hyperlink{struct_wheel_db_info_a9b7285981eab28ac5748f3669a3f6ab8}{alarm\+Ratio}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+记录该车轮结算后的相关参数，以写入数据库 
+
+Definition at line 27 of file database.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_wheel_db_info_a303f95131278b2bb9d0b81c16e6d38b8}\label{struct_wheel_db_info_a303f95131278b2bb9d0b81c16e6d38b8}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!alarmlevel@{alarmlevel}}
+\index{alarmlevel@{alarmlevel}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{alarmlevel}{alarmlevel}}
+{\footnotesize\ttfamily int Wheel\+Db\+Info\+::alarmlevel}
+
+
+
+-\/2：连续两次结果不可信；-\/1：本次结果不可信；0：正常；1：预警；2：报警 
+
+
+
+Definition at line 35 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a9b7285981eab28ac5748f3669a3f6ab8}\label{struct_wheel_db_info_a9b7285981eab28ac5748f3669a3f6ab8}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!alarm\+Ratio@{alarm\+Ratio}}
+\index{alarm\+Ratio@{alarm\+Ratio}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{alarm\+Ratio}{alarmRatio}}
+{\footnotesize\ttfamily double Wheel\+Db\+Info\+::alarm\+Ratio}
+
+
+
+Definition at line 46 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_af17e3e7fcfa366aede4f2b1dab764ea5}\label{struct_wheel_db_info_af17e3e7fcfa366aede4f2b1dab764ea5}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!calcspeed@{calcspeed}}
+\index{calcspeed@{calcspeed}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{calcspeed}{calcspeed}}
+{\footnotesize\ttfamily double Wheel\+Db\+Info\+::calcspeed}
+
+
+
+Definition at line 31 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_ab673ee45b8a02e9ba8aa72135ed28b6a}\label{struct_wheel_db_info_ab673ee45b8a02e9ba8aa72135ed28b6a}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!checkstate@{checkstate}}
+\index{checkstate@{checkstate}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{checkstate}{checkstate}}
+{\footnotesize\ttfamily int Wheel\+Db\+Info\+::checkstate}
+
+
+
+Definition at line 36 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_aa409c886cb5505bbfed02bd7dc243c30}\label{struct_wheel_db_info_aa409c886cb5505bbfed02bd7dc243c30}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!error@{error}}
+\index{error@{error}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily double Wheel\+Db\+Info\+::error}
+
+
+
+Definition at line 33 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a244bfaa82dbb8eb7fb1460d252571ba1}\label{struct_wheel_db_info_a244bfaa82dbb8eb7fb1460d252571ba1}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!fragment@{fragment}}
+\index{fragment@{fragment}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{fragment}{fragment}}
+{\footnotesize\ttfamily int Wheel\+Db\+Info\+::fragment}
+
+
+
+Definition at line 38 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_aae1177299aa4b515dbc4e5b5b04ac071}\label{struct_wheel_db_info_aae1177299aa4b515dbc4e5b5b04ac071}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!i\+\_\+o@{i\+\_\+o}}
+\index{i\+\_\+o@{i\+\_\+o}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{i\+\_\+o}{i\_o}}
+{\footnotesize\ttfamily int Wheel\+Db\+Info\+::i\+\_\+o}
+
+
+
+Definition at line 29 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_af351443371b29941a357006ef27795a0}\label{struct_wheel_db_info_af351443371b29941a357006ef27795a0}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!id@{id}}
+\index{id@{id}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Wheel\+Db\+Info\+::id}
+
+
+
+Definition at line 28 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a8916452b2bb9ddda8088fe6f63cc5043}\label{struct_wheel_db_info_a8916452b2bb9ddda8088fe6f63cc5043}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!num@{num}}
+\index{num@{num}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{num}{num}}
+{\footnotesize\ttfamily Q\+String Wheel\+Db\+Info\+::num}
+
+
+
+Definition at line 30 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_ad8ea8e08cbb58f268d06186a12c44aca}\label{struct_wheel_db_info_ad8ea8e08cbb58f268d06186a12c44aca}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!ocrsize@{ocrsize}}
+\index{ocrsize@{ocrsize}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{ocrsize}{ocrsize}}
+{\footnotesize\ttfamily int Wheel\+Db\+Info\+::ocrsize}
+
+
+
+Definition at line 37 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a06da43ab369c21a8f280e902ecaadd24}\label{struct_wheel_db_info_a06da43ab369c21a8f280e902ecaadd24}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!refspeed@{refspeed}}
+\index{refspeed@{refspeed}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{refspeed}{refspeed}}
+{\footnotesize\ttfamily double Wheel\+Db\+Info\+::refspeed}
+
+
+
+Definition at line 32 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a0c02cf2107db2bc81194d0f20aa14b4e}\label{struct_wheel_db_info_a0c02cf2107db2bc81194d0f20aa14b4e}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!speeds@{speeds}}
+\index{speeds@{speeds}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{speeds}{speeds}}
+{\footnotesize\ttfamily Q\+String Wheel\+Db\+Info\+::speeds}
+
+
+
+Definition at line 42 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a62093bf6e1e60260ac3441852e3508f5}\label{struct_wheel_db_info_a62093bf6e1e60260ac3441852e3508f5}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!time@{time}}
+\index{time@{time}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily Q\+String Wheel\+Db\+Info\+::time}
+
+
+
+Definition at line 34 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a18c5b6628f2c1c164ba3a1f424f98d23}\label{struct_wheel_db_info_a18c5b6628f2c1c164ba3a1f424f98d23}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!totalmatch@{totalmatch}}
+\index{totalmatch@{totalmatch}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{totalmatch}{totalmatch}}
+{\footnotesize\ttfamily int Wheel\+Db\+Info\+::totalmatch}
+
+
+
+Definition at line 40 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a21d02e75169f0932fd742dfedd580173}\label{struct_wheel_db_info_a21d02e75169f0932fd742dfedd580173}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!validmatch@{validmatch}}
+\index{validmatch@{validmatch}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{validmatch}{validmatch}}
+{\footnotesize\ttfamily int Wheel\+Db\+Info\+::validmatch}
+
+
+
+Definition at line 41 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a7c60fb37ebdb5d0e94b54a49e6eb6157}\label{struct_wheel_db_info_a7c60fb37ebdb5d0e94b54a49e6eb6157}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!videopath@{videopath}}
+\index{videopath@{videopath}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{videopath}{videopath}}
+{\footnotesize\ttfamily Q\+String Wheel\+Db\+Info\+::videopath}
+
+
+
+Definition at line 43 of file database.\+h.
+
+\mbox{\Hypertarget{struct_wheel_db_info_a9115f83e0e11c2f7aef925ad723343f9}\label{struct_wheel_db_info_a9115f83e0e11c2f7aef925ad723343f9}} 
+\index{Wheel\+Db\+Info@{Wheel\+Db\+Info}!warn\+Ratio@{warn\+Ratio}}
+\index{warn\+Ratio@{warn\+Ratio}!Wheel\+Db\+Info@{Wheel\+Db\+Info}}
+\subsubsection{\texorpdfstring{warn\+Ratio}{warnRatio}}
+{\footnotesize\ttfamily double Wheel\+Db\+Info\+::warn\+Ratio}
+
+
+
+Definition at line 45 of file database.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{database_8h}{database.\+h}}\end{DoxyCompactItemize}

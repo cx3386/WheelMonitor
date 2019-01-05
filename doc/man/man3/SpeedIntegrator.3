@@ -1,0 +1,81 @@
+.TH "SpeedIntegrator" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SpeedIntegrator
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SpeedIntegrator\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBonCkpTri\fP (int ckpId)"
+.br
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBexpectTriBegin\fP (int ckpId)"
+.br
+.ti -1c
+.RI "void \fBexpectTriEnd\fP (int ckpId)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSpeedIntegrator\fP (\fBPlc\fP *plcSerial, QObject *parent=Q_NULLPTR)"
+.br
+.ti -1c
+.RI "\fB~SpeedIntegrator\fP ()"
+.br
+.ti -1c
+.RI "void \fBstart\fP ()"
+.br
+.RI "开始积分。调用时间：plc初始化后 "
+.ti -1c
+.RI "void \fBstop\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 16 of file SpeedIntegrator\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "SpeedIntegrator::SpeedIntegrator (\fBPlc\fP * plcSerial, QObject * parent = \fCQ_NULLPTR\fP)"
+
+.PP
+Definition at line 8 of file SpeedIntegrator\&.cpp\&.
+.SS "SpeedIntegrator::~SpeedIntegrator ()\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void SpeedIntegrator::expectTriBegin (int ckpId)\fC [signal]\fP"
+
+.SS "void SpeedIntegrator::expectTriEnd (int ckpId)\fC [signal]\fP"
+
+.SS "void SpeedIntegrator::onCkpTri (int ckpId)\fC [slot]\fP"
+
+.PP
+Definition at line 61 of file SpeedIntegrator\&.cpp\&.
+.SS "void SpeedIntegrator::start ()"
+
+.PP
+开始积分。调用时间：plc初始化后 
+.PP
+Definition at line 17 of file SpeedIntegrator\&.cpp\&.
+.SS "void SpeedIntegrator::stop ()"
+
+.PP
+Definition at line 29 of file SpeedIntegrator\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

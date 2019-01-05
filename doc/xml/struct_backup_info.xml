@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="struct_backup_info" kind="struct" language="C++" prot="public">
+    <compoundname>BackupInfo</compoundname>
+    <includes refid="backuplogdialog_8h" local="no">backuplogdialog.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_backup_info_1a0c821a66542387252d525ef6ca367dc0" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString BackupInfo::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="8" column="1" bodyfile="sources/backuplogdialog.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_backup_info_1a44bd4711889aec5b8863e688b85d926b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BackupInfo::isSelected</definition>
+        <argsstring></argsstring>
+        <name>isSelected</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="9" column="1" bodyfile="sources/backuplogdialog.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_backup_info_1a6ab70d40085ca41f65a2b6260b48b0a2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BackupInfo::isAll</definition>
+        <argsstring></argsstring>
+        <name>isAll</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="10" column="1" bodyfile="sources/backuplogdialog.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_backup_info_1a9d631c53f98aec6e6c0b0106bc9525f6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BackupInfo::day</definition>
+        <argsstring></argsstring>
+        <name>day</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="11" column="1" bodyfile="sources/backuplogdialog.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_backup_info_1a57ebfab4744a979666451e9c94a24ac7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BackupInfo::max_day</definition>
+        <argsstring></argsstring>
+        <name>max_day</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/backuplogdialog.h" line="12" column="1" bodyfile="sources/backuplogdialog.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/backuplogdialog.h" line="7" column="1" bodyfile="sources/backuplogdialog.h" bodystart="6" bodyend="14"/>
+    <listofallmembers>
+      <member refid="struct_backup_info_1a9d631c53f98aec6e6c0b0106bc9525f6" prot="public" virt="non-virtual"><scope>BackupInfo</scope><name>day</name></member>
+      <member refid="struct_backup_info_1a6ab70d40085ca41f65a2b6260b48b0a2" prot="public" virt="non-virtual"><scope>BackupInfo</scope><name>isAll</name></member>
+      <member refid="struct_backup_info_1a44bd4711889aec5b8863e688b85d926b" prot="public" virt="non-virtual"><scope>BackupInfo</scope><name>isSelected</name></member>
+      <member refid="struct_backup_info_1a57ebfab4744a979666451e9c94a24ac7" prot="public" virt="non-virtual"><scope>BackupInfo</scope><name>max_day</name></member>
+      <member refid="struct_backup_info_1a0c821a66542387252d525ef6ca367dc0" prot="public" virt="non-virtual"><scope>BackupInfo</scope><name>path</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

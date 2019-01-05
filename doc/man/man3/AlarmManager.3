@@ -1,0 +1,141 @@
+.TH "AlarmManager" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AlarmManager
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <AlarmManager\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBonHardwareAlarm\fP (\fBHardwareAlarmEvent\fP event)"
+.br
+.RI "当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警 "
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBshowCio100ToUi\fP (int)"
+.br
+.RI "掉轮报警信号 "
+.ti -1c
+.RI "void \fBhardAlarmToPlc\fP (int)"
+.br
+.RI "中控报警信号发送至PLC中进行处理 connect to PLC todo\&. "
+.ti -1c
+.RI "void \fBshowAlarmLightToUi\fP (int)"
+.br
+.RI "设置UI界面的报警灯的颜色 connect to UI\&. "
+.ti -1c
+.RI "void \fBshowSpeed_i\fP (double)"
+.br
+.ti -1c
+.RI "void \fBshowError_i\fP (double)"
+.br
+.ti -1c
+.RI "void \fBshowNum_i\fP (QString)"
+.br
+.ti -1c
+.RI "void \fBshowSpeed_o\fP (double)"
+.br
+.ti -1c
+.RI "void \fBshowError_o\fP (double)"
+.br
+.ti -1c
+.RI "void \fBshowNum_o\fP (QString)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAlarmManager\fP (QObject *parent)"
+.br
+.ti -1c
+.RI "\fB~AlarmManager\fP ()"
+.br
+.ti -1c
+.RI "void \fBbindPLC\fP (\fBPlc\fP *plc)"
+.br
+.ti -1c
+.RI "void \fBbindImProc\fP (\fBImageProcess\fP *imp)"
+.br
+.ti -1c
+.RI "void \fBbindMainWindow\fP (\fBMainWindow\fP *mainwindow)"
+.br
+.ti -1c
+.RI "void \fBbindPlayBack\fP (\fBPlayBackWidget\fP *pb)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 27 of file AlarmManager\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AlarmManager::AlarmManager (QObject * parent)"
+
+.PP
+Definition at line 7 of file AlarmManager\&.cpp\&.
+.SS "AlarmManager::~AlarmManager ()"
+
+.PP
+Definition at line 12 of file AlarmManager\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void AlarmManager::bindImProc (\fBImageProcess\fP * imp)"
+
+.PP
+Definition at line 32 of file AlarmManager\&.cpp\&.
+.SS "void AlarmManager::bindMainWindow (\fBMainWindow\fP * mainwindow)"
+
+.PP
+Definition at line 38 of file AlarmManager\&.cpp\&.
+.SS "void AlarmManager::bindPlayBack (\fBPlayBackWidget\fP * pb)"
+
+.PP
+Definition at line 53 of file AlarmManager\&.cpp\&.
+.SS "void AlarmManager::bindPLC (\fBPlc\fP * plc)"
+
+.PP
+Definition at line 16 of file AlarmManager\&.cpp\&.
+.SS "void AlarmManager::hardAlarmToPlc (int)\fC [signal]\fP"
+
+.PP
+中控报警信号发送至PLC中进行处理 connect to PLC todo\&. 
+.SS "void AlarmManager::onHardwareAlarm (\fBHardwareAlarmEvent\fP event)\fC [slot]\fP"
+
+.PP
+当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警 
+.PP
+Definition at line 65 of file AlarmManager\&.cpp\&.
+.SS "void AlarmManager::showAlarmLightToUi (int)\fC [signal]\fP"
+
+.PP
+设置UI界面的报警灯的颜色 connect to UI\&. 
+.SS "void AlarmManager::showCio100ToUi (int)\fC [signal]\fP"
+
+.PP
+掉轮报警信号 中控报警信号（PLC CIO100）在UI中的显示 connect to UI todo 
+.SS "void AlarmManager::showError_i (double)\fC [signal]\fP"
+
+.SS "void AlarmManager::showError_o (double)\fC [signal]\fP"
+
+.SS "void AlarmManager::showNum_i (QString)\fC [signal]\fP"
+
+.SS "void AlarmManager::showNum_o (QString)\fC [signal]\fP"
+
+.SS "void AlarmManager::showSpeed_i (double)\fC [signal]\fP"
+
+.SS "void AlarmManager::showSpeed_o (double)\fC [signal]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

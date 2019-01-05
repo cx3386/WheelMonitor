@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="improfile_8cpp" kind="file" language="C++">
+    <compoundname>improfile.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="improfile_8h" local="yes">improfile.h</includes>
+    <incdepgraph>
+      <node id="305">
+        <label>QMetaType</label>
+      </node>
+      <node id="304">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="303">
+        <label>improfile.h</label>
+        <link refid="improfile_8h"/>
+        <childnode refid="304" relation="include">
+        </childnode>
+        <childnode refid="305" relation="include">
+        </childnode>
+      </node>
+      <node id="300">
+        <label>sources/improfile.cpp</label>
+        <link refid="improfile_8cpp"/>
+        <childnode refid="301" relation="include">
+        </childnode>
+        <childnode refid="303" relation="include">
+        </childnode>
+      </node>
+      <node id="302">
+        <label>QtWidgets</label>
+      </node>
+      <node id="301">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="302" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="improfile_8cpp_1a9d1c03f99f471a4da3e904bd72b4a051" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream&amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;out, const ImProfile &amp;p)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_im_profile" kindref="compound">ImProfile</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.cpp" line="4" column="1" bodyfile="sources/improfile.cpp" bodystart="4" bodyend="8"/>
+        <references refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" compoundref="improfile_8h" startline="13">ImProfile::warningRatio</references>
+        <references refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" compoundref="improfile_8h" startline="14">ImProfile::alarmRatio</references>
+        <references refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" compoundref="improfile_8h" startline="15">ImProfile::radius_min</references>
+        <references refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" compoundref="improfile_8h" startline="16">ImProfile::radius_max</references>
+        <references refid="struct_im_profile_1a9fa1622579348c3d0dccebe11c205a29" compoundref="improfile_8h" startline="17">ImProfile::gs1</references>
+        <references refid="struct_im_profile_1a10bffd53b4e9115dbf0fae545a426bad" compoundref="improfile_8h" startline="18">ImProfile::gs2</references>
+        <references refid="struct_im_profile_1ae9a7b67e92d0dd3a829a25edd34fbde8" compoundref="improfile_8h" startline="19">ImProfile::dp</references>
+        <references refid="struct_im_profile_1af5e44df036b18552062e4f9d9f926310" compoundref="improfile_8h" startline="20">ImProfile::minDist</references>
+        <references refid="struct_im_profile_1a921b476664441309c914b58331ead364" compoundref="improfile_8h" startline="21">ImProfile::param1</references>
+        <references refid="struct_im_profile_1ac84186e94a1900eaf9f2a6e1a7ab3014" compoundref="improfile_8h" startline="22">ImProfile::param2</references>
+        <references refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" compoundref="improfile_8h" startline="23">ImProfile::sensorTriggered</references>
+        <references refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" compoundref="improfile_8h" startline="24">ImProfile::roiRect</references>
+      </memberdef>
+      <memberdef kind="function" id="improfile_8cpp_1afc0bbe35ff9a1fc747ac9da4f03cf001" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream&amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;in, ImProfile &amp;p)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_im_profile" kindref="compound">ImProfile</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/improfile.cpp" line="10" column="1" bodyfile="sources/improfile.cpp" bodystart="10" bodyend="14"/>
+        <references refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" compoundref="improfile_8h" startline="13">ImProfile::warningRatio</references>
+        <references refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" compoundref="improfile_8h" startline="14">ImProfile::alarmRatio</references>
+        <references refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" compoundref="improfile_8h" startline="15">ImProfile::radius_min</references>
+        <references refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" compoundref="improfile_8h" startline="16">ImProfile::radius_max</references>
+        <references refid="struct_im_profile_1a9fa1622579348c3d0dccebe11c205a29" compoundref="improfile_8h" startline="17">ImProfile::gs1</references>
+        <references refid="struct_im_profile_1a10bffd53b4e9115dbf0fae545a426bad" compoundref="improfile_8h" startline="18">ImProfile::gs2</references>
+        <references refid="struct_im_profile_1ae9a7b67e92d0dd3a829a25edd34fbde8" compoundref="improfile_8h" startline="19">ImProfile::dp</references>
+        <references refid="struct_im_profile_1af5e44df036b18552062e4f9d9f926310" compoundref="improfile_8h" startline="20">ImProfile::minDist</references>
+        <references refid="struct_im_profile_1a921b476664441309c914b58331ead364" compoundref="improfile_8h" startline="21">ImProfile::param1</references>
+        <references refid="struct_im_profile_1ac84186e94a1900eaf9f2a6e1a7ab3014" compoundref="improfile_8h" startline="22">ImProfile::param2</references>
+        <references refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" compoundref="improfile_8h" startline="23">ImProfile::sensorTriggered</references>
+        <references refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" compoundref="improfile_8h" startline="24">ImProfile::roiRect</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="improfile_8h" kindref="compound">improfile.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="improfile_8h_1a9d1c03f99f471a4da3e904bd72b4a051" refkind="member"><highlight class="normal">QDataStream&amp;<sp/><ref refid="improfile_8cpp_1a9d1c03f99f471a4da3e904bd72b4a051" kindref="member">operator &lt;&lt; </ref>(QDataStream<sp/>&amp;out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_im_profile" kindref="compound">ImProfile</ref><sp/>&amp;p)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" kindref="member">warningRatio</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" kindref="member">alarmRatio</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" kindref="member">radius_min</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" kindref="member">radius_max</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1a9fa1622579348c3d0dccebe11c205a29" kindref="member">gs1</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1a10bffd53b4e9115dbf0fae545a426bad" kindref="member">gs2</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1ae9a7b67e92d0dd3a829a25edd34fbde8" kindref="member">dp</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1af5e44df036b18552062e4f9d9f926310" kindref="member">minDist</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1a921b476664441309c914b58331ead364" kindref="member">param1</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1ac84186e94a1900eaf9f2a6e1a7ab3014" kindref="member">param2</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" kindref="member">sensorTriggered</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.x<sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.y<sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.width<sp/>&lt;&lt;<sp/>p.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.height;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="improfile_8h_1afc0bbe35ff9a1fc747ac9da4f03cf001" refkind="member"><highlight class="normal">QDataStream&amp;<sp/><ref refid="improfile_8cpp_1afc0bbe35ff9a1fc747ac9da4f03cf001" kindref="member">operator &gt;&gt; </ref>(QDataStream<sp/>&amp;in,<sp/><ref refid="struct_im_profile" kindref="compound">ImProfile</ref><sp/>&amp;p)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>in<sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" kindref="member">warningRatio</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" kindref="member">alarmRatio</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" kindref="member">radius_min</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" kindref="member">radius_max</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1a9fa1622579348c3d0dccebe11c205a29" kindref="member">gs1</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1a10bffd53b4e9115dbf0fae545a426bad" kindref="member">gs2</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1ae9a7b67e92d0dd3a829a25edd34fbde8" kindref="member">dp</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1af5e44df036b18552062e4f9d9f926310" kindref="member">minDist</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1a921b476664441309c914b58331ead364" kindref="member">param1</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1ac84186e94a1900eaf9f2a6e1a7ab3014" kindref="member">param2</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" kindref="member">sensorTriggered</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.x<sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.y<sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.width<sp/>&gt;&gt;<sp/>p.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.height;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>in;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/improfile.cpp"/>
+  </compounddef>
+</doxygen>

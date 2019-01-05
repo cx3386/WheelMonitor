@@ -1,0 +1,71 @@
+.TH "Player" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Player
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <player\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetUrl\fP (const QUrl &url)"
+.br
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBfullScreenChanged\fP (bool fullScreen)"
+.br
+.ti -1c
+.RI "void \fBplay\fP ()"
+.br
+.ti -1c
+.RI "void \fBpause\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlayer\fP (QWidget *parent=nullptr)"
+.br
+.ti -1c
+.RI "\fB~Player\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 58 of file player\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Player::Player (QWidget * parent = \fCnullptr\fP)"
+[create-objs]
+.PP
+[create-objs] 
+.PP
+Definition at line 46 of file player\&.cpp\&.
+.SS "Player::~Player ()\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Player::fullScreenChanged (bool fullScreen)\fC [signal]\fP"
+
+.SS "void Player::pause ()\fC [signal]\fP"
+
+.SS "void Player::play ()\fC [signal]\fP"
+
+.SS "void Player::setUrl (const QUrl & url)\fC [slot]\fP"
+
+.PP
+Definition at line 130 of file player\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

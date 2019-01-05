@@ -1,0 +1,211 @@
+\hypertarget{class_main_window}{}\section{Main\+Window Class Reference}
+\label{class_main_window}\index{Main\+Window@{Main\+Window}}
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+
+
+Inheritance diagram for Main\+Window\+:
+% FIG 0
+
+
+Collaboration diagram for Main\+Window\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_a960ef266d511ed4e10820a3106d23e69}{ui\+Show\+Cio100}} (int cio100)
+\begin{DoxyCompactList}\small\item\em 显示\+Cio100的灯。即中控报警灯，1为亮，0为灭 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_afa3fc9e034fa98830e87246246d73e0e}{ui\+Show\+Alarm\+Light}} (\mbox{\hyperlink{_alarm_event_8h_a9d988e49ca7b9fee1b60ae831a255834}{Alarm\+Color}} alarm\+Color)
+\item 
+void \mbox{\hyperlink{class_main_window_a0b254bab7ba45e2870484474a063afb2}{ui\+Show\+Speed\+\_\+i}} (double speed)
+\item 
+void \mbox{\hyperlink{class_main_window_a5af6ee21b93fe8660960c6e0ed9ca989}{ui\+Show\+Error\+\_\+i}} (double error)
+\item 
+void \mbox{\hyperlink{class_main_window_af5608598b812a3f37e52f9e68df10f52}{ui\+Show\+Num\+\_\+i}} (Q\+String num)
+\item 
+void \mbox{\hyperlink{class_main_window_a56c37dd56a54c1e0e4cea19073bd2895}{ui\+Show\+Speed\+\_\+o}} (double speed)
+\item 
+void \mbox{\hyperlink{class_main_window_a08c36c996ee5b67ffbb4b0c5f1d18ea6}{ui\+Show\+Error\+\_\+o}} (double error)
+\item 
+void \mbox{\hyperlink{class_main_window_a6b59764d9fff055d3a40148b5efe393c}{ui\+Show\+Num\+\_\+o}} (Q\+String num)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_aefe9232bef454c4215f273be6d13d96a}{alarm\+Ui2\+P\+LC}} (\mbox{\hyperlink{_alarm_event_8h_a9d988e49ca7b9fee1b60ae831a255834}{Alarm\+Color}} alarmcolor)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a2e942fbbe12199474f063365a74adf78}{Main\+Window}} (\mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$\+\_\+config\+Helper, Q\+Widget $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\begin{DoxyCompactList}\small\item\em 只有该类可以改变config，因此不用const. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_main_window_a05fb9d72c044aa3bb7d187b994704e2f}{close\+Event}} (Q\+Close\+Event $\ast$event) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 20 of file mainwindow.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_main_window_a2e942fbbe12199474f063365a74adf78}\label{class_main_window_a2e942fbbe12199474f063365a74adf78}} 
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{Main\+Window()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_config_helper}{Config\+Helper}} $\ast$}]{\+\_\+config\+Helper,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+只有该类可以改变config，因此不用const. 
+
+
+
+Definition at line 18 of file mainwindow.\+cpp.
+
+\mbox{\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}} 
+\index{Main\+Window@{Main\+Window}!````~Main\+Window@{$\sim$\+Main\+Window}}
+\index{````~Main\+Window@{$\sim$\+Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{$\sim$\+Main\+Window()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file mainwindow.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_window_aefe9232bef454c4215f273be6d13d96a}\label{class_main_window_aefe9232bef454c4215f273be6d13d96a}} 
+\index{Main\+Window@{Main\+Window}!alarm\+Ui2\+P\+LC@{alarm\+Ui2\+P\+LC}}
+\index{alarm\+Ui2\+P\+LC@{alarm\+Ui2\+P\+LC}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{alarm\+Ui2\+P\+LC}{alarmUi2PLC}}
+{\footnotesize\ttfamily void Main\+Window\+::alarm\+Ui2\+P\+LC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_alarm_event_8h_a9d988e49ca7b9fee1b60ae831a255834}{Alarm\+Color}}}]{alarmcolor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_main_window_a05fb9d72c044aa3bb7d187b994704e2f}\label{class_main_window_a05fb9d72c044aa3bb7d187b994704e2f}} 
+\index{Main\+Window@{Main\+Window}!close\+Event@{close\+Event}}
+\index{close\+Event@{close\+Event}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{close\+Event()}{closeEvent()}}
+{\footnotesize\ttfamily void Main\+Window\+::close\+Event (\begin{DoxyParamCaption}\item[{Q\+Close\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 203 of file mainwindow.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_main_window_afa3fc9e034fa98830e87246246d73e0e}\label{class_main_window_afa3fc9e034fa98830e87246246d73e0e}} 
+\index{Main\+Window@{Main\+Window}!ui\+Show\+Alarm\+Light@{ui\+Show\+Alarm\+Light}}
+\index{ui\+Show\+Alarm\+Light@{ui\+Show\+Alarm\+Light}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{ui\+Show\+Alarm\+Light}{uiShowAlarmLight}}
+{\footnotesize\ttfamily void Main\+Window\+::ui\+Show\+Alarm\+Light (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_alarm_event_8h_a9d988e49ca7b9fee1b60ae831a255834}{Alarm\+Color}}}]{alarm\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 235 of file mainwindow.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_main_window_a960ef266d511ed4e10820a3106d23e69}\label{class_main_window_a960ef266d511ed4e10820a3106d23e69}} 
+\index{Main\+Window@{Main\+Window}!ui\+Show\+Cio100@{ui\+Show\+Cio100}}
+\index{ui\+Show\+Cio100@{ui\+Show\+Cio100}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{ui\+Show\+Cio100}{uiShowCio100}}
+{\footnotesize\ttfamily void Main\+Window\+::ui\+Show\+Cio100 (\begin{DoxyParamCaption}\item[{int}]{cio100 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+显示\+Cio100的灯。即中控报警灯，1为亮，0为灭 
+
+
+
+Definition at line 383 of file mainwindow.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_main_window_a5af6ee21b93fe8660960c6e0ed9ca989}\label{class_main_window_a5af6ee21b93fe8660960c6e0ed9ca989}} 
+\index{Main\+Window@{Main\+Window}!ui\+Show\+Error\+\_\+i@{ui\+Show\+Error\+\_\+i}}
+\index{ui\+Show\+Error\+\_\+i@{ui\+Show\+Error\+\_\+i}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{ui\+Show\+Error\+\_\+i}{uiShowError\_i}}
+{\footnotesize\ttfamily void Main\+Window\+::ui\+Show\+Error\+\_\+i (\begin{DoxyParamCaption}\item[{double}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Definition at line 70 of file mainwindow.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_main_window_a08c36c996ee5b67ffbb4b0c5f1d18ea6}\label{class_main_window_a08c36c996ee5b67ffbb4b0c5f1d18ea6}} 
+\index{Main\+Window@{Main\+Window}!ui\+Show\+Error\+\_\+o@{ui\+Show\+Error\+\_\+o}}
+\index{ui\+Show\+Error\+\_\+o@{ui\+Show\+Error\+\_\+o}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{ui\+Show\+Error\+\_\+o}{uiShowError\_o}}
+{\footnotesize\ttfamily void Main\+Window\+::ui\+Show\+Error\+\_\+o (\begin{DoxyParamCaption}\item[{double}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Definition at line 73 of file mainwindow.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_main_window_af5608598b812a3f37e52f9e68df10f52}\label{class_main_window_af5608598b812a3f37e52f9e68df10f52}} 
+\index{Main\+Window@{Main\+Window}!ui\+Show\+Num\+\_\+i@{ui\+Show\+Num\+\_\+i}}
+\index{ui\+Show\+Num\+\_\+i@{ui\+Show\+Num\+\_\+i}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{ui\+Show\+Num\+\_\+i}{uiShowNum\_i}}
+{\footnotesize\ttfamily void Main\+Window\+::ui\+Show\+Num\+\_\+i (\begin{DoxyParamCaption}\item[{Q\+String}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Definition at line 71 of file mainwindow.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_main_window_a6b59764d9fff055d3a40148b5efe393c}\label{class_main_window_a6b59764d9fff055d3a40148b5efe393c}} 
+\index{Main\+Window@{Main\+Window}!ui\+Show\+Num\+\_\+o@{ui\+Show\+Num\+\_\+o}}
+\index{ui\+Show\+Num\+\_\+o@{ui\+Show\+Num\+\_\+o}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{ui\+Show\+Num\+\_\+o}{uiShowNum\_o}}
+{\footnotesize\ttfamily void Main\+Window\+::ui\+Show\+Num\+\_\+o (\begin{DoxyParamCaption}\item[{Q\+String}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Definition at line 74 of file mainwindow.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_main_window_a0b254bab7ba45e2870484474a063afb2}\label{class_main_window_a0b254bab7ba45e2870484474a063afb2}} 
+\index{Main\+Window@{Main\+Window}!ui\+Show\+Speed\+\_\+i@{ui\+Show\+Speed\+\_\+i}}
+\index{ui\+Show\+Speed\+\_\+i@{ui\+Show\+Speed\+\_\+i}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{ui\+Show\+Speed\+\_\+i}{uiShowSpeed\_i}}
+{\footnotesize\ttfamily void Main\+Window\+::ui\+Show\+Speed\+\_\+i (\begin{DoxyParamCaption}\item[{double}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Definition at line 69 of file mainwindow.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{class_main_window_a56c37dd56a54c1e0e4cea19073bd2895}\label{class_main_window_a56c37dd56a54c1e0e4cea19073bd2895}} 
+\index{Main\+Window@{Main\+Window}!ui\+Show\+Speed\+\_\+o@{ui\+Show\+Speed\+\_\+o}}
+\index{ui\+Show\+Speed\+\_\+o@{ui\+Show\+Speed\+\_\+o}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{ui\+Show\+Speed\+\_\+o}{uiShowSpeed\_o}}
+{\footnotesize\ttfamily void Main\+Window\+::ui\+Show\+Speed\+\_\+o (\begin{DoxyParamCaption}\item[{double}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Definition at line 72 of file mainwindow.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 10
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+sources/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

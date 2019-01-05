@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: sources/AlarmEvent.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_08d237fc27d4ecd563f71c5d52f2fecc.html">sources</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#enum-members">枚举</a>  </div>
+  <div class="headertitle">
+<div class="title">AlarmEvent.h 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+此图展示该文件直接或间接的被哪些文件引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="_alarm_event_8h__dep__incl.png" border="0" usemap="#sources_2_alarm_event_8hdep" alt=""/></div>
+<map name="sources_2_alarm_event_8hdep" id="sources_2_alarm_event_8hdep">
+<area shape="rect" id="node2" href="_alarm_manager_8h.html" title="管理所有的报警 " alt="" coords="111,80,278,107"/>
+<area shape="rect" id="node5" href="imageprocess_8cpp.html" title="sources/imageprocess.cpp" alt="" coords="303,80,481,107"/>
+<area shape="rect" id="node6" href="_plc_8cpp.html" title="sources/Plc.cpp" alt="" coords="506,80,622,107"/>
+<area shape="rect" id="node3" href="_alarm_manager_8cpp.html" title="sources/AlarmManager.cpp" alt="" coords="5,155,187,181"/>
+<area shape="rect" id="node4" href="mainwindow_8cpp.html" title="sources/mainwindow.cpp" alt="" coords="211,155,378,181"/>
+</map>
+</div>
+</div>
+<p><a href="_alarm_event_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a698ab575a1e9514dcf911ae5a042fa9b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_alarm_event_8h.html#a698ab575a1e9514dcf911ae5a042fa9b">AlarmEvent</a> </td></tr>
+<tr class="memdesc:a698ab575a1e9514dcf911ae5a042fa9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alarm color, generally used in client-side  <a href="_alarm_event_8h.html#a698ab575a1e9514dcf911ae5a042fa9b">更多...</a><br /></td></tr>
+<tr class="separator:a698ab575a1e9514dcf911ae5a042fa9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869a7fc0505bdd0dc64c62b160f583bc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bc">HardwareAlarmEvent</a> { <br />
+&#160;&#160;<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa532aecd3d4f27956ce0b922f8476eee">HardwareAlarmEvent::Outer_Improc</a> = 0, 
+<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa8e6fdbdd61947777a996a49bf09025e">HardwareAlarmEvent::Outer_Sensor</a>, 
+<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca20e503b44ef5c17ae825ec74fc905b0b">HardwareAlarmEvent::Innner_Improc</a>, 
+<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcadbbf9230db7a8695bffce11d120bb5e0">HardwareAlarmEvent::Innner_Sensor</a>, 
+<br />
+&#160;&#160;<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46">HardwareAlarmEvent::Outer_Warn</a> = 0, 
+<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf">HardwareAlarmEvent::Outer_Alarm</a>, 
+<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02">HardwareAlarmEvent::Inner_Warn</a>, 
+<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b">HardwareAlarmEvent::Inner_Alarm</a>, 
+<br />
+&#160;&#160;<a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d">HardwareAlarmEvent::Reset</a>
+<br />
+ }</td></tr>
+<tr class="separator:a869a7fc0505bdd0dc64c62b160f583bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d988e49ca7b9fee1b60ae831a255834"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834">AlarmColor</a> { <br />
+&#160;&#160;<a class="el" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac">AlarmColor::Unkown</a> = 0, 
+<a class="el" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1">AlarmColor::Green</a>, 
+<a class="el" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47">AlarmColor::Red</a>, 
+<a class="el" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8">AlarmColor::Yellow</a> = 4, 
+<br />
+&#160;&#160;<a class="el" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93">AlarmColor::Gray</a> = 8, 
+<a class="el" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad15305d7a4e34e02489c74a5ef542f36">AlarmColor::Off</a> = Gray
+<br />
+ }</td></tr>
+<tr class="memdesc:a9d988e49ca7b9fee1b60ae831a255834"><td class="mdescLeft">&#160;</td><td class="mdescRight">警报等级  <a href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834">更多...</a><br /></td></tr>
+<tr class="separator:a9d988e49ca7b9fee1b60ae831a255834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="a9d988e49ca7b9fee1b60ae831a255834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d988e49ca7b9fee1b60ae831a255834">&#9670;&nbsp;</a></span>AlarmColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834">AlarmColor</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>警报等级 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac"></a>Unkown&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1"></a>Green&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47"></a>Red&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8"></a>Yellow&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93"></a>Gray&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9d988e49ca7b9fee1b60ae831a255834ad15305d7a4e34e02489c74a5ef542f36"></a>Off&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="_alarm_event_8h_source.html">AlarmEvent.h</a> 第 <a class="el" href="_alarm_event_8h_source.html#l00019">19</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a698ab575a1e9514dcf911ae5a042fa9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698ab575a1e9514dcf911ae5a042fa9b">&#9670;&nbsp;</a></span>AlarmEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_alarm_event_8h.html#a698ab575a1e9514dcf911ae5a042fa9b">AlarmEvent</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Alarm color, generally used in client-side </p>
+
+<p class="definition">在文件 <a class="el" href="_alarm_event_8h_source.html">AlarmEvent.h</a> 第 <a class="el" href="_alarm_event_8h_source.html#l00003">3</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a869a7fc0505bdd0dc64c62b160f583bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a869a7fc0505bdd0dc64c62b160f583bc">&#9670;&nbsp;</a></span>HardwareAlarmEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bc">HardwareAlarmEvent</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bcaa532aecd3d4f27956ce0b922f8476eee"></a>Outer_Improc&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bcaa8e6fdbdd61947777a996a49bf09025e"></a>Outer_Sensor&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bca20e503b44ef5c17ae825ec74fc905b0b"></a>Innner_Improc&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bcadbbf9230db7a8695bffce11d120bb5e0"></a>Innner_Sensor&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46"></a>Outer_Warn&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf"></a>Outer_Alarm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02"></a>Inner_Warn&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b"></a>Inner_Alarm&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d"></a>Reset&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="_alarm_event_8h_source.html">AlarmEvent.h</a> 第 <a class="el" href="_alarm_event_8h_source.html#l00006">6</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

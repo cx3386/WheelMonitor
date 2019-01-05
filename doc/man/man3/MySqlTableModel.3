@@ -1,0 +1,46 @@
+.TH "MySqlTableModel" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MySqlTableModel
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mysqltablemodel\&.h>\fP
+.PP
+Inherits QSqlRelationalTableModel\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMySqlTableModel\fP (QObject *parent=Q_NULLPTR, QSqlDatabase db=QSqlDatabase())"
+.br
+.ti -1c
+.RI "\fB~MySqlTableModel\fP ()=default"
+.br
+.ti -1c
+.RI "QVariant \fBdata\fP (const QModelIndex &item, int role=Qt::DisplayRole) const override"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file mysqltablemodel\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MySqlTableModel::MySqlTableModel (QObject * parent = \fCQ_NULLPTR\fP, QSqlDatabase db = \fCQSqlDatabase()\fP)\fC [inline]\fP"
+
+.PP
+Definition at line 9 of file mysqltablemodel\&.h\&.
+.SS "MySqlTableModel::~MySqlTableModel ()\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QVariant MySqlTableModel::data (const QModelIndex & item, int role = \fCQt::DisplayRole\fP) const\fC [override]\fP"
+
+.PP
+Definition at line 6 of file mysqltablemodel\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

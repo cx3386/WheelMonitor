@@ -1,0 +1,23 @@
+digraph "AlarmManager::bindMainWindow"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node6 [label="AlarmManager::bindMainWindow",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="MainWindow::uiShowSpeed_o",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a56c37dd56a54c1e0e4cea19073bd2895"];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="MainWindow::uiShowNum_o",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a6b59764d9fff055d3a40148b5efe393c"];
+  Node6 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="MainWindow::uiShowError_o",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a08c36c996ee5b67ffbb4b0c5f1d18ea6"];
+  Node6 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="MainWindow::uiShowSpeed_i",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a0b254bab7ba45e2870484474a063afb2"];
+  Node6 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="MainWindow::uiShowNum_i",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#af5608598b812a3f37e52f9e68df10f52"];
+  Node6 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="MainWindow::uiShowError_i",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a5af6ee21b93fe8660960c6e0ed9ca989"];
+  Node6 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="MainWindow::uiShowCio100",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a960ef266d511ed4e10820a3106d23e69",tooltip="显示Cio100的灯。即中控报警灯，1为亮，0为灭 "];
+  Node6 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="MainWindow::uiShowAlarmLight",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#afa3fc9e034fa98830e87246246d73e0e"];
+}

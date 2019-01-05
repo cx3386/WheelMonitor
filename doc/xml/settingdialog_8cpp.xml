@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="settingdialog_8cpp" kind="file" language="C++">
+    <compoundname>settingdialog.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="settingdialog_8h" local="yes">settingdialog.h</includes>
+    <includes refid="confighelper_8h" local="yes">confighelper.h</includes>
+    <incdepgraph>
+      <node id="685">
+        <label>sources/settingdialog.cpp</label>
+        <link refid="settingdialog_8cpp"/>
+        <childnode refid="686" relation="include">
+        </childnode>
+        <childnode refid="688" relation="include">
+        </childnode>
+        <childnode refid="692" relation="include">
+        </childnode>
+      </node>
+      <node id="699">
+        <label>QSettings</label>
+      </node>
+      <node id="698">
+        <label>QObject</label>
+      </node>
+      <node id="688">
+        <label>settingdialog.h</label>
+        <link refid="settingdialog_8h"/>
+        <childnode refid="689" relation="include">
+        </childnode>
+        <childnode refid="690" relation="include">
+        </childnode>
+        <childnode refid="691" relation="include">
+        </childnode>
+      </node>
+      <node id="694">
+        <label>QMetaType</label>
+      </node>
+      <node id="691">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+      <node id="695">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="696">
+        <label>improfile.h</label>
+        <link refid="improfile_8h"/>
+        <childnode refid="695" relation="include">
+        </childnode>
+        <childnode refid="694" relation="include">
+        </childnode>
+      </node>
+      <node id="689">
+        <label>ui_SettingDialog.h</label>
+      </node>
+      <node id="690">
+        <label>QDialog</label>
+      </node>
+      <node id="687">
+        <label>QtWidgets</label>
+      </node>
+      <node id="693">
+        <label>camprofile.h</label>
+        <link refid="camprofile_8h"/>
+        <childnode refid="694" relation="include">
+        </childnode>
+        <childnode refid="695" relation="include">
+        </childnode>
+      </node>
+      <node id="692">
+        <label>confighelper.h</label>
+        <link refid="confighelper_8h"/>
+        <childnode refid="693" relation="include">
+        </childnode>
+        <childnode refid="696" relation="include">
+        </childnode>
+        <childnode refid="697" relation="include">
+        </childnode>
+        <childnode refid="698" relation="include">
+        </childnode>
+        <childnode refid="699" relation="include">
+        </childnode>
+      </node>
+      <node id="686">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="687" relation="include">
+        </childnode>
+      </node>
+      <node id="697">
+        <label>ocrprofile.h</label>
+        <link refid="ocrprofile_8h"/>
+        <childnode refid="695" relation="include">
+        </childnode>
+        <childnode refid="694" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="settingdialog_8h" kindref="compound">settingdialog.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="confighelper_8h" kindref="compound">confighelper.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="class_setting_dialog_1af322e721867c2b24feb25cd2c2ba3ff5" refkind="member"><highlight class="normal"><ref refid="class_setting_dialog_1af322e721867c2b24feb25cd2c2ba3ff5" kindref="member">SettingDialog::SettingDialog</ref>(<ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>ch,<sp/>QWidget*<sp/>parent<sp/></highlight><highlight class="comment">/*=<sp/>Q_NULLPTR*/</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>helper(ch)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>QDialog(parent)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.setupUi(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>ini2ui();</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.buttonBox,<sp/>&amp;QDialogButtonBox::accepted,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{ui2ini();<sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Option<sp/>changed&quot;</highlight><highlight class="normal">;<sp/>this-&gt;accept();<sp/>});</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.buttonBox,<sp/>&amp;QDialogButtonBox::rejected,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{helper-&gt;read();<sp/>this-&gt;reject();<sp/>});</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.buttonBox-&gt;button(QDialogButtonBox::Reset),<sp/>&amp;QPushButton::clicked,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;SettingDialog::ini2ui);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_x,<sp/>SIGNAL(valueChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_y,<sp/>SIGNAL(valueChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_w,<sp/>SIGNAL(valueChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_h,<sp/>SIGNAL(valueChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_x_3,<sp/>SIGNAL(valueChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_y_3,<sp/>SIGNAL(valueChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_w_3,<sp/>SIGNAL(valueChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_h_3,<sp/>SIGNAL(valueChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>SLOT(roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>onChanged<sp/>=<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{<sp/>ui.buttonBox-&gt;button(QDialogButtonBox::Ok)-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>onChanged1<sp/>=<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)<sp/>{<sp/>ui.buttonBox-&gt;button(QDialogButtonBox::Ok)-&gt;setEnabled(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.LaunchAtLoginCheckBox,<sp/>&amp;QCheckBox::stateChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.startAtLaunchCheckBox,<sp/>&amp;QCheckBox::stateChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.verboseLogCheckBox,<sp/>&amp;QCheckBox::stateChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//dev1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.capIntervalSpinBox,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.sensorCheckBox,<sp/>&amp;QCheckBox::stateChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.alarmRatioSpinBox,<sp/>static_cast&lt;void<sp/>(QDoubleSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QDoubleSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.warningRatioSpinBox,<sp/>static_cast&lt;void<sp/>(QDoubleSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QDoubleSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.radiusMaxSpinBox,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.radiusMinSpinBox,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_x,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_y,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_w,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_h,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//dev2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.capIntervalSpinBox_3,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.sensorCheckBox_3,<sp/>&amp;QCheckBox::stateChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.alarmRatioSpinBox_3,<sp/>static_cast&lt;void<sp/>(QDoubleSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QDoubleSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.warningRatioSpinBox_3,<sp/>static_cast&lt;void<sp/>(QDoubleSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QDoubleSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.radiusMaxSpinBox_3,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.radiusMinSpinBox_3,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_x_3,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_y_3,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_w_3,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(ui.roiSpinBox_h_3,<sp/>static_cast&lt;void<sp/>(QSpinBox::*)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;)&gt;(&amp;QSpinBox::valueChanged),<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>onChanged1);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.buttonBox-&gt;button(QDialogButtonBox::Ok)-&gt;setEnabled(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="class_setting_dialog_1a9bfa278550d23df3f5e944989b0b0f54" refkind="member"><highlight class="normal"><ref refid="class_setting_dialog_1a9bfa278550d23df3f5e944989b0b0f54" kindref="member">SettingDialog::~SettingDialog</ref>()</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SettingDialog::ini2ui()</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" kindref="member">read</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//common</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.LaunchAtLoginCheckBox-&gt;setChecked(helper-&gt;<ref refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" kindref="member">launchAtLogin</ref>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.startAtLaunchCheckBox-&gt;setChecked(helper-&gt;<ref refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" kindref="member">startAtLaunch</ref>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.verboseLogCheckBox-&gt;setChecked(helper-&gt;<ref refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" kindref="member">verboseLog</ref>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*dev*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//dev1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.capIntervalSpinBox-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kindref="member">camProfile</ref>.<ref refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" kindref="member">frameInterv</ref>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.sensorCheckBox-&gt;setChecked(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" kindref="member">sensorTriggered</ref>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.alarmRatioSpinBox-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" kindref="member">alarmRatio</ref>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.warningRatioSpinBox-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" kindref="member">warningRatio</ref>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.radiusMaxSpinBox-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" kindref="member">radius_max</ref>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.radiusMinSpinBox-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" kindref="member">radius_min</ref>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.roiSpinBox_x-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.x);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.roiSpinBox_y-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.y);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.roiSpinBox_w-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.width);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.roiSpinBox_h-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.height);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//dev2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.capIntervalSpinBox_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kindref="member">camProfile</ref>.<ref refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" kindref="member">frameInterv</ref>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.sensorCheckBox_3-&gt;setChecked(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" kindref="member">sensorTriggered</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.alarmRatioSpinBox_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" kindref="member">alarmRatio</ref>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.warningRatioSpinBox_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" kindref="member">warningRatio</ref>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.radiusMaxSpinBox_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" kindref="member">radius_max</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.radiusMinSpinBox_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" kindref="member">radius_min</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.roiSpinBox_x_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.x);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.roiSpinBox_y_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.y);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.roiSpinBox_w_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.width);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>ui.roiSpinBox_h_3-&gt;setValue(helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.height);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SettingDialog::ui2ini()</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//common</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1a9421d72089dd1d661f26c19af219e859" kindref="member">launchAtLogin</ref><sp/>=<sp/>ui.LaunchAtLoginCheckBox-&gt;isChecked();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1a959b2ee878bc13961b7b75de2c7954cf" kindref="member">startAtLaunch</ref><sp/>=<sp/>ui.startAtLaunchCheckBox-&gt;isChecked();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1a76b3bf0b3940128f7dfd2e5fb84983fc" kindref="member">verboseLog</ref><sp/>=<sp/>ui.verboseLogCheckBox-&gt;isChecked();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*dev*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//dev1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kindref="member">camProfile</ref>.<ref refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" kindref="member">frameInterv</ref><sp/>=<sp/>ui.capIntervalSpinBox-&gt;value();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" kindref="member">sensorTriggered</ref><sp/>=<sp/>ui.sensorCheckBox-&gt;isChecked();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" kindref="member">alarmRatio</ref><sp/>=<sp/>ui.alarmRatioSpinBox-&gt;value();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" kindref="member">warningRatio</ref><sp/>=<sp/>ui.warningRatioSpinBox-&gt;value();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" kindref="member">radius_max</ref><sp/>=<sp/>ui.radiusMaxSpinBox-&gt;value();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" kindref="member">radius_min</ref><sp/>=<sp/>ui.radiusMinSpinBox-&gt;value();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.x<sp/>=<sp/>ui.roiSpinBox_x-&gt;value();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.y<sp/>=<sp/>ui.roiSpinBox_y-&gt;value();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.width<sp/>=<sp/>ui.roiSpinBox_w-&gt;value();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.height<sp/>=<sp/>ui.roiSpinBox_h-&gt;value();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//dev2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1aa7f66d7b9e078ee93d8f172e2c863e39" kindref="member">camProfile</ref>.<ref refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" kindref="member">frameInterv</ref><sp/>=<sp/>ui.capIntervalSpinBox_3-&gt;value();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" kindref="member">sensorTriggered</ref><sp/>=<sp/>ui.sensorCheckBox_3-&gt;isChecked();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae22af95683de6b6f10bac5e3b8ed01b4" kindref="member">alarmRatio</ref><sp/>=<sp/>ui.alarmRatioSpinBox_3-&gt;value();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1a3f88e1cfa11d6b5e9472eb71e64dc041" kindref="member">warningRatio</ref><sp/>=<sp/>ui.warningRatioSpinBox_3-&gt;value();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1aca763d3940de1b731fb1dce4531593f5" kindref="member">radius_max</ref><sp/>=<sp/>ui.radiusMaxSpinBox_3-&gt;value();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1a6697334a9fbed69e58f11dd5464ae180" kindref="member">radius_min</ref><sp/>=<sp/>ui.radiusMinSpinBox_3-&gt;value();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.x<sp/>=<sp/>ui.roiSpinBox_x_3-&gt;value();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.y<sp/>=<sp/>ui.roiSpinBox_y_3-&gt;value();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.width<sp/>=<sp/>ui.roiSpinBox_w_3-&gt;value();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref>.height<sp/>=<sp/>ui.roiSpinBox_h_3-&gt;value();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1a04045b5b36ae2dd26465ab6ad5949018" kindref="member">save</ref>();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SettingDialog::roiSlot(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[0].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref><sp/>=<sp/>cv::Rect(ui.roiSpinBox_x-&gt;value(),<sp/>ui.roiSpinBox_y-&gt;value(),<sp/>ui.roiSpinBox_w-&gt;value(),<sp/>ui.roiSpinBox_h-&gt;value());</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>helper-&gt;<ref refid="class_config_helper_1ab4b04b47f67df886272873832961ebbe" kindref="member">device</ref>[1].<ref refid="struct_dev_spec_1a50a282164a37cceb545c40259717f4da" kindref="member">imProfile</ref>.<ref refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" kindref="member">roiRect</ref><sp/>=<sp/>cv::Rect(ui.roiSpinBox_x_3-&gt;value(),<sp/>ui.roiSpinBox_y_3-&gt;value(),<sp/>ui.roiSpinBox_w_3-&gt;value(),<sp/>ui.roiSpinBox_h_3-&gt;value());</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/settingdialog.cpp"/>
+  </compounddef>
+</doxygen>

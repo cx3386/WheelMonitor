@@ -1,0 +1,492 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_player" kind="class" language="C++" prot="public">
+    <compoundname>Player</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QWidget</basecompoundref>
+    <includes refid="player_8h" local="no">player.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_player_1ab03423387255509ab75911ad5ea1a327" prot="private" static="no" mutable="no">
+        <type>QMediaPlayer::State</type>
+        <definition>QMediaPlayer::State Player::playerState</definition>
+        <argsstring></argsstring>
+        <name>playerState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="91" column="1" bodyfile="sources/player.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a3b46037ad6a2eda6c6f05d12cc88d825" prot="private" static="no" mutable="no">
+        <type>QMediaPlayer *</type>
+        <definition>QMediaPlayer* Player::player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="93" column="1" bodyfile="sources/player.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1af3b9a2ae04ef28b308d7d25a6594fec9" prot="private" static="no" mutable="no">
+        <type><ref refid="class_video_widget" kindref="compound">VideoWidget</ref> *</type>
+        <definition>VideoWidget* Player::videoWidget</definition>
+        <argsstring></argsstring>
+        <name>videoWidget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="94" column="1" bodyfile="sources/player.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a5713f974b01533980567e2a7c29a283e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_custom_slider" kindref="compound">CustomSlider</ref> *</type>
+        <definition>CustomSlider* Player::slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="95" column="1" bodyfile="sources/player.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ae0936acb79c73288115fdeebd62bf707" prot="private" static="no" mutable="no">
+        <type>QPushButton *</type>
+        <definition>QPushButton* Player::playButton</definition>
+        <argsstring></argsstring>
+        <name>playButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="96" column="1" bodyfile="sources/player.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a41c15244e2a71128755031e7532f7622" prot="private" static="no" mutable="no">
+        <type>QPushButton *</type>
+        <definition>QPushButton* Player::fullScreenButton</definition>
+        <argsstring></argsstring>
+        <name>fullScreenButton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="97" column="1" bodyfile="sources/player.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a3e6637896866a4a02c574609f79ab7a8" prot="private" static="no" mutable="no">
+        <type>QPushButton *</type>
+        <definition>QPushButton* Player::openFilePathBtn</definition>
+        <argsstring></argsstring>
+        <name>openFilePathBtn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="98" column="1" bodyfile="sources/player.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a9e7d0e45b035f774f43b75ec9255ad75" prot="private" static="no" mutable="no">
+        <type>QLabel *</type>
+        <definition>QLabel* Player::labelDuration</definition>
+        <argsstring></argsstring>
+        <name>labelDuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="99" column="1" bodyfile="sources/player.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a297fd940e480adec9605def074b7e9c9" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Player::statusInfo</definition>
+        <argsstring></argsstring>
+        <name>statusInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="100" column="1" bodyfile="sources/player.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ad0d6c54f161a6e67a8e125effc0d8e6b" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 Player::duration</definition>
+        <argsstring></argsstring>
+        <name>duration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="101" column="1" bodyfile="sources/player.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ab956388f313bf5765ff73d2835d06545" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Player::currentFileName</definition>
+        <argsstring></argsstring>
+        <name>currentFileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="102" column="1" bodyfile="sources/player.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_player_1a9254d78bab5919f1ce71366b498791a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Player::Player</definition>
+        <argsstring>(QWidget *parent=nullptr)</argsstring>
+        <name>Player</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>[create-objs]</para><para>[create-objs] </para>        </inbodydescription>
+        <location file="sources/player.h" line="63" column="1" bodyfile="sources/player.cpp" bodystart="46" bodyend="125"/>
+        <references refid="class_custom_slider_1a24568a4c3046d71a3a86e2c0e95faccb">CustomSlider::costomSliderClicked</references>
+        <references refid="class_player_1a8cd819ec3812c26e038e74426bc2b90f">play</references>
+        <references refid="class_player_1aa7749254cf909d029127d4622670c522">pause</references>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a749d2c00e1fe0f5c2746f7505a58c062" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Player::~Player</definition>
+        <argsstring>()</argsstring>
+        <name>~Player</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="64" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_player_1a85dda573e6b2b5f4f7bdf930b0c496f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setUrl</definition>
+        <argsstring>(const QUrl &amp;url)</argsstring>
+        <name>setUrl</name>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="67" column="1" bodyfile="sources/player.cpp" bodystart="130" bodyend="135"/>
+        <referencedby refid="class_play_back_widget_1a6dd67d2767c0aeb3f1e53d02ed47c6c2" compoundref="playbackwidget_8cpp" startline="173" endline="177">PlayBackWidget::clearMedia</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_player_1a347d0b06b378c3022dc224f3799243f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::fullScreenChanged</definition>
+        <argsstring>(bool fullScreen)</argsstring>
+        <name>fullScreenChanged</name>
+        <param>
+          <type>bool</type>
+          <declname>fullScreen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="70" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_player_1a8cd819ec3812c26e038e74426bc2b90f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::play</definition>
+        <argsstring>()</argsstring>
+        <name>play</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="71" column="1"/>
+        <referencedby refid="class_player_1a9254d78bab5919f1ce71366b498791a5" compoundref="player_8cpp" startline="46" endline="125">Player</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_player_1aa7749254cf909d029127d4622670c522" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::pause</definition>
+        <argsstring>()</argsstring>
+        <name>pause</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="72" column="1"/>
+        <referencedby refid="class_player_1a9254d78bab5919f1ce71366b498791a5" compoundref="player_8cpp" startline="46" endline="125">Player</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_player_1a14a4ab6beb7cd9bc6b70488cff102923" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::durationChanged</definition>
+        <argsstring>(qint64 duration)</argsstring>
+        <name>durationChanged</name>
+        <param>
+          <type>qint64</type>
+          <declname>duration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="76" column="1" bodyfile="sources/player.cpp" bodystart="137" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_player_1a145c6732deb0c4cf5fe34e07e8c716e8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::positionChanged</definition>
+        <argsstring>(qint64 progress)</argsstring>
+        <name>positionChanged</name>
+        <param>
+          <type>qint64</type>
+          <declname>progress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="77" column="1" bodyfile="sources/player.cpp" bodystart="143" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_player_1aa47e30cd2c9a6ef3873bb8e685d37b04" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::seek</definition>
+        <argsstring>(int seconds)</argsstring>
+        <name>seek</name>
+        <param>
+          <type>int</type>
+          <declname>seconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="79" column="1" bodyfile="sources/player.cpp" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_player_1acfe5450a32a6b723420d3f29f289a816" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::statusChanged</definition>
+        <argsstring>(QMediaPlayer::MediaStatus status)</argsstring>
+        <name>statusChanged</name>
+        <param>
+          <type>QMediaPlayer::MediaStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="81" column="1" bodyfile="sources/player.cpp" bodystart="156" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_player_1a204e708248062f4e71e70cc8d7c830ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::videoAvailableChanged</definition>
+        <argsstring>(bool available)</argsstring>
+        <name>videoAvailableChanged</name>
+        <param>
+          <type>bool</type>
+          <declname>available</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="83" column="1" bodyfile="sources/player.cpp" bodystart="190" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_player_1a05e2b14636f56805e56960753f0db5c8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setState</definition>
+        <argsstring>(QMediaPlayer::State state)</argsstring>
+        <name>setState</name>
+        <param>
+          <type>QMediaPlayer::State</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="84" column="1" bodyfile="sources/player.cpp" bodystart="229" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_player_1aed3af5280b5f00032543e9c19e21e3c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::playClicked</definition>
+        <argsstring>()</argsstring>
+        <name>playClicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="85" column="1" bodyfile="sources/player.cpp" bodystart="248" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_player_1afebb049d6cdcb3fff6272b40277c7e1b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::openFilePath</definition>
+        <argsstring>()</argsstring>
+        <name>openFilePath</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="86" column="1" bodyfile="sources/player.cpp" bodystart="261" bodyend="265"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_player_1a9470d41533f374ba05fbf573a4f13584" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::handleCursor</definition>
+        <argsstring>(QMediaPlayer::MediaStatus status)</argsstring>
+        <name>handleCursor</name>
+        <param>
+          <type>QMediaPlayer::MediaStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="89" column="1" bodyfile="sources/player.cpp" bodystart="180" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a78603fbaa08830e9db512bbe0857919b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::updateDurationInfo</definition>
+        <argsstring>(qint64 currentInfo)</argsstring>
+        <name>updateDurationInfo</name>
+        <param>
+          <type>qint64</type>
+          <declname>currentInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="90" column="1" bodyfile="sources/player.cpp" bodystart="210" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a38a6234700f9bc63bf281e23121f7648" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QMediaPlayer::State</type>
+        <definition>QMediaPlayer::State Player::state</definition>
+        <argsstring>() const</argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/player.h" line="92" column="1" bodyfile="sources/player.cpp" bodystart="224" bodyend="227"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="94">
+        <label>QWidget</label>
+      </node>
+      <node id="93">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="94" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="96">
+        <label>QWidget</label>
+      </node>
+      <node id="95">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="96" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/player.h" line="59" column="1" bodyfile="sources/player.h" bodystart="58" bodyend="103"/>
+    <listofallmembers>
+      <member refid="class_player_1ab956388f313bf5765ff73d2835d06545" prot="private" virt="non-virtual"><scope>Player</scope><name>currentFileName</name></member>
+      <member refid="class_player_1ad0d6c54f161a6e67a8e125effc0d8e6b" prot="private" virt="non-virtual"><scope>Player</scope><name>duration</name></member>
+      <member refid="class_player_1a14a4ab6beb7cd9bc6b70488cff102923" prot="private" virt="non-virtual"><scope>Player</scope><name>durationChanged</name></member>
+      <member refid="class_player_1a41c15244e2a71128755031e7532f7622" prot="private" virt="non-virtual"><scope>Player</scope><name>fullScreenButton</name></member>
+      <member refid="class_player_1a347d0b06b378c3022dc224f3799243f4" prot="public" virt="non-virtual"><scope>Player</scope><name>fullScreenChanged</name></member>
+      <member refid="class_player_1a9470d41533f374ba05fbf573a4f13584" prot="private" virt="non-virtual"><scope>Player</scope><name>handleCursor</name></member>
+      <member refid="class_player_1a9e7d0e45b035f774f43b75ec9255ad75" prot="private" virt="non-virtual"><scope>Player</scope><name>labelDuration</name></member>
+      <member refid="class_player_1afebb049d6cdcb3fff6272b40277c7e1b" prot="private" virt="non-virtual"><scope>Player</scope><name>openFilePath</name></member>
+      <member refid="class_player_1a3e6637896866a4a02c574609f79ab7a8" prot="private" virt="non-virtual"><scope>Player</scope><name>openFilePathBtn</name></member>
+      <member refid="class_player_1aa7749254cf909d029127d4622670c522" prot="public" virt="non-virtual"><scope>Player</scope><name>pause</name></member>
+      <member refid="class_player_1a8cd819ec3812c26e038e74426bc2b90f" prot="public" virt="non-virtual"><scope>Player</scope><name>play</name></member>
+      <member refid="class_player_1ae0936acb79c73288115fdeebd62bf707" prot="private" virt="non-virtual"><scope>Player</scope><name>playButton</name></member>
+      <member refid="class_player_1aed3af5280b5f00032543e9c19e21e3c7" prot="private" virt="non-virtual"><scope>Player</scope><name>playClicked</name></member>
+      <member refid="class_player_1a3b46037ad6a2eda6c6f05d12cc88d825" prot="private" virt="non-virtual"><scope>Player</scope><name>player</name></member>
+      <member refid="class_player_1a9254d78bab5919f1ce71366b498791a5" prot="public" virt="non-virtual"><scope>Player</scope><name>Player</name></member>
+      <member refid="class_player_1ab03423387255509ab75911ad5ea1a327" prot="private" virt="non-virtual"><scope>Player</scope><name>playerState</name></member>
+      <member refid="class_player_1a145c6732deb0c4cf5fe34e07e8c716e8" prot="private" virt="non-virtual"><scope>Player</scope><name>positionChanged</name></member>
+      <member refid="class_player_1aa47e30cd2c9a6ef3873bb8e685d37b04" prot="private" virt="non-virtual"><scope>Player</scope><name>seek</name></member>
+      <member refid="class_player_1a05e2b14636f56805e56960753f0db5c8" prot="private" virt="non-virtual"><scope>Player</scope><name>setState</name></member>
+      <member refid="class_player_1a85dda573e6b2b5f4f7bdf930b0c496f4" prot="public" virt="non-virtual"><scope>Player</scope><name>setUrl</name></member>
+      <member refid="class_player_1a5713f974b01533980567e2a7c29a283e" prot="private" virt="non-virtual"><scope>Player</scope><name>slider</name></member>
+      <member refid="class_player_1a38a6234700f9bc63bf281e23121f7648" prot="private" virt="non-virtual"><scope>Player</scope><name>state</name></member>
+      <member refid="class_player_1acfe5450a32a6b723420d3f29f289a816" prot="private" virt="non-virtual"><scope>Player</scope><name>statusChanged</name></member>
+      <member refid="class_player_1a297fd940e480adec9605def074b7e9c9" prot="private" virt="non-virtual"><scope>Player</scope><name>statusInfo</name></member>
+      <member refid="class_player_1a78603fbaa08830e9db512bbe0857919b" prot="private" virt="non-virtual"><scope>Player</scope><name>updateDurationInfo</name></member>
+      <member refid="class_player_1a204e708248062f4e71e70cc8d7c830ab" prot="private" virt="non-virtual"><scope>Player</scope><name>videoAvailableChanged</name></member>
+      <member refid="class_player_1af3b9a2ae04ef28b308d7d25a6594fec9" prot="private" virt="non-virtual"><scope>Player</scope><name>videoWidget</name></member>
+      <member refid="class_player_1a749d2c00e1fe0f5c2746f7505a58c062" prot="public" virt="non-virtual"><scope>Player</scope><name>~Player</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

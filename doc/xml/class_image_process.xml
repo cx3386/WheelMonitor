@@ -1,0 +1,900 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_image_process" kind="class" language="C++" prot="public">
+    <compoundname>ImageProcess</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="imageprocess_8h" local="no">imageprocess.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2b" prot="private" static="no" strong="no">
+        <type></type>
+        <name>CoreState</name>
+        <enumvalue id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba44cd675a6cd69c6c4e42f69e45ebbb76" prot="private">
+          <name>LocateFail</name>
+          <initializer>= 0x1</initializer>
+          <briefdescription>
+<para>车轮定位丢失 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba7b0305146df99fda6aa803c08bcd8d19" prot="private">
+          <name>OutMA</name>
+          <initializer>= 0x2</initializer>
+          <briefdescription>
+<para>车轮在MA外 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba439dc06615b7a2ce42bfce5cf3f42179" prot="private">
+          <name>LMA</name>
+          <initializer>= OutMA | 0x4</initializer>
+          <briefdescription>
+<para>车轮在MA左 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2baee3aebbacb6ac1b85db8af5d37a877a9" prot="private">
+          <name>RMA</name>
+          <initializer>= OutMA | 0x8</initializer>
+          <briefdescription>
+<para>车轮在MA右 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba9b287c945986946d7810bd8199138966" prot="private">
+          <name>NoPre</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+<para>无前帧 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2bafa0eeb4f58a1e54ddabe2d7359abd687" prot="private">
+          <name>MatchFail</name>
+          <initializer>= 0x20</initializer>
+          <briefdescription>
+<para>匹配失败 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba76355d8ae5f9c94cee16f0191a5924bc" prot="private">
+          <name>TruckSpZero</name>
+          <initializer>= 0x40</initializer>
+          <briefdescription>
+<para>车轮速度为0 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba438c395896f24b92801bb6346511b044" prot="private">
+          <name>Success</name>
+          <initializer>= 0x80</initializer>
+          <briefdescription>
+<para>匹配完成，正常退出 </para>          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="64" column="1" bodyfile="sources/imageprocess.h" bodystart="64" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_image_process_1ac67ed31e3126345d3151ff16e43688d6" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+        <definition>const ConfigHelper* ImageProcess::configHelper</definition>
+        <argsstring></argsstring>
+        <name>configHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="33" column="1" bodyfile="sources/imageprocess.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a82a2187512785fb64c51bfb1709ca2a9" prot="private" static="no" mutable="no">
+        <type><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref> *</type>
+        <definition>HikVideoCapture* ImageProcess::videoCapture</definition>
+        <argsstring></argsstring>
+        <name>videoCapture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="34" column="1" bodyfile="sources/imageprocess.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1ad798c56d010f8d85e4771645685e26d7" prot="private" static="no" mutable="no">
+        <type><ref refid="class_plc" kindref="compound">Plc</ref> *</type>
+        <definition>Plc* ImageProcess::plcSerial</definition>
+        <argsstring></argsstring>
+        <name>plcSerial</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="35" column="1" bodyfile="sources/imageprocess.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a3882df82c236452ad5cbc8b0c9c48597" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ImageProcess::deviceIndex</definition>
+        <argsstring></argsstring>
+        <name>deviceIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="36" column="1" bodyfile="sources/imageprocess.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1af47e63ee3b995be5a68818cc37fb9318" prot="private" static="no" mutable="no">
+        <type>const <ref refid="struct_im_profile" kindref="compound">ImProfile</ref> *</type>
+        <definition>const ImProfile* ImageProcess::imProfile</definition>
+        <argsstring></argsstring>
+        <name>imProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="37" column="1" bodyfile="sources/imageprocess.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a333d2e2c65adb732f0afd5cc04fc0365" prot="private" static="no" mutable="no">
+        <type><ref refid="class_o_c_r" kindref="compound">OCR</ref> *</type>
+        <definition>OCR* ImageProcess::ocr</definition>
+        <argsstring></argsstring>
+        <name>ocr</name>
+        <briefdescription>
+<para>ocr识别的类，只通过start/stop来控制，常开 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="38" column="1" bodyfile="sources/imageprocess.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1ad0a5db356cc124068844ad61480b336c" prot="private" static="no" mutable="no">
+        <type><ref refid="class_robust_matcher" kindref="compound">RobustMatcher</ref> *</type>
+        <definition>RobustMatcher* ImageProcess::rMatcher</definition>
+        <argsstring></argsstring>
+        <name>rMatcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="39" column="1" bodyfile="sources/imageprocess.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a9e3daf8f2e059f641213ec8009f86765" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ImageProcess::srcImg</definition>
+        <argsstring></argsstring>
+        <name>srcImg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="41" column="1" bodyfile="sources/imageprocess.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a1176bebc6d538f1fd70a9ec39e714e7f" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ImageProcess::undistortedFrame</definition>
+        <argsstring></argsstring>
+        <name>undistortedFrame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="42" column="1" bodyfile="sources/imageprocess.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1abbe011bde337a7d3fef578d68053414d" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ImageProcess::frameToShow</definition>
+        <argsstring></argsstring>
+        <name>frameToShow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="43" column="1" bodyfile="sources/imageprocess.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a44baa468903df0d8e07bce7a2f4913b3" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ImageProcess::matchResult</definition>
+        <argsstring></argsstring>
+        <name>matchResult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="44" column="1" bodyfile="sources/imageprocess.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a0390102ee266e652a782393e28063aca" prot="private" static="no" mutable="no">
+        <type>QMutex</type>
+        <definition>QMutex ImageProcess::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="45" column="1" bodyfile="sources/imageprocess.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a24dc7c931a62b4809ea3fa1cedc82de5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ImageProcess::rtSpeeds</definition>
+        <argsstring></argsstring>
+        <name>rtSpeeds</name>
+        <briefdescription>
+<para>当前车轮的计算速度表 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="78" column="1" bodyfile="sources/imageprocess.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1aec74d0c15a59b093010427586dad8470" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ImageProcess::refSpeeds</definition>
+        <argsstring></argsstring>
+        <name>refSpeeds</name>
+        <briefdescription>
+<para>当前车轮的参考速度表，与rtSpeeds大小相同 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="79" column="1" bodyfile="sources/imageprocess.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a4ab347be385da6002b33d0bd7e02965d" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ImageProcess::wheelFrame_pre</definition>
+        <argsstring></argsstring>
+        <name>wheelFrame_pre</name>
+        <briefdescription>
+<para>上一帧 车轮外切矩形图像 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="83" column="1" bodyfile="sources/imageprocess.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a2b8d8102515401f1cb68ec891bf88642" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ImageProcess::bInDz</definition>
+        <argsstring></argsstring>
+        <name>bInDz</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>车轮处于detect zone里 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="84" column="1" bodyfile="sources/imageprocess.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a966935bccde130c0677b4cce32c025d1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ImageProcess::checkoutAlready</definition>
+        <argsstring></argsstring>
+        <name>checkoutAlready</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>是否需要checkout，防止重复 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="85" column="1" bodyfile="sources/imageprocess.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a58eabfdb737165eaddc1f42740b77f6b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ImageProcess::_MAState</definition>
+        <argsstring></argsstring>
+        <name>_MAState</name>
+        <briefdescription>
+<para>0-进 1-出 2中断 start初始化为1，ss-tri状态切换后重置1（TODO） </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="87" column="1" bodyfile="sources/imageprocess.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a540bf609bc8d3512a405c73eb715b09d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ImageProcess::interrupts</definition>
+        <argsstring></argsstring>
+        <name>interrupts</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>本车轮MA内连续匹配过程中，中断的次数,stop重置为0 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="89" column="1" bodyfile="sources/imageprocess.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a3a5f0002db08cbb652752f8c1818bda6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ImageProcess::bUsrCtrl</definition>
+        <argsstring></argsstring>
+        <name>bUsrCtrl</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>ctrl the imageprocecss running state 1 is ON, 0 is OFF </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="90" column="1" bodyfile="sources/imageprocess.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a18a2079b0512126768a509a9bf834dbc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ImageProcess::bIsTruckStopped</definition>
+        <argsstring></argsstring>
+        <name>bIsTruckStopped</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="91" column="1" bodyfile="sources/imageprocess.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1aef0a02095f1a475ce3aea07c2dedbc6f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ImageProcess::nCore_pre</definition>
+        <argsstring></argsstring>
+        <name>nCore_pre</name>
+        <initializer>= LocateFail</initializer>
+        <briefdescription>
+<para>存本车轮上一次core的返回值，初始化为findfail </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="92" column="1" bodyfile="sources/imageprocess.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_image_process_1a5012eee887433efb809f6afc958b1d09" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ImageProcess::rtRefSpeed</definition>
+        <argsstring></argsstring>
+        <name>rtRefSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="93" column="1" bodyfile="sources/imageprocess.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImageProcess::ImageProcess</definition>
+        <argsstring>(const ConfigHelper *_configHelper, HikVideoCapture *_capture, Plc *_plcSerial, QObject *parent=Q_NULLPTR)</argsstring>
+        <name>ImageProcess</name>
+        <param>
+          <type>const <ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+          <declname>_configHelper</declname>
+        </param>
+        <param>
+          <type><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref> *</type>
+          <declname>_capture</declname>
+        </param>
+        <param>
+          <type><ref refid="class_plc" kindref="compound">Plc</ref> *</type>
+          <declname>_plcSerial</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="21" column="1" bodyfile="sources/imageprocess.cpp" bodystart="17" bodyend="48"/>
+        <references refid="class_hik_video_capture_1a1ed1fa642b70117ce0b6bcb06139a7e4">HikVideoCapture::recordTimeout</references>
+        <references refid="class_image_process_1ac7ec277a9341197c7bfd85be85e4ccf0" compoundref="imageprocess_8cpp" startline="345" endline="352">onWheelTimeout</references>
+        <references refid="class_plc_1adeaecb0eaf8a1d72f01348ca4e7918d1">Plc::truckSpeedReady</references>
+        <references refid="class_plc_1a2432a7c4b2bee31da9b2a933d2747ba4" compoundref="_plc_8h" startline="23" endline="27">Plc::getTruckSpeed</references>
+        <references refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" compoundref="_plc_8h" startline="29">Plc::handleSensorDevice</references>
+        <references refid="class_handle_sensor_device_1aeef6cec4d94210ddbff3095dd246230c">HandleSensorDevice::dzIn</references>
+        <references refid="class_image_process_1a2a2689d411a382a27f8fa7b84585f306" compoundref="imageprocess_8cpp" startline="328" endline="335">onSensorIN</references>
+        <references refid="class_handle_sensor_device_1a91627de0f3ebec10cb3329f226eb7c7e">HandleSensorDevice::dzOut</references>
+        <references refid="class_image_process_1af2285e1cf441de21ee315fd59b69fdac" compoundref="imageprocess_8cpp" startline="336" endline="343">onSensorOUT</references>
+        <references refid="class_image_process_1af63d5fd9925f972d8e8cf503c4882730">frameHandled</references>
+        <references refid="class_hik_video_capture_1ae437158a5aec5ad399b7880d6e226578" compoundref="hikvideocapture_8h" startline="94" endline="94">HikVideoCapture::frameProcessed</references>
+        <references refid="class_hik_video_capture_1ad78643dc9b2cbd98c29e52d1edafeb0c">HikVideoCapture::frameCaptured</references>
+        <references refid="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" compoundref="imageprocess_8cpp" startline="55" endline="131">handleFrame</references>
+        <references refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" compoundref="hikvideocapture_8cpp" startline="120" endline="146">HikVideoCapture::startRecord</references>
+        <references refid="class_hik_video_capture_1a4579213b58ec7d6999755e78a48d9ff8" compoundref="hikvideocapture_8cpp" startline="148" endline="161">HikVideoCapture::stopRecord</references>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1a58756d66c3a326819df894942c0265c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImageProcess::~ImageProcess</definition>
+        <argsstring>()</argsstring>
+        <name>~ImageProcess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="22" column="1" bodyfile="sources/imageprocess.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1a5613b249dea6fed2b9087c6e57fb7ca4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ImageProcess::getFrameToShow</definition>
+        <argsstring>()</argsstring>
+        <name>getFrameToShow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="24" column="1" bodyfile="sources/imageprocess.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1a30e74ef6d1a2e4fe98075dcadd8e43f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ImageProcess::getMatchResult</definition>
+        <argsstring>()</argsstring>
+        <name>getMatchResult</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="25" column="1" bodyfile="sources/imageprocess.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1ae062ab8a591f9a897a8275274afbdb2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="27" column="1" bodyfile="sources/imageprocess.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1a27683908ba42359d3c45d2cd31af0b72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="28" column="1" bodyfile="sources/imageprocess.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_image_process_1ad35f2ce96c8d1ef8516a0636493bb3b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ImageProcess::cameraUndistort</definition>
+        <argsstring>(cv::Mat src)</argsstring>
+        <name>cameraUndistort</name>
+        <param>
+          <type>cv::Mat</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; for 1280*720 </para>        </inbodydescription>
+        <location file="sources/imageprocess.h" line="47" column="1" bodyfile="sources/imageprocess.cpp" bodystart="354" bodyend="386"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1a033d665b779af13f43128c5857fed995" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::checkoutWheel</definition>
+        <argsstring>()</argsstring>
+        <name>checkoutWheel</name>
+        <briefdescription>
+<para>结算该车轮 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="48" column="1" bodyfile="sources/imageprocess.cpp" bodystart="249" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1a6bc93399fd0a40b78bd55a59c604cc87" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ImageProcess::genSpeeds</definition>
+        <argsstring>(std::vector&lt; double &gt; rt, std::vector&lt; double &gt; ref)</argsstring>
+        <name>genSpeeds</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>rt</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>生成写入数据库speeds列的数据 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="50" column="1" bodyfile="sources/imageprocess.cpp" bodystart="304" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1a139c565c261133bebd954e28d2ccff29" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::clearWheel</definition>
+        <argsstring>()</argsstring>
+        <name>clearWheel</name>
+        <briefdescription>
+<para>清除当前车轮的相关信息 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="52" column="1" bodyfile="sources/imageprocess.cpp" bodystart="318" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1a8c29baea56e5f5cfff48c5ceab2458dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ImageProcess::coreImageProcess</definition>
+        <argsstring>()</argsstring>
+        <name>coreImageProcess</name>
+        <briefdescription>
+<para>图像处理核心代码，返回CoreStates，输入为scrImg和undistortedFrame. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="75" column="1" bodyfile="sources/imageprocess.cpp" bodystart="143" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="class_image_process_1ab0e6af1a83e0d35efbe800460b264f09" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::preprocess</definition>
+        <argsstring>()</argsstring>
+        <name>preprocess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="76" column="1" bodyfile="sources/imageprocess.cpp" bodystart="238" bodyend="247"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_image_process_1af172e2163764b4690368d6c39b53fa25" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool ImageProcess::isInside</definition>
+        <argsstring>(cv::Rect rect1, cv::Rect rect2)</argsstring>
+        <name>isInside</name>
+        <param>
+          <type>cv::Rect</type>
+          <declname>rect1</declname>
+        </param>
+        <param>
+          <type>cv::Rect</type>
+          <declname>rect2</declname>
+        </param>
+        <briefdescription>
+<para>判断rect1是否在rect2. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="60" column="1" bodyfile="sources/imageprocess.h" bodystart="60" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_image_process_1aeb1c0f8f06db72833ae098e9cba132c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::_MAIn</definition>
+        <argsstring>()</argsstring>
+        <name>_MAIn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="95" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_image_process_1ae9977a14daf947dfd75d57dcba7550ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::_MAOut</definition>
+        <argsstring>()</argsstring>
+        <name>_MAOut</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="96" column="1"/>
+      </memberdef>
+      <memberdef kind="signal" id="class_image_process_1af63d5fd9925f972d8e8cf503c4882730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::frameHandled</definition>
+        <argsstring>()</argsstring>
+        <name>frameHandled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="97" column="1"/>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess</referencedby>
+        <referencedby refid="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" compoundref="imageprocess_8cpp" startline="55" endline="131">handleFrame</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_image_process_1a4b7d6c8bc1ec403a848260e9c1587cd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::showFrame</definition>
+        <argsstring>()</argsstring>
+        <name>showFrame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="98" column="1"/>
+        <referencedby refid="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" compoundref="imageprocess_8cpp" startline="55" endline="131">handleFrame</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_image_process_1afde5339b87f2e29683b567f298bf5c89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::showMatch</definition>
+        <argsstring>()</argsstring>
+        <name>showMatch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="100" column="1"/>
+        <referencedby refid="class_match_viewer_1abdabdcff52f99428a2cec3f8422a529f" compoundref="_match_viewer_8cpp" startline="16" endline="20">MatchViewer::bindDev</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_image_process_1ad0f4f919d1704ac2e6416279fbde6aa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::wheelNeedHandled</definition>
+        <argsstring>(WheelDbInfo info)</argsstring>
+        <name>wheelNeedHandled</name>
+        <param>
+          <type><ref refid="struct_wheel_db_info" kindref="compound">WheelDbInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="101" column="1"/>
+        <referencedby refid="class_alarm_manager_1a20ebd74c084d24347a61aa8490f21cbf" compoundref="_alarm_manager_8cpp" startline="32" endline="36">AlarmManager::bindImProc</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::handleFrame</definition>
+        <argsstring>()</argsstring>
+        <name>handleFrame</name>
+        <briefdescription>
+<para>处理当前帧，每秒钟3次 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="105" column="1" bodyfile="sources/imageprocess.cpp" bodystart="55" bodyend="131"/>
+        <references refid="class_image_process_1a13e7f9c562ff092e8100dcde40beedcd" compoundref="imageprocess_8cpp" startline="133" endline="141">makeFrame4Show</references>
+        <references refid="struct_im_profile_1ada7e3e46b79d71e0edcb85cc03d38a51" compoundref="improfile_8h" startline="23">ImProfile::sensorTriggered</references>
+        <references refid="class_image_process_1af63d5fd9925f972d8e8cf503c4882730">frameHandled</references>
+        <references refid="class_image_process_1a4b7d6c8bc1ec403a848260e9c1587cd9">showFrame</references>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_image_process_1a13e7f9c562ff092e8100dcde40beedcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::makeFrame4Show</definition>
+        <argsstring>()</argsstring>
+        <name>makeFrame4Show</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="107" column="1" bodyfile="sources/imageprocess.cpp" bodystart="133" bodyend="141"/>
+        <references refid="struct_im_profile_1ae0436a17c44ab16366c7addf288ec219" compoundref="improfile_8h" startline="24">ImProfile::roiRect</references>
+        <referencedby refid="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" compoundref="imageprocess_8cpp" startline="55" endline="131">handleFrame</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_image_process_1a2a2689d411a382a27f8fa7b84585f306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::onSensorIN</definition>
+        <argsstring>()</argsstring>
+        <name>onSensorIN</name>
+        <briefdescription>
+<para>完全进入后（进后） </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="109" column="1" bodyfile="sources/imageprocess.cpp" bodystart="328" bodyend="335"/>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_image_process_1af2285e1cf441de21ee315fd59b69fdac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::onSensorOUT</definition>
+        <argsstring>()</argsstring>
+        <name>onSensorOUT</name>
+        <briefdescription>
+<para>开始退出前（出前） </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="110" column="1" bodyfile="sources/imageprocess.cpp" bodystart="336" bodyend="343"/>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="slot" id="class_image_process_1ac7ec277a9341197c7bfd85be85e4ccf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::onWheelTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>onWheelTimeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="111" column="1" bodyfile="sources/imageprocess.cpp" bodystart="345" bodyend="352"/>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_image_process_1abc74a745697b290dd299de5a4ba295cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::onStart</definition>
+        <argsstring>()</argsstring>
+        <name>onStart</name>
+        <briefdescription>
+<para>开始处理 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="114" column="1" bodyfile="sources/imageprocess.cpp" bodystart="388" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_image_process_1a1be6881bb799cc51164bee051d6e2b0c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageProcess::onStop</definition>
+        <argsstring>()</argsstring>
+        <name>onStop</name>
+        <briefdescription>
+<para>停止处理，仍保留每帧显示的功能 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/imageprocess.h" line="116" column="1" bodyfile="sources/imageprocess.cpp" bodystart="405" bodyend="416"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="56">
+        <label>QObject</label>
+      </node>
+      <node id="55">
+        <label>ImageProcess</label>
+        <link refid="class_image_process"/>
+        <childnode refid="56" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="58">
+        <label>QObject</label>
+      </node>
+      <node id="57">
+        <label>ImageProcess</label>
+        <link refid="class_image_process"/>
+        <childnode refid="58" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/imageprocess.h" line="18" column="1" bodyfile="sources/imageprocess.h" bodystart="18" bodyend="118"/>
+    <listofallmembers>
+      <member refid="class_image_process_1aeb1c0f8f06db72833ae098e9cba132c0" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>_MAIn</name></member>
+      <member refid="class_image_process_1ae9977a14daf947dfd75d57dcba7550ba" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>_MAOut</name></member>
+      <member refid="class_image_process_1a58eabfdb737165eaddc1f42740b77f6b" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>_MAState</name></member>
+      <member refid="class_image_process_1a2b8d8102515401f1cb68ec891bf88642" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>bInDz</name></member>
+      <member refid="class_image_process_1a18a2079b0512126768a509a9bf834dbc" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>bIsTruckStopped</name></member>
+      <member refid="class_image_process_1a3a5f0002db08cbb652752f8c1818bda6" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>bUsrCtrl</name></member>
+      <member refid="class_image_process_1ad35f2ce96c8d1ef8516a0636493bb3b8" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>cameraUndistort</name></member>
+      <member refid="class_image_process_1a966935bccde130c0677b4cce32c025d1" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>checkoutAlready</name></member>
+      <member refid="class_image_process_1a033d665b779af13f43128c5857fed995" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>checkoutWheel</name></member>
+      <member refid="class_image_process_1a139c565c261133bebd954e28d2ccff29" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>clearWheel</name></member>
+      <member refid="class_image_process_1ac67ed31e3126345d3151ff16e43688d6" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>configHelper</name></member>
+      <member refid="class_image_process_1a8c29baea56e5f5cfff48c5ceab2458dc" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>coreImageProcess</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2b" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>CoreState</name></member>
+      <member refid="class_image_process_1a3882df82c236452ad5cbc8b0c9c48597" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>deviceIndex</name></member>
+      <member refid="class_image_process_1af63d5fd9925f972d8e8cf503c4882730" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>frameHandled</name></member>
+      <member refid="class_image_process_1abbe011bde337a7d3fef578d68053414d" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>frameToShow</name></member>
+      <member refid="class_image_process_1a6bc93399fd0a40b78bd55a59c604cc87" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>genSpeeds</name></member>
+      <member refid="class_image_process_1a5613b249dea6fed2b9087c6e57fb7ca4" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>getFrameToShow</name></member>
+      <member refid="class_image_process_1a30e74ef6d1a2e4fe98075dcadd8e43f9" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>getMatchResult</name></member>
+      <member refid="class_image_process_1a29bf2cf675c1f087538185ac83abfc85" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>handleFrame</name></member>
+      <member refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>ImageProcess</name></member>
+      <member refid="class_image_process_1af47e63ee3b995be5a68818cc37fb9318" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>imProfile</name></member>
+      <member refid="class_image_process_1a540bf609bc8d3512a405c73eb715b09d" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>interrupts</name></member>
+      <member refid="class_image_process_1af172e2163764b4690368d6c39b53fa25" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>isInside</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba439dc06615b7a2ce42bfce5cf3f42179" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>LMA</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba44cd675a6cd69c6c4e42f69e45ebbb76" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>LocateFail</name></member>
+      <member refid="class_image_process_1a13e7f9c562ff092e8100dcde40beedcd" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>makeFrame4Show</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2bafa0eeb4f58a1e54ddabe2d7359abd687" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>MatchFail</name></member>
+      <member refid="class_image_process_1a44baa468903df0d8e07bce7a2f4913b3" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>matchResult</name></member>
+      <member refid="class_image_process_1a0390102ee266e652a782393e28063aca" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>mutex</name></member>
+      <member refid="class_image_process_1aef0a02095f1a475ce3aea07c2dedbc6f" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>nCore_pre</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba9b287c945986946d7810bd8199138966" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>NoPre</name></member>
+      <member refid="class_image_process_1a333d2e2c65adb732f0afd5cc04fc0365" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>ocr</name></member>
+      <member refid="class_image_process_1a2a2689d411a382a27f8fa7b84585f306" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>onSensorIN</name></member>
+      <member refid="class_image_process_1af2285e1cf441de21ee315fd59b69fdac" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>onSensorOUT</name></member>
+      <member refid="class_image_process_1abc74a745697b290dd299de5a4ba295cd" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>onStart</name></member>
+      <member refid="class_image_process_1a1be6881bb799cc51164bee051d6e2b0c" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>onStop</name></member>
+      <member refid="class_image_process_1ac7ec277a9341197c7bfd85be85e4ccf0" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>onWheelTimeout</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba7b0305146df99fda6aa803c08bcd8d19" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>OutMA</name></member>
+      <member refid="class_image_process_1ad798c56d010f8d85e4771645685e26d7" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>plcSerial</name></member>
+      <member refid="class_image_process_1ab0e6af1a83e0d35efbe800460b264f09" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>preprocess</name></member>
+      <member refid="class_image_process_1aec74d0c15a59b093010427586dad8470" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>refSpeeds</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2baee3aebbacb6ac1b85db8af5d37a877a9" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>RMA</name></member>
+      <member refid="class_image_process_1ad0a5db356cc124068844ad61480b336c" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>rMatcher</name></member>
+      <member refid="class_image_process_1a5012eee887433efb809f6afc958b1d09" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>rtRefSpeed</name></member>
+      <member refid="class_image_process_1a24dc7c931a62b4809ea3fa1cedc82de5" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>rtSpeeds</name></member>
+      <member refid="class_image_process_1a4b7d6c8bc1ec403a848260e9c1587cd9" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>showFrame</name></member>
+      <member refid="class_image_process_1afde5339b87f2e29683b567f298bf5c89" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>showMatch</name></member>
+      <member refid="class_image_process_1a9e3daf8f2e059f641213ec8009f86765" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>srcImg</name></member>
+      <member refid="class_image_process_1ae062ab8a591f9a897a8275274afbdb2a" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>start</name></member>
+      <member refid="class_image_process_1a27683908ba42359d3c45d2cd31af0b72" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>stop</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba438c395896f24b92801bb6346511b044" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>Success</name></member>
+      <member refid="class_image_process_1a3428868ae61fd162dfb81e7aa1402c2ba76355d8ae5f9c94cee16f0191a5924bc" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>TruckSpZero</name></member>
+      <member refid="class_image_process_1a1176bebc6d538f1fd70a9ec39e714e7f" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>undistortedFrame</name></member>
+      <member refid="class_image_process_1a82a2187512785fb64c51bfb1709ca2a9" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>videoCapture</name></member>
+      <member refid="class_image_process_1a4ab347be385da6002b33d0bd7e02965d" prot="private" virt="non-virtual"><scope>ImageProcess</scope><name>wheelFrame_pre</name></member>
+      <member refid="class_image_process_1ad0f4f919d1704ac2e6416279fbde6aa0" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>wheelNeedHandled</name></member>
+      <member refid="class_image_process_1a58756d66c3a326819df894942c0265c9" prot="public" virt="non-virtual"><scope>ImageProcess</scope><name>~ImageProcess</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

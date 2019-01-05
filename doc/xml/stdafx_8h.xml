@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="stdafx_8h" kind="file" language="C++">
+    <compoundname>stdafx.h</compoundname>
+    <includes local="no">QtWidgets</includes>
+    <includedby refid="_alarm_l_c_d_board_8cpp" local="yes">sources/AlarmLCDBoard.cpp</includedby>
+    <includedby refid="_alarm_manager_8cpp" local="yes">sources/AlarmManager.cpp</includedby>
+    <includedby refid="backuplogdialog_8cpp" local="yes">sources/backuplogdialog.cpp</includedby>
+    <includedby refid="camprofile_8cpp" local="yes">sources/camprofile.cpp</includedby>
+    <includedby refid="confighelper_8cpp" local="yes">sources/confighelper.cpp</includedby>
+    <includedby refid="customslider_8cpp" local="yes">sources/customslider.cpp</includedby>
+    <includedby refid="_handle_sensor_device_8cpp" local="yes">sources/HandleSensorDevice.cpp</includedby>
+    <includedby refid="hikvideocapture_8cpp" local="yes">sources/hikvideocapture.cpp</includedby>
+    <includedby refid="identification_8cpp" local="yes">sources/identification.cpp</includedby>
+    <includedby refid="imageprocess_8cpp" local="yes">sources/imageprocess.cpp</includedby>
+    <includedby refid="improfile_8cpp" local="yes">sources/improfile.cpp</includedby>
+    <includedby refid="_level_recorder_8cpp" local="yes">sources/LevelRecorder.cpp</includedby>
+    <includedby refid="logindialog_8cpp" local="yes">sources/logindialog.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">sources/main.cpp</includedby>
+    <includedby refid="mainwindow_8cpp" local="yes">sources/mainwindow.cpp</includedby>
+    <includedby refid="_match_viewer_8cpp" local="yes">sources/MatchViewer.cpp</includedby>
+    <includedby refid="mysqltablemodel_8cpp" local="yes">sources/mysqltablemodel.cpp</includedby>
+    <includedby refid="ocr_8cpp" local="yes">sources/ocr.cpp</includedby>
+    <includedby refid="ocrprofile_8cpp" local="yes">sources/ocrprofile.cpp</includedby>
+    <includedby refid="outlierhelper_8cpp" local="yes">sources/outlierhelper.cpp</includedby>
+    <includedby refid="playbackwidget_8cpp" local="yes">sources/playbackwidget.cpp</includedby>
+    <includedby refid="player_8cpp" local="yes">sources/player.cpp</includedby>
+    <includedby refid="_plc_8cpp" local="yes">sources/Plc.cpp</includedby>
+    <includedby refid="robustmatcher_8cpp" local="yes">sources/robustmatcher.cpp</includedby>
+    <includedby refid="_sensor_device_8cpp" local="yes">sources/SensorDevice.cpp</includedby>
+    <includedby refid="settingdialog_8cpp" local="yes">sources/settingdialog.cpp</includedby>
+    <includedby refid="_speed_integrator_8cpp" local="yes">sources/SpeedIntegrator.cpp</includedby>
+    <includedby refid="stdafx_8cpp" local="yes">sources/stdafx.cpp</includedby>
+    <includedby refid="videowidget_8cpp" local="yes">sources/videowidget.cpp</includedby>
+    <includedby refid="_view_sensor_image_8cpp" local="yes">sources/ViewSensorImage.cpp</includedby>
+    <incdepgraph>
+      <node id="736">
+        <label>QtWidgets</label>
+      </node>
+      <node id="735">
+        <label>sources/stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="736" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="763">
+        <label>sources/settingdialog.cpp</label>
+        <link refid="settingdialog_8cpp"/>
+      </node>
+      <node id="761">
+        <label>sources/robustmatcher.cpp</label>
+        <link refid="robustmatcher_8cpp"/>
+      </node>
+      <node id="753">
+        <label>sources/MatchViewer.cpp</label>
+        <link refid="_match_viewer_8cpp"/>
+      </node>
+      <node id="759">
+        <label>sources/player.cpp</label>
+        <link refid="player_8cpp"/>
+      </node>
+      <node id="754">
+        <label>sources/mysqltablemodel.cpp</label>
+        <link refid="mysqltablemodel_8cpp"/>
+      </node>
+      <node id="766">
+        <label>sources/videowidget.cpp</label>
+        <link refid="videowidget_8cpp"/>
+      </node>
+      <node id="745">
+        <label>sources/hikvideocapture.cpp</label>
+        <link refid="hikvideocapture_8cpp"/>
+      </node>
+      <node id="765">
+        <label>sources/stdafx.cpp</label>
+        <link refid="stdafx_8cpp"/>
+      </node>
+      <node id="764">
+        <label>sources/SpeedIntegrator.cpp</label>
+        <link refid="_speed_integrator_8cpp"/>
+      </node>
+      <node id="760">
+        <label>sources/Plc.cpp</label>
+        <link refid="_plc_8cpp"/>
+      </node>
+      <node id="740">
+        <label>sources/backuplogdialog.cpp</label>
+        <link refid="backuplogdialog_8cpp"/>
+      </node>
+      <node id="738">
+        <label>sources/AlarmLCDBoard.cpp</label>
+        <link refid="_alarm_l_c_d_board_8cpp"/>
+      </node>
+      <node id="751">
+        <label>sources/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="746">
+        <label>sources/identification.cpp</label>
+        <link refid="identification_8cpp"/>
+      </node>
+      <node id="752">
+        <label>sources/mainwindow.cpp</label>
+        <link refid="mainwindow_8cpp"/>
+      </node>
+      <node id="762">
+        <label>sources/SensorDevice.cpp</label>
+        <link refid="_sensor_device_8cpp"/>
+      </node>
+      <node id="767">
+        <label>sources/ViewSensorImage.cpp</label>
+        <link refid="_view_sensor_image_8cpp"/>
+      </node>
+      <node id="757">
+        <label>sources/outlierhelper.cpp</label>
+        <link refid="outlierhelper_8cpp"/>
+      </node>
+      <node id="756">
+        <label>sources/ocrprofile.cpp</label>
+        <link refid="ocrprofile_8cpp"/>
+      </node>
+      <node id="747">
+        <label>sources/imageprocess.cpp</label>
+        <link refid="imageprocess_8cpp"/>
+      </node>
+      <node id="744">
+        <label>sources/HandleSensorDevice.cpp</label>
+        <link refid="_handle_sensor_device_8cpp"/>
+      </node>
+      <node id="748">
+        <label>sources/improfile.cpp</label>
+        <link refid="improfile_8cpp"/>
+      </node>
+      <node id="749">
+        <label>sources/LevelRecorder.cpp</label>
+        <link refid="_level_recorder_8cpp"/>
+      </node>
+      <node id="739">
+        <label>sources/AlarmManager.cpp</label>
+        <link refid="_alarm_manager_8cpp"/>
+      </node>
+      <node id="758">
+        <label>sources/playbackwidget.cpp</label>
+        <link refid="playbackwidget_8cpp"/>
+      </node>
+      <node id="742">
+        <label>sources/confighelper.cpp</label>
+        <link refid="confighelper_8cpp"/>
+      </node>
+      <node id="743">
+        <label>sources/customslider.cpp</label>
+        <link refid="customslider_8cpp"/>
+      </node>
+      <node id="750">
+        <label>sources/logindialog.cpp</label>
+        <link refid="logindialog_8cpp"/>
+      </node>
+      <node id="741">
+        <label>sources/camprofile.cpp</label>
+        <link refid="camprofile_8cpp"/>
+      </node>
+      <node id="755">
+        <label>sources/ocr.cpp</label>
+        <link refid="ocr_8cpp"/>
+      </node>
+      <node id="737">
+        <label>sources/stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="738" relation="include">
+        </childnode>
+        <childnode refid="739" relation="include">
+        </childnode>
+        <childnode refid="740" relation="include">
+        </childnode>
+        <childnode refid="741" relation="include">
+        </childnode>
+        <childnode refid="742" relation="include">
+        </childnode>
+        <childnode refid="743" relation="include">
+        </childnode>
+        <childnode refid="744" relation="include">
+        </childnode>
+        <childnode refid="745" relation="include">
+        </childnode>
+        <childnode refid="746" relation="include">
+        </childnode>
+        <childnode refid="747" relation="include">
+        </childnode>
+        <childnode refid="748" relation="include">
+        </childnode>
+        <childnode refid="749" relation="include">
+        </childnode>
+        <childnode refid="750" relation="include">
+        </childnode>
+        <childnode refid="751" relation="include">
+        </childnode>
+        <childnode refid="752" relation="include">
+        </childnode>
+        <childnode refid="753" relation="include">
+        </childnode>
+        <childnode refid="754" relation="include">
+        </childnode>
+        <childnode refid="755" relation="include">
+        </childnode>
+        <childnode refid="756" relation="include">
+        </childnode>
+        <childnode refid="757" relation="include">
+        </childnode>
+        <childnode refid="758" relation="include">
+        </childnode>
+        <childnode refid="759" relation="include">
+        </childnode>
+        <childnode refid="760" relation="include">
+        </childnode>
+        <childnode refid="761" relation="include">
+        </childnode>
+        <childnode refid="762" relation="include">
+        </childnode>
+        <childnode refid="763" relation="include">
+        </childnode>
+        <childnode refid="764" relation="include">
+        </childnode>
+        <childnode refid="765" relation="include">
+        </childnode>
+        <childnode refid="766" relation="include">
+        </childnode>
+        <childnode refid="767" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;QtWidgets&gt;</highlight></codeline>
+    </programlisting>
+    <location file="sources/stdafx.h"/>
+  </compounddef>
+</doxygen>

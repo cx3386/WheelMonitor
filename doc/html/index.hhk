@@ -4,16 +4,81 @@
 <param name="FrameName" value="right">
 </OBJECT>
 <UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#ad6e6b8b086a075bcedca9a6c0170c75b"><param name="Name" value="ADdisconnected"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a14ed38fb301f578dd08c5a43c5c8d9a4"><param name="Name" value="ADSpeedReady"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a83e1e87c16d8eeb054949df6be6cb702"><param name="Name" value="Alarm"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ab88601bf03ed5e7e01065d8670a91e7c"><param name="Name" value="alarmRatio"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ac29d24e67828dc8d6adbfa4d47a425ff"><param name="Name" value="angle2Speed"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#aeb1c0f8f06db72833ae098e9cba132c0"><param name="Name" value="_MAIn"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ae9977a14daf947dfd75d57dcba7550ba"><param name="Name" value="_MAOut"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a7a0bfa84c4d0b4610cda92102d8d54a0"><param name="Name" value="adInterval"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html"><param name="Name" value="AlarmEvent.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93"><param name="Name" value="Gray"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1"><param name="Name" value="Green"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b"><param name="Name" value="Inner_Alarm"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02"><param name="Name" value="Inner_Warn"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca20e503b44ef5c17ae825ec74fc905b0b"><param name="Name" value="Innner_Improc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcadbbf9230db7a8695bffce11d120bb5e0"><param name="Name" value="Innner_Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad15305d7a4e34e02489c74a5ef542f36"><param name="Name" value="Off"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf"><param name="Name" value="Outer_Alarm"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa532aecd3d4f27956ce0b922f8476eee"><param name="Name" value="Outer_Improc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa8e6fdbdd61947777a996a49bf09025e"><param name="Name" value="Outer_Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46"><param name="Name" value="Outer_Warn"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47"><param name="Name" value="Red"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d"><param name="Name" value="Reset"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac"><param name="Name" value="Unkown"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8"><param name="Name" value="Yellow"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html"><param name="Name" value="AlarmLCDBoard"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#a4467e949850a3e0f5e1d7498e18edb1e"><param name="Name" value="AlarmLCDBoard"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#ad51b395087885354d3cb7e6395beb894"><param name="Name" value="alarmNum"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#ae08da97150f8de11edae6e70382fc516"><param name="Name" value="clicked"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#a836b3bdf1e363714a89277b84a1f284c"><param name="Name" value="devIndex"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#a7b800971fe7519e4881870d9bc4e777d"><param name="Name" value="devName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#a664101492b2e08a81f6fd2b34bffd7c2"><param name="Name" value="eventFilter"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#abc6ecc7cb4e30f00a987d694612175af"><param name="Name" value="~AlarmLCDBoard"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a303f95131278b2bb9d0b81c16e6d38b8"><param name="Name" value="alarmlevel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html"><param name="Name" value="AlarmManager"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a8be4a4a110ea823811eea0c580021f55"><param name="Name" value="AlarmManager"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a20ebd74c084d24347a61aa8490f21cbf"><param name="Name" value="bindImProc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a"><param name="Name" value="bindMainWindow"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#afcb1ab3d5f8f3e4c01227ab052bc520f"><param name="Name" value="bindPlayBack"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a4af37b18f9592a557393e947d033ecaf"><param name="Name" value="bindPLC"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a9ae0da0b1353484b71987214c1245668"><param name="Name" value="hardAlarmToPlc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#ac63fabcfc799aecf81f044d41bc7f3f4"><param name="Name" value="onHardwareAlarm"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a55d80e5566558f4c9146573239f904de"><param name="Name" value="showAlarmLightToUi"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a213979463b7f205ba09f095c4e318124"><param name="Name" value="showCio100ToUi"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#ab9895e76b0b6a0c4525c38a355c805c8"><param name="Name" value="showError_i"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#ad812d53580b9af78d53de719188ea327"><param name="Name" value="showError_o"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a3b4d8431b71a981c3deb72836f5323c1"><param name="Name" value="showNum_i"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a5727c94eb5d81b236f0de7ab57daced1"><param name="Name" value="showNum_o"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#aab6cc4a610ba2f389bbab701b5d377cf"><param name="Name" value="showSpeed_i"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a512d4492a9c02ed1afea872e8e4fffb7"><param name="Name" value="showSpeed_o"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a06c4f8aa74bd546b62326708aaf15982"><param name="Name" value="~AlarmManager"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a99c60dd024fcdfc77182747bcb2d25c5"><param name="Name" value="alarmModel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#ad51b395087885354d3cb7e6395beb894"><param name="Name" value="alarmNum"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ae22af95683de6b6f10bac5e3b8ed01b4"><param name="Name" value="alarmRatio"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ae22af95683de6b6f10bac5e3b8ed01b4"><param name="Name" value="ImProfile"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a9b7285981eab28ac5748f3669a3f6ab8"><param name="Name" value="WheelDbInfo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#aefe9232bef454c4215f273be6d13d96a"><param name="Name" value="alarmUi2PLC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a462ae0ce1fd694d9cc60c3f734a15cdd"><param name="Name" value="alarmView"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#ac35e4232a7c1cce855e21def94308ad9"><param name="Name" value="allModel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ad0a4f628ebbb926cfa212941fae8d332"><param name="Name" value="angle2Speed"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#aa853fe8cf98b42d3b2e44e2b1a4c1673"><param name="Name" value="appDirPath"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#aa853fe8cf98b42d3b2e44e2b1a4c1673"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#aa853fe8cf98b42d3b2e44e2b1a4c1673"><param name="Name" value="main.cpp"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a2fc2859d7238a2e9fcda661d321348c5"><param name="Name" value="appFilePath"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a6ed5c77ccb940aac0557cf4b79dbfed9"><param name="Name" value="appName"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a2ccabfe8a91c5d00fbd7ba3ec72a763c"><param name="Name" value="AUTHOR"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a5f07711fcd41b4825b8f592f49ed4005"><param name="Name" value="BACKUP_ZIP_NAME"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a2fc2859d7238a2e9fcda661d321348c5"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a2fc2859d7238a2e9fcda661d321348c5"><param name="Name" value="main.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a8e6d384caf9c01d383b63efc6f5eddbc"><param name="Name" value="ApplicationCrashHandler"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#af26a6b1228e01dd18d83a5d7e11ce5d8"><param name="Name" value="AUTHOR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a86a9d54c55f58c6ade33f36d7b7388a2"><param name="Name" value="BACKUP_ZIP_NAME"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_backup_info.html"><param name="Name" value="BackupInfo"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_backup_info.html#a9d631c53f98aec6e6c0b0106bc9525f6"><param name="Name" value="day"></OBJECT>
@@ -25,311 +90,617 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_backup_log_dialog.html"><param name="Name" value="BackupLogDialog"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_backup_log_dialog.html#a88d8ab7cc6ff2a2c1820d0ccc578b5c0"><param name="Name" value="BackupLogDialog"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_backup_log_dialog.html#a908aa32b222e2d7fb0b5714c51dbe13c"><param name="Name" value="~BackupLogDialog"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a5fae6ae04eba6645b2f7616d5f272ba2"><param name="Name" value="bAppAutoRun"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a76c5ad70864d5588b99c892932478007"><param name="Name" value="bVerboseLog"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a691ab1d5291334e381f154c8bb8f25b3"><param name="Name" value="capInterval"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_match_viewer.html#abdabdcff52f99428a2cec3f8422a529f"><param name="Name" value="bindDev"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a20ebd74c084d24347a61aa8490f21cbf"><param name="Name" value="bindImProc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a33f3a139d24a61418677975d621ce87a"><param name="Name" value="bindMainWindow"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#afcb1ab3d5f8f3e4c01227ab052bc520f"><param name="Name" value="bindPlayBack"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a4af37b18f9592a557393e947d033ecaf"><param name="Name" value="bindPLC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a162de5c0d5d4b8235aa25a474002f594"><param name="Name" value="broken"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#ab3865372dec24e6f7a39286147c1d390"><param name="Name" value="cacheDirPath"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#ab3865372dec24e6f7a39286147c1d390"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#ab3865372dec24e6f7a39286147c1d390"><param name="Name" value="main.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#af17e3e7fcfa366aede4f2b1dab764ea5"><param name="Name" value="calcspeed"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#a073029c3e54b02fd1a3b18e19032586c"><param name="Name" value="camIP"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#a858a51162bbd2a1b3cee2efddf16c65f"><param name="Name" value="camPassword"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#aa0b5ff29518521fa54e3d10b13176cea"><param name="Name" value="camPort"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html"><param name="Name" value="CamProfile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8cpp.html"><param name="Name" value="camprofile.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8cpp.html#ae28f9d10402fb4c5f2606289f7ccf0bc"><param name="Name" value="operator<<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8cpp.html#a9e41c2c3b9c9ade6f8874c9a07e2b34c"><param name="Name" value="operator>>"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8h.html"><param name="Name" value="camprofile.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8h.html#ae28f9d10402fb4c5f2606289f7ccf0bc"><param name="Name" value="operator<<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8h.html#a9e41c2c3b9c9ade6f8874c9a07e2b34c"><param name="Name" value="operator>>"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html"><param name="Name" value="CamProfile"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#a073029c3e54b02fd1a3b18e19032586c"><param name="Name" value="camIP"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#a858a51162bbd2a1b3cee2efddf16c65f"><param name="Name" value="camPassword"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#aa0b5ff29518521fa54e3d10b13176cea"><param name="Name" value="camPort"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#a0ea16ae25e305f80425bd43aaebd5e03"><param name="Name" value="camUserName"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_dev_spec.html#aa7f66d7b9e078ee93d8f172e2c863e39"><param name="Name" value="camProfile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#a305832f4d32f5a7c42fa44a07e9e2565"><param name="Name" value="CamProfile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#a0ea16ae25e305f80425bd43aaebd5e03"><param name="Name" value="camUserName"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a554bb7f4dd593b2971ec5e5e38718ea5"><param name="Name" value="captureDirPath"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a554bb7f4dd593b2971ec5e5e38718ea5"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a554bb7f4dd593b2971ec5e5e38718ea5"><param name="Name" value="main.cpp"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_char_segment.html"><param name="Name" value="CharSegment"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_char_segment.html#a0a2d7c449d5b885a095f7dd66f3b32f8"><param name="Name" value="CharSegment"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_char_segment.html#a9a25b272291af7bdf3f46d3fe50430bb"><param name="Name" value="img"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_char_segment.html#a1ed00d0e9995381fd74e646cedff2516"><param name="Name" value="pos"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a7b0958874f02a3a6edfd79a85d7c5188"><param name="Name" value="clearMedia"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#a829ac09ef7f43aafe7abc6f807c6df9f"><param name="Name" value="check"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33"><param name="Name" value="Checked"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531"><param name="Name" value="checkoutCkp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#ab673ee45b8a02e9ba8aa72135ed28b6a"><param name="Name" value="checkstate"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#ac3ea03c7ab1379f1f5f4b9750ff40683"><param name="Name" value="checkTri"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a6f99f1f3a90a49531f372d0e182872c6"><param name="Name" value="cio0Update"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html"><param name="Name" value="CkPt"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a414daa67aca3918ad13febdf5df36072"><param name="Name" value="CkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a3b438c401be7fd57da84a6c09220592f"><param name="Name" value="creatAll"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#ad3259779575bb558490559404afb1903"><param name="Name" value="gid2mid"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#ad1906be43650dbb487d078b32c055d9e"><param name="Name" value="hasTri"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a750ae2ab960e05b0685667c558980bb8"><param name="Name" value="id"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#aae408d0f5cf84a8f4ac7d6281829c1f6"><param name="Name" value="indexOf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#aad65e83ec3ef258516bbee5ba4c6d120"><param name="Name" value="init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a2792e24314be95021e461a798ec2c884"><param name="Name" value="isEnter"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#afd63f78fd17b55451eb039ab9d5bb49f"><param name="Name" value="isLeave"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a5b0fb213cdb889034ebdf1a793e358c0"><param name="Name" value="m_id"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a903058e94ace524942fa08f2d9304bc4"><param name="Name" value="name"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#ae941eb0aa4d8f2ac4638fa846d8321a2"><param name="Name" value="names"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a1bbbad154caab9065e9a6aebf696a11b"><param name="Name" value="newWheel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a19532657da6670b50a16f7d0a601e9bb"><param name="Name" value="parentDev"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a1fff98cebcd0d02f8cad10310a2d3ed2"><param name="Name" value="sensors"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a67a101d39c9ee8d8113f82905fb018f9"><param name="Name" value="triTiming"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a016f2950b9f99b0f5093fd0bd74850e7"><param name="Name" value="ckpts"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#a56bc86fca07cb3d6e69b089efa9846dc"><param name="Name" value="clear"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#aeb734152a79a362eeeedcfc7bdc0dbd1"><param name="Name" value="clearAlarm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a6dd67d2767c0aeb3f1e53d02ed47c6c2"><param name="Name" value="clearMedia"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#ae08da97150f8de11edae6e70382fc516"><param name="Name" value="clicked"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a05fb9d72c044aa3bb7d187b994704e2f"><param name="Name" value="closeEvent"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html"><param name="Name" value="common.h"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#aa853fe8cf98b42d3b2e44e2b1a4c1673"><param name="Name" value="appDirPath"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a2fc2859d7238a2e9fcda661d321348c5"><param name="Name" value="appFilePath"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a6ed5c77ccb940aac0557cf4b79dbfed9"><param name="Name" value="appName"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a2ccabfe8a91c5d00fbd7ba3ec72a763c"><param name="Name" value="AUTHOR"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a5f07711fcd41b4825b8f592f49ed4005"><param name="Name" value="BACKUP_ZIP_NAME"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#af26a6b1228e01dd18d83a5d7e11ce5d8"><param name="Name" value="AUTHOR"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a86a9d54c55f58c6ade33f36d7b7388a2"><param name="Name" value="BACKUP_ZIP_NAME"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#ab3865372dec24e6f7a39286147c1d390"><param name="Name" value="cacheDirPath"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a554bb7f4dd593b2971ec5e5e38718ea5"><param name="Name" value="captureDirPath"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a5f3034a99a21133bca2ee422b7c5b48d"><param name="Name" value="configDirPath"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#adf1028f2b9a8f352609024391b5612b0"><param name="Name" value="COPYRIGHT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a721b8341801510c2bec1a5b08c15621d"><param name="Name" value="COPYRIGHT"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a3fd98b4d92a4c1a052863672df72a575"><param name="Name" value="databaseFilePath"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#ad34c5fc16c0b85c79b4dd964b410cf6a"><param name="Name" value="FILE_SPEC"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a4468cfa667a4c59f943ec7f8a41d0183"><param name="Name" value="FILE_VER"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a2d520bdd931c7df9dd7761a40f2c08d2"><param name="Name" value="LANGUAGE"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a46ad4687cfe23f762717c8db257b0303"><param name="Name" value="logDirPath"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#ab3d1c27b98478eb18d131583f6849b3c"><param name="Name" value="MAIN_CONNECTION_NAME"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a301764495aed786632cff7abe68880a9"><param name="Name" value="matchDirPath"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a98bb5531df73660f1a4c1f181eedd88c"><param name="Name" value="ocrDirPath"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#acddaec1bc9466dc471df6f1479137704"><param name="Name" value="ocrPatternDirPath"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#abe3b37a218cfb145f889377e5508e5ee"><param name="Name" value="PRODUCT_NAME"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a127f5d9b86ce88816dc38c8a13988f79"><param name="Name" value="PRODUCT_VER"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#af2d2dc4ee712b5f86220e431a0fa3d08"><param name="Name" value="THEAD_CONNECTION_NAME"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a3c8467c4addcfd3ee40b1439311d1349"><param name="Name" value="videoDirPath"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a5f3034a99a21133bca2ee422b7c5b48d"><param name="Name" value="configDirPath"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#ad6ccdb48bd196bd11ea1e84cda61b140"><param name="Name" value="connectPLC"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#ad6ccdb48bd196bd11ea1e84cda61b140"><param name="Name" value="MainWindow"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a4d1997fdfe6084001cf1f493613ad77c"><param name="Name" value="PLCSerial"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a5f3034a99a21133bca2ee422b7c5b48d"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a5f3034a99a21133bca2ee422b7c5b48d"><param name="Name" value="main.cpp"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classmy_text_browser.html#aa4b4c9033e6d91b97e5da5a9f3092dd3"><param name="Name" value="contextMenuEvent"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_file_worker.html"><param name="Name" value="CopyFileWorker"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html"><param name="Name" value="ConfigHelper"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html"><param name="Name" value="confighelper.cpp"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_file_worker.html#aa15f79fcf9233889bb4b751f2583186b"><param name="Name" value="CopyFileWorker"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_file_worker.html#a22d670c1374fa75be748d5cc4edb3f59"><param name="Name" value="setPgDlgValue"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_file_worker.html#af1d3f604b9bcae1caed66794a53a6c63"><param name="Name" value="setProgressDialog"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#ac448247a1cec8bcbf0b4cd6338bf9a47"><param name="Name" value="GP_CAM"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#ab170c7de5f01a238d1ac3ada931c14bf"><param name="Name" value="GP_COMMON"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#afe1f8c39c4e1be1155570b94d7ef2488"><param name="Name" value="GP_DEV"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#a409643d7322bbc65e743ca21d294c628"><param name="Name" value="GP_IM"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#aa7d89e990d1b56d9a5fe7abf3c016d33"><param name="Name" value="GP_OCR"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#adf1028f2b9a8f352609024391b5612b0"><param name="Name" value="COPYRIGHT"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#ae9fca07a5341688e13776bb62c1d712c"><param name="Name" value="copyStart"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#abc1013834c36b30be039421759c1bddc"><param name="Name" value="copyStationSig"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#a2bd725e012c8b92f4e1e0f6cffef21fa"><param name="Name" value="copyStop"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html"><param name="Name" value="CopyThread"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html"><param name="Name" value="ConfigHelper"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#ae9fca07a5341688e13776bb62c1d712c"><param name="Name" value="copyStart"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#abc1013834c36b30be039421759c1bddc"><param name="Name" value="copyStationSig"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#a2bd725e012c8b92f4e1e0f6cffef21fa"><param name="Name" value="copyStop"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#a6eb439e70a38721a1d8447fa7f5872fd"><param name="Name" value="run"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#a76896257a71781b9bf69f6cb5d03dd74"><param name="Name" value="setDesDirPath"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#a04a067967b65a528d49a28157fe2a810"><param name="Name" value="setSrcDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a15694a18b65e7cbfb25244dc407ffad1"><param name="Name" value="ConfigHelper"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#ab4b04b47f67df886272873832961ebbe"><param name="Name" value="device"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a9421d72089dd1d661f26c19af219e859"><param name="Name" value="launchAtLogin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#ad0a8c52dccf3495d3d52bf97045588a0"><param name="Name" value="matchMaskInnerRatio"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#ae04fa487fbc7ee5b5e247d8330021115"><param name="Name" value="matchMaskOuterRatio"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#abe47a6249acafc7dfd993df31946b1b1"><param name="Name" value="pc2plc_portName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a64fce4fd6e2a9df32950c6bac6891f66"><param name="Name" value="read"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a04045b5b36ae2dd26465ab6ad5949018"><param name="Name" value="save"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a959b2ee878bc13961b7b75de2c7954cf"><param name="Name" value="startAtLaunch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a76b3bf0b3940128f7dfd2e5fb84983fc"><param name="Name" value="verboseLog"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a198df438b93de320f0dd46eeeaede896"><param name="Name" value="~ConfigHelper"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#ac5213403a3aba0c8c6f2a12c3e2d4fa5"><param name="Name" value="connect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a14ee604a83d89ea5f96288db01d60a84"><param name="Name" value="connectError"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a721b8341801510c2bec1a5b08c15621d"><param name="Name" value="COPYRIGHT"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a5d1bb59b769007938a8274ab9500fe48"><param name="Name" value="core_ocr"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a24568a4c3046d71a3a86e2c0e95faccb"><param name="Name" value="costomSliderClicked"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="identification_8cpp.html#a73dd8abf5290fb6ad8dc3c9f75f52639"><param name="Name" value="CPU_ID"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a3b438c401be7fd57da84a6c09220592f"><param name="Name" value="creatAll"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a03b33db349b28448615318739bc9101f"><param name="Name" value="createAll"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a03b33db349b28448615318739bc9101f"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#ac71d0c34ea8d46a135299f14d56f71e8"><param name="Name" value="SensorDevice"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html"><param name="Name" value="CustomSlider"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a24568a4c3046d71a3a86e2c0e95faccb"><param name="Name" value="costomSliderClicked"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a53ca79ee6ed5fba451ef664c5f700e22"><param name="Name" value="CustomSlider"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a6a14f0db8c48617b918bcaed1da260b8"><param name="Name" value="mousePressEvent"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a339185f2fde98ed5032d5114f4cd1b41"><param name="Name" value="CustomSlider"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a2b0d4882ae9ac4b708d88de26c9578ba"><param name="Name" value="mousePressEvent"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_sql_table_model.html#ac6a066535d9c183b28710f8e8fc616bd"><param name="Name" value="data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html"><param name="Name" value="database.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7ab07e993a3b7bdb2623a1ade34c337a33"><param name="Name" value="Checked"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d"><param name="Name" value="NeedCheck"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503"><param name="Name" value="NoNeedCheck"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33"><param name="Name" value="Wheel_AlarmLevel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419"><param name="Name" value="Wheel_CalcSpeed"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8"><param name="Name" value="Wheel_CheckState"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0"><param name="Name" value="Wheel_Error"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fadbab0ed30a0e5394445e98954aab467f"><param name="Name" value="Wheel_Fragment"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea"><param name="Name" value="Wheel_I_O"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fac93f469e5dc9266565682cff0633a5e7"><param name="Name" value="Wheel_ID"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537"><param name="Name" value="Wheel_Num"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39faf813a99a0689420d89c99e45e3ab6993"><param name="Name" value="Wheel_OcrSize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2"><param name="Name" value="Wheel_RefSpeed"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fae0605f6e0144f634da6e6e875aa009d9"><param name="Name" value="Wheel_Speeds"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880"><param name="Name" value="Wheel_Time"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa1210163e5138f0b4070bf52eebb76616"><param name="Name" value="Wheel_TotalMatch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fae3dca2c74420f6bac1e955c4e21e61a2"><param name="Name" value="Wheel_ValidMatch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde"><param name="Name" value="Wheel_VideoPath"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a3fd98b4d92a4c1a052863672df72a575"><param name="Name" value="databaseFilePath"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a3fd98b4d92a4c1a052863672df72a575"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a3fd98b4d92a4c1a052863672df72a575"><param name="Name" value="main.cpp"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_backup_info.html#a9d631c53f98aec6e6c0b0106bc9525f6"><param name="Name" value="day"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a4592fd5be9f975544be77a7263d4face"><param name="Name" value="dbChanged"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a62f88a46ee550d455797f498081db5e0"><param name="Name" value="disconnectPLC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a00cbb35b7e5b8defed7bff62774827cf"><param name="Name" value="dev"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#ab4b04b47f67df886272873832961ebbe"><param name="Name" value="device"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#a836b3bdf1e363714a89277b84a1f284c"><param name="Name" value="devIndex"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#a7b800971fe7519e4881870d9bc4e777d"><param name="Name" value="devName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_dev_spec.html"><param name="Name" value="DevSpec"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a62f88a46ee550d455797f498081db5e0"><param name="Name" value="MainWindow"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a7895893e4350c3e6d4958e6802c55f42"><param name="Name" value="PLCSerial"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_dev_spec.html#aa7f66d7b9e078ee93d8f172e2c863e39"><param name="Name" value="camProfile"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_dev_spec.html#a50a282164a37cceb545c40259717f4da"><param name="Name" value="imProfile"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_dev_spec.html#aaa0fa35e85c207cec5d35065ef07cfed"><param name="Name" value="ocrProfile"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a8685c283aff30d5834422c03cc24d5c8"><param name="Name" value="doImageProcess"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a8e5385a7e70afe5d238ad21d0b0f3168"><param name="Name" value="dp"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#a60496a30de49e73479abfdceb0fb1e89"><param name="Name" value="errorMessage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#ad34c5fc16c0b85c79b4dd964b410cf6a"><param name="Name" value="FILE_SPEC"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a4468cfa667a4c59f943ec7f8a41d0183"><param name="Name" value="FILE_VER"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html#a9c0423072cd86732d2386e9025b2e8b7"><param name="Name" value="flag_cpu_mac"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#abbe011bde337a7d3fef578d68053414d"><param name="Name" value="frameToShow"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ae9a7b67e92d0dd3a829a25edd34fbde8"><param name="Name" value="dp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#aeef6cec4d94210ddbff3095dd246230c"><param name="Name" value="dzIn"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a91627de0f3ebec10cb3329f226eb7c7e"><param name="Name" value="dzOut"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#aa409c886cb5505bbfed02bd7dc243c30"><param name="Name" value="error"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#a664101492b2e08a81f6fd2b34bffd7c2"><param name="Name" value="eventFilter"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a1a614aaa89d6b4077cf0b7265649339b"><param name="Name" value="expected"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#a5a3c3fcf4cf833b11d897c9dea305c82"><param name="Name" value="expectTriBegin"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#aaabda4cff9d78b288286796cd4690228"><param name="Name" value="expectTriEnd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a244bfaa82dbb8eb7fb1460d252571ba1"><param name="Name" value="fragment"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ad78643dc9b2cbd98c29e52d1edafeb0c"><param name="Name" value="frameCaptured"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af63d5fd9925f972d8e8cf503c4882730"><param name="Name" value="frameHandled"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_cam_profile.html#a305832f4d32f5a7c42fa44a07e9e2565"><param name="Name" value="frameInterv"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ae437158a5aec5ad399b7880d6e226578"><param name="Name" value="frameProcessed"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a347d0b06b378c3022dc224f3799243f4"><param name="Name" value="fullScreenChanged"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_full_screen_window.html"><param name="Name" value="FullScreenWindow"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_full_screen_window.html#acf1fcda1e464f2028bd23b753b88462a"><param name="Name" value="FullScreenWindow"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a1c7a39f01a02458505414fd741ae6027"><param name="Name" value="g_imgParam"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#ab6db0189309d6dee811e7918e45a4c97"><param name="Name" value="get_final_result"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html#a7dc478aaec19a903cba181b512cc53d1"><param name="Name" value="get_localmachine_mac"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html#a9c810a143dc8d16ecc7d44072a2edadd"><param name="Name" value="getcpuid"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html#ab5184bfbfa94d71955d1efdfd9561311"><param name="Name" value="getcpuidex"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#a3a3d8cc3dd50745dff88473e5762e53e"><param name="Name" value="getMask"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html#ad58659af0f420ff763589b0c5bc939b3"><param name="Name" value="Grubbs"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#acd22546d15fbcae8c064b4a628ff100a"><param name="Name" value="gs1"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a9a6b847529890ee637d4da677f65fd6d"><param name="Name" value="gs2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#a2c6a597de6b24679e755aafba5657fef"><param name="Name" value="getCPUID"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#ad6429aef1faa0a8bb9bd423998bb8889"><param name="Name" value="getCPUIDEX"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ab25c7c866fe0a2789939fecff5ec6065"><param name="Name" value="getDeviceIndex"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a5613b249dea6fed2b9087c6e57fb7ca4"><param name="Name" value="getFrameToShow"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#aecfba4e5f0c1640f52a6e2b8e01e457e"><param name="Name" value="getLocalMAC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a30e74ef6d1a2e4fe98075dcadd8e43f9"><param name="Name" value="getMatchResult"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a65e48b66ee3e28508e57bd6d757d5fa8"><param name="Name" value="getRawImage"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a2432a7c4b2bee31da9b2a933d2747ba4"><param name="Name" value="getTruckSpeed"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a2e4a1d780459ede0318cd935f8bf9121"><param name="Name" value="getVideoRelativeFilePath"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#ad3259779575bb558490559404afb1903"><param name="Name" value="gid2mid"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#ac448247a1cec8bcbf0b4cd6338bf9a47"><param name="Name" value="GP_CAM"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#ab170c7de5f01a238d1ac3ada931c14bf"><param name="Name" value="GP_COMMON"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#afe1f8c39c4e1be1155570b94d7ef2488"><param name="Name" value="GP_DEV"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#a409643d7322bbc65e743ca21d294c628"><param name="Name" value="GP_IM"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="confighelper_8cpp.html#aa7d89e990d1b56d9a5fe7abf3c016d33"><param name="Name" value="GP_OCR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a994ae1d9731cebe455aff211bcb25b93"><param name="Name" value="Gray"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1"><param name="Name" value="Green"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a9fa1622579348c3d0dccebe11c205a29"><param name="Name" value="gs1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a10bffd53b4e9115dbf0fae545a426bad"><param name="Name" value="gs2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a29bf2cf675c1f087538185ac83abfc85"><param name="Name" value="handleFrame"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html"><param name="Name" value="HandleSensorDevice"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531"><param name="Name" value="checkoutCkp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#ac3ea03c7ab1379f1f5f4b9750ff40683"><param name="Name" value="checkTri"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a00cbb35b7e5b8defed7bff62774827cf"><param name="Name" value="dev"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#aeef6cec4d94210ddbff3095dd246230c"><param name="Name" value="dzIn"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a91627de0f3ebec10cb3329f226eb7c7e"><param name="Name" value="dzOut"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a5023b1b9da70eeb729bc6326a67bb8a1"><param name="Name" value="HandleSensorDevice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#aa66351734f4ee220bb13d37297061c58"><param name="Name" value="input"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a406c0b871807c5b546390360a2a81efc"><param name="Name" value="io2dev"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea"><param name="Name" value="newCkp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a35269fbd5ff006347fc3d29e0a8ebcdf"><param name="Name" value="handleSensorDevice"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html"><param name="Name" value="HandleSensorDevice"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a4b16afcd6b6fea22d29862cbd7a64554"><param name="Name" value="sensorUpdate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a4eb776d5c0371a091fbac629f64e55cc"><param name="Name" value="triInt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#afbdc2dd52d6a0a4af46df594f9c1d48d"><param name="Name" value="wheelFallOff"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a42c9040fa7c8f0ee178f018632be04d8"><param name="Name" value="~HandleSensorDevice"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a9ae0da0b1353484b71987214c1245668"><param name="Name" value="hardAlarmToPlc"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#ad372e3ed644bd1b3aca066fe6a8bc44b"><param name="Name" value="hasAlarm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#ad1906be43650dbb487d078b32c055d9e"><param name="Name" value="hasTri"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4"><param name="Name" value="HighLevel"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html"><param name="Name" value="HikVideoCapture"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a691ab1d5291334e381f154c8bb8f25b3"><param name="Name" value="capInterval"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#afed6b3e4260dad8a82c24193a979f03d"><param name="Name" value="HikVideoCapture"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ac17456a75f3f853aef25e79f4180a213"><param name="Name" value="imageNeedProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a4c9bb23c32fba7fce393fae6916cad85"><param name="Name" value="imageProcessReady"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a434153c0b0b194029a9c34bf411fb639"><param name="Name" value="isStartCap"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a63624ceb1631ef32342f85eaaaed146c"><param name="Name" value="isStopCap"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a2707367a53f85dc0f923d282916c471a"><param name="Name" value="pRawImage"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a32e468f0a2d8040e52caffcaf4315c69"><param name="Name" value="pVideoCapture"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ab77163a2e71a2503dd90e721d37d8aa4"><param name="Name" value="saveStopped"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ad8ecd855c0eafd6d9609bb89508c0bb5"><param name="Name" value="startCap"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a8a0afa28751985dba8f8b1fb7b5acd35"><param name="Name" value="startSave"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#aaf2995f1ef47b773f24b80a1f43bb0aa"><param name="Name" value="stopCap"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#aafb6e580cff5b9416f1ee0d01f5ed776"><param name="Name" value="stopSave"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a06da0c6f26c898bf246e3cff301c8396"><param name="Name" value="syncCameraTime"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a29f434c8ec982f772b50b6029288fb5a"><param name="Name" value="videoRelativeFilePath"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#add6740325fd454ac2bad8ca005c350ee"><param name="Name" value="wheelTimeout"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ad78643dc9b2cbd98c29e52d1edafeb0c"><param name="Name" value="frameCaptured"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ae437158a5aec5ad399b7880d6e226578"><param name="Name" value="frameProcessed"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ab25c7c866fe0a2789939fecff5ec6065"><param name="Name" value="getDeviceIndex"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a65e48b66ee3e28508e57bd6d757d5fa8"><param name="Name" value="getRawImage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a2e4a1d780459ede0318cd935f8bf9121"><param name="Name" value="getVideoRelativeFilePath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ae2dd36fefbce426b3fce3025419a7f7c"><param name="Name" value="HikVideoCapture"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ad46bb13231338d97325d74e7f1e79f00"><param name="Name" value="recordOFF"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ace04c9f5505d7644b8aab786ff5d3f65"><param name="Name" value="recordON"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a1ed1fa642b70117ce0b6bcb06139a7e4"><param name="Name" value="recordTimeout"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a0359300ea41ac46d327d9f5229465dd3"><param name="Name" value="start"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#acc36761db4a20a203a6ce9675150a5bc"><param name="Name" value="startRecord"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a895409c64a795d7285dcee5c7d59fdd7"><param name="Name" value="stop"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a4579213b58ec7d6999755e78a48d9ff8"><param name="Name" value="stopRecord"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a6d07f515f68c9c0819a14ab2afefa97d"><param name="Name" value="syncCameraTime"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a54a0ba8f296177df923cf5d8d9184a97"><param name="Name" value="~HikVideoCapture"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html"><param name="Name" value="identification"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#aae1177299aa4b515dbc4e5b5b04ac071"><param name="Name" value="i_o"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a750ae2ab960e05b0685667c558980bb8"><param name="Name" value="id"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html#a9c0423072cd86732d2386e9025b2e8b7"><param name="Name" value="flag_cpu_mac"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html#a7dc478aaec19a903cba181b512cc53d1"><param name="Name" value="get_localmachine_mac"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html#a9c810a143dc8d16ecc7d44072a2edadd"><param name="Name" value="getcpuid"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classidentification.html#ab5184bfbfa94d71955d1efdfd9561311"><param name="Name" value="getcpuidex"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a750ae2ab960e05b0685667c558980bb8"><param name="Name" value="CkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a234572fa1d52f50a2a3fe349022bd9bd"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a229042a02989323d6388dd6037a35384"><param name="Name" value="SensorDevice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#af351443371b29941a357006ef27795a0"><param name="Name" value="WheelDbInfo"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af5fc4eeece7b8a446ba3a59c819304eb"><param name="Name" value="imageMatches"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ac17456a75f3f853aef25e79f4180a213"><param name="Name" value="imageNeedProcess"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a3ed288f1dbf4b0fbe66038e969804843"><param name="Name" value="id_gb2mem"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html"><param name="Name" value="Identification"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="identification_8cpp.html"><param name="Name" value="identification.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="identification_8cpp.html#a73dd8abf5290fb6ad8dc3c9f75f52639"><param name="Name" value="CPU_ID"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="identification_8cpp.html#afae23d92b98b25305f4a96802efc11f3"><param name="Name" value="LOCAL_MAC"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html"><param name="Name" value="Identification"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#a829ac09ef7f43aafe7abc6f807c6df9f"><param name="Name" value="check"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#a2c6a597de6b24679e755aafba5657fef"><param name="Name" value="getCPUID"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#ad6429aef1faa0a8bb9bd423998bb8889"><param name="Name" value="getCPUIDEX"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#aecfba4e5f0c1640f52a6e2b8e01e457e"><param name="Name" value="getLocalMAC"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#a5634a37b031a23098a7cb0c707424bba"><param name="Name" value="Identification"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#adfc0f9b4ad6867c277a65b6bcba8206e"><param name="Name" value="~Identification"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="resource_8h.html#a455fef2a9349aae3af8ef8f24f6fc9d8"><param name="Name" value="IDI_ICON1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="imageprocess_8h.html#afd9e1271a6641a305ec2a1d1ecd80553"><param name="Name" value="IM_PROC_INVALID_SPEED"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="imageprocess_8h.html#ab6f3a17dfc009d5911a539706139a1d0"><param name="Name" value="IM_PROC_VALID_MIN_COUNT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html"><param name="Name" value="ImageProcess"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="imageprocess_8h.html"><param name="Name" value="imageprocess.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="imageprocess_8h.html#afd9e1271a6641a305ec2a1d1ecd80553"><param name="Name" value="IM_PROC_INVALID_SPEED"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="imageprocess_8h.html#ab6f3a17dfc009d5911a539706139a1d0"><param name="Name" value="IM_PROC_VALID_MIN_COUNT"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html"><param name="Name" value="ImageProcess"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a8685c283aff30d5834422c03cc24d5c8"><param name="Name" value="doImageProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#abbe011bde337a7d3fef578d68053414d"><param name="Name" value="frameToShow"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a1c7a39f01a02458505414fd741ae6027"><param name="Name" value="g_imgParam"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af5fc4eeece7b8a446ba3a59c819304eb"><param name="Name" value="imageMatches"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ac5ed0d797c4ad35476105ffe4903b915"><param name="Name" value="ImageProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a3b38d42ae7e77f9b7f3e21856488a41f"><param name="Name" value="imageProcessReady"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a137897930a82b100b2a5341ad9e101d5"><param name="Name" value="initModel"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#acc3840d2491affded8818d08d07b8aa4"><param name="Name" value="sensorIN"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ae384839342b8d67f357447cee8e5089a"><param name="Name" value="sensorOUT"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#adb6a26c36d1fa65006cc41187b38a1b4"><param name="Name" value="setAlarmLight"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#aee6a9b623426e6097d223fcfc8d8fb55"><param name="Name" value="setupModel"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#abe1bea3976de7f28a4f140e49f480717"><param name="Name" value="showAlarmNum"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af2d7fa150390bdae381f2de3225e08c6"><param name="Name" value="showImageMatches"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a380d4492f2286145a34e6a5916bc05f4"><param name="Name" value="showRealtimeImage"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a67c005e474a49b4249a477341d179ebb"><param name="Name" value="showWheelNum"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af0ea3ca1796557e51067f5f7415d04b9"><param name="Name" value="showWheelSpeed"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a887dd268c1208da22fc986fc896d90bb"><param name="Name" value="startImageProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#afe2901e3b25c3f797aca92473f0cd503"><param name="Name" value="stopImageProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a48fe94c49979f5e674b95c0d50f71bc0"><param name="Name" value="wheelTimeout"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html"><param name="Name" value="ImageProcessParameters"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ab88601bf03ed5e7e01065d8670a91e7c"><param name="Name" value="alarmRatio"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ac29d24e67828dc8d6adbfa4d47a425ff"><param name="Name" value="angle2Speed"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a8e5385a7e70afe5d238ad21d0b0f3168"><param name="Name" value="dp"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#acd22546d15fbcae8c064b4a628ff100a"><param name="Name" value="gs1"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a9a6b847529890ee637d4da677f65fd6d"><param name="Name" value="gs2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a7813114cbd985d58f4e0f8775b72f766"><param name="Name" value="minDist"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ab82d8a6bb9d582b22c8e8505c58fc371"><param name="Name" value="param1"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ac90a69ecdaaca77585fe6ffec95783ac"><param name="Name" value="param2"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ae482439795473200f1dee14277c5e845"><param name="Name" value="radius_max"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a390d9e4abf4e11a2f103a73db2f656ce"><param name="Name" value="radius_min"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a92796dd7f9e3a30f63c9fc4db400ed4b"><param name="Name" value="roiRect"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#aafed91fb4be38b11807550990a1411fb"><param name="Name" value="sensorTriggered"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ac92c27d923b32f2732bd07aec31a55d9"><param name="Name" value="warningRatio"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a4c9bb23c32fba7fce393fae6916cad85"><param name="Name" value="imageProcessReady"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a4c9bb23c32fba7fce393fae6916cad85"><param name="Name" value="HikVideoCapture"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a3b38d42ae7e77f9b7f3e21856488a41f"><param name="Name" value="ImageProcess"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#aeb1c0f8f06db72833ae098e9cba132c0"><param name="Name" value="_MAIn"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ae9977a14daf947dfd75d57dcba7550ba"><param name="Name" value="_MAOut"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af63d5fd9925f972d8e8cf503c4882730"><param name="Name" value="frameHandled"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a5613b249dea6fed2b9087c6e57fb7ca4"><param name="Name" value="getFrameToShow"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a30e74ef6d1a2e4fe98075dcadd8e43f9"><param name="Name" value="getMatchResult"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a29bf2cf675c1f087538185ac83abfc85"><param name="Name" value="handleFrame"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#abc606c9f2c55844cc2f08e6373cdc0b6"><param name="Name" value="ImageProcess"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a13e7f9c562ff092e8100dcde40beedcd"><param name="Name" value="makeFrame4Show"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a2a2689d411a382a27f8fa7b84585f306"><param name="Name" value="onSensorIN"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af2285e1cf441de21ee315fd59b69fdac"><param name="Name" value="onSensorOUT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ac7ec277a9341197c7bfd85be85e4ccf0"><param name="Name" value="onWheelTimeout"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a4b7d6c8bc1ec403a848260e9c1587cd9"><param name="Name" value="showFrame"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#afde5339b87f2e29683b567f298bf5c89"><param name="Name" value="showMatch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ae062ab8a591f9a897a8275274afbdb2a"><param name="Name" value="start"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a27683908ba42359d3c45d2cd31af0b72"><param name="Name" value="stop"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ad0f4f919d1704ac2e6416279fbde6aa0"><param name="Name" value="wheelNeedHandled"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a58756d66c3a326819df894942c0265c9"><param name="Name" value="~ImageProcess"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_char_segment.html#a9a25b272291af7bdf3f46d3fe50430bb"><param name="Name" value="img"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#ae850896f971b1a211418f3d2b2b79585"><param name="Name" value="init"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a137897930a82b100b2a5341ad9e101d5"><param name="Name" value="initModel"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a01b222eaa1068bc34db6a86f64ce3614"><param name="Name" value="initPlcSerial"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#a38e6807929db5f73b14d6c1d13bdcd71"><param name="Name" value="installMesageHandler"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html"><param name="Name" value="ImProfile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8cpp.html"><param name="Name" value="improfile.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8cpp.html#a9d1c03f99f471a4da3e904bd72b4a051"><param name="Name" value="operator<<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8cpp.html#afc0bbe35ff9a1fc747ac9da4f03cf001"><param name="Name" value="operator>>"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8h.html"><param name="Name" value="improfile.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8h.html#a9d1c03f99f471a4da3e904bd72b4a051"><param name="Name" value="operator<<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8h.html#afc0bbe35ff9a1fc747ac9da4f03cf001"><param name="Name" value="operator>>"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html"><param name="Name" value="ImProfile"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ae22af95683de6b6f10bac5e3b8ed01b4"><param name="Name" value="alarmRatio"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ad0a4f628ebbb926cfa212941fae8d332"><param name="Name" value="angle2Speed"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_dev_spec.html#a50a282164a37cceb545c40259717f4da"><param name="Name" value="imProfile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html"><param name="Name" value="ImProfile"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ae9a7b67e92d0dd3a829a25edd34fbde8"><param name="Name" value="dp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a9fa1622579348c3d0dccebe11c205a29"><param name="Name" value="gs1"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a10bffd53b4e9115dbf0fae545a426bad"><param name="Name" value="gs2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a2557df4a7094639b2e0abc12e1205d80"><param name="Name" value="ImProfile"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#af5e44df036b18552062e4f9d9f926310"><param name="Name" value="minDist"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a921b476664441309c914b58331ead364"><param name="Name" value="param1"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ac84186e94a1900eaf9f2a6e1a7ab3014"><param name="Name" value="param2"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#aca763d3940de1b731fb1dce4531593f5"><param name="Name" value="radius_max"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a6697334a9fbed69e58f11dd5464ae180"><param name="Name" value="radius_min"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ae0436a17c44ab16366c7addf288ec219"><param name="Name" value="roiRect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ada7e3e46b79d71e0edcb85cc03d38a51"><param name="Name" value="sensorTriggered"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a3f88e1cfa11d6b5e9472eb71e64dc041"><param name="Name" value="warningRatio"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#aae408d0f5cf84a8f4ac7d6281829c1f6"><param name="Name" value="indexOf"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#aae408d0f5cf84a8f4ac7d6281829c1f6"><param name="Name" value="CkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a2d3ac12a2a7c609be7fd7ce3bd5d4c9b"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a0ae6c95bcdc8d5666a8dd9900d85196d"><param name="Name" value="SensorDevice"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#aad65e83ec3ef258516bbee5ba4c6d120"><param name="Name" value="init"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#aad65e83ec3ef258516bbee5ba4c6d120"><param name="Name" value="CkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#ac903a8ed1d863cf49a2ba8883196d2b4"><param name="Name" value="LevelRecorder"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a84bc35cfba92eb579bc311b3c8b2980d"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a451e1e696ef7d6a02bc5b3e418b59acc"><param name="Name" value="SensorDevice"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b"><param name="Name" value="Inner_Alarm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02"><param name="Name" value="Inner_Warn"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca20e503b44ef5c17ae825ec74fc905b0b"><param name="Name" value="Innner_Improc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcadbbf9230db7a8695bffce11d120bb5e0"><param name="Name" value="Innner_Sensor"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#aa66351734f4ee220bb13d37297061c58"><param name="Name" value="input"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a406c0b871807c5b546390360a2a81efc"><param name="Name" value="io2dev"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_backup_info.html#a6ab70d40085ca41f65a2b6260b48b0a2"><param name="Name" value="isAll"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a7a164ca93feeb0f90d6d2955c745041d"><param name="Name" value="isConnectPLC"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a28fb2031b97b1d6dbbbb52d720030449"><param name="Name" value="isDisconnectPLC"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a2792e24314be95021e461a798ec2c884"><param name="Name" value="isEnter"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#afd63f78fd17b55451eb039ab9d5bb49f"><param name="Name" value="isLeave"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_backup_info.html#a44bd4711889aec5b8863e688b85d926b"><param name="Name" value="isSelected"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a434153c0b0b194029a9c34bf411fb639"><param name="Name" value="isStartCap"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a63624ceb1631ef32342f85eaaaed146c"><param name="Name" value="isStopCap"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_widget.html#a3efa34386c146603fd2785409eab9d0f"><param name="Name" value="keyPressEvent"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a2d520bdd931c7df9dd7761a40f2c08d2"><param name="Name" value="LANGUAGE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a9421d72089dd1d661f26c19af219e859"><param name="Name" value="launchAtLogin"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html"><param name="Name" value="LevelRecorder"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#a56bc86fca07cb3d6e69b089efa9846dc"><param name="Name" value="clear"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4"><param name="Name" value="HighLevel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#ac903a8ed1d863cf49a2ba8883196d2b4"><param name="Name" value="init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#a2fee4f14e008dabf44206e0dc9a23a83"><param name="Name" value="LevelRecorder"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110"><param name="Name" value="LowLevel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348"><param name="Name" value="NegativeEdge"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411"><param name="Name" value="OutOfRange"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74"><param name="Name" value="PositiveEdge"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#a918eef12048f9de233aef9a16a1e9883"><param name="Name" value="push"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#aa9e7d005f90132d6e7e093653a3ae513"><param name="Name" value="state"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#ae868e1bec42b2adab2e4b6ad59a3f259"><param name="Name" value="~LevelRecorder"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="identification_8cpp.html#afae23d92b98b25305f4a96802efc11f3"><param name="Name" value="LOCAL_MAC"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a46ad4687cfe23f762717c8db257b0303"><param name="Name" value="logDirPath"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a46ad4687cfe23f762717c8db257b0303"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a46ad4687cfe23f762717c8db257b0303"><param name="Name" value="main.cpp"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_login_dialog.html"><param name="Name" value="LoginDialog"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_login_dialog.html#ab3e48f38918b4fba5523ad4bb9b0d1f6"><param name="Name" value="LoginDialog"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_login_dialog.html#aa5d012ebc424713ca0cbd82be1f81133"><param name="Name" value="~LoginDialog"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#a35a269bf867f347dc252b72a669d9494"><param name="Name" value="logMessage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#ab3d1c27b98478eb18d131583f6849b3c"><param name="Name" value="MAIN_CONNECTION_NAME"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110"><param name="Name" value="LowLevel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a5b0fb213cdb889034ebdf1a793e358c0"><param name="Name" value="m_id"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a5b0fb213cdb889034ebdf1a793e358c0"><param name="Name" value="CkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a3d1ebe0e05e5d75604330a70d3acf9e5"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a413a879ab20b538cff7ec754ca8f552d"><param name="Name" value="SensorDevice"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="robustmatcher_8cpp.html#ae71449b1cc6e6250b91f539153a7a0d3"><param name="Name" value="M_PI"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#aa853fe8cf98b42d3b2e44e2b1a4c1673"><param name="Name" value="appDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a2fc2859d7238a2e9fcda661d321348c5"><param name="Name" value="appFilePath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a8e6d384caf9c01d383b63efc6f5eddbc"><param name="Name" value="ApplicationCrashHandler"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#ab3865372dec24e6f7a39286147c1d390"><param name="Name" value="cacheDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a554bb7f4dd593b2971ec5e5e38718ea5"><param name="Name" value="captureDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a5f3034a99a21133bca2ee422b7c5b48d"><param name="Name" value="configDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a3fd98b4d92a4c1a052863672df72a575"><param name="Name" value="databaseFilePath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a46ad4687cfe23f762717c8db257b0303"><param name="Name" value="logDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97"><param name="Name" value="main"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a301764495aed786632cff7abe68880a9"><param name="Name" value="matchDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a0c89947a98e84f4423c0b19b443f5d46"><param name="Name" value="myMessageOutput"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a98bb5531df73660f1a4c1f181eedd88c"><param name="Name" value="ocrDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#acddaec1bc9466dc471df6f1479137704"><param name="Name" value="ocrPatternDirPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a3c8467c4addcfd3ee40b1439311d1349"><param name="Name" value="videoDirPath"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97"><param name="Name" value="main"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html"><param name="Name" value="MainWindow"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a5fae6ae04eba6645b2f7616d5f272ba2"><param name="Name" value="bAppAutoRun"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a76c5ad70864d5588b99c892932478007"><param name="Name" value="bVerboseLog"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#aefe9232bef454c4215f273be6d13d96a"><param name="Name" value="alarmUi2PLC"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a05fb9d72c044aa3bb7d187b994704e2f"><param name="Name" value="closeEvent"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#ad6ccdb48bd196bd11ea1e84cda61b140"><param name="Name" value="connectPLC"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a62f88a46ee550d455797f498081db5e0"><param name="Name" value="disconnectPLC"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a01b222eaa1068bc34db6a86f64ce3614"><param name="Name" value="initPlcSerial"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a07f9da8b4156a57614fd22bd1269d8bd"><param name="Name" value="MainWindow"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a2e5290ae62b91db0e3ac7ffbe97758d3"><param name="Name" value="setAlarm"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a33caba794cd86759b77a2a4ab9419773"><param name="Name" value="startCap"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a75df7504f57a096432ad465729d43c70"><param name="Name" value="startProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#aa7547d797699bb7f5a2ebc3411b8dcfe"><param name="Name" value="stopCap"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#ac84a97e82da9dd0dd2b7241ecbca6848"><param name="Name" value="stopProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a54e59300970792d0110a4371526e5ea5"><param name="Name" value="SyncCameraTime"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a2e942fbbe12199474f063365a74adf78"><param name="Name" value="MainWindow"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#afa3fc9e034fa98830e87246246d73e0e"><param name="Name" value="uiShowAlarmLight"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a960ef266d511ed4e10820a3106d23e69"><param name="Name" value="uiShowCio100"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a5af6ee21b93fe8660960c6e0ed9ca989"><param name="Name" value="uiShowError_i"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a08c36c996ee5b67ffbb4b0c5f1d18ea6"><param name="Name" value="uiShowError_o"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#af5608598b812a3f37e52f9e68df10f52"><param name="Name" value="uiShowNum_i"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a6b59764d9fff055d3a40148b5efe393c"><param name="Name" value="uiShowNum_o"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a0b254bab7ba45e2870484474a063afb2"><param name="Name" value="uiShowSpeed_i"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a56c37dd56a54c1e0e4cea19073bd2895"><param name="Name" value="uiShowSpeed_o"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7"><param name="Name" value="~MainWindow"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#a82e48616acf567b5e8f34fa6c8782db4"><param name="Name" value="match"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a13e7f9c562ff092e8100dcde40beedcd"><param name="Name" value="makeFrame4Show"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#a00bcb865bcc240ec0df38cecf5243f5e"><param name="Name" value="match"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a301764495aed786632cff7abe68880a9"><param name="Name" value="matchDirPath"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_backup_info.html#a57ebfab4744a979666451e9c94a24ac7"><param name="Name" value="max_day"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html#a990da66288dbdfd5f653a6d942c844f3"><param name="Name" value="mean"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html#a990da66288dbdfd5f653a6d942c844f3"><param name="Name" value="OutlierDetection"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#a15110f2e9b10b243ba072ca08accfc32"><param name="Name" value="OutlierHelper"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a301764495aed786632cff7abe68880a9"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a301764495aed786632cff7abe68880a9"><param name="Name" value="main.cpp"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a7813114cbd985d58f4e0f8775b72f766"><param name="Name" value="minDist"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_widget.html#aff7ceebcce6eacc04cfbed16cb417158"><param name="Name" value="mouseDoubleClickEvent"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a6a14f0db8c48617b918bcaed1da260b8"><param name="Name" value="mousePressEvent"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#ad0a8c52dccf3495d3d52bf97045588a0"><param name="Name" value="matchMaskInnerRatio"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#ae04fa487fbc7ee5b5e247d8330021115"><param name="Name" value="matchMaskOuterRatio"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_match_viewer.html"><param name="Name" value="MatchViewer"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a6a14f0db8c48617b918bcaed1da260b8"><param name="Name" value="CustomSlider"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_match_viewer.html#abdabdcff52f99428a2cec3f8422a529f"><param name="Name" value="bindDev"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_match_viewer.html#a4acd052dbca2987e15ed15801e88ba91"><param name="Name" value="MatchViewer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_match_viewer.html#aa073473c302a0af0a9433e20af513b23"><param name="Name" value="~MatchViewer"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_backup_info.html#a57ebfab4744a979666451e9c94a24ac7"><param name="Name" value="max_day"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#a15110f2e9b10b243ba072ca08accfc32"><param name="Name" value="mean"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#af5e44df036b18552062e4f9d9f926310"><param name="Name" value="minDist"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_widget.html#aff7ceebcce6eacc04cfbed16cb417158"><param name="Name" value="mouseDoubleClickEvent"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a2b0d4882ae9ac4b708d88de26c9578ba"><param name="Name" value="mousePressEvent"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_custom_slider.html#a2b0d4882ae9ac4b708d88de26c9578ba"><param name="Name" value="CustomSlider"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_widget.html#a2ad2fa38f5cf82938f50eaba9ddc6173"><param name="Name" value="VideoWidget"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html"><param name="Name" value="MyMessageOutput"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#a60496a30de49e73479abfdceb0fb1e89"><param name="Name" value="errorMessage"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#a38e6807929db5f73b14d6c1d13bdcd71"><param name="Name" value="installMesageHandler"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#a35a269bf867f347dc252b72a669d9494"><param name="Name" value="logMessage"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#a434b00f4cbaa00003944df34bcc54241"><param name="Name" value="MyMessageOutput"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#af8a87336aba308cc83744e7baa298624"><param name="Name" value="pMyMessageOutput"></OBJECT>
-  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a0c89947a98e84f4423c0b19b443f5d46"><param name="Name" value="myMessageOutput"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_sql_table_model.html"><param name="Name" value="MySqlTableModel"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_sql_table_model.html#ac6a066535d9c183b28710f8e8fc616bd"><param name="Name" value="data"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_sql_table_model.html#ad08ebbe732d911b5bd17f8280cbcda43"><param name="Name" value="MySqlTableModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_sql_table_model.html#a625c9567e0060469977695e2c5996730"><param name="Name" value="~MySqlTableModel"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classmy_text_browser.html"><param name="Name" value="myTextBrowser"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a903058e94ace524942fa08f2d9304bc4"><param name="Name" value="name"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classmy_text_browser.html#aa4b4c9033e6d91b97e5da5a9f3092dd3"><param name="Name" value="contextMenuEvent"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classmy_text_browser.html#a6f0061e2e7f22552638f5211bdb0da5a"><param name="Name" value="myTextBrowser"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a903058e94ace524942fa08f2d9304bc4"><param name="Name" value="CkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#af962d8dc933caf0a9c7742bc44b29548"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#add21fbc076ecbe5b4de479b426ad29bd"><param name="Name" value="SensorDevice"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a3b98b9310aefb2f07004279866a89d66"><param name="Name" value="num_height_max"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a4e1fbb65bf83ac20151c5ce9a66f272a"><param name="Name" value="num_height_min"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#afabd38c55186e33bc38e6a32301a9f9b"><param name="Name" value="num_width_max"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a41d5767b1b7d06d574dafeea2b032d62"><param name="Name" value="num_width_min"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#ae941eb0aa4d8f2ac4638fa846d8321a2"><param name="Name" value="names"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#ae941eb0aa4d8f2ac4638fa846d8321a2"><param name="Name" value="CkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a062401268f20ec88117c0a08c867670d"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#abb7d81bf98c82e0b9f3c46a8055a9b7a"><param name="Name" value="SensorDevice"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7aade9b23a74b5e5101ab054e38a56a61d"><param name="Name" value="NeedCheck"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a86e56e6e908524cd1c27425f74b173a4"><param name="Name" value="needHandled"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348"><param name="Name" value="NegativeEdge"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea"><param name="Name" value="newCkp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a1bbbad154caab9065e9a6aebf696a11b"><param name="Name" value="newWheel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a1bbbad154caab9065e9a6aebf696a11b"><param name="Name" value="CkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a679f792ce4dba08c394aa4cd506fb2ae"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a3b67e95ea619719648481f76c2ae1b18"><param name="Name" value="SensorDevice"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a637ca8d507772dc5a9bc8a4e449231c7ace4886c3da21eb2c34f0c8c217dd2503"><param name="Name" value="NoNeedCheck"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a4667ebebacc6cfce173c41066d20f2eb"><param name="Name" value="nTri"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a8916452b2bb9ddda8088fe6f63cc5043"><param name="Name" value="num"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a3d45a883fb8b19ed1ca2cd836c72da1c"><param name="Name" value="num_height_max"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#afcdcef83971364114b707fbce6ab0ac6"><param name="Name" value="num_height_min"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#ad15d282d7d634083cab46f56d96dbf39"><param name="Name" value="num_width_max"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#adff4d0e700c65ec5aa18bb30832eee9e"><param name="Name" value="num_width_min"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html"><param name="Name" value="OCR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ocr_8h.html#ad63eb931690b7175233c28ac56c3c6dd"><param name="Name" value="ocr.h"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html"><param name="Name" value="OCR"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a5d1bb59b769007938a8274ab9500fe48"><param name="Name" value="core_ocr"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#ab6db0189309d6dee811e7918e45a4c97"><param name="Name" value="get_final_result"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a80c4d5393a490ce44b90180271dc840a"><param name="Name" value="p"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a5005daddcad6568306b0e49b3cdae8c3"><param name="Name" value="OCR"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a79cfabc25c245f8f7df49dca4801f219"><param name="Name" value="resetOcr"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a83780a02419e348bfeb8d12973b3642b"><param name="Name" value="size"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html"><param name="Name" value="ocr_parameters"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a3b98b9310aefb2f07004279866a89d66"><param name="Name" value="num_height_max"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a4e1fbb65bf83ac20151c5ce9a66f272a"><param name="Name" value="num_height_min"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#afabd38c55186e33bc38e6a32301a9f9b"><param name="Name" value="num_width_max"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a41d5767b1b7d06d574dafeea2b032d62"><param name="Name" value="num_width_min"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#afaa1dd50d04a828c743b8bc84137232c"><param name="Name" value="plate_height_max"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a49baabd8f7d5cc196fddc7a062bf3e23"><param name="Name" value="plate_height_min"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a00174596f8d611040460594652a28009"><param name="Name" value="plate_width_max"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#aeefe7643cbee590f65fb19689cef8173"><param name="Name" value="plate_width_min"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#aed24fd0fd5afee0d77d61a461252ceed"><param name="Name" value="plate_x_max"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#af5507fa84ad4f04d58a34d88d1053ee4"><param name="Name" value="plate_x_min"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#adc5fb2606bbf1703af24f199ed9dc08b"><param name="Name" value="plate_y_max"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#aa2fe94780870d849e99c65c42cedfd03"><param name="Name" value="plate_y_min"></OBJECT>
-  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ocr_8h.html#ad63eb931690b7175233c28ac56c3c6dd"><param name="Name" value="OCR_MISS"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a98bb5531df73660f1a4c1f181eedd88c"><param name="Name" value="ocrDirPath"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#acddaec1bc9466dc471df6f1479137704"><param name="Name" value="ocrPatternDirPath"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html"><param name="Name" value="OutlierDetection"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html#ad58659af0f420ff763589b0c5bc939b3"><param name="Name" value="Grubbs"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html#a990da66288dbdfd5f653a6d942c844f3"><param name="Name" value="mean"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html#a1135329c956ae9aee4b08a3d088a6332"><param name="Name" value="stDev"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a98bb5531df73660f1a4c1f181eedd88c"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a98bb5531df73660f1a4c1f181eedd88c"><param name="Name" value="main.cpp"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#acddaec1bc9466dc471df6f1479137704"><param name="Name" value="ocrPatternDirPath"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#acddaec1bc9466dc471df6f1479137704"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#acddaec1bc9466dc471df6f1479137704"><param name="Name" value="main.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html"><param name="Name" value="OcrProfile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8cpp.html"><param name="Name" value="ocrprofile.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8cpp.html#a203acb6e8f18c2c368731d2714722388"><param name="Name" value="operator<<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8cpp.html#abc33781766f67258d6b3cda229edac5e"><param name="Name" value="operator>>"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8h.html"><param name="Name" value="ocrprofile.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8h.html#a203acb6e8f18c2c368731d2714722388"><param name="Name" value="operator<<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8h.html#abc33781766f67258d6b3cda229edac5e"><param name="Name" value="operator>>"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_dev_spec.html#aaa0fa35e85c207cec5d35065ef07cfed"><param name="Name" value="ocrProfile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html"><param name="Name" value="OcrProfile"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a3d45a883fb8b19ed1ca2cd836c72da1c"><param name="Name" value="num_height_max"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#afcdcef83971364114b707fbce6ab0ac6"><param name="Name" value="num_height_min"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#ad15d282d7d634083cab46f56d96dbf39"><param name="Name" value="num_width_max"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#adff4d0e700c65ec5aa18bb30832eee9e"><param name="Name" value="num_width_min"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a188e7754051660595e868a5d24165f24"><param name="Name" value="plate_height_max"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a1d7c5806410d1716cf55be31e3625288"><param name="Name" value="plate_height_min"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a6844f3386fc26c447df47533b2d1b653"><param name="Name" value="plate_width_max"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#ace4677abf62d4daede0747c1d45857aa"><param name="Name" value="plate_width_min"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a9dbeae2c4d98e35544e27fddbee1c87f"><param name="Name" value="plate_x_max"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#ae56e709bcaceff2f934d044d604d88b5"><param name="Name" value="plate_x_min"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a1dc6c83e22df80a43c4f29d142e6d3a0"><param name="Name" value="plate_y_max"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a484eb61bf662829fab9a5a01da3c6fad"><param name="Name" value="plate_y_min"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#ad8ea8e08cbb58f268d06186a12c44aca"><param name="Name" value="ocrsize"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834ad15305d7a4e34e02489c74a5ef542f36"><param name="Name" value="Off"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#a66d764b8f94e1547100028927d224aea"><param name="Name" value="onCkpTri"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#ac63fabcfc799aecf81f044d41bc7f3f4"><param name="Name" value="onHardwareAlarm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a2a2689d411a382a27f8fa7b84585f306"><param name="Name" value="onSensorIN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af2285e1cf441de21ee315fd59b69fdac"><param name="Name" value="onSensorOUT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ac7ec277a9341197c7bfd85be85e4ccf0"><param name="Name" value="onWheelTimeout"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8cpp.html#ae28f9d10402fb4c5f2606289f7ccf0bc"><param name="Name" value="operator<<"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8cpp.html#ae28f9d10402fb4c5f2606289f7ccf0bc"><param name="Name" value="camprofile.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8h.html#ae28f9d10402fb4c5f2606289f7ccf0bc"><param name="Name" value="camprofile.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8cpp.html#a9d1c03f99f471a4da3e904bd72b4a051"><param name="Name" value="improfile.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8h.html#a9d1c03f99f471a4da3e904bd72b4a051"><param name="Name" value="improfile.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8cpp.html#a203acb6e8f18c2c368731d2714722388"><param name="Name" value="ocrprofile.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8h.html#a203acb6e8f18c2c368731d2714722388"><param name="Name" value="ocrprofile.h"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8cpp.html#a9e41c2c3b9c9ade6f8874c9a07e2b34c"><param name="Name" value="operator>>"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8cpp.html#a9e41c2c3b9c9ade6f8874c9a07e2b34c"><param name="Name" value="camprofile.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="camprofile_8h.html#a9e41c2c3b9c9ade6f8874c9a07e2b34c"><param name="Name" value="camprofile.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8cpp.html#afc0bbe35ff9a1fc747ac9da4f03cf001"><param name="Name" value="improfile.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="improfile_8h.html#afc0bbe35ff9a1fc747ac9da4f03cf001"><param name="Name" value="improfile.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8cpp.html#abc33781766f67258d6b3cda229edac5e"><param name="Name" value="ocrprofile.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ocrprofile_8h.html#abc33781766f67258d6b3cda229edac5e"><param name="Name" value="ocrprofile.h"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf"><param name="Name" value="Outer_Alarm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa532aecd3d4f27956ce0b922f8476eee"><param name="Name" value="Outer_Improc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bcaa8e6fdbdd61947777a996a49bf09025e"><param name="Name" value="Outer_Sensor"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46"><param name="Name" value="Outer_Warn"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html"><param name="Name" value="OutlierHelper"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#a15110f2e9b10b243ba072ca08accfc32"><param name="Name" value="mean"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#a0995a7aaac6a9e3b0e31a1d26c4822db"><param name="Name" value="reject"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#ae96c240438ee24239785bb7584cbbb38"><param name="Name" value="OutlierHelper"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#ac8d720064a0c39c9178417c5077cfa43"><param name="Name" value="removeOutliers"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#a329143b98163a03aa80a2950b3b1d8cf"><param name="Name" value="stDev"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#abcdc45be935821173222cb6c960dfdeb"><param name="Name" value="~OutlierHelper"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a80c4d5393a490ce44b90180271dc840a"><param name="Name" value="p"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_q_preview_widget.html#a8d833acda036ac51cc5c1b0ce1a59517"><param name="Name" value="paintEvent"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ab82d8a6bb9d582b22c8e8505c58fc371"><param name="Name" value="param1"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ac90a69ecdaaca77585fe6ffec95783ac"><param name="Name" value="param2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411"><param name="Name" value="OutOfRange"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a921b476664441309c914b58331ead364"><param name="Name" value="param1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ac84186e94a1900eaf9f2a6e1a7ab3014"><param name="Name" value="param2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a56a0ffda1ceedd2bc85548c77cebd7fc"><param name="Name" value="parentCkPt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a19532657da6670b50a16f7d0a601e9bb"><param name="Name" value="parentDev"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_backup_info.html#a0c821a66542387252d525ef6ca367dc0"><param name="Name" value="path"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#aa7749254cf909d029127d4622670c522"><param name="Name" value="pause"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#afaa1dd50d04a828c743b8bc84137232c"><param name="Name" value="plate_height_max"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a49baabd8f7d5cc196fddc7a062bf3e23"><param name="Name" value="plate_height_min"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#a00174596f8d611040460594652a28009"><param name="Name" value="plate_width_max"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#aeefe7643cbee590f65fb19689cef8173"><param name="Name" value="plate_width_min"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#aed24fd0fd5afee0d77d61a461252ceed"><param name="Name" value="plate_x_max"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#af5507fa84ad4f04d58a34d88d1053ee4"><param name="Name" value="plate_x_min"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#adc5fb2606bbf1703af24f199ed9dc08b"><param name="Name" value="plate_y_max"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structocr__parameters.html#aa2fe94780870d849e99c65c42cedfd03"><param name="Name" value="plate_y_min"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#abe47a6249acafc7dfd993df31946b1b1"><param name="Name" value="pc2plc_portName"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a188e7754051660595e868a5d24165f24"><param name="Name" value="plate_height_max"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a1d7c5806410d1716cf55be31e3625288"><param name="Name" value="plate_height_min"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a6844f3386fc26c447df47533b2d1b653"><param name="Name" value="plate_width_max"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#ace4677abf62d4daede0747c1d45857aa"><param name="Name" value="plate_width_min"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a9dbeae2c4d98e35544e27fddbee1c87f"><param name="Name" value="plate_x_max"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#ae56e709bcaceff2f934d044d604d88b5"><param name="Name" value="plate_x_min"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a1dc6c83e22df80a43c4f29d142e6d3a0"><param name="Name" value="plate_y_max"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_ocr_profile.html#a484eb61bf662829fab9a5a01da3c6fad"><param name="Name" value="plate_y_min"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a8cd819ec3812c26e038e74426bc2b90f"><param name="Name" value="play"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html"><param name="Name" value="PlayBackWidget"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a7b0958874f02a3a6edfd79a85d7c5188"><param name="Name" value="clearMedia"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a99c60dd024fcdfc77182747bcb2d25c5"><param name="Name" value="alarmModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a462ae0ce1fd694d9cc60c3f734a15cdd"><param name="Name" value="alarmView"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#ac35e4232a7c1cce855e21def94308ad9"><param name="Name" value="allModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#aeb734152a79a362eeeedcfc7bdc0dbd1"><param name="Name" value="clearAlarm"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a6dd67d2767c0aeb3f1e53d02ed47c6c2"><param name="Name" value="clearMedia"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a4592fd5be9f975544be77a7263d4face"><param name="Name" value="dbChanged"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#ad372e3ed644bd1b3aca066fe6a8bc44b"><param name="Name" value="hasAlarm"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#aadceb04a8dab25ebd50d16ba99d4b6fc"><param name="Name" value="PlayBackWidget"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#ac304a69a7fa61d287590649a450ab4ca"><param name="Name" value="setAlarmLight"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a7d562b7d5defc99bd6384768c8dea6d3"><param name="Name" value="selectTableCb"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#aad9ed53e29cf516c632e0984e0fd452c"><param name="Name" value="~PlayBackWidget"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html"><param name="Name" value="Player"></OBJECT>
   <UL>
@@ -338,128 +709,162 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a8cd819ec3812c26e038e74426bc2b90f"><param name="Name" value="play"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a9254d78bab5919f1ce71366b498791a5"><param name="Name" value="Player"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a85dda573e6b2b5f4f7bdf930b0c496f4"><param name="Name" value="setUrl"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a749d2c00e1fe0f5c2746f7505a58c062"><param name="Name" value="~Player"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_player.html#a2b9fb2b2ec99bdad1b98fe333fec4d0b"><param name="Name" value="playHandle"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html"><param name="Name" value="PLCSerial"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html"><param name="Name" value="Plc"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#ad6e6b8b086a075bcedca9a6c0170c75b"><param name="Name" value="ADdisconnected"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a14ed38fb301f578dd08c5a43c5c8d9a4"><param name="Name" value="ADSpeedReady"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a83e1e87c16d8eeb054949df6be6cb702"><param name="Name" value="Alarm"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a4d1997fdfe6084001cf1f493613ad77c"><param name="Name" value="connectPLC"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a7895893e4350c3e6d4958e6802c55f42"><param name="Name" value="disconnectPLC"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#ae850896f971b1a211418f3d2b2b79585"><param name="Name" value="init"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a7a164ca93feeb0f90d6d2955c745041d"><param name="Name" value="isConnectPLC"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a28fb2031b97b1d6dbbbb52d720030449"><param name="Name" value="isDisconnectPLC"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a51435586a9b40b0b0652193f7f5495f7"><param name="Name" value="PLCSerial"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#ab04b572ff20e19a6a35c3c67345ac418"><param name="Name" value="sensorIN"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#ad0f97c6b39712c523b47f29a79506b30"><param name="Name" value="sensorOUT"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#accdebcf51ac81c94d5d3700c1c9edcd0"><param name="Name" value="setUiAlarm"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a52a2f9976aced26859aadb9670d12a4f"><param name="Name" value="speedAD"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a7a0bfa84c4d0b4610cda92102d8d54a0"><param name="Name" value="adInterval"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a6f99f1f3a90a49531f372d0e182872c6"><param name="Name" value="cio0Update"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#ac5213403a3aba0c8c6f2a12c3e2d4fa5"><param name="Name" value="connect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a14ee604a83d89ea5f96288db01d60a84"><param name="Name" value="connectError"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a2432a7c4b2bee31da9b2a933d2747ba4"><param name="Name" value="getTruckSpeed"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a35269fbd5ff006347fc3d29e0a8ebcdf"><param name="Name" value="handleSensorDevice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a230190ee27d360a02576184d3450e8d6"><param name="Name" value="Plc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#abf51268db3f1eca2b9bb139bf75b83d9"><param name="Name" value="sendAlarmToControlCenter"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a53d31f51484e39fc320b02be053de157"><param name="Name" value="start"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#abf9c8532cb72ba8c88437f50f2631d13"><param name="Name" value="stop"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#acf7098f35958347aeea9abbc7371375f"><param name="Name" value="truckSpeedError"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#adeaecb0eaf8a1d72f01348ca4e7918d1"><param name="Name" value="truckSpeedReady"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a25b79d6b196b888dc2d80c5e98b9e733"><param name="Name" value="~Plc"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_message_output.html#af8a87336aba308cc83744e7baa298624"><param name="Name" value="pMyMessageOutput"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_char_segment.html#a1ed00d0e9995381fd74e646cedff2516"><param name="Name" value="pos"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a2707367a53f85dc0f923d282916c471a"><param name="Name" value="pRawImage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_test_video.html#a9afef8f64e2368596a842637c44de20e"><param name="Name" value="processReady"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74"><param name="Name" value="PositiveEdge"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#abe3b37a218cfb145f889377e5508e5ee"><param name="Name" value="PRODUCT_NAME"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a127f5d9b86ce88816dc38c8a13988f79"><param name="Name" value="PRODUCT_VER"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a32e468f0a2d8040e52caffcaf4315c69"><param name="Name" value="pVideoCapture"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_q_preview_widget.html"><param name="Name" value="QPreviewWidget"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_q_preview_widget.html#a8d833acda036ac51cc5c1b0ce1a59517"><param name="Name" value="paintEvent"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_q_preview_widget.html#a3b46fe223f7d62d3acad0815268b07d2"><param name="Name" value="QPreviewWidget"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ae482439795473200f1dee14277c5e845"><param name="Name" value="radius_max"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a390d9e4abf4e11a2f103a73db2f656ce"><param name="Name" value="radius_min"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#a0995a7aaac6a9e3b0e31a1d26c4822db"><param name="Name" value="reject"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#a918eef12048f9de233aef9a16a1e9883"><param name="Name" value="push"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#aca763d3940de1b731fb1dce4531593f5"><param name="Name" value="radius_max"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a6697334a9fbed69e58f11dd5464ae180"><param name="Name" value="radius_min"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a64fce4fd6e2a9df32950c6bac6891f66"><param name="Name" value="read"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ad46bb13231338d97325d74e7f1e79f00"><param name="Name" value="recordOFF"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ace04c9f5505d7644b8aab786ff5d3f65"><param name="Name" value="recordON"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a1ed1fa642b70117ce0b6bcb06139a7e4"><param name="Name" value="recordTimeout"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47"><param name="Name" value="Red"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a06da43ab369c21a8f280e902ecaadd24"><param name="Name" value="refspeed"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#ac8d720064a0c39c9178417c5077cfa43"><param name="Name" value="removeOutliers"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d"><param name="Name" value="Reset"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a79cfabc25c245f8f7df49dca4801f219"><param name="Name" value="resetOcr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="resource_8h.html#a455fef2a9349aae3af8ef8f24f6fc9d8"><param name="Name" value="resource.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html"><param name="Name" value="RobustMatcher"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="robustmatcher_8cpp.html#ae71449b1cc6e6250b91f539153a7a0d3"><param name="Name" value="robustmatcher.cpp"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html"><param name="Name" value="RobustMatcher"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#a3a3d8cc3dd50745dff88473e5762e53e"><param name="Name" value="getMask"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#a82e48616acf567b5e8f34fa6c8782db4"><param name="Name" value="match"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#a00bcb865bcc240ec0df38cecf5243f5e"><param name="Name" value="match"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#a78641d08f99564cdf67a7a3f8d544f71"><param name="Name" value="RobustMatcher"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#ae8831ade1c296513fcad9764a05d3328"><param name="Name" value="~RobustMatcher"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_setting_dialog.html#afc2bccbc7589fc8cdb17e619b09b6eaa"><param name="Name" value="roiChanged"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#a92796dd7f9e3a30f63c9fc4db400ed4b"><param name="Name" value="roiRect"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#a6eb439e70a38721a1d8447fa7f5872fd"><param name="Name" value="run"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ab77163a2e71a2503dd90e721d37d8aa4"><param name="Name" value="saveStopped"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_test_video.html#adc4b416b5abfabca1b4a2a18c2c54308"><param name="Name" value="sendVideoFrame"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#acc3840d2491affded8818d08d07b8aa4"><param name="Name" value="sensorIN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ae0436a17c44ab16366c7addf288ec219"><param name="Name" value="roiRect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a12be80cf7102fa5a1f6488c29733cf88"><param name="Name" value="sample"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a04045b5b36ae2dd26465ab6ad5949018"><param name="Name" value="save"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#a7d562b7d5defc99bd6384768c8dea6d3"><param name="Name" value="selectTableCb"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#abf51268db3f1eca2b9bb139bf75b83d9"><param name="Name" value="sendAlarmToControlCenter"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html"><param name="Name" value="Sensor"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#acc3840d2491affded8818d08d07b8aa4"><param name="Name" value="ImageProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#ab04b572ff20e19a6a35c3c67345ac418"><param name="Name" value="PLCSerial"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a162de5c0d5d4b8235aa25a474002f594"><param name="Name" value="broken"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a03b33db349b28448615318739bc9101f"><param name="Name" value="createAll"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a1a614aaa89d6b4077cf0b7265649339b"><param name="Name" value="expected"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a234572fa1d52f50a2a3fe349022bd9bd"><param name="Name" value="id"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a3ed288f1dbf4b0fbe66038e969804843"><param name="Name" value="id_gb2mem"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a2d3ac12a2a7c609be7fd7ce3bd5d4c9b"><param name="Name" value="indexOf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a84bc35cfba92eb579bc311b3c8b2980d"><param name="Name" value="init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a3d1ebe0e05e5d75604330a70d3acf9e5"><param name="Name" value="m_id"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#af962d8dc933caf0a9c7742bc44b29548"><param name="Name" value="name"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a062401268f20ec88117c0a08c867670d"><param name="Name" value="names"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a679f792ce4dba08c394aa4cd506fb2ae"><param name="Name" value="newWheel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a4667ebebacc6cfce173c41066d20f2eb"><param name="Name" value="nTri"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a56a0ffda1ceedd2bc85548c77cebd7fc"><param name="Name" value="parentCkPt"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a12be80cf7102fa5a1f6488c29733cf88"><param name="Name" value="sample"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#a297b58d8d5cfecb5a4c569a55129ce9e"><param name="Name" value="Sensor"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#af890760e92f0526cc6d1de67837bbee3"><param name="Name" value="show_id"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ae384839342b8d67f357447cee8e5089a"><param name="Name" value="sensorOUT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html"><param name="Name" value="SensorDevice"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ae384839342b8d67f357447cee8e5089a"><param name="Name" value="ImageProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#ad0f97c6b39712c523b47f29a79506b30"><param name="Name" value="PLCSerial"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a016f2950b9f99b0f5093fd0bd74850e7"><param name="Name" value="ckpts"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#ac71d0c34ea8d46a135299f14d56f71e8"><param name="Name" value="createAll"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a229042a02989323d6388dd6037a35384"><param name="Name" value="id"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a0ae6c95bcdc8d5666a8dd9900d85196d"><param name="Name" value="indexOf"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a451e1e696ef7d6a02bc5b3e418b59acc"><param name="Name" value="init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a413a879ab20b538cff7ec754ca8f552d"><param name="Name" value="m_id"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#add21fbc076ecbe5b4de479b426ad29bd"><param name="Name" value="name"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#abb7d81bf98c82e0b9f3c46a8055a9b7a"><param name="Name" value="names"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a86e56e6e908524cd1c27425f74b173a4"><param name="Name" value="needHandled"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a3b67e95ea619719648481f76c2ae1b18"><param name="Name" value="newWheel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a31ba196824ad72ac7e0fc960deb8bfa9"><param name="Name" value="SensorDevice"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a86594b84858de9265f533c26af206b4a"><param name="Name" value="~SensorDevice"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#aafed91fb4be38b11807550990a1411fb"><param name="Name" value="sensorTriggered"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a2e5290ae62b91db0e3ac7ffbe97758d3"><param name="Name" value="setAlarm"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#adb6a26c36d1fa65006cc41187b38a1b4"><param name="Name" value="setAlarmLight"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#adb6a26c36d1fa65006cc41187b38a1b4"><param name="Name" value="ImageProcess"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#ac304a69a7fa61d287590649a450ab4ca"><param name="Name" value="PlayBackWidget"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#a76896257a71781b9bf69f6cb5d03dd74"><param name="Name" value="setDesDirPath"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_file_worker.html#a22d670c1374fa75be748d5cc4edb3f59"><param name="Name" value="setPgDlgValue"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_file_worker.html#af1d3f604b9bcae1caed66794a53a6c63"><param name="Name" value="setProgressDialog"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_copy_thread.html#a04a067967b65a528d49a28157fe2a810"><param name="Name" value="setSrcDirPath"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a1fff98cebcd0d02f8cad10310a2d3ed2"><param name="Name" value="sensors"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#ada7e3e46b79d71e0edcb85cc03d38a51"><param name="Name" value="sensorTriggered"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a4b16afcd6b6fea22d29862cbd7a64554"><param name="Name" value="sensorUpdate"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_setting_dialog.html"><param name="Name" value="SettingDialog"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_setting_dialog.html#afc2bccbc7589fc8cdb17e619b09b6eaa"><param name="Name" value="roiChanged"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_setting_dialog.html#a5358a5468d1494b91619e8938ce1689b"><param name="Name" value="SettingDialog"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_setting_dialog.html#af322e721867c2b24feb25cd2c2ba3ff5"><param name="Name" value="SettingDialog"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_setting_dialog.html#a9bfa278550d23df3f5e944989b0b0f54"><param name="Name" value="~SettingDialog"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#accdebcf51ac81c94d5d3700c1c9edcd0"><param name="Name" value="setUiAlarm"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#aee6a9b623426e6097d223fcfc8d8fb55"><param name="Name" value="setupModel"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a85dda573e6b2b5f4f7bdf930b0c496f4"><param name="Name" value="setUrl"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a85dda573e6b2b5f4f7bdf930b0c496f4"><param name="Name" value="Player"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_player.html#a6a35c14dfafacaf07283a36aff06669a"><param name="Name" value="VideoPlayer"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#abe1bea3976de7f28a4f140e49f480717"><param name="Name" value="showAlarmNum"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af2d7fa150390bdae381f2de3225e08c6"><param name="Name" value="showImageMatches"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a380d4492f2286145a34e6a5916bc05f4"><param name="Name" value="showRealtimeImage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a67c005e474a49b4249a477341d179ebb"><param name="Name" value="showWheelNum"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#af0ea3ca1796557e51067f5f7415d04b9"><param name="Name" value="showWheelSpeed"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor.html#af890760e92f0526cc6d1de67837bbee3"><param name="Name" value="show_id"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a55d80e5566558f4c9146573239f904de"><param name="Name" value="showAlarmLightToUi"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a213979463b7f205ba09f095c4e318124"><param name="Name" value="showCio100ToUi"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#ab9895e76b0b6a0c4525c38a355c805c8"><param name="Name" value="showError_i"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#ad812d53580b9af78d53de719188ea327"><param name="Name" value="showError_o"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a4b7d6c8bc1ec403a848260e9c1587cd9"><param name="Name" value="showFrame"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#afde5339b87f2e29683b567f298bf5c89"><param name="Name" value="showMatch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a3b4d8431b71a981c3deb72836f5323c1"><param name="Name" value="showNum_i"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a5727c94eb5d81b236f0de7ab57daced1"><param name="Name" value="showNum_o"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#aab6cc4a610ba2f389bbab701b5d377cf"><param name="Name" value="showSpeed_i"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a512d4492a9c02ed1afea872e8e4fffb7"><param name="Name" value="showSpeed_o"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_o_c_r.html#a83780a02419e348bfeb8d12973b3642b"><param name="Name" value="size"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_p_l_c_serial.html#a52a2f9976aced26859aadb9670d12a4f"><param name="Name" value="speedAD"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ad8ecd855c0eafd6d9609bb89508c0bb5"><param name="Name" value="startCap"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html"><param name="Name" value="SpeedIntegrator"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#ad8ecd855c0eafd6d9609bb89508c0bb5"><param name="Name" value="HikVideoCapture"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a33caba794cd86759b77a2a4ab9419773"><param name="Name" value="MainWindow"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#a5a3c3fcf4cf833b11d897c9dea305c82"><param name="Name" value="expectTriBegin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#aaabda4cff9d78b288286796cd4690228"><param name="Name" value="expectTriEnd"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#a66d764b8f94e1547100028927d224aea"><param name="Name" value="onCkpTri"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#aa7f2b002b46cf36d489558b59ed90388"><param name="Name" value="SpeedIntegrator"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#ada2cd17f8fbcb20abe6b17ce7e0ed915"><param name="Name" value="start"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#a6e1d4a9a0e409e7cd2e8b4f103439fe4"><param name="Name" value="stop"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#a2831c10b9d9d554f03ae46542c29357d"><param name="Name" value="~SpeedIntegrator"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a887dd268c1208da22fc986fc896d90bb"><param name="Name" value="startImageProcess"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a75df7504f57a096432ad465729d43c70"><param name="Name" value="startProcess"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a8a0afa28751985dba8f8b1fb7b5acd35"><param name="Name" value="startSave"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html#a1135329c956ae9aee4b08a3d088a6332"><param name="Name" value="stDev"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a0c02cf2107db2bc81194d0f20aa14b4e"><param name="Name" value="speeds"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a0359300ea41ac46d327d9f5229465dd3"><param name="Name" value="start"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_detection.html#a1135329c956ae9aee4b08a3d088a6332"><param name="Name" value="OutlierDetection"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#a329143b98163a03aa80a2950b3b1d8cf"><param name="Name" value="OutlierHelper"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a0359300ea41ac46d327d9f5229465dd3"><param name="Name" value="HikVideoCapture"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ae062ab8a591f9a897a8275274afbdb2a"><param name="Name" value="ImageProcess"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a53d31f51484e39fc320b02be053de157"><param name="Name" value="Plc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#ada2cd17f8fbcb20abe6b17ce7e0ed915"><param name="Name" value="SpeedIntegrator"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#aaf2995f1ef47b773f24b80a1f43bb0aa"><param name="Name" value="stopCap"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a959b2ee878bc13961b7b75de2c7954cf"><param name="Name" value="startAtLaunch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#acc36761db4a20a203a6ce9675150a5bc"><param name="Name" value="startRecord"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#aa9e7d005f90132d6e7e093653a3ae513"><param name="Name" value="state"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#a329143b98163a03aa80a2950b3b1d8cf"><param name="Name" value="stDev"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a895409c64a795d7285dcee5c7d59fdd7"><param name="Name" value="stop"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#aaf2995f1ef47b773f24b80a1f43bb0aa"><param name="Name" value="HikVideoCapture"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#aa7547d797699bb7f5a2ebc3411b8dcfe"><param name="Name" value="MainWindow"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a895409c64a795d7285dcee5c7d59fdd7"><param name="Name" value="HikVideoCapture"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a27683908ba42359d3c45d2cd31af0b72"><param name="Name" value="ImageProcess"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#abf9c8532cb72ba8c88437f50f2631d13"><param name="Name" value="Plc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#a6e1d4a9a0e409e7cd2e8b4f103439fe4"><param name="Name" value="SpeedIntegrator"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#afe2901e3b25c3f797aca92473f0cd503"><param name="Name" value="stopImageProcess"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#ac84a97e82da9dd0dd2b7241ecbca6848"><param name="Name" value="stopProcess"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#aafb6e580cff5b9416f1ee0d01f5ed776"><param name="Name" value="stopSave"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a06da0c6f26c898bf246e3cff301c8396"><param name="Name" value="syncCameraTime"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a54e59300970792d0110a4371526e5ea5"><param name="Name" value="SyncCameraTime"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_test_video.html"><param name="Name" value="TestVideo"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_test_video.html#a9afef8f64e2368596a842637c44de20e"><param name="Name" value="processReady"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_test_video.html#adc4b416b5abfabca1b4a2a18c2c54308"><param name="Name" value="sendVideoFrame"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_test_video.html#a219942b4b93789810e02642d5cf5e41d"><param name="Name" value="TestVideo"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#af2d2dc4ee712b5f86220e431a0fa3d08"><param name="Name" value="THEAD_CONNECTION_NAME"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a4579213b58ec7d6999755e78a48d9ff8"><param name="Name" value="stopRecord"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a6d07f515f68c9c0819a14ab2afefa97d"><param name="Name" value="syncCameraTime"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a62093bf6e1e60260ac3441852e3508f5"><param name="Name" value="time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a18c5b6628f2c1c164ba3a1f424f98d23"><param name="Name" value="totalmatch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a4eb776d5c0371a091fbac629f64e55cc"><param name="Name" value="triInt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_ck_pt.html#a67a101d39c9ee8d8113f82905fb018f9"><param name="Name" value="triTiming"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#acf7098f35958347aeea9abbc7371375f"><param name="Name" value="truckSpeedError"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#adeaecb0eaf8a1d72f01348ca4e7918d1"><param name="Name" value="truckSpeedReady"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#afa3fc9e034fa98830e87246246d73e0e"><param name="Name" value="uiShowAlarmLight"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a960ef266d511ed4e10820a3106d23e69"><param name="Name" value="uiShowCio100"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a5af6ee21b93fe8660960c6e0ed9ca989"><param name="Name" value="uiShowError_i"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a08c36c996ee5b67ffbb4b0c5f1d18ea6"><param name="Name" value="uiShowError_o"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#af5608598b812a3f37e52f9e68df10f52"><param name="Name" value="uiShowNum_i"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a6b59764d9fff055d3a40148b5efe393c"><param name="Name" value="uiShowNum_o"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a0b254bab7ba45e2870484474a063afb2"><param name="Name" value="uiShowSpeed_i"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#a56c37dd56a54c1e0e4cea19073bd2895"><param name="Name" value="uiShowSpeed_o"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a777358f6554241fd6bb9110bf267b3ac"><param name="Name" value="Unkown"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a21d02e75169f0932fd742dfedd580173"><param name="Name" value="validmatch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a76b3bf0b3940128f7dfd2e5fb84983fc"><param name="Name" value="verboseLog"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a3c8467c4addcfd3ee40b1439311d1349"><param name="Name" value="videoDirPath"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_player.html"><param name="Name" value="VideoPlayer"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_player.html#a2b9fb2b2ec99bdad1b98fe333fec4d0b"><param name="Name" value="playHandle"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_player.html#a6a35c14dfafacaf07283a36aff06669a"><param name="Name" value="setUrl"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_player.html#ae61f7f7be7ece7f4ac598fbc55236c36"><param name="Name" value="VideoPlayer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="common_8h.html#a3c8467c4addcfd3ee40b1439311d1349"><param name="Name" value="common.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a3c8467c4addcfd3ee40b1439311d1349"><param name="Name" value="main.cpp"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a29f434c8ec982f772b50b6029288fb5a"><param name="Name" value="videoRelativeFilePath"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a7c60fb37ebdb5d0e94b54a49e6eb6157"><param name="Name" value="videopath"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_widget.html"><param name="Name" value="VideoWidget"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_widget.html#a3efa34386c146603fd2785409eab9d0f"><param name="Name" value="keyPressEvent"></OBJECT>
@@ -467,12 +872,73 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_widget.html#a2ad2fa38f5cf82938f50eaba9ddc6173"><param name="Name" value="mousePressEvent"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_video_widget.html#a31e7897e4abd9733d45753e4a2e25882"><param name="Name" value="VideoWidget"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_image_process_parameters.html#ac92c27d923b32f2732bd07aec31a55d9"><param name="Name" value="warningRatio"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#add6740325fd454ac2bad8ca005c350ee"><param name="Name" value="wheelTimeout"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_view_sensor_image.html"><param name="Name" value="ViewSensorImage"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#add6740325fd454ac2bad8ca005c350ee"><param name="Name" value="HikVideoCapture"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a48fe94c49979f5e674b95c0d50f71bc0"><param name="Name" value="ImageProcess"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_view_sensor_image.html#ac172e27b9524a707aa390cd6cdd63f43"><param name="Name" value="ViewSensorImage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_view_sensor_image.html#a38a6cf9420306239e6d91e3a960bc131"><param name="Name" value="~ViewSensorImage"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_im_profile.html#a3f88e1cfa11d6b5e9472eb71e64dc041"><param name="Name" value="warningRatio"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a9115f83e0e11c2f7aef925ad723343f9"><param name="Name" value="warnRatio"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa7d3098bf734c27723979e01fe318be33"><param name="Name" value="Wheel_AlarmLevel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa9c95cabca4e23b9d1466d9c2bcceb419"><param name="Name" value="Wheel_CalcSpeed"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa195a710313522df46012ba4da381e0b8"><param name="Name" value="Wheel_CheckState"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa741ac86003556d6f9c2ff0a5504a48f0"><param name="Name" value="Wheel_Error"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fadbab0ed30a0e5394445e98954aab467f"><param name="Name" value="Wheel_Fragment"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa8a695ce994540ce755af048da4dbbeea"><param name="Name" value="Wheel_I_O"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fac93f469e5dc9266565682cff0633a5e7"><param name="Name" value="Wheel_ID"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39faaeea91ae528ba7c2f7b2f7380a78d537"><param name="Name" value="Wheel_Num"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39faf813a99a0689420d89c99e45e3ab6993"><param name="Name" value="Wheel_OcrSize"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa550a588b8415b14535587d276309a0d2"><param name="Name" value="Wheel_RefSpeed"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fae0605f6e0144f634da6e6e875aa009d9"><param name="Name" value="Wheel_Speeds"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa067edfa29a91054fff24cb9341347880"><param name="Name" value="Wheel_Time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa1210163e5138f0b4070bf52eebb76616"><param name="Name" value="Wheel_TotalMatch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fae3dca2c74420f6bac1e955c4e21e61a2"><param name="Name" value="Wheel_ValidMatch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="database_8h.html#a9145f452b287f285038b1dae55dac39fa46f17495bcff17272ca31cda049fafde"><param name="Name" value="Wheel_VideoPath"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html"><param name="Name" value="WheelDbInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a303f95131278b2bb9d0b81c16e6d38b8"><param name="Name" value="alarmlevel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a9b7285981eab28ac5748f3669a3f6ab8"><param name="Name" value="alarmRatio"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#af17e3e7fcfa366aede4f2b1dab764ea5"><param name="Name" value="calcspeed"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#ab673ee45b8a02e9ba8aa72135ed28b6a"><param name="Name" value="checkstate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#aa409c886cb5505bbfed02bd7dc243c30"><param name="Name" value="error"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a244bfaa82dbb8eb7fb1460d252571ba1"><param name="Name" value="fragment"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#aae1177299aa4b515dbc4e5b5b04ac071"><param name="Name" value="i_o"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#af351443371b29941a357006ef27795a0"><param name="Name" value="id"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a8916452b2bb9ddda8088fe6f63cc5043"><param name="Name" value="num"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#ad8ea8e08cbb58f268d06186a12c44aca"><param name="Name" value="ocrsize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a06da43ab369c21a8f280e902ecaadd24"><param name="Name" value="refspeed"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a0c02cf2107db2bc81194d0f20aa14b4e"><param name="Name" value="speeds"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a62093bf6e1e60260ac3441852e3508f5"><param name="Name" value="time"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a18c5b6628f2c1c164ba3a1f424f98d23"><param name="Name" value="totalmatch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a21d02e75169f0932fd742dfedd580173"><param name="Name" value="validmatch"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a7c60fb37ebdb5d0e94b54a49e6eb6157"><param name="Name" value="videopath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_wheel_db_info.html#a9115f83e0e11c2f7aef925ad723343f9"><param name="Name" value="warnRatio"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#afbdc2dd52d6a0a4af46df594f9c1d48d"><param name="Name" value="wheelFallOff"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#ad0f4f919d1704ac2e6416279fbde6aa0"><param name="Name" value="wheelNeedHandled"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="_alarm_event_8h.html#a9d988e49ca7b9fee1b60ae831a255834a51e6cd92b6c45f9affdc158ecca2b8b8"><param name="Name" value="Yellow"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_l_c_d_board.html#abc6ecc7cb4e30f00a987d694612175af"><param name="Name" value="~AlarmLCDBoard"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_alarm_manager.html#a06c4f8aa74bd546b62326708aaf15982"><param name="Name" value="~AlarmManager"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_backup_log_dialog.html#a908aa32b222e2d7fb0b5714c51dbe13c"><param name="Name" value="~BackupLogDialog"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_config_helper.html#a198df438b93de320f0dd46eeeaede896"><param name="Name" value="~ConfigHelper"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_handle_sensor_device.html#a42c9040fa7c8f0ee178f018632be04d8"><param name="Name" value="~HandleSensorDevice"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hik_video_capture.html#a54a0ba8f296177df923cf5d8d9184a97"><param name="Name" value="~HikVideoCapture"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_identification.html#adfc0f9b4ad6867c277a65b6bcba8206e"><param name="Name" value="~Identification"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_image_process.html#a58756d66c3a326819df894942c0265c9"><param name="Name" value="~ImageProcess"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_level_recorder.html#ae868e1bec42b2adab2e4b6ad59a3f259"><param name="Name" value="~LevelRecorder"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_login_dialog.html#aa5d012ebc424713ca0cbd82be1f81133"><param name="Name" value="~LoginDialog"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7"><param name="Name" value="~MainWindow"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_match_viewer.html#aa073473c302a0af0a9433e20af513b23"><param name="Name" value="~MatchViewer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_my_sql_table_model.html#a625c9567e0060469977695e2c5996730"><param name="Name" value="~MySqlTableModel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_outlier_helper.html#abcdc45be935821173222cb6c960dfdeb"><param name="Name" value="~OutlierHelper"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_play_back_widget.html#aad9ed53e29cf516c632e0984e0fd452c"><param name="Name" value="~PlayBackWidget"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_player.html#a749d2c00e1fe0f5c2746f7505a58c062"><param name="Name" value="~Player"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_plc.html#a25b79d6b196b888dc2d80c5e98b9e733"><param name="Name" value="~Plc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_robust_matcher.html#ae8831ade1c296513fcad9764a05d3328"><param name="Name" value="~RobustMatcher"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_sensor_device.html#a86594b84858de9265f533c26af206b4a"><param name="Name" value="~SensorDevice"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_setting_dialog.html#a9bfa278550d23df3f5e944989b0b0f54"><param name="Name" value="~SettingDialog"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_speed_integrator.html#a2831c10b9d9d554f03ae46542c29357d"><param name="Name" value="~SpeedIntegrator"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_view_sensor_image.html#a38a6cf9420306239e6d91e3a960bc131"><param name="Name" value="~ViewSensorImage"></OBJECT>
 </UL>
 </BODY>
 </HTML>

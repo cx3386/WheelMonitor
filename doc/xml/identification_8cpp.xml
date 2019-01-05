@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="identification_8cpp" kind="file" language="C++">
+    <compoundname>identification.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="identification_8h" local="yes">identification.h</includes>
+    <includes local="no">QNetworkInterface</includes>
+    <includes local="no">intrin.h</includes>
+    <incdepgraph>
+      <node id="245">
+        <label>QObject</label>
+      </node>
+      <node id="241">
+        <label>sources/identification.cpp</label>
+        <link refid="identification_8cpp"/>
+        <childnode refid="242" relation="include">
+        </childnode>
+        <childnode refid="244" relation="include">
+        </childnode>
+        <childnode refid="246" relation="include">
+        </childnode>
+        <childnode refid="247" relation="include">
+        </childnode>
+      </node>
+      <node id="246">
+        <label>QNetworkInterface</label>
+      </node>
+      <node id="243">
+        <label>QtWidgets</label>
+      </node>
+      <node id="244">
+        <label>identification.h</label>
+        <link refid="identification_8h"/>
+        <childnode refid="245" relation="include">
+        </childnode>
+      </node>
+      <node id="242">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="243" relation="include">
+        </childnode>
+      </node>
+      <node id="247">
+        <label>intrin.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="identification_8cpp_1a73dd8abf5290fb6ad8dc3c9f75f52639" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char CPU_ID[]</definition>
+        <argsstring>[]</argsstring>
+        <name>CPU_ID</name>
+        <initializer>= &quot;BFEBFBFF506E3&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/identification.cpp" line="7" column="1" bodyfile="sources/identification.cpp" bodystart="7" bodyend="-1"/>
+        <referencedby refid="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" compoundref="identification_8cpp" startline="10" endline="18">Identification::check</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="identification_8cpp_1afae23d92b98b25305f4a96802efc11f3" prot="public" static="no" mutable="no">
+        <type>const char</type>
+        <definition>const char LOCAL_MAC[]</definition>
+        <argsstring>[]</argsstring>
+        <name>LOCAL_MAC</name>
+        <initializer>= &quot;1C:1B:0D:6C:23:B1&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/identification.cpp" line="8" column="1" bodyfile="sources/identification.cpp" bodystart="8" bodyend="-1"/>
+        <referencedby refid="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" compoundref="identification_8cpp" startline="10" endline="18">Identification::check</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="identification_8h" kindref="compound">identification.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QNetworkInterface&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;intrin.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="identification_8cpp_1a73dd8abf5290fb6ad8dc3c9f75f52639" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="identification_8cpp_1a73dd8abf5290fb6ad8dc3c9f75f52639" kindref="member">CPU_ID</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;BFEBFBFF506E3&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="8" refid="identification_8cpp_1afae23d92b98b25305f4a96802efc11f3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="identification_8cpp_1afae23d92b98b25305f4a96802efc11f3" kindref="member">LOCAL_MAC</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;1C:1B:0D:6C:23:B1&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_identification_1a829ac09ef7f43aafe7abc6f807c6df9f" kindref="member">Identification::check</ref>()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dwBuf[4];</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_identification_1a2c6a597de6b24679e755aafba5657fef" kindref="member">getCPUID</ref>(dwBuf,<sp/>1);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cpu_id<sp/>=<sp/>QString::number(dwBuf[3],<sp/>16).toUpper()<sp/>+<sp/>QString::number(dwBuf[0],<sp/>16).toUpper();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>local_mac<sp/>=<sp/><ref refid="class_identification_1aecfba4e5f0c1640f52a6e2b8e01e457e" kindref="member">getLocalMAC</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//qDebug()<sp/>&lt;&lt;<sp/>&quot;CPUID:<sp/>&quot;<sp/>&lt;&lt;<sp/>cpu_id<sp/>&lt;&lt;<sp/>&quot;MAC:<sp/>&quot;<sp/>&lt;&lt;<sp/>local_mac;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(cpu_id<sp/>==<sp/><ref refid="identification_8cpp_1a73dd8abf5290fb6ad8dc3c9f75f52639" kindref="member">CPU_ID</ref>)<sp/>&amp;&amp;<sp/>(local_mac<sp/>==<sp/><ref refid="identification_8cpp_1afae23d92b98b25305f4a96802efc11f3" kindref="member">LOCAL_MAC</ref>);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="class_identification_1a2c6a597de6b24679e755aafba5657fef" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_identification_1a2c6a597de6b24679e755aafba5657fef" kindref="member">Identification::getCPUID</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CPUInfo[4],<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>InfoType)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__GNUC__)<sp/>//<sp/>GCC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>__cpuid(InfoType,<sp/>CPUInfo[0],<sp/>CPUInfo[1],<sp/>CPUInfo[2],<sp/>CPUInfo[3]);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_MSC_VER)<sp/>//<sp/>MSVC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>_MSC_VER<sp/>&gt;=<sp/>1400<sp/>//VC2005才支持__cpuid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>__cpuid((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)CPUInfo,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)(InfoType));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_identification_1ad6429aef1faa0a8bb9bd423998bb8889" kindref="member">getCPUIDEX</ref>(CPUInfo,<sp/>InfoType,<sp/>0);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="class_identification_1ad6429aef1faa0a8bb9bd423998bb8889" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_identification_1ad6429aef1faa0a8bb9bd423998bb8889" kindref="member">Identification::getCPUIDEX</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CPUInfo[4],<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>InfoType,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ECXValue)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(_MSC_VER)<sp/>//<sp/>MSVC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(_WIN64)<sp/>//<sp/>64位下不支持内联汇编.<sp/>1600:<sp/>VS2010,<sp/>据说VC2008<sp/>SP1之后才支持__cpuidex.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>__cpuidex((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)CPUInfo,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)InfoType,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)ECXValue);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(NULL<sp/>==<sp/>CPUInfo)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>_asm<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>load.<sp/>读取参数到寄存器.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mov<sp/>edi,<sp/>CPUInfo;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mov<sp/>eax,<sp/>InfoType;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mov<sp/>ecx,<sp/>ECXValue;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CPUID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cpuid;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>save.<sp/>将寄存器保存到CPUInfo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mov[edi],<sp/>eax;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mov[edi<sp/>+<sp/>4],<sp/>ebx;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mov[edi<sp/>+<sp/>8],<sp/>ecx;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mov[edi<sp/>+<sp/>12],<sp/>edx;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="class_identification_1aecfba4e5f0c1640f52a6e2b8e01e457e" refkind="member"><highlight class="normal">QString<sp/><ref refid="class_identification_1aecfba4e5f0c1640f52a6e2b8e01e457e" kindref="member">Identification::getLocalMAC</ref>()</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QNetworkInterface&gt;<sp/>nets<sp/>=<sp/>QNetworkInterface::allInterfaces();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>local_mac;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(QNetworkInterface<sp/>ni,<sp/>nets)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(ni.humanReadableName().contains(</highlight><highlight class="stringliteral">&quot;VMware&quot;</highlight><highlight class="normal">,<sp/>Qt::CaseInsensitive)))</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((ni.humanReadableName()<sp/>==<sp/>QStringLiteral(</highlight><highlight class="stringliteral">&quot;以太网&quot;</highlight><highlight class="normal">)))<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>local_mac<sp/>=<sp/>ni.hardwareAddress();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>local_mac;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/identification.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,174 @@
+.TH "Sensor" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sensor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SensorDevice\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSensor\fP (int _id, \fBCkPt\fP *parent)"
+.br
+.ti -1c
+.RI "void \fBnewWheel\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static int \fBid_gb2mem\fP (int gid)"
+.br
+.RI "由global id获得局部id\&. "
+.ti -1c
+.RI "static int \fBindexOf\fP (QString _name)"
+.br
+.ti -1c
+.RI "static QList< \fBSensor\fP * > \fBcreateAll\fP (\fBCkPt\fP *parent)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.RI "000~111 "
+.ti -1c
+.RI "int \fBshow_id\fP"
+.br
+.RI "标记的位置，1~8 "
+.ti -1c
+.RI "int \fBm_id\fP"
+.br
+.ti -1c
+.RI "\fBCkPt\fP * \fBparentCkPt\fP"
+.br
+.ti -1c
+.RI "QString \fBname\fP"
+.br
+.ti -1c
+.RI "int \fBnTri\fP"
+.br
+.ti -1c
+.RI "bool \fBexpected\fP = false"
+.br
+.RI "记录传感器是否坏掉 "
+.ti -1c
+.RI "bool \fBbroken\fP = true"
+.br
+.RI "记录传感器是否坏掉（周期结束时更新） "
+.ti -1c
+.RI "\fBLevelRecorder\fP \fBsample\fP"
+.br
+.RI "记录传感器的采样信息 "
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const QStringList \fBnames\fP { 'left', 'right' }"
+.br
+.RI "每个检测点的传感器 "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 10 of file SensorDevice\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Sensor::Sensor (int _id, \fBCkPt\fP * parent)"
+
+.PP
+Definition at line 47 of file SensorDevice\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "QList< \fBSensor\fP * > Sensor::createAll (\fBCkPt\fP * parent)\fC [static]\fP"
+
+.PP
+Definition at line 80 of file SensorDevice\&.cpp\&.
+.SS "static int Sensor::id_gb2mem (int gid)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+由global id获得局部id\&. 
+.PP
+Definition at line 17 of file SensorDevice\&.h\&.
+.SS "static int Sensor::indexOf (QString _name)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Definition at line 18 of file SensorDevice\&.h\&.
+.SS "void Sensor::init ()"
+
+.PP
+Definition at line 95 of file SensorDevice\&.cpp\&.
+.SS "void Sensor::newWheel ()"
+
+.PP
+Definition at line 89 of file SensorDevice\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool Sensor::broken = true"
+
+.PP
+记录传感器是否坏掉（周期结束时更新） 
+.PP
+Definition at line 27 of file SensorDevice\&.h\&.
+.SS "bool Sensor::expected = false"
+
+.PP
+记录传感器是否坏掉 
+.PP
+Definition at line 26 of file SensorDevice\&.h\&.
+.SS "int Sensor::id"
+
+.PP
+000~111 
+.PP
+Definition at line 14 of file SensorDevice\&.h\&.
+.SS "int Sensor::m_id"
+
+.PP
+Definition at line 16 of file SensorDevice\&.h\&.
+.SS "QString Sensor::name"
+
+.PP
+Definition at line 24 of file SensorDevice\&.h\&.
+.SS "const QStringList Sensor::names { 'left', 'right' }\fC [static]\fP"
+
+.PP
+每个检测点的传感器 
+.PP
+Definition at line 19 of file SensorDevice\&.h\&.
+.SS "int Sensor::nTri"
+
+.PP
+Definition at line 25 of file SensorDevice\&.h\&.
+.SS "\fBCkPt\fP* Sensor::parentCkPt"
+
+.PP
+Definition at line 23 of file SensorDevice\&.h\&.
+.SS "\fBLevelRecorder\fP Sensor::sample"
+
+.PP
+记录传感器的采样信息 
+.PP
+Definition at line 28 of file SensorDevice\&.h\&.
+.SS "int Sensor::show_id"
+
+.PP
+标记的位置，1~8 
+.PP
+Definition at line 15 of file SensorDevice\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

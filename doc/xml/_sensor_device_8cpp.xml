@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_sensor_device_8cpp" kind="file" language="C++">
+    <compoundname>SensorDevice.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="_sensor_device_8h" local="yes">SensorDevice.h</includes>
+    <incdepgraph>
+      <node id="665">
+        <label>LevelRecorder.h</label>
+        <link refid="_level_recorder_8h"/>
+      </node>
+      <node id="666">
+        <label>QObject</label>
+      </node>
+      <node id="661">
+        <label>sources/SensorDevice.cpp</label>
+        <link refid="_sensor_device_8cpp"/>
+        <childnode refid="662" relation="include">
+        </childnode>
+        <childnode refid="664" relation="include">
+        </childnode>
+      </node>
+      <node id="664">
+        <label>SensorDevice.h</label>
+        <link refid="_sensor_device_8h"/>
+        <childnode refid="665" relation="include">
+        </childnode>
+        <childnode refid="666" relation="include">
+        </childnode>
+      </node>
+      <node id="663">
+        <label>QtWidgets</label>
+      </node>
+      <node id="662">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="663" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sensor_device_8h" kindref="compound">SensorDevice.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/><ref refid="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" kindref="member">SensorDevice::names</ref>{<sp/></highlight><highlight class="stringliteral">&quot;outer&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;inner&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/><ref refid="class_sensor_1a062401268f20ec88117c0a08c867670d" kindref="member">Sensor::names</ref>{<sp/></highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/><ref refid="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" kindref="member">CkPt::names</ref>{<sp/></highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" refkind="member"><highlight class="normal"><ref refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" kindref="member">SensorDevice::SensorDevice</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_id,<sp/>QObject*<sp/>parent)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_id(_id)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sensor_device_1add21fbc076ecbe5b4de479b426ad29bd" kindref="member">name</ref><sp/>=<sp/><ref refid="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" kindref="member">names</ref>[<ref refid="class_sensor_device_1a413a879ab20b538cff7ec754ca8f552d" kindref="member">m_id</ref>];</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/><ref refid="class_sensor_device_1a413a879ab20b538cff7ec754ca8f552d" kindref="member">m_id</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref><sp/>=<sp/><ref refid="class_ck_pt_1a3b438c401be7fd57da84a6c09220592f" kindref="member">CkPt::creatAll</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="class_sensor_device_1ac71d0c34ea8d46a135299f14d56f71e8" refkind="member"><highlight class="normal">QList&lt;SensorDevice*&gt;<sp/><ref refid="class_sensor_device_1ac71d0c34ea8d46a135299f14d56f71e8" kindref="member">SensorDevice::createAll</ref>(QObject*<sp/>parent)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;SensorDevice*&gt;<sp/>devs;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_sensor_device_1abb7d81bf98c82e0b9f3c46a8055a9b7a" kindref="member">names</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>devs<sp/>&lt;&lt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_sensor_device" kindref="compound">SensorDevice</ref>{<sp/>i,<sp/>parent<sp/>};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>devs;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="class_sensor_device_1a3b67e95ea619719648481f76c2ae1b18" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sensor_device_1a3b67e95ea619719648481f76c2ae1b18" kindref="member">SensorDevice::newWheel</ref>()</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckpt<sp/>:<sp/><ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckpt-&gt;newWheel();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" kindref="member">SensorDevice::init</ref>()</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sensor_device_1a3b67e95ea619719648481f76c2ae1b18" kindref="member">newWheel</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ckpt<sp/>:<sp/><ref refid="class_sensor_device_1a016f2950b9f99b0f5093fd0bd74850e7" kindref="member">ckpts</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckpt-&gt;init();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="class_sensor_device_1a86594b84858de9265f533c26af206b4a" refkind="member"><highlight class="normal"><ref refid="class_sensor_device_1a86594b84858de9265f533c26af206b4a" kindref="member">SensorDevice::~SensorDevice</ref>()</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="class_sensor_1a297b58d8d5cfecb5a4c569a55129ce9e" refkind="member"><highlight class="normal"><ref refid="class_sensor_1a297b58d8d5cfecb5a4c569a55129ce9e" kindref="member">Sensor::Sensor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_id,<sp/><ref refid="class_ck_pt" kindref="compound">CkPt</ref>*<sp/>parent)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>parentCkPt(parent)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_id(_id)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sensor_1af962d8dc933caf0a9c7742bc44b29548" kindref="member">name</ref><sp/>=<sp/><ref refid="class_sensor_1a062401268f20ec88117c0a08c867670d" kindref="member">names</ref>[<ref refid="class_sensor_1a3d1ebe0e05e5d75604330a70d3acf9e5" kindref="member">m_id</ref>];</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/><ref refid="class_sensor_1a56a0ffda1ceedd2bc85548c77cebd7fc" kindref="member">parentCkPt</ref>-&gt;<ref refid="class_ck_pt_1a750ae2ab960e05b0685667c558980bb8" kindref="member">id</ref><sp/>&lt;&lt;<sp/>1<sp/>|<sp/><ref refid="class_sensor_1a3d1ebe0e05e5d75604330a70d3acf9e5" kindref="member">m_id</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>3:</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sensor_1af890760e92f0526cc6d1de67837bbee3" kindref="member">show_id</ref><sp/>=<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4:</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sensor_1af890760e92f0526cc6d1de67837bbee3" kindref="member">show_id</ref><sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>5:</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sensor_1af890760e92f0526cc6d1de67837bbee3" kindref="member">show_id</ref><sp/>=<sp/>7;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>6:</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sensor_1af890760e92f0526cc6d1de67837bbee3" kindref="member">show_id</ref><sp/>=<sp/>6;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>7:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sensor_1af890760e92f0526cc6d1de67837bbee3" kindref="member">show_id</ref><sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sensor_1af890760e92f0526cc6d1de67837bbee3" kindref="member">show_id</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="class_sensor_1a03b33db349b28448615318739bc9101f" refkind="member"><highlight class="normal">QList&lt;Sensor*&gt;<sp/><ref refid="class_sensor_1a03b33db349b28448615318739bc9101f" kindref="member">Sensor::createAll</ref>(<ref refid="class_ck_pt" kindref="compound">CkPt</ref>*<sp/>parent)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;Sensor*&gt;<sp/>sensors;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_sensor_1a062401268f20ec88117c0a08c867670d" kindref="member">names</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensors<sp/>&lt;&lt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_sensor" kindref="compound">Sensor</ref>{<sp/>i,<sp/>parent<sp/>};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sensors;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="class_sensor_1a679f792ce4dba08c394aa4cd506fb2ae" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a679f792ce4dba08c394aa4cd506fb2ae" kindref="member">Sensor::newWheel</ref>()</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sensor_1a4667ebebacc6cfce173c41066d20f2eb" kindref="member">nTri</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sensor_1a1a614aaa89d6b4077cf0b7265649339b" kindref="member">expected</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="class_sensor_1a84bc35cfba92eb579bc311b3c8b2980d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1a84bc35cfba92eb579bc311b3c8b2980d" kindref="member">Sensor::init</ref>()</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sensor_1a679f792ce4dba08c394aa4cd506fb2ae" kindref="member">newWheel</ref>();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_sensor_1a56a0ffda1ceedd2bc85548c77cebd7fc" kindref="member">parentCkPt</ref>-&gt;<ref refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" kindref="member">isEnter</ref>())</highlight><highlight class="comment">//下降沿触发</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sensor_1a12be80cf7102fa5a1f6488c29733cf88" kindref="member">sample</ref>.<ref refid="class_level_recorder_1ac903a8ed1d863cf49a2ba8883196d2b4" kindref="member">init</ref>(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight><highlight class="comment">//初始化为低电平</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="comment">//上升沿触发</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sensor_1a12be80cf7102fa5a1f6488c29733cf88" kindref="member">sample</ref>.<ref refid="class_level_recorder_1ac903a8ed1d863cf49a2ba8883196d2b4" kindref="member">init</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight><highlight class="comment">//初始化为高电平</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" refkind="member"><highlight class="normal"><ref refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" kindref="member">CkPt::CkPt</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_id,<sp/><ref refid="class_sensor_device" kindref="compound">SensorDevice</ref>*<sp/>parent)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject(parent)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_id(_id)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>parentDev(parent)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_ck_pt_1a903058e94ace524942fa08f2d9304bc4" kindref="member">name</ref><sp/>=<sp/><ref refid="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" kindref="member">names</ref>[<ref refid="class_ck_pt_1a5b0fb213cdb889034ebdf1a793e358c0" kindref="member">m_id</ref>];</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/><ref refid="class_ck_pt_1a19532657da6670b50a16f7d0a601e9bb" kindref="member">parentDev</ref>-&gt;<ref refid="class_sensor_device_1a229042a02989323d6388dd6037a35384" kindref="member">id</ref><sp/>&lt;&lt;<sp/>1<sp/>|<sp/><ref refid="class_ck_pt_1a5b0fb213cdb889034ebdf1a793e358c0" kindref="member">m_id</ref>;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" kindref="member">sensors</ref><sp/>=<sp/><ref refid="class_sensor_1a03b33db349b28448615318739bc9101f" kindref="member">Sensor::createAll</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="class_ck_pt_1a3b438c401be7fd57da84a6c09220592f" refkind="member"><highlight class="normal">QList&lt;CkPt*&gt;<sp/><ref refid="class_ck_pt_1a3b438c401be7fd57da84a6c09220592f" kindref="member">CkPt::creatAll</ref>(<ref refid="class_sensor_device" kindref="compound">SensorDevice</ref>*<sp/>parent)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;CkPt*&gt;<sp/>ckps;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" kindref="member">names</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ckps<sp/>&lt;&lt;<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_ck_pt" kindref="compound">CkPt</ref>{<sp/>i,<sp/>parent<sp/>};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ckps;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="class_ck_pt_1a1bbbad154caab9065e9a6aebf696a11b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_ck_pt_1a1bbbad154caab9065e9a6aebf696a11b" kindref="member">CkPt::newWheel</ref>()</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sensor<sp/>:<sp/><ref refid="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" kindref="member">sensors</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensor-&gt;newWheel();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_ck_pt_1ad1906be43650dbb487d078b32c055d9e" kindref="member">hasTri</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="class_ck_pt_1aad65e83ec3ef258516bbee5ba4c6d120" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_ck_pt_1aad65e83ec3ef258516bbee5ba4c6d120" kindref="member">CkPt::init</ref>()</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sensor<sp/>:<sp/><ref refid="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" kindref="member">sensors</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensor-&gt;newWheel();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sensor-&gt;init();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//expectIn.init(false);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" kindref="member">CkPt::isEnter</ref>()</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_ck_pt_1a19532657da6670b50a16f7d0a601e9bb" kindref="member">parentDev</ref>-&gt;<ref refid="class_sensor_device_1add21fbc076ecbe5b4de479b426ad29bd" kindref="member">name</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;outer&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_ck_pt_1a903058e94ace524942fa08f2d9304bc4" kindref="member">name</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;left&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_ck_pt_1a19532657da6670b50a16f7d0a601e9bb" kindref="member">parentDev</ref>-&gt;<ref refid="class_sensor_device_1add21fbc076ecbe5b4de479b426ad29bd" kindref="member">name</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;inner&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_ck_pt_1a903058e94ace524942fa08f2d9304bc4" kindref="member">name</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;right&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/SensorDevice.cpp"/>
+  </compounddef>
+</doxygen>

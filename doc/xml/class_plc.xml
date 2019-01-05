@@ -1,0 +1,703 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_plc" kind="class" language="C++" prot="public">
+    <compoundname>Plc</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="_plc_8h" local="no">Plc.h</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_plc_1a7a0bfa84c4d0b4610cda92102d8d54a0" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int Plc::adInterval</definition>
+        <argsstring></argsstring>
+        <name>adInterval</name>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+<para>读取ad（车速）的间隔，ms // 不应太频繁，应大于图像处理的时间7/25s，否则无意义 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="28" column="1" bodyfile="sources/Plc.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" prot="public" static="no" mutable="no">
+        <type><ref refid="class_handle_sensor_device" kindref="compound">HandleSensorDevice</ref> *</type>
+        <definition>HandleSensorDevice* Plc::handleSensorDevice[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>handleSensorDevice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="29" column="1" bodyfile="sources/Plc.h" bodystart="29" bodyend="-1"/>
+        <referencedby refid="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" compoundref="_alarm_manager_8cpp" startline="16" endline="30">AlarmManager::bindPLC</referencedby>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+        <referencedby refid="class_plc_1a230190ee27d360a02576184d3450e8d6" compoundref="_plc_8cpp" startline="55" endline="73">Plc</referencedby>
+        <referencedby refid="class_plc_1a53d31f51484e39fc320b02be053de157" compoundref="_plc_8cpp" startline="82" endline="95">start</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_plc_1a5060865d738a5606f37b095702356b36" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+        <definition>const ConfigHelper* Plc::configHelper</definition>
+        <argsstring></argsstring>
+        <name>configHelper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="32" column="1" bodyfile="sources/Plc.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1abfcb7c50909776d91fffd959b11320d0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_speed_integrator" kindref="compound">SpeedIntegrator</ref> *</type>
+        <definition>SpeedIntegrator* Plc::speedIntegrator</definition>
+        <argsstring></argsstring>
+        <name>speedIntegrator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="33" column="1" bodyfile="sources/Plc.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1a763d4caeda0cc176ad37ec7a9b900ef4" prot="private" static="no" mutable="yes">
+        <type>QMutex</type>
+        <definition>QMutex Plc::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="34" column="1" bodyfile="sources/Plc.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1a751b455190c6321f79560b7b664b8d12" prot="private" static="no" mutable="no">
+        <type>QSerialPort *</type>
+        <definition>QSerialPort* Plc::plcSerialPort</definition>
+        <argsstring></argsstring>
+        <name>plcSerialPort</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="35" column="1" bodyfile="sources/Plc.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1a06a6d33840dbce1dcf80c355fa922bcc" prot="private" static="no" mutable="no">
+        <type>QThread *</type>
+        <definition>QThread* Plc::refThread</definition>
+        <argsstring></argsstring>
+        <name>refThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="36" column="1" bodyfile="sources/Plc.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1a2d202af2393c328dcf8ba7f50d471f32" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Plc::truckSpeed</definition>
+        <argsstring></argsstring>
+        <name>truckSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="37" column="1" bodyfile="sources/Plc.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1ae6c3edca2e33eed8bc1a63b10552b9c8" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double Plc::speedCompensationCoeff[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>speedCompensationCoeff</name>
+        <initializer>= { 0.954, 0.802 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="39" column="1" bodyfile="sources/Plc.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1af4f1c0b510b4ca04ae6d183f9fad04fc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Plc::bUsrCtrl</definition>
+        <argsstring></argsstring>
+        <name>bUsrCtrl</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="40" column="1" bodyfile="sources/Plc.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1a6ccb3e0462fe61fd68062e1e8fe45e13" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Plc::bConnected</definition>
+        <argsstring></argsstring>
+        <name>bConnected</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="41" column="1" bodyfile="sources/Plc.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_plc_1af5fd2361f00310a4d44ee8241c59ad6c" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int Plc::cio0Interval</definition>
+        <argsstring></argsstring>
+        <name>cio0Interval</name>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+<para>读取cio0（传感器）的间隔，ms </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="43" column="1" bodyfile="sources/Plc.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_plc_1ac49b44b7336764f1db21536b11eb76a0" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int Plc::serialport_timeout</definition>
+        <argsstring></argsstring>
+        <name>serialport_timeout</name>
+        <initializer>= 800</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="44" column="1" bodyfile="sources/Plc.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_plc_1a230190ee27d360a02576184d3450e8d6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Plc::Plc</definition>
+        <argsstring>(const ConfigHelper *_configHelper, QObject *parent=nullptr)</argsstring>
+        <name>Plc</name>
+        <param>
+          <type>const <ref refid="class_config_helper" kindref="compound">ConfigHelper</ref> *</type>
+          <declname>_configHelper</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>必须传入configure, const成员变量在初始化列表中初始化 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="16" column="1" bodyfile="sources/Plc.cpp" bodystart="55" bodyend="73"/>
+        <references refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" compoundref="_plc_8h" startline="29">handleSensorDevice</references>
+        <references refid="class_handle_sensor_device_1a4eb776d5c0371a091fbac629f64e55cc">HandleSensorDevice::triInt</references>
+        <references refid="class_speed_integrator_1a66d764b8f94e1547100028927d224aea" compoundref="_speed_integrator_8cpp" startline="61" endline="75">SpeedIntegrator::onCkpTri</references>
+        <references refid="class_speed_integrator_1a5a3c3fcf4cf833b11d897c9dea305c82">SpeedIntegrator::expectTriBegin</references>
+        <references refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" compoundref="_handle_sensor_device_8cpp" startline="114" endline="120">HandleSensorDevice::newCkp</references>
+        <references refid="class_speed_integrator_1aaabda4cff9d78b288286796cd4690228">SpeedIntegrator::expectTriEnd</references>
+        <references refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" compoundref="_handle_sensor_device_8cpp" startline="122" endline="150">HandleSensorDevice::checkoutCkp</references>
+        <references refid="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" compoundref="_speed_integrator_8cpp" startline="17" endline="27">SpeedIntegrator::start</references>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1a25b79d6b196b888dc2d80c5e98b9e733" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Plc::~Plc</definition>
+        <argsstring>()</argsstring>
+        <name>~Plc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="17" column="1" bodyfile="sources/Plc.cpp" bodystart="75" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1a53d31f51484e39fc320b02be053de157" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+<para>usrctrl </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="19" column="1" bodyfile="sources/Plc.cpp" bodystart="82" bodyend="95"/>
+        <references refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" compoundref="_plc_8h" startline="29">handleSensorDevice</references>
+        <references refid="class_handle_sensor_device_1a00cbb35b7e5b8defed7bff62774827cf" compoundref="_handle_sensor_device_8h" startline="26">HandleSensorDevice::dev</references>
+        <references refid="class_sensor_device_1a451e1e696ef7d6a02bc5b3e418b59acc" compoundref="_sensor_device_8cpp" startline="35" endline="41">SensorDevice::init</references>
+        <references refid="class_speed_integrator_1ada2cd17f8fbcb20abe6b17ce7e0ed915" compoundref="_speed_integrator_8cpp" startline="17" endline="27">SpeedIntegrator::start</references>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1abf9c8532cb72ba8c88437f50f2631d13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>usrctrl </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="20" column="1" bodyfile="sources/Plc.cpp" bodystart="97" bodyend="104"/>
+        <references refid="class_speed_integrator_1a6e1d4a9a0e409e7cd2e8b4f103439fe4" compoundref="_speed_integrator_8cpp" startline="29" endline="32">SpeedIntegrator::stop</references>
+        <references refid="class_plc_1a6f99f1f3a90a49531f372d0e182872c6">cio0Update</references>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1ac5213403a3aba0c8c6f2a12c3e2d4fa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::connect</definition>
+        <argsstring>()</argsstring>
+        <name>connect</name>
+        <briefdescription>
+<para>连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开 </para>        </briefdescription>
+        <detaileddescription>
+<para>通过串口连接到plc </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="21" column="1" bodyfile="sources/Plc.cpp" bodystart="107" bodyend="135"/>
+        <references refid="class_config_helper_1abe47a6249acafc7dfd993df31946b1b1" compoundref="confighelper_8h" startline="61">ConfigHelper::pc2plc_portName</references>
+        <references refid="class_plc_1a14ee604a83d89ea5f96288db01d60a84">connectError</references>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1a2432a7c4b2bee31da9b2a933d2747ba4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Plc::getTruckSpeed</definition>
+        <argsstring>(int devId=0) const</argsstring>
+        <name>getTruckSpeed</name>
+        <param>
+          <type>int</type>
+          <declname>devId</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>获取台车速度(m/min)，线程安全的 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="23" column="1" bodyfile="sources/Plc.h" bodystart="23" bodyend="27"/>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_plc_1ad3ad163783f83f0b29d1b901b9fb2915" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::writePLC</definition>
+        <argsstring>(QByteArray plcData)</argsstring>
+        <name>writePLC</name>
+        <param>
+          <type>QByteArray</type>
+          <declname>plcData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="45" column="1" bodyfile="sources/Plc.cpp" bodystart="229" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1ae9850c50fae380f8e3d26039d6c795d2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray Plc::readPLC</definition>
+        <argsstring>(QByteArray plcData)</argsstring>
+        <name>readPLC</name>
+        <param>
+          <type>QByteArray</type>
+          <declname>plcData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="46" column="1" bodyfile="sources/Plc.cpp" bodystart="213" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1acce55922595f23d9c68c2aa9befceb19" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray Plc::getFCSCode</definition>
+        <argsstring>(QByteArray cmd) const</argsstring>
+        <name>getFCSCode</name>
+        <param>
+          <type>QByteArray</type>
+          <declname>cmd</declname>
+        </param>
+        <briefdescription>
+<para>根据命令码获取FCS码，通常情况下不需要直接调用 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="49" column="1" bodyfile="sources/Plc.cpp" bodystart="242" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1a9e3efa200be49154bc26c4d302697986" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray Plc::getFullCode</definition>
+        <argsstring>(QByteArray cmd) const</argsstring>
+        <name>getFullCode</name>
+        <param>
+          <type>QByteArray</type>
+          <declname>cmd</declname>
+        </param>
+        <briefdescription>
+<para>根据命令码获取完整指令码 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="50" column="1" bodyfile="sources/Plc.cpp" bodystart="251" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1a3945dd28af378d022a01d3e0998a5f8b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray Plc::genRRCode</definition>
+        <argsstring>(int addr, int num) const</argsstring>
+        <name>genRRCode</name>
+        <param>
+          <type>int</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+<para>返回读取cio所需要的完整指令码 </para>        </briefdescription>
+        <detaileddescription>
+<para>generate a RR command code PC to PLC ask(command) code &quot;@00RR0001(ADDR)0001(No. of words)FCS*\r&quot; except data and end code is hex, the others is BCD.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>addr (cio) register address of beginning word to read </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>num how many words to read </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="51" column="1" bodyfile="sources/Plc.cpp" bodystart="265" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1a72db3d922a962ba1b087b0b3ed344021" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray Plc::genWRCode</definition>
+        <argsstring>(int addr, QByteArray data) const</argsstring>
+        <name>genWRCode</name>
+        <param>
+          <type>int</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>QByteArray</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>返回写入cio所需要的完整指令码 </para>        </briefdescription>
+        <detaileddescription>
+<para>generate a WR command code PC to PLC ask(command) code &quot;@00WR0100(ADDR)data(words,hex)FCS*\r&quot; except data and end code is hex, the others is BCD.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>addr (cio) register address of beginning word to write </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>QByteArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data how many words to read or the data to write </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="52" column="1" bodyfile="sources/Plc.cpp" bodystart="283" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1aabf5c2e1002abac1ba9f73a87d89eba2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Plc::checkAnsCode</definition>
+        <argsstring>(QByteArray ansCode) const</argsstring>
+        <name>checkAnsCode</name>
+        <param>
+          <type>QByteArray</type>
+          <declname>ansCode</declname>
+        </param>
+        <briefdescription>
+<para>检查应答是否正确 </para>        </briefdescription>
+        <detaileddescription>
+<para>check answer code if it&apos;s right. PLC to PC answer(response) code: &quot;@00RR00(endcode,hex)data(words,hex)FCS*\r&quot; &quot;@00WR00(endcode,hex)FCS*\r&quot; except data and end code is hex, the others is BCD.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>QByteArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="53" column="1" bodyfile="sources/Plc.cpp" bodystart="301" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="class_plc_1a7d0990b9e9dea4703a1bc0493e2c46ae" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArrayList</type>
+        <definition>QByteArrayList Plc::getRRData</definition>
+        <argsstring>(QByteArray ansCode) const</argsstring>
+        <name>getRRData</name>
+        <param>
+          <type>QByteArray</type>
+          <declname>ansCode</declname>
+        </param>
+        <briefdescription>
+<para>从应答中提取n个字的数据(hex) </para>        </briefdescription>
+        <detaileddescription>
+<para>get RR data from response code</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>QByteArrayList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>hex data list </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="54" column="1" bodyfile="sources/Plc.cpp" bodystart="331" bodyend="357"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_plc_1a16275eb784a682d01953de3f0b4ade70" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::readSensorPeriodically</definition>
+        <argsstring>()</argsstring>
+        <name>readSensorPeriodically</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="57" column="1" bodyfile="sources/Plc.cpp" bodystart="137" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="slot" id="class_plc_1af51263605bd3434d80ab93ebd351a913" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::readSpeedPeriodically</definition>
+        <argsstring>()</argsstring>
+        <name>readSpeedPeriodically</name>
+        <briefdescription>
+<para>read truck reference speed from AD module. a cycle includes sending cmd and recv response, costs ~300ms </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="59" column="1" bodyfile="sources/Plc.cpp" bodystart="172" bodyend="211"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_plc_1a6f99f1f3a90a49531f372d0e182872c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::cio0Update</definition>
+        <argsstring>(int cio)</argsstring>
+        <name>cio0Update</name>
+        <param>
+          <type>int</type>
+          <declname>cio</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="63" column="1"/>
+        <referencedby refid="class_plc_1abf9c8532cb72ba8c88437f50f2631d13" compoundref="_plc_8cpp" startline="97" endline="104">stop</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_plc_1a14ee604a83d89ea5f96288db01d60a84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::connectError</definition>
+        <argsstring>(int errorId)</argsstring>
+        <name>connectError</name>
+        <param>
+          <type>int</type>
+          <declname>errorId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="64" column="1"/>
+        <referencedby refid="class_plc_1ac5213403a3aba0c8c6f2a12c3e2d4fa5" compoundref="_plc_8cpp" startline="107" endline="135">connect</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_plc_1adeaecb0eaf8a1d72f01348ca4e7918d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::truckSpeedReady</definition>
+        <argsstring>()</argsstring>
+        <name>truckSpeedReady</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="66" column="1"/>
+        <referencedby refid="class_image_process_1abc606c9f2c55844cc2f08e6373cdc0b6" compoundref="imageprocess_8cpp" startline="17" endline="48">ImageProcess::ImageProcess</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_plc_1acf7098f35958347aeea9abbc7371375f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::truckSpeedError</definition>
+        <argsstring>(int)</argsstring>
+        <name>truckSpeedError</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+<para>台车(中轴)速度信号读取错误 errcode 1: disconnect errcode 2: out of range(4~20ma) </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>int</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>errorCode </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="75" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_plc_1abf51268db3f1eca2b9bb139bf75b83d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Plc::sendAlarmToControlCenter</definition>
+        <argsstring>(int cio)</argsstring>
+        <name>sendAlarmToControlCenter</name>
+        <param>
+          <type>int</type>
+          <declname>cio</declname>
+        </param>
+        <briefdescription>
+<para>向中控发出报警 </para>        </briefdescription>
+        <detaileddescription>
+<para>注意：不会覆盖原有状态 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/Plc.h" line="78" column="1" bodyfile="sources/Plc.cpp" bodystart="363" bodyend="368"/>
+        <referencedby refid="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" compoundref="_alarm_manager_8cpp" startline="16" endline="30">AlarmManager::bindPLC</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>plc其他硬件设备相关类，包括传感器、plc io、plc ad </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="97">
+        <label>Plc</label>
+        <link refid="class_plc"/>
+        <childnode refid="98" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="101">
+        <label>HandleSensorDevice</label>
+        <link refid="class_handle_sensor_device"/>
+        <childnode refid="100" relation="public-inheritance">
+        </childnode>
+        <childnode refid="102" relation="usage">
+          <edgelabel>dev</edgelabel>
+        </childnode>
+      </node>
+      <node id="99">
+        <label>Plc</label>
+        <link refid="class_plc"/>
+        <childnode refid="100" relation="public-inheritance">
+        </childnode>
+        <childnode refid="101" relation="usage">
+          <edgelabel>handleSensorDevice</edgelabel>
+        </childnode>
+      </node>
+      <node id="100">
+        <label>QObject</label>
+      </node>
+      <node id="102">
+        <label>SensorDevice</label>
+        <link refid="class_sensor_device"/>
+        <childnode refid="100" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/Plc.h" line="12" column="1" bodyfile="sources/Plc.h" bodystart="12" bodyend="79"/>
+    <listofallmembers>
+      <member refid="class_plc_1a7a0bfa84c4d0b4610cda92102d8d54a0" prot="public" virt="non-virtual"><scope>Plc</scope><name>adInterval</name></member>
+      <member refid="class_plc_1a6ccb3e0462fe61fd68062e1e8fe45e13" prot="private" virt="non-virtual"><scope>Plc</scope><name>bConnected</name></member>
+      <member refid="class_plc_1af4f1c0b510b4ca04ae6d183f9fad04fc" prot="private" virt="non-virtual"><scope>Plc</scope><name>bUsrCtrl</name></member>
+      <member refid="class_plc_1aabf5c2e1002abac1ba9f73a87d89eba2" prot="private" virt="non-virtual"><scope>Plc</scope><name>checkAnsCode</name></member>
+      <member refid="class_plc_1af5fd2361f00310a4d44ee8241c59ad6c" prot="private" virt="non-virtual"><scope>Plc</scope><name>cio0Interval</name></member>
+      <member refid="class_plc_1a6f99f1f3a90a49531f372d0e182872c6" prot="public" virt="non-virtual"><scope>Plc</scope><name>cio0Update</name></member>
+      <member refid="class_plc_1a5060865d738a5606f37b095702356b36" prot="private" virt="non-virtual"><scope>Plc</scope><name>configHelper</name></member>
+      <member refid="class_plc_1ac5213403a3aba0c8c6f2a12c3e2d4fa5" prot="public" virt="non-virtual"><scope>Plc</scope><name>connect</name></member>
+      <member refid="class_plc_1a14ee604a83d89ea5f96288db01d60a84" prot="public" virt="non-virtual"><scope>Plc</scope><name>connectError</name></member>
+      <member refid="class_plc_1a3945dd28af378d022a01d3e0998a5f8b" prot="private" virt="non-virtual"><scope>Plc</scope><name>genRRCode</name></member>
+      <member refid="class_plc_1a72db3d922a962ba1b087b0b3ed344021" prot="private" virt="non-virtual"><scope>Plc</scope><name>genWRCode</name></member>
+      <member refid="class_plc_1acce55922595f23d9c68c2aa9befceb19" prot="private" virt="non-virtual"><scope>Plc</scope><name>getFCSCode</name></member>
+      <member refid="class_plc_1a9e3efa200be49154bc26c4d302697986" prot="private" virt="non-virtual"><scope>Plc</scope><name>getFullCode</name></member>
+      <member refid="class_plc_1a7d0990b9e9dea4703a1bc0493e2c46ae" prot="private" virt="non-virtual"><scope>Plc</scope><name>getRRData</name></member>
+      <member refid="class_plc_1a2432a7c4b2bee31da9b2a933d2747ba4" prot="public" virt="non-virtual"><scope>Plc</scope><name>getTruckSpeed</name></member>
+      <member refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" prot="public" virt="non-virtual"><scope>Plc</scope><name>handleSensorDevice</name></member>
+      <member refid="class_plc_1a763d4caeda0cc176ad37ec7a9b900ef4" prot="private" virt="non-virtual"><scope>Plc</scope><name>mutex</name></member>
+      <member refid="class_plc_1a230190ee27d360a02576184d3450e8d6" prot="public" virt="non-virtual"><scope>Plc</scope><name>Plc</name></member>
+      <member refid="class_plc_1a751b455190c6321f79560b7b664b8d12" prot="private" virt="non-virtual"><scope>Plc</scope><name>plcSerialPort</name></member>
+      <member refid="class_plc_1ae9850c50fae380f8e3d26039d6c795d2" prot="private" virt="non-virtual"><scope>Plc</scope><name>readPLC</name></member>
+      <member refid="class_plc_1a16275eb784a682d01953de3f0b4ade70" prot="private" virt="non-virtual"><scope>Plc</scope><name>readSensorPeriodically</name></member>
+      <member refid="class_plc_1af51263605bd3434d80ab93ebd351a913" prot="private" virt="non-virtual"><scope>Plc</scope><name>readSpeedPeriodically</name></member>
+      <member refid="class_plc_1a06a6d33840dbce1dcf80c355fa922bcc" prot="private" virt="non-virtual"><scope>Plc</scope><name>refThread</name></member>
+      <member refid="class_plc_1abf51268db3f1eca2b9bb139bf75b83d9" prot="public" virt="non-virtual"><scope>Plc</scope><name>sendAlarmToControlCenter</name></member>
+      <member refid="class_plc_1ac49b44b7336764f1db21536b11eb76a0" prot="private" virt="non-virtual"><scope>Plc</scope><name>serialport_timeout</name></member>
+      <member refid="class_plc_1ae6c3edca2e33eed8bc1a63b10552b9c8" prot="private" virt="non-virtual"><scope>Plc</scope><name>speedCompensationCoeff</name></member>
+      <member refid="class_plc_1abfcb7c50909776d91fffd959b11320d0" prot="private" virt="non-virtual"><scope>Plc</scope><name>speedIntegrator</name></member>
+      <member refid="class_plc_1a53d31f51484e39fc320b02be053de157" prot="public" virt="non-virtual"><scope>Plc</scope><name>start</name></member>
+      <member refid="class_plc_1abf9c8532cb72ba8c88437f50f2631d13" prot="public" virt="non-virtual"><scope>Plc</scope><name>stop</name></member>
+      <member refid="class_plc_1a2d202af2393c328dcf8ba7f50d471f32" prot="private" virt="non-virtual"><scope>Plc</scope><name>truckSpeed</name></member>
+      <member refid="class_plc_1acf7098f35958347aeea9abbc7371375f" prot="public" virt="non-virtual"><scope>Plc</scope><name>truckSpeedError</name></member>
+      <member refid="class_plc_1adeaecb0eaf8a1d72f01348ca4e7918d1" prot="public" virt="non-virtual"><scope>Plc</scope><name>truckSpeedReady</name></member>
+      <member refid="class_plc_1ad3ad163783f83f0b29d1b901b9fb2915" prot="private" virt="non-virtual"><scope>Plc</scope><name>writePLC</name></member>
+      <member refid="class_plc_1a25b79d6b196b888dc2d80c5e98b9e733" prot="public" virt="non-virtual"><scope>Plc</scope><name>~Plc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

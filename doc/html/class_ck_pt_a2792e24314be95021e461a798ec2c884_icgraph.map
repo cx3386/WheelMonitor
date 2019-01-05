@@ -1,0 +1,5 @@
+<map id="CkPt::isEnter" name="CkPt::isEnter">
+<area shape="rect" id="node2" href="$class_sensor.html#a84bc35cfba92eb579bc311b3c8b2980d" title="Sensor::init" alt="" coords="163,5,251,32"/>
+<area shape="rect" id="node3" href="$class_ck_pt.html#a67a101d39c9ee8d8113f82905fb018f9" title="返回触发的时机，如果是进入，则下降沿触发 " alt="" coords="153,56,261,83"/>
+<area shape="rect" id="node4" href="$class_ck_pt.html#afd63f78fd17b55451eb039ab9d5bb49f" title="返回是否由此检测点离开 " alt="" coords="156,107,259,133"/>
+</map>

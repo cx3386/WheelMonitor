@@ -1,0 +1,465 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_alarm_manager" kind="class" language="C++" prot="public">
+    <compoundname>AlarmManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="_alarm_manager_8h" local="no">AlarmManager.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_alarm_manager_1a2d0301bdddf54663c1a8590db0e212a8" prot="private" static="no" mutable="no">
+        <type><ref refid="class_plc" kindref="compound">Plc</ref> *</type>
+        <definition>Plc* AlarmManager::m_plc</definition>
+        <argsstring></argsstring>
+        <name>m_plc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="57" column="1" bodyfile="sources/AlarmManager.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_alarm_manager_1a6982b4875376761d43443793c18c2c8b" prot="private" static="no" mutable="no">
+        <type><ref refid="class_main_window" kindref="compound">MainWindow</ref> *</type>
+        <definition>MainWindow* AlarmManager::m_mainWindow</definition>
+        <argsstring></argsstring>
+        <name>m_mainWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="58" column="1" bodyfile="sources/AlarmManager.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_alarm_manager_1a1ba3fbfd703cafc65bbc22259b488cd6" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AlarmManager::currentCio100</definition>
+        <argsstring></argsstring>
+        <name>currentCio100</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="60" column="1" bodyfile="sources/AlarmManager.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_alarm_manager_1a8be4a4a110ea823811eea0c580021f55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AlarmManager::AlarmManager</definition>
+        <argsstring>(QObject *parent)</argsstring>
+        <name>AlarmManager</name>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="31" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="7" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_alarm_manager_1a06c4f8aa74bd546b62326708aaf15982" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AlarmManager::~AlarmManager</definition>
+        <argsstring>()</argsstring>
+        <name>~AlarmManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="32" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::bindPLC</definition>
+        <argsstring>(Plc *plc)</argsstring>
+        <name>bindPLC</name>
+        <param>
+          <type><ref refid="class_plc" kindref="compound">Plc</ref> *</type>
+          <declname>plc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="34" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="16" bodyend="30"/>
+        <references refid="class_alarm_manager_1a9ae0da0b1353484b71987214c1245668">hardAlarmToPlc</references>
+        <references refid="class_plc_1abf51268db3f1eca2b9bb139bf75b83d9" compoundref="_plc_8cpp" startline="363" endline="368">Plc::sendAlarmToControlCenter</references>
+        <references refid="class_plc_1a35269fbd5ff006347fc3d29e0a8ebcdf" compoundref="_plc_8h" startline="29">Plc::handleSensorDevice</references>
+        <references refid="class_handle_sensor_device_1afbdc2dd52d6a0a4af46df594f9c1d48d">HandleSensorDevice::wheelFallOff</references>
+      </memberdef>
+      <memberdef kind="function" id="class_alarm_manager_1a20ebd74c084d24347a61aa8490f21cbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::bindImProc</definition>
+        <argsstring>(ImageProcess *imp)</argsstring>
+        <name>bindImProc</name>
+        <param>
+          <type><ref refid="class_image_process" kindref="compound">ImageProcess</ref> *</type>
+          <declname>imp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="35" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="32" bodyend="36"/>
+        <references refid="class_image_process_1ad0f4f919d1704ac2e6416279fbde6aa0">ImageProcess::wheelNeedHandled</references>
+      </memberdef>
+      <memberdef kind="function" id="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::bindMainWindow</definition>
+        <argsstring>(MainWindow *mainwindow)</argsstring>
+        <name>bindMainWindow</name>
+        <param>
+          <type><ref refid="class_main_window" kindref="compound">MainWindow</ref> *</type>
+          <declname>mainwindow</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="36" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="38" bodyend="51"/>
+        <references refid="class_alarm_manager_1a512d4492a9c02ed1afea872e8e4fffb7">showSpeed_o</references>
+        <references refid="class_main_window_1a56c37dd56a54c1e0e4cea19073bd2895" compoundref="mainwindow_8h" startline="72" endline="72">MainWindow::uiShowSpeed_o</references>
+        <references refid="class_alarm_manager_1a5727c94eb5d81b236f0de7ab57daced1">showNum_o</references>
+        <references refid="class_main_window_1a6b59764d9fff055d3a40148b5efe393c" compoundref="mainwindow_8h" startline="74" endline="74">MainWindow::uiShowNum_o</references>
+        <references refid="class_alarm_manager_1ad812d53580b9af78d53de719188ea327">showError_o</references>
+        <references refid="class_main_window_1a08c36c996ee5b67ffbb4b0c5f1d18ea6" compoundref="mainwindow_8h" startline="73" endline="73">MainWindow::uiShowError_o</references>
+        <references refid="class_alarm_manager_1aab6cc4a610ba2f389bbab701b5d377cf">showSpeed_i</references>
+        <references refid="class_main_window_1a0b254bab7ba45e2870484474a063afb2" compoundref="mainwindow_8h" startline="69" endline="69">MainWindow::uiShowSpeed_i</references>
+        <references refid="class_alarm_manager_1a3b4d8431b71a981c3deb72836f5323c1">showNum_i</references>
+        <references refid="class_main_window_1af5608598b812a3f37e52f9e68df10f52" compoundref="mainwindow_8h" startline="71" endline="71">MainWindow::uiShowNum_i</references>
+        <references refid="class_alarm_manager_1ab9895e76b0b6a0c4525c38a355c805c8">showError_i</references>
+        <references refid="class_main_window_1a5af6ee21b93fe8660960c6e0ed9ca989" compoundref="mainwindow_8h" startline="70" endline="70">MainWindow::uiShowError_i</references>
+        <references refid="class_alarm_manager_1a213979463b7f205ba09f095c4e318124">showCio100ToUi</references>
+        <references refid="class_main_window_1a960ef266d511ed4e10820a3106d23e69" compoundref="mainwindow_8cpp" startline="383" endline="406">MainWindow::uiShowCio100</references>
+        <references refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de">showAlarmLightToUi</references>
+        <references refid="class_main_window_1afa3fc9e034fa98830e87246246d73e0e" compoundref="mainwindow_8cpp" startline="235" endline="263">MainWindow::uiShowAlarmLight</references>
+      </memberdef>
+      <memberdef kind="function" id="class_alarm_manager_1afcb1ab3d5f8f3e4c01227ab052bc520f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::bindPlayBack</definition>
+        <argsstring>(PlayBackWidget *pb)</argsstring>
+        <name>bindPlayBack</name>
+        <param>
+          <type><ref refid="class_play_back_widget" kindref="compound">PlayBackWidget</ref> *</type>
+          <declname>pb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="37" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="53" bodyend="62"/>
+        <references refid="class_play_back_widget_1aeb734152a79a362eeeedcfc7bdc0dbd1">PlayBackWidget::clearAlarm</references>
+        <references refid="class_main_window_1afa3fc9e034fa98830e87246246d73e0e" compoundref="mainwindow_8cpp" startline="235" endline="263">MainWindow::uiShowAlarmLight</references>
+        <references refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834ad382816a3cbeed082c9e216e7392eed1">Green</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="class_alarm_manager_1ac63fabcfc799aecf81f044d41bc7f3f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::onHardwareAlarm</definition>
+        <argsstring>(HardwareAlarmEvent event)</argsstring>
+        <name>onHardwareAlarm</name>
+        <param>
+          <type><ref refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bc" kindref="member">HardwareAlarmEvent</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="40" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="65" bodyend="90"/>
+        <references refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca526d688f37a86d3c3f27d0c5016eb71d">Reset</references>
+        <references refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca0720e249d57fba40b81a4d4c8ad69e46">Outer_Warn</references>
+        <references refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca297577d6bd58d67162feec9c8f7c3baf">Outer_Alarm</references>
+        <references refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca85422713866ae7d9ff030f4d64c60c02">Inner_Warn</references>
+        <references refid="_alarm_event_8h_1a869a7fc0505bdd0dc64c62b160f583bca508cce706355828733c3149f4160154b">Inner_Alarm</references>
+        <references refid="class_alarm_manager_1a213979463b7f205ba09f095c4e318124">showCio100ToUi</references>
+        <references refid="class_alarm_manager_1a9ae0da0b1353484b71987214c1245668">hardAlarmToPlc</references>
+        <references refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de">showAlarmLightToUi</references>
+        <references refid="_alarm_event_8h_1a9d988e49ca7b9fee1b60ae831a255834aee38e4d5dd68c4e440825018d549cb47">Red</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_alarm_manager_1a213979463b7f205ba09f095c4e318124" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::showCio100ToUi</definition>
+        <argsstring>(int)</argsstring>
+        <name>showCio100ToUi</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+<para>掉轮报警信号 </para>        </briefdescription>
+        <detaileddescription>
+<para>中控报警信号（PLC CIO100）在UI中的显示 connect to UI todo </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="46" column="1"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">bindMainWindow</referencedby>
+        <referencedby refid="class_alarm_manager_1ac63fabcfc799aecf81f044d41bc7f3f4" compoundref="_alarm_manager_8cpp" startline="65" endline="90">onHardwareAlarm</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_alarm_manager_1a9ae0da0b1353484b71987214c1245668" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::hardAlarmToPlc</definition>
+        <argsstring>(int)</argsstring>
+        <name>hardAlarmToPlc</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+<para>中控报警信号发送至PLC中进行处理 connect to PLC todo. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="47" column="1"/>
+        <referencedby refid="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" compoundref="_alarm_manager_8cpp" startline="16" endline="30">bindPLC</referencedby>
+        <referencedby refid="class_alarm_manager_1ac63fabcfc799aecf81f044d41bc7f3f4" compoundref="_alarm_manager_8cpp" startline="65" endline="90">onHardwareAlarm</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::showAlarmLightToUi</definition>
+        <argsstring>(int)</argsstring>
+        <name>showAlarmLightToUi</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+<para>设置UI界面的报警灯的颜色 connect to UI. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="48" column="1"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">bindMainWindow</referencedby>
+        <referencedby refid="class_alarm_manager_1ac63fabcfc799aecf81f044d41bc7f3f4" compoundref="_alarm_manager_8cpp" startline="65" endline="90">onHardwareAlarm</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_alarm_manager_1aab6cc4a610ba2f389bbab701b5d377cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::showSpeed_i</definition>
+        <argsstring>(double)</argsstring>
+        <name>showSpeed_i</name>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="49" column="1"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_alarm_manager_1ab9895e76b0b6a0c4525c38a355c805c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::showError_i</definition>
+        <argsstring>(double)</argsstring>
+        <name>showError_i</name>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="50" column="1"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_alarm_manager_1a3b4d8431b71a981c3deb72836f5323c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::showNum_i</definition>
+        <argsstring>(QString)</argsstring>
+        <name>showNum_i</name>
+        <param>
+          <type>QString</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="51" column="1"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_alarm_manager_1a512d4492a9c02ed1afea872e8e4fffb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::showSpeed_o</definition>
+        <argsstring>(double)</argsstring>
+        <name>showSpeed_o</name>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="52" column="1"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_alarm_manager_1ad812d53580b9af78d53de719188ea327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::showError_o</definition>
+        <argsstring>(double)</argsstring>
+        <name>showError_o</name>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="53" column="1"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">bindMainWindow</referencedby>
+      </memberdef>
+      <memberdef kind="signal" id="class_alarm_manager_1a5727c94eb5d81b236f0de7ab57daced1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::showNum_o</definition>
+        <argsstring>(QString)</argsstring>
+        <name>showNum_o</name>
+        <param>
+          <type>QString</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="54" column="1"/>
+        <referencedby refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" compoundref="_alarm_manager_8cpp" startline="38" endline="51">bindMainWindow</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_alarm_manager_1a0fab516e0381a964c09a0ef830ba104d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AlarmManager::insertRecord</definition>
+        <argsstring>(WheelDbInfo info)</argsstring>
+        <name>insertRecord</name>
+        <param>
+          <type><ref refid="struct_wheel_db_info" kindref="compound">WheelDbInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="61" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="186" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_alarm_manager_1af48f20b842723f6883b5bf8bcbe57810" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AlarmManager::getPreCheckstate</definition>
+        <argsstring>(QString num)</argsstring>
+        <name>getPreCheckstate</name>
+        <param>
+          <type>QString</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+<para>获取当前序号的车轮前一次检测的结果，如果无，返回正确 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="62" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="213" bodyend="227"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="class_alarm_manager_1aa0a6e8cb60b92217a4ed6ec162a03d24" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmManager::checkoutWheelToDb</definition>
+        <argsstring>(WheelDbInfo info)</argsstring>
+        <name>checkoutWheelToDb</name>
+        <param>
+          <type><ref refid="struct_wheel_db_info" kindref="compound">WheelDbInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>根据车轮的警报等级向报警处理类发出信号 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmManager.h" line="64" column="1" bodyfile="sources/AlarmManager.cpp" bodystart="93" bodyend="184"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>QObject</label>
+      </node>
+      <node id="4">
+        <label>AlarmManager</label>
+        <link refid="class_alarm_manager"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="7">
+        <label>QObject</label>
+      </node>
+      <node id="6">
+        <label>AlarmManager</label>
+        <link refid="class_alarm_manager"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/AlarmManager.h" line="27" column="1" bodyfile="sources/AlarmManager.h" bodystart="27" bodyend="65"/>
+    <listofallmembers>
+      <member refid="class_alarm_manager_1a8be4a4a110ea823811eea0c580021f55" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>AlarmManager</name></member>
+      <member refid="class_alarm_manager_1a20ebd74c084d24347a61aa8490f21cbf" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>bindImProc</name></member>
+      <member refid="class_alarm_manager_1a33f3a139d24a61418677975d621ce87a" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>bindMainWindow</name></member>
+      <member refid="class_alarm_manager_1afcb1ab3d5f8f3e4c01227ab052bc520f" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>bindPlayBack</name></member>
+      <member refid="class_alarm_manager_1a4af37b18f9592a557393e947d033ecaf" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>bindPLC</name></member>
+      <member refid="class_alarm_manager_1aa0a6e8cb60b92217a4ed6ec162a03d24" prot="private" virt="non-virtual"><scope>AlarmManager</scope><name>checkoutWheelToDb</name></member>
+      <member refid="class_alarm_manager_1a1ba3fbfd703cafc65bbc22259b488cd6" prot="private" virt="non-virtual"><scope>AlarmManager</scope><name>currentCio100</name></member>
+      <member refid="class_alarm_manager_1af48f20b842723f6883b5bf8bcbe57810" prot="private" virt="non-virtual"><scope>AlarmManager</scope><name>getPreCheckstate</name></member>
+      <member refid="class_alarm_manager_1a9ae0da0b1353484b71987214c1245668" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>hardAlarmToPlc</name></member>
+      <member refid="class_alarm_manager_1a0fab516e0381a964c09a0ef830ba104d" prot="private" virt="non-virtual"><scope>AlarmManager</scope><name>insertRecord</name></member>
+      <member refid="class_alarm_manager_1a6982b4875376761d43443793c18c2c8b" prot="private" virt="non-virtual"><scope>AlarmManager</scope><name>m_mainWindow</name></member>
+      <member refid="class_alarm_manager_1a2d0301bdddf54663c1a8590db0e212a8" prot="private" virt="non-virtual"><scope>AlarmManager</scope><name>m_plc</name></member>
+      <member refid="class_alarm_manager_1ac63fabcfc799aecf81f044d41bc7f3f4" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>onHardwareAlarm</name></member>
+      <member refid="class_alarm_manager_1a55d80e5566558f4c9146573239f904de" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>showAlarmLightToUi</name></member>
+      <member refid="class_alarm_manager_1a213979463b7f205ba09f095c4e318124" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>showCio100ToUi</name></member>
+      <member refid="class_alarm_manager_1ab9895e76b0b6a0c4525c38a355c805c8" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>showError_i</name></member>
+      <member refid="class_alarm_manager_1ad812d53580b9af78d53de719188ea327" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>showError_o</name></member>
+      <member refid="class_alarm_manager_1a3b4d8431b71a981c3deb72836f5323c1" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>showNum_i</name></member>
+      <member refid="class_alarm_manager_1a5727c94eb5d81b236f0de7ab57daced1" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>showNum_o</name></member>
+      <member refid="class_alarm_manager_1aab6cc4a610ba2f389bbab701b5d377cf" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>showSpeed_i</name></member>
+      <member refid="class_alarm_manager_1a512d4492a9c02ed1afea872e8e4fffb7" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>showSpeed_o</name></member>
+      <member refid="class_alarm_manager_1a06c4f8aa74bd546b62326708aaf15982" prot="public" virt="non-virtual"><scope>AlarmManager</scope><name>~AlarmManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

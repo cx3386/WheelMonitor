@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>WheelMonitor: sources/LevelRecorder.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="WheelMonitor.ico"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">WheelMonitor
+   &#160;<span id="projectnumber">1.0.2</span>
+   </div>
+   <div id="projectbrief">宝钢环冷机台车轮子速度检测软件</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','搜索');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_08d237fc27d4ecd563f71c5d52f2fecc.html">sources</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">LevelRecorder.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_level_recorder_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_level_recorder.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_level_recorder.html">LevelRecorder</a></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_level_recorder.html#a2fee4f14e008dabf44206e0dc9a23a83">LevelRecorder</a>();</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_level_recorder.html#ae868e1bec42b2adab2e4b6ad59a3f259">~LevelRecorder</a>();</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_level_recorder.html#ac903a8ed1d863cf49a2ba8883196d2b4">   25</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_level_recorder.html#ac903a8ed1d863cf49a2ba8883196d2b4">init</a>(<span class="keywordtype">bool</span> b = <span class="keyword">false</span>) { levels.clear(); levels.push_back(b); }</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_level_recorder.html#a918eef12048f9de233aef9a16a1e9883">push</a>(<span class="keywordtype">bool</span>); </div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_level_recorder.html#a56bc86fca07cb3d6e69b089efa9846dc">clear</a>() { levels.clear(); }</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_level_recorder.html#aa9e7d005f90132d6e7e093653a3ae513">state</a>(<span class="keywordtype">size_t</span> pos); </div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445">   30</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445">State</a></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4">   32</a></span>&#160;        <a class="code" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4">HighLevel</a> = 0x1,</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110">   33</a></span>&#160;        <a class="code" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110">LowLevel</a> = 0x2,</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74">   34</a></span>&#160;        <a class="code" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74">PositiveEdge</a> = <a class="code" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4">HighLevel</a> | 0x4, </div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348">   35</a></span>&#160;        <a class="code" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348">NegativeEdge</a> = <a class="code" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110">LowLevel</a> | 0x8, </div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411">   36</a></span>&#160;        <a class="code" href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411">OutOfRange</a> = 0x10,</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> max_size = 1024;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::vector&lt;bool&gt; levels;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div><div class="ttc" id="class_level_recorder_html_acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110"><div class="ttname"><a href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aa8b1e57ed95c25879c00898d59d02110">LevelRecorder::LowLevel</a></div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00033">LevelRecorder.h:33</a></div></div>
+<div class="ttc" id="class_level_recorder_html_ae868e1bec42b2adab2e4b6ad59a3f259"><div class="ttname"><a href="class_level_recorder.html#ae868e1bec42b2adab2e4b6ad59a3f259">LevelRecorder::~LevelRecorder</a></div><div class="ttdeci">~LevelRecorder()</div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8cpp_source.html#l00009">LevelRecorder.cpp:9</a></div></div>
+<div class="ttc" id="class_level_recorder_html_acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4"><div class="ttname"><a href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a27acde74954ef70cc84a604e5d8090c4">LevelRecorder::HighLevel</a></div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00032">LevelRecorder.h:32</a></div></div>
+<div class="ttc" id="class_level_recorder_html_acefed96903d1193e4653a9427edaa445"><div class="ttname"><a href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445">LevelRecorder::State</a></div><div class="ttdeci">State</div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00030">LevelRecorder.h:30</a></div></div>
+<div class="ttc" id="class_level_recorder_html_aa9e7d005f90132d6e7e093653a3ae513"><div class="ttname"><a href="class_level_recorder.html#aa9e7d005f90132d6e7e093653a3ae513">LevelRecorder::state</a></div><div class="ttdeci">int state(size_t pos)</div><div class="ttdoc">输出第pos新的数据的状态，pos=0为最新的数据点 </div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8cpp_source.html#l00022">LevelRecorder.cpp:22</a></div></div>
+<div class="ttc" id="class_level_recorder_html_a918eef12048f9de233aef9a16a1e9883"><div class="ttname"><a href="class_level_recorder.html#a918eef12048f9de233aef9a16a1e9883">LevelRecorder::push</a></div><div class="ttdeci">void push(bool)</div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8cpp_source.html#l00013">LevelRecorder.cpp:13</a></div></div>
+<div class="ttc" id="class_level_recorder_html_acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348"><div class="ttname"><a href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348">LevelRecorder::NegativeEdge</a></div><div class="ttdoc">即使低电平也是下降沿 </div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00035">LevelRecorder.h:35</a></div></div>
+<div class="ttc" id="class_level_recorder_html_acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411"><div class="ttname"><a href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445a8c8264207a4c24c7554570028a429411">LevelRecorder::OutOfRange</a></div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00036">LevelRecorder.h:36</a></div></div>
+<div class="ttc" id="class_level_recorder_html_ac903a8ed1d863cf49a2ba8883196d2b4"><div class="ttname"><a href="class_level_recorder.html#ac903a8ed1d863cf49a2ba8883196d2b4">LevelRecorder::init</a></div><div class="ttdeci">void init(bool b=false)</div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00025">LevelRecorder.h:25</a></div></div>
+<div class="ttc" id="class_level_recorder_html_a2fee4f14e008dabf44206e0dc9a23a83"><div class="ttname"><a href="class_level_recorder.html#a2fee4f14e008dabf44206e0dc9a23a83">LevelRecorder::LevelRecorder</a></div><div class="ttdeci">LevelRecorder()</div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8cpp_source.html#l00004">LevelRecorder.cpp:4</a></div></div>
+<div class="ttc" id="class_level_recorder_html_a56bc86fca07cb3d6e69b089efa9846dc"><div class="ttname"><a href="class_level_recorder.html#a56bc86fca07cb3d6e69b089efa9846dc">LevelRecorder::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">clear all data </div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00028">LevelRecorder.h:28</a></div></div>
+<div class="ttc" id="class_level_recorder_html"><div class="ttname"><a href="class_level_recorder.html">LevelRecorder</a></div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00020">LevelRecorder.h:20</a></div></div>
+<div class="ttc" id="class_level_recorder_html_acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74"><div class="ttname"><a href="class_level_recorder.html#acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74">LevelRecorder::PositiveEdge</a></div><div class="ttdoc">即是高电平也是上升沿 </div><div class="ttdef"><b>Definition:</b> <a href="_level_recorder_8h_source.html#l00034">LevelRecorder.h:34</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

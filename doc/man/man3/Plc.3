@@ -1,0 +1,162 @@
+.TH "Plc" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Plc \- plc其他硬件设备相关类，包括传感器、plc io、plc ad  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Plc\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBsendAlarmToControlCenter\fP (int cio)"
+.br
+.RI "向中控发出报警 "
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBcio0Update\fP (int cio)"
+.br
+.ti -1c
+.RI "void \fBconnectError\fP (int errorId)"
+.br
+.ti -1c
+.RI "void \fBtruckSpeedReady\fP ()"
+.br
+.ti -1c
+.RI "void \fBtruckSpeedError\fP (int)"
+.br
+.RI "台车(中轴)速度信号读取错误 errcode 1: disconnect errcode 2: out of range(4~20ma) "
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlc\fP (const \fBConfigHelper\fP *_configHelper, QObject *parent=nullptr)"
+.br
+.RI "必须传入configure, const成员变量在初始化列表中初始化 "
+.ti -1c
+.RI "\fB~Plc\fP ()"
+.br
+.ti -1c
+.RI "void \fBstart\fP ()"
+.br
+.RI "usrctrl "
+.ti -1c
+.RI "void \fBstop\fP ()"
+.br
+.RI "usrctrl "
+.ti -1c
+.RI "void \fBconnect\fP ()"
+.br
+.RI "连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开 "
+.ti -1c
+.RI "double \fBgetTruckSpeed\fP (int devId=0) const"
+.br
+.RI "获取台车速度(m/min)，线程安全的 "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBHandleSensorDevice\fP * \fBhandleSensorDevice\fP [2]"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBadInterval\fP = 1000"
+.br
+.RI "读取ad（车速）的间隔，ms // 不应太频繁，应大于图像处理的时间7/25s，否则无意义 "
+.in -1c
+.SH "Detailed Description"
+.PP 
+plc其他硬件设备相关类，包括传感器、plc io、plc ad 
+.PP
+Definition at line 12 of file Plc\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Plc::Plc (const \fBConfigHelper\fP * _configHelper, QObject * parent = \fCnullptr\fP)\fC [explicit]\fP"
+
+.PP
+必须传入configure, const成员变量在初始化列表中初始化 
+.PP
+Definition at line 55 of file Plc\&.cpp\&.
+.SS "Plc::~Plc ()"
+
+.PP
+Definition at line 75 of file Plc\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Plc::cio0Update (int cio)\fC [signal]\fP"
+
+.SS "void Plc::connect ()"
+
+.PP
+连接到PLC，初始化AD041。在plc创建并移到子线程后执行，应在退出程序时断开 通过串口连接到plc 
+.PP
+Definition at line 107 of file Plc\&.cpp\&.
+.SS "void Plc::connectError (int errorId)\fC [signal]\fP"
+
+.SS "double Plc::getTruckSpeed (int devId = \fC0\fP) const\fC [inline]\fP"
+
+.PP
+获取台车速度(m/min)，线程安全的 
+.PP
+Definition at line 23 of file Plc\&.h\&.
+.SS "void Plc::sendAlarmToControlCenter (int cio)\fC [slot]\fP"
+
+.PP
+向中控发出报警 注意：不会覆盖原有状态 
+.PP
+Definition at line 363 of file Plc\&.cpp\&.
+.SS "void Plc::start ()"
+
+.PP
+usrctrl 
+.PP
+Definition at line 82 of file Plc\&.cpp\&.
+.SS "void Plc::stop ()"
+
+.PP
+usrctrl 
+.PP
+Definition at line 97 of file Plc\&.cpp\&.
+.SS "void Plc::truckSpeedError (int)\fC [signal]\fP"
+
+.PP
+台车(中轴)速度信号读取错误 errcode 1: disconnect errcode 2: out of range(4~20ma) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIint\fP errorCode 
+.RE
+.PP
+
+.SS "void Plc::truckSpeedReady ()\fC [signal]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "const int Plc::adInterval = 1000\fC [static]\fP"
+
+.PP
+读取ad（车速）的间隔，ms // 不应太频繁，应大于图像处理的时间7/25s，否则无意义 
+.PP
+Definition at line 28 of file Plc\&.h\&.
+.SS "\fBHandleSensorDevice\fP* Plc::handleSensorDevice[2]"
+
+.PP
+Definition at line 29 of file Plc\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

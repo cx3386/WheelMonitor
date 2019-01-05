@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_ck_pt" kind="class" language="C++" prot="public">
+    <compoundname>CkPt</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="_sensor_device_8h" local="no">SensorDevice.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_ck_pt_1a750ae2ab960e05b0685667c558980bb8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CkPt::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="37" column="1" bodyfile="sources/SensorDevice.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="class_sensor_1a297b58d8d5cfecb5a4c569a55129ce9e" compoundref="_sensor_device_8cpp" startline="47" endline="78">Sensor::Sensor</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_ck_pt_1a5b0fb213cdb889034ebdf1a793e358c0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CkPt::m_id</definition>
+        <argsstring></argsstring>
+        <name>m_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="38" column="1" bodyfile="sources/SensorDevice.h" bodystart="38" bodyend="-1"/>
+        <referencedby refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" compoundref="_sensor_device_8cpp" startline="104" endline="112">CkPt</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_ck_pt_1a19532657da6670b50a16f7d0a601e9bb" prot="public" static="no" mutable="no">
+        <type><ref refid="class_sensor_device" kindref="compound">SensorDevice</ref> *</type>
+        <definition>SensorDevice* CkPt::parentDev</definition>
+        <argsstring></argsstring>
+        <name>parentDev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="39" column="1" bodyfile="sources/SensorDevice.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" compoundref="_sensor_device_8cpp" startline="104" endline="112">CkPt</referencedby>
+        <referencedby refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" compoundref="_sensor_device_8cpp" startline="140" endline="149">isEnter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_ck_pt_1a903058e94ace524942fa08f2d9304bc4" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString CkPt::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="40" column="1" bodyfile="sources/SensorDevice.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" compoundref="_sensor_device_8cpp" startline="104" endline="112">CkPt</referencedby>
+        <referencedby refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" compoundref="_sensor_device_8cpp" startline="140" endline="149">isEnter</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_ck_pt_1ad1906be43650dbb487d078b32c055d9e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CkPt::hasTri</definition>
+        <argsstring></argsstring>
+        <name>hasTri</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="41" column="1" bodyfile="sources/SensorDevice.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="class_ck_pt_1a1bbbad154caab9065e9a6aebf696a11b" compoundref="_sensor_device_8cpp" startline="123" endline="129">newWheel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" prot="public" static="no" mutable="no">
+        <type>QList&lt; <ref refid="class_sensor" kindref="compound">Sensor</ref> * &gt;</type>
+        <definition>QList&lt;Sensor*&gt; CkPt::sensors</definition>
+        <argsstring></argsstring>
+        <name>sensors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="46" column="1" bodyfile="sources/SensorDevice.h" bodystart="46" bodyend="-1"/>
+        <referencedby refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" compoundref="_sensor_device_8cpp" startline="104" endline="112">CkPt</referencedby>
+        <referencedby refid="class_ck_pt_1a1bbbad154caab9065e9a6aebf696a11b" compoundref="_sensor_device_8cpp" startline="123" endline="129">newWheel</referencedby>
+        <referencedby refid="class_ck_pt_1aad65e83ec3ef258516bbee5ba4c6d120" compoundref="_sensor_device_8cpp" startline="131" endline="138">init</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" prot="public" static="yes" mutable="no">
+        <type>const QStringList</type>
+        <definition>const QStringList CkPt::names</definition>
+        <argsstring></argsstring>
+        <name>names</name>
+        <initializer>{ &quot;left&quot;, &quot;right&quot; }</initializer>
+        <briefdescription>
+<para>每个检测点的传感器 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="44" column="1" bodyfile="sources/SensorDevice.h" bodystart="44" bodyend="-1"/>
+        <referencedby refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" compoundref="_sensor_device_8cpp" startline="104" endline="112">CkPt</referencedby>
+        <referencedby refid="class_ck_pt_1a3b438c401be7fd57da84a6c09220592f" compoundref="_sensor_device_8cpp" startline="114" endline="121">creatAll</referencedby>
+        <referencedby refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" compoundref="_sensor_device_8h" startline="43" endline="43">indexOf</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CkPt::CkPt</definition>
+        <argsstring>(int _id, SensorDevice *parent)</argsstring>
+        <name>CkPt</name>
+        <param>
+          <type>int</type>
+          <declname>_id</declname>
+        </param>
+        <param>
+          <type><ref refid="class_sensor_device" kindref="compound">SensorDevice</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="36" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="104" bodyend="112"/>
+        <references refid="class_ck_pt_1a903058e94ace524942fa08f2d9304bc4" compoundref="_sensor_device_8h" startline="40">name</references>
+        <references refid="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" compoundref="_sensor_device_8h" startline="44">names</references>
+        <references refid="class_ck_pt_1a5b0fb213cdb889034ebdf1a793e358c0" compoundref="_sensor_device_8h" startline="38">m_id</references>
+        <references refid="class_ck_pt_1a19532657da6670b50a16f7d0a601e9bb" compoundref="_sensor_device_8h" startline="39">parentDev</references>
+        <references refid="class_sensor_device_1a229042a02989323d6388dd6037a35384" compoundref="_sensor_device_8h" startline="63">SensorDevice::id</references>
+        <references refid="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" compoundref="_sensor_device_8h" startline="46">sensors</references>
+        <references refid="class_sensor_1a03b33db349b28448615318739bc9101f" compoundref="_sensor_device_8cpp" startline="80" endline="87">Sensor::createAll</references>
+      </memberdef>
+      <memberdef kind="function" id="class_ck_pt_1a1bbbad154caab9065e9a6aebf696a11b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CkPt::newWheel</definition>
+        <argsstring>()</argsstring>
+        <name>newWheel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="47" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="123" bodyend="129"/>
+        <references refid="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" compoundref="_sensor_device_8h" startline="46">sensors</references>
+        <references refid="class_ck_pt_1ad1906be43650dbb487d078b32c055d9e" compoundref="_sensor_device_8h" startline="41">hasTri</references>
+      </memberdef>
+      <memberdef kind="function" id="class_ck_pt_1aad65e83ec3ef258516bbee5ba4c6d120" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CkPt::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="48" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="131" bodyend="138"/>
+        <references refid="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" compoundref="_sensor_device_8h" startline="46">sensors</references>
+      </memberdef>
+      <memberdef kind="function" id="class_ck_pt_1a67a101d39c9ee8d8113f82905fb018f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int CkPt::triTiming</definition>
+        <argsstring>()</argsstring>
+        <name>triTiming</name>
+        <briefdescription>
+<para>返回触发的时机，如果是进入，则下降沿触发 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="50" column="1" bodyfile="sources/SensorDevice.h" bodystart="50" bodyend="50"/>
+        <references refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" compoundref="_sensor_device_8cpp" startline="140" endline="149">isEnter</references>
+        <references refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445a62833fdba3bcb209624600280163c348" compoundref="_level_recorder_8h" startline="35">LevelRecorder::NegativeEdge</references>
+        <references refid="class_level_recorder_1acefed96903d1193e4653a9427edaa445aff1718edd792fe76d3434a93cd980a74" compoundref="_level_recorder_8h" startline="34">LevelRecorder::PositiveEdge</references>
+      </memberdef>
+      <memberdef kind="function" id="class_ck_pt_1a2792e24314be95021e461a798ec2c884" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CkPt::isEnter</definition>
+        <argsstring>()</argsstring>
+        <name>isEnter</name>
+        <briefdescription>
+<para>返回是否由此检测点进入 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="52" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="140" bodyend="149"/>
+        <references refid="class_ck_pt_1a19532657da6670b50a16f7d0a601e9bb" compoundref="_sensor_device_8h" startline="39">parentDev</references>
+        <references refid="class_sensor_device_1add21fbc076ecbe5b4de479b426ad29bd" compoundref="_sensor_device_8h" startline="65">SensorDevice::name</references>
+        <references refid="class_ck_pt_1a903058e94ace524942fa08f2d9304bc4" compoundref="_sensor_device_8h" startline="40">name</references>
+        <referencedby refid="class_sensor_1a84bc35cfba92eb579bc311b3c8b2980d" compoundref="_sensor_device_8cpp" startline="95" endline="102">Sensor::init</referencedby>
+        <referencedby refid="class_ck_pt_1a67a101d39c9ee8d8113f82905fb018f9" compoundref="_sensor_device_8h" startline="50" endline="50">triTiming</referencedby>
+        <referencedby refid="class_ck_pt_1afd63f78fd17b55451eb039ab9d5bb49f" compoundref="_sensor_device_8h" startline="54" endline="54">isLeave</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_ck_pt_1afd63f78fd17b55451eb039ab9d5bb49f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CkPt::isLeave</definition>
+        <argsstring>()</argsstring>
+        <name>isLeave</name>
+        <briefdescription>
+<para>返回是否由此检测点离开 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="54" column="1" bodyfile="sources/SensorDevice.h" bodystart="54" bodyend="54"/>
+        <references refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" compoundref="_sensor_device_8cpp" startline="140" endline="149">isEnter</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_ck_pt_1ad3259779575bb558490559404afb1903" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int CkPt::gid2mid</definition>
+        <argsstring>(int gid)</argsstring>
+        <name>gid2mid</name>
+        <param>
+          <type>int</type>
+          <declname>gid</declname>
+        </param>
+        <briefdescription>
+<para>由global id获得局部id. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="42" column="1" bodyfile="sources/SensorDevice.h" bodystart="42" bodyend="-1"/>
+        <referencedby refid="class_handle_sensor_device_1ac43848822075ec66788f3e9bc795daea" compoundref="_handle_sensor_device_8cpp" startline="114" endline="120">HandleSensorDevice::newCkp</referencedby>
+        <referencedby refid="class_handle_sensor_device_1a046f030fe8043ecce0e21b371b874531" compoundref="_handle_sensor_device_8cpp" startline="122" endline="150">HandleSensorDevice::checkoutCkp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int CkPt::indexOf</definition>
+        <argsstring>(QString _name)</argsstring>
+        <name>indexOf</name>
+        <param>
+          <type>QString</type>
+          <declname>_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="43" column="1" bodyfile="sources/SensorDevice.h" bodystart="43" bodyend="43"/>
+        <references refid="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" compoundref="_sensor_device_8h" startline="44">names</references>
+        <referencedby refid="class_handle_sensor_device_1a406c0b871807c5b546390360a2a81efc" compoundref="_handle_sensor_device_8cpp" startline="22" endline="57">HandleSensorDevice::io2dev</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_ck_pt_1a3b438c401be7fd57da84a6c09220592f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="class_ck_pt" kindref="compound">CkPt</ref> * &gt;</type>
+        <definition>QList&lt; CkPt * &gt; CkPt::creatAll</definition>
+        <argsstring>(SensorDevice *parent)</argsstring>
+        <name>creatAll</name>
+        <param>
+          <type><ref refid="class_sensor_device" kindref="compound">SensorDevice</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+<para>一次性创建所有的检测点 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/SensorDevice.h" line="45" column="1" bodyfile="sources/SensorDevice.cpp" bodystart="114" bodyend="121"/>
+        <references refid="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" compoundref="_sensor_device_8h" startline="44">names</references>
+        <referencedby refid="class_sensor_device_1a31ba196824ad72ac7e0fc960deb8bfa9" compoundref="_sensor_device_8cpp" startline="9" endline="16">SensorDevice::SensorDevice</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="21">
+        <label>QObject</label>
+      </node>
+      <node id="20">
+        <label>CkPt</label>
+        <link refid="class_ck_pt"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="23">
+        <label>QObject</label>
+      </node>
+      <node id="24">
+        <label>SensorDevice</label>
+        <link refid="class_sensor_device"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>CkPt</label>
+        <link refid="class_ck_pt"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>parentDev</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/SensorDevice.h" line="33" column="1" bodyfile="sources/SensorDevice.h" bodystart="33" bodyend="57"/>
+    <listofallmembers>
+      <member refid="class_ck_pt_1a414daa67aca3918ad13febdf5df36072" prot="public" virt="non-virtual"><scope>CkPt</scope><name>CkPt</name></member>
+      <member refid="class_ck_pt_1a3b438c401be7fd57da84a6c09220592f" prot="public" virt="non-virtual"><scope>CkPt</scope><name>creatAll</name></member>
+      <member refid="class_ck_pt_1ad3259779575bb558490559404afb1903" prot="public" virt="non-virtual"><scope>CkPt</scope><name>gid2mid</name></member>
+      <member refid="class_ck_pt_1ad1906be43650dbb487d078b32c055d9e" prot="public" virt="non-virtual"><scope>CkPt</scope><name>hasTri</name></member>
+      <member refid="class_ck_pt_1a750ae2ab960e05b0685667c558980bb8" prot="public" virt="non-virtual"><scope>CkPt</scope><name>id</name></member>
+      <member refid="class_ck_pt_1aae408d0f5cf84a8f4ac7d6281829c1f6" prot="public" virt="non-virtual"><scope>CkPt</scope><name>indexOf</name></member>
+      <member refid="class_ck_pt_1aad65e83ec3ef258516bbee5ba4c6d120" prot="public" virt="non-virtual"><scope>CkPt</scope><name>init</name></member>
+      <member refid="class_ck_pt_1a2792e24314be95021e461a798ec2c884" prot="public" virt="non-virtual"><scope>CkPt</scope><name>isEnter</name></member>
+      <member refid="class_ck_pt_1afd63f78fd17b55451eb039ab9d5bb49f" prot="public" virt="non-virtual"><scope>CkPt</scope><name>isLeave</name></member>
+      <member refid="class_ck_pt_1a5b0fb213cdb889034ebdf1a793e358c0" prot="public" virt="non-virtual"><scope>CkPt</scope><name>m_id</name></member>
+      <member refid="class_ck_pt_1a903058e94ace524942fa08f2d9304bc4" prot="public" virt="non-virtual"><scope>CkPt</scope><name>name</name></member>
+      <member refid="class_ck_pt_1ae941eb0aa4d8f2ac4638fa846d8321a2" prot="public" virt="non-virtual"><scope>CkPt</scope><name>names</name></member>
+      <member refid="class_ck_pt_1a1bbbad154caab9065e9a6aebf696a11b" prot="public" virt="non-virtual"><scope>CkPt</scope><name>newWheel</name></member>
+      <member refid="class_ck_pt_1a19532657da6670b50a16f7d0a601e9bb" prot="public" virt="non-virtual"><scope>CkPt</scope><name>parentDev</name></member>
+      <member refid="class_ck_pt_1a1fff98cebcd0d02f8cad10310a2d3ed2" prot="public" virt="non-virtual"><scope>CkPt</scope><name>sensors</name></member>
+      <member refid="class_ck_pt_1a67a101d39c9ee8d8113f82905fb018f9" prot="public" virt="non-virtual"><scope>CkPt</scope><name>triTiming</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,68 @@
+.TH "OCR" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OCR
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ocr\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOCR\fP (const \fBConfigHelper\fP *_configHelper, int _deviceIndex, QObject *parent=Q_NULLPTR)"
+.br
+.ti -1c
+.RI "void \fBcore_ocr\fP (Mat src)"
+.br
+.ti -1c
+.RI "string \fBget_final_result\fP ()"
+.br
+.ti -1c
+.RI "int \fBsize\fP () const"
+.br
+.RI "return ocr total match size, should be called after \fBget_final_result()\fP; "
+.ti -1c
+.RI "void \fBresetOcr\fP ()"
+.br
+.RI "重置ocr的连续miss计数器 "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 24 of file ocr\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "OCR::OCR (const \fBConfigHelper\fP * _configHelper, int _deviceIndex, QObject * parent = \fCQ_NULLPTR\fP)"
+
+.PP
+Definition at line 9 of file ocr\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void OCR::core_ocr (Mat src)"
+
+.PP
+Definition at line 26 of file ocr\&.cpp\&.
+.SS "std::string OCR::get_final_result ()"
+
+.PP
+Definition at line 181 of file ocr\&.cpp\&.
+.SS "void OCR::resetOcr ()\fC [inline]\fP"
+
+.PP
+重置ocr的连续miss计数器 
+.PP
+Definition at line 33 of file ocr\&.h\&.
+.SS "int OCR::size () const\fC [inline]\fP"
+
+.PP
+return ocr total match size, should be called after \fBget_final_result()\fP; 
+.PP
+Definition at line 31 of file ocr\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

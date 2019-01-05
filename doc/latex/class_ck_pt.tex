@@ -1,0 +1,278 @@
+\hypertarget{class_ck_pt}{}\section{Ck\+Pt Class Reference}
+\label{class_ck_pt}\index{Ck\+Pt@{Ck\+Pt}}
+
+
+{\ttfamily \#include $<$Sensor\+Device.\+h$>$}
+
+
+
+Inheritance diagram for Ck\+Pt\+:
+% FIG 0
+
+
+Collaboration diagram for Ck\+Pt\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ck_pt_a414daa67aca3918ad13febdf5df36072}{Ck\+Pt}} (int \+\_\+id, \mbox{\hyperlink{class_sensor_device}{Sensor\+Device}} $\ast$parent)
+\item 
+void \mbox{\hyperlink{class_ck_pt_a1bbbad154caab9065e9a6aebf696a11b}{new\+Wheel}} ()
+\item 
+void \mbox{\hyperlink{class_ck_pt_aad65e83ec3ef258516bbee5ba4c6d120}{init}} ()
+\item 
+int \mbox{\hyperlink{class_ck_pt_a67a101d39c9ee8d8113f82905fb018f9}{tri\+Timing}} ()
+\begin{DoxyCompactList}\small\item\em 返回触发的时机，如果是进入，则下降沿触发 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ck_pt_a2792e24314be95021e461a798ec2c884}{is\+Enter}} ()
+\begin{DoxyCompactList}\small\item\em 返回是否由此检测点进入 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ck_pt_afd63f78fd17b55451eb039ab9d5bb49f}{is\+Leave}} ()
+\begin{DoxyCompactList}\small\item\em 返回是否由此检测点离开 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_ck_pt_ad3259779575bb558490559404afb1903}{gid2mid}} (int gid)
+\begin{DoxyCompactList}\small\item\em 由global id获得局部id. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{class_ck_pt_aae408d0f5cf84a8f4ac7d6281829c1f6}{index\+Of}} (Q\+String \+\_\+name)
+\item 
+static Q\+List$<$ \mbox{\hyperlink{class_ck_pt}{Ck\+Pt}} $\ast$ $>$ \mbox{\hyperlink{class_ck_pt_a3b438c401be7fd57da84a6c09220592f}{creat\+All}} (\mbox{\hyperlink{class_sensor_device}{Sensor\+Device}} $\ast$parent)
+\begin{DoxyCompactList}\small\item\em 一次性创建所有的检测点 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_ck_pt_a750ae2ab960e05b0685667c558980bb8}{id}}
+\item 
+int \mbox{\hyperlink{class_ck_pt_a5b0fb213cdb889034ebdf1a793e358c0}{m\+\_\+id}}
+\item 
+\mbox{\hyperlink{class_sensor_device}{Sensor\+Device}} $\ast$ \mbox{\hyperlink{class_ck_pt_a19532657da6670b50a16f7d0a601e9bb}{parent\+Dev}}
+\item 
+Q\+String \mbox{\hyperlink{class_ck_pt_a903058e94ace524942fa08f2d9304bc4}{name}}
+\item 
+bool \mbox{\hyperlink{class_ck_pt_ad1906be43650dbb487d078b32c055d9e}{has\+Tri}} = false
+\item 
+Q\+List$<$ \mbox{\hyperlink{class_sensor}{Sensor}} $\ast$ $>$ \mbox{\hyperlink{class_ck_pt_a1fff98cebcd0d02f8cad10310a2d3ed2}{sensors}}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const Q\+String\+List \mbox{\hyperlink{class_ck_pt_ae941eb0aa4d8f2ac4638fa846d8321a2}{names}} \{ \char`\"{}left\char`\"{}, \char`\"{}right\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em 每个检测点的传感器 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 33 of file Sensor\+Device.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ck_pt_a414daa67aca3918ad13febdf5df36072}\label{class_ck_pt_a414daa67aca3918ad13febdf5df36072}} 
+\index{Ck\+Pt@{Ck\+Pt}!Ck\+Pt@{Ck\+Pt}}
+\index{Ck\+Pt@{Ck\+Pt}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{Ck\+Pt()}{CkPt()}}
+{\footnotesize\ttfamily Ck\+Pt\+::\+Ck\+Pt (\begin{DoxyParamCaption}\item[{int}]{\+\_\+id,  }\item[{\mbox{\hyperlink{class_sensor_device}{Sensor\+Device}} $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Definition at line 104 of file Sensor\+Device.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ck_pt_a3b438c401be7fd57da84a6c09220592f}\label{class_ck_pt_a3b438c401be7fd57da84a6c09220592f}} 
+\index{Ck\+Pt@{Ck\+Pt}!creat\+All@{creat\+All}}
+\index{creat\+All@{creat\+All}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{creat\+All()}{creatAll()}}
+{\footnotesize\ttfamily Q\+List$<$ \mbox{\hyperlink{class_ck_pt}{Ck\+Pt}} $\ast$ $>$ Ck\+Pt\+::creat\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sensor_device}{Sensor\+Device}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+一次性创建所有的检测点 
+
+
+
+Definition at line 114 of file Sensor\+Device.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_ck_pt_ad3259779575bb558490559404afb1903}\label{class_ck_pt_ad3259779575bb558490559404afb1903}} 
+\index{Ck\+Pt@{Ck\+Pt}!gid2mid@{gid2mid}}
+\index{gid2mid@{gid2mid}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{gid2mid()}{gid2mid()}}
+{\footnotesize\ttfamily static int Ck\+Pt\+::gid2mid (\begin{DoxyParamCaption}\item[{int}]{gid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+由global id获得局部id. 
+
+
+
+Definition at line 42 of file Sensor\+Device.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_ck_pt_aae408d0f5cf84a8f4ac7d6281829c1f6}\label{class_ck_pt_aae408d0f5cf84a8f4ac7d6281829c1f6}} 
+\index{Ck\+Pt@{Ck\+Pt}!index\+Of@{index\+Of}}
+\index{index\+Of@{index\+Of}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{index\+Of()}{indexOf()}}
+{\footnotesize\ttfamily static int Ck\+Pt\+::index\+Of (\begin{DoxyParamCaption}\item[{Q\+String}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 43 of file Sensor\+Device.\+h.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_ck_pt_aad65e83ec3ef258516bbee5ba4c6d120}\label{class_ck_pt_aad65e83ec3ef258516bbee5ba4c6d120}} 
+\index{Ck\+Pt@{Ck\+Pt}!init@{init}}
+\index{init@{init}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Ck\+Pt\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 131 of file Sensor\+Device.\+cpp.
+
+\mbox{\Hypertarget{class_ck_pt_a2792e24314be95021e461a798ec2c884}\label{class_ck_pt_a2792e24314be95021e461a798ec2c884}} 
+\index{Ck\+Pt@{Ck\+Pt}!is\+Enter@{is\+Enter}}
+\index{is\+Enter@{is\+Enter}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{is\+Enter()}{isEnter()}}
+{\footnotesize\ttfamily bool Ck\+Pt\+::is\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+返回是否由此检测点进入 
+
+
+
+Definition at line 140 of file Sensor\+Device.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_ck_pt_afd63f78fd17b55451eb039ab9d5bb49f}\label{class_ck_pt_afd63f78fd17b55451eb039ab9d5bb49f}} 
+\index{Ck\+Pt@{Ck\+Pt}!is\+Leave@{is\+Leave}}
+\index{is\+Leave@{is\+Leave}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{is\+Leave()}{isLeave()}}
+{\footnotesize\ttfamily bool Ck\+Pt\+::is\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+返回是否由此检测点离开 
+
+
+
+Definition at line 54 of file Sensor\+Device.\+h.
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_ck_pt_a1bbbad154caab9065e9a6aebf696a11b}\label{class_ck_pt_a1bbbad154caab9065e9a6aebf696a11b}} 
+\index{Ck\+Pt@{Ck\+Pt}!new\+Wheel@{new\+Wheel}}
+\index{new\+Wheel@{new\+Wheel}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{new\+Wheel()}{newWheel()}}
+{\footnotesize\ttfamily void Ck\+Pt\+::new\+Wheel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file Sensor\+Device.\+cpp.
+
+\mbox{\Hypertarget{class_ck_pt_a67a101d39c9ee8d8113f82905fb018f9}\label{class_ck_pt_a67a101d39c9ee8d8113f82905fb018f9}} 
+\index{Ck\+Pt@{Ck\+Pt}!tri\+Timing@{tri\+Timing}}
+\index{tri\+Timing@{tri\+Timing}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{tri\+Timing()}{triTiming()}}
+{\footnotesize\ttfamily int Ck\+Pt\+::tri\+Timing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+返回触发的时机，如果是进入，则下降沿触发 
+
+
+
+Definition at line 50 of file Sensor\+Device.\+h.
+
+Here is the call graph for this function\+:
+% FIG 8
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_ck_pt_ad1906be43650dbb487d078b32c055d9e}\label{class_ck_pt_ad1906be43650dbb487d078b32c055d9e}} 
+\index{Ck\+Pt@{Ck\+Pt}!has\+Tri@{has\+Tri}}
+\index{has\+Tri@{has\+Tri}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{has\+Tri}{hasTri}}
+{\footnotesize\ttfamily bool Ck\+Pt\+::has\+Tri = false}
+
+
+
+Definition at line 41 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_ck_pt_a750ae2ab960e05b0685667c558980bb8}\label{class_ck_pt_a750ae2ab960e05b0685667c558980bb8}} 
+\index{Ck\+Pt@{Ck\+Pt}!id@{id}}
+\index{id@{id}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Ck\+Pt\+::id}
+
+
+
+Definition at line 37 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_ck_pt_a5b0fb213cdb889034ebdf1a793e358c0}\label{class_ck_pt_a5b0fb213cdb889034ebdf1a793e358c0}} 
+\index{Ck\+Pt@{Ck\+Pt}!m\+\_\+id@{m\+\_\+id}}
+\index{m\+\_\+id@{m\+\_\+id}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{m\+\_\+id}{m\_id}}
+{\footnotesize\ttfamily int Ck\+Pt\+::m\+\_\+id}
+
+
+
+Definition at line 38 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_ck_pt_a903058e94ace524942fa08f2d9304bc4}\label{class_ck_pt_a903058e94ace524942fa08f2d9304bc4}} 
+\index{Ck\+Pt@{Ck\+Pt}!name@{name}}
+\index{name@{name}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily Q\+String Ck\+Pt\+::name}
+
+
+
+Definition at line 40 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_ck_pt_ae941eb0aa4d8f2ac4638fa846d8321a2}\label{class_ck_pt_ae941eb0aa4d8f2ac4638fa846d8321a2}} 
+\index{Ck\+Pt@{Ck\+Pt}!names@{names}}
+\index{names@{names}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{names}{names}}
+{\footnotesize\ttfamily const Q\+String\+List Ck\+Pt\+::names \{ \char`\"{}left\char`\"{}, \char`\"{}right\char`\"{} \}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+每个检测点的传感器 
+
+
+
+Definition at line 44 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_ck_pt_a19532657da6670b50a16f7d0a601e9bb}\label{class_ck_pt_a19532657da6670b50a16f7d0a601e9bb}} 
+\index{Ck\+Pt@{Ck\+Pt}!parent\+Dev@{parent\+Dev}}
+\index{parent\+Dev@{parent\+Dev}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{parent\+Dev}{parentDev}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sensor_device}{Sensor\+Device}}$\ast$ Ck\+Pt\+::parent\+Dev}
+
+
+
+Definition at line 39 of file Sensor\+Device.\+h.
+
+\mbox{\Hypertarget{class_ck_pt_a1fff98cebcd0d02f8cad10310a2d3ed2}\label{class_ck_pt_a1fff98cebcd0d02f8cad10310a2d3ed2}} 
+\index{Ck\+Pt@{Ck\+Pt}!sensors@{sensors}}
+\index{sensors@{sensors}!Ck\+Pt@{Ck\+Pt}}
+\subsubsection{\texorpdfstring{sensors}{sensors}}
+{\footnotesize\ttfamily Q\+List$<$\mbox{\hyperlink{class_sensor}{Sensor}}$\ast$$>$ Ck\+Pt\+::sensors}
+
+
+
+Definition at line 46 of file Sensor\+Device.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{_sensor_device_8h}{Sensor\+Device.\+h}}\item 
+sources/\mbox{\hyperlink{_sensor_device_8cpp}{Sensor\+Device.\+cpp}}\end{DoxyCompactItemize}

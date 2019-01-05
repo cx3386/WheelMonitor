@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="struct_cam_profile" kind="struct" language="C++" prot="public">
+    <compoundname>CamProfile</compoundname>
+    <includes refid="camprofile_8h" local="no">camprofile.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString CamProfile::camIP</definition>
+        <argsstring></argsstring>
+        <name>camIP</name>
+        <initializer>= &quot;192.168.2.84&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/camprofile.h" line="7" column="1" bodyfile="sources/camprofile.h" bodystart="7" bodyend="-1"/>
+        <referencedby refid="camprofile_8h_1ae28f9d10402fb4c5f2606289f7ccf0bc" compoundref="camprofile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="camprofile_8h_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" compoundref="camprofile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+        <referencedby refid="class_config_helper_1a64fce4fd6e2a9df32950c6bac6891f66" compoundref="confighelper_8cpp" startline="26" endline="90">ConfigHelper::read</referencedby>
+        <referencedby refid="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" compoundref="hikvideocapture_8cpp" startline="13" endline="54">HikVideoCapture::HikVideoCapture</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cam_profile_1aa0b5ff29518521fa54e3d10b13176cea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CamProfile::camPort</definition>
+        <argsstring></argsstring>
+        <name>camPort</name>
+        <initializer>= 8000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/camprofile.h" line="8" column="1" bodyfile="sources/camprofile.h" bodystart="8" bodyend="-1"/>
+        <referencedby refid="camprofile_8h_1ae28f9d10402fb4c5f2606289f7ccf0bc" compoundref="camprofile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="camprofile_8h_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" compoundref="camprofile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+        <referencedby refid="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" compoundref="hikvideocapture_8cpp" startline="13" endline="54">HikVideoCapture::HikVideoCapture</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cam_profile_1a0ea16ae25e305f80425bd43aaebd5e03" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString CamProfile::camUserName</definition>
+        <argsstring></argsstring>
+        <name>camUserName</name>
+        <initializer>= &quot;admin&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/camprofile.h" line="9" column="1" bodyfile="sources/camprofile.h" bodystart="9" bodyend="-1"/>
+        <referencedby refid="camprofile_8h_1ae28f9d10402fb4c5f2606289f7ccf0bc" compoundref="camprofile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="camprofile_8h_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" compoundref="camprofile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+        <referencedby refid="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" compoundref="hikvideocapture_8cpp" startline="13" endline="54">HikVideoCapture::HikVideoCapture</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cam_profile_1a858a51162bbd2a1b3cee2efddf16c65f" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString CamProfile::camPassword</definition>
+        <argsstring></argsstring>
+        <name>camPassword</name>
+        <initializer>= &quot;baosteel123&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/camprofile.h" line="10" column="1" bodyfile="sources/camprofile.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="camprofile_8h_1ae28f9d10402fb4c5f2606289f7ccf0bc" compoundref="camprofile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="camprofile_8h_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" compoundref="camprofile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+        <referencedby refid="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" compoundref="hikvideocapture_8cpp" startline="13" endline="54">HikVideoCapture::HikVideoCapture</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CamProfile::frameInterv</definition>
+        <argsstring></argsstring>
+        <name>frameInterv</name>
+        <initializer>= 7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/camprofile.h" line="11" column="1" bodyfile="sources/camprofile.h" bodystart="11" bodyend="-1"/>
+        <referencedby refid="camprofile_8h_1ae28f9d10402fb4c5f2606289f7ccf0bc" compoundref="camprofile_8cpp" startline="4" endline="8">operator&lt;&lt;</referencedby>
+        <referencedby refid="camprofile_8h_1a9e41c2c3b9c9ade6f8874c9a07e2b34c" compoundref="camprofile_8cpp" startline="10" endline="14">operator&gt;&gt;</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/camprofile.h" line="6" column="1" bodyfile="sources/camprofile.h" bodystart="6" bodyend="12"/>
+    <listofallmembers>
+      <member refid="struct_cam_profile_1a073029c3e54b02fd1a3b18e19032586c" prot="public" virt="non-virtual"><scope>CamProfile</scope><name>camIP</name></member>
+      <member refid="struct_cam_profile_1a858a51162bbd2a1b3cee2efddf16c65f" prot="public" virt="non-virtual"><scope>CamProfile</scope><name>camPassword</name></member>
+      <member refid="struct_cam_profile_1aa0b5ff29518521fa54e3d10b13176cea" prot="public" virt="non-virtual"><scope>CamProfile</scope><name>camPort</name></member>
+      <member refid="struct_cam_profile_1a0ea16ae25e305f80425bd43aaebd5e03" prot="public" virt="non-virtual"><scope>CamProfile</scope><name>camUserName</name></member>
+      <member refid="struct_cam_profile_1a305832f4d32f5a7c42fa44a07e9e2565" prot="public" virt="non-virtual"><scope>CamProfile</scope><name>frameInterv</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,233 @@
+\hypertarget{class_handle_sensor_device}{}\section{Handle\+Sensor\+Device Class Reference}
+\label{class_handle_sensor_device}\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+
+
+{\ttfamily \#include $<$Handle\+Sensor\+Device.\+h$>$}
+
+
+
+Inheritance diagram for Handle\+Sensor\+Device\+:
+% FIG 0
+
+
+Collaboration diagram for Handle\+Sensor\+Device\+:
+% FIG 1
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_handle_sensor_device_aeef6cec4d94210ddbff3095dd246230c}{dz\+In}} ()
+\item 
+void \mbox{\hyperlink{class_handle_sensor_device_a91627de0f3ebec10cb3329f226eb7c7e}{dz\+Out}} ()
+\item 
+void \mbox{\hyperlink{class_handle_sensor_device_a4eb776d5c0371a091fbac629f64e55cc}{tri\+Int}} (int ckp\+Id)
+\begin{DoxyCompactList}\small\item\em 至积分器,global ckpid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_handle_sensor_device_afbdc2dd52d6a0a4af46df594f9c1d48d}{wheel\+Fall\+Off}} (int pos)
+\begin{DoxyCompactList}\small\item\em pos\+:-\/1前一个;0当前 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_handle_sensor_device_a4b16afcd6b6fea22d29862cbd7a64554}{sensor\+Update}} (int)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_handle_sensor_device_a5023b1b9da70eeb729bc6326a67bb8a1}{Handle\+Sensor\+Device}} (int \+\_\+dev\+Id, Q\+Object $\ast$parent)
+\item 
+\mbox{\hyperlink{class_handle_sensor_device_a42c9040fa7c8f0ee178f018632be04d8}{$\sim$\+Handle\+Sensor\+Device}} ()
+\item 
+void \mbox{\hyperlink{class_handle_sensor_device_aa66351734f4ee220bb13d37297061c58}{input}} (int io)
+\begin{DoxyCompactList}\small\item\em 输入一个新的io信号 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc}{io2dev}} (int io)
+\begin{DoxyCompactList}\small\item\em 将输入的io信号压入devs中 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_handle_sensor_device_ac3ea03c7ab1379f1f5f4b9750ff40683}{check\+Tri}} ()
+\begin{DoxyCompactList}\small\item\em 用读取的cio数据检测是否满足触发条件（上升沿/下降沿） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea}{new\+Ckp}} (int ckp\+Id)
+\begin{DoxyCompactList}\small\item\em expect begin时，开始一个新的ckp \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531}{checkout\+Ckp}} (int ckp\+Id)
+\begin{DoxyCompactList}\small\item\em 在expect end时，结算ckp。注意：此ckp\+Id为global id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_device}{Sensor\+Device}} $\ast$ \mbox{\hyperlink{class_handle_sensor_device_a00cbb35b7e5b8defed7bff62774827cf}{dev}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 14 of file Handle\+Sensor\+Device.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_handle_sensor_device_a5023b1b9da70eeb729bc6326a67bb8a1}\label{class_handle_sensor_device_a5023b1b9da70eeb729bc6326a67bb8a1}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{Handle\+Sensor\+Device()}{HandleSensorDevice()}}
+{\footnotesize\ttfamily Handle\+Sensor\+Device\+::\+Handle\+Sensor\+Device (\begin{DoxyParamCaption}\item[{int}]{\+\_\+dev\+Id,  }\item[{Q\+Object $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Handle\+Sensor\+Device.\+cpp.
+
+\mbox{\Hypertarget{class_handle_sensor_device_a42c9040fa7c8f0ee178f018632be04d8}\label{class_handle_sensor_device_a42c9040fa7c8f0ee178f018632be04d8}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!````~Handle\+Sensor\+Device@{$\sim$\+Handle\+Sensor\+Device}}
+\index{````~Handle\+Sensor\+Device@{$\sim$\+Handle\+Sensor\+Device}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{$\sim$\+Handle\+Sensor\+Device()}{~HandleSensorDevice()}}
+{\footnotesize\ttfamily Handle\+Sensor\+Device\+::$\sim$\+Handle\+Sensor\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Handle\+Sensor\+Device.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531}\label{class_handle_sensor_device_a046f030fe8043ecce0e21b371b874531}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!checkout\+Ckp@{checkout\+Ckp}}
+\index{checkout\+Ckp@{checkout\+Ckp}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{checkout\+Ckp()}{checkoutCkp()}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::checkout\+Ckp (\begin{DoxyParamCaption}\item[{int}]{ckp\+Id }\end{DoxyParamCaption})}
+
+
+
+在expect end时，结算ckp。注意：此ckp\+Id为global id. 
+
+
+
+Definition at line 122 of file Handle\+Sensor\+Device.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_handle_sensor_device_ac3ea03c7ab1379f1f5f4b9750ff40683}\label{class_handle_sensor_device_ac3ea03c7ab1379f1f5f4b9750ff40683}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!check\+Tri@{check\+Tri}}
+\index{check\+Tri@{check\+Tri}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{check\+Tri()}{checkTri()}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::check\+Tri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+用读取的cio数据检测是否满足触发条件（上升沿/下降沿） 
+
+$<$ 当前ckp是否有传感器触发 
+
+Definition at line 59 of file Handle\+Sensor\+Device.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_handle_sensor_device_aeef6cec4d94210ddbff3095dd246230c}\label{class_handle_sensor_device_aeef6cec4d94210ddbff3095dd246230c}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!dz\+In@{dz\+In}}
+\index{dz\+In@{dz\+In}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{dz\+In}{dzIn}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::dz\+In (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_handle_sensor_device_a91627de0f3ebec10cb3329f226eb7c7e}\label{class_handle_sensor_device_a91627de0f3ebec10cb3329f226eb7c7e}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!dz\+Out@{dz\+Out}}
+\index{dz\+Out@{dz\+Out}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{dz\+Out}{dzOut}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::dz\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_handle_sensor_device_aa66351734f4ee220bb13d37297061c58}\label{class_handle_sensor_device_aa66351734f4ee220bb13d37297061c58}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!input@{input}}
+\index{input@{input}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{input()}{input()}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::input (\begin{DoxyParamCaption}\item[{int}]{io }\end{DoxyParamCaption})}
+
+
+
+输入一个新的io信号 
+
+
+
+Definition at line 16 of file Handle\+Sensor\+Device.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc}\label{class_handle_sensor_device_a406c0b871807c5b546390360a2a81efc}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!io2dev@{io2dev}}
+\index{io2dev@{io2dev}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{io2dev()}{io2dev()}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::io2dev (\begin{DoxyParamCaption}\item[{int}]{io }\end{DoxyParamCaption})}
+
+
+
+将输入的io信号压入devs中 
+
+
+
+Definition at line 22 of file Handle\+Sensor\+Device.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea}\label{class_handle_sensor_device_ac43848822075ec66788f3e9bc795daea}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!new\+Ckp@{new\+Ckp}}
+\index{new\+Ckp@{new\+Ckp}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{new\+Ckp()}{newCkp()}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::new\+Ckp (\begin{DoxyParamCaption}\item[{int}]{ckp\+Id }\end{DoxyParamCaption})}
+
+
+
+expect begin时，开始一个新的ckp 
+
+
+
+Definition at line 114 of file Handle\+Sensor\+Device.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{class_handle_sensor_device_a4b16afcd6b6fea22d29862cbd7a64554}\label{class_handle_sensor_device_a4b16afcd6b6fea22d29862cbd7a64554}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!sensor\+Update@{sensor\+Update}}
+\index{sensor\+Update@{sensor\+Update}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{sensor\+Update}{sensorUpdate}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::sensor\+Update (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_handle_sensor_device_a4eb776d5c0371a091fbac629f64e55cc}\label{class_handle_sensor_device_a4eb776d5c0371a091fbac629f64e55cc}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!tri\+Int@{tri\+Int}}
+\index{tri\+Int@{tri\+Int}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{tri\+Int}{triInt}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::tri\+Int (\begin{DoxyParamCaption}\item[{int}]{ckp\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+至积分器,global ckpid. 
+
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{class_handle_sensor_device_afbdc2dd52d6a0a4af46df594f9c1d48d}\label{class_handle_sensor_device_afbdc2dd52d6a0a4af46df594f9c1d48d}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!wheel\+Fall\+Off@{wheel\+Fall\+Off}}
+\index{wheel\+Fall\+Off@{wheel\+Fall\+Off}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{wheel\+Fall\+Off}{wheelFallOff}}
+{\footnotesize\ttfamily void Handle\+Sensor\+Device\+::wheel\+Fall\+Off (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+pos\+:-\/1前一个;0当前 
+
+Here is the caller graph for this function\+:
+% FIG 13
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_handle_sensor_device_a00cbb35b7e5b8defed7bff62774827cf}\label{class_handle_sensor_device_a00cbb35b7e5b8defed7bff62774827cf}} 
+\index{Handle\+Sensor\+Device@{Handle\+Sensor\+Device}!dev@{dev}}
+\index{dev@{dev}!Handle\+Sensor\+Device@{Handle\+Sensor\+Device}}
+\subsubsection{\texorpdfstring{dev}{dev}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sensor_device}{Sensor\+Device}}$\ast$ Handle\+Sensor\+Device\+::dev}
+
+
+
+Definition at line 26 of file Handle\+Sensor\+Device.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+sources/\mbox{\hyperlink{_handle_sensor_device_8h}{Handle\+Sensor\+Device.\+h}}\item 
+sources/\mbox{\hyperlink{_handle_sensor_device_8cpp}{Handle\+Sensor\+Device.\+cpp}}\end{DoxyCompactItemize}

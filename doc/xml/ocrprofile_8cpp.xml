@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="ocrprofile_8cpp" kind="file" language="C++">
+    <compoundname>ocrprofile.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <includes refid="ocrprofile_8h" local="yes">ocrprofile.h</includes>
+    <incdepgraph>
+      <node id="523">
+        <label>QMetaType</label>
+      </node>
+      <node id="522">
+        <label>opencv.hpp</label>
+      </node>
+      <node id="518">
+        <label>sources/ocrprofile.cpp</label>
+        <link refid="ocrprofile_8cpp"/>
+        <childnode refid="519" relation="include">
+        </childnode>
+        <childnode refid="521" relation="include">
+        </childnode>
+      </node>
+      <node id="520">
+        <label>QtWidgets</label>
+      </node>
+      <node id="519">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="520" relation="include">
+        </childnode>
+      </node>
+      <node id="521">
+        <label>ocrprofile.h</label>
+        <link refid="ocrprofile_8h"/>
+        <childnode refid="522" relation="include">
+        </childnode>
+        <childnode refid="523" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ocrprofile_8cpp_1a203acb6e8f18c2c368731d2714722388" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream&amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;out, const OcrProfile &amp;p)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_ocr_profile" kindref="compound">OcrProfile</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocrprofile.cpp" line="4" column="1" bodyfile="sources/ocrprofile.cpp" bodystart="4" bodyend="8"/>
+        <references refid="struct_ocr_profile_1ae56e709bcaceff2f934d044d604d88b5" compoundref="ocrprofile_8h" startline="5">OcrProfile::plate_x_min</references>
+        <references refid="struct_ocr_profile_1a6844f3386fc26c447df47533b2d1b653" compoundref="ocrprofile_8h" startline="10">OcrProfile::plate_width_max</references>
+        <references refid="struct_ocr_profile_1a484eb61bf662829fab9a5a01da3c6fad" compoundref="ocrprofile_8h" startline="7">OcrProfile::plate_y_min</references>
+        <references refid="struct_ocr_profile_1a1dc6c83e22df80a43c4f29d142e6d3a0" compoundref="ocrprofile_8h" startline="8">OcrProfile::plate_y_max</references>
+        <references refid="struct_ocr_profile_1ace4677abf62d4daede0747c1d45857aa" compoundref="ocrprofile_8h" startline="9">OcrProfile::plate_width_min</references>
+        <references refid="struct_ocr_profile_1a1d7c5806410d1716cf55be31e3625288" compoundref="ocrprofile_8h" startline="11">OcrProfile::plate_height_min</references>
+        <references refid="struct_ocr_profile_1a188e7754051660595e868a5d24165f24" compoundref="ocrprofile_8h" startline="12">OcrProfile::plate_height_max</references>
+        <references refid="struct_ocr_profile_1adff4d0e700c65ec5aa18bb30832eee9e" compoundref="ocrprofile_8h" startline="13">OcrProfile::num_width_min</references>
+        <references refid="struct_ocr_profile_1ad15d282d7d634083cab46f56d96dbf39" compoundref="ocrprofile_8h" startline="14">OcrProfile::num_width_max</references>
+        <references refid="struct_ocr_profile_1afcdcef83971364114b707fbce6ab0ac6" compoundref="ocrprofile_8h" startline="15">OcrProfile::num_height_min</references>
+        <references refid="struct_ocr_profile_1a3d45a883fb8b19ed1ca2cd836c72da1c" compoundref="ocrprofile_8h" startline="16">OcrProfile::num_height_max</references>
+      </memberdef>
+      <memberdef kind="function" id="ocrprofile_8cpp_1abc33781766f67258d6b3cda229edac5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream&amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;in, OcrProfile &amp;p)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_ocr_profile" kindref="compound">OcrProfile</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/ocrprofile.cpp" line="10" column="1" bodyfile="sources/ocrprofile.cpp" bodystart="10" bodyend="14"/>
+        <references refid="struct_ocr_profile_1ae56e709bcaceff2f934d044d604d88b5" compoundref="ocrprofile_8h" startline="5">OcrProfile::plate_x_min</references>
+        <references refid="struct_ocr_profile_1a6844f3386fc26c447df47533b2d1b653" compoundref="ocrprofile_8h" startline="10">OcrProfile::plate_width_max</references>
+        <references refid="struct_ocr_profile_1a484eb61bf662829fab9a5a01da3c6fad" compoundref="ocrprofile_8h" startline="7">OcrProfile::plate_y_min</references>
+        <references refid="struct_ocr_profile_1a1dc6c83e22df80a43c4f29d142e6d3a0" compoundref="ocrprofile_8h" startline="8">OcrProfile::plate_y_max</references>
+        <references refid="struct_ocr_profile_1ace4677abf62d4daede0747c1d45857aa" compoundref="ocrprofile_8h" startline="9">OcrProfile::plate_width_min</references>
+        <references refid="struct_ocr_profile_1a1d7c5806410d1716cf55be31e3625288" compoundref="ocrprofile_8h" startline="11">OcrProfile::plate_height_min</references>
+        <references refid="struct_ocr_profile_1a188e7754051660595e868a5d24165f24" compoundref="ocrprofile_8h" startline="12">OcrProfile::plate_height_max</references>
+        <references refid="struct_ocr_profile_1adff4d0e700c65ec5aa18bb30832eee9e" compoundref="ocrprofile_8h" startline="13">OcrProfile::num_width_min</references>
+        <references refid="struct_ocr_profile_1ad15d282d7d634083cab46f56d96dbf39" compoundref="ocrprofile_8h" startline="14">OcrProfile::num_width_max</references>
+        <references refid="struct_ocr_profile_1afcdcef83971364114b707fbce6ab0ac6" compoundref="ocrprofile_8h" startline="15">OcrProfile::num_height_min</references>
+        <references refid="struct_ocr_profile_1a3d45a883fb8b19ed1ca2cd836c72da1c" compoundref="ocrprofile_8h" startline="16">OcrProfile::num_height_max</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ocrprofile_8h" kindref="compound">ocrprofile.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="ocrprofile_8h_1a203acb6e8f18c2c368731d2714722388" refkind="member"><highlight class="normal">QDataStream&amp;<sp/><ref refid="ocrprofile_8cpp_1a203acb6e8f18c2c368731d2714722388" kindref="member">operator&lt;&lt;</ref>(QDataStream<sp/>&amp;out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_ocr_profile" kindref="compound">OcrProfile</ref><sp/>&amp;p)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1ae56e709bcaceff2f934d044d604d88b5" kindref="member">plate_x_min</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1a6844f3386fc26c447df47533b2d1b653" kindref="member">plate_width_max</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1a484eb61bf662829fab9a5a01da3c6fad" kindref="member">plate_y_min</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1a1dc6c83e22df80a43c4f29d142e6d3a0" kindref="member">plate_y_max</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1ace4677abf62d4daede0747c1d45857aa" kindref="member">plate_width_min</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1a6844f3386fc26c447df47533b2d1b653" kindref="member">plate_width_max</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1a1d7c5806410d1716cf55be31e3625288" kindref="member">plate_height_min</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1a188e7754051660595e868a5d24165f24" kindref="member">plate_height_max</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1adff4d0e700c65ec5aa18bb30832eee9e" kindref="member">num_width_min</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1ad15d282d7d634083cab46f56d96dbf39" kindref="member">num_width_max</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1afcdcef83971364114b707fbce6ab0ac6" kindref="member">num_height_min</ref><sp/>&lt;&lt;<sp/>p.<ref refid="struct_ocr_profile_1a3d45a883fb8b19ed1ca2cd836c72da1c" kindref="member">num_height_max</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="ocrprofile_8h_1abc33781766f67258d6b3cda229edac5e" refkind="member"><highlight class="normal">QDataStream&amp;<sp/><ref refid="ocrprofile_8cpp_1abc33781766f67258d6b3cda229edac5e" kindref="member">operator&gt;&gt;</ref>(QDataStream<sp/>&amp;in,<sp/><ref refid="struct_ocr_profile" kindref="compound">OcrProfile</ref><sp/>&amp;p)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>in<sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1ae56e709bcaceff2f934d044d604d88b5" kindref="member">plate_x_min</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1a6844f3386fc26c447df47533b2d1b653" kindref="member">plate_width_max</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1a484eb61bf662829fab9a5a01da3c6fad" kindref="member">plate_y_min</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1a1dc6c83e22df80a43c4f29d142e6d3a0" kindref="member">plate_y_max</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1ace4677abf62d4daede0747c1d45857aa" kindref="member">plate_width_min</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1a6844f3386fc26c447df47533b2d1b653" kindref="member">plate_width_max</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1a1d7c5806410d1716cf55be31e3625288" kindref="member">plate_height_min</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1a188e7754051660595e868a5d24165f24" kindref="member">plate_height_max</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1adff4d0e700c65ec5aa18bb30832eee9e" kindref="member">num_width_min</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1ad15d282d7d634083cab46f56d96dbf39" kindref="member">num_width_max</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1afcdcef83971364114b707fbce6ab0ac6" kindref="member">num_height_min</ref><sp/>&gt;&gt;<sp/>p.<ref refid="struct_ocr_profile_1a3d45a883fb8b19ed1ca2cd836c72da1c" kindref="member">num_height_max</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>in;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sources/ocrprofile.cpp"/>
+  </compounddef>
+</doxygen>

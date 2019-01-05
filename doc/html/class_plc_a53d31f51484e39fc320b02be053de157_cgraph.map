@@ -1,0 +1,5 @@
+<map id="Plc::start" name="Plc::start">
+<area shape="rect" id="node2" href="$class_sensor_device.html#a451e1e696ef7d6a02bc5b3e418b59acc" title="SensorDevice::init" alt="" coords="138,5,265,32"/>
+<area shape="rect" id="node4" href="$class_speed_integrator.html#ada2cd17f8fbcb20abe6b17ce7e0ed915" title="开始积分。调用时间：plc初始化后 " alt="" coords="128,56,275,83"/>
+<area shape="rect" id="node3" href="$class_sensor_device.html#a3b67e95ea619719648481f76c2ae1b18" title="SensorDevice::newWheel" alt="" coords="323,5,492,32"/>
+</map>

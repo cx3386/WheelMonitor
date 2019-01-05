@@ -1,0 +1,127 @@
+.TH "MainWindow" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MainWindow
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mainwindow\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBuiShowCio100\fP (int cio100)"
+.br
+.RI "显示Cio100的灯。即中控报警灯，1为亮，0为灭 "
+.ti -1c
+.RI "void \fBuiShowAlarmLight\fP (\fBAlarmColor\fP alarmColor)"
+.br
+.ti -1c
+.RI "void \fBuiShowSpeed_i\fP (double speed)"
+.br
+.ti -1c
+.RI "void \fBuiShowError_i\fP (double error)"
+.br
+.ti -1c
+.RI "void \fBuiShowNum_i\fP (QString num)"
+.br
+.ti -1c
+.RI "void \fBuiShowSpeed_o\fP (double speed)"
+.br
+.ti -1c
+.RI "void \fBuiShowError_o\fP (double error)"
+.br
+.ti -1c
+.RI "void \fBuiShowNum_o\fP (QString num)"
+.br
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBalarmUi2PLC\fP (\fBAlarmColor\fP alarmcolor)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMainWindow\fP (\fBConfigHelper\fP *_configHelper, QWidget *parent=Q_NULLPTR)"
+.br
+.RI "只有该类可以改变config，因此不用const\&. "
+.ti -1c
+.RI "\fB~MainWindow\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBcloseEvent\fP (QCloseEvent *event) override"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 20 of file mainwindow\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MainWindow::MainWindow (\fBConfigHelper\fP * _configHelper, QWidget * parent = \fCQ_NULLPTR\fP)\fC [explicit]\fP"
+
+.PP
+只有该类可以改变config，因此不用const\&. 
+.PP
+Definition at line 18 of file mainwindow\&.cpp\&.
+.SS "MainWindow::~MainWindow ()"
+
+.PP
+Definition at line 42 of file mainwindow\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void MainWindow::alarmUi2PLC (\fBAlarmColor\fP alarmcolor)\fC [signal]\fP"
+
+.SS "void MainWindow::closeEvent (QCloseEvent * event)\fC [override]\fP, \fC [protected]\fP, \fC [virtual]\fP"
+
+.PP
+Definition at line 203 of file mainwindow\&.cpp\&.
+.SS "void MainWindow::uiShowAlarmLight (\fBAlarmColor\fP alarmColor)\fC [slot]\fP"
+
+.PP
+Definition at line 235 of file mainwindow\&.cpp\&.
+.SS "void MainWindow::uiShowCio100 (int cio100)\fC [slot]\fP"
+
+.PP
+显示Cio100的灯。即中控报警灯，1为亮，0为灭 
+.PP
+Definition at line 383 of file mainwindow\&.cpp\&.
+.SS "void MainWindow::uiShowError_i (double error)\fC [inline]\fP, \fC [slot]\fP"
+
+.PP
+Definition at line 70 of file mainwindow\&.h\&.
+.SS "void MainWindow::uiShowError_o (double error)\fC [inline]\fP, \fC [slot]\fP"
+
+.PP
+Definition at line 73 of file mainwindow\&.h\&.
+.SS "void MainWindow::uiShowNum_i (QString num)\fC [inline]\fP, \fC [slot]\fP"
+
+.PP
+Definition at line 71 of file mainwindow\&.h\&.
+.SS "void MainWindow::uiShowNum_o (QString num)\fC [inline]\fP, \fC [slot]\fP"
+
+.PP
+Definition at line 74 of file mainwindow\&.h\&.
+.SS "void MainWindow::uiShowSpeed_i (double speed)\fC [inline]\fP, \fC [slot]\fP"
+
+.PP
+Definition at line 69 of file mainwindow\&.h\&.
+.SS "void MainWindow::uiShowSpeed_o (double speed)\fC [inline]\fP, \fC [slot]\fP"
+
+.PP
+Definition at line 72 of file mainwindow\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

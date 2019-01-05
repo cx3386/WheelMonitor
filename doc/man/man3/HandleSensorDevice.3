@@ -1,0 +1,139 @@
+.TH "HandleSensorDevice" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HandleSensorDevice
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <HandleSensorDevice\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBdzIn\fP ()"
+.br
+.ti -1c
+.RI "void \fBdzOut\fP ()"
+.br
+.ti -1c
+.RI "void \fBtriInt\fP (int ckpId)"
+.br
+.RI "至积分器,global ckpid\&. "
+.ti -1c
+.RI "void \fBwheelFallOff\fP (int pos)"
+.br
+.RI "pos:-1前一个;0当前 "
+.ti -1c
+.RI "void \fBsensorUpdate\fP (int)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHandleSensorDevice\fP (int _devId, QObject *parent)"
+.br
+.ti -1c
+.RI "\fB~HandleSensorDevice\fP ()"
+.br
+.ti -1c
+.RI "void \fBinput\fP (int io)"
+.br
+.RI "输入一个新的io信号 "
+.ti -1c
+.RI "void \fBio2dev\fP (int io)"
+.br
+.RI "将输入的io信号压入devs中 "
+.ti -1c
+.RI "void \fBcheckTri\fP ()"
+.br
+.RI "用读取的cio数据检测是否满足触发条件（上升沿/下降沿） "
+.ti -1c
+.RI "void \fBnewCkp\fP (int ckpId)"
+.br
+.RI "expect begin时，开始一个新的ckp "
+.ti -1c
+.RI "void \fBcheckoutCkp\fP (int ckpId)"
+.br
+.RI "在expect end时，结算ckp。注意：此ckpId为global id\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBSensorDevice\fP * \fBdev\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 14 of file HandleSensorDevice\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "HandleSensorDevice::HandleSensorDevice (int _devId, QObject * parent)"
+
+.PP
+Definition at line 5 of file HandleSensorDevice\&.cpp\&.
+.SS "HandleSensorDevice::~HandleSensorDevice ()"
+
+.PP
+Definition at line 12 of file HandleSensorDevice\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void HandleSensorDevice::checkoutCkp (int ckpId)"
+
+.PP
+在expect end时，结算ckp。注意：此ckpId为global id\&. 
+.PP
+Definition at line 122 of file HandleSensorDevice\&.cpp\&.
+.SS "void HandleSensorDevice::checkTri ()"
+
+.PP
+用读取的cio数据检测是否满足触发条件（上升沿/下降沿） < 当前ckp是否有传感器触发 
+.PP
+Definition at line 59 of file HandleSensorDevice\&.cpp\&.
+.SS "void HandleSensorDevice::dzIn ()\fC [signal]\fP"
+
+.SS "void HandleSensorDevice::dzOut ()\fC [signal]\fP"
+
+.SS "void HandleSensorDevice::input (int io)"
+
+.PP
+输入一个新的io信号 
+.PP
+Definition at line 16 of file HandleSensorDevice\&.cpp\&.
+.SS "void HandleSensorDevice::io2dev (int io)"
+
+.PP
+将输入的io信号压入devs中 
+.PP
+Definition at line 22 of file HandleSensorDevice\&.cpp\&.
+.SS "void HandleSensorDevice::newCkp (int ckpId)"
+
+.PP
+expect begin时，开始一个新的ckp 
+.PP
+Definition at line 114 of file HandleSensorDevice\&.cpp\&.
+.SS "void HandleSensorDevice::sensorUpdate (int)\fC [signal]\fP"
+
+.SS "void HandleSensorDevice::triInt (int ckpId)\fC [signal]\fP"
+
+.PP
+至积分器,global ckpid\&. 
+.SS "void HandleSensorDevice::wheelFallOff (int pos)\fC [signal]\fP"
+
+.PP
+pos:-1前一个;0当前 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBSensorDevice\fP* HandleSensorDevice::dev"
+
+.PP
+Definition at line 26 of file HandleSensorDevice\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

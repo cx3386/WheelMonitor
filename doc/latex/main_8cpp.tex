@@ -1,0 +1,245 @@
+\hypertarget{main_8cpp}{}\section{sources/main.cpp File Reference}
+\label{main_8cpp}\index{sources/main.\+cpp@{sources/main.\+cpp}}
+{\ttfamily \#include \char`\"{}stdafx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}singleapplication.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}confighelper.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}database.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}identification.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logindialog.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mainwindow.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Dbg\+Help.\+h$>$}\newline
+{\ttfamily \#include $<$Qt\+Widgets/\+Q\+Application$>$}\newline
+{\ttfamily \#include $<$Windows.\+h$>$}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a0c89947a98e84f4423c0b19b443f5d46}{my\+Message\+Output}} (Qt\+Msg\+Type type, const Q\+Message\+Log\+Context \&context, const Q\+String \&msg)
+\item 
+L\+O\+NG \mbox{\hyperlink{main_8cpp_a8e6d384caf9c01d383b63efc6f5eddbc}{Application\+Crash\+Handler}} (E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+P\+O\+I\+N\+T\+E\+RS $\ast$p\+Exception)
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \mbox{\hyperlink{main_8cpp_aa853fe8cf98b42d3b2e44e2b1a4c1673}{app\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em the directory contains the app.\+exe, \textquotesingle{}/\textquotesingle{}e.\+g. C\+:/\+QQ \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_a2fc2859d7238a2e9fcda661d321348c5}{app\+File\+Path}}
+\begin{DoxyCompactList}\small\item\em the file path of app.\+exe, \textquotesingle{}/\textquotesingle{}e.\+g. C\+:/\+Q\+Q/qq.exe \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_a554bb7f4dd593b2971ec5e5e38718ea5}{capture\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em capture dir \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_a5f3034a99a21133bca2ee422b7c5b48d}{config\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em config dir \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_a3c8467c4addcfd3ee40b1439311d1349}{video\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em video dir \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_ab3865372dec24e6f7a39286147c1d390}{cache\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em cache dir \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_a301764495aed786632cff7abe68880a9}{match\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em match dir \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_a46ad4687cfe23f762717c8db257b0303}{log\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em log dir \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_acddaec1bc9466dc471df6f1479137704}{ocr\+Pattern\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em ocr sample dir \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_a98bb5531df73660f1a4c1f181eedd88c}{ocr\+Dir\+Path}}
+\begin{DoxyCompactList}\small\item\em ocr dir \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{main_8cpp_a3fd98b4d92a4c1a052863672df72a575}{database\+File\+Path}}
+\begin{DoxyCompactList}\small\item\em database file path \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a8e6d384caf9c01d383b63efc6f5eddbc}\label{main_8cpp_a8e6d384caf9c01d383b63efc6f5eddbc}} 
+\index{main.\+cpp@{main.\+cpp}!Application\+Crash\+Handler@{Application\+Crash\+Handler}}
+\index{Application\+Crash\+Handler@{Application\+Crash\+Handler}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{Application\+Crash\+Handler()}{ApplicationCrashHandler()}}
+{\footnotesize\ttfamily L\+O\+NG Application\+Crash\+Handler (\begin{DoxyParamCaption}\item[{E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+P\+O\+I\+N\+T\+E\+RS $\ast$}]{p\+Exception }\end{DoxyParamCaption})}
+
+
+
+Definition at line 178 of file main.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file main.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{main_8cpp_a0c89947a98e84f4423c0b19b443f5d46}\label{main_8cpp_a0c89947a98e84f4423c0b19b443f5d46}} 
+\index{main.\+cpp@{main.\+cpp}!my\+Message\+Output@{my\+Message\+Output}}
+\index{my\+Message\+Output@{my\+Message\+Output}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{my\+Message\+Output()}{myMessageOutput()}}
+{\footnotesize\ttfamily void my\+Message\+Output (\begin{DoxyParamCaption}\item[{Qt\+Msg\+Type}]{type,  }\item[{const Q\+Message\+Log\+Context \&}]{context,  }\item[{const Q\+String \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 141 of file main.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 3
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_aa853fe8cf98b42d3b2e44e2b1a4c1673}\label{main_8cpp_aa853fe8cf98b42d3b2e44e2b1a4c1673}} 
+\index{main.\+cpp@{main.\+cpp}!app\+Dir\+Path@{app\+Dir\+Path}}
+\index{app\+Dir\+Path@{app\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{app\+Dir\+Path}{appDirPath}}
+{\footnotesize\ttfamily Q\+String app\+Dir\+Path}
+
+
+
+the directory contains the app.\+exe, \textquotesingle{}/\textquotesingle{}e.\+g. C\+:/\+QQ 
+
+
+
+Definition at line 14 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a2fc2859d7238a2e9fcda661d321348c5}\label{main_8cpp_a2fc2859d7238a2e9fcda661d321348c5}} 
+\index{main.\+cpp@{main.\+cpp}!app\+File\+Path@{app\+File\+Path}}
+\index{app\+File\+Path@{app\+File\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{app\+File\+Path}{appFilePath}}
+{\footnotesize\ttfamily Q\+String app\+File\+Path}
+
+
+
+the file path of app.\+exe, \textquotesingle{}/\textquotesingle{}e.\+g. C\+:/\+Q\+Q/qq.exe 
+
+
+
+Definition at line 15 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ab3865372dec24e6f7a39286147c1d390}\label{main_8cpp_ab3865372dec24e6f7a39286147c1d390}} 
+\index{main.\+cpp@{main.\+cpp}!cache\+Dir\+Path@{cache\+Dir\+Path}}
+\index{cache\+Dir\+Path@{cache\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{cache\+Dir\+Path}{cacheDirPath}}
+{\footnotesize\ttfamily Q\+String cache\+Dir\+Path}
+
+
+
+cache dir 
+
+
+
+Definition at line 19 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a554bb7f4dd593b2971ec5e5e38718ea5}\label{main_8cpp_a554bb7f4dd593b2971ec5e5e38718ea5}} 
+\index{main.\+cpp@{main.\+cpp}!capture\+Dir\+Path@{capture\+Dir\+Path}}
+\index{capture\+Dir\+Path@{capture\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{capture\+Dir\+Path}{captureDirPath}}
+{\footnotesize\ttfamily Q\+String capture\+Dir\+Path}
+
+
+
+capture dir 
+
+
+
+Definition at line 16 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a5f3034a99a21133bca2ee422b7c5b48d}\label{main_8cpp_a5f3034a99a21133bca2ee422b7c5b48d}} 
+\index{main.\+cpp@{main.\+cpp}!config\+Dir\+Path@{config\+Dir\+Path}}
+\index{config\+Dir\+Path@{config\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{config\+Dir\+Path}{configDirPath}}
+{\footnotesize\ttfamily Q\+String config\+Dir\+Path}
+
+
+
+config dir 
+
+
+
+Definition at line 17 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a3fd98b4d92a4c1a052863672df72a575}\label{main_8cpp_a3fd98b4d92a4c1a052863672df72a575}} 
+\index{main.\+cpp@{main.\+cpp}!database\+File\+Path@{database\+File\+Path}}
+\index{database\+File\+Path@{database\+File\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{database\+File\+Path}{databaseFilePath}}
+{\footnotesize\ttfamily Q\+String database\+File\+Path}
+
+
+
+database file path 
+
+
+
+Definition at line 25 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a46ad4687cfe23f762717c8db257b0303}\label{main_8cpp_a46ad4687cfe23f762717c8db257b0303}} 
+\index{main.\+cpp@{main.\+cpp}!log\+Dir\+Path@{log\+Dir\+Path}}
+\index{log\+Dir\+Path@{log\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{log\+Dir\+Path}{logDirPath}}
+{\footnotesize\ttfamily Q\+String log\+Dir\+Path}
+
+
+
+log dir 
+
+
+
+Definition at line 22 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a301764495aed786632cff7abe68880a9}\label{main_8cpp_a301764495aed786632cff7abe68880a9}} 
+\index{main.\+cpp@{main.\+cpp}!match\+Dir\+Path@{match\+Dir\+Path}}
+\index{match\+Dir\+Path@{match\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{match\+Dir\+Path}{matchDirPath}}
+{\footnotesize\ttfamily Q\+String match\+Dir\+Path}
+
+
+
+match dir 
+
+
+
+Definition at line 20 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a98bb5531df73660f1a4c1f181eedd88c}\label{main_8cpp_a98bb5531df73660f1a4c1f181eedd88c}} 
+\index{main.\+cpp@{main.\+cpp}!ocr\+Dir\+Path@{ocr\+Dir\+Path}}
+\index{ocr\+Dir\+Path@{ocr\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{ocr\+Dir\+Path}{ocrDirPath}}
+{\footnotesize\ttfamily Q\+String ocr\+Dir\+Path}
+
+
+
+ocr dir 
+
+
+
+Definition at line 24 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_acddaec1bc9466dc471df6f1479137704}\label{main_8cpp_acddaec1bc9466dc471df6f1479137704}} 
+\index{main.\+cpp@{main.\+cpp}!ocr\+Pattern\+Dir\+Path@{ocr\+Pattern\+Dir\+Path}}
+\index{ocr\+Pattern\+Dir\+Path@{ocr\+Pattern\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{ocr\+Pattern\+Dir\+Path}{ocrPatternDirPath}}
+{\footnotesize\ttfamily Q\+String ocr\+Pattern\+Dir\+Path}
+
+
+
+ocr sample dir 
+
+
+
+Definition at line 23 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a3c8467c4addcfd3ee40b1439311d1349}\label{main_8cpp_a3c8467c4addcfd3ee40b1439311d1349}} 
+\index{main.\+cpp@{main.\+cpp}!video\+Dir\+Path@{video\+Dir\+Path}}
+\index{video\+Dir\+Path@{video\+Dir\+Path}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{video\+Dir\+Path}{videoDirPath}}
+{\footnotesize\ttfamily Q\+String video\+Dir\+Path}
+
+
+
+video dir 
+
+
+
+Definition at line 18 of file main.\+cpp.
+

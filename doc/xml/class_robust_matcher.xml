@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_robust_matcher" kind="class" language="C++" prot="public">
+    <compoundname>RobustMatcher</compoundname>
+    <includes refid="robustmatcher_8h" local="no">robustmatcher.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_robust_matcher_1a78641d08f99564cdf67a7a3f8d544f71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RobustMatcher::RobustMatcher</definition>
+        <argsstring>()</argsstring>
+        <name>RobustMatcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/robustmatcher.h" line="7" column="1" bodyfile="sources/robustmatcher.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_robust_matcher_1ae8831ade1c296513fcad9764a05d3328" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RobustMatcher::~RobustMatcher</definition>
+        <argsstring>()</argsstring>
+        <name>~RobustMatcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/robustmatcher.h" line="8" column="1" bodyfile="sources/robustmatcher.cpp" bodystart="16" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_robust_matcher_1a00bcb865bcc240ec0df38cecf5243f5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RobustMatcher::match</definition>
+        <argsstring>(cv::Mat src1, cv::Mat src2, double maskOuterRatio, double maskInnerRatio, cv::Mat &amp;img_matches, double &amp;angle)</argsstring>
+        <name>match</name>
+        <param>
+          <type>cv::Mat</type>
+          <declname>src1</declname>
+        </param>
+        <param>
+          <type>cv::Mat</type>
+          <declname>src2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>maskOuterRatio</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>maskInnerRatio</declname>
+        </param>
+        <param>
+          <type>cv::Mat &amp;</type>
+          <declname>img_matches</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/robustmatcher.h" line="9" column="1" bodyfile="sources/robustmatcher.cpp" bodystart="24" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_robust_matcher_1a51793d2b51f6d0b1ac3da4341f6574df" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RobustMatcher::symmetryTest</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; cv::DMatch &gt;&gt; &amp;matches1, const std::vector&lt; std::vector&lt; cv::DMatch &gt;&gt; &amp;matches2, std::vector&lt; cv::DMatch &gt; &amp;symMatches)</argsstring>
+        <name>symmetryTest</name>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; cv::DMatch &gt;&gt; &amp;</type>
+          <declname>matches1</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; cv::DMatch &gt;&gt; &amp;</type>
+          <declname>matches2</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; cv::DMatch &gt; &amp;</type>
+          <declname>symMatches</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/robustmatcher.h" line="11" column="1" bodyfile="sources/robustmatcher.cpp" bodystart="93" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="class_robust_matcher_1a9b80201f33c186c403ebccda2c1fcb55" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RobustMatcher::ratioTest</definition>
+        <argsstring>(std::vector&lt; std::vector&lt; cv::DMatch &gt;&gt; &amp;matches)</argsstring>
+        <name>ratioTest</name>
+        <param>
+          <type>std::vector&lt; std::vector&lt; cv::DMatch &gt;&gt; &amp;</type>
+          <declname>matches</declname>
+        </param>
+        <briefdescription>
+<para>kNN </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>matches</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input matches </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the removed points number </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/robustmatcher.h" line="15" column="1" bodyfile="sources/robustmatcher.cpp" bodystart="129" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_robust_matcher_1ad6f1d74c797656055784a1bdec455989" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>cv::Mat</type>
+        <definition>cv::Mat RobustMatcher::getMask</definition>
+        <argsstring>(cv::Size size, double outerRatio, double innerRatio, int &amp;ro, int &amp;ri) const</argsstring>
+        <name>getMask</name>
+        <param>
+          <type>cv::Size</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>outerRatio</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>innerRatio</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>ro</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>ri</declname>
+        </param>
+        <briefdescription>
+<para>get a white ring mask for the srcImg. 图像为一白色圆环， 图像大小与源图像相同，外径与内径在此设定 </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cv::Size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size 源图大小 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>outerRatio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>外圆半径占比 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>innerRatio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>内圆半径占比 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>得到的外圆半径 </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ri</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>得到的内圆半径 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/robustmatcher.h" line="16" column="1" bodyfile="sources/robustmatcher.cpp" bodystart="161" bodyend="171"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sources/robustmatcher.h" line="5" column="1" bodyfile="sources/robustmatcher.h" bodystart="4" bodyend="17"/>
+    <listofallmembers>
+      <member refid="class_robust_matcher_1ad6f1d74c797656055784a1bdec455989" prot="private" virt="non-virtual"><scope>RobustMatcher</scope><name>getMask</name></member>
+      <member refid="class_robust_matcher_1a00bcb865bcc240ec0df38cecf5243f5e" prot="public" virt="non-virtual"><scope>RobustMatcher</scope><name>match</name></member>
+      <member refid="class_robust_matcher_1a9b80201f33c186c403ebccda2c1fcb55" prot="private" virt="non-virtual"><scope>RobustMatcher</scope><name>ratioTest</name></member>
+      <member refid="class_robust_matcher_1a78641d08f99564cdf67a7a3f8d544f71" prot="public" virt="non-virtual"><scope>RobustMatcher</scope><name>RobustMatcher</name></member>
+      <member refid="class_robust_matcher_1a51793d2b51f6d0b1ac3da4341f6574df" prot="private" virt="non-virtual"><scope>RobustMatcher</scope><name>symmetryTest</name></member>
+      <member refid="class_robust_matcher_1ae8831ade1c296513fcad9764a05d3328" prot="public" virt="non-virtual"><scope>RobustMatcher</scope><name>~RobustMatcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_custom_slider" kind="class" language="C++" prot="public">
+    <compoundname>CustomSlider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSlider</basecompoundref>
+    <includes refid="customslider_8h" local="no">customslider.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_custom_slider_1a339185f2fde98ed5032d5114f4cd1b41" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CustomSlider::CustomSlider</definition>
+        <argsstring>(QWidget *parent=nullptr)</argsstring>
+        <name>CustomSlider</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/customslider.h" line="10" column="1" bodyfile="sources/customslider.h" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_custom_slider_1ac6fae8f3a172e2729cb32262b5b800ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CustomSlider::CustomSlider</definition>
+        <argsstring>(Qt::Orientation orientation, QWidget *parent=Q_NULLPTR)</argsstring>
+        <name>CustomSlider</name>
+        <param>
+          <type>Qt::Orientation</type>
+          <declname>orientation</declname>
+        </param>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/customslider.h" line="14" column="1" bodyfile="sources/customslider.h" bodystart="14" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_custom_slider_1a2b0d4882ae9ac4b708d88de26c9578ba" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CustomSlider::mousePressEvent</definition>
+        <argsstring>(QMouseEvent *ev) override</argsstring>
+        <name>mousePressEvent</name>
+        <param>
+          <type>QMouseEvent *</type>
+          <declname>ev</declname>
+        </param>
+        <briefdescription>
+<para>override QSlider::mousePressEvent </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/customslider.h" line="22" column="1" bodyfile="sources/customslider.cpp" bodystart="4" bodyend="17"/>
+        <references refid="class_custom_slider_1a24568a4c3046d71a3a86e2c0e95faccb">costomSliderClicked</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_custom_slider_1a24568a4c3046d71a3a86e2c0e95faccb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CustomSlider::costomSliderClicked</definition>
+        <argsstring>(int)</argsstring>
+        <name>costomSliderClicked</name>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+<para>A custom mouse-click signal for capturing and processing. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/customslider.h" line="28" column="1"/>
+        <referencedby refid="class_custom_slider_1a2b0d4882ae9ac4b708d88de26c9578ba" compoundref="customslider_8cpp" startline="4" endline="17">mousePressEvent</referencedby>
+        <referencedby refid="class_player_1a9254d78bab5919f1ce71366b498791a5" compoundref="player_8cpp" startline="46" endline="125">Player::Player</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="34">
+        <label>QSlider</label>
+      </node>
+      <node id="33">
+        <label>CustomSlider</label>
+        <link refid="class_custom_slider"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="36">
+        <label>QSlider</label>
+      </node>
+      <node id="35">
+        <label>CustomSlider</label>
+        <link refid="class_custom_slider"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sources/customslider.h" line="7" column="1" bodyfile="sources/customslider.h" bodystart="6" bodyend="29"/>
+    <listofallmembers>
+      <member refid="class_custom_slider_1a24568a4c3046d71a3a86e2c0e95faccb" prot="public" virt="non-virtual"><scope>CustomSlider</scope><name>costomSliderClicked</name></member>
+      <member refid="class_custom_slider_1a339185f2fde98ed5032d5114f4cd1b41" prot="public" virt="non-virtual"><scope>CustomSlider</scope><name>CustomSlider</name></member>
+      <member refid="class_custom_slider_1ac6fae8f3a172e2729cb32262b5b800ac" prot="public" virt="non-virtual"><scope>CustomSlider</scope><name>CustomSlider</name></member>
+      <member refid="class_custom_slider_1a2b0d4882ae9ac4b708d88de26c9578ba" prot="protected" virt="non-virtual"><scope>CustomSlider</scope><name>mousePressEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

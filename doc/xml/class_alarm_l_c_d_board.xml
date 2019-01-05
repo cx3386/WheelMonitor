@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="class_alarm_l_c_d_board" kind="class" language="C++" prot="public">
+    <compoundname>AlarmLCDBoard</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QFrame</basecompoundref>
+    <includes refid="_alarm_l_c_d_board_8h" local="no">AlarmLCDBoard.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_alarm_l_c_d_board_1a7b800971fe7519e4881870d9bc4e777d" prot="public" static="no" mutable="no">
+        <type>QLineEdit *</type>
+        <definition>QLineEdit* AlarmLCDBoard::devName</definition>
+        <argsstring></argsstring>
+        <name>devName</name>
+        <briefdescription>
+<para>显示内/外圈字段 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="12" column="1" bodyfile="sources/AlarmLCDBoard.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="class_alarm_l_c_d_board_1a4467e949850a3e0f5e1d7498e18edb1e" compoundref="_alarm_l_c_d_board_8cpp" startline="6" endline="55">AlarmLCDBoard</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_alarm_l_c_d_board_1a836b3bdf1e363714a89277b84a1f284c" prot="public" static="no" mutable="no">
+        <type>QLineEdit *</type>
+        <definition>QLineEdit* AlarmLCDBoard::devIndex</definition>
+        <argsstring></argsstring>
+        <name>devIndex</name>
+        <briefdescription>
+<para>用作代理用途 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="13" column="1" bodyfile="sources/AlarmLCDBoard.h" bodystart="13" bodyend="-1"/>
+        <referencedby refid="class_alarm_l_c_d_board_1a4467e949850a3e0f5e1d7498e18edb1e" compoundref="_alarm_l_c_d_board_8cpp" startline="6" endline="55">AlarmLCDBoard</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_alarm_l_c_d_board_1ad51b395087885354d3cb7e6395beb894" prot="public" static="no" mutable="no">
+        <type>QLineEdit *</type>
+        <definition>QLineEdit* AlarmLCDBoard::alarmNum</definition>
+        <argsstring></argsstring>
+        <name>alarmNum</name>
+        <briefdescription>
+<para>显示报警号码字段 </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="14" column="1" bodyfile="sources/AlarmLCDBoard.h" bodystart="14" bodyend="-1"/>
+        <referencedby refid="class_alarm_l_c_d_board_1a4467e949850a3e0f5e1d7498e18edb1e" compoundref="_alarm_l_c_d_board_8cpp" startline="6" endline="55">AlarmLCDBoard</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_alarm_l_c_d_board_1ad32f1ca6547efd53218c4b891958bde8" prot="private" static="no" mutable="no">
+        <type>Ui::AlarmLCDBoard</type>
+        <definition>Ui::AlarmLCDBoard AlarmLCDBoard::ui</definition>
+        <argsstring></argsstring>
+        <name>ui</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="19" column="1" bodyfile="sources/AlarmLCDBoard.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_alarm_l_c_d_board_1aff7f50af435b2b9142c894d5f1eb1739" prot="private" static="no" mutable="no">
+        <type>QWidget *</type>
+        <definition>QWidget* AlarmLCDBoard::masking</definition>
+        <argsstring></argsstring>
+        <name>masking</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="20" column="1" bodyfile="sources/AlarmLCDBoard.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_alarm_l_c_d_board_1a4467e949850a3e0f5e1d7498e18edb1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AlarmLCDBoard::AlarmLCDBoard</definition>
+        <argsstring>(QWidget *parent=Q_NULLPTR)</argsstring>
+        <name>AlarmLCDBoard</name>
+        <param>
+          <type>QWidget *</type>
+          <declname>parent</declname>
+          <defval>Q_NULLPTR</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="10" column="1" bodyfile="sources/AlarmLCDBoard.cpp" bodystart="6" bodyend="55"/>
+        <references refid="class_alarm_l_c_d_board_1a836b3bdf1e363714a89277b84a1f284c" compoundref="_alarm_l_c_d_board_8h" startline="13">devIndex</references>
+        <references refid="class_alarm_l_c_d_board_1a7b800971fe7519e4881870d9bc4e777d" compoundref="_alarm_l_c_d_board_8h" startline="12">devName</references>
+        <references refid="class_alarm_l_c_d_board_1ad51b395087885354d3cb7e6395beb894" compoundref="_alarm_l_c_d_board_8h" startline="14">alarmNum</references>
+      </memberdef>
+      <memberdef kind="function" id="class_alarm_l_c_d_board_1abc6ecc7cb4e30f00a987d694612175af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AlarmLCDBoard::~AlarmLCDBoard</definition>
+        <argsstring>()</argsstring>
+        <name>~AlarmLCDBoard</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="11" column="1" bodyfile="sources/AlarmLCDBoard.cpp" bodystart="57" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_alarm_l_c_d_board_1a664101492b2e08a81f6fd2b34bffd7c2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool AlarmLCDBoard::eventFilter</definition>
+        <argsstring>(QObject *watched, QEvent *event) override</argsstring>
+        <name>eventFilter</name>
+        <param>
+          <type>QObject *</type>
+          <declname>watched</declname>
+        </param>
+        <param>
+          <type>QEvent *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="16" column="1" bodyfile="sources/AlarmLCDBoard.cpp" bodystart="61" bodyend="76"/>
+        <references refid="class_alarm_l_c_d_board_1ae08da97150f8de11edae6e70382fc516">clicked</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="class_alarm_l_c_d_board_1ae08da97150f8de11edae6e70382fc516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlarmLCDBoard::clicked</definition>
+        <argsstring>()</argsstring>
+        <name>clicked</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sources/AlarmLCDBoard.h" line="22" column="1"/>
+        <referencedby refid="class_alarm_l_c_d_board_1a664101492b2e08a81f6fd2b34bffd7c2" compoundref="_alarm_l_c_d_board_8cpp" startline="61" endline="76">eventFilter</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="0">
+        <label>AlarmLCDBoard</label>
+        <link refid="class_alarm_l_c_d_board"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QFrame</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AlarmLCDBoard</label>
+        <link refid="class_alarm_l_c_d_board"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QFrame</label>
+      </node>
+    </collaborationgraph>
+    <location file="sources/AlarmLCDBoard.h" line="6" column="1" bodyfile="sources/AlarmLCDBoard.h" bodystart="6" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_alarm_l_c_d_board_1a4467e949850a3e0f5e1d7498e18edb1e" prot="public" virt="non-virtual"><scope>AlarmLCDBoard</scope><name>AlarmLCDBoard</name></member>
+      <member refid="class_alarm_l_c_d_board_1ad51b395087885354d3cb7e6395beb894" prot="public" virt="non-virtual"><scope>AlarmLCDBoard</scope><name>alarmNum</name></member>
+      <member refid="class_alarm_l_c_d_board_1ae08da97150f8de11edae6e70382fc516" prot="public" virt="non-virtual"><scope>AlarmLCDBoard</scope><name>clicked</name></member>
+      <member refid="class_alarm_l_c_d_board_1a836b3bdf1e363714a89277b84a1f284c" prot="public" virt="non-virtual"><scope>AlarmLCDBoard</scope><name>devIndex</name></member>
+      <member refid="class_alarm_l_c_d_board_1a7b800971fe7519e4881870d9bc4e777d" prot="public" virt="non-virtual"><scope>AlarmLCDBoard</scope><name>devName</name></member>
+      <member refid="class_alarm_l_c_d_board_1a664101492b2e08a81f6fd2b34bffd7c2" prot="protected" virt="virtual"><scope>AlarmLCDBoard</scope><name>eventFilter</name></member>
+      <member refid="class_alarm_l_c_d_board_1aff7f50af435b2b9142c894d5f1eb1739" prot="private" virt="non-virtual"><scope>AlarmLCDBoard</scope><name>masking</name></member>
+      <member refid="class_alarm_l_c_d_board_1ad32f1ca6547efd53218c4b891958bde8" prot="private" virt="non-virtual"><scope>AlarmLCDBoard</scope><name>ui</name></member>
+      <member refid="class_alarm_l_c_d_board_1abc6ecc7cb4e30f00a987d694612175af" prot="public" virt="non-virtual"><scope>AlarmLCDBoard</scope><name>~AlarmLCDBoard</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

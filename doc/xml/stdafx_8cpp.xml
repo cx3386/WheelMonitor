@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="stdafx_8cpp" kind="file" language="C++">
+    <compoundname>stdafx.cpp</compoundname>
+    <includes refid="stdafx_8h" local="yes">stdafx.h</includes>
+    <incdepgraph>
+      <node id="731">
+        <label>sources/stdafx.cpp</label>
+        <link refid="stdafx_8cpp"/>
+        <childnode refid="732" relation="include">
+        </childnode>
+      </node>
+      <node id="733">
+        <label>QtWidgets</label>
+      </node>
+      <node id="732">
+        <label>stdafx.h</label>
+        <link refid="stdafx_8h"/>
+        <childnode refid="733" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stdafx_8h" kindref="compound">stdafx.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="sources/stdafx.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="hikvideocapture_8h" kind="file" language="C++">
+    <compoundname>hikvideocapture.h</compoundname>
+    <includes local="yes">HCNetSDK.h</includes>
+    <includes local="yes">plaympeg4.h</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">opencv2/opencv.hpp</includes>
+    <includedby refid="hikvideocapture_8cpp" local="yes">sources/hikvideocapture.cpp</includedby>
+    <includedby refid="imageprocess_8cpp" local="yes">sources/imageprocess.cpp</includedby>
+    <includedby refid="mainwindow_8cpp" local="yes">sources/mainwindow.cpp</includedby>
+    <incdepgraph>
+      <node id="232">
+        <label>sources/hikvideocapture.h</label>
+        <link refid="hikvideocapture_8h"/>
+        <childnode refid="233" relation="include">
+        </childnode>
+        <childnode refid="234" relation="include">
+        </childnode>
+        <childnode refid="235" relation="include">
+        </childnode>
+        <childnode refid="236" relation="include">
+        </childnode>
+      </node>
+      <node id="235">
+        <label>QObject</label>
+      </node>
+      <node id="236">
+        <label>opencv2/opencv.hpp</label>
+      </node>
+      <node id="233">
+        <label>HCNetSDK.h</label>
+      </node>
+      <node id="234">
+        <label>plaympeg4.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="237">
+        <label>sources/hikvideocapture.h</label>
+        <link refid="hikvideocapture_8h"/>
+        <childnode refid="238" relation="include">
+        </childnode>
+        <childnode refid="239" relation="include">
+        </childnode>
+        <childnode refid="240" relation="include">
+        </childnode>
+      </node>
+      <node id="238">
+        <label>sources/hikvideocapture.cpp</label>
+        <link refid="hikvideocapture_8cpp"/>
+      </node>
+      <node id="240">
+        <label>sources/mainwindow.cpp</label>
+        <link refid="mainwindow_8cpp"/>
+      </node>
+      <node id="239">
+        <label>sources/imageprocess.cpp</label>
+        <link refid="imageprocess_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_hik_video_capture" prot="public">HikVideoCapture</innerclass>
+    <briefdescription>
+<para>采集录像 </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>cx3386 </para></simplesect>
+<simplesect kind="date"><para>九月 2018</para></simplesect>
+在构造函数时初始化与摄像机的连接，如果连接失败，需要排查连接问题后重启APP。偶尔中断，有自动重连 start()和stop()只用于控制视频流的读取/停止读取，并不中断连接。 大坑：调用的海康SDK是静态函数，需要根据对象的deviceIndex分别调用Decfunc0,Decfunc1 </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;HCNetSDK.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;plaympeg4.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opencv2/opencv.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cam_profile" kindref="compound">CamProfile</ref>;</highlight></codeline>
+<codeline lineno="22" refid="class_hik_video_capture" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_hik_video_capture_1ae2dd36fefbce426b3fce3025419a7f7c" kindref="member">HikVideoCapture</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>_configHelper,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_deviceIndex,<sp/>HWND<sp/>h,<sp/>QObject*<sp/>parent<sp/>=<sp/>Q_NULLPTR);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_hik_video_capture_1a54a0ba8f296177df923cf5d8d9184a97" kindref="member">~HikVideoCapture</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="class_hik_video_capture_1a2e4a1d780459ede0318cd935f8bf9121" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>QString<sp/><ref refid="class_hik_video_capture_1a2e4a1d780459ede0318cd935f8bf9121" kindref="member">getVideoRelativeFilePath</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="30"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMutexLocker<sp/>locker(&amp;mutex);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>videoRelativeFilePath;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34" refid="class_hik_video_capture_1ab25c7c866fe0a2789939fecff5ec6065" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1ab25c7c866fe0a2789939fecff5ec6065" kindref="member">getDeviceIndex</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>deviceIndex;<sp/>}</highlight></codeline>
+<codeline lineno="35" refid="class_hik_video_capture_1a65e48b66ee3e28508e57bd6d757d5fa8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>cv::Mat<sp/><ref refid="class_hik_video_capture_1a65e48b66ee3e28508e57bd6d757d5fa8" kindref="member">getRawImage</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="36"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QMutexLocker<sp/>locker(&amp;mutex);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rawImage.clone();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//static<sp/>inline<sp/>cv::Mat<sp/>getRawImage(HikVideoCapture<sp/>*p)<sp/>{<sp/>return<sp/>p-&gt;getRawImage();<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*called<sp/>by<sp/>mainwindow*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1a6d07f515f68c9c0819a14ab2afefa97d" kindref="member">syncCameraTime</ref>();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1a0359300ea41ac46d327d9f5229465dd3" kindref="member">start</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1a895409c64a795d7285dcee5c7d59fdd7" kindref="member">stop</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>必须传入的参数，未作检查，如果没有传入，会发生错误 <sp/><sp/><sp/><sp/>//void<sp/>setRealPlayWND(HWND<sp/>val)<sp/>{<sp/>hPlayWnd<sp/>=<sp/>val;<sp/>}<sp/>//!&lt;<sp/>设置实时预览的窗口句柄
+private:
+<sp/>//<sp/>初始化列表是先于构造函数的函数体执行，并且成员的初始化列表与成员的声明顺序相同的 [10/9/2018<sp/>cx3386]
+<sp/>//<sp/>因此务必注意声明顺序<sp/>[10/9/2018<sp/>cx3386]
+<sp/><sp/>const<sp/>ConfigHelper*<sp/>configHelper;
+<sp/><sp/>int<sp/>deviceIndex;
+<sp/><sp/><sp/>HWND<sp/>hPlayWnd;<sp/>//播放窗口句柄
+<sp/><sp/>const<sp/>CamProfile*<sp/>camProfile;
+
+<sp/>mutable<sp/>QMutex<sp/>mutex;
+
+<sp/>bool<sp/>bIsRecording<sp/>=<sp/>false;<sp/>//!&lt;<sp/>timeoutTimer和plc的sensorout会从子线程改变这个量，需要线程保护//原子操作，不用保护
+<sp/>QString<sp/>videoRelativeFilePath;<sp/>///&lt;<sp/>the<sp/>fileName<sp/>of<sp/>save<sp/>video.
+<sp/><sp/><sp/><sp/>QTimer*<sp/>timeoutTimer;<sp/>//!&lt;<sp/>录制的超时计时器，停止录制时停止
+<sp/>const<sp/>int<sp/>MAX_RECORD_MSEC<sp/>=<sp/>100000;<sp/>//!&lt;<sp/>录制的超时时长，超过会自动停止录制，并发出timeout的信号
+
+<sp/><sp/>cv::Mat<sp/>rawImage;
+<sp/><sp/>const<sp/>int<sp/>nHandling_Start<sp/>=<sp/>3;<sp/>///&lt;<sp/>于开始视频流后进行一次初始化
+<sp/>volatile<sp/>int<sp/>nHandling;<sp/>///&lt;<sp/>the<sp/>countdown<sp/>counter<sp/>倒计数器
+<sp/><sp/><sp/>//bool<sp/>bIsProcessing<sp/>=<sp/>false;
+<sp/><sp/>int<sp/>nPendingFrame<sp/>=<sp/>0;<sp/>///&lt;<sp/>图像线程处理时，对于本线程来说就是待处理的帧，由于不缓存，只能是0或1.<sp/>0<sp/>is<sp/>ready<sp/>for<sp/>next<sp/>cap,<sp/>1<sp/>must<sp/>wait<sp/>for<sp/>processed
+<sp/><sp/>LONG<sp/>lUserID;
+<sp/><sp/>LONG<sp/>nPort<sp/>=<sp/>-1;
+<sp/><sp/><sp/>LONG<sp/>lRealPlayHandle_SD<sp/>=<sp/>-1;<sp/>///&lt;<sp/>for<sp/>save<sp/>video
+<sp/><sp/>LONG<sp/>lRealPlayHandle_HD<sp/>=<sp/>-1;<sp/>///&lt;<sp/>for<sp/>process<sp/>and<sp/>show
+<sp/><sp/><sp/><sp/>NET_DVR_PREVIEWINFO<sp/>struPlayInfo_HD;<sp/>///&lt;<sp/>for<sp/>process<sp/>and<sp/>show
+<sp/>NET_DVR_PREVIEWINFO<sp/>struPlayInfo_SD;<sp/>///&lt;<sp/>for<sp/>save
+<sp/>void<sp/>DecCBFun(char*<sp/>pBuf,<sp/>FRAME_INFO*<sp/>pFrameInfo);
+<sp/>static<sp/>void<sp/>CALLBACK<sp/>DecCBFun0(long<sp/>nPort,<sp/>char*<sp/>pBuf,<sp/>long<sp/>nSize,<sp/>FRAME_INFO*<sp/>pFrameInfo,<sp/>long<sp/>nReserved1,<sp/>long<sp/>nReserved2);
+<sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>DecCBFun1(long<sp/>nPort,<sp/>char*<sp/>pBuf,<sp/>long<sp/>nSize,<sp/>FRAME_INFO*<sp/>pFrameInfo,<sp/>long<sp/>nReserved1,<sp/>long<sp/>nReserved2);
+<sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>fRealDataCallBack(LONG<sp/>lRealHandle,<sp/>DWORD<sp/>dwDataType,<sp/>BYTE*<sp/>pBuffer,<sp/>DWORD<sp/>dwBufSize,<sp/>void*<sp/>pUser);
+<sp/><sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>ExceptionCallBack(DWORD<sp/>dwType,<sp/>LONG<sp/>lUserID,<sp/>LONG<sp/>lHandle,<sp/>void*<sp/>pUser);
+<sp/>static<sp/>HikVideoCapture<sp/>*pCap0,<sp/>*pCap1;
+
+signals:
+<sp/><sp/><sp/>///<sp/>a<sp/>frame<sp/>is<sp/>captured,<sp/>need<sp/>to<sp/>be<sp/>processed
+<sp/><sp/>void<sp/>frameCaptured();
+<sp/><sp/>///<sp/>record<sp/>out<sp/>of<sp/>time,<sp/>will<sp/>auto<sp/>stop<sp/>and<sp/>save<sp/>video
+<sp/><sp/>void<sp/>recordTimeout();
+<sp/><sp/>///<sp/>now<sp/>is<sp/>recording
+<sp/><sp/><sp/>void<sp/>recordON();
+<sp/><sp/><sp/>///<sp/>now<sp/>record<sp/>stopped
+<sp/>void<sp/>recordOFF();
+
+public<sp/>slots:
+<sp/><sp/><sp/>void<sp/>startRecord();<sp/>//!<sp/>涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+<sp/><sp/><sp/>void<sp/>stopRecord();<sp/>//!<sp/><sp/>涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+<sp/><sp/><sp/>inline<sp/>void<sp/>frameProcessed()<sp/>{<sp/>nPendingFrame--;<sp/>}
+};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/>setRealPlayWND(HWND<sp/>val)<sp/>{<sp/>hPlayWnd<sp/>=<sp/>val;<sp/>}<sp/>//!&lt;<sp/>设置实时预览的窗口句柄 private:
+<sp/>//<sp/>初始化列表是先于构造函数的函数体执行，并且成员的初始化列表与成员的声明顺序相同的 [10/9/2018<sp/>cx3386]
+<sp/>//<sp/>因此务必注意声明顺序<sp/>[10/9/2018<sp/>cx3386]
+<sp/><sp/>const<sp/>ConfigHelper*<sp/>configHelper;
+<sp/><sp/>int<sp/>deviceIndex;
+<sp/><sp/><sp/>HWND<sp/>hPlayWnd;<sp/>//播放窗口句柄
+<sp/><sp/>const<sp/>CamProfile*<sp/>camProfile;
+
+<sp/>mutable<sp/>QMutex<sp/>mutex;
+
+<sp/>bool<sp/>bIsRecording<sp/>=<sp/>false;<sp/>//!&lt;<sp/>timeoutTimer和plc的sensorout会从子线程改变这个量，需要线程保护//原子操作，不用保护
+<sp/>QString<sp/>videoRelativeFilePath;<sp/>///&lt;<sp/>the<sp/>fileName<sp/>of<sp/>save<sp/>video.
+<sp/><sp/><sp/><sp/>QTimer*<sp/>timeoutTimer;<sp/>//!&lt;<sp/>录制的超时计时器，停止录制时停止
+<sp/>const<sp/>int<sp/>MAX_RECORD_MSEC<sp/>=<sp/>100000;<sp/>//!&lt;<sp/>录制的超时时长，超过会自动停止录制，并发出timeout的信号
+
+<sp/><sp/>cv::Mat<sp/>rawImage;
+<sp/><sp/>const<sp/>int<sp/>nHandling_Start<sp/>=<sp/>3;<sp/>///&lt;<sp/>于开始视频流后进行一次初始化
+<sp/>volatile<sp/>int<sp/>nHandling;<sp/>///&lt;<sp/>the<sp/>countdown<sp/>counter<sp/>倒计数器
+<sp/><sp/><sp/>//bool<sp/>bIsProcessing<sp/>=<sp/>false;
+<sp/><sp/>int<sp/>nPendingFrame<sp/>=<sp/>0;<sp/>///&lt;<sp/>图像线程处理时，对于本线程来说就是待处理的帧，由于不缓存，只能是0或1.<sp/>0<sp/>is<sp/>ready<sp/>for<sp/>next<sp/>cap,<sp/>1<sp/>must<sp/>wait<sp/>for<sp/>processed
+<sp/><sp/>LONG<sp/>lUserID;
+<sp/><sp/>LONG<sp/>nPort<sp/>=<sp/>-1;
+<sp/><sp/><sp/>LONG<sp/>lRealPlayHandle_SD<sp/>=<sp/>-1;<sp/>///&lt;<sp/>for<sp/>save<sp/>video
+<sp/><sp/>LONG<sp/>lRealPlayHandle_HD<sp/>=<sp/>-1;<sp/>///&lt;<sp/>for<sp/>process<sp/>and<sp/>show
+<sp/><sp/><sp/><sp/>NET_DVR_PREVIEWINFO<sp/>struPlayInfo_HD;<sp/>///&lt;<sp/>for<sp/>process<sp/>and<sp/>show
+<sp/>NET_DVR_PREVIEWINFO<sp/>struPlayInfo_SD;<sp/>///&lt;<sp/>for<sp/>save
+<sp/>void<sp/>DecCBFun(char*<sp/>pBuf,<sp/>FRAME_INFO*<sp/>pFrameInfo);
+<sp/>static<sp/>void<sp/>CALLBACK<sp/>DecCBFun0(long<sp/>nPort,<sp/>char*<sp/>pBuf,<sp/>long<sp/>nSize,<sp/>FRAME_INFO*<sp/>pFrameInfo,<sp/>long<sp/>nReserved1,<sp/>long<sp/>nReserved2);
+<sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>DecCBFun1(long<sp/>nPort,<sp/>char*<sp/>pBuf,<sp/>long<sp/>nSize,<sp/>FRAME_INFO*<sp/>pFrameInfo,<sp/>long<sp/>nReserved1,<sp/>long<sp/>nReserved2);
+<sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>fRealDataCallBack(LONG<sp/>lRealHandle,<sp/>DWORD<sp/>dwDataType,<sp/>BYTE*<sp/>pBuffer,<sp/>DWORD<sp/>dwBufSize,<sp/>void*<sp/>pUser);
+<sp/><sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>ExceptionCallBack(DWORD<sp/>dwType,<sp/>LONG<sp/>lUserID,<sp/>LONG<sp/>lHandle,<sp/>void*<sp/>pUser);
+<sp/>static<sp/>HikVideoCapture<sp/>*pCap0,<sp/>*pCap1;
+
+signals:
+<sp/><sp/><sp/>///<sp/>a<sp/>frame<sp/>is<sp/>captured,<sp/>need<sp/>to<sp/>be<sp/>processed
+<sp/><sp/>void<sp/>frameCaptured();
+<sp/><sp/>///<sp/>record<sp/>out<sp/>of<sp/>time,<sp/>will<sp/>auto<sp/>stop<sp/>and<sp/>save<sp/>video
+<sp/><sp/>void<sp/>recordTimeout();
+<sp/><sp/>///<sp/>now<sp/>is<sp/>recording
+<sp/><sp/><sp/>void<sp/>recordON();
+<sp/><sp/><sp/>///<sp/>now<sp/>record<sp/>stopped
+<sp/>void<sp/>recordOFF();
+
+public<sp/>slots:
+<sp/><sp/><sp/>void<sp/>startRecord();<sp/>//!<sp/>涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+<sp/><sp/><sp/>void<sp/>stopRecord();<sp/>//!<sp/><sp/>涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+<sp/><sp/><sp/>inline<sp/>void<sp/>frameProcessed()<sp/>{<sp/>nPendingFrame--;<sp/>}
+};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>初始化列表是先于构造函数的函数体执行，并且成员的初始化列表与成员的声明顺序相同的 [10/9/2018<sp/>cx3386]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>因此务必注意声明顺序<sp/>[10/9/2018<sp/>cx3386]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_config_helper" kindref="compound">ConfigHelper</ref>*<sp/>configHelper;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>deviceIndex;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>HWND<sp/>hPlayWnd;<sp/></highlight><highlight class="comment">//播放窗口句柄 <sp/><sp/>const<sp/>CamProfile*<sp/>camProfile;
+
+<sp/>mutable<sp/>QMutex<sp/>mutex;
+
+<sp/>bool<sp/>bIsRecording<sp/>=<sp/>false;<sp/>//!&lt;<sp/>timeoutTimer和plc的sensorout会从子线程改变这个量，需要线程保护//原子操作，不用保护
+<sp/>QString<sp/>videoRelativeFilePath;<sp/>///&lt;<sp/>the<sp/>fileName<sp/>of<sp/>save<sp/>video.
+<sp/><sp/><sp/><sp/>QTimer*<sp/>timeoutTimer;<sp/>//!&lt;<sp/>录制的超时计时器，停止录制时停止
+<sp/>const<sp/>int<sp/>MAX_RECORD_MSEC<sp/>=<sp/>100000;<sp/>//!&lt;<sp/>录制的超时时长，超过会自动停止录制，并发出timeout的信号
+
+<sp/><sp/>cv::Mat<sp/>rawImage;
+<sp/><sp/>const<sp/>int<sp/>nHandling_Start<sp/>=<sp/>3;<sp/>///&lt;<sp/>于开始视频流后进行一次初始化
+<sp/>volatile<sp/>int<sp/>nHandling;<sp/>///&lt;<sp/>the<sp/>countdown<sp/>counter<sp/>倒计数器
+<sp/><sp/><sp/>//bool<sp/>bIsProcessing<sp/>=<sp/>false;
+<sp/><sp/>int<sp/>nPendingFrame<sp/>=<sp/>0;<sp/>///&lt;<sp/>图像线程处理时，对于本线程来说就是待处理的帧，由于不缓存，只能是0或1.<sp/>0<sp/>is<sp/>ready<sp/>for<sp/>next<sp/>cap,<sp/>1<sp/>must<sp/>wait<sp/>for<sp/>processed
+<sp/><sp/>LONG<sp/>lUserID;
+<sp/><sp/>LONG<sp/>nPort<sp/>=<sp/>-1;
+<sp/><sp/><sp/>LONG<sp/>lRealPlayHandle_SD<sp/>=<sp/>-1;<sp/>///&lt;<sp/>for<sp/>save<sp/>video
+<sp/><sp/>LONG<sp/>lRealPlayHandle_HD<sp/>=<sp/>-1;<sp/>///&lt;<sp/>for<sp/>process<sp/>and<sp/>show
+<sp/><sp/><sp/><sp/>NET_DVR_PREVIEWINFO<sp/>struPlayInfo_HD;<sp/>///&lt;<sp/>for<sp/>process<sp/>and<sp/>show
+<sp/>NET_DVR_PREVIEWINFO<sp/>struPlayInfo_SD;<sp/>///&lt;<sp/>for<sp/>save
+<sp/>void<sp/>DecCBFun(char*<sp/>pBuf,<sp/>FRAME_INFO*<sp/>pFrameInfo);
+<sp/>static<sp/>void<sp/>CALLBACK<sp/>DecCBFun0(long<sp/>nPort,<sp/>char*<sp/>pBuf,<sp/>long<sp/>nSize,<sp/>FRAME_INFO*<sp/>pFrameInfo,<sp/>long<sp/>nReserved1,<sp/>long<sp/>nReserved2);
+<sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>DecCBFun1(long<sp/>nPort,<sp/>char*<sp/>pBuf,<sp/>long<sp/>nSize,<sp/>FRAME_INFO*<sp/>pFrameInfo,<sp/>long<sp/>nReserved1,<sp/>long<sp/>nReserved2);
+<sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>fRealDataCallBack(LONG<sp/>lRealHandle,<sp/>DWORD<sp/>dwDataType,<sp/>BYTE*<sp/>pBuffer,<sp/>DWORD<sp/>dwBufSize,<sp/>void*<sp/>pUser);
+<sp/><sp/><sp/>static<sp/>void<sp/>CALLBACK<sp/>ExceptionCallBack(DWORD<sp/>dwType,<sp/>LONG<sp/>lUserID,<sp/>LONG<sp/>lHandle,<sp/>void*<sp/>pUser);
+<sp/>static<sp/>HikVideoCapture<sp/>*pCap0,<sp/>*pCap1;
+
+signals:
+<sp/><sp/><sp/>///<sp/>a<sp/>frame<sp/>is<sp/>captured,<sp/>need<sp/>to<sp/>be<sp/>processed
+<sp/><sp/>void<sp/>frameCaptured();
+<sp/><sp/>///<sp/>record<sp/>out<sp/>of<sp/>time,<sp/>will<sp/>auto<sp/>stop<sp/>and<sp/>save<sp/>video
+<sp/><sp/>void<sp/>recordTimeout();
+<sp/><sp/>///<sp/>now<sp/>is<sp/>recording
+<sp/><sp/><sp/>void<sp/>recordON();
+<sp/><sp/><sp/>///<sp/>now<sp/>record<sp/>stopped
+<sp/>void<sp/>recordOFF();
+
+public<sp/>slots:
+<sp/><sp/><sp/>void<sp/>startRecord();<sp/>//!<sp/>涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+<sp/><sp/><sp/>void<sp/>stopRecord();<sp/>//!<sp/><sp/>涉及到timeoutTimer，可能跨线程，必须通过sg/sl机制调用
+<sp/><sp/><sp/>inline<sp/>void<sp/>frameProcessed()<sp/>{<sp/>nPendingFrame--;<sp/>}
+};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_cam_profile" kindref="compound">CamProfile</ref>*<sp/>camProfile;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>QMutex<sp/>mutex;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bIsRecording<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>videoRelativeFilePath;<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>QTimer*<sp/>timeoutTimer;<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>MAX_RECORD_MSEC<sp/>=<sp/>100000;<sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>cv::Mat<sp/>rawImage;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nHandling_Start<sp/>=<sp/>3;<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nHandling;<sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//bool<sp/>bIsProcessing<sp/>=<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nPendingFrame<sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>LONG<sp/>lUserID;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>LONG<sp/>nPort<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>LONG<sp/>lRealPlayHandle_SD<sp/>=<sp/>-1;<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>LONG<sp/>lRealPlayHandle_HD<sp/>=<sp/>-1;<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>NET_DVR_PREVIEWINFO<sp/>struPlayInfo_HD;<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>NET_DVR_PREVIEWINFO<sp/>struPlayInfo_SD;<sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DecCBFun(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>pBuf,<sp/>FRAME_INFO*<sp/>pFrameInfo);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CALLBACK<sp/>DecCBFun0(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nPort,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>pBuf,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nSize,<sp/>FRAME_INFO*<sp/>pFrameInfo,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nReserved1,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nReserved2);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CALLBACK<sp/>DecCBFun1(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nPort,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>pBuf,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nSize,<sp/>FRAME_INFO*<sp/>pFrameInfo,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nReserved1,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nReserved2);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CALLBACK<sp/>fRealDataCallBack(LONG<sp/>lRealHandle,<sp/>DWORD<sp/>dwDataType,<sp/>BYTE*<sp/>pBuffer,<sp/>DWORD<sp/>dwBufSize,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pUser);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CALLBACK<sp/>ExceptionCallBack(DWORD<sp/>dwType,<sp/>LONG<sp/>lUserID,<sp/>LONG<sp/>lHandle,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pUser);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture" kindref="compound">HikVideoCapture</ref><sp/>*pCap0,<sp/>*pCap1;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">signals:</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1ad78643dc9b2cbd98c29e52d1edafeb0c" kindref="member">frameCaptured</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1a1ed1fa642b70117ce0b6bcb06139a7e4" kindref="member">recordTimeout</ref>();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1ace04c9f5505d7644b8aab786ff5d3f65" kindref="member">recordON</ref>();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1ad46bb13231338d97325d74e7f1e79f00" kindref="member">recordOFF</ref>();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>slots:</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1acc36761db4a20a203a6ce9675150a5bc" kindref="member">startRecord</ref>();<sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1a4579213b58ec7d6999755e78a48d9ff8" kindref="member">stopRecord</ref>();<sp/></highlight></codeline>
+<codeline lineno="94" refid="class_hik_video_capture_1ae437158a5aec5ad399b7880d6e226578" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hik_video_capture_1ae437158a5aec5ad399b7880d6e226578" kindref="member">frameProcessed</ref>()<sp/>{<sp/>nPendingFrame--;<sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="sources/hikvideocapture.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,47 @@
+.TH "sources/hikvideocapture.h" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/hikvideocapture.h \- 采集录像  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'HCNetSDK\&.h'\fP
+.br
+\fC#include 'plaympeg4\&.h'\fP
+.br
+\fC#include <QObject>\fP
+.br
+\fC#include <opencv2/opencv\&.hpp>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBHikVideoCapture\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+采集录像 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+cx3386 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+九月 2018
+.RE
+.PP
+在构造函数时初始化与摄像机的连接，如果连接失败，需要排查连接问题后重启APP。偶尔中断，有自动重连 start()和stop()只用于控制视频流的读取/停止读取，并不中断连接。 大坑：调用的海康SDK是静态函数，需要根据对象的deviceIndex分别调用Decfunc0,Decfunc1 
+.PP
+Definition in file \fBhikvideocapture\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.

@@ -1,0 +1,5 @@
+<map id="CkPt::gid2mid" name="CkPt::gid2mid">
+<area shape="rect" id="node2" href="$class_handle_sensor_device.html#ac43848822075ec66788f3e9bc795daea" title="expect begin时，开始一个新的ckp " alt="" coords="157,5,299,47"/>
+<area shape="rect" id="node4" href="$class_handle_sensor_device.html#a046f030fe8043ecce0e21b371b874531" title="在expect end时，结算ckp。注意：此ckpId为global id " alt="" coords="157,71,299,112"/>
+<area shape="rect" id="node3" href="$class_plc.html#a230190ee27d360a02576184d3450e8d6" title="必须传入configure, const成员变量在初始化列表中初始化 " alt="" coords="347,46,415,73"/>
+</map>

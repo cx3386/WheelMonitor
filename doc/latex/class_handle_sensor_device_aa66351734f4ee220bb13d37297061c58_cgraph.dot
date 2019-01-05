@@ -1,0 +1,15 @@
+digraph "HandleSensorDevice::input"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node21 [label="HandleSensorDevice\l::input",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node21 -> Node22 [color="midnightblue",fontsize="10",style="solid"];
+  Node22 [label="HandleSensorDevice\l::io2dev",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_handle_sensor_device.html#a406c0b871807c5b546390360a2a81efc",tooltip="将输入的io信号压入devs中 "];
+  Node22 -> Node23 [color="midnightblue",fontsize="10",style="solid"];
+  Node23 [label="CkPt::indexOf",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_ck_pt.html#aae408d0f5cf84a8f4ac7d6281829c1f6"];
+  Node22 -> Node24 [color="midnightblue",fontsize="10",style="solid"];
+  Node24 [label="Sensor::indexOf",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_sensor.html#a2d3ac12a2a7c609be7fd7ce3bd5d4c9b"];
+  Node21 -> Node25 [color="midnightblue",fontsize="10",style="solid"];
+  Node25 [label="HandleSensorDevice\l::checkTri",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_handle_sensor_device.html#ac3ea03c7ab1379f1f5f4b9750ff40683",tooltip="用读取的cio数据检测是否满足触发条件（上升沿/下降沿） "];
+}

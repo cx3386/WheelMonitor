@@ -1,0 +1,5 @@
+<map id="Sensor" name="Sensor">
+<area shape="rect" id="node4" href="$class_ck_pt.html" title="CkPt" alt="" coords="27,171,78,197"/>
+<area shape="rect" id="node5" href="$class_sensor_device.html" title="SensorDevice" alt="" coords="78,81,179,108"/>
+<area shape="rect" id="node3" href="$class_level_recorder.html" title="LevelRecorder" alt="" coords="103,171,205,197"/>
+</map>

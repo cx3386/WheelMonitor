@@ -1,0 +1,148 @@
+.TH "ConfigHelper" 3 "Sat Jan 5 2019" "Version 1.0.2" "WheelMonitor" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ConfigHelper \- 用于设置文件ini的相关操作，包括读取和保存  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <confighelper\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConfigHelper\fP (const QString &configuration, QObject *parent=Q_NULLPTR)"
+.br
+.RI "construct a confighelper object using specified file "
+.ti -1c
+.RI "\fB~ConfigHelper\fP ()"
+.br
+.ti -1c
+.RI "void \fBread\fP ()"
+.br
+.RI "read from ini "
+.ti -1c
+.RI "void \fBsave\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBlaunchAtLogin\fP"
+.br
+.ti -1c
+.RI "bool \fBstartAtLaunch\fP"
+.br
+.RI "alias click 'start' after launch this app "
+.ti -1c
+.RI "bool \fBverboseLog\fP"
+.br
+.RI "record verbose log "
+.ti -1c
+.RI "\fBDevSpec\fP \fBdevice\fP [2]"
+.br
+.RI "所有的属性值都储存在这里，每次使用时都调用helper类，才能保证设置的生效的实时性。 "
+.ti -1c
+.RI "QString \fBpc2plc_portName\fP"
+.br
+.ti -1c
+.RI "double \fBmatchMaskInnerRatio\fP"
+.br
+.RI "匹配时，抠出的内圆半径占车轮的比例 "
+.ti -1c
+.RI "double \fBmatchMaskOuterRatio\fP"
+.br
+.RI "匹配时，抠出的外圆半径占车轮的比例 "
+.in -1c
+.SH "Detailed Description"
+.PP 
+用于设置文件ini的相关操作，包括读取和保存 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+cx3386 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+九月 2018 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file confighelper\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ConfigHelper::ConfigHelper (const QString & configuration, QObject * parent = \fCQ_NULLPTR\fP)"
+
+.PP
+construct a confighelper object using specified file this constructor will auto \fBread()\fP config\&.ini\&. 
+.PP
+Definition at line 13 of file confighelper\&.cpp\&.
+.SS "ConfigHelper::~ConfigHelper ()"
+
+.PP
+Definition at line 20 of file confighelper\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void ConfigHelper::read ()"
+
+.PP
+read from ini 
+.PP
+Definition at line 26 of file confighelper\&.cpp\&.
+.SS "void ConfigHelper::save ()"
+
+.PP
+Definition at line 92 of file confighelper\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBDevSpec\fP ConfigHelper::device[2]"
+
+.PP
+所有的属性值都储存在这里，每次使用时都调用helper类，才能保证设置的生效的实时性。 
+.PP
+Definition at line 59 of file confighelper\&.h\&.
+.SS "bool ConfigHelper::launchAtLogin"
+
+.PP
+Definition at line 55 of file confighelper\&.h\&.
+.SS "double ConfigHelper::matchMaskInnerRatio"
+
+.PP
+匹配时，抠出的内圆半径占车轮的比例 
+.PP
+Definition at line 62 of file confighelper\&.h\&.
+.SS "double ConfigHelper::matchMaskOuterRatio"
+
+.PP
+匹配时，抠出的外圆半径占车轮的比例 
+.PP
+Definition at line 63 of file confighelper\&.h\&.
+.SS "QString ConfigHelper::pc2plc_portName"
+
+.PP
+Definition at line 61 of file confighelper\&.h\&.
+.SS "bool ConfigHelper::startAtLaunch"
+
+.PP
+alias click 'start' after launch this app 
+.PP
+Definition at line 56 of file confighelper\&.h\&.
+.SS "bool ConfigHelper::verboseLog"
+
+.PP
+record verbose log 
+.PP
+Definition at line 57 of file confighelper\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WheelMonitor from the source code\&.
