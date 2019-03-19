@@ -14,11 +14,13 @@
 #include "outlierhelper.h"
 #include "playbackwidget.h"
 #include "settingdialog.h"
+#include "utils.h" /*Mat2QImage*/
+#include "ByteArrayWidget.h"
 
 MainWindow::MainWindow(ConfigHelper* _configHelper, QWidget* parent /*= Q_NULLPTR*/)
 	: QMainWindow(parent)
 	, configHelper(_configHelper)
-	, plc(new Plc(configHelper))
+	, plc(new Plc(_configHelper))
 	, alarmManager(new AlarmManager(this))
 {
 	//setWindowOpacity(1);
@@ -117,6 +119,8 @@ void MainWindow::configWindow()
 	imageProcess[1] = new ImageProcess(configHelper, videoCapture[1], plc);
 	connect(imageProcess[0], &ImageProcess::showFrame, this, [=]() { uiShowRealtimeImage(0); });
 	connect(imageProcess[1], &ImageProcess::showFrame, this, [=]() { uiShowRealtimeImage(1); });
+	connect(imageProcess[0], &ImageProcess::showPlate, this, [=]() { uiShowPlate(0); });
+	connect(imageProcess[1], &ImageProcess::showPlate, this, [=]() { uiShowPlate(1); });
 	ui.matchViewer0->bindDev(imageProcess[0]);
 	ui.matchViewer1->bindDev(imageProcess[1]);
 	/* image process thread */
@@ -133,12 +137,6 @@ void MainWindow::configWindow()
 	//connect(plcSerialThread, &QThread::finished, plcSerial, &QObject::deleteLater);
 	connect(plc, &Plc::truckSpeedReady, this, &MainWindow::uiShowTruckSpeed); //bind plc::adSpeed to cartSpeed
 
-	/* alarmLight */
-	alarmManager->bindMainWindow(this);
-	alarmManager->bindPLC(plc);
-	alarmManager->bindPlayBack(playBackWidget);
-	alarmManager->bindImProc(imageProcess[0]);
-	alarmManager->bindImProc(imageProcess[1]);
 	/* sensor light */
 	connect(plc, &Plc::cio0Update, this, &MainWindow::uiShowCio0); //显示cio0
 	connect(plc->handleSensorDevice[0], &HandleSensorDevice::sensorUpdate, this, [=](int state) {uiShowSensor(state, 0); }); //判断传感器是否发生故障
@@ -162,6 +160,23 @@ void MainWindow::configWindow()
 	imageProcessThread[1]->start();
 	//imageProcess[0]->init();//初始化数据库
 	//imageProcess[1]->init();
+
+	/* alarmLight */
+	alarmManager->bindMainWindow(this);
+	alarmManager->bindPLC(plc);
+	alarmManager->bindPlayBack(playBackWidget);
+	alarmManager->bindImProc(imageProcess[0]);
+	alarmManager->bindImProc(imageProcess[1]);
+	connect(ui.btn_clear_alarm, &QPushButton::clicked, this, [=]() {
+		alarmManager->onHardwareAlarm(HardwareAlarmEvent::Reset);
+	});
+
+	//初始化将报警重置，此步必须在alarmManager绑定完毕后，绑定完毕包括对plc（分步初始化connect）、improcess的初始化
+	ui.btn_clear_alarm->click();
+	// 关闭软件时自动将中控的报警清除，注意，此为异步操作，很可能信号槽机制完成之前，mainwindow已经退出
+	//-修改：除非手工重置，否则不清除报警 2018/12
+	//-修改：为了让软件中的cio100与PLC同步，需要在每次启动软件时读取PLCcio100的状态/或者在关闭软件时保存cio100的状态，实现太麻烦，故而关闭/启动时清零。2019/3/18
+	connect(this, &MainWindow::close, this, [=]() {alarmManager->onHardwareAlarm(HardwareAlarmEvent::Reset); });
 
 	setupDatabaseWatcher();
 
@@ -197,6 +212,11 @@ bool MainWindow::cleanDir(QString dirPath, int nDays)
 	}
 	if (!rslt)
 		qDebug() << "cleanDir error";
+	//ensure today and tomorrow is good
+	QString td = today.toString("yyyyMMdd");
+	QString tm = today.addDays(1).toString("yyyyMMdd");
+	dir.mkpath(td); //create directory path recursively, if exists, returns true.
+	dir.mkpath(tm);
 	return rslt;
 }
 
@@ -215,9 +235,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 void MainWindow::uiShowRealtimeImage(int deviceIndex)
 {
 	cv::Mat src = imageProcess[deviceIndex]->getFrameToShow();
-	QImage im(src.data, src.cols, src.rows, src.step, QImage::Format_RGB888);
-	//QImage dstImage = image.copy(); //deep copy
-	im = im.rgbSwapped();
+	QImage im = utils_cx::Mat2QImage(src);
 	switch (deviceIndex) {
 	case 0:
 		im = im.scaled(ui.realVideoLabel_0->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
@@ -226,6 +244,32 @@ void MainWindow::uiShowRealtimeImage(int deviceIndex)
 	case 1:
 		im = im.scaled(ui.realVideoLabel_1->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
 		ui.realVideoLabel_1->setPixmap(QPixmap::fromImage(im));
+		break;
+	default:
+		break;
+	}
+}
+
+void MainWindow::uiShowPlate(int deviceIndex)
+{
+	//gbr 8uc1
+	cv::Mat src = imageProcess[deviceIndex]->getPlateToShow();
+	if (src.empty())
+	{
+		Mat white{ 3,3,CV_8UC1,Scalar(255) };
+		src = white;
+	}
+	QImage im = utils_cx::Mat2QImage(src);
+
+	switch (deviceIndex)
+	{
+	case 0:
+		//im = im.scaled(ui.plateLabel_o->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
+		ui.plateLabel_o->setPixmap(QPixmap::fromImage(im));
+		break;
+	case 1:
+		//im = im.scaled(ui.plateLabel_i->size(), Qt::KeepAspectRatio); //Note: not like rezise, scaled need assignment
+		ui.plateLabel_i->setPixmap(QPixmap::fromImage(im));
 		break;
 	default:
 		break;
@@ -259,7 +303,6 @@ void MainWindow::uiShowAlarmLight(AlarmColor alarmColor)
 		break;
 	}
 	ui.alarmPushButton->setIcon(color);
-	ui.alarmPushButton->setEnabled(bIsRunning);
 }
 
 void MainWindow::uiShowTruckSpeed()
@@ -415,14 +458,9 @@ void MainWindow::execScheduledTasks()
 	QString today = date.toString("yyyyMMdd");
 	QString tomorrow = date.addDays(1).toString("yyyyMMdd");
 	QStringList dirPathList;
-	dirPathList << videoDirPath << ocrDirPath;
+	dirPathList << g_videoDirPath << ocrDirPath;
 	for (auto&& path : std::as_const(dirPathList)) {
-		cleanDir(path, 30); //clean video(, matched), logs //can be operated alone
-		QString saveDir = QStringLiteral("%1/%2").arg(path).arg(today);
-		QDir dir;
-		dir.mkpath(saveDir); //create directory path recursively, if exists, returns true.
-		saveDir = QStringLiteral("%1/%2").arg(path).arg(tomorrow); //create the directory path everyday
-		dir.mkpath(saveDir);
+		cleanDir(path, g_videoKeepDays); //clean video(, matched), logs //can be operated alone
 	}
 	// log文件夹为单独的，可以不用创建 [12/6/2018 cx3386]
 	//QDir logDir;
@@ -524,6 +562,7 @@ void MainWindow::on_action_Stop_triggered()
 	ui.action_Start->setEnabled(true);
 	ui.action_Stop->setEnabled(false);
 	// alarmlight
+	// -修改：启动检测后才显示颜色
 	ui.alarmPushButton->setEnabled(false);
 	bIsRunning = false;
 	qDebug("stop success");
@@ -539,6 +578,19 @@ void MainWindow::on_action_Property_triggered()
 {
 	auto sDlg = new SettingDialog(configHelper, this);
 	connect(sDlg, &SettingDialog::finished, sDlg, &SettingDialog::deleteLater);
+	connect(sDlg, &SettingDialog::clearVideo, this, [=](int mode) {
+		switch (mode)
+		{
+		case 1:/*now*/
+			cleanDir(g_videoDirPath, g_videoKeepDays);
+			break;
+		case 0:/*all*/
+			cleanDir(g_videoDirPath, 0);
+			break;
+		default:
+			break;
+		}
+	});
 	sDlg->exec();
 }
 void MainWindow::on_action_Quit_triggered()
@@ -625,7 +677,8 @@ void MainWindow::setupDataMapper()
 	//innerModel->select();
 
 	/* 把Model中的数据映射到dashboard中 */
-	// 修改：由于大表格时影响性能，因此不再通过model操作。改为信号槽或者query查询(也没必要)
+	// 修改：由于大表格时影响性能，因此不再通过model操作（跟踪至database最新的一栏）。改为信号槽或者query查询(也没必要).
+	//信号槽机制：获得新数据后，更新主界面
 	//outerMapper = new QDataWidgetMapper(this);
 	//outerMapper->setModel(outerModel);
 	//outerMapper->addMapping(ui.numLineEdit_o, Wheel_Num);
@@ -637,13 +690,18 @@ void MainWindow::setupDataMapper()
 	//innerMapper->addMapping(ui.lastSpeedLineEdit_i, Wheel_CalcSpeed);
 	//innerMapper->toLast();
 	/* 把数据库“alarm”表格中的数据映射到AlarmNumBoard中 */
+	//bug: 也许需要手动更新model
 	QSqlQueryModel *alarmQueryModel = new QSqlQueryModel(this);
-	alarmQueryModel->setQuery("SELECT i_o,num FROM wheels WHERE checkstate=1 ORDER BY id ASC");
+	alarmQueryModel->setQuery("SELECT i_o,num,plate FROM wheels WHERE checkstate=1 ORDER BY id ASC");//可被索引优化
 	while (alarmQueryModel->canFetchMore()) alarmQueryModel->fetchMore();
 	alarmMapper = new QDataWidgetMapper(this);
 	alarmMapper->setModel(alarmQueryModel);
+	//QImageItemDele *delegate = new QImageItemDele(this);//堆交由this处理，不会泄露
+	//alarmMapper->setItemDelegate(delegate);
 	alarmMapper->addMapping(ui.alarmLCDBoard->devIndex, alarmQueryModel->query().record().indexOf("i_o"));
 	alarmMapper->addMapping(ui.alarmLCDBoard->alarmNum, alarmQueryModel->query().record().indexOf("num"));
+	alarmMapper->addMapping(ui.alarmLCDBoard->plate_ba, alarmQueryModel->query().record().indexOf("plate"), "data");
+
 	alarmMapper->toLast(); //最近的报警
 	ui.numBackwardBtn->setEnabled(alarmMapper->currentIndex() > 0);
 	ui.numForwardBtn->setEnabled(false);
@@ -663,10 +721,10 @@ void MainWindow::setupDatabaseWatcher()
 	watcher->addPath(databaseFilePath);
 	watcher->moveToThread(dbWatcherThread);
 	//connect(dbWatcherThread, &QThread::finished, watcher, &QFileSystemWatcher::deleteLater); // watcher在堆上，由this管理，不要去管它
-	//如果model更新了，dataWidgetMapper同时更新。但是其他model对数据库的修改的则不能自动提交
+	//如果model更新了，dataWidgetMapper同时更新。但是其他model对数据库的修改的则不能自动提交。数据库变化，更新所有model
 	connect(watcher, &QFileSystemWatcher::fileChanged, this, [=]() {
 		playBackWidget->dbChanged();//更新故障中的表格。注意：这里的slot由this所在的线程做出，跨线程不能这么传
-		auto model = static_cast<QSqlQueryModel *>(alarmMapper->model());
+		auto model = static_cast<QSqlQueryModel *>(alarmMapper->model());//更新mapper的model
 		while (model->canFetchMore()) model->fetchMore();
 		alarmMapper->toLast();//更新报警信号至最新,刷新左右翻页和显示（有可能被清除）
 		int row = alarmMapper->currentIndex();

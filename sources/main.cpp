@@ -11,11 +11,13 @@
 #include <QtWidgets/QApplication>
 #include <Windows.h>
 
+QMutex g_mutex;
+int g_videoKeepDays;
 QString appDirPath;
 QString appFilePath;
 QString captureDirPath; //cap dir
 QString configDirPath; //cap dir
-QString videoDirPath; //video dir
+QString g_videoDirPath; //video dir
 QString cacheDirPath; // cache dir
 QString matchDirPath; //match dir
 //QString imageDirPath; //imageDirPath
@@ -65,10 +67,10 @@ int main(int argc, char* argv[])
 	appFilePath = QDir::cleanPath(qApp->applicationFilePath()); //the file path of app.exe, '/'e.g. C:/QQ/qq.exe
 	captureDirPath = QString("%1/Capture").arg(appDirPath); //capture dir
 	configDirPath = appDirPath;
-	videoDirPath = QString("%1/Video").arg(captureDirPath);
+	//videoDirPath = QString("%1/Video").arg(captureDirPath);
 	cacheDirPath = QString("%1/Cache").arg(captureDirPath);
-	matchDirPath = QString("%1/Match").arg(cacheDirPath);
-	ocrDirPath = QString("%1/Ocr").arg(cacheDirPath);
+	matchDirPath = QString("%1/Match").arg(cacheDirPath); //cap/cache/match
+	ocrDirPath = QString("%1/Ocr").arg(cacheDirPath);//cap/cache/ocr
 	logDirPath = QString("%1/Log").arg(appDirPath);
 	ocrPatternDirPath = QString("%1/OcrPattern").arg(appDirPath);
 	databaseFilePath = QString("%1/WheelMonitor.db3").arg(appDirPath);
@@ -172,7 +174,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext& context, const QS
 	text_stream << msgStr << endl; //endl doesn't work without flag QIODevice::Text
 	//outfile.flush(); endl will flush to the device
 	outfile.close();
-	}
+}
 
 #pragma comment(lib, "Dbghelp.lib")
 LONG ApplicationCrashHandler(EXCEPTION_POINTERS* pException)

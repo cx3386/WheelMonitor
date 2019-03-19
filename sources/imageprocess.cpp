@@ -10,6 +10,7 @@
 #include "ocr.h"
 #include "outlierhelper.h" //used for calc mean, replace opencv lib
 #include "robustmatcher.h"
+#include "utils.h"
 
 using namespace std;
 using namespace cv;
@@ -142,7 +143,7 @@ void ImageProcess::makeFrame4Show()
 
 int ImageProcess::coreImageProcess()
 {
-	ocr->core_ocr(srcImg); //card num detect gzy 2017/11/9
+	ocr->core_ocr(undistortedFrame); //card num detect gzy 2017/11/9
 	Mat monitorArea = undistortedFrame(imProfile->roiRect); //截取监测区域
 	equalizeHist(monitorArea, monitorArea); //equalize the image, this will change calibratedFrame//2017/12/21
 	Mat blurImage; //use blur image for hough circles, use source image for matches
@@ -221,7 +222,7 @@ int ImageProcess::coreImageProcess()
 	emit showMatch();
 	//angle to linear velocity
 	double rtSpeed = oneAngle * imProfile->angle2Speed();
-	qDebug("dev[%d] Speed: %.2lf; ref: %.2lf", deviceIndex, rtSpeed, rtRefSpeed);
+	//qDebug("dev[%d] Speed: %.2lf; ref: %.2lf", deviceIndex, rtSpeed, rtRefSpeed);
 	rtSpeeds.push_back(rtSpeed);
 	refSpeeds.push_back(rtRefSpeed);
 
@@ -252,6 +253,16 @@ void ImageProcess::checkoutWheel()
 	WheelDbInfo wheelDbInfo;
 	wheelDbInfo.i_o = deviceIndex;
 	wheelDbInfo.num = QString::fromStdString(ocr->get_final_result());
+
+	//获取plate
+	Mat plate = ocr->get_show_plate();
+	mutex.lock();
+	plateToShow = plate; //不入库，直接由ui显示
+	mutex.unlock();
+	emit showPlate();
+
+	wheelDbInfo.plate = utils_cx::Mat2QImage(plate);
+
 	// 记录所有的速度值
 	wheelDbInfo.speeds = genSpeeds(rtSpeeds, refSpeeds);
 	wheelDbInfo.totalmatch = rtSpeeds.size(); // match size

@@ -131,6 +131,15 @@
     <ClCompile Include="MatchViewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QImageItemDele.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ByteArrayWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -167,6 +176,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -241,6 +253,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MatchViewer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QImageItemDele.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ByteArrayWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

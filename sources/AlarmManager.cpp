@@ -2,6 +2,7 @@
 
 #include "AlarmManager.h"
 #include <QDebug>
+#include <QMessageBox>
 
 //using namespace std;
 AlarmManager::AlarmManager(QObject* parent)
@@ -21,12 +22,14 @@ void AlarmManager::bindPLC(Plc* plc)
 	//接受PLC的设备故障（断线、传感器故障）信号
 	// 修改：断线、传感器故障直接LOG，传感器故障还显示在UI的PLC DOCK中
 	//接收PLC的掉轮报警信号
-	connect(plc->handleSensorDevice[0], &HandleSensorDevice::wheelFallOff, this, [=](int pos) {
+	connect(plc->handleSensorDevice[0], &HandleSensorDevice::wheelFallOff, this, [=](int code) {
 		onHardwareAlarm(HardwareAlarmEvent::Outer_Alarm);
-		qCritical() << "wheel fall off! num:" << pos; });
-	connect(plc->handleSensorDevice[1], &HandleSensorDevice::wheelFallOff, this, [=](int pos) {
+		QMessageBox::warning(nullptr, QStringLiteral("警告"), QStringLiteral("车轮脱落！\n请在故障页面中按以下时间查看前2个录像。\n发生时间:%1").arg(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")), QStringLiteral("确定"), QStringLiteral("取消"));
+		qCritical() << "wheel fall off! code" << code;  });
+	connect(plc->handleSensorDevice[1], &HandleSensorDevice::wheelFallOff, this, [=](int code) {
 		onHardwareAlarm(HardwareAlarmEvent::Inner_Alarm);
-		qCritical() << "wheel fall off! num" << pos; });
+		QMessageBox::warning(nullptr, QStringLiteral("警告"), QStringLiteral("车轮脱落！\n请在故障页面中按以下时间查看前2个录像。\n发生时间:%1").arg(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")), QStringLiteral("确定"), QStringLiteral("取消"));
+		qCritical() << "wheel fall off! code" << code; });
 }
 
 void AlarmManager::bindImProc(ImageProcess* imp)
@@ -46,19 +49,18 @@ void AlarmManager::bindMainWindow(MainWindow* mainwindow)
 	connect(this, &AlarmManager::showError_i, mainwindow, &MainWindow::uiShowError_i);
 	connect(this, &AlarmManager::showCio100ToUi, mainwindow, &MainWindow::uiShowCio100);
 	connect(this, &AlarmManager::showAlarmLightToUi, mainwindow, [=](int cl) { mainwindow->uiShowAlarmLight((AlarmColor)cl); }); // 将状态灯显示到UI
-	// 关闭软件时将报警清除-修改：除非手工重置，否则不清除报警
-	//connect(mainwindow, MainWindow::closeWindow，this, AlarmManager::clearAllAlarm );
 }
 
 void AlarmManager::bindPlayBack(PlayBackWidget* pb)
 {
 	// 只通过故障处理界面清除报警
-	if (m_mainWindow != nullptr) {
-		connect(pb, &PlayBackWidget::clearAlarm, this, [=]() { m_mainWindow->uiShowAlarmLight(AlarmColor::Green); });
-	}
-	else {
-		qFatal("no create playbackWidget.");
-	}
+	connect(pb, &PlayBackWidget::clearAlarm, this, [=]() {
+		m_mainWindow->uiShowAlarmLight(AlarmColor::Green);
+		//将中控的黄色警报（内/外）设置为绿色
+		currentCio100 &= ~(1 << 4);
+		currentCio100 &= ~(1 << 6);//软件中，设定
+		setHardwareAlarm(currentCio100);//plc设定
+	});
 }
 
 //! 当PLC发出掉轮报警，更新ui界面（DOCK和警报灯），并由PLC向中控发出报警
@@ -86,7 +88,31 @@ void AlarmManager::onHardwareAlarm(HardwareAlarmEvent ev)
 	}
 	emit showCio100ToUi(currentCio100);
 	emit hardAlarmToPlc(currentCio100);
-	emit showAlarmLightToUi((int)AlarmColor::Red);
+	//如果发生硬件报警（掉轮/慢轮），则会将界面上的大灯置为红色
+	if (currentCio100 == 0)
+	{
+		emit showAlarmLightToUi((int)AlarmColor::Green);
+	}
+	else
+	{
+		emit showAlarmLightToUi((int)AlarmColor::Red);
+	}
+}
+
+void AlarmManager::setHardwareAlarm(int cio100)
+{
+	currentCio100 = cio100;
+	emit showCio100ToUi(currentCio100);
+	emit hardAlarmToPlc(currentCio100);
+	//如果发生硬件报警（掉轮/慢轮），则会将界面上的大灯置为红色
+	if (currentCio100 == 0)
+	{
+		emit showAlarmLightToUi((int)AlarmColor::Green);
+	}
+	else
+	{
+		emit showAlarmLightToUi((int)AlarmColor::Red);
+	}
 }
 
 //! 根据车轮的警报等级向报警处理类发出信号
@@ -136,7 +162,6 @@ void AlarmManager::checkoutWheelToDb(WheelDbInfo info)
 			case 2:
 				//上一次结果是预警或报警，则连续两次超出预警值，报警！
 				info.alarmlevel = 2;
-				emit showAlarmLightToUi((int)AlarmColor::Red);
 				qCritical() << QStringLiteral("本车轮连续两次检测中超出预警值，报警！");
 				break;
 			default:
@@ -146,11 +171,23 @@ void AlarmManager::checkoutWheelToDb(WheelDbInfo info)
 		//超出报警值
 		else {
 			info.alarmlevel = 2;
-			emit showAlarmLightToUi((int)AlarmColor::Red);
 			qCritical() << QStringLiteral("本车轮超出报警值，报警！");
 		}
 	}
-	/* checkstate */
+	//判断界面报警等级完毕，此等级指表中显示的颜色，与报警并非直接相关。红色直接向中控发出预警
+	if (info.alarmlevel == 2)
+	{
+		emit showAlarmLightToUi((int)AlarmColor::Red);
+		if (info.i_o == 0)
+		{
+			onHardwareAlarm(HardwareAlarmEvent::Outer_Warn);
+		}
+		else if (info.i_o == 1)
+		{
+			onHardwareAlarm(HardwareAlarmEvent::Inner_Warn);
+		}
+	}
+	/* 根据报警等级做出checkstate的处理 */
 	switch (info.alarmlevel) {
 	case -2:
 	case 1:
@@ -186,9 +223,15 @@ void AlarmManager::checkoutWheelToDb(WheelDbInfo info)
 bool AlarmManager::insertRecord(WheelDbInfo info)
 {
 	QSqlQuery query;
-	query.prepare("INSERT INTO wheels (i_o,num,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath) VALUES(:i_o,:num,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);");
+	query.prepare("INSERT INTO wheels (i_o,num,plate,calcspeed,refspeed,error,time,alarmlevel,checkstate,ocrsize,fragment,totalmatch,validmatch,speeds,videopath) VALUES(:i_o,:num,:plate,:calcspeed,:refspeed,:error,:time,:alarmlevel,:checkstate,:ocrsize,:fragment,:totalmatch,:validmatch,:speeds,:videopath);");
 	query.bindValue(":i_o", QVariant(info.i_o));
 	query.bindValue(":num", QVariant(info.num));
+	//QImage to QByteArray
+	QByteArray ba;
+	QBuffer buffer(&ba);
+	buffer.open(QIODevice::WriteOnly);
+	info.plate.save(&buffer, "JPG", 100); // writes image into ba in jpg format
+	query.bindValue(":plate", ba, QSql::Binary);
 	query.bindValue(":calcspeed", QVariant(info.calcspeed));
 	query.bindValue(":refspeed", QVariant(info.refspeed));
 	query.bindValue(":error", QVariant(info.error));

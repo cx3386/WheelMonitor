@@ -153,14 +153,14 @@ void HandleSensorDevice::checkoutDev()
 {
 	int goodones = getExpects(); //!< 所有expect=true的个数
 	bool updateSensor; //!< 如果不是掉轮，则更新ss->broken。
-	//检测到信号,不可能掉轮
+	//检测到信号,（当前）不可能掉轮
 	if (goodones > 0)
 	{
 		//qDebug() << "dev" << devId << ",goodones" << goodones;
 		updateSensor = true;
 		if (dev->needHandled)
 		{
-			emit wheelFallOff(-1);
+			emit wheelFallOff((dev->m_id << 1) | 1);//之前车轮掉了
 		}
 	}
 	//没有任何一个传感器检测到信号，即现在全坏了
@@ -179,7 +179,7 @@ void HandleSensorDevice::checkoutDev()
 		case 1:
 		case 2://不可能一次坏2个，是掉轮造成的不亮
 			updateSensor = false;
-			emit wheelFallOff(0);
+			emit wheelFallOff((dev->m_id << 1) | 0);//当前车轮掉了
 			break;
 		case 3://坏了3个了，最后一个不亮，可能是设备坏了，也可能是掉轮
 			updateSensor = true;

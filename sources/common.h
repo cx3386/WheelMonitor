@@ -15,7 +15,8 @@
 #include <QString>
 
  // 注意：C中宏，C++中constexpr，应定义在头文件中
-
+extern QMutex g_mutex; //!< global mutex
+extern int g_videoKeepDays; //!< keep the video for n days;
  // detailed information about this application.
  //const QString FILE_SPEC = QStringLiteral("宝钢环冷机台车轮子速度检测软件");
  //const char FILE_VER[] = "1.1.1";
@@ -30,7 +31,7 @@ extern QString appDirPath; //!<  the directory contains the app.exe, '/'e.g. C:/
 extern QString appFilePath; //!< the file path of app.exe, '/'e.g. C:/QQ/qq.exe
 extern QString captureDirPath; //!< capture dir
 extern QString configDirPath; //!< config dir
-extern QString videoDirPath; //!< video dir
+extern QString g_videoDirPath; //!< video dir
 extern QString cacheDirPath; //!< cache dir
 extern QString matchDirPath; //!< match dir
 //extern QString imageDirPath; //!< imageDirPath

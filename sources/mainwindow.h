@@ -52,7 +52,6 @@ private:
 	void configWindow();
 	void setupDatabaseWatcher(); //!< 建立对数据库文件的监视
 	void setupDataMapper(); //!< 建立数据库与界面的映射关系
-	bool cleanDir(QString dir, int nDays); //!< retain nDays save files, include video/match/log and so on, defualt retain for 0 days, which means clean all
 	/* alarm number show */
 	//void alarmNumUiSetup();
 
@@ -64,17 +63,29 @@ protected:
 	virtual void closeEvent(QCloseEvent* event) override;
 
 public slots:
+	bool cleanDir(QString dir, int nDays); //!< retain nDays save files, include video/match/log and so on, defualt retain for 0 days, which means clean all
 	void uiShowCio100(int cio100);
-	void uiShowAlarmLight(AlarmColor alarmColor);
-	void uiShowSpeed_i(double speed) { ui.lastSpeedLineEdit_i->setText(QString::number(speed)); }
+	void uiShowAlarmLight(AlarmColor alarmColor); //!< 更改UI界面中大灯的颜色
+	void uiShowSpeed_i(double speed) {
+		if (speed != 888) {
+			//the magic number see "plc.h" speedCompensationCoeff
+			speed = speed / 0.802*0.954; ui.lastSpeedLineEdit_i->setText(QString::number(speed, 'f', 2));
+		}
+		else
+		{
+			ui.lastSpeedLineEdit_i->setText(QString::number(speed));
+		}
+	}
 	void uiShowError_i(double error) { ui.lastErrorLineEdit_i->setText(QString::number(error)); }
 	void uiShowNum_i(QString num) { ui.numLineEdit_i->setText(num); }
 	void uiShowSpeed_o(double speed) { ui.lastSpeedLineEdit_o->setText(QString::number(speed)); }
 	void uiShowError_o(double error) { ui.lastErrorLineEdit_o->setText(QString::number(error)); }
 	void uiShowNum_o(QString num) { ui.numLineEdit_o->setText(num); }
+
 private slots:
 	/* uiShow */
 	void uiShowRealtimeImage(int deviceIndex);
+	void uiShowPlate(int deviceIndex);
 	void uiShowTruckSpeed();
 	void uiShowCio0(int cio0);
 	void uiShowSensor(int state, int devId);

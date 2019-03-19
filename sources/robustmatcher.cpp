@@ -31,9 +31,22 @@ bool RobustMatcher::match(cv::Mat src1, cv::Mat src2, double maskOuterRatio, dou
 	// 1a. Detection of the ORB features
 	detector->detect(src1, keypoints1, mask1);
 	detector->detect(src2, keypoints2, mask2);
+	if (isDebug)
+	{
+		//show the keypoints
+		Mat kp_show1, kp_show2;
+		drawKeypoints(src1, keypoints1, kp_show1, Scalar::all(-1));
+		drawKeypoints(src2, keypoints2, kp_show2, Scalar::all(-1));
+		imshow("kp1", kp_show1);
+		imshow("kp2", kp_show2);
+	}
+
 	// ***********if no keypoint detect then return
 	if (keypoints1.empty() || keypoints2.empty())
+	{
+		if (isDebug) qDebug() << "no keypoint";
 		return false;
+	}
 	// 1b. Extraction of the ORB descriptors
 	Mat descriptors1, descriptors2;
 	detector->compute(src1, keypoints1, descriptors1);
@@ -44,9 +57,11 @@ bool RobustMatcher::match(cv::Mat src1, cv::Mat src2, double maskOuterRatio, dou
 	// from image 1 to image 2 based on k nearest neighbours (with k=2)
 	vector<vector<DMatch>> matches1; // vector of matches (up to 2 per entry)
 	matcher->knnMatch(descriptors1, descriptors2, matches1, 2); // return 2 nearest neighbors
+	if (isDebug) qDebug() << "knnMatch1 count" << matches1.size();
 	// from image 2 to image 1 based on k nearest neighbours (with k=2)
 	vector<vector<DMatch>> matches2; // vector of matches (up to 2 per entry)
 	matcher->knnMatch(descriptors2, descriptors1, matches2, 2); // return 2 nearest neighbors
+	if (isDebug) qDebug() << "knnMatch2 count" << matches2.size();
 
 	// 3. Remove matches for which NN ratio > threshold
 	// clean image 1 -> image 2 matches
@@ -57,10 +72,10 @@ bool RobustMatcher::match(cv::Mat src1, cv::Mat src2, double maskOuterRatio, dou
 	// 4. Remove non-symmetrical matches
 	vector<DMatch> matches;
 	symmetryTest(matches1, matches2, matches);
+	if (isDebug) qDebug() << "match count" << matches.size();
 
 	// 5. 判断有效匹配点对是否大于等于10个(2个就可以进行计算)
 	if (matches.size() < 10) {
-		//qDebug("the match point less than 2");
 		return false;
 	}
 	// 绘制匹配结果

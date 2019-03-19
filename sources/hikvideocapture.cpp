@@ -126,7 +126,7 @@ void HikVideoCapture::startRecord()
 	auto dateTime = QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
 	auto mark = getDeviceMark(deviceIndex);
 	videoRelativeFilePath = QStringLiteral("%1/%2_%3.mp4").arg(date).arg(mark).arg(dateTime);
-	QString videoFilePath = QStringLiteral("%1/%2").arg(videoDirPath).arg(videoRelativeFilePath);
+	QString videoFilePath = QStringLiteral("%1/%2").arg(g_videoDirPath).arg(videoRelativeFilePath);
 	QByteArray ba = videoFilePath.toLocal8Bit();
 	if (!NET_DVR_SaveRealData(lRealPlayHandle_SD, ba.data())) {
 		qDebug() << "HikVideoCapture: startRecord error";

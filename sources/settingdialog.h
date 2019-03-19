@@ -18,7 +18,13 @@ private:
 
 	void ui2ini();
 
-	private slots:
+private slots:
 	void roiSlot(int);
 	void ini2ui();
+	void onClickSelSaveDir();
+	void onClickClearCacheNow();
+	void onClickClearCacheAll();
+	void onUiChanged();
+signals:
+	void clearVideo(int mode); //!< mode 1-now, 0-all.
 };

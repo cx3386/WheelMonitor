@@ -21,8 +21,9 @@ public:
 	explicit ImageProcess(const ConfigHelper* _configHelper, HikVideoCapture* _capture, Plc* _plcSerial, QObject* parent = Q_NULLPTR);
 	~ImageProcess();
 
-	cv::Mat getFrameToShow() { QMutexLocker locker(&mutex); return frameToShow; }
+	cv::Mat getFrameToShow() { QMutexLocker locker(&mutex); return frameToShow; }//直接调用该函数，则在调用线程中运行，而不是子线程中，因此需要避免竞态
 	cv::Mat getMatchResult() { QMutexLocker locker(&mutex); return matchResult; }
+	cv::Mat getPlateToShow() { QMutexLocker locker(&mutex); return plateToShow; }
 	// 用于mainwindow跨线程控制
 	void start() { QTimer::singleShot(0, this, &ImageProcess::onStart); }
 	void stop() { QTimer::singleShot(0, this, &ImageProcess::onStop); }
@@ -38,10 +39,11 @@ private:
 	OCR* ocr; //!< ocr识别的类，只通过start/stop来控制，常开
 	RobustMatcher* rMatcher;
 
-	cv::Mat srcImg;
+	cv::Mat srcImg;  //!< 是1920*1080的原图
 	cv::Mat undistortedFrame;
 	cv::Mat frameToShow;
 	cv::Mat matchResult;
+	cv::Mat plateToShow;
 	QMutex mutex;
 
 	cv::Mat cameraUndistort(cv::Mat src);
@@ -96,9 +98,10 @@ signals:
 	void _MAOut();
 	void frameHandled();
 	void showFrame();
+	void showPlate();
 	//void setAlarmLight(int alarmcolor);
 	void showMatch();
-	void wheelNeedHandled(WheelDbInfo info);
+	void wheelNeedHandled(WheelDbInfo info);//! 当前车轮已经由当前类处理完毕，需要交给下游处理（入库、显示）
 	//void insertRecord();
 
 public slots:

@@ -61,4 +61,7 @@ public:
 	QString pc2plc_portName; // PC上的串口号(e.g.COM3)
 	double matchMaskInnerRatio; //!< 匹配时，抠出的内圆半径占车轮的比例
 	double matchMaskOuterRatio; //!< 匹配时，抠出的外圆半径占车轮的比例
+	//more about settings:
+	//savedirs
+	//savedays
 };

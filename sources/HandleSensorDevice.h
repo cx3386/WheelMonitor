@@ -38,6 +38,6 @@ signals:
 	void dzIn();
 	void dzOut();
 	void triInt(int ckpId); //!< 至积分器,global ckpid
-	void wheelFallOff(int pos); //!< pos:-1前一个;0当前
+	void wheelFallOff(int); //!< 轮子脱落。参数,两位2进制。高位为内（1）外（0）圈，低位为0时为当前车轮，1为前1个车轮
 	void sensorUpdate(int);
 };

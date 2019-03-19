@@ -37,7 +37,7 @@ public:
 	void bindPlayBack(PlayBackWidget* pb);;
 
 public slots:
-	void onHardwareAlarm(HardwareAlarmEvent event);
+	void onHardwareAlarm(HardwareAlarmEvent event); //!< 设置向中控的报警类别
 	//void alarmWheel(int);
 
 signals:
@@ -57,9 +57,11 @@ private:
 	Plc* m_plc;
 	MainWindow* m_mainWindow;
 	//PlayBackWidget* m_pb; //!< 故障处理界面
-	int currentCio100;
+	void setHardwareAlarm(int cio100); //!< 直接设置中控的信号输出（rawdata）
+	int currentCio100;  //!< 当前中控的信号
 	bool insertRecord(WheelDbInfo info);
 	int getPreCheckstate(QString num);
+
 private slots:
 	void checkoutWheelToDb(WheelDbInfo info);
 };

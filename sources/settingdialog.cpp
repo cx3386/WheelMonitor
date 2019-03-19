@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "settingdialog.h"
 #include "confighelper.h"
+#include "common.h"
 
 SettingDialog::SettingDialog(ConfigHelper* ch, QWidget* parent /*= Q_NULLPTR*/)
 	: helper(ch)
@@ -22,33 +23,9 @@ SettingDialog::SettingDialog(ConfigHelper* ch, QWidget* parent /*= Q_NULLPTR*/)
 	connect(ui.roiSpinBox_w_3, SIGNAL(valueChanged(int)), this, SLOT(roiSlot(int)));
 	connect(ui.roiSpinBox_h_3, SIGNAL(valueChanged(int)), this, SLOT(roiSlot(int)));
 
-	auto onChanged = [this]() { ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true); };
-	auto onChanged1 = [this](const QString&) { ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true); };
-	connect(ui.LaunchAtLoginCheckBox, &QCheckBox::stateChanged, this, onChanged);
-	connect(ui.startAtLaunchCheckBox, &QCheckBox::stateChanged, this, onChanged);
-	connect(ui.verboseLogCheckBox, &QCheckBox::stateChanged, this, onChanged);
-	//dev1
-	connect(ui.capIntervalSpinBox, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.sensorCheckBox, &QCheckBox::stateChanged, this, onChanged);
-	connect(ui.alarmRatioSpinBox, static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
-	connect(ui.warningRatioSpinBox, static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
-	connect(ui.radiusMaxSpinBox, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.radiusMinSpinBox, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_x, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_y, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_w, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_h, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	//dev2
-	connect(ui.capIntervalSpinBox_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.sensorCheckBox_3, &QCheckBox::stateChanged, this, onChanged);
-	connect(ui.alarmRatioSpinBox_3, static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
-	connect(ui.warningRatioSpinBox_3, static_cast<void (QDoubleSpinBox::*)(const QString&)>(&QDoubleSpinBox::valueChanged), this, onChanged1);
-	connect(ui.radiusMaxSpinBox_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.radiusMinSpinBox_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_x_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_y_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_w_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
-	connect(ui.roiSpinBox_h_3, static_cast<void (QSpinBox::*)(const QString&)>(&QSpinBox::valueChanged), this, onChanged1);
+	// 根据内容的变化设置保存按钮
+	// 更改：在ui中设定
+	//trackChanged();
 
 	ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 }
@@ -64,7 +41,9 @@ void SettingDialog::ini2ui()
 	ui.LaunchAtLoginCheckBox->setChecked(helper->launchAtLogin);
 	ui.startAtLaunchCheckBox->setChecked(helper->startAtLaunch);
 	ui.verboseLogCheckBox->setChecked(helper->verboseLog);
-
+	//save
+	ui.spb_saveDays->setValue(g_videoKeepDays);
+	ui.lnEd_saveDir->setText(g_videoDirPath);
 	/*dev*/
 	//dev1
 	ui.capIntervalSpinBox->setValue(helper->device[0].camProfile.frameInterv);
@@ -90,12 +69,55 @@ void SettingDialog::ini2ui()
 	ui.roiSpinBox_h_3->setValue(helper->device[1].imProfile.roiRect.height);
 }
 
+void SettingDialog::onClickSelSaveDir()
+{
+	//videoDirPath
+	QFileDialog saveDirDlg(this);
+	saveDirDlg.setFileMode(QFileDialog::Directory);
+	g_mutex.lock();
+	saveDirDlg.setDirectory(g_videoDirPath);
+	g_mutex.unlock();
+	QString dirPath;
+	if (saveDirDlg.exec())
+		dirPath = saveDirDlg.selectedFiles().at(0);
+	if (dirPath.isEmpty())
+		return;
+	ui.lnEd_saveDir->setText(dirPath);
+}
+
+void SettingDialog::onClickClearCacheNow()
+{
+	emit clearVideo(1);
+}
+
+void SettingDialog::onClickClearCacheAll()
+{
+	emit clearVideo(0);
+}
+
+void SettingDialog::onUiChanged()
+{
+	ui.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
+}
+
 void SettingDialog::ui2ini()
 {
 	//common
 	helper->launchAtLogin = ui.LaunchAtLoginCheckBox->isChecked();
 	helper->startAtLaunch = ui.startAtLaunchCheckBox->isChecked();
 	helper->verboseLog = ui.verboseLogCheckBox->isChecked();
+
+	//save
+	g_mutex.lock();
+	g_videoKeepDays = ui.spb_saveDays->value();
+	g_videoDirPath = ui.lnEd_saveDir->text();
+	g_mutex.unlock();
+	QDate date = QDate::currentDate();
+	QString today = date.toString("yyyyMMdd");
+	QString tomorrow = date.addDays(1).toString("yyyyMMdd");
+	QDir dir(g_videoDirPath);
+	dir.mkpath(today);
+	dir.mkpath(tomorrow);
 
 	/*dev*/
 	//dev1

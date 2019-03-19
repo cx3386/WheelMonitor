@@ -5,6 +5,7 @@
 #include "mysqltablemodel.h"
 #include "playbackwidget.h"
 #include "player.h"
+#include "QImageItemDele.h"
 #include <QtSql>
 
 PlayBackWidget::PlayBackWidget(QWidget* parent)
@@ -100,6 +101,7 @@ void PlayBackWidget::initAlarmTable()
 
 	alarmModel->setHeaderData(Wheel_I_O, Qt::Horizontal, QStringLiteral("外/内圈"));
 	alarmModel->setHeaderData(Wheel_Num, Qt::Horizontal, QStringLiteral("序号"));
+	alarmModel->setHeaderData(Wheel_Plate, Qt::Horizontal, QStringLiteral("车牌"));
 	alarmModel->setHeaderData(Wheel_CalcSpeed, Qt::Horizontal, QStringLiteral("测量"));
 	alarmModel->setHeaderData(Wheel_RefSpeed, Qt::Horizontal, QStringLiteral("参考"));
 	alarmModel->setHeaderData(Wheel_Error, Qt::Horizontal, QStringLiteral("±%"));
@@ -107,6 +109,9 @@ void PlayBackWidget::initAlarmTable()
 
 	alarmView = new QTableView(this);
 	alarmView->setModel(alarmModel);
+	//设置代理，用于显示plate
+	delegate_alarm = new QImageItemDele(this);
+	alarmView->setItemDelegateForColumn(Wheel_Plate, delegate_alarm);
 	//alarmView->setFont(QFont("Arial Narrow", 14));
 	//alarmView->horizontalHeader()->setFont(QFont(QStringLiteral("宋体"), 14));
 	alarmView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -122,7 +127,7 @@ void PlayBackWidget::initAlarmTable()
 	for (int i = Wheel_AlarmLevel; i <= Wheel_VideoPath; ++i) {
 		alarmView->hideColumn(i);
 	}
-	connect(alarmView, &QTableView::activated, this, &PlayBackWidget::readVideoPath); //double-click or enter
+	connect(alarmView, &QTableView::activated, this, [=](const QModelIndex index) {readVideoPath(alarmView->model(), index); }); //double-click or enter
 }
 
 void PlayBackWidget::initAllTable()
@@ -135,6 +140,9 @@ void PlayBackWidget::initAllTable()
 
 	allView = new QTableView(this);
 	allView->setModel(allModel);
+	//设置代理，用于显示plate
+	delegate_all = new QImageItemDele(this);
+	allView->setItemDelegateForColumn(Wheel_Plate, delegate_all);
 	//allView->setFont(QFont("Arial Narrow", 14));
 	//allView->horizontalHeader()->setFont(QFont(QStringLiteral("宋体"), 14));
 	allView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -146,7 +154,7 @@ void PlayBackWidget::initAllTable()
 	allView->horizontalHeader()->setStretchLastSection(true);
 	allView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
 	allView->resizeColumnsToContents();
-	connect(allView, &QTableView::activated, this, &PlayBackWidget::readVideoPath); //double-click or enter
+	connect(allView, &QTableView::activated, this, [=](const QModelIndex index) {readVideoPath(allView->model(), index); }); //double-click or enter
 }
 
 PlayBackWidget::~PlayBackWidget()
@@ -176,10 +184,10 @@ void PlayBackWidget::clearMedia()
 	player->setUrl(url);
 }
 
-void PlayBackWidget::readVideoPath(QModelIndex index) const
+void PlayBackWidget::readVideoPath(QAbstractItemModel *model, QModelIndex index) const
 {
-	QString path = allModel->data(allModel->index(index.row(), Wheel_VideoPath)).toString();
-	QDir dir(videoDirPath);
+	QString path = model->data(model->index(index.row(), Wheel_VideoPath)).toString();
+	QDir dir(g_videoDirPath);
 	player->setUrl(QUrl::fromLocalFile(dir.absoluteFilePath(path)));
 }
 
@@ -207,10 +215,12 @@ void PlayBackWidget::setAllChecked()
 		QMessageBox::information(this, QStringLiteral("解除警报"), QStringLiteral("当前无故障"), QStringLiteral("确定"));
 		return;
 	}
-	auto rows = alarmModel->rowCount();
-	for (int i = 0; i < rows; ++i) {
-		alarmModel->setData(alarmModel->index(i, Wheel_CheckState), QVariant(Checked));
-	}
-	alarmModel->submitAll();
-	//while (alarmModel->canFetchMore())alarmModel->fetchMore();
+	//while (alarmModel->canFetchMore())alarmModel->fetchMore();//由于数据库每次更新，都会刷新一次model，因此不必再fetch。
+	//auto rows = alarmModel->rowCount();
+	//for (int i = 0; i < rows; ++i) {
+	//	alarmModel->setData(alarmModel->index(i, Wheel_CheckState), QVariant(Checked));
+	//}
+	//alarmModel->submitAll();
+	QSqlQuery q;
+	q.exec("UPDATE wheels SET checkstate=2 WHERE checkstate=1;");
 }

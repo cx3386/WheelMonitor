@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>539</width>
+    <width>598</width>
     <height>630</height>
    </rect>
   </property>
@@ -147,8 +147,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>539</width>
-     <height>23</height>
+     <width>598</width>
+     <height>18</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -204,52 +204,26 @@
     <number>2</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QFormLayout" name="formLayout_3">
-     <item row="0" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <widget class="QLabel" name="cartSpeedLabel">
-         <property name="text">
-          <string>台车速度(m/min)</string>
-         </property>
-         <property name="buddy">
-          <cstring>cartSpeedLineEdit</cstring>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="cartSpeedLineEdit">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>55</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>55</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
+    <layout class="QGridLayout" name="gridLayout_13">
+     <item row="1" column="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item row="1" column="0">
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
         <string>外圈</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_11">
+       <layout class="QGridLayout" name="gridLayout_12">
         <item row="0" column="0">
          <widget class="QLabel" name="lastSpeedLabel">
           <property name="text">
@@ -281,6 +255,31 @@
            <string/>
           </property>
           <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2" rowspan="3">
+         <widget class="QLabel" name="plateLabel_o">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="WheelMonitor.qrc">:/WheelMonitor/Resources/images/pure_white.jpg</pixmap>
+          </property>
+          <property name="scaledContents">
            <bool>true</bool>
           </property>
          </widget>
@@ -368,27 +367,53 @@
        </layout>
       </widget>
      </item>
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="cartSpeedLabel">
+         <property name="text">
+          <string>台车速度(m/min)</string>
+         </property>
+         <property name="buddy">
+          <cstring>cartSpeedLineEdit</cstring>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="cartSpeedLineEdit">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>55</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>55</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
      <item row="1" column="1">
       <widget class="QGroupBox" name="groupBox_8">
        <property name="title">
         <string>内圈</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_12">
-        <item row="0" column="0">
-         <widget class="QLabel" name="lastSpeedLabel_3">
-          <property name="text">
-           <string>车轮转速</string>
-          </property>
-          <property name="buddy">
-           <cstring>lastSpeedLineEdit_i</cstring>
-          </property>
-         </widget>
-        </item>
+       <layout class="QGridLayout" name="gridLayout_11">
         <item row="0" column="1">
          <widget class="QLineEdit" name="lastSpeedLineEdit_i">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
           <property name="minimumSize">
            <size>
             <width>55</width>
@@ -424,28 +449,13 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="numLineEdit_i">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>55</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>55</width>
-            <height>16777215</height>
-           </size>
-          </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="lastSpeedLabel_3">
           <property name="text">
-           <string/>
+           <string>车轮转速</string>
           </property>
-          <property name="readOnly">
-           <bool>true</bool>
+          <property name="buddy">
+           <cstring>lastSpeedLineEdit_i</cstring>
           </property>
          </widget>
         </item>
@@ -464,11 +474,8 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="lastErrorLineEdit_i">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="numLineEdit_i">
           <property name="minimumSize">
            <size>
             <width>55</width>
@@ -489,8 +496,68 @@
           </property>
          </widget>
         </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lastErrorLineEdit_i">
+          <property name="minimumSize">
+           <size>
+            <width>55</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>55</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2" rowspan="3">
+         <widget class="QLabel" name="plateLabel_i">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>53</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="WheelMonitor.qrc">:/WheelMonitor/Resources/images/pure_white.jpg</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </widget>
@@ -995,26 +1062,33 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="Btn_CIO100_5">
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_11">
           <property name="text">
-           <string/>
+           <string>外红</string>
           </property>
-          <property name="icon">
-           <iconset resource="WheelMonitor.qrc">
-            <normaloff>:/WheelMonitor/Resources/images/gray.png</normaloff>:/WheelMonitor/Resources/images/gray.png</iconset>
+          <property name="buddy">
+           <cstring>Btn_CIO100_5</cstring>
           </property>
-          <property name="iconSize">
-           <size>
-            <width>10</width>
-            <height>10</height>
-           </size>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>外黄</string>
           </property>
-          <property name="checkable">
-           <bool>false</bool>
+          <property name="buddy">
+           <cstring>Btn_CIO100_4</cstring>
           </property>
-          <property name="flat">
-           <bool>true</bool>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_12">
+          <property name="text">
+           <string>内黄</string>
+          </property>
+          <property name="buddy">
+           <cstring>Btn_CIO100_6</cstring>
           </property>
          </widget>
         </item>
@@ -1064,33 +1138,26 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_10">
+        <item row="0" column="1">
+         <widget class="QPushButton" name="Btn_CIO100_5">
           <property name="text">
-           <string>外黄</string>
+           <string/>
           </property>
-          <property name="buddy">
-           <cstring>Btn_CIO100_4</cstring>
+          <property name="icon">
+           <iconset resource="WheelMonitor.qrc">
+            <normaloff>:/WheelMonitor/Resources/images/gray.png</normaloff>:/WheelMonitor/Resources/images/gray.png</iconset>
           </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_11">
-          <property name="text">
-           <string>外红</string>
+          <property name="iconSize">
+           <size>
+            <width>10</width>
+            <height>10</height>
+           </size>
           </property>
-          <property name="buddy">
-           <cstring>Btn_CIO100_5</cstring>
+          <property name="checkable">
+           <bool>false</bool>
           </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QLabel" name="label_12">
-          <property name="text">
-           <string>内黄</string>
-          </property>
-          <property name="buddy">
-           <cstring>Btn_CIO100_6</cstring>
+          <property name="flat">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -1101,6 +1168,13 @@
           </property>
           <property name="buddy">
            <cstring>Btn_CIO100_7</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QPushButton" name="btn_clear_alarm">
+          <property name="text">
+           <string>手动清除</string>
           </property>
          </widget>
         </item>
@@ -1131,7 +1205,7 @@
      <item row="0" column="0">
       <widget class="QPushButton" name="alarmPushButton">
        <property name="enabled">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
@@ -1429,11 +1503,11 @@
    <slot>showViewSensorImage()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>541</x>
-     <y>675</y>
+     <x>374</x>
+     <y>288</y>
     </hint>
     <hint type="destinationlabel">
-     <x>715</x>
+     <x>597</x>
      <y>41</y>
     </hint>
    </hints>

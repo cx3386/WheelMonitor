@@ -3,12 +3,14 @@
 #include "common.h"
 #include "confighelper.h"
 
+/* local variable */
 /* Groups Name */
 const QString GP_CAM = "IPCamera";
 const QString GP_IM = "ImageProess";
 const QString GP_OCR = "ocr";
 const QString GP_COMMON = "Common";
 const QString GP_DEV = "Device";
+const QString GP_SAVE = "save";
 
 ConfigHelper::ConfigHelper(const QString& configuration, QObject* parent /*= Q_NULLPTR*/)
 	: QObject(parent)
@@ -33,6 +35,14 @@ void ConfigHelper::read()
 	pc2plc_portName = settings->value("pc2plc_portName", "COM3").toString(); // Ä¬ÈÏCOM3¿Ú
 	matchMaskOuterRatio = settings->value("matchMaskOuterRatio").toDouble();
 	matchMaskInnerRatio = settings->value("matchMaskInnerRatio").toDouble();
+	settings->endGroup();
+
+	settings->beginGroup(GP_SAVE);
+	QString videoDirPath_default = QString("%1/Video").arg(captureDirPath);
+	g_mutex.lock();
+	g_videoDirPath = settings->value("videoDirPath", videoDirPath_default).toString();
+	g_videoKeepDays = settings->value("videoKeepDays", 30).toInt();
+	g_mutex.unlock();
 	settings->endGroup();
 
 	int size = settings->beginReadArray(GP_DEV);
@@ -98,6 +108,11 @@ void ConfigHelper::save()
 	settings->setValue("startAtLaunch", QVariant(startAtLaunch));
 	settings->setValue("verboseLog", QVariant(verboseLog));
 	settings->setValue("pc2plc_portName", QVariant(pc2plc_portName));
+	settings->endGroup();
+
+	settings->beginGroup(GP_SAVE);
+	settings->setValue("videoDirPath", QVariant(g_videoDirPath));
+	settings->setValue("videoKeepDays", QVariant(g_videoKeepDays));
 	settings->endGroup();
 
 	settings->beginWriteArray(GP_DEV);

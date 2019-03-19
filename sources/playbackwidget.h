@@ -5,20 +5,21 @@
 
 class MySqlTableModel;
 class Player;
+class QImageItemDele;
 
 class PlayBackWidget : public QWidget {
 	Q_OBJECT
 public:
 	PlayBackWidget(QWidget* parent = Q_NULLPTR);
 	~PlayBackWidget();
-	MySqlTableModel* allModel; ///< tableModel for all record
-	MySqlTableModel* alarmModel; ///< talbleModel for unchecked record
+	MySqlTableModel* allModel;    //!<  tableModel for all record
+	MySqlTableModel* alarmModel;  //!<  talbleModel for unchecked record
 
 	/**
 	 * \brief Returns true if the alarm list is not null;otherwise returns false.
 	 */
 	bool hasAlarm() const;
-	QTableView* alarmView; ///< tablseview for unchecked record
+	QTableView* alarmView; //!< tablseview for unchecked record
 	QComboBox* selectTableCb;
 
 private:
@@ -37,6 +38,10 @@ private:
 	void initAllTable();
 	QPushButton* checkSelBtn;
 	QPushButton* checkAllBtn;
+	//最好不要共享同一实例
+	QImageItemDele* delegate_alarm;
+	QImageItemDele* delegate_all;
+
 signals:
 	void clearAlarm();
 
@@ -45,7 +50,7 @@ public slots:
 	void dbChanged();
 
 private slots:
-	void readVideoPath(QModelIndex) const;
+	void readVideoPath(QAbstractItemModel *model, QModelIndex index) const;
 	void setSelectedChecked();
 	void setAllChecked();
 };

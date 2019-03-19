@@ -9,6 +9,7 @@ enum WheelHeader {
 	Wheel_ID = 0,
 	Wheel_I_O,
 	Wheel_Num,
+	Wheel_Plate,
 	Wheel_CalcSpeed,
 	Wheel_RefSpeed,
 	Wheel_Error,
@@ -28,6 +29,7 @@ struct WheelDbInfo {
 	int id;
 	int i_o;
 	QString num;
+	QImage plate;
 	double calcspeed;
 	double refspeed;
 	double error;
@@ -75,7 +77,7 @@ static bool initMainDb()
 	model.setTable("user");
 	model.select();
 	if (!model.rowCount()) {
-		query.exec("create table user (id integer primary key autoincrement, username varchar(20) unique, pwd varchar(20))");
+		query.exec("CREATE TABLE IF NOT EXISTS user (id integer primary key autoincrement, username varchar(20) unique, pwd varchar(20))");
 		query.exec("insert into user (username, pwd) values('BaoSteel', '123456')");
 	}
 
@@ -83,7 +85,7 @@ static bool initMainDb()
 	model.setTable("devs");
 	model.select();
 	if (!model.rowCount()) {
-		query.exec("CREATE TABLE devs ("
+		query.exec("CREATE TABLE IF NOT EXISTS devs ("
 			"id INTEGER PRIMARY KEY AUTOINCREMENT,"
 			"devIndex INTEGER UNIQUE,"
 			"name TEXT"
@@ -109,6 +111,7 @@ static bool initMainDb()
 	refCols << "id"
 		<< "i_o"
 		<< "num"
+		<< "plate"
 		<< "calcspeed"
 		<< "refspeed"
 		<< "error"
@@ -127,6 +130,8 @@ static bool initMainDb()
 	if (refCols != dbCols) {
 		//create a new table, this will drop the history records
 		QSqlQuery query(db);
+		//以下语句存在无法成功删除的bug。debug版本可以删除，release无法删除。
+		query.exec("PRAGMA foreign_keys = OFF;");
 		query.exec("DROP TABLE wheels;");
 		query.exec("PRAGMA foreign_keys = ON;");
 		//更改为sqlite3专有语句-2018年11月12日陈翔
@@ -134,6 +139,7 @@ static bool initMainDb()
 			"id INTEGER PRIMARY KEY AUTOINCREMENT,"
 			"i_o INTEGER REFERENCES devs (devIndex),"
 			"num TEXT,"
+			"plate BLOB,"
 			"calcspeed REAL,"
 			"refspeed REAL,"
 			"error REAL,"

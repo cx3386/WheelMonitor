@@ -14,4 +14,5 @@ private:
 		std::vector<cv::DMatch> &symMatches);
 	int ratioTest(std::vector<std::vector<cv::DMatch>> &matches);
 	cv::Mat getMask(cv::Size size, double outerRatio, double innerRatio, int &ro, int &ri) const;
+	bool isDebug = false;
 };

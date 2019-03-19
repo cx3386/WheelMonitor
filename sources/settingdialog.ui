@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>276</width>
-    <height>476</height>
+    <width>304</width>
+    <height>353</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,10 +24,20 @@
     <normaloff>:/WheelMonitor/Resources/images/setting.png</normaloff>:/WheelMonitor/Resources/images/setting.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+     </property>
+     <property name="centerButtons">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
-    <widget class="QTabWidget" name="tabWidget">
+    <widget class="QTabWidget" name="storage">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="commonTab">
       <attribute name="title">
@@ -475,23 +485,104 @@
        </item>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
-     </property>
-     <property name="centerButtons">
-      <bool>false</bool>
-     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>存储</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_8">
+       <item row="0" column="0" colspan="2">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>存储文件夹</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="1" column="0">
+           <widget class="QLineEdit" name="lnEd_saveDir"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="btn_saveDir">
+            <property name="text">
+             <string>选择文件夹</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>请选择文件夹以存储录制的视频</string>
+            </property>
+            <property name="buddy">
+             <cstring>lnEd_saveDir</cstring>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>缓存</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="2" column="3">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>天</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QSpinBox" name="spb_saveDays"/>
+          </item>
+          <item row="2" column="6">
+           <widget class="QPushButton" name="btn_clearAll">
+            <property name="text">
+             <string>清理所有</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="5">
+           <widget class="QPushButton" name="btn_clearNow">
+            <property name="text">
+             <string>立即清理</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>视频保留时间</string>
+            </property>
+            <property name="buddy">
+             <cstring>spb_saveDays</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>tabWidget</tabstop>
   <tabstop>sensorCheckBox</tabstop>
   <tabstop>alarmRatioSpinBox</tabstop>
   <tabstop>radiusMaxSpinBox</tabstop>
@@ -504,5 +595,460 @@
  <resources>
   <include location="WheelMonitor.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btn_saveDir</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onClickSelSaveDir()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>75</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>-7</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_clearNow</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onClickClearCacheNow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>220</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>291</x>
+     <y>1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_clearAll</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onClickClearCacheAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>191</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lnEd_saveDir</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>47</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spb_saveDays</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>304</x>
+     <y>98</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>LaunchAtLoginCheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>28</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>123</x>
+     <y>-11</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startAtLaunchCheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>33</x>
+     <y>59</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verboseLogCheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>33</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>301</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>capIntervalSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>65</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>8</x>
+     <y>-6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sensorCheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>114</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>alarmRatioSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>warningRatioSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radiusMinSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>228</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radiusMaxSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>3</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roiSpinBox_x</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>293</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roiSpinBox_y</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roiSpinBox_w</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>18</x>
+     <y>328</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roiSpinBox_h</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>74</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>capIntervalSpinBox_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1</x>
+     <y>42</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sensorCheckBox_3</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>68</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>alarmRatioSpinBox_3</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>142</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>warningRatioSpinBox_3</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radiusMinSpinBox_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>223</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radiusMaxSpinBox_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roiSpinBox_x_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roiSpinBox_y_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>303</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roiSpinBox_w_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>277</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>301</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>roiSpinBox_h_3</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SettingDialog</receiver>
+   <slot>onUiChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>327</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onClickSelSaveDir()</slot>
+  <slot>onClickClearCacheNow()</slot>
+  <slot>onClickClearCacheAll()</slot>
+  <slot>onUiChanged()</slot>
+ </slots>
 </ui>

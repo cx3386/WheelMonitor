@@ -95,6 +95,8 @@ SQLite数据库的可视化软件，用于编辑/查看wheelmonitor.db3数据库
 
 ### 软件发行
 
+已经集成在本解决方案中。项目名称为WheelmonitorSetup。编译前请参阅文件夹下的readme文档
+
 #### 解决依赖问题
 
 1. Qt依赖项和VC runtime。工具：windeployqt, x64 Native Tools Command Prompt for VS 2017。在VS的CMD工具中使用windeployqt /path/wheelmonitor.exe，将自动生成qt依赖项和vcredist_x64.exe
