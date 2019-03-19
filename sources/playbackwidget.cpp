@@ -124,6 +124,8 @@ void PlayBackWidget::initAlarmTable()
 	alarmView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 	alarmView->resizeColumnsToContents();
 	alarmView->hideColumn(0);
+	//alarmView->hideColumn(Wheel_Plate);
+	alarmView->hideColumn(Wheel_Num);
 	for (int i = Wheel_AlarmLevel; i <= Wheel_VideoPath; ++i) {
 		alarmView->hideColumn(i);
 	}

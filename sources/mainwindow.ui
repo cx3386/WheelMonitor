@@ -10,6 +10,11 @@
     <height>630</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>宝钢环冷机台车车轮状态监测系统</string>
   </property>
@@ -148,7 +153,7 @@
      <x>0</x>
      <y>0</y>
      <width>598</width>
-     <height>18</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="defaultUp">
@@ -332,7 +337,7 @@
            </font>
           </property>
           <property name="text">
-           <string>误差</string>
+           <string>误差(%)</string>
           </property>
           <property name="buddy">
            <cstring>lastErrorLineEdit_o</cstring>
@@ -372,7 +377,7 @@
        <item>
         <widget class="QLabel" name="cartSpeedLabel">
          <property name="text">
-          <string>台车速度(m/min)</string>
+          <string>台车实时速度(m/min)</string>
          </property>
          <property name="buddy">
           <cstring>cartSpeedLineEdit</cstring>
@@ -467,7 +472,7 @@
            </font>
           </property>
           <property name="text">
-           <string>误差</string>
+           <string>误差(%)</string>
           </property>
           <property name="buddy">
            <cstring>lastErrorLineEdit_i</cstring>

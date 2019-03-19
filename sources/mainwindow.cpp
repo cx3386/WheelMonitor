@@ -67,6 +67,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::configWindow()
 {
+	//界面相关
+	//公告板
+	//隐藏序号项
+	ui.numLabel->setVisible(false);
+	ui.numLabel_3->setVisible(false);
+	ui.numLineEdit_o->setVisible(false);
+	ui.numLineEdit_i->setVisible(false);
 	//布置Dock位置
 	m_docks << ui.dockWidget_dashboard << ui.dockWidget_alarm << ui.dockWidget_plc;
 	for (auto dock : m_docks) {
@@ -80,6 +87,8 @@ void MainWindow::configWindow()
 	}
 	ui.dockWidget_match0->hide();//默认隐藏matchresult
 	ui.dockWidget_match1->hide();//默认隐藏matchresult
+	ui.dockWidget_alarm->hide(); //默认隐藏“报警”
+	ui.dockWidget_plc->hide();//默认隐藏“设备”
 	/* Setup the record(save) indication of VideoCapture */
 	recLabel_pre[0] = new QLabel(ui.cam0Tab);
 	recLabel_pre[1] = new QLabel(ui.cam1Tab);

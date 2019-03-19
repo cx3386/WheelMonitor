@@ -19,8 +19,9 @@ copy %tpath%K-Lite\K-Lite_Codec_Pack_1455_Basic.exe %dst%
 echo ----拷贝本软件安装包----
 echo %fn%
 copy Release\%fn% %dst%
-echo ----拷贝软件说明----
+echo ----拷贝使用文档----
 copy 安装说明.txt %dst%
+copy 使用手册.docx %dst%
 echo ----制作setup.exe----
 call %tpath%vbs2exe\vbs2exe.exe -vbs oneclick.vbs -save setup.exe -x64 -invisible -overwrite -upx
 move setup.exe %dst%
